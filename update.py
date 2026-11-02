@@ -197,6 +197,10 @@ def clean_nested():
     nested_agents = os.path.join(agents_dir, '.agents')
     if os.path.exists(nested_agents):
         shutil.rmtree(nested_agents, onerror=remove_readonly)
+    # Clean any temporary clone directories
+    for item in os.listdir(agents_dir):
+        if item.startswith('.temp') and os.path.isdir(os.path.join(agents_dir, item)):
+            shutil.rmtree(os.path.join(agents_dir, item), onerror=remove_readonly)
     if os.path.exists(library_dir):
         for d in os.listdir(library_dir):
             dp = os.path.join(library_dir, d)
