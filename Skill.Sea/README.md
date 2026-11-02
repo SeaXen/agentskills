@@ -2,9 +2,10 @@
 
 <div align="center">
 
-[![Live Custom Domain](https://img.shields.io/badge/Live_Domain-skill.drsea.top-0f6e56?style=for-the-badge&logo=cloudflare)](https://skill.drsea.top)
-[![Cloudflare Pages](https://img.shields.io/badge/Pages_Mirror-skill--sea.pages.dev-1d9e75?style=for-the-badge)](https://skill.drsea.top)
-[![Skills Tracked](https://img.shields.io/badge/Skills-18,723_Tracked-1d9e75?style=for-the-badge)](https://skill.drsea.top)
+[![Primary Domain](https://img.shields.io/badge/Primary_Domain-skill.drsea.top-0f6e56?style=for-the-badge&logo=cloudflare)](https://skill.drsea.top)
+[![EU Mirror](https://img.shields.io/badge/EU_Mirror-skill.drsea.eu.org-1d9e75?style=for-the-badge)](https://skill.drsea.eu.org)
+[![Worker Direct](https://img.shields.io/badge/Worker_Direct-skill--sea.drsea.workers.dev-2563EB?style=for-the-badge)](https://skill-sea.drsea.workers.dev)
+[![Skills Tracked](https://img.shields.io/badge/Skills-18,722_Tracked-1d9e75?style=for-the-badge)](https://skill.drsea.top)
 [![Categories](https://img.shields.io/badge/Categories-38_Disciplines-1d9e75?style=for-the-badge)](./data/categories.json)
 [![Repositories](https://img.shields.io/badge/Origin_Repos-370_Upstreams-2563EB?style=for-the-badge)](./data/repositories.json)
 [![Active Hot-Set](https://img.shields.io/badge/Active_HotSet-130_Skills-D97706?style=for-the-badge)](../skills)
@@ -15,7 +16,10 @@
 **An ultra-fast, zero-dependency directory, leaderboard, and 1-click activation suite for 18,722+ AI Agent Skills across 38 functional disciplines from 370 open repositories.**  
 *Inspired by [skillleaderboard.com](https://www.skillleaderboard.com/) • Engineered with the **ExamForge Design System** • 100% Zero Runtime Dependencies.*
 
-🌐 **Live Web Endpoint**: **[https://skill.drsea.top](https://skill.drsea.top)** *(Mirror: [https://skill.drsea.top](https://skill.drsea.top))*
+🌐 **Live Web Endpoints**:
+- **Primary Domain:** **[https://skill.drsea.top](https://skill.drsea.top)**
+- **EU Mirror:** **[https://skill.drsea.eu.org](https://skill.drsea.eu.org)**
+- **Worker Direct:** **[https://skill-sea.drsea.workers.dev](https://skill-sea.drsea.workers.dev)**
 
 [Live Web App](https://skill.drsea.top) • [Localhost Quick Start](#-quick-start) • [Multi-Cloud Deployment](#-multi-platform-deployment-guides) • [Cloudflare R2 Sync](#-cloudflare-r2-remote-storage-sync) • [CLI Workflows](#-cli-activation-workflows) • [38-Domain Taxonomy](#-38-domain-category-taxonomy) • [Architecture](#-system-architecture)
 
@@ -127,13 +131,14 @@ Access at `http://localhost:8080`.
 
 ---
 
-### 2. Cloudflare Pages & Workers (100% Free Plan)
-Skill.Sea is 100% static-asset compliant with Cloudflare's worldwide edge CDN:
+### 2. Cloudflare Workers (Static Assets + R2 Streaming)
+Skill.Sea runs on Cloudflare Workers with native Static Assets and dynamic Cloudflare R2 catalog streaming:
 ```bash
 # Deploy instantly with Wrangler
-npx wrangler pages deploy . --project-name=skill-sea
+npm run deploy
+# (or: npx wrangler deploy)
 ```
-*Pre-configured with `wrangler.toml`, `_headers` (cache optimization), and `_redirects` (SPA fallback).*
+*Pre-configured with `wrangler.toml`, `worker.js` (R2 stream + SPA routing), and R2 bucket binding `SKILLS_BUCKET` (`skill-sea-vault`).*
 
 ---
 

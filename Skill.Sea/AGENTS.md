@@ -7,12 +7,15 @@
 
 ## 1. Overview & Live Endpoints
 
-`Skill.Sea` is the zero-dependency web interface, leaderboard, and interactive exploration portal for the **17,145 Antigravity Agent Skills** indexed across 339 open-source repositories in 38 categories.
+`Skill.Sea` is the zero-dependency web interface, leaderboard, and interactive exploration portal for the **18,722 Antigravity Agent Skills** indexed across 370 open-source repositories in 38 categories.
 
-* **Live Production URL:** **[https://skill.drsea.top](https://skill.drsea.top)** (Pages mirror: [https://skill-sea.pages.dev](https://skill-sea.pages.dev))
+* **Live Production Endpoints:**
+  - **Primary Custom Domain:** **[https://skill.drsea.top](https://skill.drsea.top)**
+  - **Secondary Custom Mirror:** **[https://skill.drsea.eu.org](https://skill.drsea.eu.org)**
+  - **Cloudflare Worker Direct:** **[https://skill-sea.drsea.workers.dev](https://skill-sea.drsea.workers.dev)**
 * **Local Development Server:** `http://127.0.0.1:8080`
 * **Edge Storage:** Cloudflare R2 bucket `skill-sea-vault`
-* **Cloudflare Binding:** `env.SKILLS_BUCKET` inside `functions/data/[[path]].js`
+* **Cloudflare Worker Entry:** `worker.js` (binding `env.SKILLS_BUCKET`)
 
 ---
 
@@ -78,7 +81,7 @@ npm run verify
 # 6. Run Playwright E2E browser tests (Desktop & Mobile)
 npm run test:e2e
 
-# 7. Deploy static frontend assets to Cloudflare Pages
+# 7. Deploy Cloudflare Worker + Static Assets
 npm run deploy
 ```
 
@@ -104,10 +107,10 @@ npm run deploy
 
 ## 5. Live R2 Edge Data Flow
 
-Requests from live visitors to `https://skill.drsea.top/data/<fileName>` are intercepted by `functions/data/[[path]].js`:
-1. It queries Cloudflare R2 bucket `skill-sea-vault` (`SKILLS_BUCKET.get('data/<fileName>')`).
+Requests from live visitors to `/data/<fileName>` across all 3 endpoints (`skill.drsea.top`, `skill.drsea.eu.org`, `skill-sea.drsea.workers.dev`) are handled directly by `worker.js`:
+1. It queries Cloudflare R2 bucket `skill-sea-vault` (`env.SKILLS_BUCKET.get('data/' + fileName)`).
 2. If found, it streams the object with `ETag` and HTTP 304 conditional request support.
-3. If R2 is offline or missing, it falls back seamlessly to the static CDN copy in `Skill.Sea/data/`.
+3. If R2 is offline or missing, it falls back seamlessly to the static assets copy in `data/`.
 
 To update the live data for all visitors worldwide without redeploying frontend code:
 ```powershell

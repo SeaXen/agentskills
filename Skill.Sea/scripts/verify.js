@@ -52,6 +52,7 @@ const requiredFiles = [
   'scripts/sync-r2.js',
   'manifest.json',
   'sw.js',
+  'worker.js',
   'package.json',
   'README.md'
 ];

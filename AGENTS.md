@@ -14,7 +14,10 @@ This repository (`D:/Repo/.agents` / `https://github.com/SeaXen/agentskills.git`
 * **Total Upstream Repositories:** `370` indexed libraries
 * **Taxonomy Categories:** `38` engineering & domain disciplines
 * **Active Hot-Set Skills:** `90` curated skills pre-linked into `.agents/skills/`
-* **Live Web Endpoint:** **[https://skill.drsea.top](https://skill.drsea.top)** (Pages mirror: [https://skill-sea.pages.dev](https://skill-sea.pages.dev))
+* **Live Web Endpoints:**
+  - **Primary Custom Domain:** **[https://skill.drsea.top](https://skill.drsea.top)**
+  - **Secondary Custom Mirror:** **[https://skill.drsea.eu.org](https://skill.drsea.eu.org)**
+  - **Cloudflare Worker Direct:** **[https://skill-sea.drsea.workers.dev](https://skill-sea.drsea.workers.dev)**
 * **Cloudflare R2 Storage Bucket:** `skill-sea-vault`
 * **Cloudflare Account ID:** `dd110134ac07f1ddaf0ca47023e7c831` (`02. drsea@drhrs`)
 
@@ -58,24 +61,24 @@ D:/Repo/.agents/
 ├── Skill.Sea/                         # 🚢 PRODUCTION WEB APPLICATION (Zero-runtime deps)
 │   ├── index.html                     # Semantic HTML5 SPA markup (desktop, tablet, mobile)
 │   ├── server.js                      # Zero-dependency Node.js HTTP server (port 8080)
-│   ├── _headers                       # Cloudflare Pages production caching headers
-│   ├── _routes.json                   # Cloudflare Pages function routing
+│   ├── worker.js                      # ⚡ Cloudflare Worker (Static Assets + R2 streaming for /data/*)
+│   ├── wrangler.toml                  # Cloudflare Worker configuration (assets, custom domains, R2)
 │   ├── manifest.json & sw.js          # PWA offline installation & cache engine
 │   ├── styles/
 │   │   ├── design-tokens.css          # CSS Variables (Teal #1d9e75, warm paper #f9f9f7, dark #0b0b0b)
 │   │   └── main.css                   # Responsive layouts, mobile drawers, comparator, prompt simulator
 │   ├── src/
 │   │   └── app.js                     # Vanilla ES6 state, fuzzy search, hash routing, telemetry
-│   ├── functions/data/[[path]].js     # ⚡ Cloudflare Pages Function (streams /data/* from R2)
+│   ├── functions/data/[[path]].js     # Legacy Cloudflare Pages Function (kept for compatibility)
 │   ├── data/                          # 📦 MASTER JSON DATASETS (Rebuilt automatically)
-│   │   ├── catalog.json               # 20.30 MB master catalog (17,145 items)
+│   │   ├── catalog.json               # 20.30 MB master catalog (18,722 items)
 │   │   ├── categories.json            # 38 category records
 │   │   ├── repositories.json          # 370 repository cards
 │   │   └── stats.json                 # Real-time metrics
 │   ├── scripts/
 │   │   ├── build-catalog.js           # Rebuilds data/*.json from filesystem & library/
 │   │   ├── sync-r2.js                 # Uploads data/*.json to Cloudflare R2 (skill-sea-vault)
-│   │   └── verify.js                  # 63-point automated verification test suite
+│   │   └── verify.js                  # 64-point automated verification test suite
 │   └── tests/
 │       └── test_webapp.py             # Playwright E2E browser tests (Desktop & Mobile)
 │
@@ -123,11 +126,14 @@ The repository utilizes a 4-tier zero-friction automation pipeline. When you or 
                             │
                             ▼
 ┌────────────────────────────────────────────────────────┐
-│ 4. Cloudflare Pages Function (functions/data/[[path]]) │
-│    Live site https://skill.drsea.top (and https://skill-sea.pages.dev) intercepts    │
-│    requests to /data/*. Streams object from R2 with    │
-│    HTTP ETags (304 support). Live visitors see updates │
-│    instantly with ZERO build time or frontend redeploy!│
+│ 4. Cloudflare Worker (worker.js)                       │
+│    Live sites:                                         │
+│    • https://skill.drsea.top (Primary)                 │
+│    • https://skill.drsea.eu.org (Mirror)               │
+│    • https://skill-sea.drsea.workers.dev (Worker)      │
+│    Intercepts requests to /data/*. Streams object from │
+│    R2 with HTTP ETags (304 support). Live visitors     │
+│    see updates with ZERO build time or redeploy!       │
 └────────────────────────────────────────────────────────┘
 ```
 
@@ -231,14 +237,15 @@ npm run sync
      ```powershell
      node Skill.Sea/scripts/sync-r2.js
      ```
-  3. Verify live stats:
+  3. Verify live stats on all endpoints:
      ```powershell
-     node -e "fetch('https://skill.drsea.top/data/stats.json').then(r=>r.json()).then(console.log)"
+     node -e "['https://skill.drsea.top/data/stats.json','https://skill.drsea.eu.org/data/stats.json','https://skill-sea.drsea.workers.dev/data/stats.json'].forEach(u=>fetch(u).then(r=>console.log(u, r.status)))"
      ```
-  4. If Cloudflare Pages static files were also modified, deploy static assets:
+  4. If web assets or worker.js were modified, deploy Worker:
      ```powershell
      cd Skill.Sea
-     npx wrangler pages deploy . --project-name=skill-sea
+     npm run deploy
+     # (or: npx wrangler deploy)
      ```
 
 ### Incident 2: Cloudflare R2 Upload Fails (`wrangler` Auth / Network Error)

@@ -8,17 +8,20 @@ web
 
 ## Stack
 
-Zero-runtime external dependencies. Pure vanilla HTML5, custom design tokens in CSS3, vanilla ES Modules in JavaScript, and a zero-dependency Node HTTP static server. Compatible with static edge deployment (Cloudflare Pages, Vercel, Netlify, GitHub Pages) and local execution via `node server.js` or `npm run dev`. Edge data streaming powered by Cloudflare Pages Function binding to Cloudflare R2 bucket `skill-sea-vault`.
+Zero-runtime external dependencies. Pure vanilla HTML5, custom design tokens in CSS3, vanilla ES Modules in JavaScript, and a zero-dependency Node HTTP static server. Compatible with static edge deployment (Cloudflare Workers, Vercel, Netlify, Docker, Render, Fly.io) and local execution via `node server.js` or `npm run dev`. Edge data streaming powered by Cloudflare Worker (`worker.js`) binding to Cloudflare R2 bucket `skill-sea-vault`.
 
 ## Users
 
 1. **AI Systems & Autonomous Agents**: Autonomous coding agents running in Google Antigravity, Claude Code, Cursor, Windsurf, and Codex that need targeted, on-demand skill activation without inflating LLM context windows or incurring token bloat.
 2. **AI Engineers & Developers**: Builders configuring local agent environments who need to discover, evaluate, compare, and 1-click activate production-tested skills across 38 technical domains.
-3. **Open-Source Community**: Visitors browsing the catalog online at **[https://skill.drsea.top](https://skill.drsea.top)** (Pages mirror: [https://skill-sea.pages.dev](https://skill-sea.pages.dev)) to explore agent capabilities, compare upstream implementations, and clone curated skill libraries.
+3. **Open-Source Community**: Visitors browsing the catalog online across the live endpoints:
+   - Primary Custom Domain: **[https://skill.drsea.top](https://skill.drsea.top)**
+   - Secondary Custom Mirror: **[https://skill.drsea.eu.org](https://skill.drsea.eu.org)**
+   - Cloudflare Worker Direct: **[https://skill-sea.drsea.workers.dev](https://skill-sea.drsea.workers.dev)**
 
 ## Product Purpose
 
-Skill.Sea is an ultra-fast, zero-dependency directory, leaderboard, and 1-click activation suite for curated AI Agent Skills. It indexes 17,145 skills discovered across 339 open GitHub repositories and organizes them into 38 distinct engineering disciplines. Success means zero-friction discovery, instant evaluation, and offline-capable workspace activation with zero token bloat.
+Skill.Sea is an ultra-fast, zero-dependency directory, leaderboard, and 1-click activation suite for curated AI Agent Skills. It indexes 18,722 skills discovered across 370 open GitHub repositories and organizes them into 38 distinct engineering disciplines. Success means zero-friction discovery, instant evaluation, and offline-capable workspace activation with zero token bloat.
 
 ## Positioning
 
@@ -26,12 +29,15 @@ Unlike bloated registries or monolithic skill packs that force thousands of inst
 - **Zero Token Overhead**: Skills remain indexed in the master library and are linked into `.agents/skills/` only when needed for a specific task.
 - **Hot-Set Tier (130 Skills)**: A pre-linked, curated core tier of high-impact skills immediately available for zero-latency execution.
 - **Dual Operating Topology**: Operates as a local workbench inside the developer's filesystem and deploys statically to the web without requiring a backend database.
-- **Live Edge Streaming**: Uses Cloudflare Pages Functions to stream catalog data directly from Cloudflare R2 (`skill-sea-vault`) with ETags (304 Not Modified), eliminating frontend redeployment delays when skills update.
+- **Live Edge Streaming**: Uses Cloudflare Workers (`worker.js`) to stream catalog data directly from Cloudflare R2 (`skill-sea-vault`) with ETags (304 Not Modified), eliminating frontend redeployment delays when skills update.
 
 ## Operating Context
 
 - **Local Development Workbench**: Served on `http://127.0.0.1:8080` inside `D:/Repo/.agents/Skill.Sea`, mounted directly alongside the `.agents/library/` master repository and active `.agents/skills/` directory.
-- **Live Production URL**: **[https://skill.drsea.top](https://skill.drsea.top)** (Pages mirror: [https://skill-sea.pages.dev](https://skill-sea.pages.dev))
+- **Live Production Endpoints**:
+  - Primary Custom Domain: **[https://skill.drsea.top](https://skill.drsea.top)**
+  - Secondary Custom Mirror: **[https://skill.drsea.eu.org](https://skill.drsea.eu.org)**
+  - Cloudflare Worker Direct: **[https://skill-sea.drsea.workers.dev](https://skill-sea.drsea.workers.dev)**
 - **Git Hook Automation**: Automatically synchronized via Git hooks (`.git/hooks/pre-commit` and `.git/hooks/pre-push`), ensuring datasets (`catalog.json`, `categories.json`, `repositories.json`, `stats.json`) stay synchronized on every commit and push.
 - **Dual Display Modes**: Seamless switching between light (warm paper `#f9f9f7`) and dark (deep graphite `#0b0b0b`) themes.
 - **Responsive Environments**: Full desktop multi-column data views, tablet grid views, and mobile-native bottom sheet drawer views with notch/Dynamic Island safe-area accommodation.
