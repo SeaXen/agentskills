@@ -172,19 +172,10 @@
            ================================================================== -->
       <div id="view-skill-hub" class="page-view active" style="padding:0;gap:0">
         
-        <!-- Category Horizontal Scroll Rail & Top Page Switcher -->
-        <section class="rail-container" aria-label="Category Navigation & Page Controls">
+        <!-- Category Horizontal Scroll Rail -->
+        <section class="rail-container" aria-label="Category Rail">
           <div class="category-rail" id="category-rail">
             <!-- Populated dynamically by app.js -->
-          </div>
-          <div class="rail-pagination" id="top-pagination" aria-label="Top page navigation">
-            <button type="button" class="page-btn rail-page-btn" id="top-prev-page-btn" aria-label="Previous page" title="Previous page" disabled>
-              <i class="ti ti-chevron-left" aria-hidden="true"></i>
-            </button>
-            <span id="top-page-indicator" class="rail-page-indicator">Page 1 of 375</span>
-            <button type="button" class="page-btn rail-page-btn" id="top-next-page-btn" aria-label="Next page" title="Next page">
-              <i class="ti ti-chevron-right" aria-hidden="true"></i>
-            </button>
           </div>
         </section>
 
@@ -192,7 +183,7 @@
         <section class="toolbar" aria-label="Skill Hub Controls">
           <div class="search-box">
             <i class="ti ti-search" aria-hidden="true"></i>
-            <input type="text" id="search-input" name="search" placeholder="Search 18,722+ skills, commands, repos (Press /)" aria-label="Search 18,722+ skills by name, description, category, or command" autocomplete="off">
+            <input type="text" id="search-input" name="search" placeholder="Search 18,722+ skills, commands, repos (Press /)…" aria-label="Search 18,722+ skills by name, description, category, or command" autocomplete="off">
             <span class="kbd-shortcut" aria-hidden="true">/</span>
           </div>
 
@@ -230,6 +221,17 @@
               </button>
               <button class="view-btn" id="view-grid-btn" title="Grid View" aria-label="Grid View">
                 <i class="ti ti-layout-grid" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <!-- Top Page Switcher in Search and Filter Toolbar -->
+            <div class="top-pagination-controls" id="top-pagination" aria-label="Top Pagination Controls">
+              <button type="button" class="page-btn top-page-btn" id="top-prev-page-btn" aria-label="Previous page" title="Previous page" disabled>
+                <i class="ti ti-chevron-left" aria-hidden="true"></i>
+              </button>
+              <span id="top-page-indicator" class="top-page-indicator">Page 1 of 375</span>
+              <button type="button" class="page-btn top-page-btn" id="top-next-page-btn" aria-label="Next page" title="Next page">
+                <i class="ti ti-chevron-right" aria-hidden="true"></i>
               </button>
             </div>
           </div>
@@ -277,15 +279,19 @@
 
         <!-- Pagination Bar -->
         <footer class="pagination-bar">
-          <!-- Left: Page Size Selector -->
-          <div class="pagination-page-size">
-            <label for="page-size-select"><i class="ti ti-list-numbers" style="color:var(--teal)" aria-hidden="true"></i> Show:</label>
-            <select id="page-size-select" class="page-size-select" aria-label="Select skills per page">
-              <option value="25">25 / page</option>
-              <option value="50" selected>50 / page</option>
-              <option value="100">100 / page</option>
-              <option value="200">200 / page</option>
-            </select>
+          <!-- Left: Skill number view (Show: 50 / page) with item count to its right side -->
+          <div class="pagination-left">
+            <div class="pagination-page-size">
+              <label for="page-size-select"><i class="ti ti-list-numbers" style="color:var(--teal)" aria-hidden="true"></i> Show:</label>
+              <select id="page-size-select" class="page-size-select" aria-label="Select skills per page">
+                <option value="25">25 / page</option>
+                <option value="50" selected>50 / page</option>
+                <option value="100">100 / page</option>
+                <option value="200">200 / page</option>
+              </select>
+            </div>
+            <span class="pagination-divider" aria-hidden="true">·</span>
+            <div id="item-count" class="pagination-item-count">Showing 1–50 of 18,722 skills</div>
           </div>
 
           <!-- Middle / Center: Page Switch Controls -->
@@ -298,9 +304,6 @@
               Next <i class="ti ti-chevron-right" aria-hidden="true"></i>
             </button>
           </div>
-
-          <!-- Right: Item Count (e.g. Showing 51–100 of 18,722 skills) -->
-          <div id="item-count" class="pagination-item-count">Showing 1–50 of 18,722 skills</div>
         </footer>
       </div>
 
@@ -850,7 +853,7 @@
   </div>
 
   <!-- App Script -->
-  <script src="src/app.js?v=2.4"></script>
+  <script src="src/app.js?v=2.5"></script>
   <script>
     if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
       window.addEventListener('load', () => {
