@@ -42,6 +42,35 @@ GIT_ENV = os.environ.copy()
 GIT_ENV['GIT_TERMINAL_PROMPT'] = '0'
 GIT_ENV['GIT_ASKPASS'] = ''
 
+def run_git_cmd(cmd, timeout=15, cwd=None):
+    """Run a git command with bulletproof process tree termination on Windows."""
+    try:
+        proc = subprocess.Popen(
+            cmd,
+            cwd=cwd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            encoding='utf-8',
+            errors='replace',
+            env=GIT_ENV
+        )
+        try:
+            stdout, stderr = proc.communicate(timeout=timeout)
+            return proc.returncode, stdout, stderr
+        except subprocess.TimeoutExpired:
+            if sys.platform == 'win32':
+                subprocess.run(['taskkill', '/F', '/T', '/PID', str(proc.pid)], capture_output=True, check=False)
+            else:
+                proc.kill()
+            try:
+                proc.communicate(timeout=1)
+            except Exception:
+                pass
+            return -1, '', 'TIMEOUT'
+    except Exception as e:
+        return -2, '', str(e)
+
 TAG_KEYWORDS = {
     'frontend': ['react', 'nextjs', 'tailwind', 'css', 'design', 'ui', 'view', 'web', 'canvas', 'svg', 'd3', 'shadcn', 'component', 'taste'],
     'animation-craft': ['animate', 'animation', 'emil', 'craft', 'micro', 'motion', 'apple'],
@@ -235,15 +264,12 @@ def sync_all_upstreams(force=False):
                     last_commit = cf.read().strip()
             except Exception:
                 pass
-        try:
-            res = subprocess.run(['git', 'ls-remote', url, 'HEAD'], capture_output=True, text=True, timeout=5, env=GIT_ENV)
-            if res.returncode == 0 and res.stdout:
-                remote_commit = res.stdout.split()[0].strip()
-                # Match normalized hashes (prefix or full 40-char)
-                needs_update = force or not last_commit or (not remote_commit.startswith(last_commit) and not last_commit.startswith(remote_commit))
-                return repo_id, url, remote_commit, last_commit, needs_update
-        except Exception:
-            pass
+        code, stdout, stderr = run_git_cmd(['git', 'ls-remote', url, 'HEAD'], timeout=5)
+        if code == 0 and stdout:
+            remote_commit = stdout.split()[0].strip()
+            # Match normalized hashes (prefix or full 40-char)
+            needs_update = force or not last_commit or (not remote_commit.startswith(last_commit) and not last_commit.startswith(remote_commit))
+            return repo_id, url, remote_commit, last_commit, needs_update
         return repo_id, url, '', last_commit, False
 
     t0 = time.time()
@@ -271,14 +297,11 @@ def sync_all_upstreams(force=False):
         if os.path.exists(c_temp):
             shutil.rmtree(c_temp, onerror=remove_readonly)
         try:
-            # 1. Fast blobless shallow clone (skips giant binary assets/weights)
+            # Fast blobless shallow clone with 15s timeout
             cmd = ['git', 'clone', '--depth', '1', '--filter=blob:none', '--single-branch', url, c_temp]
-            res = subprocess.run(cmd, capture_output=True, text=True, timeout=20, env=GIT_ENV)
-            if res.returncode != 0:
-                cmd = ['git', 'clone', '--depth', '1', '--single-branch', url, c_temp]
-                res = subprocess.run(cmd, capture_output=True, text=True, timeout=20, env=GIT_ENV)
+            code, stdout, stderr = run_git_cmd(cmd, timeout=15)
 
-            if res.returncode == 0 and os.path.exists(c_temp):
+            if code == 0 and os.path.exists(c_temp):
                 # Copy all files and directories of the repo into target_repo_dir (retain all files!)
                 for it in os.listdir(c_temp):
                     if it == '.git': continue
@@ -470,11 +493,12 @@ def sync_lockfiles():
         existing = lock_data.get('skills', {})
         current = sorted([d for d in os.listdir(s_dir) if os.path.isdir(os.path.join(s_dir, d)) and not d.startswith('.') and d != '__pycache__'])
         synced = {}
+        has_changes = len(current) != len(existing)
         for s in current:
             if s in existing:
                 synced[s] = existing[s]
-                synced[s]['updatedAt'] = now
             else:
+                has_changes = True
                 synced[s] = {
                     'source': './local-library',
                     'sourceType': 'local',
@@ -484,12 +508,15 @@ def sync_lockfiles():
                     'updatedAt': now
                 }
         lock_data['skills'] = synced
-        with open(lf, 'w', encoding='utf-8') as f:
-            json.dump(lock_data, f, indent=2)
-        print(f"✓ Synchronized {lf}: {len(synced)} skills tracked.", flush=True)
+        if has_changes or not os.path.exists(lf):
+            with open(lf, 'w', encoding='utf-8') as f:
+                json.dump(lock_data, f, indent=2)
+            print(f"✓ Synchronized {lf}: {len(synced)} skills tracked (changes updated).", flush=True)
+        else:
+            print(f"✓ {lf}: already up to date ({len(synced)} skills tracked).", flush=True)
 
 # 5. Rebuild real category system and provenance
-def rebuild_categories_and_provenance(has_changes=False, force=False):
+def rebuild_categories_and_provenance(has_changes=False, force=False, deploy=False):
     print("\n[5/6] Rebuilding real category system & provenance documentation...", flush=True)
     try:
         from category_system import rebuild_category_system
@@ -503,13 +530,10 @@ def rebuild_categories_and_provenance(has_changes=False, force=False):
     except Exception as e:
         print(f"⚠️ Provenance rebuild encountered error: {e}", flush=True)
 
-    rebuild_skill_sea_catalog(has_changes=has_changes, force=force)
+    rebuild_skill_sea_catalog(has_changes=has_changes, force=force, deploy=deploy)
 
-def rebuild_skill_sea_catalog(has_changes=False, force=False):
+def rebuild_skill_sea_catalog(has_changes=False, force=False, deploy=False):
     print("\n[5.5/6] Rebuilding Skill.Sea web catalog, categories & stats JSON...", flush=True)
-    catalog_path = os.path.join(agents_dir, 'Skill.Sea', 'data', 'catalog.json')
-    old_size = os.path.getsize(catalog_path) if os.path.exists(catalog_path) else 0
-
     script_path = os.path.join(agents_dir, 'Skill.Sea', 'scripts', 'build-catalog.js')
     if os.path.exists(script_path):
         try:
@@ -518,13 +542,7 @@ def rebuild_skill_sea_catalog(has_changes=False, force=False):
         except Exception as e:
             print(f"⚠️ Skill.Sea catalog rebuild error: {e}", flush=True)
 
-        new_size = os.path.getsize(catalog_path) if os.path.exists(catalog_path) else 0
-        data_changed = has_changes or (old_size != new_size) or force
-
-        if not data_changed:
-            print("✓ Skill.Sea catalog data is identical; skipping redundant Cloudflare R2 upload & Pages deploy.", flush=True)
-            return
-
+    if deploy:
         sync_script = os.path.join(agents_dir, 'Skill.Sea', 'scripts', 'sync-r2.js')
         if os.path.exists(sync_script):
             try:
@@ -534,7 +552,7 @@ def rebuild_skill_sea_catalog(has_changes=False, force=False):
                 print(f"⚠️ Cloudflare R2 sync notice: {e}", flush=True)
 
         try:
-            print("🌐 Deploying Skill.Sea frontend to Cloudflare Pages (skill-sea)...", flush=True)
+            print("🚀 Deploying Skill.Sea frontend to Cloudflare Pages (skill-sea)...", flush=True)
             subprocess.run(['npx', 'wrangler', 'pages', 'deploy', '.', '--project-name=skill-sea'], cwd=os.path.join(agents_dir, 'Skill.Sea'), check=False, shell=True)
         except Exception as e:
             print(f"⚠️ Cloudflare Pages deploy notice: {e}", flush=True)
@@ -661,6 +679,7 @@ if __name__ == '__main__':
     sync_active_skills()
     rebuild_all_indexes(updated_repo_ids=updated_repos, force=force_run)
     sync_lockfiles()
-    rebuild_categories_and_provenance(has_changes=has_changes, force=force_run)
+    deploy_run = '--deploy' in args
+    rebuild_categories_and_provenance(has_changes=has_changes, force=force_run, deploy=deploy_run)
     if '--no-push' not in args:
         git_commit_and_push()

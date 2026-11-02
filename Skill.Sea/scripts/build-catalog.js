@@ -96,60 +96,29 @@ function parseSkillDescription(content) {
   return description.trim();
 }
 
-// 4. Pre-Index all SKILL.md files from filesystem to accurately resolve real repos and descriptions
-console.log('🔍 Indexing filesystem SKILL.md definitions across library and skills...');
+// 4. Pre-Index definitions across library and skills (Fast Cached Master Index Path)
+console.log('🔍 Indexing skill definitions across library and skills...');
 const fsSkillMap = new Map();
 
-if (fs.existsSync(LIB_DIR)) {
-  const libRepos = fs.readdirSync(LIB_DIR).filter(r => {
-    try {
-      return fs.statSync(path.join(LIB_DIR, r)).isDirectory();
-    } catch { return false; }
-  });
-
-  for (const r of libRepos) {
-    const rPath = path.join(LIB_DIR, r);
-    // Case A: library/<repo>/skills/<skill>/SKILL.md
-    const skillsSub = path.join(rPath, 'skills');
-    if (fs.existsSync(skillsSub) && fs.statSync(skillsSub).isDirectory()) {
-      const sItems = fs.readdirSync(skillsSub);
-      for (const s of sItems) {
-        const mdPath = path.join(skillsSub, s, 'SKILL.md');
-        if (fs.existsSync(mdPath)) {
-          const content = fs.readFileSync(mdPath, 'utf8');
-          const desc = parseSkillDescription(content);
-          fsSkillMap.set(s.toLowerCase(), {
-            name: s,
-            repo: r,
-            relPath: `library/${r}/skills/${s}`,
-            description: desc
-          });
-        }
-      }
+if (fs.existsSync(SKILLS_INDEX_PATH)) {
+  try {
+    const rawSkills = JSON.parse(fs.readFileSync(SKILLS_INDEX_PATH, 'utf8'));
+    for (const s of rawSkills) {
+      const sName = s.name || s.id;
+      const lower = sName.toLowerCase();
+      fsSkillMap.set(lower, {
+        name: sName,
+        repo: s.repository || 'antigravity-awesome-skills',
+        relPath: s.path || `library/${s.repository}/skills/${sName}`,
+        description: s.description || ''
+      });
     }
-    // Case B: library/<repo>/<skill>/SKILL.md
-    const directItems = fs.readdirSync(rPath);
-    for (const s of directItems) {
-      if (s !== 'skills') {
-        const mdPath = path.join(rPath, s, 'SKILL.md');
-        if (fs.existsSync(mdPath)) {
-          const content = fs.readFileSync(mdPath, 'utf8');
-          const desc = parseSkillDescription(content);
-          if (!fsSkillMap.has(s.toLowerCase())) {
-            fsSkillMap.set(s.toLowerCase(), {
-              name: s,
-              repo: r,
-              relPath: `library/${r}/${s}`,
-              description: desc
-            });
-          }
-        }
-      }
-    }
+  } catch (err) {
+    console.error('Error reading skills_index.json for fsSkillMap:', err.message);
   }
 }
 
-// Also check .agents/skills (hot-set files)
+// Check active hot-set files in .agents/skills (only ~130 files, fast)
 if (fs.existsSync(AGENTS_SKILLS_DIR)) {
   const activeItems = fs.readdirSync(AGENTS_SKILLS_DIR);
   for (const s of activeItems) {
@@ -159,7 +128,6 @@ if (fs.existsSync(AGENTS_SKILLS_DIR)) {
       const desc = parseSkillDescription(content);
       const lower = s.toLowerCase();
       if (fsSkillMap.has(lower)) {
-        // keep library repo, but update description if better
         const existing = fsSkillMap.get(lower);
         if (!existing.description && desc) existing.description = desc;
       } else {
@@ -173,7 +141,7 @@ if (fs.existsSync(AGENTS_SKILLS_DIR)) {
     }
   }
 }
-console.log(`Indexed ${fsSkillMap.size} skills directly from filesystem SKILL.md files`);
+console.log(`Indexed ${fsSkillMap.size} skills into memory cache`);
 
 // 5. Read Skills Index from file
 let librarySkills = new Map();
@@ -627,19 +595,45 @@ if (!fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
 }
 
-// Write files
-fs.writeFileSync(path.join(DATA_DIR, 'catalog.json'), JSON.stringify(catalog, null, 2));
-fs.writeFileSync(path.join(DATA_DIR, 'categories.json'), JSON.stringify(categoryMeta, null, 2));
-fs.writeFileSync(path.join(DATA_DIR, 'repositories.json'), JSON.stringify(repositories, null, 2));
+function writeIfChanged(filePath, contentStr) {
+  if (fs.existsSync(filePath)) {
+    try {
+      const existing = fs.readFileSync(filePath, 'utf8');
+      if (existing === contentStr) return false;
+    } catch {}
+  }
+  fs.writeFileSync(filePath, contentStr);
+  return true;
+}
+
+writeIfChanged(path.join(DATA_DIR, 'catalog.json'), JSON.stringify(catalog, null, 2));
+writeIfChanged(path.join(DATA_DIR, 'categories.json'), JSON.stringify(categoryMeta, null, 2));
+writeIfChanged(path.join(DATA_DIR, 'repositories.json'), JSON.stringify(repositories, null, 2));
+
+const statsPath = path.join(DATA_DIR, 'stats.json');
+let existingStats = null;
+if (fs.existsSync(statsPath)) {
+  try { existingStats = JSON.parse(fs.readFileSync(statsPath, 'utf8')); } catch {}
+}
+
+let lastUpdated = new Date().toISOString();
+if (existingStats &&
+    existingStats.totalSkills === catalog.length &&
+    existingStats.totalCategories === categoryMeta.length &&
+    existingStats.totalRepositories === repositories.length &&
+    existingStats.activeHotSetCount === hotSkills.size) {
+  // Preserve existing timestamp if counts haven't changed to avoid dirtying git
+  lastUpdated = existingStats.lastUpdated;
+}
 
 const stats = {
   totalSkills: catalog.length,
   totalCategories: categoryMeta.length,
   totalRepositories: repositories.length,
   activeHotSetCount: hotSkills.size,
-  lastUpdated: new Date().toISOString()
+  lastUpdated: lastUpdated
 };
-fs.writeFileSync(path.join(DATA_DIR, 'stats.json'), JSON.stringify(stats, null, 2));
+writeIfChanged(statsPath, JSON.stringify(stats, null, 2));
 
 console.log(`✅ Catalog & Repositories built successfully!`);
 console.log(`   - Total skills: ${stats.totalSkills}`);
