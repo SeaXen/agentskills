@@ -10,10 +10,10 @@
 This repository (`D:/Repo/.agents` / `https://github.com/SeaXen/agentskills.git`) is the master archive and operational engine for **Antigravity Agent Skills** and its companion public web application, **[Skill.Sea](https://skill-sea.pages.dev)**.
 
 ### Verified Production Metrics
-* **Total Catalog Skills:** `17,145` validated skills
-* **Total Upstream Repositories:** `339` indexed libraries
+* **Total Catalog Skills:** `23,454` validated skills
+* **Total Upstream Repositories:** `370` indexed libraries
 * **Taxonomy Categories:** `38` engineering & domain disciplines
-* **Active Hot-Set Skills:** `130` curated skills pre-linked into `.agents/skills/`
+* **Active Hot-Set Skills:** `90` curated skills pre-linked into `.agents/skills/`
 * **Live Web Endpoint:** [https://skill-sea.pages.dev](https://skill-sea.pages.dev)
 * **Cloudflare R2 Storage Bucket:** `skill-sea-vault`
 * **Cloudflare Account ID:** `dd110134ac07f1ddaf0ca47023e7c831` (`02. drsea@drhrs`)
@@ -35,8 +35,8 @@ D:/Repo/.agents/
 │   ├── frontend-design/               # Example: web design principles
 │   └── ...                            # (Each skill contains a required SKILL.md)
 │
-├── library/                           # 📚 FULL REPOSITORY ARCHIVE (339 open-source repositories)
-│   ├── upstreams.json                 # Registry mapping 339 repo slugs to GitHub URLs & commit hashes
+├── library/                           # FULL REPOSITORY ARCHIVE (370 open-source repositories)
+│   ├── upstreams.json                 # Registry mapping 370 repo slugs to GitHub URLs & commit hashes
 │   ├── skills_index.json              # Aggregated master skill index
 │   ├── addyosmani-agent-skills/       # Complete upstream repo files intact (zero auto-deletion)
 │   ├── vercel-labs-skills/            # Upstream repo files intact
@@ -70,7 +70,7 @@ D:/Repo/.agents/
 │   ├── data/                          # 📦 MASTER JSON DATASETS (Rebuilt automatically)
 │   │   ├── catalog.json               # 20.30 MB master catalog (17,145 items)
 │   │   ├── categories.json            # 38 category records
-│   │   ├── repositories.json          # 339 repository cards
+│   │   ├── repositories.json          # 370 repository cards
 │   │   └── stats.json                 # Real-time metrics
 │   ├── scripts/
 │   │   ├── build-catalog.js           # Rebuilds data/*.json from filesystem & library/
@@ -168,7 +168,7 @@ The repository utilizes a 4-tier zero-friction automation pipeline. When you or 
    git push origin main
    ```
 
-### C. How to Pull Upstream Updates for All 339 Repositories
+### C. How to Pull Upstream Updates for All 370 Repositories
 Run the master update engine:
 ```powershell
 python update.py

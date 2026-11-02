@@ -519,7 +519,120 @@ def sync_lockfiles():
         else:
             print(f"✓ {lf}: already up to date ({len(synced)} skills tracked).", flush=True)
 
-# 5. Rebuild real category system and provenance
+# 5. Rebuild real category system, provenance & documentation metrics
+def sync_documentation_metrics(agents_dir):
+    """Synchronize ground truth metrics across README.md, ARCHITECTURE.md, PRODUCT.md, and AGENTS.md."""
+    lib_skills_path = os.path.join(agents_dir, "library", "skills_index.json")
+    if not os.path.exists(lib_skills_path):
+        return
+    with open(lib_skills_path, "r", encoding="utf-8") as f:
+        total_skills = len(json.load(f))
+
+    lib_dir = os.path.join(agents_dir, "library")
+    lib_repos = [d for d in os.listdir(lib_dir) if os.path.isdir(os.path.join(lib_dir, d)) and not d.startswith(".") and d != "__pycache__"]
+    total_repos = len(lib_repos)
+
+    cat_idx_path = os.path.join(agents_dir, "category", "categories_index.json")
+    cat_data = {}
+    if os.path.exists(cat_idx_path):
+        with open(cat_idx_path, "r", encoding="utf-8") as f:
+            cat_data = json.load(f)
+    unique_categorized = cat_data.get("total_unique_skills", 18723)
+    total_categories = len(cat_data.get("categories", {})) or 38
+
+    skills_dir = os.path.join(agents_dir, "skills")
+    active_skills = len([d for d in os.listdir(skills_dir) if os.path.isdir(os.path.join(skills_dir, d)) and not d.startswith(".")])
+
+    agents_count = len([f for f in os.listdir(os.path.join(agents_dir, "agents")) if f.endswith(".md")])
+    workflows_count = len([f for f in os.listdir(os.path.join(agents_dir, "workflows")) if f.endswith(".md")])
+
+    def write_if_changed(path, new_content):
+        if not os.path.exists(path):
+            return False
+        with open(path, "r", encoding="utf-8", errors="ignore") as f:
+            old_content = f.read()
+        if old_content != new_content:
+            with open(path, "w", encoding="utf-8") as f:
+                f.write(new_content)
+            return True
+        return False
+
+    # 1. Update README.md
+    readme_path = os.path.join(agents_dir, "README.md")
+    if os.path.exists(readme_path):
+        with open(readme_path, "r", encoding="utf-8", errors="ignore") as f:
+            r = f.read()
+        r = re.sub(r'badge/Upstream_Origins-\d+_Repositories', f'badge/Upstream_Origins-{total_repos}_Repositories', r)
+        r = re.sub(r'badge/Master_Library-[\d,]+_Skills', f'badge/Master_Library-{total_skills:,}_Skills', r)
+        r = re.sub(r'badge/Skills-\d+_Active_HotSet', f'badge/Skills-{active_skills}_Active_HotSet', r)
+        r = re.sub(r'badge/Categories-\d+_Domains', f'badge/Categories-{total_categories}_Domains', r)
+        r = re.sub(
+            r'\*\d+ active hot-set skills, \d+ functional domain categories \([\d,]+ unique categorized skills\), \d+ specialist personas, \d+ autonomous workflows, and [\d,]+ master reserve skills across \d+ repositories\.\*',
+            f'*{active_skills} active hot-set skills, {total_categories} functional domain categories ({unique_categorized:,} unique categorized skills), {agents_count} specialist personas, {workflows_count} autonomous workflows, and {total_skills:,} master reserve skills across {total_repos} repositories.*',
+            r
+        )
+        r = re.sub(r'reserve of \*\*[\d,]+ modular skills across \d+ repositories\*\*', f'reserve of **{total_skills:,} modular skills across {total_repos} repositories**', r)
+        r = re.sub(r'checks all \d+ GitHub remotes', f'checks all {total_repos} GitHub remotes', r)
+        r = re.sub(r'Search across all [\d,]+ skills', f'Search across all {total_skills:,} skills', r)
+        r = re.sub(r'pulls fresh upstream skills from all \d+ repositories', f'pulls fresh upstream skills from all {total_repos} repositories', r)
+        r = re.sub(r'All Skills \([\d,]+\)', f'All Skills ({total_skills:,})', r)
+        r = re.sub(r'filtering across [\d,]+ skills', f'filtering across {total_skills:,} skills', r)
+        r = re.sub(r'All \*\*[\d,]+ unique skills\*\* are cataloged into \*\*\d+ granular functional domains\*\*', f'All **{unique_categorized:,} unique skills** are cataloged into **{total_categories} granular functional domains**', r)
+        r = re.sub(r'Upstream Repositories Breakdown \(\d+ Repositories\)', f'Upstream Repositories Breakdown ({total_repos} Repositories)', r)
+        r = re.sub(r'aggregates high-signal skills from \*\*\d+ curated GitHub upstream repositories\*\*', f'aggregates high-signal skills from **{total_repos} curated GitHub upstream repositories**', r)
+        r = re.sub(r'uncompressed catalog of all \d+ upstream repositories', f'uncompressed catalog of all {total_repos} upstream repositories', r)
+        r = re.sub(r'origin registry \(\d+ repos\)', f'origin registry ({total_repos} repos)', r)
+        r = re.sub(r'category/\s+# \d+ Granular Domain Categories \([\d,]+ unique skills\)', f'category/                   # {total_categories} Granular Domain Categories ({unique_categorized:,} unique skills)', r)
+        r = re.sub(r'library/\s+# Master Reserve Warehouse \([\d,]+ skills across \d+ repos\)', f'library/                    # Master Reserve Warehouse ({total_skills:,} skills across {total_repos} repos)', r)
+        r = re.sub(r'skills_index\.json\s+# Master index tracking all [\d,]+ reserve skills', f'skills_index.json       # Master index tracking all {total_skills:,} reserve skills', r)
+        r = re.sub(r'upstreams\.json\s+# Live tracking registry for all \d+ upstream git URLs', f'upstreams.json          # Live tracking registry for all {total_repos} upstream git URLs', r)
+        r = re.sub(r'\.\.\. \(\d+ repository folders\)', f'... ({total_repos} repository folders)', r)
+        r = re.sub(r'ping all \d+ GitHub remotes in parallel', f'ping all {total_repos} GitHub remotes in parallel', r)
+        write_if_changed(readme_path, r)
+
+    # 2. Update ARCHITECTURE.md
+    arch_path = os.path.join(agents_dir, "ARCHITECTURE.md")
+    if os.path.exists(arch_path):
+        with open(arch_path, "r", encoding="utf-8", errors="ignore") as f:
+            a = f.read()
+        a = re.sub(r'\*\*[\d,]+ Active Hot-Set Skills\*\*', f'**{active_skills} Active Hot-Set Skills**', a)
+        a = re.sub(r'\*\*[\d,]+ Library Reserve Skills\*\* - Offline capability archive across \d+ repositories', f'**{total_skills:,} Library Reserve Skills** - Offline capability archive across {total_repos} repositories', a)
+        a = re.sub(r'\*\*[\d,]+ Workflows\*\*', f'**{workflows_count} Workflows**', a)
+        a = re.sub(r'skills/\s+# \d+ Active Hot-Set Skills', f'skills/                  # {active_skills} Active Hot-Set Skills', a)
+        a = re.sub(r'category/\s+# \d+ Granular Functional Category Directories \([\d,]+\+? real skills\)', f'category/                # {total_categories} Granular Functional Category Directories ({unique_categorized:,} real skills)', a)
+        a = re.sub(r'library/\s+# [\d,]+ Offline Reserve Skills \(\d+ repositories\)', f'library/                 # {total_skills:,} Offline Reserve Skills ({total_repos} repositories)', a)
+        a = re.sub(r'workflows/\s+# \d+ Slash Commands', f'workflows/               # {workflows_count} Slash Commands', a)
+        a = re.sub(r'from the [\d,]+ offline reserve skills across \d+ repositories', f'from the {total_skills:,} offline reserve skills across {total_repos} repositories', a)
+        write_if_changed(arch_path, a)
+
+    # 3. Update PRODUCT.md
+    prod_path = os.path.join(agents_dir, "PRODUCT.md")
+    if os.path.exists(prod_path):
+        with open(prod_path, "r", encoding="utf-8", errors="ignore") as f:
+            p = f.read()
+        p = re.sub(r'indexes [\d,]+ skills discovered across \d+ open GitHub repositories', f'indexes {total_skills:,} skills discovered across {total_repos} open GitHub repositories', p)
+        p = re.sub(r'real-time synchronized counts \([\d,]+ Skills, \d+ Categories, \d+ Repositories, \d+ Hot-Set\)', f'real-time synchronized counts ({total_skills:,} Skills, {total_categories} Categories, {total_repos} Repositories, {active_skills} Hot-Set)', p)
+        p = re.sub(r'across Skill Hub, Hot-Set, \d+ Categories, \d+ Git Repositories', f'across Skill Hub, Hot-Set, {total_categories} Categories, {total_repos} Git Repositories', p)
+        p = re.sub(r'Origin Repositories\*\*: `Skill\.Sea/data/repositories\.json` \([^\)]*, \d+ indexed repositories\)', f'Origin Repositories**: `Skill.Sea/data/repositories.json` (2.05 MB, {total_repos} indexed repositories)', p)
+        p = re.sub(r'Telemetry Statistics\*\*: `Skill\.Sea/data/stats\.json` \([\d,]+ skills, \d+ categories, \d+ repos, \d+ hot-set\)', f'Telemetry Statistics**: `Skill.Sea/data/stats.json` ({total_skills:,} skills, {total_categories} categories, {total_repos} repos, {active_skills} hot-set)', p)
+        write_if_changed(prod_path, p)
+
+    # 4. Update AGENTS.md
+    ag_path = os.path.join(agents_dir, "AGENTS.md")
+    if os.path.exists(ag_path):
+        with open(ag_path, "r", encoding="utf-8", errors="ignore") as f:
+            g = f.read()
+        g = re.sub(r'\* \*\*Total Catalog Skills:\*\* `[\d,]+` validated skills', f'* **Total Catalog Skills:** `{total_skills:,}` validated skills', g)
+        g = re.sub(r'\* \*\*Total Upstream Repositories:\*\* `\d+` indexed libraries', f'* **Total Upstream Repositories:** `{total_repos}` indexed libraries', g)
+        g = re.sub(r'\* \*\*Active Hot-Set Skills:\*\* `\d+` curated skills', f'* **Active Hot-Set Skills:** `{active_skills}` curated skills', g)
+        g = re.sub(r'library/\s+# [^\n]*FULL REPOSITORY ARCHIVE \(\d+ open-source repositories\)', f'library/                           # FULL REPOSITORY ARCHIVE ({total_repos} open-source repositories)', g)
+        g = re.sub(r'upstreams\.json\s+# Registry mapping \d+ repo slugs', f'upstreams.json                 # Registry mapping {total_repos} repo slugs', g)
+        g = re.sub(r'repositories\.json\s+# \d+ repository cards', f'repositories.json          # {total_repos} repository cards', g)
+        g = re.sub(r'How to Pull Upstream Updates for All \d+ Repositories', f'How to Pull Upstream Updates for All {total_repos} Repositories', g)
+        write_if_changed(ag_path, g)
+
+    print(f"✓ Synchronized documentation metrics across README.md, ARCHITECTURE.md, PRODUCT.md, and AGENTS.md.", flush=True)
+
 def rebuild_categories_and_provenance(has_changes=False, force=False, deploy=False):
     print("\n[5/6] Rebuilding real category system & provenance documentation...", flush=True)
     try:
@@ -533,6 +646,11 @@ def rebuild_categories_and_provenance(has_changes=False, force=False, deploy=Fal
         rebuild_provenance(agents_dir)
     except Exception as e:
         print(f"⚠️ Provenance rebuild encountered error: {e}", flush=True)
+
+    try:
+        sync_documentation_metrics(agents_dir)
+    except Exception as e:
+        print(f"⚠️ Documentation metrics sync error: {e}", flush=True)
 
     rebuild_skill_sea_catalog(has_changes=has_changes, force=force, deploy=deploy)
 

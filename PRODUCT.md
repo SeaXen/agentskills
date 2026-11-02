@@ -18,7 +18,7 @@ Zero-runtime external dependencies. Pure vanilla HTML5, custom design tokens in 
 
 ## Product Purpose
 
-The Antigravity Agent Skills Vault and companion web app Skill.Sea provide an ultra-fast, zero-dependency directory, leaderboard, and 1-click activation suite for curated AI Agent Skills. It indexes 17,145 skills discovered across 339 open GitHub repositories and organizes them into 38 distinct engineering disciplines. Success means zero-friction discovery and instant, offline-capable workspace activation with zero token bloat.
+The Antigravity Agent Skills Vault and companion web app Skill.Sea provide an ultra-fast, zero-dependency directory, leaderboard, and 1-click activation suite for curated AI Agent Skills. It indexes 23,454 skills discovered across 370 open GitHub repositories and organizes them into 38 distinct engineering disciplines. Success means zero-friction discovery and instant, offline-capable workspace activation with zero token bloat.
 
 ## Positioning
 
@@ -40,14 +40,14 @@ Unlike bloated registries or monolithic skill packs that force thousands of inst
 
 - **Confirmed Functionality**:
   - Full-text instant search across names, descriptions, categories, and command snippets with keyboard shortcut (`/`).
-  - Edge-to-edge telemetry metrics cards showing real-time synchronized counts (17,145 Skills, 38 Categories, 339 Repositories, 130 Hot-Set).
+  - Edge-to-edge telemetry metrics cards showing real-time synchronized counts (23,454 Skills, 38 Categories, 370 Repositories, 90 Hot-Set).
   - Horizontal scrolling category rail with colored badges and item counts.
   - 1-Click install mode switcher supporting:
     1. Universal NPX (`npx skills add <url>`)
     2. Local CLI & Symlink activation (`python .agents/library/activate_skill.py activate <name>`)
     3. My Repo Vault installation (`git clone https://github.com/SeaXen/agentskills.git .agents`)
   - Detail slide-over drawer showing full markdown documentation, parameter lists, example prompts, and source repository links.
-  - Tab navigation across Skill Hub, Hot-Set, 38 Categories, 339 Git Repositories, and Install Guide.
+  - Tab navigation across Skill Hub, Hot-Set, 38 Categories, 370 Git Repositories, and Install Guide.
   - Automated ecosystem synchronization with skills.sh (100K+ install repos) and skillleaderboard.com.
 - **Constraints**:
   - Absolute zero external runtime JavaScript or CSS dependencies (no React, no Vue, no Tailwind, no external CDN trackers). Only Tabler icons are pulled via CDN with local SVG fallbacks.
@@ -64,8 +64,8 @@ Unlike bloated registries or monolithic skill packs that force thousands of inst
 
 - **Master Catalog Data**: `Skill.Sea/data/catalog.json` (20.30 MB, 17,145 validated items).
 - **Taxonomy Categories**: `Skill.Sea/data/categories.json` (38 domain definitions).
-- **Origin Repositories**: `Skill.Sea/data/repositories.json` (1.54 MB, 339 indexed repositories).
-- **Telemetry Statistics**: `Skill.Sea/data/stats.json` (17,145 skills, 38 categories, 339 repos, 130 hot-set).
+- **Origin Repositories**: `Skill.Sea/data/repositories.json` (2.05 MB, 370 indexed repositories).
+- **Telemetry Statistics**: `Skill.Sea/data/stats.json` (23,454 skills, 38 categories, 370 repos, 90 hot-set).
 - **Cloudflare R2 Bucket**: `skill-sea-vault` with active Wrangler OAuth configuration.
 - **Physical Skill Files**: Canonical source directories under `.agents/skills/` and `.agents/library/`.
 

@@ -9,9 +9,9 @@
 Antigravity Kit is a modular system consisting of:
 
 - **20 Specialist Agents** - Role-based AI personas
-- **87 Active Hot-Set Skills** - Curated daily-driver engineering skills - Domain-specific knowledge modules
-- **2,031 Library Reserve Skills** - Offline capability archive across 36 repositories (`.agent/library/`)
-- **17 Workflows** - Slash command procedures
+- **90 Active Hot-Set Skills** - Curated daily-driver engineering skills - Domain-specific knowledge modules
+- **23,454 Library Reserve Skills** - Offline capability archive across 370 repositories (`.agent/library/`)
+- **18 Workflows** - Slash command procedures
 
 ---
 
@@ -21,10 +21,10 @@ Antigravity Kit is a modular system consisting of:
 .agent/
 ├── ARCHITECTURE.md          # This file
 ├── agents/                  # 20 Specialist Agents
-├── skills/                  # 87 Active Hot-Set Skills
-├── category/                # 38 Granular Functional Category Directories (1,878+ real skills)
-├── library/                 # 2,031 Offline Reserve Skills (36 repositories) & Activator
-├── workflows/               # 17 Slash Commands
+├── skills/                  # 90 Active Hot-Set Skills
+├── category/                # 38 Granular Functional Category Directories (18,723 real skills)
+├── library/                 # 23,454 Offline Reserve Skills (370 repositories) & Activator
+├── workflows/               # 18 Slash Commands
 ├── rules/                   # Global Rules
 └── scripts/                 # Master Validation Scripts
 ```
@@ -293,7 +293,7 @@ Slash command procedures. Invoke with `/command`.
 | `/deploy`        | Safe production deployment procedures & pre-flight checks                   |
 | `/enhance`       | Iterative feature updates on existing codebases                             |
 | `/impeccable`    | Anti-cliché UI polish, typography, and frontend design review                |
-| `/library`       | Search, inspect, and activate from the 2,031 offline reserve skills across 36 repositories          |
+| `/library`       | Search, inspect, and activate from the 23,454 offline reserve skills across 370 repositories          |
 | `/orchestrate`   | Multi-agent perspective coordination & workload balancing                   |
 | `/owl`           | Decoupled deep investigator & verified coder pipeline                       |
 | `/plan`          | Structured roadmap & task dependency planning (no code)                     |
