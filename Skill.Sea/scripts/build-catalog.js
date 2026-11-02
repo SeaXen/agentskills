@@ -519,6 +519,96 @@ catalog.forEach((item, idx) => {
   item.rank = idx + 1;
 });
 
+// Ensure EVERY repository in library/ is thoroughly populated in repoMap
+if (fs.existsSync(LIB_DIR)) {
+  const libRepos = fs.readdirSync(LIB_DIR).filter(r => {
+    try {
+      return fs.statSync(path.join(LIB_DIR, r)).isDirectory() && !r.startsWith('.') && r !== '__pycache__';
+    } catch { return false; }
+  });
+
+  for (const r of libRepos) {
+    const repoEntry = ensureRepo(r);
+    const rPath = path.join(LIB_DIR, r);
+    const sIdxPath = path.join(rPath, 'skills_index.json');
+    let repoSkills = [];
+
+    if (fs.existsSync(sIdxPath)) {
+      try {
+        repoSkills = JSON.parse(fs.readFileSync(sIdxPath, 'utf8'));
+      } catch {}
+    } else {
+      const skillsSub = path.join(rPath, 'skills');
+      if (fs.existsSync(skillsSub) && fs.statSync(skillsSub).isDirectory()) {
+        repoSkills = fs.readdirSync(skillsSub).filter(s => {
+          try { return fs.statSync(path.join(skillsSub, s)).isDirectory(); } catch { return false; }
+        }).map(s => ({ name: s, id: s }));
+      }
+    }
+
+    if (repoSkills.length > 0) {
+      repoEntry.skillsCount = repoSkills.length;
+      repoEntry.skills = repoSkills.map(s => {
+        const sName = s.name || s.id;
+        const isActive = hotSkills.has(sName.toLowerCase());
+        return { name: sName, isActive };
+      });
+      repoEntry.hotCount = repoEntry.skills.filter(s => s.isActive).length;
+
+      for (const s of repoSkills) {
+        if (s.category && s.category !== 'general') {
+          repoEntry.categories.add(s.category.replace(/-/g, ' '));
+        }
+      }
+      if (repoEntry.categories.size === 0) {
+        repoEntry.categories.add('Modular Agent Skills');
+      }
+
+      // Ensure missing skills from this repo are in catalogMap
+      for (const s of repoSkills) {
+        const skillName = s.name || s.id;
+        const lowerName = skillName.toLowerCase();
+        if (!catalogMap.has(lowerName)) {
+          const catSlug = s.category || 'core-antigravity-protocols';
+          const colorTheme = categoryColors[catSlug] || 'blue';
+          const isActive = hotSkills.has(lowerName);
+          const upstreamInfo = upstreams[r] || {};
+          const upstreamUrl = upstreamInfo.url || (r.includes('/') ? `https://github.com/${r}` : null);
+          const githubUrl = upstreamUrl || `https://github.com/SeaXen/agentskills/tree/main/library/${r}/skills/${skillName}`;
+          const npxCmd = upstreamUrl ? `npx skills add ${upstreamUrl}` : `npx skills add https://github.com/SeaXen/agentskills`;
+          const myRepoNpxCmd = `npx skills add https://github.com/SeaXen/agentskills`;
+          const activationCmd = s.activation_cmd || `python .agents/library/activate_skill.py activate ${skillName}`;
+          const linkCmd = s.link_cmd || `python .agents/library/activate_skill.py link ${skillName}`;
+          const relativePath = s.path || `library/${r}/skills/${skillName}`;
+          let desc = cleanDescription(s.description);
+          if (!desc) desc = `Specialized skill for ${skillName} automation.`;
+
+          catalogMap.set(lowerName, {
+            id: lowerName,
+            name: skillName,
+            category: catSlug,
+            categoryTitle: catSlug,
+            cleanCategory: catSlug.replace(/-/g, ' '),
+            categoryIcon: categoryIcons[catSlug] || 'folder',
+            colorTheme: colorTheme,
+            repository: r,
+            upstreamUrl: upstreamUrl,
+            githubUrl: githubUrl,
+            description: desc,
+            isActive: isActive,
+            npxCmd: npxCmd,
+            myRepoNpxCmd: myRepoNpxCmd,
+            activationCmd: activationCmd,
+            linkCmd: linkCmd,
+            path: relativePath,
+            starsEstimate: calculateStarScore(r, isActive)
+          });
+        }
+      }
+    }
+  }
+}
+
 // Category summary sorting
 categoryMeta.sort((a, b) => b.count - a.count);
 

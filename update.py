@@ -250,7 +250,7 @@ def sync_all_upstreams(force=False):
                 s_item = os.path.join(c_temp, item)
                 d_item = os.path.join(target_repo_dir, item)
                 if os.path.isdir(s_item):
-                    if item == 'skills':
+                    if item.lower() == 'skills':
                         os.makedirs(d_item, exist_ok=True)
                         for sk in os.listdir(s_item):
                             sk_src = os.path.join(s_item, sk)
