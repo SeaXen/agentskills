@@ -1,0 +1,54 @@
+```
+$ sentry-cli help
+? success
+Command line utility for Sentry.
+
+This tool helps you manage remote resources on a Sentry server like
+sourcemaps, debug symbols or releases.  Use `--help` on the subcommands
+to learn more about them.
+
+Usage: sentry-cli[EXE] [OPTIONS] <COMMAND>
+
+Commands:
+  completions      Generate completions for the specified shell.
+  build            Manage builds.
+  code-mappings    Manage code mappings for Sentry. Code mappings link stack trace paths to source
+                   code paths in your repository, enabling source context and code linking in
+                   Sentry.
+  debug-files      Locate, analyze or upload debug information files. [aliases: dif]
+  deploys          Manage deployments for Sentry releases.
+  events           Manage events on Sentry.
+  info             Print information about the configuration and verify authentication.
+  issues           Manage issues in Sentry.
+  login            Authenticate with the Sentry server.
+  logs             [BETA] Manage logs in Sentry
+  monitors         Manage cron monitors on Sentry.
+  organizations    Manage organizations on Sentry.
+  proguard         Manage ProGuard mapping files.
+  projects         Manage projects on Sentry.
+  react-native     Upload build artifacts for react-native projects.
+  releases         Manage releases on Sentry.
+  repos            Manage repositories on Sentry.
+  send-event       Send a manual event to Sentry.
+  send-envelope    Send a stored envelope to Sentry.
+  snapshots        Manage and compare snapshots.
+  sourcemaps       Manage sourcemaps for Sentry releases.
+  dart-symbol-map  Manage Dart/Flutter symbol maps for Sentry.
+  upload-proguard  Upload ProGuard mapping files to a project.
+  help             Print this message or the help of the given subcommand(s)
+
+Options:
+      --url <URL>                Fully qualified URL to the Sentry server.
+                                 [default: https://sentry.io/]
+      --header <KEY:VALUE>       Custom headers that should be attached to all requests
+                                 in key:value format.
+      --auth-token <AUTH_TOKEN>  Use the given Sentry auth token.
+      --log-level <LOG_LEVEL>    Set the log output verbosity. [possible values: trace, debug, info,
+                                 warn, error]
+      --quiet                    Do not print any output while preserving correct exit code. This
+                                 flag is currently implemented only for selected subcommands.
+                                 [aliases: --silent]
+  -h, --help                     Print help
+  -V, --version                  Print version
+
+```

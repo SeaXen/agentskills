@@ -1,7 +1,7 @@
 # 💰 Financial Modeling, Tax & Accounting
 
 > **Category**: `business-finance-accounting`  
-> **Total Curated Skills**: 233 skills  
+> **Total Curated Skills**: 240 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -70,7 +70,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`customer-billing-ops`](../../library/affaan-m-ecc/skills/customer-billing-ops) | ⚪ Reserve | `affaan-m-ecc` | Operate customer billing workflows such as subscriptions, refunds, churn triage, billing-portal... |
 | [`customer-success-manager`](../../library/alirezarezvani-claude-skills/skills/customer-success-manager) | ⚪ Reserve | `alirezarezvani-claude-skills` | Monitors customer health, predicts churn risk, and identifies expansion opportunities using wei... |
 | [`data-fetcher`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/data-fetcher) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Fetch economic data from FRED, World Bank, BLS, OECD, and Yahoo Finance |
-| [`data-report`](../../library/nexu-io-open-design/skills/data-report) | ⚪ Reserve | `nexu-io-open-design` | Turns CSV, Excel, or JSON data into a polished visual report page. |
 | [`data-throughput-accelerator`](../../library/affaan-m-ecc/skills/data-throughput-accelerator) | ⚪ Reserve | `affaan-m-ecc` | Diagnose and accelerate large data movement — ingestion, backfill, export, ETL, warehouse loadi... |
 | [`dcf-valuation`](../../library/claude-office-skills-skills/skills/dcf-valuation) | ⚪ Reserve | `claude-office-skills-skills` | Build Discounted Cash Flow (DCF) valuation models. Calculate intrinsic value with customizable ... |
 | [`delivery-tracking`](../../library/nomadamas-k-skill/skills/delivery-tracking) | ⚪ Reserve | `nomadamas-k-skill` | Track CJ대한통운 and 우체국 parcels by invoice number with official carrier endpoints, and structure t... |
@@ -103,6 +102,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`finance-billing-ops`](../../library/affaan-m-ecc/skills/finance-billing-ops) | ⚪ Reserve | `affaan-m-ecc` | Evidence-first revenue, pricing, refunds, team-billing, and billing-model truth workflow for EC... |
 | [`finance-lead`](../../library/alirezarezvani-claude-skills/skills/finance-lead) | ⚪ Reserve | `alirezarezvani-claude-skills` | ../../../agents/personas/finance-lead.md |
 | [`finance-ops`](../../library/ericosiu-ai-marketing-skills/skills/finance-ops) | ⚪ Reserve | `ericosiu-ai-marketing-skills` | AI-powered financial analysis suite. Generates executive CFO briefings from QuickBooks exports ... |
+| [`finance-report`](../../library/feimacode-open-design-agent-kit/skills/finance-report) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Quarterly / monthly financial report — masthead with KPIs, revenue and burn charts, P&L summary... |
 | [`finance-skills`](../../library/alirezarezvani-claude-skills/skills/finance-skills) | ⚪ Reserve | `alirezarezvani-claude-skills` | Router/index for the finance skills bundled in this plugin: financial-analyst (ratio analysis, ... |
 | [`financial-analyst`](../../library/alirezarezvani-claude-skills/skills/financial-analyst) | ⚪ Reserve | `alirezarezvani-claude-skills` | Performs financial ratio analysis, DCF valuation, budget variance analysis, and rolling forecas... |
 | [`financial-modeling`](../../library/claude-office-skills-skills/skills/financial-modeling) | ⚪ Reserve | `claude-office-skills-skills` | Build integrated financial models with 3-statement projections. Create income statement, balanc... |
@@ -114,13 +114,17 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`government-bond-analysis`](../../library/nomadamas-k-skill/skills/government-bond-analysis) | ⚪ Reserve | `nomadamas-k-skill` | 한국·미국 국채시장을 공식 금리 데이터로 분석하고 커브 변화, 한·미 금리차, 확인된 국채 입찰·통화정책 일정을 같은 형식으로 정리한다. 국고채·미국 국채 금리 비교, 최... |
 | [`grow-business`](../../library/wondelai-skills/skills/grow-business) | ⚪ Reserve | `wondelai-skills` | Guided journey from a business with lucky months to a repeatable growth engine that produces a ... |
 | [`growth-pulse`](../../library/anthropics-knowledge-work/skills/growth-pulse) | ⚪ Reserve | `anthropics-knowledge-work` | Answers one question for an SMB owner — is the growth engine actually working? Pulls sales tren... |
+| [`guizang-ppt`](../../library/feimacode-open-design-agent-kit/skills/guizang-ppt) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Write a Brand-to-Revenue Story like a Growth Strategy Lead (Open Design) — use only when explic... |
 | [`hackathon-cash-prize`](../../library/samber-dev-event-organizer-skills/skills/hackathon-cash-prize) | ⚪ Reserve | `samber-dev-event-organizer-skills` | Structure what a hackathon actually awards - cash versus non-cash medium including no monetary ... |
+| [`hps-y2k-chrome`](../../library/feimacode-open-design-agent-kit/skills/hps-y2k-chrome) | ⚪ Reserve | `feimacode-open-design-agent-kit` | OpenDesign's KPI decision brief: activation and retention drivers, what's working, and the one ... |
+| [`huashu-sparkline-arc`](../../library/feimacode-open-design-agent-kit/skills/huashu-sparkline-arc) | ⚪ Reserve | `feimacode-open-design-agent-kit` | OpenDesign's revenue-driver narrative: what actually moves ARR, the leverage points, and the fo... |
 | [`huawei-cloud-mrs-new-cluster-planner`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-mrs-new-cluster-planner) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Huawei Cloud MRS new cluster spec planning. Derives YARN and storage requirements from business... |
 | [`improve-business`](../../library/wondelai-skills/skills/improve-business) | ⚪ Reserve | `wondelai-skills` | Guided journey from a stalled, plateaued business to one with an honest diagnosis, a working op... |
 | [`instrument-data-to-allotrope`](../../library/anthropics-knowledge-work/skills/instrument-data-to-allotrope) | ⚪ Reserve | `anthropics-knowledge-work` | Convert laboratory instrument output files (PDF, CSV, Excel, TXT) to Allotrope Simple Model (AS... |
 | [`integrated-finance`](../../library/membranedev-application-skills/skills/integrated-finance) | ⚪ Reserve | `membranedev-application-skills` | Integrated Finance integration. Manage data, records, and automate workflows. Use when the user... |
 | [`integration-partnership-strategy`](../../library/samber-developer-platform-skills/skills/integration-partnership-strategy) | ⚪ Reserve | `samber-developer-platform-skills` | Select which technology partners a B2B SaaS vendor integrates with and how deep each partnershi... |
 | [`investment-memo`](../../library/claude-office-skills-skills/skills/investment-memo) | ⚪ Reserve | `claude-office-skills-skills` | Write professional investment memorandums for VC, PE, or public market investments. Structure t... |
+| [`invoice`](../../library/feimacode-open-design-agent-kit/skills/invoice) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A printable invoice page — sender + recipient block, line items table, tax breakdown, totals, a... |
 | [`invoice-automation`](../../library/claude-office-skills-skills/skills/invoice-automation) | ⚪ Reserve | `claude-office-skills-skills` | Automate invoice generation, sending, tracking, and payment reconciliation across accounting pl... |
 | [`invoice-chase`](../../library/anthropics-knowledge-work/skills/invoice-chase) | ⚪ Reserve | `anthropics-knowledge-work` | Drafts overdue-invoice reminder emails from the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zo... |
 | [`invoice-ninja`](../../library/membranedev-application-skills/skills/invoice-ninja) | ⚪ Reserve | `membranedev-application-skills` | Invoice Ninja integration. Manage Organizations. Use when the user wants to interact with Invoi... |
@@ -154,6 +158,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`nav-tieout`](../../library/anthropics-financial-services/skills/nav-tieout) | ⚪ Reserve | `anthropics-financial-services` | Tie an LP statement to the fund's NAV pack — recompute the LP's capital account from the NAV co... |
 | [`netsuite`](../../library/membranedev-application-skills/skills/netsuite) | ⚪ Reserve | `membranedev-application-skills` | NetSuite integration. Manage accounting and erp data, records, and workflows. Use when the user... |
 | [`nts-tax-delinquency`](../../library/nomadamas-k-skill/skills/nts-tax-delinquency) | ⚪ Reserve | `nomadamas-k-skill` | 국세청 고액·상습체납자 명단공개를 nts.go.kr 공개 검색으로 조회한다. 상호·법인명으로 법인 명단과 개인 명단을 대조해 공개된 체납 사실(총 체납액·세목·체납요지 등... |
+| [`od-deck-guizang-ppt`](../../library/feimacode-open-design-agent-kit/skills/od-deck-guizang-ppt) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Write a Brand-to-Revenue Story like a Growth Strategy Lead (Open Design) — use only when the us... |
 | [`odoo-hr-payroll-setup`](../../library/sickn33-agentic-awesome-skills/skills/odoo-hr-payroll-setup) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Expert guide for Odoo HR and Payroll: salary structures, payslip rules, leave policies, employe... |
 | [`office-mcp`](../../library/claude-office-skills-skills/skills/office-mcp) | ⚪ Reserve | `claude-office-skills-skills` | MCP server with 39 tools for Word, Excel, PowerPoint, PDF, OCR operations |
 | [`okr-planner`](../../library/genspark-ai-genoffice/skills/okr-planner) | ⚪ Reserve | `genspark-ai-genoffice` | Break team goals into a measurable Objectives and Key Results table with a review note, deliver... |
@@ -235,10 +240,12 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`unit-economics`](../../library/anthropics-financial-services/skills/unit-economics) | ⚪ Reserve | `anthropics-financial-services` | Analyze unit economics for PE targets — ARR cohorts, LTV/CAC, net retention, payback periods, r... |
 | [`value-creation-plan`](../../library/anthropics-financial-services/skills/value-creation-plan) | ⚪ Reserve | `anthropics-financial-services` | Structure post-acquisition value creation plans with revenue, cost, and operational levers mapp... |
 | [`variance-analysis`](../../library/anthropics-knowledge-work/skills/variance-analysis) | ⚪ Reserve | `anthropics-knowledge-work` | Decompose financial variances into drivers with narrative explanations and waterfall analysis. ... |
+| [`ve-midnight-editorial`](../../library/feimacode-open-design-agent-kit/skills/ve-midnight-editorial) | ⚪ Reserve | `feimacode-open-design-agent-kit` | OpenDesign's financial review: runway, burn, and the sustainability plan that keeps the project... |
 | [`verification-before-completion`](../../skills/verification-before-completion) | 🟢 Active | `active` | Claiming work is complete without verification is dishonesty, not efficiency. Use when ANY vari... |
 | [`wave-accounting-automation`](../../library/composio-community-awesome-codex-skills/skills/wave-accounting-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Wave Accounting toolkit is not currently available as a native integration. No Wave-specific to... |
 | [`wave_accounting-automation`](../../library/composio-community-awesome-codex-skills/skills/wave_accounting-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Wave Accounting tasks via Rube MCP (Composio): invoices, customers, payments, and smal... |
 | [`wecomcli-sheet`](../../library/wecomteam-wecom-cli/skills/wecomcli-sheet) | ⚪ Reserve | `wecomteam-wecom-cli` | 企业微信在线表格与本地表格文件处理技能。用于创建或导入在线表格，读写单元格，管理子表、区域、行列、样式、搜索替换、数据验证、条件格式、筛选器和版本历史，以及读取、分析、编辑 .xlsx/.x... |
+| [`weekly-update`](../../library/feimacode-open-design-agent-kit/skills/weekly-update) | ⚪ Reserve | `feimacode-open-design-agent-kit` | OpenDesign's weekly metrics standup: this week's numbers, the one anomaly, and the single decis... |
 | [`what-an-email-reveals`](../../library/useosint-skills/skills/what-an-email-reveals) | ⚪ Reserve | `useosint-skills` | Investigate an email address — MX and syntactic validation, Gravatar lookup, corporate email-fo... |
 | [`wind-find-finance-skill`](../../library/wind-alice-alicemarket/skills/wind-find-finance-skill) | ⚪ Reserve | `wind-alice-alicemarket` | 万得金融能力发现与安装路由入口。用于金融数据、行情查询、市场分析、今日大盘、市场主线、板块轮动、资金流向、估值、选股、复盘、仓位、交易计划、回测等任务。必须先读取 catalog 判断必需数... |
 | [`write-spec`](../../library/anthropics-knowledge-work/skills/write-spec) | ⚪ Reserve | `anthropics-knowledge-work` | Write a feature spec or PRD from a problem statement or feature idea. Use when turning a vague ... |

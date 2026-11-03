@@ -594,10 +594,26 @@ console.log('PASS: structured reasons update every current fact without duplicat
 const formatCode = [...status.matchAll(/```javascript\n([\s\S]*?)\n```/g)][0][1]
 const formatStatusReason = runInNewContext(`${formatCode}\nformatStatusReason`)
 const readableStatus = formatStatusReason({ reason: automaticReason, nextAction: 'Run a fresh browser QA worker for the recorded scenario.', head: qaHead, signals: { cr: 'pass', qa: 'pass', ci: 'pending' } })
-assert.match(readableStatus, /No human action needed\. Automatic next step: Run a fresh browser QA worker/)
-assert.match(readableStatus, /CR: pass; QA: pass; CI: pending/)
-assert.match(readableStatus, /\*\*Reason:\*\* Current-head QA PASS exists; required approval is absent/)
-assert.match(formatStatusReason({ reason: humanReason, nextAction: 'Wait for the named tenant permission to be granted.', head: qaHead }), /Human action required — repository maintainer\./)
+assert.match(readableStatus, /^\*\*📋 What happened: Current-head QA PASS exists; required approval is absent\*\*\n\n\*\*🔁 Next: Run a fresh browser QA worker for the recorded scenario\. No human action needed\.\*\*/)
+assert.match(readableStatus, /🔍 Review: ✅ passed · 🧪 QA: ✅ passed · 🧪 CI: 📋 pending/)
+assert.ok(readableStatus.indexOf('**🔁 Next:') < readableStatus.indexOf('<details>'), 'Next action must be visible before collapsed evidence')
+const humanStatus = formatStatusReason({ reason: humanReason, nextAction: 'Wait for the named tenant permission to be granted.', head: qaHead })
+assert.ok(humanStatus.includes(`**⚠️ Next: ${humanReason.owner}: ${humanReason.requiredAction}**`), 'Human owner and exact action belong in the bold opening')
+assert.ok(humanStatus.indexOf(humanReason.requiredAction) < humanStatus.indexOf('<details>'))
+assert.ok(humanStatus.includes(humanReason.whyAgentCannotAct), 'Keep the concrete blocker explanation in details')
+assert.match(humanStatus, /Review: not recorded/)
+const prepareStatus = formatStatusReason({ reason: { ...automaticReason, summary: 'All three signals hold; preparation is complete.' }, nextAction: 'Leave this PR ready for a maintainer to merge; automerge-prepare prevents automatic merging.' })
+assert.match(prepareStatus.split('<details>')[0], /automerge-prepare prevents automatic merging/)
+const unknownStatus = formatStatusReason({ reason: { summary: 'Approval status could not be read.' }, nextAction: 'Inspect approval history.' })
+assert.match(unknownStatus, /reconcile whether human action is required/)
+assert.doesNotMatch(unknownStatus, /No human action needed/)
+assert.doesNotMatch(unknownStatus, /\*\*Resume when:/)
+const waivedStatus = formatStatusReason({ reason: automaticReason, nextAction: 'Recheck the target.', signals: { ci: 'baseline failures waived', cr: 'fail' } })
+assert.match(waivedStatus, /CI: baseline failures waived/)
+assert.doesNotMatch(waivedStatus, /CI: ✅/)
+assert.match(waivedStatus, /Review: ❌ failed/)
+assert.equal((readableStatus.match(/<details>/g) ?? []).length, (readableStatus.match(/<\/details>/g) ?? []).length)
+assert.throws(() => formatStatusReason({ reason: {}, nextAction: 'Inspect.' }), /Current structured reason/)
 assert.equal(qaRoutingDecision({ ...routeInput, automationBlocker: { summary: 'Blocked' } }).action, 'inspect-eligibility', 'Incomplete blocker prose cannot invent a human interaction')
 const commandReference = read('skills/om-auto-merge-buddy/references/dashboard-commands.md')
 const commandCode = commandReference.match(/```javascript\n([\s\S]*?)\n```/)[1]
@@ -659,4 +675,167 @@ try {
   rmSync(concurrencyRoot, { recursive: true, force: true })
 }
 console.log('PASS: safe signal/evidence maps and QA thumbnails preserve real provenance; concurrent callers share one dashboard without killing foreign processes')
+
+// Human gates are skill instructions; lock their placement and precedence across
+// every shortcut that previously admitted a rejected or self-signed protected PR.
+const humanGates = read('skills/om-auto-merge-buddy/references/human-gates.md')
+for (const document of [skill, signals, stages, reconcile,
+  read('skills/om-auto-merge-buddy/references/entrance.md'),
+  read('skills/om-auto-merge-buddy/references/qa-routing.md'),
+  read('skills/om-auto-merge-buddy/references/qa-evidence.md'), override]) {
+  assert.match(document, /references\/human-gates\.md/, 'Every signal shortcut must consult human gates')
+}
+assert.doesNotMatch(signals, /qa-failed[^\n]*only a hint/)
+assert.doesNotMatch(stages, /do-not-merge[^\n]*deliberately not consulted/)
+assert.match(humanGates, /`qa-failed` or `do-not-merge` is a hard stop by itself/)
+assert.match(humanGates, /unresolved human QA \*\*NO-GO\*\* is a hard stop without any label/)
+assert.match(humanGates, /case-insensitive explicit verdict/)
+assert.match(humanGates, /Quoted text, code examples, negation, historical references/)
+assert.match(humanGates, /Verify a human[\s\S]*repository write\/maintain\/admin author/)
+assert.match(humanGates, /Each rejecting human must explicitly withdraw\/resolve their own verdict/)
+assert.match(humanGates, /Evaluate all unresolved verdicts/)
+assert.match(humanGates, /deletion, an edit erasing the verdict, or unavailable history is not clearance/)
+assert.match(humanGates, /invalidate QA[\s\S]*clear current `readyAt`\/`readyHead`\/`readyPolicy`/)
+assert.match(humanGates, /count no stage[\s\S]*attempt/)
+assert.match(humanGates, /Do not promote, prepare, merge, close[\s\S]*as obsolete or create a replacement/)
+assert.match(stages, /Recheck the original for vetoes/)
+for (const area of ['Migrations', 'Permissions or tenant isolation', 'Money', 'Architecture changes', 'Backward-incompatible changes']) assert.ok(humanGates.includes(area))
+assert.match(humanGates, /effective per-PR[\s\S]*`RISK_CHECKS_SKIPPED=false`/)
+assert.match(humanGates, /Never pass `--skip-risk-checks` to any child/)
+assert.match(humanGates, /QA cannot be `n\/a` here[\s\S]*`qaGate: false`/)
+assert.match(humanGates, /Require `qa-approved` plus a \*\*verified human QA reviewer's explicit sign-off\*\*/)
+assert.match(humanGates, /`QA head: <current-full-sha>`/)
+assert.match(humanGates, /posted under a human account,[\s\S]*cannot satisfy this gate/)
+assert.match(humanGates, /automatic carry-forward is insufficient/)
+assert.match(humanGates, /Ordinary fixes outside these areas keep the existing automatic\/override policy/)
+assert.match(humanGates, /Human action: <rejecting reviewer/)
+assert.match(humanGates, /Never leave `Risk checks: skipped` or `ready` describing a protected PR/)
+assert.match(humanGates, /## Gate map/)
+assert.match(humanGates, /## 2b\. Human-only work by policy/)
+assert.match(humanGates, /`automerge\.humanOnlyLabels`[\s\S]*`automerge\.humanOnlyAuthors`/)
+assert.match(humanGates, /`--force` and\s+`automerge-force` cannot waive it/)
+assert.match(read('skills/om-auto-merge-buddy/references/stages.md'), /Pass `--complex` to every `om-auto-qa-pr` invocation/)
+assert.match(read('skills/om-auto-merge-triage/references/eligibility.md'), /\| 7 \| Human lane \|/)
+console.log('PASS: human veto and protected-risk gates precede bootstrap, automatic QA reuse, override propagation, replacements and both finish modes')
+assert.match(humanGates, /behavior-preserving refactor within existing boundaries is not an[\s\S]*architecture change/)
+assert.match(humanGates, /An additive API is not backward-incompatible/)
+assert.match(humanGates, /require \*\*explicit human[\s\S]*technical approval\*\*/)
+assert.match(humanGates, /even when independent native review is disabled/)
+assert.match(humanGates, /full current head SHA, the affected architecture\/contracts/)
+assert.match(humanGates, /same qualified human may provide both only[\s\S]*explicitly covers both technical approval and actual QA/)
+assert.match(humanGates, /missing required[\s\S]*compatibility path remains a blocker/)
+assert.match(humanGates, /no human QA note, risk waiver or merge bypass cancels it/)
+assert.match(humanGates, /never automatically carry a technical decision to a new revision or target/)
+assert.match(humanGates, /changed boundary[\s\S]*or broken contract, missing path and required approval in the status comment/)
+console.log('PASS: architecture and backward-incompatible changes retain human technical/QA gates and the repository compatibility path, with ordinary compatible refactors excluded')
 console.log('Merge buddy regressions passed.')
+
+// Exercise the shipped item-policy decision against mixed queues and fresh reads.
+const itemPolicy = read('skills/om-auto-merge-buddy/references/item-policy.md')
+const itemCode = itemPolicy.match(/```javascript\n([\s\S]*?)\n```/)[1]
+const { resolveAutomergeItemPolicy: item } = runInNewContext(`${itemCode}\n({resolveAutomergeItemPolicy})`)
+const queued = (...modifiers) => ['automerge', ...modifiers]
+assert.equal(item({ labels: queued() }).mode, 'prepare-and-merge')
+assert.equal(item({ labels: queued('automerge-prepare'), mode: 'prepare-and-merge' }).mode, 'prepare-to-merge')
+assert.equal(item({ labels: queued('automerge-force'), mode: 'prepare-to-merge' }).mode, 'prepare-to-merge')
+for (const labels of [queued('automerge-force'), queued('automerge-force', 'automerge-prepare')]) {
+  assert.equal(item({ labels }).riskChecksSkipped, true)
+  assert.equal(item({ labels }).stageFlags.join(' '), '--orchestrated --skip-risk-checks')
+  assert.equal(item({ labels, protectedArea: true }).riskChecksSkipped, false)
+  assert.equal(item({ labels, protectedArea: true }).stageFlags.join(' '), '--orchestrated')
+}
+assert.equal(item({ labels: queued('automerge-force', 'automerge-prepare') }).mode, 'prepare-to-merge')
+for (const flags of [{ force: true }, { skipRiskChecks: true }, { force: true, skipRiskChecks: true }]) {
+  assert.equal(item({ labels: queued(), ...flags }).riskChecksSkipped, true)
+  assert.equal(item({ labels: queued(), protectedArea: true, ...flags }).riskChecksSkipped, false)
+}
+for (const labels of [[], ['automerge-force'], ['automerge-prepare'], ['automerge-force', 'automerge-prepare']]) {
+  const result = item({ labels, force: true })
+  assert.equal(result.authorized, false)
+  assert.equal(result.stageFlags.length, 0)
+}
+assert.equal(item({ labels: ['ship', 'automerge-prepare'], queueLabel: 'ship' }).mode, 'prepare-to-merge')
+assert.equal(item({ labels: ['ship', 'automerge-force'], queueLabel: 'ship' }).riskChecksSkipped, true)
+// Label changes on the same head and a following ordinary worker cannot inherit policy.
+assert.equal(item({ labels: queued('automerge-force') }).riskChecksSkipped, true)
+assert.equal(item({ labels: queued() }).riskChecksSkipped, false)
+assert.equal(item({ labels: queued('automerge-prepare') }).mode, 'prepare-to-merge')
+assert.equal(item({ labels: queued() }).mode, 'prepare-and-merge')
+assert.equal(item({ labels: queued(), force: true }).riskChecksSkipped, true)
+for (const labels of [undefined, null, {}, [null]]) assert.throws(() => item({ labels }), /Incomplete label read/)
+assert.throws(() => item({ labels: queued(), mode: 'automerge-prepare' }), /Invalid invocation mode/)
+assert.match(itemPolicy, /never child `--force`/)
+assert.match(itemPolicy, /block merging\nif transfer cannot be verified/)
+assert.match(stages, /resolve the effective per-item mode\/risk/)
+console.log('PASS: per-item force/prepare precedence, mixed queues, removal, protected gates and child arguments')
+
+// Existing children must still recognize the force marker without upgrades.
+assert.ok(override.includes('`Risk checks: skipped — operator --force`'))
+for (const child of ['om-auto-review-pr', 'om-auto-qa-pr', 'om-auto-fix-pr']) {
+  assert.ok(read(`skills/${child}/references/orchestrated-mode.md`).includes('`Risk checks: skipped — operator --force`'))
+}
+assert.match(signals, /effective per-item force request is enabled/)
+console.log('PASS: per-item overrides preserve child provenance and strict CR invalidation contracts')
+
+// A final evidence comment is an audit artifact, never authorization to merge.
+const mergeSummary = read('skills/om-auto-merge-buddy/references/merge-summary.md')
+const finishMerge = stages.split('- **`prepare-and-merge`**')[1].split('\n  - **Refused merge**')[0]
+assert.match(skill, /one final evidence summary[\s\S]*references\/merge-summary\.md/)
+assert.match(finishMerge, /refresh the status[\s\S]*one additional evidence summary[\s\S]*confirm its write[\s\S]*recheck all final gates\/ownership before \*\*merge-pr\*\*/)
+assert.match(mergeSummary, /Never post it for prepare-only, waiting, blocked, obsolete/)
+assert.match(mergeSummary, /entire process, including[\s\S]*earlier visits\/runs[\s\S]*original\/replacement chain/)
+assert.match(mergeSummary, /distinguish work the buddy performed from pre-existing evidence it reused/)
+assert.match(mergeSummary, /Verification claims[\s\S]*must cover the final head/)
+assert.match(mergeSummary, /legacy bare-skill spelling/)
+assert.match(mergeSummary, /copied[\s\S]*outsider marker is never authoritative/)
+assert.match(mergeSummary, /Search the full comment history/)
+assert.match(mergeSummary, /Incomplete or unreadable history[\s\S]*stops creation and merging/)
+assert.match(mergeSummary, /cannot be updated, do not post a duplicate/)
+assert.match(mergeSummary, /inability to confirm the one summary parks the PR `ready` without[\s\S]*merging/)
+assert.match(mergeSummary, /Immediately after the confirmed summary write, re-read head\/target, queue and[\s\S]*modifier labels, human vetoes\/approvals and signal evidence/)
+assert.match(mergeSummary, /No new[\s\S]*producing stage or unrelated work belongs between summary and merge/)
+assert.match(mergeSummary, /Confirm the merge via \*\*get-pr\*\*/)
+assert.match(mergeSummary, /failed post-merge edit[\s\S]*never a reason to retry a confirmed merge/)
+assert.match(mergeSummary, /2–6 short factual bullets/)
+assert.match(mergeSummary, /Distinguish QA[\s\S]*not required from QA passed/)
+assert.match(mergeSummary, /Never call waived red CI green/)
+assert.match(mergeSummary, /\*\*🚀 Merging now: `<head>` into `<target>` — squash merge\.\*\*/)
+console.log('PASS: one whole-process pre-merge summary follows status, preserves evidence truth and rechecks gates before guarded merge')
+
+// Execute the shipped policy loaders, including absence and invalid explicit values.
+const buddySetup = read('skills/om-auto-merge-buddy/references/agentic-setup.md')
+const triageSetup = read('skills/om-auto-merge-triage/references/agentic-setup.md')
+const configFields = read('skills/om-setup-agent-pipeline/references/config-capabilities.md')
+const setupSkill = read('skills/om-setup-agent-pipeline/SKILL.md')
+const policyTmp = mkdtempSync(join(tmpdir(), 'human-lane-policy-'))
+try {
+  for (const source of [buddySetup, triageSetup, configFields]) {
+    const names = source === triageSetup ? ['HUMAN_ONLY_LABELS','HUMAN_ONLY_AUTHORS'] : ['HUMAN_ONLY_LABELS','HUMAN_ONLY_AUTHORS','COMPLEX_QA']
+    for (const name of names) {
+      const line = source.split('\n').find(line => line.startsWith(`${name}=`))
+      assert.ok(line, `Missing ${name}`)
+      for (const [policy, expected] of name === 'COMPLEX_QA'
+        ? [[{},'always'],[{complexQa:'never'},'never'],[{complexQa:'needs-qa'},'needs-qa'],[{complexQa:'always'},'always'],[{complexQa:'typo'},null],[{complexQa:null},null],[{complexQa:false},null]]
+        : [[{},'[]'],[{[name === 'HUMAN_ONLY_LABELS' ? 'humanOnlyLabels' : 'humanOnlyAuthors']:['feature']},'["feature"]'],[{[name === 'HUMAN_ONLY_LABELS' ? 'humanOnlyLabels' : 'humanOnlyAuthors']:false},null],[{[name === 'HUMAN_ONLY_LABELS' ? 'humanOnlyLabels' : 'humanOnlyAuthors']:[1]},null]]) {
+        const config = join(policyTmp,'config.json')
+        writeFileSync(config, JSON.stringify({automerge:policy}))
+        const result = spawnSync('bash',['-eu'], {input:`${line}\nprintf '%s' "$${name}"`,env:{...process.env,CONFIG:config},encoding:'utf8'})
+        if (expected === null) assert.notEqual(result.status,0, `${name} rejects ${JSON.stringify(policy)}`)
+        else { assert.equal(result.status,0,result.stderr); assert.equal(result.stdout,expected) }
+      }
+    }
+  }
+} finally { rmSync(policyTmp,{recursive:true,force:true}) }
+for (const key of ['humanOnlyLabels','humanOnlyAuthors','complexQa']) {
+  assert.ok(setupSkill.includes(`"${key}"`))
+  assert.ok(configFields.includes(`automerge.${key}`))
+}
+const humanLane = read('skills/om-auto-merge-triage/references/human-lane.md')
+const eligibility = read('skills/om-auto-merge-triage/references/eligibility.md')
+assert.match(eligibility,/references\/human-lane\.md/)
+assert.doesNotMatch(eligibility,/its human-gates reference/)
+for (const area of ['Migrations','Permissions or tenant isolation','Money','Architecture changes','Backward-incompatible changes']) assert.ok(humanLane.includes(area))
+assert.match(humanLane,/No companion skill or its reference files are required/)
+assert.match(stages,/`always` is the default/)
+assert.match(stages,/pass `--basic`/)
+console.log('PASS: human policy loaders reject invalid settings; complex defaults always; standalone triage owns its classification')

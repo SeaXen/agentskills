@@ -1,7 +1,7 @@
 # 📚 Academic Writing, Research & Literature
 
 > **Category**: `academic-writing-publishing`  
-> **Total Curated Skills**: 237 skills  
+> **Total Curated Skills**: 238 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -91,7 +91,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`content-writer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/content-writer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "write SEO content", "draft a blog post / landing page", "update outd... |
 | [`create-talk`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/create-talk) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate Beamer presentations for the sewage-house-prices project by dispatching the Storytelle... |
 | [`database-comparison-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/database-comparison-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Compare major academic databases and when to use each for research |
-| [`deck-guizang-editorial`](../../library/nexu-io-open-design/skills/deck-guizang-editorial) | ⚪ Reserve | `nexu-io-open-design` | Editorial magazine meets e-ink: 10 layouts and 5 palettes (Ink, Indigo Porcelain, Forest Ink, K... |
 | [`deep-learning-papers-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/deep-learning-papers-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Annotated deep learning paper implementations with code walkthroughs |
 | [`deep-literature-search`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/deep-literature-search) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Multi-source exhaustive literature search across academic databases |
 | [`deep-research`](../../library/academic-research-skills/skills/deep-research) | ⚪ Reserve | `academic-research-skills` | Universal deep research agent team. 13-agent pipeline for rigorous academic research on any top... |
@@ -115,6 +114,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`google-scholar-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/google-scholar-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Advanced Google Scholar search techniques for comprehensive literature discovery |
 | [`grant-proposal`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/grant-proposal) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Draft a structured grant proposal from research ideas and literature. Supports KAKENHI (Japan),... |
 | [`h-index-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/h-index-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Understanding and calculating research impact metrics |
+| [`hps-academic-paper`](../../library/feimacode-open-design-agent-kit/skills/hps-academic-paper) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A review deck on compositional generalization in large language models — the field map, the gap... |
 | [`hugging-face-paper-publisher`](../../library/sickn33-agentic-awesome-skills/skills/hugging-face-paper-publisher) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Publish and manage research papers on Hugging Face Hub. Supports creating paper pages, linking ... |
 | [`huggingface-paper-publisher`](../../library/huggingface-skills/skills/huggingface-paper-publisher) | ⚪ Reserve | `huggingface-skills` | Publish and manage research papers on Hugging Face Hub. Supports creating paper pages, linking ... |
 | [`hypogenic`](../../library/davila7-claude-code-templates/skills/hypogenic) | ⚪ Reserve | `davila7-claude-code-templates` | Automated hypothesis generation and testing using large language models. Use this skill when ge... |
@@ -140,6 +140,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`litreview`](../../library/alirezarezvani-claude-skills/skills/litreview) | ⚪ Reserve | `alirezarezvani-claude-skills` | Searches academic literature through free, keyless PubMed and OpenAlex APIs, optionally augment... |
 | [`ljg-qa`](../../library/lijigang-ljg-skills/skills/ljg-qa) | ⚪ Reserve | `lijigang-ljg-skills` | 信息提问机。给一篇文章/论文/书，把核心观点抽成 Q-A 对——Question 切要害，不教科书；Answer 简洁清晰，有形式化收口，逻辑链完整。读者顺 Q 链走过，每个 A 砸下一枚钉... |
 | [`local-citation-finder`](../../library/sickn33-agentic-awesome-skills/skills/local-citation-finder) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Local Citation Finder. Use when working with business category and service location. |
+| [`magazine-poster`](../../library/feimacode-open-design-agent-kit/skills/magazine-poster) | ⚪ Reserve | `feimacode-open-design-agent-kit` | An editorial-style poster — newsprint paper, dateline, oversized serif headline with a struck-t... |
 | [`maintain-codex-wiki`](../../library/sickn33-agentic-awesome-skills/skills/maintain-codex-wiki) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Maintain a review-first engineering wiki with provenance, citation-aware queries, explicit capt... |
 | [`med-researcher-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/med-researcher-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Multi-agent system for biomedical literature review and synthesis |
 | [`medical-imaging-review`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/medical-imaging-review) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Write comprehensive literature reviews for medical imaging AI research. Use when writing survey... |

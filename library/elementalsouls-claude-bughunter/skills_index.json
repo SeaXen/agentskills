@@ -4,7 +4,7 @@
     "name": "apk-redteam-pipeline",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "End-to-end Android APK red-team pipeline \u2014 automated APK acquisition (Play Store + apkpure + apkmirror fallback), jadx decompilation, secret/URL/JWT/Firebase grep, pinned-cert extraction, exported-component enumeration, Frida runtime instrumentation templates, intent-injection probes. Built from an authorized external red-team engagement where 7 APKs were pulled manually, 4 download attempts truncated, and a hardcoded JWT + 30 internal API endpoints were recovered from one of the apps. Use when target has a mobile app catalogue (Play Store developer page), when you find an APK URL hosted on a web server, or when post-recon mentions \"mobile app\" in scope.",
     "path": "library/elementalsouls-claude-bughunter/skills/apk-redteam-pipeline",
     "activation_cmd": "python .agents/library/activate_skill.py activate apk-redteam-pipeline",
     "link_cmd": "python .agents/library/activate_skill.py link apk-redteam-pipeline"
@@ -14,7 +14,7 @@
     "name": "bb-local-toolkit",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Local-tooling companion to the bug-bounty orchestrator \u2014 carries the SAME complete bug-bounty workflow, but reach for THIS variant when you also need to resolve where tools, wordlists, and clones are installed on the local machine (jhaddix, SecLists, trufflehog, ffuf, dalfox, ghauri); for pure orchestration/routing use the bug-bounty skill. Workflow it covers \u2014 recon (subdomain enumeration, asset discovery, fingerprinting, HackerOne scope, source code audit), pre-hunt learning (disclosed reports, tech stack research, mind maps, threat modeling), vulnerability hunting (IDOR, SSRF, XSS, auth bypass, CSRF, race conditions, SQLi, XXE, file upload, business logic, GraphQL, HTTP smuggling, cache poisoning, OAuth, timing side-channels, OIDC, SSTI, subdomain takeover, cloud misconfig, ATO chains, agentic AI), LLM/AI security testing (chatbot IDOR, prompt injection, indirect injection, ASCII smuggling, exfil channels, RCE via code tools, system prompt extraction, ASI01-ASI10), A-to-B bug chaining (IDOR\u2192auth bypass, SSRF\u2192cloud metadata, XSS\u2192ATO, open redirect\u2192OAuth theft, S3\u2192bundle\u2192secret\u2192OAuth), bypass tables (SSRF IP bypass, open redirect bypass, file upload bypass), language-specific grep (JS prototype pollution, Python pickle, PHP type juggling, Go template.HTML, Ruby YAML.load, Rust unwrap), and reporting (7-Question Gate, 4 validation gates, human-tone writing, templates by vuln class, CVSS 3.1, PoC generation, always-rejected list, conditional chain table, submission checklist). Use when you need the local install path of a tool / wordlist / clone for a hunt, or as the full-workflow variant when operating from this local toolkit; for general routing use the bug-bounty skill. \u4e2d\u6587\u89e6\u53d1\u8bcd\uff1a\u6f0f\u6d1e\u8d4f\u91d1\u3001\u5b89\u5168\u6d4b\u8bd5\u3001\u6e17\u900f\u6d4b\u8bd5\u3001\u6f0f\u6d1e\u6316\u6398\u3001\u4fe1\u606f\u6536\u96c6\u3001\u5b50\u57df\u540d\u679a\u4e3e\u3001XSS\u6d4b\u8bd5\u3001SQL\u6ce8\u5165\u3001SSRF\u3001\u5b89\u5168\u5ba1\u8ba1\u3001\u6f0f\u6d1e\u62a5\u544a",
     "path": "library/elementalsouls-claude-bughunter/skills/bb-local-toolkit",
     "activation_cmd": "python .agents/library/activate_skill.py activate bb-local-toolkit",
     "link_cmd": "python .agents/library/activate_skill.py link bb-local-toolkit"
@@ -24,7 +24,7 @@
     "name": "bb-methodology",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Use at the START of any bug bounty hunting session, when switching targets, or when feeling lost about what to do next. Master orchestrator that combines the 5-phase non-linear hunting workflow with the critical thinking framework (developer psychology, anomaly detection, What-If experiments). Routes to all other skills based on current hunting phase. Also use when asking \"what should I do next\" or \"where am I in the process.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/bb-methodology",
     "activation_cmd": "python .agents/library/activate_skill.py activate bb-methodology",
     "link_cmd": "python .agents/library/activate_skill.py link bb-methodology"
@@ -34,7 +34,7 @@
     "name": "bug-bounty",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Complete bug bounty workflow \u2014 recon (subdomain enumeration, asset discovery, fingerprinting, HackerOne scope, source code audit), pre-hunt learning (disclosed reports, tech stack research, mind maps, threat modeling), vulnerability hunting (IDOR, SSRF, XSS, auth bypass, CSRF, race conditions, SQLi, XXE, file upload, business logic, GraphQL, HTTP smuggling, cache poisoning, OAuth, timing side-channels, OIDC, SSTI, subdomain takeover, cloud misconfig, ATO chains, agentic AI), LLM/AI security testing (chatbot IDOR, prompt injection, indirect injection, ASCII smuggling, exfil channels, RCE via code tools, system prompt extraction, ASI01-ASI10), A-to-B bug chaining (IDOR\u2192auth bypass, SSRF\u2192cloud metadata, XSS\u2192ATO, open redirect\u2192OAuth theft, S3\u2192bundle\u2192secret\u2192OAuth), bypass tables (SSRF IP bypass, open redirect bypass, file upload bypass), language-specific grep (JS prototype pollution, Python pickle, PHP type juggling, Go template.HTML, Ruby YAML.load, Rust unwrap), and reporting (7-Question Gate, 4 validation gates, human-tone writing, templates by vuln class, CVSS 3.1, PoC generation, always-rejected list, conditional chain table, submission checklist). Use for ANY bug bounty task \u2014 starting a new target, doing recon, hunting specific vulns, auditing source code, testing AI features, validating findings, or writing reports. \u4e2d\u6587\u89e6\u53d1\u8bcd\uff1a\u6f0f\u6d1e\u8d4f\u91d1\u3001\u5b89\u5168\u6d4b\u8bd5\u3001\u6e17\u900f\u6d4b\u8bd5\u3001\u6f0f\u6d1e\u6316\u6398\u3001\u4fe1\u606f\u6536\u96c6\u3001\u5b50\u57df\u540d\u679a\u4e3e\u3001XSS\u6d4b\u8bd5\u3001SQL\u6ce8\u5165\u3001SSRF\u3001\u5b89\u5168\u5ba1\u8ba1\u3001\u6f0f\u6d1e\u62a5\u544a",
     "path": "library/elementalsouls-claude-bughunter/skills/bug-bounty",
     "activation_cmd": "python .agents/library/activate_skill.py activate bug-bounty",
     "link_cmd": "python .agents/library/activate_skill.py link bug-bounty"
@@ -44,7 +44,7 @@
     "name": "bugcrowd-reporting",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Bugcrowd-specific reporting tactics complementing report-writing: VRT category search-and-fallback strategy when no exact match exists, manual severity override when VRT defaults underrate impact, severity-request paragraph as first body section, OOS-clause rebuttal templates (rate limiting on auth-flow endpoints, debug-info framing, user-enumeration with sensitive PII, theoretical-issue counter), chained-finding cross-reference patterns, target selection for QA-vs-prod programs, researcher-side hygiene (Bugcrowdninja email alias, account state restoration, friendly-tester posture). Use when filing a Bugcrowd submission, when VRT default seems wrong, when triager closes as OOS or downgrades severity, when chaining linked submissions, or when scope distinguishes production from QA. Pairs with report-writing and triage-validation.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/bugcrowd-reporting",
     "activation_cmd": "python .agents/library/activate_skill.py activate bugcrowd-reporting",
     "link_cmd": "python .agents/library/activate_skill.py link bugcrowd-reporting"
@@ -53,8 +53,8 @@
     "id": "claude-bughunter",
     "name": "claude-bughunter",
     "repository": "elementalsouls-claude-bughunter",
-    "category": "general",
-    "description": "",
+    "category": "security-vulnerability-audit",
+    "description": "An Android red-team pipeline that automates APK acquisition, jadx decompilation, secret grepping, and Frida instrumentation.",
     "path": "library/elementalsouls-claude-bughunter/skills/claude-bughunter",
     "activation_cmd": "python .agents/library/activate_skill.py activate claude-bughunter",
     "link_cmd": "python .agents/library/activate_skill.py link claude-bughunter"
@@ -64,7 +64,7 @@
     "name": "cloud-iam-deep",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Cloud IAM red-team attack chain across AWS, Azure, GCP \u2014 focused on EXTERNAL exploitation paths and post-credential-discovery privilege analysis. Covers IAM enumeration (aws iam, az role, gcloud iam), STS/AssumeRole chaining, Azure Managed Identity abuse (via SSRF/leak), GCP service account JSON abuse, IMDSv1/v2 attacks via SSRF, K8s ServiceAccount token privilege analysis once held (token discovery / cluster exposure is owned by hunt-k8s), role-trust-policy confused-deputy, cross-account assume-role enumeration, IAM privilege escalation patterns (24+ AWS, 8+ Azure, 6+ GCP), and AWS Cognito Identity Pool unauthenticated-role attack chain (GetId \u2192 GetCredentialsForIdentity \u2192 IAM role abuse). Built for the case where recon yields a credential (key, JSON, token) and you need to know what it grants and how to escalate. Use when an AWS key / Azure secret / GCP service account JSON / K8s SA token surfaces from a code repo, JS bundle, APK, breach corpus, or SSRF chain.",
     "path": "library/elementalsouls-claude-bughunter/skills/cloud-iam-deep",
     "activation_cmd": "python .agents/library/activate_skill.py activate cloud-iam-deep",
     "link_cmd": "python .agents/library/activate_skill.py link cloud-iam-deep"
@@ -74,7 +74,7 @@
     "name": "enterprise-vpn-attack",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "External SSL VPN / remote-access appliance attack matrix \u2014 Cisco ASA/AnyConnect, Fortinet FortiGate/FortiOS, Citrix NetScaler/ADC, Palo Alto GlobalProtect, Pulse Secure / Ivanti Connect Secure, SonicWall, F5 Big-IP. Covers version fingerprinting, CVE matrix (2018-2026), AAA backend identification, default credentials, configuration-disclosure paths, pre-auth RCE/SSRF/path-traversal exploits where applicable. Built from authorized-engagement Cisco ASA testing plus 2024-2026 enterprise VPN CVE landscape. Use whenever the target's perimeter exposes any SSL VPN appliance or remote-access gateway \u2014 these are the most common initial-access points in 2024-2026 actor TTPs.",
     "path": "library/elementalsouls-claude-bughunter/skills/enterprise-vpn-attack",
     "activation_cmd": "python .agents/library/activate_skill.py activate enterprise-vpn-attack",
     "link_cmd": "python .agents/library/activate_skill.py link enterprise-vpn-attack"
@@ -84,7 +84,7 @@
     "name": "evidence-hygiene",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Evidence-capture and PoC-redaction discipline for bug-bounty submissions: cookie redaction protocol (which fields to mask, Preview annotation / Burp panel hiding / DevTools workflow), PII black-bar discipline (what to mask in other-user data \u2014 names, emails, phones, faces \u2014 vs what is safe to leave \u2014 usernames, trace IDs, request bodies), HAR file sanitization (jq filters for Cookie/Set-Cookie/Authorization headers), Burp Repeater/Intruder screenshot hygiene (hide request body, show only Results table for rate-limit attacks), Chrome DevTools Console PoC patterns (credentials include so cookies are not echoed, labeled console.log), screenshot capture order, filename conventions, post-submission rotation hygiene. Use BEFORE any PoC screenshot, BEFORE attaching a HAR, or whenever preparing evidence with session cookies or other-user PII. Pairs with bugcrowd-reporting and report-writing.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/evidence-hygiene",
     "activation_cmd": "python .agents/library/activate_skill.py activate evidence-hygiene",
     "link_cmd": "python .agents/library/activate_skill.py link evidence-hygiene"
@@ -94,7 +94,7 @@
     "name": "hunt-api-misconfig",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt API security misconfiguration \u2014 mass assignment, prototype pollution, HTTP verb tampering. Mass assignment: send {is_admin:true, role:admin, verified:true} on profile/account/reset endpoints \u2014 server blindly applies. JWT signature/crypto forging (alg:none, key confusion, kid/jku) is owned by hunt-jwt-crypto; this skill covers only non-crypto JWT handling. Prototype pollution: __proto__ injection in JSON merge / Object.assign / lodash _.merge \u2192 polluted prototype reaches sink (RCE in Node, XSS in browser). HTTP verb: GET-bypass-CSRF, X-HTTP-Method-Override, TRACE enabled. Detection: API responses with extra fields, JWTs in headers (decode at jwt.io). CORS misconfiguration (reflect-any-origin, null origin, subdomain-regex bypass, postMessage) is owned by hunt-cors. Use when hunting API misconfigs, mass-assignment, prototype pollution (JWT crypto \u2192 hunt-jwt-crypto).\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-api-misconfig",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-api-misconfig",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-api-misconfig"
@@ -104,7 +104,7 @@
     "name": "hunt-aspnet",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunt ASP.NET-specific surface \u2014 ViewState deserialization (signed-only vs encrypted), machineKey recovery, dual-parser MAC-bypass anti-pattern, request-validator bypass, trace.axd/elmah.axd disclosure, load-balanced ViewState cross-node failures, SafeControl enumeration via reflection, customErrors mode=Off stack-trace leaks, classic Webforms .aspx/.asmx/.svc surface. Built for ASP.NET Webforms + WCF + SharePoint farms.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-aspnet",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-aspnet",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-aspnet"
@@ -114,7 +114,7 @@
     "name": "hunt-ato",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt account takeover taxonomy \u2014 9 distinct paths to ATO, plus chains. Paths: (1) password reset flaws (host-header injection redirects token, predictable/numeric token, Referer leak, no-expiry/reuse), (2) email change without re-auth, (3) OAuth account-link CSRF, (4) MFA bypass (per hunt-mfa-bypass), (5) session fixation, (6) JWT manipulation (forge token to another identity; crypto details \u2192 hunt-jwt-crypto), (7) password change without step-up (chain with login timing/length oracle), (8) social-recovery / security-question brute-force, (9) SSO subdomain takeover at OAuth redirect_uri. Chains: cookie theft + password oracle + no step-up = persistent ATO; lax redirect_uri = auth-code theft; dangling-CNAME takeover at redirect_uri = ATO. Validate: demonstrate real takeover of test account B from attacker A's session; OOB/Collaborator confirm blind token-leak steps. Use when hunting ATO chains, testing password reset / email change / MFA / OAuth / session / JWT, or chaining primitives toward Critical.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-ato",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-ato",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-ato"
@@ -124,7 +124,7 @@
     "name": "hunt-auth-bypass",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunting skill for auth bypass vulnerabilities. Built from 12 public bug bounty reports across SAML XSW / parser-differential (GitHub Enterprise CVE-2025-25291/25292), SAML signature stripping (Uber, Rocket.Chat, samlify CVE-2025-47949), SAML domain enforcement bypass via control characters (HackerOne 2024), partner-portal cross-IdP assertion reuse (Slack), WordPress XMLRPC bypassing SSO (Uber), JWT alg-confusion HS256/RS256 (Jitsi), JWT signature-validation skip (Linktree, Newspack), and token-audience confusion (Argo CD CVE-2023-22482). For standalone JWT signature/crypto forging (alg:none, key confusion, kid/jku) see hunt-jwt-crypto; this skill covers JWT only inside SSO/SAML/token-trust bypass chains. SAML assertion-layer attacks (XSW, comment injection, signature stripping, XXE-in-assertion) are owned by hunt-saml; this skill owns the broader cross-protocol auth-bypass taxonomy. Use when hunting auth bypass \u2014 see the Legacy-Protocol Matrix for branded-UI vs legacy-endpoint patterns.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-auth-bypass",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-auth-bypass",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-auth-bypass"
@@ -134,7 +134,7 @@
     "name": "hunt-brute-force",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt Missing/Weak Rate Limiting \u2014 login brute force, OTP/2FA brute force (10^6 keyspace), password-reset-token brute, credential stuffing, username/email enumeration via error-string / status-code / timing differences, weak password policy, missing CAPTCHA (CAPTCHA token replay / single-use / concurrency-window bypass specifics \u2192 hunt-captcha-bypass), IP-based rate-limit bypass via X-Forwarded-For and friends, ReDoS. Distinguishes hard lockout vs soft IP-throttle vs CAPTCHA-injection vs silent shadow-throttling (avoids false-negative 'no rate limit' conclusions). Medium to Critical depending on what the brute reaches (OTP\u2192ATO = Critical).\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-brute-force",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-brute-force",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-brute-force"
@@ -144,7 +144,7 @@
     "name": "hunt-business-logic",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunting skill for business logic vulnerabilities. Built from 12 public bug bounty reports. Covers coupon-race-stacking (Instacart, Stripe, Reverb), negative-quantity-in-cart price tampering (Upserve, Eternal/Zomato), decimal/fraction price-field overflow (Shipt), client-side checkout amount trust on PayPal redirect (WordPress.org), price-per-unit mass-assignment (Krisp), and archived-price swap / cart-TOCTOU (Stripe). Use when hunting business logic \u2014 heavy emphasis on financial-impact-demonstrated cases.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-business-logic",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-business-logic",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-business-logic"
@@ -154,7 +154,7 @@
     "name": "hunt-cache-poison",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunting skill for cache poison vulnerabilities. Built from 10 public bug bounty reports including X-Forwarded-Host poisoning, X-HTTP-Method-Override / GCS cache, reflected\u2192stored XSS via cache, classic Omer-Gil Web Cache Deception, Cloudflare Cache Deception Armor bypass, session-token cache deception, Akamai hop-by-hop smuggling \u2192 server-side edge poisoning, and Kettle's 2024 path-normalization WCD against Cloudflare/Fastly/GCP. Host/X-Forwarded-Host injection that reaches app logic (reset-link poisoning, routing SSRF, OAuth issuer) is owned by hunt-host-header; this skill owns the case where the poisoned response is CACHED and served to other users. Use when hunting cache poisoning, Web Cache Deception, CDN-fronted apps.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-cache-poison",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-cache-poison",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-cache-poison"
@@ -164,7 +164,7 @@
     "name": "hunt-captcha-bypass",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt CAPTCHA Bypass \u2014 6 distinct patterns: (1) CAPTCHA field simply omitted from the request (server-side validation absent), (2) CAPTCHA token replayed from a solved challenge (no single-use enforcement), (3) CAPTCHA response accepted on a different endpoint than it was solved on (no binding to action/session), (4) static or predictable CAPTCHA values accepted (e.g. '0', 'null', empty string), (5) audio/accessibility CAPTCHA trivially solvable programmatically, (6) CAPTCHA only enforced after N failures (first N requests bypass it). Detection: intercept a successful form submission, remove the CAPTCHA field entirely, replay \u2014 if it still succeeds, server-side validation is absent. Medium severity standalone; High when it removes the only rate-limit gate protecting a login, registration, or payment endpoint.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-captcha-bypass",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-captcha-bypass",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-captcha-bypass"
@@ -174,7 +174,7 @@
     "name": "hunt-cicd",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt CI/CD pipeline vulnerabilities \u2014 GitHub Actions workflow injection (pull_request_target Pwnrequest + ${{ }}-into-shell), self-hosted runner poisoning, OIDC trust-policy abuse, Jenkins script-console RCE and CVE-2024-23897 file read, GitLab CI runner-token registration, Terraform state file leakage, artifact/log secret leakage, pipeline env-var disclosure. Use when target has a public GitHub/GitLab org, exposed CI dashboards (Jenkins/TeamCity/Drone/Argo), or build artifacts/images are reachable.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-cicd",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-cicd",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-cicd"
@@ -184,7 +184,7 @@
     "name": "hunt-clickjacking",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt Clickjacking \u2014 missing X-Frame-Options / CSP frame-ancestors lets an attacker embed the target page in an invisible iframe and trick victims into clicking buttons they cannot see (UI redressing). Targets: login flows, money transfers, account settings, OAuth confirmation pages. Confirm by fetching the page, then PROVE it frames in a real browser and a sensitive state-changing action survives the cross-site context (SameSite cookies / framebusting JS can defeat it) \u2014 header-absence alone is not a finding.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-clickjacking",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-clickjacking",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-clickjacking"
@@ -194,7 +194,7 @@
     "name": "hunt-cloud-misconfig",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt cloud / infrastructure misconfigurations. AWS: public S3 buckets (s3:GetObject anonymous), permissive bucket policies (PutObjectAcl public-write), exposed CloudFront origin, public Lambda function URL, public RDS snapshot, IAM credentials in JS bundles, AWS metadata accessible via SSRF. GCP: public GCS buckets, exposed Cloud Run services, leaked service account JSON. Azure: public blob containers, exposed Function App. (Kubernetes/Docker exposure is owned by hunt-k8s; CI/CD pipeline attacks by hunt-cicd; post-credential IAM escalation by cloud-iam-deep.) Detection: targeted dorking, certificate transparency, JS bundle secret extraction, port scan for known service ports. Validate: actual data read / write / RCE. Use when hunting cloud-native storage and compute misconfig (S3/GCS/Blob, IMDS-via-SSRF, serverless, public managed services).\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-cloud-misconfig",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-cloud-misconfig",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-cloud-misconfig"
@@ -204,7 +204,7 @@
     "name": "hunt-cors",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt CORS Misconfiguration \u2014 origin-reflection with credentials, null-origin trust, subdomain-regex bypass (unanchored vs unescaped-dot vs prefix-only), pre-flight (OPTIONS) gating bypass, postMessage origin checks. High only when an attacker-controlled origin can perform a CREDENTIALED cross-origin read of sensitive data and you have proven it in a browser. Use when testing API endpoints, SPAs, or any app emitting Access-Control-* headers.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-cors",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-cors",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-cors"
@@ -214,7 +214,7 @@
     "name": "hunt-csrf",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunting skill for csrf vulnerabilities. Built from 15 public bug bounty reports including modern variants \u2014 SameSite=Lax sibling-subdomain bypass (Argo CD CVE-2024-22424), GraphQL mutations-via-GET (GitLab $3,370), framework-wide CSRF middleware disabled (Stripe Dashboard $5,000), path-traversal CSRF-token bypass (GitHub Enterprise CVE-2022-23732 $10k), Origin-omission bypass (TikTok $2,500), OAuth-state null-byte (Streamlabs), WebSocket CSRF / CSWSH (Coda), default-SameSite email-change \u2192 ATO (YoYo Games $400), social-account-link CSRF (HackerOne), JSON-CSRF via text/plain on email-change (TikTok $500). Use when hunting modern CSRF \u2014 heavy emphasis on chain-to-ATO patterns.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-csrf",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-csrf",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-csrf"
@@ -224,7 +224,7 @@
     "name": "hunt-deserialization",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunt Insecure Deserialization \u2014 Java gadget chains (ysoserial), PHP object injection (phpggc), Python pickle RCE, .NET BinaryFormatter, Ruby Marshal.load, JNDI/Log4Shell. RCE via deserialization is almost always Critical. Use when target runs Java, PHP serialization, Python pickle, .NET, or Ruby on Rails.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-deserialization",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-deserialization",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-deserialization"
@@ -234,7 +234,7 @@
     "name": "hunt-dispatch",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Skill-set loader for /hunt orchestrator. Fingerprints the target, picks the right platform attack skills, and loads the Red Team or WAPT skill set. Use when /hunt has just received a mode answer (redteam or wapt + blackbox|greybox) and needs to load the appropriate skills and print the taxonomy. Not for direct user invocation.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-dispatch",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-dispatch",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-dispatch"
@@ -244,7 +244,7 @@
     "name": "hunt-dom",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt client-side DOM vulnerabilities \u2014 DOM Clobbering (overwrite JS globals via HTML injection), PostMessage hijacking (missing origin check), Service Worker abuse (intercept requests from same-origin script), CSS Injection/Exfiltration (attribute selectors \u2192 token char-by-char via OOB), client-side template injection, dangerouslySetInnerHTML. Grounded in named public research: Gareth Heyes / PortSwigger DOM-clobbering + DOM-Invader, Micha\u0142 Bentkowski DOMPurify clobbering bypasses, jQuery htmlPrefilter XSS (CVE-2020-11022 / CVE-2020-11023), d0nut CSS-exfil research. Use when hunting DOM-XSS, client-side auth bypass, or token exfiltration without server-side interaction.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-dom",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-dom",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-dom"
@@ -254,7 +254,7 @@
     "name": "hunt-exceptional-conditions",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt mishandling of exceptional conditions \u2014 feed an endpoint malformed/unexpected input (wrong type, broken JSON, oversized field, null byte) and make it fail OPEN or leak internals: a verbose stack-trace / framework error page that discloses ORM internals, server file paths, library versions, or a language traceback. Use on any input-accepting endpoint (JSON APIs, forms, query params). Medium-High when the leak exposes internal structure that arms a deeper attack.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-exceptional-conditions",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-exceptional-conditions",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-exceptional-conditions"
@@ -264,7 +264,7 @@
     "name": "hunt-file-upload",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt file upload bugs \u2014 RCE via webshell, XSS via SVG/HTML, SSRF via XXE in DOCX, path traversal via filename. Bypass tables (10 techniques): double extension (shell.php.jpg if server checks last ext only), magic bytes spoofing (PNG header on PHP), null byte (shell.php\\0.jpg), case (PHP, .Php, .pHP), .htaccess upload to enable execution, SVG with <script>, HTML/SVG XSS, DOCX with embedded XXE, ZIP slip (../../../etc/passwd in archive), polyglot files. Detection: any /upload, /avatar, /profile-picture, /attachment, /import endpoint. Test: upload PHP/JSP/ASPX shells, request via direct URL, check response. Validate: actual code execution (whoami output) for RCE; reflected XSS in profile-photo URL. Use when testing file upload features, avatar/attachment endpoints, import/export functions, XML/DOCX/ZIP processors. Real paid examples.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-file-upload",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-file-upload",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-file-upload"
@@ -274,7 +274,7 @@
     "name": "hunt-fintech-graphql",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt fintech-specific GraphQL vulnerabilities: money-movement mutations (transfers, redemptions, withdrawals, card top-ups), ledger/balance/portfolio query IDOR, decimal-precision and rounding abuse, idempotency-key bypass enabling double-spend, KYC/PII field-level authorization gaps, and admin-override mutations reachable via mass assignment. Distinct from hunt-graphql, which owns generic GraphQL discovery and IDOR/mutation methodology \u2014 this skill owns the delta introduced when a GraphQL layer sits in front of a ledger, wallet, payments, banking, brokerage, or lending backend, where a resolver bug moves real money instead of just leaking data. Use when hunting a fintech, banking, payments, wallet, neobank, brokerage, or lending target that exposes a GraphQL API, or when a schema/response includes balance, transfer, ledger, redeem, quote, KYC, or account-linking fields.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-fintech-graphql",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-fintech-graphql",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-fintech-graphql"
@@ -284,7 +284,7 @@
     "name": "hunt-forgot-password",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt Forgot Password / Account Recovery Authentication Flaws \u2014 5 distinct patterns: (1) username enumeration via different responses for valid vs invalid email, (2) reset token exposed directly in the API response body, (3) reset token not invalidated after use (replay), (4) password reset link works from a different IP/browser (no binding), (5) no rate limit on the reset request endpoint. These are the standalone recovery-flow broken-auth primitives \u2014 distinct from reset-email host-header poisoning (hunt-host-header) and the full ATO chain (hunt-ato owns password-reset as an ATO path; prove the primitive here, chain it there). Detection: trace the full forgot-password flow from request to token to use; check response diffs between valid/invalid emails; test token replay after consumption. Medium to High (enumeration=Medium, token-reuse=High, account-takeover=Critical when chained to known-email).\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-forgot-password",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-forgot-password",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-forgot-password"
@@ -294,7 +294,7 @@
     "name": "hunt-graphql",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunting skill for graphql vulnerabilities. Built from 12 public bug bounty reports across IDOR via node() / GID, mutation IDOR including AI/LLM features, cross-tenant IDOR, SSRF via argument, batching-DoS, query-cost-bypass, SQLi via argument, broken-object-level-authz, auth-bypass via unscoped mutations, and PII exposure from missing field-level authz. Use when hunting graphql on any target.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-graphql",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-graphql",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-graphql"
@@ -304,7 +304,7 @@
     "name": "hunt-grpc",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt gRPC vulnerabilities \u2014 server reflection enabled (enumerate all services/methods), missing authentication / metadata-stripping on internal endpoints, plaintext gRPC over HTTP/2, internal endpoint disclosure, proto file leakage, gRPC-Web/grpc-gateway transcoding injection, and HTTP/2 Rapid Reset DoS (CVE-2023-44487). Use when target exposes port 50051 / 443 / 8443 / 9090 with HTTP/2, when grpcurl/grpcui detects reflection, when an Envoy or grpc-gateway proxy is fronting a microservice, or when recon reveals a microservice architecture.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-grpc",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-grpc",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-grpc"
@@ -314,7 +314,7 @@
     "name": "hunt-host-header",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt Host Header Injection \u2014 password reset poisoning \u2192 ATO, web cache poisoning via unkeyed Host/X-Forwarded-Host, routing-based SSRF (Host picks upstream \u2192 cloud metadata/internal services), path-override SSRF/ACL-bypass (X-Original-URL/X-Rewrite-URL), OAuth redirect_uri/issuer poisoning, and absolute-URL link poisoning in emails. High to Critical when it reaches ATO or mass cache poisoning. Built on public Host-header research (PortSwigger 'Practical web cache poisoning' + James Kettle, and the classic password-reset-poisoning class). Use on any forgot-password flow, CDN/reverse-proxy-fronted app, OAuth/OIDC endpoint, or absolute-URL-in-email feature.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-host-header",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-host-header",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-host-header"
@@ -324,7 +324,7 @@
     "name": "hunt-html-injection",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt HTML Injection \u2014 user-supplied input is rendered as raw HTML in the response without sanitisation, allowing an attacker to inject arbitrary HTML tags (but not necessarily JavaScript). Lower severity than XSS but enables phishing, UI manipulation, and credential harvesting via injected forms. Use when testing text-display surfaces (search results, profile fields, comments, error messages, feedback forms). For markup that executes JavaScript, escalate to hunt-xss.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-html-injection",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-html-injection",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-html-injection"
@@ -334,7 +334,7 @@
     "name": "hunt-http-smuggling",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt HTTP request smuggling (CL.TE, TE.CL, H2.CL, H2.TE). Cause: front-end proxy and back-end server disagree on where one request ends and the next begins (Content-Length vs Transfer-Encoding header parsing inconsistency). CL.TE: front-end uses CL, back uses TE \u2192 smuggle by sending TE: chunked but with body that fits CL count. TE.CL: opposite. H2.CL: HTTP/2 downgrade, smuggle CL into HTTP/1.1 back-end. Detection tools: Burp HTTP Request Smuggler extension, smuggler.py, h2csmuggler. Confirm: time-delay technique (smuggled GET with 30s timeout) \u2014 if front-end returns slow on next victim request, smuggling works. Validate: cache poisoning chain (smuggle request that gets cached for victim), credential theft (smuggle X-Forwarded-For override that captures next user's cookies), bypass auth (smuggled internal-path request). Real paid examples from major CDN deployments. Use when hunting H1 paid programs running CDN+origin stacks, when targeting load balancer / WAF bypass.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-http-smuggling",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-http-smuggling",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-http-smuggling"
@@ -344,7 +344,7 @@
     "name": "hunt-idor",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunting skill for idor vulnerabilities. Built from 26 public bug bounty reports. Use when hunting idor on any target.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-idor",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-idor",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-idor"
@@ -354,7 +354,7 @@
     "name": "hunt-jwt-crypto",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt JWT cryptographic failures \u2014 alg:none signature-stripping and RS256\u2192HS256 key-confusion that let an attacker forge a token for any identity (e.g. an admin) without knowing a secret. Use when the app authenticates with a JSON Web Token (an `eyJ...` Bearer token in the Authorization header, a cookie, or a login response). This skill OWNS JWT signature/crypto forgery (alg:none, key confusion, kid/jku header injection); hunt-ato covers JWT as one ATO path, hunt-auth-bypass covers SSO/SAML token trust, hunt-api-misconfig covers non-crypto JWT handling. Critical when a forged token grants access to another user's data or an admin-only endpoint.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-jwt-crypto",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-jwt-crypto",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-jwt-crypto"
@@ -364,7 +364,7 @@
     "name": "hunt-k8s",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt Kubernetes & Docker \u2014 API anonymous access, kubelet 10250 exec (SPDY/WebSocket, NOT plain POST) and the simpler /run primitive, etcd 2379 unauth, dashboard skip-login, RBAC misconfig, secret/SA-token abuse, docker.sock host escape, runc/container-escape (Leaky Vessels CVE-2024-21626), API-server-mediated nodes/proxy RCE, EphemeralContainers node-shell, bound/projected SA-token audience+expiry abuse, admission-controller bypass, Helm/Tiller remnants. Use when target runs containerized infra, exposes K8s ports (6443/10250/10255/2379/8443), or cloud metadata reveals K8s service accounts.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-k8s",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-k8s",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-k8s"
@@ -374,7 +374,7 @@
     "name": "hunt-laravel",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunt Laravel specific vulnerabilities \u2014 Debug mode leakage (APP_DEBUG=true exposes full stack trace + env vars), Laravel Telescope/Horizon dashboard unauthorized access, Ignition RCE (CVE-2021-3129), Signed URL manipulation, Queue Worker abuse, mass assignment via Eloquent, deserialization via cookies, .env file exposure. Use when target runs Laravel (PHP) \u2014 detected via X-Powered-By, Laravel session cookies, or /storage/ paths.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-laravel",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-laravel",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-laravel"
@@ -384,7 +384,7 @@
     "name": "hunt-ldap",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt LDAP Injection and XPath Injection \u2014 authentication bypass, blind char-by-char attribute exfiltration, AD user/group enumeration, XML-store XPath bypass. Covers the LDAP special-character set (* ( ) \\\\ NUL /), search-filter-context vs DN-injection, parenthesis-balancing, AND/OR filter logic, and {SSHA}/{CRYPT} userPassword exfil on non-AD directories. Use when target uses LDAP/AD authentication, corporate SSO with a directory backend, an address-book/people-search API, or XML-based data stores queried with XPath.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-ldap",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-ldap",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-ldap"
@@ -394,7 +394,7 @@
     "name": "hunt-lfi",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt Local File Inclusion (LFI), Remote File Inclusion (RFI), and Path Traversal \u2014 /etc/passwd read, log poisoning \u2192 RCE, PHP filter-chain RCE (no upload needed), php:// / data:// / zip:// / phar:// wrappers, RFI via allow_url_include, directory traversal read/write/delete. Covers OOB/blind LFI confirmation and false-positive discipline. Use when hunting file-include or path-traversal bugs on any target.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-lfi",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-lfi",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-lfi"
@@ -404,7 +404,7 @@
     "name": "hunt-llm-ai",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt LLM/AI feature bugs \u2014 prompt injection, indirect injection, exfiltration via tool-use/markdown, ASCII smuggling, agentic AI security (OWASP Agentic Apps 2026, ASI01-ASI10). Patterns: direct injection ('ignore previous instructions'), indirect injection via documents/web pages/email the model reads, ASCII smuggling (Unicode Tags block U+E0000-U+E007F, invisible to humans, decoded by the model), tool-use exfiltration (model has fetch/browse tool, attacker injects OOB URL, model exfils chat history/secrets), markdown-image zero-click exfil, system-prompt extraction, IDOR-via-AI (cross-tenant data). Targets: chatbots, RAG, summarizers, agentic copilots, MCP tools. Detection: any LLM-backed endpoint, doc upload triggering AI processing, autonomous agent with tools. Validate: OOB/Collaborator callback for exfil, verbatim-reproducible system-prompt leak (run twice), verifiable cross-tenant leak or RCE. Confabulation is NOT a finding. Use when hunting AI features, chatbots, RAG, agentic systems, MCP.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-llm-ai",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-llm-ai",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-llm-ai"
@@ -414,7 +414,7 @@
     "name": "hunt-mfa-bypass",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt MFA / 2FA bypass \u2014 7 distinct patterns. (1) MFA not enforced on sensitive endpoints (password change, email change accept without MFA challenge), (2) MFA-step skip via direct navigation to post-login URL, (3) MFA-token replay (same code accepted twice), (4) brute-force the 6-digit OTP without rate limit (10^6 attempts at server speed), (5) race condition on OTP validation, (6) recovery-code dump via /api/me, (7) backup factor downgrade (SMS factor with no rate limit). Plus the chain: cookie theft + password oracle + no step-up = ATO without MFA challenge. Detection: trace auth flow in Burp, find every state transition, check if MFA is middleware-gated vs per-endpoint, check OTP entropy and rate limit on OTP-validate. Validate: attacker session reaching post-MFA state. Use when hunting auth bypass, MFA flows, chaining primitives toward ATO.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-mfa-bypass",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-mfa-bypass",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-mfa-bypass"
@@ -424,7 +424,7 @@
     "name": "hunt-misc",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunting skill for misc vulnerabilities. Built from 225 public bug bounty reports. Use when hunting misc on any target.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-misc",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-misc",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-misc"
@@ -434,7 +434,7 @@
     "name": "hunt-nextjs",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunt Next.js specific vulnerabilities \u2014 Server Actions arbitrary function execution, Middleware auth bypass via static asset paths, ISR cache poisoning, Image Optimization SSRF (/_next/image), RSC payload leakage, getServerSideProps injection, source map exposure, debug endpoint leakage. Use when target runs Next.js 13/14/15 or any React SSR framework.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-nextjs",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-nextjs",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-nextjs"
@@ -444,7 +444,7 @@
     "name": "hunt-nodejs",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunt Node.js specific vulnerabilities \u2014 Prototype Pollution \u2192 RCE chains (lodash/merge/assign), Express trust proxy misconfiguration, child_process/eval injection, template engine SSTI (EJS/Pug/Handlebars), path traversal in file servers, require() injection, environment variable exfil via /proc/self/environ. Use when target runs Node.js/Express/Fastify/NestJS/Koa.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-nodejs",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-nodejs",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-nodejs"
@@ -454,7 +454,7 @@
     "name": "hunt-nosqli",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunt NoSQL Injection \u2014 MongoDB operator injection ($where, $regex, $gt, $ne), CouchDB, Redis command injection, auth bypass via NoSQLi, data dump. Use when target uses MongoDB/Mongoose, CouchDB, Redis, or shows NoSQL error messages.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-nosqli",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-nosqli",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-nosqli"
@@ -464,7 +464,7 @@
     "name": "hunt-ntlm-info",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt NTLM/Negotiate information disclosure on internet-reachable IIS/SharePoint/Exchange. Anonymous NTLM Type-2 challenge capture leaks NetBIOS domain, internal DNS forest, computer name, AD timestamp via AV_PAIRS structure. Default Windows-installer hostnames (WIN-XXXXXXXXXXX pattern) signal lazy provisioning. Use when target advertises `WWW-Authenticate: NTLM` or `Negotiate` headers anonymously.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-ntlm-info",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-ntlm-info",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-ntlm-info"
@@ -474,7 +474,7 @@
     "name": "hunt-oauth",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunting skill for oauth vulnerabilities. Built from 19 public bug bounty reports. Use when hunting oauth on any target.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-oauth",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-oauth",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-oauth"
@@ -484,7 +484,7 @@
     "name": "hunt-open-redirect",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunt Open Redirect \u2014 all types including low-impact, chained to OAuth token theft \u2192 ATO, phishing chains. URL parameter manipulation, JavaScript redirect, meta refresh, header injection. Use when hunting redirect bugs or building ATO chains.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-open-redirect",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-open-redirect",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-open-redirect"
@@ -494,7 +494,7 @@
     "name": "hunt-race-condition",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunting skill for race condition vulnerabilities. Built from 12 public bug bounty reports including modern HTTP/2 single-packet attack cases (James Kettle DEF CON 2023 \"Smashing the State Machine\"; RyotaK / Flatt Security 10,000-request first-sequence-sync expansion 2024). Covers coupon double-redemption, gift-card double-spend, MFA-OTP-validate race, account-create race, faucet/crypto token double-mint, email-activation race, vote/upvote inflation, password-reset token race, rate-limit bypass via concurrent requests. Use when hunting race conditions, TOCTOU bugs, MFA-bypass-via-timing.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-race-condition",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-race-condition",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-race-condition"
@@ -504,7 +504,7 @@
     "name": "hunt-rag-vector",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt vector-store / embedding-layer weaknesses in RAG pipelines (OWASP LLM08 Vector and Embedding Weaknesses) \u2014 persistent corpus poisoning that survives across sessions and users (distinct from one-shot indirect prompt injection, which is owned by hunt-llm-ai), cross-tenant vector-database IDOR (unauthenticated or unscoped queries against Pinecone/Weaviate/Chroma/Milvus/Qdrant/pgvector), source-text/metadata leakage in similarity-search results, and retrieval-hijack via adversarial embedding proximity ('SEO poisoning' for RAG). Targets: any app with a shared knowledge base, document upload feeding a chatbot, or a directly reachable vector-DB port. Validate: a second, clean session/account must inherit a poisoned result, or a cross-tenant artifact must be independently verifiable \u2014 confabulation is not a finding, same bar as hunt-llm-ai. Use when target is RAG-backed, exposes a vector-DB port, or lets users upload documents that other users' queries later retrieve.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-rag-vector",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-rag-vector",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-rag-vector"
@@ -514,7 +514,7 @@
     "name": "hunt-rce",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunting skill for rce vulnerabilities. Built from 67 public bug bounty reports. Use when hunting rce on any target.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-rce",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-rce",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-rce"
@@ -524,7 +524,7 @@
     "name": "hunt-saml",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt SAML / SSO attacks. Patterns: XML Signature Wrapping (XSW) \u2014 modify Assertion while keeping Signature valid by relocating signed element, comment injection in NameID (admin@target.com<!--evil-->@attacker.com \u2192 some parsers see admin@target.com), signature stripping (remove Signature element entirely, server should reject but doesn't), key confusion (signed by attacker's IdP, accepted by SP), audience-restriction not validated, replay attack (same Assertion accepted twice within validity window). Tools: SAML Raider Burp extension, samlmagic, manual XML manipulation. Detection: any /saml endpoint, /Shibboleth.sso, /sso/saml/, Microsoft ADFS endpoints. Validate: account takeover via altered NameID, admin role injection via altered AttributeStatement. Use when hunting SSO flows, when SAML AssertionConsumerService is reachable, when chaining IdP-trust to SP-impersonation.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-saml",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-saml",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-saml"
@@ -534,7 +534,7 @@
     "name": "hunt-session",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt Session Management vulnerabilities \u2014 session fixation (no regeneration on login), insufficient invalidation on logout / password-change / email-change, predictable or low-entropy session IDs, JWT-as-session with no exp/revocation, refresh-token rotation/reuse-detection gaps, OAuth/SSO session linkage, device-bound-session (DBSC) downgrade, and cookie attribute issues (Secure/HttpOnly/SameSite/__Host-). Validate with TWO real sessions (attacker A + victim B), body-diff every 200, and OOB confirmation for theft chains. Medium to Critical (fixation\u2192admin hijack, no-invalidation\u2192persistent ATO).\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-session",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-session",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-session"
@@ -544,7 +544,7 @@
     "name": "hunt-shadow-api",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt shadow / zombie / undocumented API surface (OWASP API9 Improper Inventory Management) \u2014 enumerate the full API version history (v1/v2/beta/legacy paths, header- and subdomain-based versioning), pull and diff every reachable OpenAPI/Swagger spec (including ones only findable via the Wayback Machine), and behaviorally diff old vs. current versions for auth/rate-limit/validation regressions rather than just response-shape differences. Distinct from hunt-api-misconfig, which owns exploitation once you have a spec or endpoint (mass assignment, JWT, OData, Swagger-chain attacks); distinct from hunt-subdomain, which owns host-level discovery. This skill owns the version-inventory and behavioral-diff workflow itself. Use when the target has versioned API paths, multiple specs, a changelog referencing deprecated endpoints, or a mobile app whose hardcoded backend calls look older than the current web app's.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-shadow-api",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-shadow-api",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-shadow-api"
@@ -554,7 +554,7 @@
     "name": "hunt-sharepoint",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunt Microsoft SharePoint Server (2013/2016/2019/Subscription Edition) on-prem farms \u2014 anonymous endpoint enumeration, version disclosure, legacy SOAP login bypass (Authentication.asmx), ToolShell precondition chain (CVE-2025-53770), SafeControl reflection enumeration via Picker.aspx, NTLM Type-2 AD topology disclosure, custom-branding module discovery, EoL farm permanent-CVE-window exploitation, FormDigest anonymous issuance, file-extension blocklist NOT-an-oracle pattern, custom-zone Forms auth bridging on-prem AD. Use when target has SharePoint headers (SPRequestGuid, X-MS-InvokeApp, X-SharePointHealthScore, MicrosoftSharePointTeamServices) or paths (/_layouts/15/, /_vti_bin/, /_api/, /_catalogs/).",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-sharepoint",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-sharepoint",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-sharepoint"
@@ -564,7 +564,7 @@
     "name": "hunt-source-leak",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunt source code and build artifact leakage \u2014 JavaScript source maps (.js.map) reconstructing TypeScript/ES6 source, Swagger/OpenAPI JSON endpoint discovery, .env/.git exposure, webpack chunks with hardcoded secrets, robots.txt/security.txt recon, build-info files, asset-manifest.json API route discovery, .DS_Store file listing. Use at the START of every recon session \u2014 these findings often unlock the entire attack surface.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-source-leak",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-source-leak",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-source-leak"
@@ -574,7 +574,7 @@
     "name": "hunt-spa-api",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Discover a single-page-app's hidden backend API from its public JS bundle, then test that API for broken access control / missing authentication. One of the highest-yield web plays in modern recon \u2014 SPAs ship their entire backend route map to the browser, and the API behind them is frequently missing the auth middleware the login page implies. Built from an authorized engagement where this play found an unauthenticated financial API that an ASM scan reporting hundreds of \"Criticals\" completely missed. Use whenever a target serves a JS-heavy SPA (React/Vue/Angular/Next), an \"app\"/\"console\"/\"dashboard\"/\"portal\" subdomain, or any `*api*` host shows up in recon. Leaked build artifacts (source maps / .env / .git / asset-manifest) are owned by hunt-source-leak; API version-inventory and behavioral diffing by hunt-shadow-api; this skill owns mapping a live SPA's backend routes from its JS bundle and testing them for broken access control / missing auth.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-spa-api",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-spa-api",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-spa-api"
@@ -584,7 +584,7 @@
     "name": "hunt-springboot",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunt Spring Boot specific vulnerabilities \u2014 Actuator endpoints (heapdump, env, loggers, mappings, shutdown), Spring Expression Language (SpEL) injection \u2192 RCE, H2 console RCE, Jolokia JMX exposure, Spring4Shell (CVE-2022-22965), Spring Cloud Function SPEL (CVE-2022-22963), heap dump credential extraction. Use when target runs Spring Boot \u2014 detected via X-Application-Context header, /actuator, Whitelabel Error Page, or Java stack traces.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-springboot",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-springboot",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-springboot"
@@ -594,7 +594,7 @@
     "name": "hunt-sqli",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunting skill for sqli vulnerabilities. Built from 12 public bug bounty reports including modern NoSQL injection (Rocket.Chat CVE-2021-22911 MongoDB $regex, Mongoose ORM CVE-2024-53900 $where bypass), modern ORM raw-fragment SQLi (Django CVE-2024-42005, Sequelize GHSA-wrh9-cjv3-2hpw), second-order SOQL injection (HackerOne Salesforce), time-based blind SQLi in GraphQL resolvers, and SQLi on OIDC-proxy backends. Use when hunting SQLi on any target. Dedicated NoSQL operator injection (MongoDB/CouchDB $where/$regex/$ne) is owned by hunt-nosqli \u2014 NoSQL appears here only as adjacent ORM/WAF context.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-sqli",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-sqli",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-sqli"
@@ -604,7 +604,7 @@
     "name": "hunt-ssrf",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunting skill for ssrf vulnerabilities. Built from 15 public bug bounty reports including AWS metadata SSRF (HackerOne $25k Analytics PDF, Shopify Exchange $25k, Capital One 106M-record breach, Dropbox/HelloSign $4,913), GCP metadata SSRF (Snapchat $4k), Azure IMDS SSRF (Azure DevOps $15k chain, ChatGPT Custom Actions MSRC), DNS rebinding SSRF (Concrete CMS, GitLab UrlBlocker), gopher-protocol-to-Redis-RCE (Yahoo Mail $15k), link-preview SSRF (Reddit Matrix $6k), and headless-browser PDF-generator SSRF chains. Use when hunting SSRF on any target \u2014 OOB Collaborator confirmation mandatory for blind cases.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-ssrf",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-ssrf",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-ssrf"
@@ -614,7 +614,7 @@
     "name": "hunt-ssti",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt server-side template injection (SSTI) across Jinja2 (Flask/Django), Twig (Symfony), Freemarker (Java), ERB (Rails), Spring, Velocity, Mako, Thymeleaf, Smarty. Detection probes use double-curly and dollar-curly math expressions evaluated server-side. Once an engine is fingerprinted, escalate to RCE via the engine-specific class-walker, callback-registrar, or Execute-utility patterns documented in disclosed reports. Detection patterns: error messages reveal engine, blank or numeric eval reveals expression mode. Targets: email templates, PDF/report generators, CMS preview features, error pages with user input. Use when hunting RCE via template rendering, when content shows engine fingerprints, when finding endpoints that compose strings with user input before render.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-ssti",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-ssti",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-ssti"
@@ -624,7 +624,7 @@
     "name": "hunt-subdomain",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunting skill for subdomain takeover vulnerabilities. Includes modern provider fingerprints \u2014 Microsoft Azure DevOps `cloudapp.azure.com` regional-pool re-issue (1-click OAuth ATO via wildcard `reply_to`, Binary Security), Zendesk help-desk takeover \u2192 email interception \u2192 password reset chain (0xprial writeup), Vercel `cname.vercel-dns.com` deleted-project takeover, plus general Fastly CDN service re-attach and S3 dangling-bucket cookie-scope techniques. Use when hunting subdomain takeover \u2014 emphasis on ATO-chain primitives (OAuth `redirect_uri`, cookie-domain, email DNS).",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-subdomain",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-subdomain",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-subdomain"
@@ -634,7 +634,7 @@
     "name": "hunt-tls-network",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt TLS/SSL and DNS misconfigurations \u2014 missing HSTS (downgrade attack), weak cipher suites, expired/invalid certificates, mTLS bypass, missing SPF/DKIM/DMARC (email spoofing), DNS Zone Transfer (AXFR), dangling CNAME subdomain takeover, CAA records. Most of these are Info/Low on their own \u2014 this skill is opinionated about which findings actually pay (spoofable DMARC with delivered-to-inbox proof, AXFR returning internal hosts, dangling-CNAME takeover) versus which get rejected as best-practice noise (missing CAA, missing HSTS with no MitM position). Use during recon to find infrastructure weaknesses, and to TRIAGE them honestly before reporting.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-tls-network",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-tls-network",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-tls-network"
@@ -644,7 +644,7 @@
     "name": "hunt-websocket",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Hunt WebSocket vulnerabilities \u2014 Cross-Site WebSocket Hijacking (CSWSH), missing/weak Origin validation on the WS handshake, no per-message authentication, message tampering, socket.io namespace/room authorization bypass, and handshake-layer Upgrade smuggling. Use when target has WebSocket endpoints (ws:// or wss://), socket.io / SignalR / Phoenix Channels, real-time features, chat, live dashboards, notifications, or trading platforms.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-websocket",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-websocket",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-websocket"
@@ -654,7 +654,7 @@
     "name": "hunt-xss",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunting skill for xss vulnerabilities. Built from 174 public bug bounty reports. Use when hunting xss on any target. For markup injection that reflects raw HTML but does NOT execute JavaScript (no `<script>`/event-handler execution), see hunt-html-injection \u2014 escalate here once script execution is possible.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-xss",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-xss",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-xss"
@@ -664,7 +664,7 @@
     "name": "hunt-xxe",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Hunting skill for xxe vulnerabilities. Built from 10 public bug bounty reports including SVG-upload XXE, Office-doc (PPTX/DOCX) XXE, SOAP XXE, SAML AssertionConsumer XXE, blind OOB XXE via DTD callback, parameter-entity XXE, XXE-to-LFI, XXE-to-SSRF, and XXE-to-RCE chains (Adobe Commerce CosmicSting CVE-2024-34102). Use when hunting XXE on any target \u2014 emphasis on OOB-Or-It-Didn't-Happen Gate for blind cases.",
     "path": "library/elementalsouls-claude-bughunter/skills/hunt-xxe",
     "activation_cmd": "python .agents/library/activate_skill.py activate hunt-xxe",
     "link_cmd": "python .agents/library/activate_skill.py link hunt-xxe"
@@ -674,7 +674,7 @@
     "name": "ios-redteam-pipeline",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "End-to-end iOS red-team pipeline \u2014 IPA acquisition (App Store extraction, TestFlight, enterprise/ad-hoc sideload), class-dump/Hopper/Ghidra static analysis, Info.plist + entitlements + Keychain secret extraction, App Transport Security (ATS) misconfig + certificate-pinning bypass (frida-ios-dump, objection, SSL Kill Switch 2), URL-scheme / Universal Link hijack, exported-service enumeration, Frida runtime instrumentation. Companion to apk-redteam-pipeline for the iOS side of a mobile app catalogue. Use when target has an iOS app (App Store listing, TestFlight link, enterprise MDM distribution), when an IPA URL is found hosted on a web server, or when post-recon mentions \"iOS app\" / \"mobile app\" in scope alongside an Apple developer account.",
     "path": "library/elementalsouls-claude-bughunter/skills/ios-redteam-pipeline",
     "activation_cmd": "python .agents/library/activate_skill.py activate ios-redteam-pipeline",
     "link_cmd": "python .agents/library/activate_skill.py link ios-redteam-pipeline"
@@ -684,7 +684,7 @@
     "name": "m365-entra-attack",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Microsoft 365 / Entra ID red-team attack chain \u2014 current 2026 reality. AADSTS code reference, user enumeration vectors (with hardening status), Smart Lockout math, Conditional Access bypass options, ROPC + SAML SSO browser flow, Burp/Playwright templates. Built from authorized red-team work where ROPC spray surfaced pre-existing lockouts and CA-blocked credentials, plus real-time external attacker activity correlation. Use for any M365/Entra credential attack, password spray, user enumeration, CA-bypass exploration, or active-attacker-detection scenario.",
     "path": "library/elementalsouls-claude-bughunter/skills/m365-entra-attack",
     "activation_cmd": "python .agents/library/activate_skill.py activate m365-entra-attack",
     "link_cmd": "python .agents/library/activate_skill.py link m365-entra-attack"
@@ -694,7 +694,7 @@
     "name": "meme-coin-audit",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Meme coin and token security audit \u2014 rug pull detection (honeypot, hidden mint, fee manipulation, LP lock bypass), Solana SPL token analysis (freeze authority, mint authority, metadata mutability), Token-2022 extension risks (transfer hooks, permanent delegate), DEX liquidity pool attacks (sandwich amplification, LP drain, bonding curve exploits), pump.fun/Raydium/Jupiter integration risks, and real exploit examples from 2024-2025. Use for any token audit, rug pull assessment, meme coin security review, or pre-investment due diligence.",
     "path": "library/elementalsouls-claude-bughunter/skills/meme-coin-audit",
     "activation_cmd": "python .agents/library/activate_skill.py activate meme-coin-audit",
     "link_cmd": "python .agents/library/activate_skill.py link meme-coin-audit"
@@ -704,7 +704,7 @@
     "name": "mid-engagement-ir-detection",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Methodology for detecting client SOC patches, attacker activity, and security-state changes that occur DURING a red-team engagement \u2014 and converting those observations into deliverable findings. Built from authorized red-team work where the client patched a confirmed SQLi within 30 minutes of detection AND an external attacker locked multiple new accounts during a single test session. Use when (a) running ANY active engagement against a monitored target, (b) a previously-confirmed finding stops reproducing, (c) baseline timing shifts unexpectedly, or (d) you notice response patterns changing during testing.",
     "path": "library/elementalsouls-claude-bughunter/skills/mid-engagement-ir-detection",
     "activation_cmd": "python .agents/library/activate_skill.py activate mid-engagement-ir-detection",
     "link_cmd": "python .agents/library/activate_skill.py link mid-engagement-ir-detection"
@@ -714,7 +714,7 @@
     "name": "offensive-osint",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Operational arsenal for authorized external red-team and bug-bounty recon. Concrete probes, wordlists, regexes, dorks, curl one-liners for: subdomain enum, GraphQL/Swagger/REST discovery, identity fabric (Entra/Okta/ADFS/Google/SAML/M365 deep \u2014 Teams/SharePoint/OneDrive), cloud bucket enum (S3/GCS/Azure), CDN/WAF bypass, origin discovery, vendor fingerprinting (Citrix/F5/Pulse/Fortinet/PaloAlto/Cisco/VMware), CI/CD exposure, 48-pattern secret-scan catalog (AWS/GCP/GitHub/Stripe/Slack/Anthropic/OpenAI/Atlassian/DataDog/npm/PyPI), Postman workspaces, breach correlation (HudsonRock/HIBP/DeHashed/IntelX), TLS/JA3 audit, certificate transparency, JS endpoint extraction, package registry leaks, mobile/APK recon, sat imagery, sector-specific recon (healthcare DICOM, finance SWIFT, ICS/SCADA Modbus/BACnet). Detail content in 15 modular reference files, loaded on demand. Use for any authorized recon: scoping, asset discovery, attack-path mapping, secret triage, severity scoring.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/offensive-osint",
     "activation_cmd": "python .agents/library/activate_skill.py activate offensive-osint",
     "link_cmd": "python .agents/library/activate_skill.py link offensive-osint"
@@ -724,7 +724,7 @@
     "name": "okta-attack",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Okta-as-IdP red-team attack chain \u2014 tenant discovery, user enumeration (multiple vectors), authentication flow analysis (factors enumeration, push-notification fatigue, SMS bypass), password spray with lockout discipline, Okta-specific phishing primitives (kits, FastPass abuse, OIDC redirect_uri tampering), MFA enumeration, post-compromise admin API surface. Many enterprise orgs use Okta instead of (or alongside) Entra ID. Distinct endpoints, distinct rate-limiting, distinct factor flows. Use when recon shows `<tenant>.okta.com`, `<tenant>.okta-emea.com`, `<tenant>.oktapreview.com`, or autodiscover-style records pointing at Okta IdP.",
     "path": "library/elementalsouls-claude-bughunter/skills/okta-attack",
     "activation_cmd": "python .agents/library/activate_skill.py activate okta-attack",
     "link_cmd": "python .agents/library/activate_skill.py link okta-attack"
@@ -734,7 +734,7 @@
     "name": "osint-methodology",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "\"Comprehensive OSINT methodology for external red-team operations and authorized attack-surface assessments. Covers the 5-stage recon pipeline (seed discovery, asset expansion, enrichment, exposure analysis, reporting), asset-graph discipline with 29 asset types, severity rubric (CRITICAL/HIGH/MEDIUM/LOW/INFO), confidence upgrade workflows, time budgeting, asset-level triage rules, scale-based tactics, identity-fabric mapping (Entra/Okta/ADFS/Google/SAML/M365 Teams+SharePoint+OAuth), API and auth-map methodology, JavaScript deep analysis, mobile attack surface, cloud attack surface, breach\u00d7identity correlation, detectability tagging, detection-aware probing (back-off, persona rotation), read-only validator discipline, WAF/CDN bypass + origin discovery, vulnerability prioritization (CVE/EPSS/KEV), phishing infrastructure planning + pretext development, bug bounty submission templates, client deliverable templates with risk translation, threat-actor investigation (incl. RU/CN pivots), cryptocurrency tracing, image/video forensics, chronolocation. Use when planning or executing reconnaissance against authorized targets, mapping an organization's external attack surface, investigating a person/entity, tracing crypto flows, geolocating media, or performing attribution work.\"",
     "path": "library/elementalsouls-claude-bughunter/skills/osint-methodology",
     "activation_cmd": "python .agents/library/activate_skill.py activate osint-methodology",
     "link_cmd": "python .agents/library/activate_skill.py link osint-methodology"
@@ -744,7 +744,7 @@
     "name": "recon-scope-triage",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Triage ASM/recon output for ownership before testing \u2014 separate the target's real assets from namespace-collision noise. Automated recon keyword-matches on the brand name, so for any target whose name is a common/dictionary word, the output is dominated by assets belonging to UNRELATED same-named companies (repos, cloud buckets, mobile apps, breach corpora, typosquats). Built from an authorized engagement where an ASM report's \"Criticals\" were overwhelmingly false positives and the combo/repos/mobile/bucket lists were polluted with unrelated same-named orgs. Use at the START of any engagement, immediately on receiving any ASM/recon/OSINT dataset, BEFORE testing anything.",
     "path": "library/elementalsouls-claude-bughunter/skills/recon-scope-triage",
     "activation_cmd": "python .agents/library/activate_skill.py activate recon-scope-triage",
     "link_cmd": "python .agents/library/activate_skill.py link recon-scope-triage"
@@ -754,7 +754,7 @@
     "name": "redteam-mindset",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Red-team operator discipline \u2014 the mindset corrections that separate offensive testing from defensive WAPT. Built from authorized red-team work where conservative defaults caused multiple findings to be missed and one to be incorrectly retracted. Use at the START of any red-team engagement and again whenever feeling stuck or considering \"stopping\" on a defended target. The single most important skill to load when scope is \"external red team\" not \"bug bounty / WAPT\".",
     "path": "library/elementalsouls-claude-bughunter/skills/redteam-mindset",
     "activation_cmd": "python .agents/library/activate_skill.py activate redteam-mindset",
     "link_cmd": "python .agents/library/activate_skill.py link redteam-mindset"
@@ -764,7 +764,7 @@
     "name": "redteam-report-template",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Client-facing red-team deliverable format \u2014 codifies the Subject / Observations / Description / Impact / Recommendation / PoC structure used for external red-team engagements (not bug-bounty platform reports). Different audience, different tone, different cadence. Built from an authorized engagement deliverable where 14 findings were packaged into a 52KB MD + 2.2MB DOCX with 16 embedded screenshots. Use when the engagement is \"external red team for an enterprise client\" (not H1/Bugcrowd/Intigriti), when generating the final report, when the client has specified a custom report format, or when packaging findings into DOCX/PDF.",
     "path": "library/elementalsouls-claude-bughunter/skills/redteam-report-template",
     "activation_cmd": "python .agents/library/activate_skill.py activate redteam-report-template",
     "link_cmd": "python .agents/library/activate_skill.py link redteam-report-template"
@@ -774,7 +774,7 @@
     "name": "report-writing",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Bug bounty report writing for H1/Bugcrowd/Intigriti/Immunefi \u2014 report templates, human tone guidelines, impact-first writing, CVSS 3.1 scoring, title formula, impact statement formula, severity decision guide, downgrade counters, pre-submit checklist. Validation gates and the submittability/always-rejected decision are owned by triage-validation; this skill owns the written report itself (templates, tone, formulas). Use after validating a finding and before submitting. Never use \"could potentially\" \u2014 prove it or don't report.",
     "path": "library/elementalsouls-claude-bughunter/skills/report-writing",
     "activation_cmd": "python .agents/library/activate_skill.py activate report-writing",
     "link_cmd": "python .agents/library/activate_skill.py link report-writing"
@@ -784,7 +784,7 @@
     "name": "security-arsenal",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Security payloads, bypass tables, wordlists, gf pattern names, always-rejected bug list, and conditionally-valid-with-chain table. Use when you need specific payloads for XSS/SSRF/SQLi/XXE/NoSQLi/command injection/SSTI/IDOR/path-traversal/HTTP smuggling/WebSocket/MFA bypass, or bypass techniques. Submittability and the always-rejected / what-NOT-to-submit decision are owned by triage-validation.",
     "path": "library/elementalsouls-claude-bughunter/skills/security-arsenal",
     "activation_cmd": "python .agents/library/activate_skill.py activate security-arsenal",
     "link_cmd": "python .agents/library/activate_skill.py link security-arsenal"
@@ -794,7 +794,7 @@
     "name": "supply-chain-attack-recon",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "External recon for software supply-chain attack surface \u2014 package-namespace squatting candidates, dependency-confusion vulnerabilities, GitHub Actions injection openings, container image registry exposure, SBOM mining, internal-package-name leakage, and CI/CD configuration exposure. Reconnaissance and identification ONLY \u2014 actual package publishing / typosquat attacks are EXTERNAL-OFFENSIVE and require explicit written sign-off because they can affect the entire npm/PyPI ecosystem. Use when the target has a public GitHub org, when their build artifacts/SBOMs are reachable, when their docker images are on Docker Hub/GHCR, or when you find internal package names in their JS bundles.",
     "path": "library/elementalsouls-claude-bughunter/skills/supply-chain-attack-recon",
     "activation_cmd": "python .agents/library/activate_skill.py activate supply-chain-attack-recon",
     "link_cmd": "python .agents/library/activate_skill.py link supply-chain-attack-recon"
@@ -804,7 +804,7 @@
     "name": "triage-validation",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Finding validation before writing any report \u2014 7-Question Gate (all 7 questions), 4 pre-submission gates, always-rejected list, conditionally valid with chain table, CVSS 3.1 quick reference, severity decision guide, report title formula, 60-second pre-submit checklist. Use BEFORE writing any report. One wrong answer = kill the finding and move on. Saves N/A ratio.",
     "path": "library/elementalsouls-claude-bughunter/skills/triage-validation",
     "activation_cmd": "python .agents/library/activate_skill.py activate triage-validation",
     "link_cmd": "python .agents/library/activate_skill.py link triage-validation"
@@ -814,7 +814,7 @@
     "name": "vmware-vcenter-attack",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "VMware vSphere / vCenter Server external attack matrix \u2014 version fingerprinting, the high-impact CVE chain (CVE-2021-21972 vRealize unauth file upload, CVE-2021-21985 vSAN plugin RCE, CVE-2022-22954 Workspace ONE SSTI, CVE-2023-20887 Aria RCE, CVE-2024-37085 ESXi AD bypass, CVE-2023-34048 vCenter DCERPC OOB write APT-exploited), default credentials, SSO configuration disclosure, vmdir LDAP enumeration, ESXi Open SLP RCE history. ONLY for vCenter / Workspace ONE / Aria instances exposed to the internet \u2014 internal-network vCenter is out of scope per the external-only boundary. Use when recon shows port 443 with vCenter banner, `/ui` redirect, `/websso/SAML2/Metadata`, or VMware product fingerprints.",
     "path": "library/elementalsouls-claude-bughunter/skills/vmware-vcenter-attack",
     "activation_cmd": "python .agents/library/activate_skill.py activate vmware-vcenter-attack",
     "link_cmd": "python .agents/library/activate_skill.py link vmware-vcenter-attack"
@@ -824,7 +824,7 @@
     "name": "web2-recon",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Web2 recon pipeline \u2014 subdomain enumeration (subfinder, Chaos API, assetfinder), live host discovery (dnsx, httpx), URL crawling (katana, waybackurls, gau), directory fuzzing (ffuf), JS analysis (LinkFinder, SecretFinder), continuous monitoring (new subdomain alerts, JS change detection, GitHub commit watch). Use when starting recon on any web2 target or when asked about asset discovery, subdomain enum, or attack surface mapping.",
     "path": "library/elementalsouls-claude-bughunter/skills/web2-recon",
     "activation_cmd": "python .agents/library/activate_skill.py activate web2-recon",
     "link_cmd": "python .agents/library/activate_skill.py link web2-recon"
@@ -834,7 +834,7 @@
     "name": "web3-audit",
     "repository": "elementalsouls-claude-bughunter",
     "category": "general",
-    "description": "",
+    "description": "Smart contract security audit \u2014 10 DeFi bug classes (accounting desync, access control, incomplete path, off-by-one, oracle, ERC4626, reentrancy, flash loan, signature replay, proxy), pre-dive kill signals (TVL < $500K etc), Foundry PoC template, grep patterns for each class, and real Immunefi paid examples. Use for any Solidity/Rust contract audit or when deciding whether a DeFi target is worth hunting.",
     "path": "library/elementalsouls-claude-bughunter/skills/web3-audit",
     "activation_cmd": "python .agents/library/activate_skill.py activate web3-audit",
     "link_cmd": "python .agents/library/activate_skill.py link web3-audit"

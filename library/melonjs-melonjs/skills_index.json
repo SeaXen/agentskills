@@ -3,8 +3,8 @@
     "id": "melonjs",
     "name": "melonjs",
     "repository": "melonjs-melonjs",
-    "category": "general",
-    "description": "",
+    "category": "3d-web-threejs",
+    "description": "Provides migration guidance for melonJS 20.x, covering async initialization, WebGL 2/WebGPU backends, and the replacement of deprecated shader properties.",
     "path": "library/melonjs-melonjs/skills/melonjs",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs"
@@ -14,7 +14,7 @@
     "name": "melonjs-20-migration",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill when writing melonJS code that may be based on pre-20.x knowledge, when migrating a game from melonJS 19.x or earlier, or when an API you expected does not exist. Covers the mandatory async Application.init(), the WebGL 2 baseline and WebGPU backend, renderable post effects replacing the shader property, and the deprecated exports still present. Triggers on: migration, upgrade, melonJS 19, me.game, me.video.init, renderable.shader, Compositor, CanvasTexture, me.Math, deprecated.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-20-migration",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-20-migration",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-20-migration"
@@ -24,7 +24,7 @@
     "name": "melonjs-3d",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill for anything 3D or 2.5D in melonJS \u2014 Camera3d, Mesh, InstancedMesh, Sprite3d billboards, Light3d, ground shadows, glTF/GLB scenes, and depth sorting. Covers the Y-down/+Z-forward convention that is the inverse of OpenGL, the cameraClass opt-in, clip planes, and what does not work on the Canvas fallback. Triggers on: Camera3d, Mesh, InstancedMesh, Sprite3d, Trail3d, ribbon, exhaust trail, Light3d, billboard, glTF, glb, 3D, 2.5D, depth, cameraClass, fov, setClipPlanes, setFog, fog, distance fog, height fog, heightFalloff, transparent, transparency, alpha, blendMode, fade, castGroundShadow, lit, setBasis, getBasis, lookAt, up vector, gimbal, slerp, great circle, turn a direction.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-3d",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-3d",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-3d"
@@ -34,7 +34,7 @@
     "name": "melonjs-3d-assets",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill when loading 3D models into melonJS \u2014 glTF and GLB scenes, OBJ/MTL models, materials, imported lights, node animation, ground shadows and GPU instancing. Covers level.load options including the async flag, the rightHanded conversion, and exactly what the loader does and does not support. Triggers on: glTF, gltf, glb, OBJ, MTL, 3D model, getGLTF, getOBJ, getMTL, GLTFModel, GLTFScene, level.load glb, rightHanded, lightIntensityScale, castGroundShadow, shadowGroundY, EXT_mesh_gpu_instancing, KHR_lights_punctual, skinning, Blender export, 3D asset.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-3d-assets",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-3d-assets",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-3d-assets"
@@ -44,7 +44,7 @@
     "name": "melonjs-audio",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill for sound and music in melonJS \u2014 loading audio, playing effects, background tracks, audio sprites, volume and muting, spatial audio, procedural tone/noise generation, and effects such as reverb or a compressor on the whole mix. Covers the mandatory audio.init format list, the directory-not-file src convention, playTrack versus play, the fixed listener and pixel-scale distances of positional sound, and browser autoplay unlocking. Triggers on: audio, sound, audio.init, audio.play, playTrack, stopTrack, audio.load, sfx, music, volume, mute, fade, rate, pitch, sprite audio, stereo, panner, position, listener, refDistance, reverb, echo, delay, compressor, distortion, filter, audio effect, audio.tone, audio.noise, getAudioContext, getMasterGain, hasAudio, hasFormat, autoplay, no sound, sound stopped working, context suspended, silent after idle, clips silent but tones play.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-audio",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-audio",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-audio"
@@ -54,7 +54,7 @@
     "name": "melonjs-camera-and-drawing",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill for camera control and immediate-mode drawing in melonJS \u2014 following a target, viewport bounds, shake and fade, secondary cameras and what each one draws, and drawing shapes, lines and gradients inside a custom draw(). Covers world versus screen coordinate conversion, clipping and masking, baking with CanvasRenderTarget, and reading pixels back. Triggers on: Camera2d, viewport, follow, offset, look ahead, setBounds, minimap, second camera, split screen, cullMask, visibilityLayer, hide from a camera, shake, fadeIn, fadeOut, worldToLocal, localToWorld, colorMatrix, renderer.fill, renderer.stroke, Rect, Ellipse, Polygon, Line, Gradient, clipRect, mask, CanvasRenderTarget, NoiseTexture2d, lookAt, setBasis, toImageData, getImageData, toBlob, toDataURL, screenshot, read pixels.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-camera-and-drawing",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-camera-and-drawing",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-camera-and-drawing"
@@ -64,7 +64,7 @@
     "name": "melonjs-deployment",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill when packaging, shipping or scaffolding a melonJS game \u2014 starting a project with create-melonjs, building for the web, wrapping as a native app with Capacitor or Cordova, publishing to WeChat Mini Games or Facebook Instant Games, browser support and transpiling. Triggers on: create-melonjs, scaffold, new project, build, deploy, publish, Capacitor, Cordova, native app, iOS, Android, WeChat, Instant Games, browser support, transpile, ES2022, bundle size, tree-shaking.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-deployment",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-deployment",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-deployment"
@@ -74,7 +74,7 @@
     "name": "melonjs-display-and-scaling",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill when a melonJS game looks blurry, soft, shimmering or cropped, or when choosing how the canvas fills its page. Covers the design resolution, scale and scaleMethod, scaleTarget, scaleRounding for pixel-perfect integer scaling, antiAlias, textureFilter and linear-mipmap for what is drawn small, subPixel, syncToDisplay for steady motion, devicePixelRatio, and which setting does which job. Triggers on: blurry, soft, fuzzy, shimmering, pixel art, pixel perfect, crisp, nearest, linear, scale, scaleMethod, scaleTarget, scaleRounding, integer scaling, antiAlias, textureFilter, linear-mipmap, mipmaps, minimap shimmer, zoomed out, subPixel, syncToDisplay, stutter, judder, uneven scrolling, devicePixelRatio, retina, hidpi, design resolution, canvas size, canvas cropped, letterbox, image-rendering, upscale, resolution.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-display-and-scaling",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-display-and-scaling",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-display-and-scaling"
@@ -84,7 +84,7 @@
     "name": "melonjs-effects-and-shaders",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill for post-processing effects, custom shaders, blend modes and colour grading in melonJS. Covers the built-in ShaderEffect presets, addPostEffect on renderables and cameras, writing a custom dual-language GLSL/WGSL effect, the screen_texture builtins, and why effects silently do nothing on the Canvas fallback. Triggers on: Tween, easing, animate an effect, ShaderEffect, addPostEffect, removePostEffect, getPostEffect, postEffectNeedsCapture, VignetteEffect, GlowEffect, BlurEffect, PixelateEffect, ScanlineEffect, shader, GLSL, WGSL, uniform, setUniform, setTexture, setTime, blendMode, colorMatrix, screen_texture, toFrameTexture, post effect, filter.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-effects-and-shaders",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-effects-and-shaders",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-effects-and-shaders"
@@ -94,7 +94,7 @@
     "name": "melonjs-events",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill for the melonJS event bus and lifecycle hooks \u2014 subscribing to engine events, the per-frame and per-state event names, renderable lifecycle callbacks, and how to unsubscribe without leaking. Triggers on: event.on, event.off, event.once, event.emit, GAME_UPDATE, GAME_BEFORE_DRAW, LEVEL_LOADED, LOADER_COMPLETE, STATE_CHANGE, CANVAS_ONRESIZE, POINTERMOVE, WORLD_STEP, onActivateEvent, onDeactivateEvent, onDestroyEvent, lifecycle, subscribe, listener.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-events",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-events",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-events"
@@ -104,7 +104,7 @@
     "name": "melonjs-getting-started",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill when starting or bootstrapping a melonJS game, creating the Application, choosing a renderer, or setting up the first scene. Covers the mandatory async init, the world container, adding renderables, and the WebGPU/WebGL 2/Canvas fallback. Triggers on: melonjs, new Application, app.init, app.world, video.AUTO, video.WEBGL, video.CANVAS, Stage, state.change, getting started, bootstrap.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-getting-started",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-getting-started",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-getting-started"
@@ -114,7 +114,7 @@
     "name": "melonjs-input",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill for keyboard, pointer, mouse, touch and gamepad input in melonJS. Covers the bindKey action indirection, registerPointerEvent on regions, the isKinematic requirement that silently blocks pointer events, which of several overlapping objects receives an event and how to consume it, world vs screen pointer coordinates, and gamepad mapping onto the same actions. Triggers on: input, bindKey, isKeyPressed, KEY, registerPointerEvent, releasePointerEvent, pointerdown, pointerup, pointermove, POINTERMOVE, gamepad, bindGamepad, triggerKeyEvent, virtual gamepad, touch controls, joystick, gamepad-plugin, floating stick, floating button, floating joystick, two thumbs, tap to fire, hideAtRest, mobile controls, KEYDOWN, KEYUP, press any key, splash screen, click, touch, drag, hit test, event propagation, stop propagating, overlapping, which object gets the click.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-input",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-input",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-input"
@@ -124,7 +124,7 @@
     "name": "melonjs-lighting",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill for 2D dynamic lighting in melonJS \u2014 Light2d, ambient light on a Stage, multiple lights, and per-pixel normal-mapped sprites authored in SpriteIlluminator. Covers specular highlights via shininess, the ambient-cutout model, which parts need a GPU backend, and why Light2d does not survive a Camera3d. Triggers on: Light2d, specular, shininess, highlight, glint, lighting, ambientLight, ambientLightingColor, normalMap, SpriteIlluminator, per-pixel lighting, drawLight, torch, glow, darkness.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-lighting",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-lighting",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-lighting"
@@ -134,7 +134,7 @@
     "name": "melonjs-loading-assets",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill for loading and managing game assets in melonJS \u2014 the resource descriptor format, the full asset type list, preload versus load, retrieving loaded assets, base URLs and cross-origin settings, and the loading screen. Triggers on: loader, loader.preload, loader.load, resources, getImage, getJSON, getTMX, getGLTF, getVideo, getFont, setBaseURL, setOptions, crossOrigin, withCredentials, credentials, cookies, authenticated assets, CORS, asset, preload, LOADER_COMPLETE, loading screen, unload, setParser, custom asset type, generated texture, procedural texture.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-loading-assets",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-loading-assets",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-loading-assets"
@@ -144,7 +144,7 @@
     "name": "melonjs-math",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill for vector and matrix maths in melonJS \u2014 Vector2d, Vector3d, their observable variants, Matrix2d, Matrix3d, and the math utility functions. Covers which methods mutate and which allocate, the vector pool and when clone() is the wrong tool, interpolation with lerp, slerp, damp and moveTowards, and the argument defaults that silently drop a component. Triggers on: Vector2d, Vector3d, ObservableVector2d, ObservableVector3d, Matrix2d, Matrix3d, vector, vector maths, dot, cross, normalize, length, distance, angle, lerp, slerp, damp, moveTowards, project, clamp, degToRad, radToDeg, clone, vector pool, vector3dPool, setMuted, setCallback, my vector is wrong, z is zero, scale ignores z., moveTowards ignores z, projectN, currentTransform, setTransform, matrix, transform matrix, column-major, val, Float32Array, basis matrix, orientation matrix, Noise, getNoise1d, flicker, wobble.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-math",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-math",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-math"
@@ -154,7 +154,7 @@
     "name": "melonjs-particles-and-trails",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill for particle effects and motion trails in melonJS \u2014 ParticleEmitter configuration, burst versus stream emission, the referenceSpace frame of reference introduced in 20.2, 3D particle motion through elevation and minSpread/maxSpread in 20.8, and the Trail renderable. Covers the emitter that silently does nothing until you call an emit method. Triggers on: Trail3d, ribbon, exhaust trail, speed streak, ski track, tyre mark, ribbonNormal, ParticleEmitter, particles, particle editor, tune particles, spawn depth, volume, burstParticles, streamParticles, referenceSpace, ParticleEmitterSettings, elevation, minSpread, maxSpread, spawn area, Trail, explosion, smoke, sparks, debris, ring, exhaust, emitter, tintOverLife, colour over life, color over life, flame, fire.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-particles-and-trails",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-particles-and-trails",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-particles-and-trails"
@@ -164,7 +164,7 @@
     "name": "melonjs-performance",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill when a melonJS game drops frames, allocates heavily, or needs to scale to many objects. Covers object pooling, draw-call batching, atlases, baking with CanvasRenderTarget, instancing, culling and alwaysUpdate, the debug plugin, and where the real costs are. Triggers on: performance, slow, frame rate, fps, lag, pool, pool.register, pool.pull, batching, draw calls, InstancedMesh, culling, alwaysUpdate, inViewport, CanvasRenderTarget, optimise, profiling, debug plugin, memory, render targets, hdr.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-performance",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-performance",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-performance"
@@ -174,7 +174,7 @@
     "name": "melonjs-physics",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill for collision, physics bodies, movement, and spatial queries in melonJS \u2014 the built-in SAT world and the planck/matter adapters. Covers bodyDef vs Body, collision types and masks, the collision callback family and their firing rules, raycast/queryAABB/querySphere, the behaviour differences between adapters, and which one to pick for a given game. Triggers on: which physics engine, choosing an adapter, rotation collision, rotating body, torque, joints, stacking, Body, bodyDef, collision, collisionType, collisionMask, onCollision, onCollisionStart, onCollisionActive, raycast, queryAABB, querySphere, PlanckAdapter, MatterAdapter, gravity, velocity, applyForce, isGrounded, SAT.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-physics",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-physics",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-physics"
@@ -184,7 +184,7 @@
     "name": "melonjs-plugins",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill when adding a melonJS plugin or adapter \u2014 the debug panel, Spine skeletal animation, compressed Tiled map support, on-screen touch controls, Capacitor packaging \u2014 or when writing your own plugin. Covers plugin.register and its version gate, plugin.cache, plugin.patch, and why physics adapters are not plugins. Triggers on: plugin, plugin.register, plugin.cache, plugin.get, plugin.patch, BasePlugin, debug-plugin, DebugPanelPlugin, SpinePlugin, TiledInflatePlugin, GamepadPlugin, gamepad-plugin, touch controls, virtual joystick, floating joystick, floating button, CapacitorPlugin, adapter, custom plugin, plugin version mismatch, already registered.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-plugins",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-plugins",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-plugins"
@@ -194,7 +194,7 @@
     "name": "melonjs-renderables",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill when subclassing Renderable, writing a custom draw() method, handling pointer or click events on game objects, applying post effects and shaders, or controlling draw order. Covers the pos-relative draw contract, isKinematic and input, addPostEffect vs the deprecated shader property, and z-ordering. Triggers on: Tween, easing, animate, Renderable, extends Renderable, draw(, update(, isKinematic, pointerEvent, registerPointerEvent, onClick, addPostEffect, removePostEffect, ShaderEffect, addChild, z-order, anchorPoint, floating.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-renderables",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-renderables",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-renderables"
@@ -204,7 +204,7 @@
     "name": "melonjs-renderer-backends",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill when a feature works on one machine and not another, when choosing or pinning a renderer, or when writing code that must degrade gracefully. Covers the WebGPU to WebGL 2 to Canvas fallback ladder, what each backend supports, capability detection, and the subsystems that warn once and then stop working on Canvas. Triggers on: video.AUTO, video.WEBGPU, video.WEBGL, video.CANVAS, renderer.type, supportsDepthBuffer, shaderLanguage, WebGPU, WebGL2, Canvas fallback, context loss, backend, works on my machine.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-renderer-backends",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-renderer-backends",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-renderer-backends"
@@ -214,7 +214,7 @@
     "name": "melonjs-scenes-and-state",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill for scene structure and game flow in melonJS \u2014 Stage subclasses, the state manager, transitions, pausing, the update loop, timers and tweens. Covers onResetEvent versus the constructor, state.set before state.change, the camera and world lifecycle per stage, and pause-aware timing. Triggers on: Tween, easing, fade out, flash, pulse, punch, shrink back, ease in, ease out, animate over time, countdown in update, Stage, state, state.set, state.change, state.transition, state.pause, onResetEvent, onDestroyEvent, onActivateEvent, onDeactivateEvent, PLAY, MENU, LOADING, update loop, GAME_UPDATE, timer, setTimeout, setInterval, Tween, freeze.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-scenes-and-state",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-scenes-and-state",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-scenes-and-state"
@@ -224,7 +224,7 @@
     "name": "melonjs-sprites-and-animation",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill when creating sprites, playing frame animations, or working with texture atlases in melonJS. Covers Sprite construction from a plain image or an atlas region, addAnimation/setCurrentAnimation, TextureAtlas for TexturePacker/ShoeBox/Aseprite, tint, flip, NineSliceSprite, and the centred anchorPoint that offsets naive positioning. Triggers on: Sprite, new Sprite, addAnimation, setCurrentAnimation, isCurrentAnimation, TextureAtlas, TexturePacker, Aseprite, ShoeBox, atlas, region, framewidth, frameheight, tint, flipX, flipY, NineSliceSprite, animation.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-sprites-and-animation",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-sprites-and-animation",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-sprites-and-animation"
@@ -234,7 +234,7 @@
     "name": "melonjs-tilemaps",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill for Tiled maps in melonJS \u2014 loading TMX/TSX levels, spawning entities from Tiled objects, collision shapes authored in Tiled, isometric and hexagonal maps, and image layers, and reading or changing tiles while the game runs. Covers registerTiledObjectClass and the pool.register name contract, camera bounds, compressed maps needing the inflate plugin, and the level director API. Triggers on: Tiled, TMX, TSX, tilemap, setTile, clearTile, cellAt, getTile, getTileById, change a tile, tile at run time, game board, grid, tile properties at run time, getTileProperties, map properties, level.load, level.load async, await level.load, tileset, ImageLayer, isometric, hexagonal, staggered, pool.register, Collectable, Trigger, object layer, collision layer, parallax, registerTiledObjectClass, registerTiledObjectFactory, TMXObject, resolvedProperty, resolvedProperties, tile class, tile properties.\"",
     "path": "library/melonjs-melonjs/skills/melonjs-tilemaps",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-tilemaps",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-tilemaps"
@@ -244,7 +244,7 @@
     "name": "melonjs-ui-and-text",
     "repository": "melonjs-melonjs",
     "category": "general",
-    "description": "",
+    "description": "\"Use this skill for HUDs, buttons, menus, options screens, dialogue panels, progress bars and on-screen text in melonJS. Covers UIBaseElement/UISpriteElement/UITextButton, UICheckbox, UISlider, ProgressBar, UIPanel (skins, layout, scrolling), Draggable and DropTarget, the floating screen-space container pattern, which of two overlapping panels gets the pointer, Text and BitmapText, web font loading, and NineSliceSprite panels. Triggers on: UI, HUD, button, checkbox, radio button, UICheckbox, slider, UISlider, volume slider, options menu, settings screen, scrolling list, scroll panel, layout, column, grid, UI skin, UIBaseElement, UISpriteElement, UITextButton, ProgressBar, progress bar, health bar, gauge, Draggable, DropTarget, menu, dialogue, overlapping panels, moveToTop, onOver, onClick, bindKey, keyboard shortcut, button keyboard, Tween, easing, animate a label, wavy text, per-glyph effect, glyphEffect, shake text, rainbow text, Text, BitmapText, fillStyle, fillGradient, gradient text, tint, font, fontface, wordWrapWidth, NineSliceSprite, score display, floating., fullscreen, full screen, requestFullscreen, exitFullscreen, isFullscreen, fullscreen button, fullscreen option\"",
     "path": "library/melonjs-melonjs/skills/melonjs-ui-and-text",
     "activation_cmd": "python .agents/library/activate_skill.py activate melonjs-ui-and-text",
     "link_cmd": "python .agents/library/activate_skill.py link melonjs-ui-and-text"

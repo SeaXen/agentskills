@@ -1,7 +1,7 @@
 # 🚀 DevOps, Containers & Deployment
 
 > **Category**: `devops-docker-cicd`  
-> **Total Curated Skills**: 482 skills  
+> **Total Curated Skills**: 481 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -126,7 +126,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`convex-authz`](../../library/convex-agent-skills/skills/convex-authz) | ⚪ Reserve | `convex-agent-skills` | Audit and harden a Convex app's authorization: identity-from-arg impersonation, missing per-doc... |
 | [`convex-insights`](../../library/convex-agent-skills/skills/convex-insights) | ⚪ Reserve | `convex-agent-skills` | Query a running Convex app's logs + health in natural language (official MCP): failures, slow/e... |
 | [`corner-diagonals`](../../library/mengto-skills/skills/corner-diagonals) | ⚪ Reserve | `mengto-skills` | Apply diagonal-cut corners and chamfered edges to buttons, cards, panels, and container shells.... |
-| [`critique`](../../library/plugin87-ux-ui-agent-skills/skills/critique) | ⚪ Reserve | `plugin87-ux-ui-agent-skills` | Adversarial design critique of the current work. Render it, look at it, and argue for rejection... |
 | [`ctf-forensics`](../../library/ljagiello-ctf-skills/skills/ctf-forensics) | ⚪ Reserve | `ljagiello-ctf-skills` | Provides digital forensics and signal analysis techniques for CTF challenges. Use when analyzin... |
 | [`cuopt-install`](../../library/nvidia-skills/skills/cuopt-install) | ⚪ Reserve | `nvidia-skills` | Install cuOpt for Python, C, or server via pip, conda, or Docker; verify the install. For build... |
 | [`data360-code-extension-generate`](../../library/forcedotcom-sf-skills/skills/data360-code-extension-generate) | ⚪ Reserve | `forcedotcom-sf-skills` | Develop and deploy Data Cloud Code Extensions using SF CLI plugin. Use this skill when creating... |

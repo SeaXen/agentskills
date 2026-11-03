@@ -1,9 +1,13 @@
 # Entrance reconciliation — judge evidence and the changes since it
 
+Apply `references/human-gates.md` first. Human vetoes stop work; protected-area changes require strict risk checks and pinned human QA. Automatic PASS reuse, `n/a`, self-sign-off and automatic routing below never bypass these gates.
+
 Run this procedure at the entrance of **every visit**, before choosing a stage,
 even when all three signal labels and a same-head status record already exist.
 Repeat it after a stage moves the head, after a replacement or retarget, and at
 the final gate for any evidence or revision that changed during the visit.
+
+Resolve fresh per-item mode/risk under `references/item-policy.md` before evaluating evidence, including after label-only changes on an unchanged head.
 
 ## 1. Establish facts before using labels
 

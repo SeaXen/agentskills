@@ -1,0 +1,121 @@
+minVersion: 0.23.1
+changelogPolicy: auto
+targets:
+  - name: gcs
+    bucket: sentry-sdk-assets
+    includeNames: /^sentry-cli-(Darwin|Windows|Linux).*$/i
+    paths:
+      - path: /sentry-cli/{{version}}/
+        metadata:
+          cacheControl: public, max-age=2592000
+      - path: /sentry-cli/latest/
+        metadata:
+          cacheControl: public, max-age=600
+
+  # Binary distributions on npm
+  - name: npm
+    id: '@sentry/cli-darwin'
+    includeNames: /^sentry-cli-darwin-\d.*\.tgz$/
+  - name: npm
+    id: '@sentry/cli-linux-arm'
+    includeNames: /^sentry-cli-linux-arm-\d.*\.tgz$/
+  - name: npm
+    id: '@sentry/cli-linux-arm64'
+    includeNames: /^sentry-cli-linux-arm64-\d.*\.tgz$/
+  - name: npm
+    id: '@sentry/cli-linux-i686'
+    includeNames: /^sentry-cli-linux-i686-\d.*\.tgz$/
+  - name: npm
+    id: '@sentry/cli-linux-x64'
+    includeNames: /^sentry-cli-linux-x64-\d.*\.tgz$/
+  - name: npm
+    id: '@sentry/cli-win32-i686'
+    includeNames: /^sentry-cli-win32-i686-\d.*\.tgz$/
+  - name: npm
+    id: '@sentry/cli-win32-x64'
+    includeNames: /^sentry-cli-win32-x64-\d.*\.tgz$/
+  - name: npm
+    id: '@sentry/cli-win32-arm64'
+    includeNames: /^sentry-cli-win32-arm64-\d.*\.tgz$/
+
+  # Main Sentry CLI package
+  - name: npm
+    id: '@sentry/cli'
+    includeNames: /^sentry-cli-\d.*\.tgz$/
+
+  - name: brew
+    tap: getsentry/tools
+    template: >
+      class SentryCli < Formula
+        desc "Sentry command-line client for some generic tasks"
+        homepage "https://github.com/getsentry/sentry-cli"
+        version "{{version}}"
+        license "FSL-1.1-MIT"
+        if OS.mac?
+          url "https://downloads.sentry-cdn.com/sentry-cli/{{version}}/sentry-cli-Darwin-universal"
+          sha256 "{{checksums.sentry-cli-Darwin-universal}}"
+        elsif OS.linux?
+          if Hardware::CPU.arm?
+            if Hardware::CPU.is_64_bit?
+              url "https://downloads.sentry-cdn.com/sentry-cli/{{version}}/sentry-cli-Linux-aarch64"
+              sha256 "{{checksums.sentry-cli-Linux-aarch64}}"
+            else
+              url "https://downloads.sentry-cdn.com/sentry-cli/{{version}}/sentry-cli-Linux-armv7"
+              sha256 "{{checksums.sentry-cli-Linux-armv7}}"
+            end
+          elseif Hardware::CPU.intel?
+            if Hardware::CPU.is_64_bit?
+              url "https://downloads.sentry-cdn.com/sentry-cli/{{version}}/sentry-cli-Linux-x86_64"
+              sha256 "{{checksums.sentry-cli-Linux-x86_64}}"
+            else
+              url "https://downloads.sentry-cdn.com/sentry-cli/{{version}}/sentry-cli-Linux-i686"
+              sha256 "{{checksums.sentry-cli-Linux-i686}}"
+            end
+          else
+            raise "Unsupported architecture"
+          end
+        else
+            raise "Unsupported operating system"
+        end
+        def install
+          bin.install Dir["sentry-cli-*"].first => "sentry-cli"
+        end
+        test do
+          assert_match version.to_s, shell_output("#{bin}/sentry-cli --version").chomp
+        end
+      end
+  - name: github
+    includeNames: /^sentry-cli-(Darwin|Windows|Linux).*$/i
+  - name: registry
+    apps:
+      app:sentry-cli:
+        urlTemplate: https://downloads.sentry-cdn.com/sentry-cli/{{version}}/{{file}}
+        includeNames: /^sentry-cli-(Darwin|Windows|Linux).*$/i
+        checksums:
+          - algorithm: sha256
+            format: hex
+  - name: pypi
+  - name: sentry-pypi
+    internalPypiRepo: getsentry/pypi
+  - name: docker
+    id: Docker Hub (release)
+    source: ghcr.io/getsentry/sentry-cli
+    target: getsentry/sentry-cli
+  - name: docker
+    id: Docker Hub (latest)
+    source: ghcr.io/getsentry/sentry-cli
+    target: getsentry/sentry-cli
+    targetFormat: '{{{target}}}:latest'
+requireNames:
+  - /^sentry-cli-Darwin-x86_64$/
+  - /^sentry-cli-Darwin-arm64$/
+  - /^sentry-cli-Darwin-universal$/
+  - /^sentry-cli-Linux-i686$/
+  - /^sentry-cli-Linux-x86_64$/
+  - /^sentry-cli-Linux-armv7$/
+  - /^sentry-cli-Linux-aarch64$/
+  - /^sentry-cli-Windows-i686.exe$/
+  - /^sentry-cli-Windows-x86_64.exe$/
+  - /^sentry-cli-Windows-aarch64.exe$/
+  - /^sentry_cli-.*.tar.gz$/
+  - /^sentry_cli-.*.whl$/

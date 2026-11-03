@@ -1,7 +1,7 @@
 # 📊 Data Pipelines, BigQuery & Machine Learning
 
 > **Category**: `data-engineering-ml`  
-> **Total Curated Skills**: 3209 skills  
+> **Total Curated Skills**: 3213 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -436,7 +436,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`captain-data`](../../library/membranedev-application-skills/skills/captain-data) | ⚪ Reserve | `membranedev-application-skills` | Captain Data integration. Manage data, records, and automate workflows. Use when the user wants... |
 | [`carbon-ads`](../../library/membranedev-application-skills/skills/carbon-ads) | ⚪ Reserve | `membranedev-application-skills` | Carbon Ads integration. Manage data, records, and automate workflows. Use when the user wants t... |
 | [`carbone`](../../library/membranedev-application-skills/skills/carbone) | ⚪ Reserve | `membranedev-application-skills` | Carbone integration. Manage data, records, and automate workflows. Use when the user wants to i... |
-| [`card-twitter`](../../library/nexu-io-open-design/skills/card-twitter) | ⚪ Reserve | `nexu-io-open-design` | Twitter quote or data card designed to pair with a post. |
 | [`cardinal`](../../library/membranedev-application-skills/skills/cardinal) | ⚪ Reserve | `membranedev-application-skills` | Cardinal integration. Manage Organizations, Pipelines, Users, Goals, Filters. Use when the user... |
 | [`cargo-analytics`](../../library/getcargohq-cargo-skills/skills/cargo-analytics) | ⚪ Reserve | `getcargohq-cargo-skills` | Get data out of Cargo and measure what ran — download a run output, export a segment or model t... |
 | [`cargo-diagnostics`](../../library/getcargohq-cargo-skills/skills/cargo-diagnostics) | ⚪ Reserve | `getcargohq-cargo-skills` | Explain what a Cargo run or batch actually did, after the fact — trace one run node by node, dr... |
@@ -741,6 +740,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`data-quality-checker`](../../library/tradermonty-claude-trading-skills/skills/data-quality-checker) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Validate data quality in market analysis documents and blog articles before publication. Use wh... |
 | [`data-quality-frameworks`](../../library/antigravity-awesome-skills/skills/data-quality-frameworks) | ⚪ Reserve | `antigravity-awesome-skills` | Implement data quality validation with Great Expectations, dbt tests, and data contracts. Use w... |
 | [`data-replication-setup`](../../library/aj-geddes-useful-ai-prompts/skills/data-replication-setup) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Set up database replication for high availability and disaster recovery. Use when configuring m... |
+| [`data-report`](../../library/feimacode-open-design-agent-kit/skills/data-report) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Data Visualization Report (Open Design) — use only when explicitly invoked, not for general des... |
 | [`data-scientist`](../../library/antigravity-awesome-skills/skills/data-scientist) | ⚪ Reserve | `antigravity-awesome-skills` | Expert data scientist for advanced analytics, machine learning, and |
 | [`data-validate`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/data-validate) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Run declarative data quality checks and generate a codebook. Checks completeness, distributions... |
 | [`data247`](../../library/membranedev-application-skills/skills/data247) | ⚪ Reserve | `membranedev-application-skills` | Data247 integration. Manage Organizations, Activities, Notes, Files, Pipelines, Users and more.... |
@@ -999,6 +999,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`exhibitday`](../../library/membranedev-application-skills/skills/exhibitday) | ⚪ Reserve | `membranedev-application-skills` | ExhibitDay integration. Manage Organizations. Use when the user wants to interact with ExhibitD... |
 | [`expedy`](../../library/membranedev-application-skills/skills/expedy) | ⚪ Reserve | `membranedev-application-skills` | Expedy integration. Manage Organizations, Pipelines, Users, Filters. Use when the user wants to... |
 | [`expensify`](../../library/membranedev-application-skills/skills/expensify) | ⚪ Reserve | `membranedev-application-skills` | Expensify integration. Manage data, records, and automate workflows. Use when the user wants to... |
+| [`experiment-readout-lab-notebook`](../../library/feimacode-open-design-agent-kit/skills/experiment-readout-lab-notebook) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Hypothesis, metrics, results, interpretation and decision: turns an A/B test or product experim... |
 | [`expertai`](../../library/membranedev-application-skills/skills/expertai) | ⚪ Reserve | `membranedev-application-skills` | Expert.ai integration. Manage data, records, and automate workflows. Use when the user wants to... |
 | [`exploratory-data-analysis`](../../library/aj-geddes-useful-ai-prompts/skills/exploratory-data-analysis) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Discover patterns, distributions, and relationships in data through visualization, summary stat... |
 | [`explore-data`](../../library/anthropics-knowledge-work/skills/explore-data) | ⚪ Reserve | `anthropics-knowledge-work` | Profile and explore a dataset to understand its shape, quality, and patterns. Use when encounte... |
@@ -1148,6 +1149,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`frollo`](../../library/membranedev-application-skills/skills/frollo) | ⚪ Reserve | `membranedev-application-skills` | Frollo integration. Manage data, records, and automate workflows. Use when the user wants to in... |
 | [`front`](../../library/membranedev-application-skills/skills/front) | ⚪ Reserve | `membranedev-application-skills` | Front integration. Manage Conversations, Contacts, Tags, Channels, Teams, Users. Use when the u... |
 | [`frontegg`](../../library/membranedev-application-skills/skills/frontegg) | ⚪ Reserve | `membranedev-application-skills` | Frontegg integration. Manage data, records, and automate workflows. Use when the user wants to ... |
+| [`fs-notebook-tabs`](../../library/feimacode-open-design-agent-kit/skills/fs-notebook-tabs) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A computer-science capstone: an on-device ML keyboard that predicts next words privately — prob... |
 | [`ftrack`](../../library/membranedev-application-skills/skills/ftrack) | ⚪ Reserve | `membranedev-application-skills` | FTrack integration. Manage Organizations, Users, Activities. Use when the user wants to interac... |
 | [`fullcontact`](../../library/membranedev-application-skills/skills/fullcontact) | ⚪ Reserve | `membranedev-application-skills` | FullContact integration. Manage Persons, Organizations. Use when the user wants to interact wit... |
 | [`fullstory`](../../library/membranedev-application-skills/skills/fullstory) | ⚪ Reserve | `membranedev-application-skills` | Fullstory integration. Manage Users, Sessions. Use when the user wants to interact with Fullsto... |
@@ -1643,6 +1645,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`listenloop`](../../library/membranedev-application-skills/skills/listenloop) | ⚪ Reserve | `membranedev-application-skills` | ListenLoop integration. Manage data, records, and automate workflows. Use when the user wants t... |
 | [`little-green-light`](../../library/membranedev-application-skills/skills/little-green-light) | ⚪ Reserve | `membranedev-application-skills` | Little Green Light integration. Manage Organizations, Funds, Campaigns, Appeals, Events, Tasks ... |
 | [`littledata`](../../library/membranedev-application-skills/skills/littledata) | ⚪ Reserve | `membranedev-application-skills` | Littledata integration. Manage data, records, and automate workflows. Use when the user wants t... |
+| [`live-artifact`](../../library/feimacode-open-design-agent-kit/skills/live-artifact) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Create refreshable, auditable OpenDesign artifacts backed by connector or local data. Trigger w... |
 | [`liveagent`](../../library/membranedev-application-skills/skills/liveagent) | ⚪ Reserve | `membranedev-application-skills` | LiveAgent integration. Manage Persons, Organizations, Deals, Leads, Activities, Notes and more.... |
 | [`livechat`](../../library/membranedev-application-skills/skills/livechat) | ⚪ Reserve | `membranedev-application-skills` | LiveChat integration. Manage Chats, Reports. Use when the user wants to interact with LiveChat ... |
 | [`livekit`](../../library/membranedev-application-skills/skills/livekit) | ⚪ Reserve | `membranedev-application-skills` | LiveKit integration. Manage data, records, and automate workflows. Use when the user wants to i... |
@@ -1946,6 +1949,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ocr-web-service`](../../library/membranedev-application-skills/skills/ocr-web-service) | ⚪ Reserve | `membranedev-application-skills` | OCR Web Service integration. Manage Documents. Use when the user wants to interact with OCR Web... |
 | [`octolis`](../../library/membranedev-application-skills/skills/octolis) | ⚪ Reserve | `membranedev-application-skills` | Octolis integration. Manage data, records, and automate workflows. Use when the user wants to i... |
 | [`octoparse`](../../library/membranedev-application-skills/skills/octoparse) | ⚪ Reserve | `membranedev-application-skills` | Octoparse integration. Manage data, records, and automate workflows. Use when the user wants to... |
+| [`od-prototype-data-report`](../../library/feimacode-open-design-agent-kit/skills/od-prototype-data-report) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Data Visualization Report (Open Design) — use only when the user explicitly runs this skill |
 | [`officient`](../../library/membranedev-application-skills/skills/officient) | ⚪ Reserve | `membranedev-application-skills` | Officient integration. Manage data, records, and automate workflows. Use when the user wants to... |
 | [`oh-dear`](../../library/membranedev-application-skills/skills/oh-dear) | ⚪ Reserve | `membranedev-application-skills` | Oh Dear! integration. Manage data, records, and automate workflows. Use when the user wants to ... |
 | [`okay`](../../library/membranedev-application-skills/skills/okay) | ⚪ Reserve | `membranedev-application-skills` | Okay integration. Manage data, records, and automate workflows. Use when the user wants to inte... |

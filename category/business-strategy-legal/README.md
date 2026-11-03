@@ -1,7 +1,7 @@
 # 📋 Business Strategy, Legal & HR
 
 > **Category**: `business-strategy-legal`  
-> **Total Curated Skills**: 284 skills  
+> **Total Curated Skills**: 291 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -74,6 +74,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`collecting-volatile-evidence-from-compromised-host`](../../library/mukul975-anthropic-cybersecurity-skills/skills/collecting-volatile-evidence-from-compromised-host) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Collect volatile forensic evidence from a compromised host by following the order of volatility... |
 | [`competency-matrix`](../../library/sickn33-agentic-awesome-skills/skills/competency-matrix) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Competency matrix of expected proficiency by job title and grade, with assessment method and li... |
 | [`competitive-pricing-strategy`](../../library/nexscope-ai-ecommerce-skills/skills/competitive-pricing-strategy) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Build an evidence-based competitive pricing strategy for ecommerce products. Use when a seller ... |
+| [`competitive-teardown-analyst-dossier`](../../library/feimacode-open-design-agent-kit/skills/competitive-teardown-analyst-dossier) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Positioning map, feature matrix, pricing comparison and opportunity windows: turns competitor r... |
+| [`competitive-teardown-radar-map`](../../library/feimacode-open-design-agent-kit/skills/competitive-teardown-radar-map) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Positioning map, feature matrix, pricing comparison and opportunity windows: turns competitor r... |
+| [`competitive-teardown-war-room-grid`](../../library/feimacode-open-design-agent-kit/skills/competitive-teardown-war-room-grid) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Positioning map, feature matrix, pricing comparison and opportunity windows: turns competitor r... |
 | [`competitor-price-analysis`](../../library/nexscope-ai-ecommerce-skills/skills/competitor-price-analysis) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Competitor pricing strategy analysis and market positioning. Price mapping, pricing gaps identi... |
 | [`competitor-price-tracker`](../../library/nexscope-ai-ecommerce-skills/skills/competitor-price-tracker) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Set up competitor price tracking and monitoring workflows. Track price changes, detect promotio... |
 | [`connect-required-verification-information`](../../library/stripe-ai/skills/connect-required-verification-information) | ⚪ Reserve | `stripe-ai` | Use this skill when the user asks what information a Stripe Connect connected account must prov... |
@@ -162,7 +165,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`homekit`](../../library/dpearson2699-swift-ios-skills/skills/homekit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Control smart-home accessories and commission Matter devices using HomeKit and MatterSupport. U... |
 | [`hooked-ux`](../../library/wondelai-skills/skills/hooked-ux) | ⚪ Reserve | `wondelai-skills` | Design habit-forming product loops using the Hook Model (Trigger, Action, Variable Reward, Inve... |
 | [`hr-automation`](../../library/claude-office-skills-skills/skills/hr-automation) | ⚪ Reserve | `claude-office-skills-skills` | HR workflow automation - recruiting, onboarding, employee management, and offboarding processes |
+| [`hr-onboarding`](../../library/feimacode-open-design-agent-kit/skills/hr-onboarding) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A new-hire onboarding plan as a single page — first week schedule, buddy + manager intro, learn... |
 | [`hr-pro`](../../library/antigravity-awesome-skills/skills/hr-pro) | ⚪ Reserve | `antigravity-awesome-skills` | Professional, ethical HR partner for hiring, |
+| [`huashu-slides`](../../library/feimacode-open-design-agent-kit/skills/huashu-slides) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A career-pivot story from consultant to product leader — the arc, the proof, and why the next r... |
 | [`huawei-cloud-billing-scout`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-billing-scout) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Huawei Cloud BSS billing (not AWS/Azure/other clouds; refuses pricing quotes, real-name review,... |
 | [`huawei-cloud-cost-estimation`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-cost-estimation) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Generates Huawei Cloud pre-order estimates, provisions allowlisted resources through hcloud, an... |
 | [`huawei-cloud-modelarts-resource-pool-management`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-modelarts-resource-pool-management) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Manage Huawei Cloud ModelArts dedicated resource pools (专属资源池) and node pools through full life... |
@@ -220,6 +225,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`onboarding-ux`](../../library/jezweb-claude-skills/skills/onboarding-ux) | ⚪ Reserve | `jezweb-claude-skills` | Audit and generate in-app user guidance — onboarding flows, empty states, tooltips, feature tou... |
 | [`open-access-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/open-access-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Navigate open access policies, repositories, and legal full-text retrieval me... |
 | [`opencontracts-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/opencontracts-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Legal document annotation, versioning, and analysis platform |
+| [`openspec-onboard`](../../library/feimacode-open-design-agent-kit/skills/openspec-onboard) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Guided onboarding for OpenSpec - walk through a complete workflow cycle with narration and real... |
 | [`operator-approval-loop`](../../library/affaan-m-ecc/skills/operator-approval-loop) | ⚪ Reserve | `affaan-m-ecc` | Operator approval contract with internal filing notices for agent-drafted outbound messages, ha... |
 | [`option-vol-analysis`](../../library/anthropics-financial-services/skills/option-vol-analysis) | ⚪ Reserve | `anthropics-financial-services` | Analyze option volatility by combining vol surface data, option pricing with Greeks, and histor... |
 | [`options-analytics-agent-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/options-analytics-agent-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | AI agent for options pricing, Greeks, and strategy analysis |
@@ -239,13 +245,14 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`persona-hr-coordinator`](../../library/googleworkspace-cli/skills/persona-hr-coordinator) | ⚪ Reserve | `googleworkspace-cli` | Handle HR workflows — onboarding, announcements, and employee comms. |
 | [`pestel-analysis`](../../library/deanpeters-product-manager-skills/skills/pestel-analysis) | ⚪ Reserve | `deanpeters-product-manager-skills` | Analyze political, economic, social, technological, environmental, and legal forces. Use when e... |
 | [`pestle-analysis`](../../library/phuryn-pm-skills/skills/pestle-analysis) | ⚪ Reserve | `phuryn-pm-skills` | Perform a PESTLE analysis covering Political, Economic, Social, Technological, Legal, and Envir... |
+| [`pm-spec`](../../library/feimacode-open-design-agent-kit/skills/pm-spec) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Product spec / PRD as a single page — problem, success metrics, scope, user stories, design not... |
 | [`post-mortem`](../../library/alirezarezvani-claude-skills/skills/post-mortem) | ⚪ Reserve | `alirezarezvani-claude-skills` | /c-level-agents:post-mortem [decision] — Honest retrospective on an executed decision, scored a... |
 | [`prd`](../../library/alirezarezvani-claude-skills/skills/prd) | ⚪ Reserve | `alirezarezvani-claude-skills` | ../../../commands/prd.md |
 | [`prd-development`](../../library/deanpeters-product-manager-skills/skills/prd-development) | ⚪ Reserve | `deanpeters-product-manager-skills` | Build a structured PRD that connects problem, users, solution, and success criteria. Use when t... |
 | [`pre-mortem`](../../library/phuryn-pm-skills/skills/pre-mortem) | ⚪ Reserve | `phuryn-pm-skills` | Run a pre-mortem risk analysis on a PRD or launch plan. Categorizes risks as Tigers (real probl... |
 | [`price-psychology-strategist`](../../library/sickn33-agentic-awesome-skills/skills/price-psychology-strategist) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Design pricing presentation, anchors, and tiers when an offer needs clearer value and fairness ... |
 | [`pricing-packaging-tracker`](../../library/deanpeters-product-manager-skills/skills/pricing-packaging-tracker) | ⚪ Reserve | `deanpeters-product-manager-skills` | Track competitor pricing and packaging as a diffable time series. Use when monitoring tiers, ga... |
-| [`pricing-page`](../../library/mengto-skills/skills/pricing-page) | ⚪ Reserve | `mengto-skills` | Use when designing or rewriting a high-converting SaaS pricing page (structure, plan design, co... |
+| [`pricing-page`](../../library/feimacode-open-design-agent-kit/skills/pricing-page) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A standalone pricing page — header, plan tiers, feature comparison table, and an FAQ. Use when ... |
 | [`pricing-psychology-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/pricing-psychology-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Behavioral economics in pricing strategies and consumer decisions |
 | [`product-capability`](../../library/affaan-m-ecc/skills/product-capability) | ⚪ Reserve | `affaan-m-ecc` | Translate PRD intent, roadmap asks, or product discussions into an implementation-ready capabil... |
 | [`product-decision-agent`](../../library/davila7-claude-code-templates/skills/product-decision-agent) | ⚪ Reserve | `davila7-claude-code-templates` | 中文产品决策 Agent。用于中国大陆互联网产品、运营、增长、商业化、数据、项目推进和组织协作场景：产品规划、需求分析、PRD、需求优先级、排期、版本规划、Roadmap、MVP、灰度、上线... |

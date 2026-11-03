@@ -1,0 +1,36 @@
+{
+  "name": "runpod",
+  "description": "Official Runpod agent skills and MCP server — run Runpod tasks (pods, serverless, templates, volumes) with runpodctl and flash, plus conceptual guidance and worked golden paths.",
+  "version": "1.9.0",
+  "owner": {
+    "name": "Runpod",
+    "email": "team@runpod.io"
+  },
+  "plugins": [
+    {
+      "name": "runpod",
+      "displayName": "Runpod",
+      "description": "Official Runpod skills and MCP server: a router plus lanes (runpodctl, flash, templates incl. ComfyUI workflow repair, migration, companion CLIs, conceptual usage) that bundles the hosted Runpod MCP server.",
+      "source": "./plugins/runpod",
+      "category": "deployment",
+      "skills": [
+        "./skills/runpod",
+        "./skills/runpod-mcp",
+        "./skills/runpodctl",
+        "./skills/flash",
+        "./skills/runpod-usage",
+        "./skills/runpod-templates",
+        "./skills/runpod-build-template",
+        "./skills/companion-clis",
+        "./skills/runpod-migrate",
+        "./skills/cost-audit",
+        "./skills/discovery",
+        "./skills/endpoint-ops",
+        "./skills/lifecycle-crud",
+        "./skills/pod-deploy",
+        "./skills/pod-doctor",
+        "./skills/serverless-deploy"
+      ]
+    }
+  ]
+}

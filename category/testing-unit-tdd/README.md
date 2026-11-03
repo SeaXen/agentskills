@@ -1,7 +1,7 @@
 # 🧪 Unit Testing, TDD & Verification
 
 > **Category**: `testing-unit-tdd`  
-> **Total Curated Skills**: 574 skills  
+> **Total Curated Skills**: 578 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -214,6 +214,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`exp-mock-usage-analysis`](../../library/dotnet-skills/skills/exp-mock-usage-analysis) | ⚪ Reserve | `dotnet-skills` | Audits .NET test mock usage by tracing each mock setup through the production code's execution ... |
 | [`exp-test-maintainability`](../../library/dotnet-skills/skills/exp-test-maintainability) | ⚪ Reserve | `dotnet-skills` | Detects duplicate boilerplate, copy-paste tests, and structural maintainability issues across .... |
 | [`experiment-designer`](../../library/alirezarezvani-claude-skills/skills/experiment-designer) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when planning product experiments, writing testable hypotheses, estimating sample size, pri... |
+| [`experiment-readout`](../../library/feimacode-open-design-agent-kit/skills/experiment-readout) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Hypothesis, metrics, results, interpretation and decision: turns an A/B test or product experim... |
+| [`experiment-readout-growth-console`](../../library/feimacode-open-design-agent-kit/skills/experiment-readout-growth-console) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Hypothesis, metrics, results, interpretation and decision: turns an A/B test or product experim... |
+| [`experiment-readout-product-readout`](../../library/feimacode-open-design-agent-kit/skills/experiment-readout-product-readout) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Hypothesis, metrics, results, interpretation and decision: turns an A/B test or product experim... |
 | [`experimental-design`](../../library/k-dense-ai-scientific-agent-skills/skills/experimental-design) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Designs experiments and studies BEFORE data is collected — choosing a design, randomizing, bloc... |
 | [`exploiting-broken-link-hijacking`](../../library/mukul975-anthropic-cybersecurity-skills/skills/exploiting-broken-link-hijacking) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Discovers and exploits broken link hijacking by spidering a site (Burp Suite Spider, Scrapy, cu... |
 | [`exploiting-deeplink-vulnerabilities`](../../library/mukul975-anthropic-cybersecurity-skills/skills/exploiting-deeplink-vulnerabilities) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Tests and exploits deep link (URL scheme and App Link) vulnerabilities |
@@ -363,6 +366,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`om-troubleshooter`](../../library/open-mercato-skills/skills/om-troubleshooter) | ⚪ Reserve | `open-mercato-skills` | Diagnose a failure from its symptom — reproduce, classify the broken invariant, route via the r... |
 | [`oneroster-csv-validator`](../../library/sickn33-agentic-awesome-skills/skills/oneroster-csv-validator) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Validates 1EdTech / IMS Global OneRoster v1.1 and v1.2 CSV roster sets: manifest integrity, bul... |
 | [`ontology-term-resolution`](../../library/k-dense-ai-scientific-agent-skills/skills/ontology-term-resolution) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Resolves free-text scientific labels to ontology term IDs and validates existing CURIEs against... |
+| [`open-design-critique`](../../library/feimacode-open-design-agent-kit/skills/open-design-critique) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Get a second opinion on an Open Design artifact from a design critic, judged from its latest ch... |
 | [`open-dynamic-workflows`](../../library/sickn33-agentic-awesome-skills/skills/open-dynamic-workflows) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Plan, orchestrate, and adversarially verify parallel AI coding agents with a dynamic multi-agen... |
 | [`openhook`](../../library/sickn33-agentic-awesome-skills/skills/openhook) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Creates private callback inboxes with Openhook. Use when an agent needs to wait for a webhook, ... |
 | [`openrig-upgrade`](../../library/mvschwarz-openrig/skills/openrig-upgrade) | ⚪ Reserve | `mvschwarz-openrig` | Use when an agent is preparing or performing an OpenRig CLI/daemon upgrade and must preserve li... |

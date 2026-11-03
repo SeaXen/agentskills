@@ -1,7 +1,7 @@
 # 🧠 NousResearch Hermes Agent Skills
 
 > **Category**: `autonomous-agents-hermes`  
-> **Total Curated Skills**: 162 skills  
+> **Total Curated Skills**: 161 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -99,7 +99,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ip-as-logo`](../../library/nousresearch-hermes-optional-skills/skills/ip-as-logo) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Design minimal cute IP mascot marks readable at 32px. |
 | [`kanban-video-orchestrator`](../../library/nousresearch-hermes-optional-skills/skills/kanban-video-orchestrator) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Plan and run multi-agent video production pipelines. |
 | [`lambda-labs`](../../library/nousresearch-hermes-optional-skills/skills/lambda-labs) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | On-demand GPU cloud instances for ML training. |
-| [`live-dashboard`](../../library/nousresearch-hermes-optional-skills/skills/live-dashboard) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Build self-updating dashboards from live sources. |
 | [`llama-cpp`](../../library/nousresearch-hermes-optional-skills/skills/llama-cpp) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | llama.cpp local GGUF inference + HF Hub model discovery. |
 | [`llava`](../../library/nousresearch-hermes-optional-skills/skills/llava) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Vision-language chat: VQA, captioning, image dialogue. |
 | [`maps`](../../library/nousresearch-hermes-skills/skills/maps) | ⚪ Reserve | `nousresearch-hermes-skills` | Geocode, POIs, routes, timezones via OpenStreetMap/OSRM. |

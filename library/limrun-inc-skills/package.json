@@ -1,0 +1,16 @@
+{
+  "name": "@limrun/skills",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate": "node scripts/validate-skills.mjs",
+    "smoke:npx": "npx --yes skills add . --list",
+    "generate": "node scripts/generate-manifests.mjs",
+    "generate:check": "node scripts/generate-manifests.mjs --check",
+    "bump": "node scripts/bump-version.mjs"
+  },
+  "devDependencies": {
+    "js-yaml": "^4.3.2"
+  }
+}

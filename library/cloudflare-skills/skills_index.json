@@ -4,7 +4,7 @@
     "name": "agents-sdk",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Build, debug, or review Cloudflare Agents SDK applications using the agents package.",
     "path": "library/cloudflare-skills/skills/agents-sdk",
     "activation_cmd": "python .agents/library/activate_skill.py activate agents-sdk",
     "link_cmd": "python .agents/library/activate_skill.py link agents-sdk"
@@ -14,7 +14,7 @@
     "name": "basin",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Build and troubleshoot Cloudflare Basin analytics workflows with Basin Pipelines, Basin Catalog, and Basin SQL. Use for streaming data into R2 Iceberg tables, managing catalogs, or querying those tables; also use for requests using the former Data Platform, Pipelines, R2 Data Catalog, or R2 SQL names.",
     "path": "library/cloudflare-skills/skills/basin",
     "activation_cmd": "python .agents/library/activate_skill.py activate basin",
     "link_cmd": "python .agents/library/activate_skill.py link basin"
@@ -24,7 +24,7 @@
     "name": "cf-cli",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Cloudflare's official cf CLI (beta) for the public Cloudflare API and Workers projects. Use for finding and running Cloudflare commands from the terminal \u2014 sign-in and profiles, cf cli search, cf schema, cf deploy/dev/build, resource commands for DNS, zones, D1, KV, and R2 \u2014 and for choosing between cf and Wrangler in a project.",
     "path": "library/cloudflare-skills/skills/cf-cli",
     "activation_cmd": "python .agents/library/activate_skill.py activate cf-cli",
     "link_cmd": "python .agents/library/activate_skill.py link cf-cli"
@@ -34,7 +34,7 @@
     "name": "cloudflare",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Discover and choose Cloudflare products for apps, APIs, AI agents, storage, networking, and security. Use for architecture and product selection, including when the user describes a need without naming a Cloudflare product; then find the relevant skill or documentation.",
     "path": "library/cloudflare-skills/skills/cloudflare",
     "activation_cmd": "python .agents/library/activate_skill.py activate cloudflare",
     "link_cmd": "python .agents/library/activate_skill.py link cloudflare"
@@ -43,8 +43,8 @@
     "id": "cloudflare-deploy",
     "name": "cloudflare-deploy",
     "repository": "cloudflare-skills",
-    "category": "general",
-    "description": "",
+    "category": "cloudflare-edge",
+    "description": "Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform services. Use when the user asks to deploy, host, publish, or set up a project on Cloudflare.",
     "path": "library/cloudflare-skills/skills/cloudflare-deploy",
     "activation_cmd": "python .agents/library/activate_skill.py activate cloudflare-deploy",
     "link_cmd": "python .agents/library/activate_skill.py link cloudflare-deploy"
@@ -54,7 +54,7 @@
     "name": "cloudflare-email-service",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Implement or troubleshoot Cloudflare Email Sending and Email Routing integrations and their delivery configuration.",
     "path": "library/cloudflare-skills/skills/cloudflare-email-service",
     "activation_cmd": "python .agents/library/activate_skill.py activate cloudflare-email-service",
     "link_cmd": "python .agents/library/activate_skill.py link cloudflare-email-service"
@@ -64,7 +64,7 @@
     "name": "cloudflare-one",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Design, configure, troubleshoot, or review Cloudflare One Zero Trust and SASE deployments. Use cloudflare-one-migrations for migration planning from other vendors.",
     "path": "library/cloudflare-skills/skills/cloudflare-one",
     "activation_cmd": "python .agents/library/activate_skill.py activate cloudflare-one",
     "link_cmd": "python .agents/library/activate_skill.py link cloudflare-one"
@@ -74,7 +74,7 @@
     "name": "cloudflare-one-migrations",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Assess and plan migrations from existing VPN, SWG, or SASE platforms to Cloudflare One, including policy mapping, parity gaps, and rollout.",
     "path": "library/cloudflare-skills/skills/cloudflare-one-migrations",
     "activation_cmd": "python .agents/library/activate_skill.py activate cloudflare-one-migrations",
     "link_cmd": "python .agents/library/activate_skill.py link cloudflare-one-migrations"
@@ -84,7 +84,7 @@
     "name": "durable-objects",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Build, debug, or review Cloudflare Durable Objects code for persistent state and coordination.",
     "path": "library/cloudflare-skills/skills/durable-objects",
     "activation_cmd": "python .agents/library/activate_skill.py activate durable-objects",
     "link_cmd": "python .agents/library/activate_skill.py link durable-objects"
@@ -94,7 +94,7 @@
     "name": "gateway-workers",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Build, debug, or review Cloudflare Workers invoked by the Forward action in Gateway HTTP policies, including the GatewayMiddleware entrypoint, Gateway types, context, and continuation.",
     "path": "library/cloudflare-skills/skills/gateway-workers",
     "activation_cmd": "python .agents/library/activate_skill.py activate gateway-workers",
     "link_cmd": "python .agents/library/activate_skill.py link gateway-workers"
@@ -104,7 +104,7 @@
     "name": "k2",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Build and troubleshoot Cloudflare K2 or K2 Streams durable logs. Use for stream setup, producing from Workers or HTTP, configuring retention and inputs, and consuming through subscriptions.",
     "path": "library/cloudflare-skills/skills/k2",
     "activation_cmd": "python .agents/library/activate_skill.py activate k2",
     "link_cmd": "python .agents/library/activate_skill.py link k2"
@@ -114,7 +114,7 @@
     "name": "nextjs-on-cloudflare",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Build, migrate, and deploy Next.js apps on Cloudflare Workers with vinext. Use when starting a Next.js project on Cloudflare, moving an existing app to Workers, choosing between vinext and OpenNext, or setting up vinext for Workers. For setup, migration, or deployment, install vinext's upstream skills with `npx skills add cloudflare/vinext` if missing, then read and follow the applicable skill and docs.",
     "path": "library/cloudflare-skills/skills/nextjs-on-cloudflare",
     "activation_cmd": "python .agents/library/activate_skill.py activate nextjs-on-cloudflare",
     "link_cmd": "python .agents/library/activate_skill.py link nextjs-on-cloudflare"
@@ -124,7 +124,7 @@
     "name": "sandbox-migrate-to-next",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Migrate Cloudflare Sandbox apps from stable @cloudflare/sandbox to @cloudflare/sandbox@next (SDK 1.0 preview). Use sandbox-next for apps already on the preview.",
     "path": "library/cloudflare-skills/skills/sandbox-migrate-to-next",
     "activation_cmd": "python .agents/library/activate_skill.py activate sandbox-migrate-to-next",
     "link_cmd": "python .agents/library/activate_skill.py link sandbox-migrate-to-next"
@@ -134,7 +134,7 @@
     "name": "sandbox-next",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Build or maintain Cloudflare Sandbox apps on @cloudflare/sandbox@next (SDK 1.0 preview). Use sandbox-migrate-to-next when porting a stable app.",
     "path": "library/cloudflare-skills/skills/sandbox-next",
     "activation_cmd": "python .agents/library/activate_skill.py activate sandbox-next",
     "link_cmd": "python .agents/library/activate_skill.py link sandbox-next"
@@ -144,7 +144,7 @@
     "name": "sandbox-stable",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Build or maintain Cloudflare Sandbox apps on the stable @cloudflare/sandbox package. Use sandbox-next for preview apps and sandbox-migrate-to-next for stable-to-preview migrations.",
     "path": "library/cloudflare-skills/skills/sandbox-stable",
     "activation_cmd": "python .agents/library/activate_skill.py activate sandbox-stable",
     "link_cmd": "python .agents/library/activate_skill.py link sandbox-stable"
@@ -154,7 +154,7 @@
     "name": "turnstile-spin",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Set up, repair, or migrate to Cloudflare Turnstile bot verification in an existing frontend and backend, including server-side Siteverify.",
     "path": "library/cloudflare-skills/skills/turnstile-spin",
     "activation_cmd": "python .agents/library/activate_skill.py activate turnstile-spin",
     "link_cmd": "python .agents/library/activate_skill.py link turnstile-spin"
@@ -164,7 +164,7 @@
     "name": "web-perf",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Audit, diagnose, or optimize website loading and interaction performance, Core Web Vitals, and Lighthouse performance scores.",
     "path": "library/cloudflare-skills/skills/web-perf",
     "activation_cmd": "python .agents/library/activate_skill.py activate web-perf",
     "link_cmd": "python .agents/library/activate_skill.py link web-perf"
@@ -174,7 +174,7 @@
     "name": "workers-best-practices",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Cloudflare Workers best practices for production applications. Use when writing, reviewing, or configuring Workers.",
     "path": "library/cloudflare-skills/skills/workers-best-practices",
     "activation_cmd": "python .agents/library/activate_skill.py activate workers-best-practices",
     "link_cmd": "python .agents/library/activate_skill.py link workers-best-practices"
@@ -184,7 +184,7 @@
     "name": "workers-profiling",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Profile or debug CPU usage and memory allocation in deployed Cloudflare Workers and Durable Objects. Then use this information to optimize your code.",
     "path": "library/cloudflare-skills/skills/workers-profiling",
     "activation_cmd": "python .agents/library/activate_skill.py activate workers-profiling",
     "link_cmd": "python .agents/library/activate_skill.py link workers-profiling"
@@ -194,7 +194,7 @@
     "name": "wrangler",
     "repository": "cloudflare-skills",
     "category": "general",
-    "description": "",
+    "description": "Run or troubleshoot Wrangler CLI commands in projects that have a wrangler.jsonc, wrangler.json, or wrangler.toml file, including local development, Previews, deployment, and resource management. For new projects and projects without a Wrangler configuration file, use the cf CLI instead.",
     "path": "library/cloudflare-skills/skills/wrangler",
     "activation_cmd": "python .agents/library/activate_skill.py activate wrangler",
     "link_cmd": "python .agents/library/activate_skill.py link wrangler"

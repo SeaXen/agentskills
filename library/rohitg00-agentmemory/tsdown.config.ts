@@ -1,0 +1,144 @@
+import { defineConfig } from "tsdown";
+
+const hookEntries = [
+  "src/hooks/session-start.ts",
+  "src/hooks/prompt-submit.ts",
+  "src/hooks/pre-tool-use.ts",
+  "src/hooks/post-tool-use.ts",
+  "src/hooks/post-tool-failure.ts",
+  "src/hooks/pre-compact.ts",
+  "src/hooks/subagent-start.ts",
+  "src/hooks/subagent-stop.ts",
+  "src/hooks/notification.ts",
+  "src/hooks/task-completed.ts",
+  "src/hooks/stop.ts",
+  "src/hooks/session-end.ts",
+  "src/hooks/post-commit.ts",
+  "src/hooks/antigravity-bridge.ts",
+  "src/hooks/_capture.ts",
+];
+
+// Cursor gets a thin adapter rather than its own hook copies: two CLI
+// entrypoints that resolve the workspace Cursor fails to report, then
+// delegate to the canonical hooks above. workspace.ts/delegate.ts are not
+// entries — they inline into each CLI, so the emitted files stay
+// self-contained like every other hook, and the canonical .mjs they spawn
+// sit exactly one directory up from plugin/scripts/cursor/.
+const cursorEntries = ["src/hooks/cursor/run-hook.ts", "src/hooks/cursor/run-detached.ts"];
+
+const sharedCaptureModule = {
+  name: "agentmemory-shared-capture",
+  resolveId(source: string) {
+    return source === "./_capture.js" ? { id: "./_capture.mjs", external: true } : null;
+  },
+};
+
+const shared = {
+  format: ["esm"] as const,
+  target: "node20" as const,
+  // Keep these as node_modules imports (deps.neverBundle). We never import
+  // onnxruntime-{node,web} or sharp directly; they come in transitively
+  // through @huggingface/transformers, which is lazy-loaded from
+  // src/providers/embedding/{clip,local}.ts and src/state/reranker.ts.
+  // Bundling inlines relative paths like
+  // `../bin/napi-v3/darwin/arm64/onnxruntime_binding.node` that no longer
+  // resolve from dist/. @huggingface/transformers is declared as an
+  // optionalDependency in package.json so users can install it only when
+  // they enable local embeddings / CLIP / reranker.
+  deps: {
+    neverBundle: [
+      "@huggingface/transformers",
+      "@anthropic-ai/claude-agent-sdk",
+      "@anthropic-ai/sdk",
+    ],
+  },
+  // Each entry is its own build, so the per-entry dts/deps timing notice
+  // fires ~30 times and drowns the real output. It is informational only.
+  inputOptions: {
+    checks: { pluginTimings: false },
+  },
+};
+
+export default defineConfig([
+  {
+    entry: ["src/index.ts"],
+    outDir: "dist",
+    ...shared,
+    dts: true,
+    clean: true,
+    sourcemap: true,
+    banner: { js: "#!/usr/bin/env node" },
+  },
+  {
+    entry: ["src/cli.ts"],
+    outDir: "dist",
+    ...shared,
+    clean: false,
+    sourcemap: false,
+  },
+  {
+    entry: ["src/mcp/standalone.ts"],
+    outDir: "dist",
+    ...shared,
+    clean: false,
+    sourcemap: false,
+  },
+  {
+    name: "pi-extension",
+    entry: ["integrations/pi/index.ts"],
+    outDir: "integrations/pi/dist",
+    ...shared,
+    deps: { neverBundle: ["typebox"] },
+    dts: false,
+    clean: true,
+    sourcemap: false,
+  },
+  {
+    entry: ["integrations/omp/index.ts"],
+    outDir: "integrations/omp/dist",
+    ...shared,
+    dts: false,
+    clean: true,
+    sourcemap: false,
+  },
+  {
+    entry: ["src/integrations/dsh.ts"],
+    outDir: "dist/integrations",
+    ...shared,
+    clean: false,
+    sourcemap: false,
+  },
+  // One entry per config block prevents tsdown from hoisting shared
+  // helpers into hashed chunks across hooks.
+  {
+    entry: ["src/mcp/plugin-bridge.ts"],
+    outDir: "plugin/scripts",
+    ...shared,
+    dts: false,
+    clean: false,
+    sourcemap: false,
+  },
+  ...hookEntries.map((entry) => ({
+    entry: [entry],
+    outDir: "dist/hooks",
+    ...shared,
+    plugins: [sharedCaptureModule],
+    clean: false,
+    sourcemap: false,
+  })),
+  ...hookEntries.map((entry) => ({
+    entry: [entry],
+    outDir: "plugin/scripts",
+    ...shared,
+    plugins: [sharedCaptureModule],
+    clean: false,
+    sourcemap: false,
+  })),
+  ...cursorEntries.map((entry) => ({
+    entry: [entry],
+    outDir: "plugin/scripts/cursor",
+    ...shared,
+    clean: false,
+    sourcemap: false,
+  })),
+]);

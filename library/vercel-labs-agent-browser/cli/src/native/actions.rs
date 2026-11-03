@@ -758,6 +758,8 @@ pub struct DaemonState {
     /// This is tracked separately from cleanup metadata because provider
     /// plugins are allowed to omit a close-session payload.
     active_provider_connection: bool,
+    /// Browser product already checked for an outdated build, so each product is checked once even when the fetch fails.
+    browser_security_checked: Option<String>,
     /// Actions already approved while replaying a confirmed command.
     confirmed_policy_actions: HashSet<String>,
     /// Strict session-to-tab binding (`--pin-tab` / AGENT_BROWSER_PIN_TAB).
@@ -879,7 +881,7 @@ impl DaemonState {
             effective_ca_cert: None,
             network_auto_attach_installed: false,
             engine: env::var("AGENT_BROWSER_ENGINE").unwrap_or_else(|_| "chrome".to_string()),
-            // README documents 25s, intentionally below the CLI's 30s IPC
+            // Defaults to 25s, intentionally below the CLI's 30s IPC
             // read timeout so the daemon reports a proper timeout error
             // instead of the client dying with EAGAIN and retrying.
             default_timeout_ms: env::var("AGENT_BROWSER_DEFAULT_TIMEOUT")
@@ -891,6 +893,7 @@ impl DaemonState {
             plugin_init_scripts: Vec::new(),
             active_provider_session: None,
             active_provider_connection: false,
+            browser_security_checked: None,
             confirmed_policy_actions: HashSet::new(),
             pin_tab,
             last_persisted_binding: None,
@@ -2844,6 +2847,46 @@ fn append_launch_policy_actions(
 }
 
 pub async fn execute_command(cmd: &Value, state: &mut DaemonState) -> Value {
+    let mut response = execute_command_inner(cmd, state).await;
+    let action = cmd.get("action").and_then(|v| v.as_str()).unwrap_or("");
+    if !skip_launch_action(action) {
+        warn_if_browser_outdated(state, &mut response).await;
+    }
+    response
+}
+
+/// Adds a warning to the response when the connected browser is outdated with known CVEs. Checks each browser product once and never fails.
+async fn warn_if_browser_outdated(state: &mut DaemonState, response: &mut Value) {
+    let disabled =
+        env::var("AGENT_BROWSER_NO_VERSION_CHECK").is_ok_and(|v| v == "1" || v == "true");
+    if state.active_provider_connection || disabled {
+        return;
+    }
+    let Some(mgr) = state.browser.as_ref() else {
+        return;
+    };
+    let Ok(Ok(version)) = tokio::time::timeout(
+        std::time::Duration::from_secs(3),
+        mgr.client
+            .send_command_no_params("Browser.getVersion", None),
+    )
+    .await
+    else {
+        return;
+    };
+    let Some(product) = version.get("product").and_then(|v| v.as_str()) else {
+        return;
+    };
+    if state.browser_security_checked.as_deref() == Some(product) {
+        return;
+    }
+    state.browser_security_checked = Some(product.to_string());
+    if let Some(w) = crate::browser_security::outdated_warning(product).await {
+        append_warning(response, &w);
+    }
+}
+
+async fn execute_command_inner(cmd: &Value, state: &mut DaemonState) -> Value {
     let action = cmd.get("action").and_then(|v| v.as_str()).unwrap_or("");
     // Unlike normal auth login, no-navigation mode must never launch a
     // browser or manufacture an about:blank page to satisfy the command.
@@ -8621,7 +8664,7 @@ async fn handle_pdf(cmd: &Value, state: &DaemonState) -> Result<Value, String> {
     let save_path = match path {
         Some(p) => p.to_string(),
         None => {
-            let dir = dirs::home_dir()
+            let dir = std::env::home_dir()
                 .unwrap_or_else(std::env::temp_dir)
                 .join(".agent-browser")
                 .join("tmp")
@@ -12198,7 +12241,7 @@ fn har_output_path(explicit_path: Option<&str>) -> String {
 }
 
 fn get_har_dir() -> PathBuf {
-    if let Some(home) = dirs::home_dir() {
+    if let Some(home) = std::env::home_dir() {
         home.join(".agent-browser").join("tmp").join("har")
     } else {
         std::env::temp_dir().join("agent-browser").join("har")

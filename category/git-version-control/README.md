@@ -1,7 +1,7 @@
 # 🐙 Git, Worktrees & PR Workflows
 
 > **Category**: `git-version-control`  
-> **Total Curated Skills**: 427 skills  
+> **Total Curated Skills**: 436 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -161,6 +161,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`firebase-app-hosting-basics`](../../library/firebase-agent-skills/skills/firebase-app-hosting-basics) | ⚪ Reserve | `firebase-agent-skills` | Deploys and manages full-stack web applications (Next.js, Angular) with Server-Side Rendering (... |
 | [`flag-and-release-change`](../../library/launchdarkly-ai-tooling/skills/flag-and-release-change) | ⚪ Reserve | `launchdarkly-ai-tooling` | Drive a pull request's change end to end: decide it's flag-worthy, create the guarding flag, wi... |
 | [`flag-release`](../../library/launchdarkly-ai-tooling/skills/flag-release) | ⚪ Reserve | `launchdarkly-ai-tooling` | Record an automated rollout for an existing LaunchDarkly flag that guards a pull request's chan... |
+| [`flow-sign-in`](../../library/feimacode-open-design-agent-kit/skills/flow-sign-in) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A linked set of sign-in screens with every branch: sign in, sign up, forgot password, check you... |
 | [`folklore-variant-evidence`](../../library/k-dense-ai-scientific-agent-skills/skills/folklore-variant-evidence) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Retrieves ClinGen gene-disease validity assertions for a public gene or disease, and reviews so... |
 | [`forecast`](../../library/anthropics-knowledge-work/skills/forecast) | ⚪ Reserve | `anthropics-knowledge-work` | Generate the commit / best-case / pipeline narrative for a forecast call or a 1:1 with your man... |
 | [`fulfill-git-escrow`](../../library/internet-court-internet-court-skill/skills/fulfill-git-escrow) | ⚪ Reserve | `internet-court-internet-court-skill` | Fulfill a git escrow bounty by writing a solution or submitting an existing one. Use when the u... |
@@ -200,6 +201,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`github-actions-templates`](../../library/antigravity-awesome-skills/skills/github-actions-templates) | ⚪ Reserve | `antigravity-awesome-skills` | Create production-ready GitHub Actions workflows for automated testing, building, and deploying... |
 | [`github-actions-workflow`](../../library/aj-geddes-useful-ai-prompts/skills/github-actions-workflow) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Build comprehensive GitHub Actions workflows for CI/CD, testing, security, and deployment. Mast... |
 | [`github-automation`](../../library/antigravity-awesome-skills/skills/github-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate GitHub repositories, issues, pull requests, branches, CI/CD, and permissions via Rube ... |
+| [`github-dashboard`](../../library/feimacode-open-design-agent-kit/skills/github-dashboard) | ⚪ Reserve | `feimacode-open-design-agent-kit` | GitHub repository analytics dashboard — stars, forks, contributors, issues, pull requests, rece... |
 | [`github-engagement-playbook`](../../library/samber-developer-platform-skills/skills/github-engagement-playbook) | ⚪ Reserve | `samber-developer-platform-skills` | Plans a repository's post-launch engagement on GitHub as a social platform - stars, watchers an... |
 | [`github-issue-creator`](../../library/antigravity-awesome-skills/skills/github-issue-creator) | ⚪ Reserve | `antigravity-awesome-skills` | Convert raw notes, error logs, voice dictation, or screenshots into crisp GitHub-flavored markd... |
 | [`github-marketplace-playbook`](../../library/samber-developer-platform-skills/skills/github-marketplace-playbook) | ⚪ Reserve | `samber-developer-platform-skills` | Gets a vendor's GitHub App or GitHub Action listed on GitHub Marketplace and, for apps, selling... |
@@ -235,6 +237,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`here-be-git`](../../library/intellectronica-agent-skills/skills/here-be-git) | ⚪ Reserve | `intellectronica-agent-skills` | Initialise a git repository with optional agent commit instructions and .gitignore. Use when us... |
 | [`hivemind`](../../library/alirezarezvani-claude-skills/skills/hivemind) | ⚪ Reserve | `alirezarezvani-claude-skills` | Orchestrate free opencode workers from Claude Code to cut token costs. Use when delegating grun... |
 | [`hotfix`](../../library/donchitos-claude-code-game-studios/skills/hotfix) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Emergency fix bypassing normal sprint process — hotfix branch, approvals tracked, backport veri... |
+| [`html-ppt`](../../library/feimacode-open-design-agent-kit/skills/html-ppt) | ⚪ Reserve | `feimacode-open-design-agent-kit` | For consulting delivery work: turn diagnosis, frameworks, and project work into a client-adopta... |
+| [`html-ppt-zhangzara-coral`](../../library/feimacode-open-design-agent-kit/skills/html-ppt-zhangzara-coral) | ⚪ Reserve | `feimacode-open-design-agent-kit` | OpenDesign's community-growth campaign across GitHub, Discord, and X: the loops, the content ca... |
 | [`html-to-interaction-prompts`](../../library/mengto-skills/skills/html-to-interaction-prompts) | ⚪ Reserve | `mengto-skills` | Convert a supplied HTML page or generated HTML reference into a screenshot-backed article conta... |
 | [`hub-status`](../../library/alirezarezvani-claude-skills/skills/hub-status) | ⚪ Reserve | `alirezarezvani-claude-skills` | Show DAG state, agent progress, and branch status for an AgentHub session. Use when the user ru... |
 | [`hugging-face-papers`](../../library/sickn33-agentic-awesome-skills/skills/hugging-face-papers) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Look up and read Hugging Face paper pages in markdown, and use the papers API for structured me... |
@@ -315,10 +319,13 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`om-setup-agent-pipeline`](../../library/open-mercato-skills/skills/om-setup-agent-pipeline) | ⚪ Reserve | `open-mercato-skills` | One-time pipeline configurator. Inspects the repo (default branch, validation scripts, labels),... |
 | [`om-smart-test`](../../library/open-mercato-skills/skills/om-smart-test) | ⚪ Reserve | `open-mercato-skills` | Run only the tests a change can affect — diffs the branch against its base, maps changed files ... |
 | [`om-verify-in-repo`](../../library/open-mercato-skills/skills/om-verify-in-repo) | ⚪ Reserve | `open-mercato-skills` | Read-only triage gate for an autofix chain. Decides whether a tracker issue is a real, still-un... |
+| [`open-design-publish`](../../library/feimacode-open-design-agent-kit/skills/open-design-publish) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Share an Open Design artifact as a live link (a temporary no-account link, or your own Netlify,... |
 | [`open-source-marketing`](../../library/sickn33-agentic-awesome-skills/skills/open-source-marketing) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | When the user wants to market an open source project authentically. Trigger phrases include "op... |
 | [`open-standards-strategy`](../../library/samber-developer-relations-skills/skills/open-standards-strategy) | ⚪ Reserve | `samber-developer-relations-skills` | Decides how a company engages a named open standard or protocol - ignore it, consume it, certif... |
 | [`openclaw-github-repo-commander`](../../library/sickn33-agentic-awesome-skills/skills/openclaw-github-repo-commander) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | 7-stage super workflow for GitHub repo audit, cleanup, PR review, and competitor analysis |
 | [`opencli-autofix`](../../library/jackwener-opencli/skills/opencli-autofix) | ⚪ Reserve | `jackwener-opencli` | Automatically fix broken OpenCLI adapters when commands fail. Load this skill when an opencli c... |
+| [`orbit-general`](../../library/feimacode-open-design-agent-kit/skills/orbit-general) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Open Orbit briefing skill — selected by the Orbit pipeline when the user has two or more connec... |
+| [`orbit-github`](../../library/feimacode-open-design-agent-kit/skills/orbit-github) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Open Orbit briefing skill — selected by the Orbit pipeline when GitHub is the user's only conne... |
 | [`orca-cli`](../../library/stablyai-orca/skills/orca-cli) | ⚪ Reserve | `stablyai-orca` | Operate Orca-managed worktrees, folder contexts, terminals, repos, automations, worktree commen... |
 | [`orca-per-workspace-env`](../../library/stablyai-orca/skills/orca-per-workspace-env) | ⚪ Reserve | `stablyai-orca` | Set up, review, debug, or validate an Orca per-workspace environment recipe: the on-demand, dis... |
 | [`orch-add-feature`](../../library/affaan-m-ecc/skills/orch-add-feature) | ⚪ Reserve | `affaan-m-ecc` | Orchestrate building a brand-new feature end to end — research, plan, TDD implementation, revie... |
@@ -337,7 +344,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`port-github-app-to-origin`](../../library/cursor-plugins/skills/port-github-app-to-origin) | ⚪ Reserve | `cursor-plugins` | Plans the port of an existing GitHub App to a Cursor Origin App. Use when the task is to bring ... |
 | [`post-patch-validation`](../../library/trailofbits-skills/skills/post-patch-validation) | ⚪ Reserve | `trailofbits-skills` | Validates security patches with reproducible baseline-versus-patched evidence, including origin... |
 | [`pr-and-press`](../../library/refoundai-lenny-skills/skills/pr-and-press) | ⚪ Reserve | `refoundai-lenny-skills` | Help users design and execute a press strategy that moves beyond vanity metrics to achieve spec... |
-| [`pr-feedback-quality-gate`](../../library/nexu-io-open-design/skills/pr-feedback-quality-gate) | ⚪ Reserve | `nexu-io-open-design` | Safely track pull request feedback, resolve review comments or merge conflicts, validate fixes,... |
+| [`pr-explainer`](../../library/feimacode-open-design-agent-kit/skills/pr-explainer) | ⚪ Reserve | `feimacode-open-design-agent-kit` | An example of the pr-explainer skill: PR explainer: campaign kit. |
+| [`pr-feedback-quality-gate`](../../library/feimacode-open-design-agent-kit/skills/pr-feedback-quality-gate) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Safely track pull request feedback, resolve review comments or merge conflicts, validate fixes,... |
 | [`pr-improver`](../../library/trailofbits-skills/skills/pr-improver) | ⚪ Reserve | `trailofbits-skills` | Runs an autonomous review-and-fix improvement loop over the current branch's changes until a PR... |
 | [`pr-labeling`](../../library/vercel-labs-skills/skills/pr-labeling) | ⚪ Reserve | `vercel-labs-skills` | Classify a skills CLI pull request from its description and patch, while respecting existing la... |
 | [`pr-link-issue`](../../library/getsentry-skills/skills/pr-link-issue) | ⚪ Reserve | `getsentry-skills` | Append a GitHub issue link and its Linear ticket to the current PR's description. Use when aske... |
@@ -373,6 +381,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`review-and-ship`](../../library/cursor-plugins/skills/review-and-ship) | ⚪ Reserve | `cursor-plugins` | Review the current branch for bugs, intent fit, and test coverage; run or write tests; commit f... |
 | [`review-multi-agent-orchestration`](../../library/sickn33-agentic-awesome-skills/skills/review-multi-agent-orchestration) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use when a supervisor, swarm, graph, planner-worker system, or parallel agent workflow needs re... |
 | [`review-pr`](../../library/trailofbits-skills/skills/review-pr) | ⚪ Reserve | `trailofbits-skills` | Reviews the current branch's changes against its base branch as a pull request: correctness of ... |
+| [`run-qa`](../../library/momentic-ai-skills/skills/run-qa) | ⚪ Reserve | `momentic-ai-skills` | Bug bash a deployed web app or GitHub PR with Mo. Follow sessions, answer questions, review and... |
 | [`runpod-build-template`](../../library/runpod-runpod-plugins-official/skills/runpod-build-template) | ⚪ Reserve | `runpod-runpod-plugins-official` | Create or improve a complete Runpod template project from an application request, local code, o... |
 | [`rust-review`](../../library/morganlinton-beautifulrust/skills/rust-review) | ⚪ Reserve | `morganlinton-beautifulrust` | Review existing Rust code for idiom, API design, error handling, safety, and maintainability, a... |
 | [`sales-discovery-questions`](../../library/mbfinotti-sales-skills/skills/sales-discovery-questions) | ⚪ Reserve | `mbfinotti-sales-skills` | Builds a sequenced sales discovery question set - pain, root cause, impact, urgency - for a spe... |

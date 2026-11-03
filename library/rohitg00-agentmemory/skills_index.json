@@ -4,7 +4,7 @@
     "name": "agentmemory-agents",
     "repository": "rohitg00-agentmemory",
     "category": "general",
-    "description": "",
+    "description": "How agentmemory wires into host coding agents via the connect command. Use when installing agentmemory into a specific agent, when asked which agents are supported, or when a connect adapter writes the wrong config path.",
     "path": "library/rohitg00-agentmemory/skills/agentmemory-agents",
     "activation_cmd": "python .agents/library/activate_skill.py activate agentmemory-agents",
     "link_cmd": "python .agents/library/activate_skill.py link agentmemory-agents"
@@ -14,7 +14,7 @@
     "name": "agentmemory-architecture",
     "repository": "rohitg00-agentmemory",
     "category": "general",
-    "description": "",
+    "description": "How agentmemory is built, the iii engine primitives it runs on, its storage model, ports, and the viewer. Use when reasoning about how memory is stored or retrieved end to end, when extending the system, or when answering how agentmemory works under the hood.",
     "path": "library/rohitg00-agentmemory/skills/agentmemory-architecture",
     "activation_cmd": "python .agents/library/activate_skill.py activate agentmemory-architecture",
     "link_cmd": "python .agents/library/activate_skill.py link agentmemory-architecture"
@@ -24,7 +24,7 @@
     "name": "agentmemory-config",
     "repository": "rohitg00-agentmemory",
     "category": "general",
-    "description": "",
+    "description": "Set up and diagnose local agentmemory, including MCP, environment variables, ports, and feature flags. Use when getting started, checking a connection, enabling a feature, configuring auth, or explaining why a feature is off by default.",
     "path": "library/rohitg00-agentmemory/skills/agentmemory-config",
     "activation_cmd": "python .agents/library/activate_skill.py activate agentmemory-config",
     "link_cmd": "python .agents/library/activate_skill.py link agentmemory-config"
@@ -34,7 +34,7 @@
     "name": "agentmemory-hooks",
     "repository": "rohitg00-agentmemory",
     "category": "general",
-    "description": "",
+    "description": "The agentmemory plugin hooks that capture observations automatically across the agent session lifecycle. Use when explaining how memory gets captured without manual saves, when debugging missing observations, or when tuning what gets recorded.",
     "path": "library/rohitg00-agentmemory/skills/agentmemory-hooks",
     "activation_cmd": "python .agents/library/activate_skill.py activate agentmemory-hooks",
     "link_cmd": "python .agents/library/activate_skill.py link agentmemory-hooks"
@@ -44,7 +44,7 @@
     "name": "agentmemory-mcp-tools",
     "repository": "rohitg00-agentmemory",
     "category": "general",
-    "description": "",
+    "description": "Map of every agentmemory MCP tool, what each does, and its parameters. Use when choosing which memory tool to call, when a tool name or argument is unclear, or when answering what agentmemory can do via MCP.",
     "path": "library/rohitg00-agentmemory/skills/agentmemory-mcp-tools",
     "activation_cmd": "python .agents/library/activate_skill.py activate agentmemory-mcp-tools",
     "link_cmd": "python .agents/library/activate_skill.py link agentmemory-mcp-tools"
@@ -54,7 +54,7 @@
     "name": "agentmemory-rest-api",
     "repository": "rohitg00-agentmemory",
     "category": "general",
-    "description": "",
+    "description": "The agentmemory HTTP REST API surface, the primary protocol for talking to the memory server. Use when calling agentmemory over HTTP, when MCP is unavailable and you need a fallback, or when integrating a host that does not speak MCP.",
     "path": "library/rohitg00-agentmemory/skills/agentmemory-rest-api",
     "activation_cmd": "python .agents/library/activate_skill.py activate agentmemory-rest-api",
     "link_cmd": "python .agents/library/activate_skill.py link agentmemory-rest-api"
@@ -64,7 +64,7 @@
     "name": "commit-context",
     "repository": "rohitg00-agentmemory",
     "category": "general",
-    "description": "",
+    "description": "Trace a file, function, or line back to the agent session that produced its current commit. Use when the user asks \"why is this code here\", \"what was the agent doing when this changed\", \"who wrote this\", or wants context on a specific location in the codebase.",
     "path": "library/rohitg00-agentmemory/skills/commit-context",
     "activation_cmd": "python .agents/library/activate_skill.py activate commit-context",
     "link_cmd": "python .agents/library/activate_skill.py link commit-context"
@@ -74,7 +74,7 @@
     "name": "commit-history",
     "repository": "rohitg00-agentmemory",
     "category": "general",
-    "description": "",
+    "description": "List recent git commits linked to agent sessions, optionally filtered by branch or repo. Use when the user asks \"show agent commits\", \"what has the agent shipped\", \"list linked commits\", or wants commits with their session context.",
     "path": "library/rohitg00-agentmemory/skills/commit-history",
     "activation_cmd": "python .agents/library/activate_skill.py activate commit-history",
     "link_cmd": "python .agents/library/activate_skill.py link commit-history"
@@ -84,7 +84,7 @@
     "name": "forget",
     "repository": "rohitg00-agentmemory",
     "category": "general",
-    "description": "",
+    "description": "Delete selected durable memories from agentmemory after showing them and getting explicit confirmation. Use when the user says \"forget this\", \"delete memory\", \"remove that note\", or wants to scrub specific data for privacy.",
     "path": "library/rohitg00-agentmemory/skills/forget",
     "activation_cmd": "python .agents/library/activate_skill.py activate forget",
     "link_cmd": "python .agents/library/activate_skill.py link forget"
@@ -94,7 +94,7 @@
     "name": "handoff",
     "repository": "rohitg00-agentmemory",
     "category": "general",
-    "description": "",
+    "description": "Resume the most recent agent session for the current working directory, leading with any unanswered question. Use when the user says \"where were we\", \"resume\", \"handoff\", \"pick up where I left off\", or starts a session with no fresh context.",
     "path": "library/rohitg00-agentmemory/skills/handoff",
     "activation_cmd": "python .agents/library/activate_skill.py activate handoff",
     "link_cmd": "python .agents/library/activate_skill.py link handoff"
@@ -104,7 +104,7 @@
     "name": "lesson",
     "repository": "rohitg00-agentmemory",
     "category": "general",
-    "description": "",
+    "description": "Save a correction or hard-won rule as a confidence-weighted lesson that resurfaces before similar work. Use when the user corrects your approach, says \"learn this\", \"always\" or \"never do X\", or you notice yourself repeating a past mistake.",
     "path": "library/rohitg00-agentmemory/skills/lesson",
     "activation_cmd": "python .agents/library/activate_skill.py activate lesson",
     "link_cmd": "python .agents/library/activate_skill.py link lesson"
@@ -114,7 +114,7 @@
     "name": "memory-discipline",
     "repository": "rohitg00-agentmemory",
     "category": "general",
-    "description": "",
+    "description": "The session loop that makes agentmemory pay off, recall before starting work, save at decision points, learn from corrections. Use when starting a nontrivial task, after settling a decision or debugging a gotcha, or whenever deciding if something belongs in memory.",
     "path": "library/rohitg00-agentmemory/skills/memory-discipline",
     "activation_cmd": "python .agents/library/activate_skill.py activate memory-discipline",
     "link_cmd": "python .agents/library/activate_skill.py link memory-discipline"
@@ -124,7 +124,7 @@
     "name": "recall",
     "repository": "rohitg00-agentmemory",
     "category": "general",
-    "description": "",
+    "description": "Search agentmemory for past observations, sessions, and learnings about a topic using hybrid BM25 plus vector plus graph search. Use when the user says \"recall\", \"what did we do about\", \"did we ever\", \"have we seen\", or needs context from past sessions.",
     "path": "library/rohitg00-agentmemory/skills/recall",
     "activation_cmd": "python .agents/library/activate_skill.py activate recall",
     "link_cmd": "python .agents/library/activate_skill.py link recall"
@@ -134,7 +134,7 @@
     "name": "recap",
     "repository": "rohitg00-agentmemory",
     "category": "general",
-    "description": "",
+    "description": "Summarize the last N agent sessions for the current project, grouped by date, with highlight observations per session. Use when the user asks \"recap\", \"what have we been doing\", \"today\", \"this week\", or wants a rollup of recent work.",
     "path": "library/rohitg00-agentmemory/skills/recap",
     "activation_cmd": "python .agents/library/activate_skill.py activate recap",
     "link_cmd": "python .agents/library/activate_skill.py link recap"
@@ -144,7 +144,7 @@
     "name": "remember",
     "repository": "rohitg00-agentmemory",
     "category": "general",
-    "description": "",
+    "description": "Save an insight, decision, or learning to agentmemory's long-term storage with searchable concept tags. Use when the user says \"remember this\", \"save this\", \"note that\", \"don't forget\", or wants to preserve knowledge for future sessions.",
     "path": "library/rohitg00-agentmemory/skills/remember",
     "activation_cmd": "python .agents/library/activate_skill.py activate remember",
     "link_cmd": "python .agents/library/activate_skill.py link remember"
@@ -154,7 +154,7 @@
     "name": "session-history",
     "repository": "rohitg00-agentmemory",
     "category": "general",
-    "description": "",
+    "description": "Show what happened in recent past sessions on this project as a clean timeline. Use when the user asks \"what did we do last time\", \"session history\", \"past sessions\", or wants an overview of previous work.",
     "path": "library/rohitg00-agentmemory/skills/session-history",
     "activation_cmd": "python .agents/library/activate_skill.py activate session-history",
     "link_cmd": "python .agents/library/activate_skill.py link session-history"
@@ -164,7 +164,7 @@
     "name": "write-agentmemory-skill",
     "repository": "rohitg00-agentmemory",
     "category": "general",
-    "description": "",
+    "description": "The house format and rules for writing or updating an agentmemory skill. Use when adding a new skill, restructuring an existing one, or reviewing a skill contribution for consistency.",
     "path": "library/rohitg00-agentmemory/skills/write-agentmemory-skill",
     "activation_cmd": "python .agents/library/activate_skill.py activate write-agentmemory-skill",
     "link_cmd": "python .agents/library/activate_skill.py link write-agentmemory-skill"

@@ -4,7 +4,7 @@
     "name": "choose-your-parallel-api",
     "repository": "parallel-web-parallel-agent-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Choose the right Parallel API and configuration for cost, latency, and answer quality. Use when adding live web data to an app: current events and prices, a cited answer in a chat, grounding an agent in sources it can read in full, reading a URL or PDF, deep research reports, researching or enriching every row of a list or CRM. Use when picking among Search and Extract, Responses, and Task, or when choosing a search mode, reasoning effort, or Task processor. Also use when an integration is too slow, costs more than expected, or misses answers that are on the web.\"",
     "path": "library/parallel-web-parallel-agent-skills/skills/choose-your-parallel-api",
     "activation_cmd": "python .agents/library/activate_skill.py activate choose-your-parallel-api",
     "link_cmd": "python .agents/library/activate_skill.py link choose-your-parallel-api"
@@ -14,7 +14,7 @@
     "name": "migrate-to-parallel",
     "repository": "parallel-web-parallel-agent-skills",
     "category": "general",
-    "description": "",
+    "description": "Migrate Exa, Tavily, Perplexity, or Firecrawl web-data integrations completely to the appropriate Parallel products while preserving application behavior. Use when replacing these providers' SDKs or REST calls, dependencies, environment variables, request parameters, response parsing, model tools, search-plus-scrape paths, full-content or answer-synthesis paths, tests, and documentation; separating unsupported research-index, crawl, browser, file-parse, monitor, or other non-search capabilities; auditing for leftover provider usage; or finishing and verifying an in-progress provider migration.",
     "path": "library/parallel-web-parallel-agent-skills/skills/migrate-to-parallel",
     "activation_cmd": "python .agents/library/activate_skill.py activate migrate-to-parallel",
     "link_cmd": "python .agents/library/activate_skill.py link migrate-to-parallel"
@@ -24,7 +24,7 @@
     "name": "parallel-cli-setup",
     "repository": "parallel-web-parallel-agent-skills",
     "category": "general",
-    "description": "",
+    "description": "Set up and maintain the Parallel CLI (install, auth, balance, skills install)",
     "path": "library/parallel-web-parallel-agent-skills/skills/parallel-cli-setup",
     "activation_cmd": "python .agents/library/activate_skill.py activate parallel-cli-setup",
     "link_cmd": "python .agents/library/activate_skill.py link parallel-cli-setup"
@@ -34,7 +34,7 @@
     "name": "parallel-data-enrichment",
     "repository": "parallel-web-parallel-agent-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Bulk data enrichment. Adds web-sourced fields (CEO names, funding, contact info) to lists of companies, people, or products. Use for enriching CSV files or inline data. Supports multi-turn: pass --previous-interaction-id from a prior research task to carry context forward.\"",
     "path": "library/parallel-web-parallel-agent-skills/skills/parallel-data-enrichment",
     "activation_cmd": "python .agents/library/activate_skill.py activate parallel-data-enrichment",
     "link_cmd": "python .agents/library/activate_skill.py link parallel-data-enrichment"
@@ -44,7 +44,7 @@
     "name": "parallel-deep-research",
     "repository": "parallel-web-parallel-agent-skills",
     "category": "general",
-    "description": "",
+    "description": "\"ONLY use when user explicitly says 'deep research', 'exhaustive', 'comprehensive report', or 'thorough investigation'. Slower and more expensive than parallel-web-search. For normal research/lookup requests, use parallel-web-search instead. Supports follow-ups with a known prior Task interaction ID.\"",
     "path": "library/parallel-web-parallel-agent-skills/skills/parallel-deep-research",
     "activation_cmd": "python .agents/library/activate_skill.py activate parallel-deep-research",
     "link_cmd": "python .agents/library/activate_skill.py link parallel-deep-research"
@@ -54,7 +54,7 @@
     "name": "parallel-findall",
     "repository": "parallel-web-parallel-agent-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Discover entities (companies, people, products, etc.) matching a natural-language description. Use when the user asks to 'find all X' or 'list every Y that\u2026' \u2014 e.g., 'Find AI startups that raised Series A in 2026', 'List roofing companies in Charlotte NC', 'Show me YC W24 dev tools companies'. Different from web-search (which returns webpages) and deep-research (which returns a narrative report). Use this when the user wants a structured list of entities.\"",
     "path": "library/parallel-web-parallel-agent-skills/skills/parallel-findall",
     "activation_cmd": "python .agents/library/activate_skill.py activate parallel-findall",
     "link_cmd": "python .agents/library/activate_skill.py link parallel-findall"
@@ -64,7 +64,7 @@
     "name": "parallel-mcp-setup",
     "repository": "parallel-web-parallel-agent-skills",
     "category": "general",
-    "description": "",
+    "description": "Use when installing, configuring, or troubleshooting an authenticated Parallel Search MCP connection in Bifrost, including gateway-level search settings and downstream tool access.",
     "path": "library/parallel-web-parallel-agent-skills/skills/parallel-mcp-setup",
     "activation_cmd": "python .agents/library/activate_skill.py activate parallel-mcp-setup",
     "link_cmd": "python .agents/library/activate_skill.py link parallel-mcp-setup"
@@ -74,7 +74,7 @@
     "name": "parallel-memory",
     "repository": "parallel-web-parallel-agent-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Recall past Parallel Task, Monitor, and FindAll runs when they may help; evict runs or clear memory when asked.\"",
     "path": "library/parallel-web-parallel-agent-skills/skills/parallel-memory",
     "activation_cmd": "python .agents/library/activate_skill.py activate parallel-memory",
     "link_cmd": "python .agents/library/activate_skill.py link parallel-memory"
@@ -84,7 +84,7 @@
     "name": "parallel-monitor",
     "repository": "parallel-web-parallel-agent-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Continuously track the web for changes on a recurring cadence. Use when the user asks to 'monitor', 'track changes to', 'watch', or 'alert me when' something on the web changes \u2014 e.g., 'Track price changes for iPhone 16', 'Alert me when Tesla files a new 8-K', 'Monitor competitor pricing pages weekly'. Also use to list, inspect, update, or stop existing monitors, including requests to delete them.\"",
     "path": "library/parallel-web-parallel-agent-skills/skills/parallel-monitor",
     "activation_cmd": "python .agents/library/activate_skill.py activate parallel-monitor",
     "link_cmd": "python .agents/library/activate_skill.py link parallel-monitor"
@@ -94,7 +94,7 @@
     "name": "parallel-search-evaluation",
     "repository": "parallel-web-parallel-agent-skills",
     "category": "general",
-    "description": "",
+    "description": "Use for search evaluation, a POC or bake-off, Parallel vs Exa/Tavily comparisons, SimpleQA/DeepSearchQA benchmarks, or diagnosing search evaluation results. For product selection use choose-your-parallel-api; for integration migration use migrate-to-parallel.",
     "path": "library/parallel-web-parallel-agent-skills/skills/parallel-search-evaluation",
     "activation_cmd": "python .agents/library/activate_skill.py activate parallel-search-evaluation",
     "link_cmd": "python .agents/library/activate_skill.py link parallel-search-evaluation"
@@ -104,7 +104,7 @@
     "name": "parallel-search-setup",
     "repository": "parallel-web-parallel-agent-skills",
     "category": "general",
-    "description": "",
+    "description": "Set up, authenticate, verify, or troubleshoot Parallel MCP, including the Claude unified plugin and anonymous Search MCP installations. Use when the user installs the plugin, says \"set up Parallel Search\", reports missing tools, authentication failures, or rate limits. For authenticated gateway deployments use parallel-mcp-setup; for CLI-backed skills use parallel-cli-setup.",
     "path": "library/parallel-web-parallel-agent-skills/skills/parallel-search-setup",
     "activation_cmd": "python .agents/library/activate_skill.py activate parallel-search-setup",
     "link_cmd": "python .agents/library/activate_skill.py link parallel-search-setup"
@@ -114,7 +114,7 @@
     "name": "parallel-web-extract",
     "repository": "parallel-web-parallel-agent-skills",
     "category": "general",
-    "description": "",
+    "description": "\"CLI-backed URL extraction. Use when the user explicitly invokes this skill, needs CLI-only controls or saved JSON output, or no Parallel web_fetch MCP tool is available. When the bundled Parallel Search MCP is available, prefer its web_fetch tool for ordinary webpages, articles, PDFs, and JavaScript-heavy sites.\"",
     "path": "library/parallel-web-parallel-agent-skills/skills/parallel-web-extract",
     "activation_cmd": "python .agents/library/activate_skill.py activate parallel-web-extract",
     "link_cmd": "python .agents/library/activate_skill.py link parallel-web-extract"
@@ -124,7 +124,7 @@
     "name": "parallel-web-search",
     "repository": "parallel-web-parallel-agent-skills",
     "category": "general",
-    "description": "",
+    "description": "\"CLI-backed web search. Use when the user explicitly invokes this skill, needs CLI-only controls or saved JSON output, or no Parallel web_search MCP tool is available. When the bundled Parallel Search MCP is available, prefer its web_search tool for ordinary lookups and current-information queries. Only use parallel-deep-research if the user explicitly requests deep or exhaustive research.\"",
     "path": "library/parallel-web-parallel-agent-skills/skills/parallel-web-search",
     "activation_cmd": "python .agents/library/activate_skill.py activate parallel-web-search",
     "link_cmd": "python .agents/library/activate_skill.py link parallel-web-search"
@@ -134,7 +134,7 @@
     "name": "result",
     "repository": "parallel-web-parallel-agent-skills",
     "category": "general",
-    "description": "",
+    "description": "Get completed research task result by run ID",
     "path": "library/parallel-web-parallel-agent-skills/skills/result",
     "activation_cmd": "python .agents/library/activate_skill.py activate result",
     "link_cmd": "python .agents/library/activate_skill.py link result"
@@ -144,7 +144,7 @@
     "name": "status",
     "repository": "parallel-web-parallel-agent-skills",
     "category": "general",
-    "description": "",
+    "description": "Check running research task status by run ID",
     "path": "library/parallel-web-parallel-agent-skills/skills/status",
     "activation_cmd": "python .agents/library/activate_skill.py activate status",
     "link_cmd": "python .agents/library/activate_skill.py link status"

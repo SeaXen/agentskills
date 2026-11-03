@@ -1,7 +1,7 @@
 # 📊 Technical Diagrams & Isometric SVG
 
 > **Category**: `diagrams-technical-visuals`  
-> **Total Curated Skills**: 84 skills  
+> **Total Curated Skills**: 88 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -45,7 +45,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`context-fundamentals`](../../library/antigravity-awesome-skills/skills/context-fundamentals) | ⚪ Reserve | `antigravity-awesome-skills` | Understand what context is, why it matters, and the anatomy of context in agent systems |
 | [`create-chart`](../../library/amplitude-mcp-marketplace/skills/create-chart) | ⚪ Reserve | `amplitude-mcp-marketplace` | Creates Amplitude charts from natural language descriptions, handling event selection, filters,... |
 | [`create-viz`](../../library/anthropics-knowledge-work/skills/create-viz) | ⚪ Reserve | `anthropics-knowledge-work` | Create publication-quality visualizations with Python. Use when turning query results or a Data... |
-| [`d3-visualization`](../../library/nexu-io-open-design/skills/d3-visualization) | ⚪ Reserve | `nexu-io-open-design` | Teaches the agent to produce D3 charts and interactive data visualizations. A comprehensive D3.... |
+| [`d3-visualization`](../../library/feimacode-open-design-agent-kit/skills/d3-visualization) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Teaches the agent to produce D3 charts and interactive data visualizations. A comprehensive D3.... |
 | [`data-clean`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/data-clean) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Produce documented data cleaning scripts that log every transformation with N before/after each... |
 | [`diagram-design`](../../library/diagram-design/skills/diagram-design) | ⚪ Reserve | `diagram-design` | Create branded architecture, architecture delta, IT current-state, flowchart, sequence, state m... |
 | [`diagramming-processes`](../../library/riekelt-technical-writer/skills/diagramming-processes) | ⚪ Reserve | `riekelt-technical-writer` | Use when a business process, workflow, lifecycle, or interaction between systems needs a diagra... |
@@ -55,9 +55,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`etetoolkit`](../../library/davila7-claude-code-templates/skills/etetoolkit) | ⚪ Reserve | `davila7-claude-code-templates` | Phylogenetic tree toolkit (ETE). Tree manipulation (Newick/NHX), evolutionary event detection, ... |
 | [`event-sponsor-prospectus`](../../library/samber-dev-event-organizer-skills/skills/event-sponsor-prospectus) | ⚪ Reserve | `samber-dev-event-organizer-skills` | Assemble a technical event's sponsorship prospectus - the published document packaging an exist... |
 | [`excalidraw-diagram-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/excalidraw-diagram-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate hand-drawn style Excalidraw diagrams from text descriptions |
+| [`frame-data-chart-nyt`](../../library/feimacode-open-design-agent-kit/skills/frame-data-chart-nyt) | ⚪ Reserve | `feimacode-open-design-agent-kit` | NYT-Style Data Chart Frame (Open Design) — use only when explicitly invoked, not for general de... |
 | [`generate-project-plan`](../../library/figma-mcp-server-guide/skills/generate-project-plan) | ⚪ Reserve | `figma-mcp-server-guide` | Generate a FigJam project plan board from a PRD plus codebase context. Interactive flow: resear... |
 | [`graphical-abstract-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/graphical-abstract-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Create SVG graphical abstracts for journal paper submissions |
 | [`growth-signal-charts`](../../library/ericosiu-ai-marketing-skills/skills/growth-signal-charts) | ⚪ Reserve | `ericosiu-ai-marketing-skills` | Select and create Growth Signal chart posts for Instagram, X, and LinkedIn from original conten... |
+| [`hps-true-blueprint`](../../library/feimacode-open-design-agent-kit/skills/hps-true-blueprint) | ⚪ Reserve | `feimacode-open-design-agent-kit` | OpenDesign's engineering blueprint: how the sandbox, sidecar, and daemon fit — the system diagr... |
 | [`huawei-cloud-network-topology-audit`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-network-topology-audit) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Orchestrator skill that audits Huawei Cloud network topology for security and configuration ris... |
 | [`hunt-xxe`](../../library/elementalsouls-claude-bughunter/skills/hunt-xxe) | ⚪ Reserve | `elementalsouls-claude-bughunter` | Hunting skill for xxe vulnerabilities. Built from 10 public bug bounty reports including SVG-up... |
 | [`icon-set-generator`](../../library/jezweb-claude-skills/skills/icon-set-generator) | ⚪ Reserve | `jezweb-claude-skills` | Generate cohesive, project-specific SVG icon sets for websites and applications. Use this skill... |
@@ -91,6 +93,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`root-cause-pareto`](../../library/davila7-claude-code-templates/skills/root-cause-pareto) | ⚪ Reserve | `davila7-claude-code-templates` | Build a decision-grade Pareto for downtime, defects, complaints or delays - with unit-of-measur... |
 | [`sap-fiori-add-visual-filter`](../../library/cline-skills/skills/sap-fiori-add-visual-filter) | ⚪ Reserve | `cline-skills` | Add visual filters (chart-based) to SAP Fiori Elements filter bar/value help using CAP or ABAP ... |
 | [`sap-fiori-analytical-chart`](../../library/sap-open-ux-tools/skills/sap-fiori-analytical-chart) | ⚪ Reserve | `sap-open-ux-tools` | Add analytical chart (chart + table hybrid) to SAP Fiori Elements List Report using aggregated ... |
+| [`stack-diagram`](../../library/caru-ini-stack-diagram/skills/stack-diagram) | ⚪ Reserve | `caru-ini-stack-diagram` | Create cloud-architecture-style diagrams of tech stacks, system architectures, infra layouts, a... |
 | [`summarize-interview`](../../library/owl-listener-designer-skills/skills/summarize-interview) | ⚪ Reserve | `owl-listener-designer-skills` | Turn one interview transcript into themes, supporting quotes, and action items. Use immediately... |
 | [`technical-analyst`](../../library/tradermonty-claude-trading-skills/skills/technical-analyst) | ⚪ Reserve | `tradermonty-claude-trading-skills` | This skill should be used when analyzing weekly price charts for stocks, stock indices, cryptoc... |
 | [`tldraw-offline`](../../library/nousresearch-hermes-optional-skills/skills/tldraw-offline) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Drive and script tldraw offline canvases with an agent. |
@@ -101,5 +104,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`vision-analysis`](../../library/minimax-ai-skills/skills/vision-analysis) | ⚪ Reserve | `minimax-ai-skills` | Analyze, describe, and extract information from images using the MiniMax vision MCP tool. Use w... |
 | [`visualize`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/visualize) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Create publication-quality figures that meet journal submission standards. APA 7th defaults wit... |
 | [`weekly-ops-report`](../../library/davila7-claude-code-templates/skills/weekly-ops-report) | ⚪ Reserve | `davila7-claude-code-templates` | Turn raw operational data into a weekly management report that answers exactly three questions ... |
+| [`wireframe-sketch`](../../library/feimacode-open-design-agent-kit/skills/wireframe-sketch) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A hand-drawn wireframe exploration — graph-paper background, marker / pencil tone, multiple tab... |
 | [`xxe-xml-external-entity`](../../library/yaklang-hack-skills/skills/xxe-xml-external-entity) | ⚪ Reserve | `yaklang-hack-skills` | XXE playbook. Use when XML, SVG, OOXML, SOAP, or parser-driven imports may resolve external ent... |
 | [`yt-retention`](../../library/jakeschincariol-youtube-agent-skill/skills/yt-retention) | ⚪ Reserve | `jakeschincariol-youtube-agent-skill` | Read a YouTube Studio audience-retention export and find where viewers actually leave, then say... |

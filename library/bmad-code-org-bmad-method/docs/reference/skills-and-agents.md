@@ -66,7 +66,7 @@ Each agent is an identity plus a customizable layer. See [Customize BMad](../cus
 
 ## Core Skills
 
-Every installation includes the core module: eight skills that work in any project, any module, any phase. No agent session is required.
+Every installation includes the core module: ten skills that work in any project, any module, any phase. No agent session is required.
 
 ### bmad
 
@@ -80,28 +80,28 @@ The BMad hub. Ask it a question and it answers from the installed modules and re
 
 ### bmad-advanced-elicitation
 
-A structured second pass over what the model just produced. Instead of "try again," you pick a named reasoning method and the model re-examines its own output through that lens. A named method forces a particular angle of attack and surfaces what a generic retry misses.
+A push on a draft you have in front of you. A first draft is the model's most likely answer; this skill moves it off center in chosen directions, through independent readers who hold none of the author's reasons, and proposes a revision you accept or reject. The draft can be the model's or yours: a section, a plan, a decision, a pasted document.
 
 **Use it when:**
 
-- Output seems fine but you suspect there is more depth
-- You want to stress-test assumptions or find weaknesses
-- The content is high-stakes and rethinking is worth the time
+- Output seems fine but you suspect there is more
+- You want assumptions stressed, the premise questioned, or the other side argued
+- The work matters enough to spend a few minutes pushing it
+
+**Skip it when:**
+
+- It is one quick choice you want reconsidered: asking the model to push harder and consider alternatives is often as good, and much faster
 
 **How it works:**
 
-1. It suggests five methods that fit the target (the most recent output, unless you point it elsewhere)
-2. You pick one or more, or reshuffle for different options
-3. It applies the method and shows the proposed improvements
-4. You accept or discard, then repeat or continue
+1. It names the target and where it is probably weak, and starts three pushes right away, each from a different direction (what is wrong, what is missing, the premise, simplicity, the future, the other side): the method that best fits the weak spot, a wildcard chosen to take the work somewhere unexpected, and, for a single choice, an open push to reconsider it with everything the conversation holds, or for a document, a second method
+2. Methods you name when you call it run instead, and a team or person can set default methods with `bmad-customize`. Ask it to list the methods to see what else is there
+3. Each method runs as its own independent reader, all at once, in the method's own form: a pre-mortem is written from after the failure, a stakeholder speaks in their own voice
+4. You get one proposed revision as a numbered list of changes, each tagged with the push that drove it, with the full revised passages and every push's findings in a report beside it. Accept all, some by number, reject, or rerun a push with direction, then take another round or finish
 
-Dozens of methods are available. Examples: pre-mortem analysis, first principles thinking, inversion, red team vs. blue team, Socratic questioning, constraint removal, stakeholder mapping, and analogical reasoning.
+Methods include pre-mortem, first principles, inversion, red team, steelman, Socratic questioning, assumption audit, stakeholder lens, subtraction, and more; teams add their own.
 
-The brief, PRD, and UX skills offer it at their own pauses; you can also run it directly on anything recent in the conversation.
-
-:::tip[Start with a pre-mortem]
-Pre-mortem analysis is a good first pick for any spec or plan. It consistently finds gaps that a standard review misses.
-:::
+The brief, PRD, UX and architecture skills and the agent personas remind you it is there; you can also start it yourself by saying "advanced elicitation". With nothing named, it pushes what you were just discussing, at its own size: a choice is pushed as a choice, not as the plan around it. Name a target ("advanced elicitation on section 4") or methods ("with pre-mortem and red team") to aim it.
 
 ### bmad-review
 
@@ -149,6 +149,23 @@ Pressure-tests a half-formed idea in a questioning conversation, one question at
 
 Puts your installed agents, or custom personas, in one conversation, in character, with you steering. A mode setting decides whether one model voices everyone or separate agents think independently, and you can save custom parties for reuse. See [Run Multi-Agent Discussions](../customize/run-multi-agent-discussions.md).
 
+### bmad-shard-pro
+
+Makes a long document, such as a large PRD, architecture or manual, cheap for an agent to navigate. It assesses the document first and recommends one of three outcomes: leave it as it is, add a detailed contents list with line ranges, or split it word for word into a map and shards. It never rewrites content: a script does the cutting and checks that nothing was lost. Later changes go through the same skill, which keeps the map and the checks in step. Transcripts, chat exports and meeting notes go to `bmad-ingest` instead.
+
+**Input:** a markdown or text document; convert other formats first. **Output:** in the document's own folder, a main file named after the folder holding a note and the map, the shards, the frozen original in `.source/`, and an entry in its `.memlog.md`; or, for a contents list, the same file with the list added.
+
+### bmad-ingest
+
+Turns raw input, such as a meeting transcript, a chat or email thread, a voice memo or a long document, into a note that an agent or person reads instead of the raw. It picks a note template by the template's description.
+
+- Core tools ship `meeting`, `thread`, `voice-memo`, `document` and `one-on-one`.
+- The BMad Method adds `standup`, `retrospective`, `sprint-review`, `discovery-workshop` and `user-interview`.
+- You add your own in the project's `_bmad/custom/ingest-templates/`, in `~/.bmad/ingest-templates/` for every project, from a GitHub URL, or in any module's `ingest-templates/` folder. A project's template wins over a personal one with the same id.
+ Every item in the note points back to where it sits in the raw, and nothing is added that the raw does not say. Another skill, such as a PRD you are writing, can pass it an input and link the note it gets back.
+
+**Output:** the original, kept unchanged, in `{output_folder}/raw/` unless it is already in the project, and the note in the folder the calling skill names, else `{output_folder}/notes/`. Change either with `bmad-customize`.
+
 ## BMad Method Skills
 
 The BMad Method module adds the six agents above and these workflow skills. The linked page covers when to use the skill and what it produces.
@@ -168,13 +185,22 @@ The BMad Method module adds the six agents above and these workflow skills. The 
 | `bmad-qa-generate-e2e-tests`    | Generate automated API and end-to-end tests for implemented features                              | [Test Completed Work](../build/test-completed-work.md)                                                 |
 | `bmad-retrospective`            | Review a completed epic against its evidence and decide whether to accept it                      | [Finish an Epic](../build/finish-an-epic.md)                                                           |
 
+## Toolsmith Skills
+
+The Toolsmith module is for authoring skills and is installed separately. See [Toolsmith](../toolsmith/toolsmith.md).
+
+| Skill | Purpose | See |
+| ---------------- | ------------------------------------------------------------------ | ------------------------------------------ |
+| `bmad-toolsmith` | Smithy, who builds and maintains skills, agents, and modules | [Toolsmith](../toolsmith/toolsmith.md) |
+| `bmad-eval` | Measure whether a skill works with baseline, variant, quality, and trigger runs | [Eval Runner](../toolsmith/bmad-eval.md) |
+
 ## Deprecated Names
 
 Earlier skill IDs, such as `bmad-create-prd`, `bmad-edit-prd`, `bmad-market-research`, `bmad-generate-project-context`, and `bmad-checkpoint-preview`, still resolve as forwarders to the current skill. Use the current names in new work.
 
 ## Naming and Modules
 
-Every skill uses the `bmad-` prefix followed by a descriptive name: `bmad-agent-dev`, `bmad-prd`, `bmad-build`. Modules add their own skills under the same prefix; see [Add Modules](../customize/add-modules.md).
+Every skill shipped by the bmad-code-org uses the `bmad-` prefix followed by a descriptive name: `bmad-agent-dev`, `bmad-prd`, `bmad-build`. A custom module uses its own code as the prefix; see [Add Modules](../customize/add-modules.md) and [Modules and Registration](../toolsmith/modules.md).
 
 ## Troubleshooting
 

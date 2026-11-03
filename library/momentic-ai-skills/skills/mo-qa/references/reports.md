@@ -27,7 +27,7 @@ each bug's detail file.
 | --------------- | -------------------------------------------------------------- |
 | `bugs.json`     | Reproduced bugs and static flags, with evidence and timestamps |
 | `verdicts.json` | Verification results and coverage gaps                         |
-| `triage.json`   | Human dispositions; no entry means the bug is open             |
+| `triage.json`   | Human decisions; no entry means Needs review                   |
 
 Inspect each finding's evidence. Reproduced bugs can have recordings; static
 flags have screenshots. Read the JSON and Markdown paths in `report.bugs`.
@@ -41,6 +41,33 @@ arrays. Findings without a reproduction expose agent-wide logs with
 Pass a bug's `id` to `qa bugs` commands; names are free text and can need shell
 quoting. `qa bugs describe <session-id> <bug-id>` gives one bug's full metadata
 without downloads.
+
+## Finding status
+
+Findings start in Needs review. Accept moves them to Open; record a fix to mark
+them Fixed. Dismissed findings keep a reason.
+`lifecycleStatus` is the display state; `status` retains legacy API values.
+
+```bash
+qa bugs accept <session-id> <bug-id>
+qa bugs describe <session-id> <bug-id>
+qa bugs fix <session-id> <bug-id> [--pr <url>] [--commit <sha>]
+qa bugs reopen <session-id> <bug-id> [--pr <url>] [--commit <sha>]
+qa bugs dismiss <session-id> <bug-id> works-as-intended
+qa bugs review <session-id> <bug-id>
+```
+
+Describe the finding before fixing; pass the PR URL and commit SHA when available.
+Dismiss reasons: `works-as-intended`, `cannot-reproduce`, `duplicate`.
+Legacy `set-status open` still resets review; `accepted` confirms a bug.
+Retesting is optional. Completed retests preserve the finding: reproduced Fixed
+bugs reopen; Open bugs that no longer reproduce become Fixed. Blocked attempts
+leave status unchanged. Tracker links and PR allowances are separate.
+Only change triage or resolution when the user requests it. Recording a fix is
+not proof that a retest passed. The CLI does not file tracker issues or review
+knowledge entries.
+
+## Evidence
 
 Artifacts include available MP4 videos, screenshots, raw compressed rrweb and
 network files, and mobile recording metadata and video segments. Browser

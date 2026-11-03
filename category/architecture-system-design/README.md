@@ -1,7 +1,7 @@
 # 🏛️ Architecture, System Design & Patterns
 
 > **Category**: `architecture-system-design`  
-> **Total Curated Skills**: 585 skills  
+> **Total Curated Skills**: 588 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -22,6 +22,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`0-autoresearch-skill`](../../library/orchestra-research-ai-research-skills/skills/0-autoresearch-skill) | ⚪ Reserve | `orchestra-research-ai-research-skills` | Orchestrates end-to-end autonomous AI research projects using a two-loop architecture. The inne... |
 | [`academic-plotting`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/academic-plotting) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generates publication-quality figures for ML papers from research context. Given a paper sectio... |
 | [`adhd`](../../library/uditakhourii-adhd/skills/adhd) | ⚪ Reserve | `uditakhourii-adhd` | Parallel divergent ideation for coding agents. Spawns isolated branches under cognitive frames,... |
+| [`adr`](../../library/feimacode-open-design-agent-kit/skills/adr) | ⚪ Reserve | `feimacode-open-design-agent-kit` | An example of the adr skill: ADR-0007: Lay diagrams out in the browser. |
 | [`adr-create`](../../library/ruvnet-ruflo/skills/adr-create) | ⚪ Reserve | `ruvnet-ruflo` | Create a new Architecture Decision Record with sequential numbering and AgentDB registration |
 | [`adr-index`](../../library/ruvnet-ruflo/skills/adr-index) | ⚪ Reserve | `ruvnet-ruflo` | Build or rebuild the ADR index + dependency graph by running scripts/import.mjs (handles v3-sty... |
 | [`adr-reindex`](../../library/ruvnet-ruflo/skills/adr-reindex) | ⚪ Reserve | `ruvnet-ruflo` | Reconcile the ADR index against a DELETED ADR file or relation line by dropping and rebuilding ... |
@@ -325,7 +326,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`harness-genome`](../../library/ruvnet-ruflo/skills/harness-genome) | ⚪ Reserve | `ruvnet-ruflo` | 7-section repo readiness report from `metaharness genome {path}`. Returns repo_type / agent_top... |
 | [`harness-oia-audit`](../../library/ruvnet-ruflo/skills/harness-oia-audit) | ⚪ Reserve | `ruvnet-ruflo` | Composite Phase-2 audit worker (ADR-150). Bundles harness oia-manifest + threat-model + mcp-sca... |
 | [`harness-similarity`](../../library/ruvnet-ruflo/skills/harness-similarity) | ⚪ Reserve | `ruvnet-ruflo` | Weighted similarity (ADR-152) between two harness fingerprints (genome + score JSON): an overal... |
-| [`hatch-pet`](../../library/nexu-io-open-design/skills/hatch-pet) | ⚪ Reserve | `nexu-io-open-design` | Create, repair, validate, preview, and package Codex-compatible animated pet spritesheets from ... |
+| [`hatch-pet`](../../library/feimacode-open-design-agent-kit/skills/hatch-pet) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Create, repair, validate, preview, and package Codex-compatible animated pet spritesheets from ... |
 | [`heroku-to-aws`](../../library/aws-agent-toolkit-for-aws/skills/heroku-to-aws) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Migrate workloads from Heroku to AWS. Triggers on: migrate from Heroku, Heroku to AWS, move off... |
 | [`hig-components-layout`](../../library/antigravity-awesome-skills/skills/hig-components-layout) | ⚪ Reserve | `antigravity-awesome-skills` | Apple Human Interface Guidelines for layout and navigation components. Use this skill when the ... |
 | [`hig-patterns`](../../library/antigravity-awesome-skills/skills/hig-patterns) | ⚪ Reserve | `antigravity-awesome-skills` | Apple Human Interface Guidelines interaction and UX patterns. Use this skill when the user asks... |
@@ -433,6 +434,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`omniverse-content-services`](../../library/nvidia-skills/skills/omniverse-content-services) | ⚪ Reserve | `nvidia-skills` | Omniverse Content Services, also discoverable as Omniverse Content Workspace or USD Content Wor... |
 | [`on-call-handoff-patterns`](../../library/antigravity-awesome-skills/skills/on-call-handoff-patterns) | ⚪ Reserve | `antigravity-awesome-skills` | Master on-call shift handoffs with context transfer, escalation procedures, and documentation. ... |
 | [`ontoly-software-graph`](../../library/sickn33-agentic-awesome-skills/skills/ontoly-software-graph) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use Ontoly's deterministic Software Graph, MCP server, and agent skills for architecture review... |
+| [`open-design-deck-from-source`](../../library/feimacode-open-design-agent-kit/skills/open-design-deck-from-source) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Turn a document (a report, spec, spreadsheet, PDF, existing deck, or repository files such as a... |
 | [`operate-on-aws`](../../library/aws-agent-toolkit-for-aws/skills/operate-on-aws) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Operate a live AWS workload with AWS DevOps Agent — incident investigation, root-cause analysis... |
 | [`optimized-nextjs-typescript`](../../library/mindrally-skills/skills/optimized-nextjs-typescript) | ⚪ Reserve | `mindrally-skills` | Optimized Next.js TypeScript best practices with modern UI/UX, focusing on performance, securit... |
 | [`oss-contributor-onboarding`](../../library/samber-developer-relations-skills/skills/oss-contributor-onboarding) | ⚪ Reserve | `samber-developer-relations-skills` | Designs and verifies the path a stranger walks to their first merged contribution on an open-so... |
@@ -479,6 +481,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`recording-decisions`](../../library/riekelt-technical-writer/skills/recording-decisions) | ⚪ Reserve | `riekelt-technical-writer` | Use when a decision needs recording - an ADR, a decision log entry, or when someone asks to wri... |
 | [`release-it`](../../library/wondelai-skills/skills/release-it) | ⚪ Reserve | `wondelai-skills` | Build production-ready systems with stability patterns: circuit breakers, bulkheads, timeouts, ... |
 | [`replica-architect`](../../library/jakeschincariol-replica-skill/skills/replica-architect) | ⚪ Reserve | `jakeschincariol-replica-skill` | Plans the stack, database schema and API for an app clone, from the recon map replica-recon wro... |
+| [`replit-deck`](../../library/feimacode-open-design-agent-kit/skills/replit-deck) | ⚪ Reserve | `feimacode-open-design-agent-kit` | For product and technical management work: turn PRDs, roadmaps, RFCs, architecture reviews, and... |
 | [`research-coordinator`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/research-coordinator) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Research Coordinator v12.0 - Human-Centered Edition (Systematic Review Automation) Context-pers... |
 | [`research-wiki`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/research-wiki) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Persistent research knowledge base that accumulates papers, ideas, experiments, claims, and the... |
 | [`rest-api-design`](../../library/aj-geddes-useful-ai-prompts/skills/rest-api-design) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Design RESTful APIs following best practices for resource modeling, HTTP methods, status codes,... |
@@ -531,7 +534,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`sql-jdbc-access-design`](../../library/samber-developer-platform-skills/skills/sql-jdbc-access-design) | ⚪ Reserve | `samber-developer-platform-skills` | Design customer-facing SQL access to a product's data - a JDBC/ODBC endpoint, warehouse share, ... |
 | [`stanley-druckenmiller-investment`](../../library/tradermonty-claude-trading-skills/skills/stanley-druckenmiller-investment) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Druckenmiller Strategy Synthesizer - Integrates 8 upstream skill outputs (Market Breadth, Uptre... |
 | [`stellar-asset-clawback-compliance`](../../library/sickn33-agentic-awesome-skills/skills/stellar-asset-clawback-compliance) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Regulated Stellar asset clawback architecture register: issuer authorization flags, claimable b... |
-| [`stitch-loop`](../../library/google-labs-code-stitch-skills/skills/stitch-loop) | ⚪ Reserve | `google-labs-code-stitch-skills` | Teaches agents to iteratively build websites using Stitch with an autonomous baton-passing loop... |
 | [`story-done`](../../library/donchitos-claude-code-game-studios/skills/story-done) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Closes a finished story: verifies each acceptance criterion, checks for design or ADR deviation... |
 | [`story-readiness`](../../library/donchitos-claude-code-game-studios/skills/story-readiness) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Checks whether a story is ready to implement: clear acceptance criteria, no open questions, val... |
 | [`strategic-narrative-designer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/strategic-narrative-designer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "design our change narrative", "build the old-world-to-new-game story... |
@@ -581,6 +583,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ux-review`](../../library/donchitos-claude-code-game-studios/skills/ux-review) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Validate a UX spec, HUD design or pattern library — accessibility, GDD alignment, readiness. AP... |
 | [`variant-analysis`](../../library/sickn33-agentic-awesome-skills/skills/variant-analysis) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Find similar vulnerabilities and bugs across codebases using pattern-based analysis. Use when h... |
 | [`vcp-screener`](../../library/tradermonty-claude-trading-skills/skills/vcp-screener) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Screen S&P 500 stocks for Mark Minervini's Volatility Contraction Pattern (VCP) and detect hist... |
+| [`velar-luxury-real-estate`](../../library/feimacode-open-design-agent-kit/skills/velar-luxury-real-estate) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Use this plugin when the user wants a high-end luxury real-estate / architecture landing page w... |
 | [`vertical-slice`](../../library/codewithmukesh-dotnet-claude-kit/skills/vertical-slice) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Vertical Slice Architecture (VSA) for .NET applications — one of several supported architecture... |
 | [`visual-explainer`](../../library/nicobailon-visual-explainer/skills/visual-explainer) | ⚪ Reserve | `nicobailon-visual-explainer` | Generate self-contained HTML visual explanations for systems, code changes, plans, data, and te... |
 | [`vlm-ocr-pipeline`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/vlm-ocr-pipeline) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | VLM-based OCR pipeline: model selection, prompts, architecture, evaluation. |

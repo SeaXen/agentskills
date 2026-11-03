@@ -1,7 +1,7 @@
 # 🔬 Scientific, Bio-Informatics & Astrophysics
 
 > **Category**: `scientific-bio-data`  
-> **Total Curated Skills**: 110 skills  
+> **Total Curated Skills**: 111 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -35,6 +35,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`claude-scientific-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/claude-scientific-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Ready-to-use agent skills for scientific research and engineering |
 | [`claude-scientific-skills`](../../library/antigravity-awesome-skills/skills/claude-scientific-skills) | ⚪ Reserve | `antigravity-awesome-skills` | Scientific research and analysis skills |
 | [`clawbio-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/clawbio-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | OpenClaw bioinformatics skill library for genomics pipelines |
+| [`clinical-case-report`](../../library/feimacode-open-design-agent-kit/skills/clinical-case-report) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Structured medical case presentation for clinical rounds, conferences, and documentation. Gener... |
 | [`clinical-dialogue-agents-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/clinical-dialogue-agents-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Papers on AI agents for clinical dialogue and medical QA |
 | [`clinical-pharmacology-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/clinical-pharmacology-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Clinical pharmacology principles for dosing, drug interactions, and patient s... |
 | [`clinical-research-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/clinical-research-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Design clinical studies and report using CONSORT, STROBE guidelines |

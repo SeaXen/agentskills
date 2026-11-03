@@ -1,7 +1,7 @@
 # 📈 Sales Outreach, Leads & CRM
 
 > **Category**: `business-sales-crm`  
-> **Total Curated Skills**: 487 skills  
+> **Total Curated Skills**: 495 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -166,6 +166,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`devrel-radar`](../../library/samber-developer-relations-skills/skills/devrel-radar) | ⚪ Reserve | `samber-developer-relations-skills` | Builds a personalised, time-budgeted watch list of developer-relations information sources - De... |
 | [`devrel-team-structure`](../../library/samber-developer-relations-skills/skills/devrel-team-structure) | ⚪ Reserve | `samber-developer-relations-skills` | Designs the developer relations org - which function DevRel reports to (marketing, product, eng... |
 | [`devrel-webinar-program`](../../library/samber-developer-relations-skills/skills/devrel-webinar-program) | ⚪ Reserve | `samber-developer-relations-skills` | Designs a recurring technical webinar series for a developer audience and ships its charter, se... |
+| [`digital-eguide`](../../library/feimacode-open-design-agent-kit/skills/digital-eguide) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A two-spread digital e-guide preview — page 1 is a cover (display title, author, "What's inside... |
 | [`discover-opportunities`](../../library/amplitude-mcp-marketplace/skills/discover-opportunities) | ⚪ Reserve | `amplitude-mcp-marketplace` | Discovers product opportunities by analyzing Amplitude analytics, experiments, session replays,... |
 | [`discovery-interview-prep`](../../library/deanpeters-product-manager-skills/skills/discovery-interview-prep) | ⚪ Reserve | `deanpeters-product-manager-skills` | Plan customer discovery interviews with the right goal, segment, constraints, and method. Use w... |
 | [`distributed-training-deepspeed`](../../library/davila7-claude-code-templates/skills/distributed-training-deepspeed) | ⚪ Reserve | `davila7-claude-code-templates` | Expert guidance for distributed training with DeepSpeed - ZeRO optimization stages, pipeline pa... |
@@ -227,6 +228,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`free-tool-strategy`](../../library/alirezarezvani-claude-skills/skills/free-tool-strategy) | ⚪ Reserve | `alirezarezvani-claude-skills` | When the user wants to build a free tool for marketing — lead generation, SEO value, or brand a... |
 | [`free-tools`](../../library/coreyhaines31-marketingskills/skills/free-tools) | ⚪ Reserve | `coreyhaines31-marketingskills` | When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead gener... |
 | [`freshsales`](../../library/membranedev-application-skills/skills/freshsales) | ⚪ Reserve | `membranedev-application-skills` | Freshsales integration. Manage crm and sales data, records, and workflows. Use when the user wa... |
+| [`fs-electric-studio`](../../library/feimacode-open-design-agent-kit/skills/fs-electric-studio) | ⚪ Reserve | `feimacode-open-design-agent-kit` | OpenDesign as an enterprise design platform: a buyer-forwardable proposal for a design-org's ec... |
 | [`funding-digest`](../../library/anthropics-financial-services/skills/funding-digest) | ⚪ Reserve | `anthropics-financial-services` | Generate a polished one-page PowerPoint slide summarizing key takeaways from recent funding rou... |
 | [`funnel-platform-picker`](../../library/autonnel-autonnel-skills/skills/funnel-platform-picker) | ⚪ Reserve | `autonnel-autonnel-skills` | Choose a landing page or sales funnel platform by working out the real total cost and lock-in f... |
 | [`fxmacrodata-calendar`](../../library/tradermonty-claude-trading-skills/skills/fxmacrodata-calendar) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Fetch official FXMacroData macro release-calendar events for trade planning, macro regime check... |
@@ -241,6 +243,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`gorgias-automation`](../../library/composio-community-awesome-codex-skills/skills/gorgias-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate e-commerce customer support workflows in Gorgias -- manage tickets, customers, tags, a... |
 | [`guest-posting-opportunity-finder`](../../library/sickn33-agentic-awesome-skills/skills/guest-posting-opportunity-finder) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Guest Posting Opportunity Finder. Use when working with topic, audience and optional prospect l... |
 | [`gumroad-automation`](../../library/composio-community-awesome-codex-skills/skills/gumroad-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Gumroad product management, sales tracking, license verification, and webhook subscrip... |
+| [`huashu-bento-insight`](../../library/feimacode-open-design-agent-kit/skills/huashu-bento-insight) | ⚪ Reserve | `feimacode-open-design-agent-kit` | OpenDesign vs closed cloud design tools: a side-by-side displacement case on control, cost (BYO... |
+| [`huashu-takram-soft-tech`](../../library/feimacode-open-design-agent-kit/skills/huashu-takram-soft-tech) | ⚪ Reserve | `feimacode-open-design-agent-kit` | OpenDesign procurement & security leave-behind: the one-pager-plus a buying committee can forwa... |
 | [`huawei-cloud-agentarts-obs-diagnosis`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-agentarts-obs-diagnosis) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Observability no-data diagnosis skill for Huawei Cloud AgentArts agent-ops platform. Systematic... |
 | [`huawei-cloud-dws-cpu-diag`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-dws-cpu-diag) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | DWS cluster CPU high root cause diagnosis skill, based on KooCLI v3.2.0+ and DWS Autopilot MCP ... |
 | [`huawei-cloud-dws-dymem-diag`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-dws-dymem-diag) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | DWS cluster memory high root cause diagnosis skill, based on KooCLI v3.2.0+ and DWS Autopilot M... |
@@ -342,6 +346,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`one-page-marketing`](../../library/wondelai-skills/skills/one-page-marketing) | ⚪ Reserve | `wondelai-skills` | Build a complete marketing plan covering the full customer journey from stranger to raving fan.... |
 | [`open-researcher-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/open-researcher-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Open pipeline for generating deep research trajectories with LLMs |
 | [`opensource-pipeline`](../../library/affaan-m-ecc/skills/opensource-pipeline) | ⚪ Reserve | `affaan-m-ecc` | Open-source pipeline: fork, sanitize, and package private projects for safe public release. Cha... |
+| [`orbit-gmail`](../../library/feimacode-open-design-agent-kit/skills/orbit-gmail) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Open Orbit briefing skill — selected by the Orbit pipeline when Gmail is the user's only connec... |
+| [`orbit-linear`](../../library/feimacode-open-design-agent-kit/skills/orbit-linear) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Open Orbit briefing skill — selected by the Orbit pipeline when Linear is the user's only conne... |
+| [`orbit-notion`](../../library/feimacode-open-design-agent-kit/skills/orbit-notion) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Open Orbit briefing skill — selected by the Orbit pipeline when Notion is the user's only conne... |
 | [`oss-sponsors-brand-strategy`](../../library/samber-developer-relations-skills/skills/oss-sponsors-brand-strategy) | ⚪ Reserve | `samber-developer-relations-skills` | Builds a company's open-source sponsorship portfolio - which projects and maintainers to fund, ... |
 | [`outbound-engine`](../../library/ericosiu-ai-marketing-skills/skills/outbound-engine) | ⚪ Reserve | `ericosiu-ai-marketing-skills` | Design, analyze, and optimize cold outbound email campaigns for Instantly. Handles end-to-end I... |
 | [`outreach`](../../library/membranedev-application-skills/skills/outreach) | ⚪ Reserve | `membranedev-application-skills` | Outreach integration. Manage sales data, records, and workflows. Use when the user wants to int... |
@@ -377,6 +384,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`power-bi-salespulse-360-dashboard`](../../library/reason-machines-data-skills/skills/power-bi-salespulse-360-dashboard) | ⚪ Reserve | `reason-machines-data-skills` | Master the SalesPulse 360 Power BI retail analytics dashboard for profit analysis, regional ins... |
 | [`power-bi-salespulse-dashboard`](../../library/reason-machines-data-skills/skills/power-bi-salespulse-dashboard) | ⚪ Reserve | `reason-machines-data-skills` | Expert at implementing and customizing the SalesPulse 360 Power BI retail analytics dashboard f... |
 | [`ppl-personal-crm`](../../library/sickn33-agentic-awesome-skills/skills/ppl-personal-crm) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Uses the ppl personal CRM over MCP to prepare for conversations, recall facts about people, log... |
+| [`pptx-generator`](../../library/feimacode-open-design-agent-kit/skills/pptx-generator) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Create and edit PowerPoint presentations from scratch with PptxGenJS — MiniMax's production-tes... |
 | [`press-media-relations`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/press-media-relations) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "build a media list for my launch", "write a launch press release", o... |
 | [`press-release`](../../library/deanpeters-product-manager-skills/skills/press-release) | ⚪ Reserve | `deanpeters-product-manager-skills` | Write an Amazon-style press release that defines customer value before building. Use when align... |
 | [`pricing-strategist`](../../library/alirezarezvani-claude-skills/skills/pricing-strategist) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when designing or revisiting product pricing — selecting a pricing model (subscription seat... |
@@ -447,7 +455,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`signup`](../../library/coreyhaines31-marketingskills/skills/signup) | ⚪ Reserve | `coreyhaines31-marketingskills` | When the user wants to optimize signup, registration, account creation, or trial activation flo... |
 | [`signup-flow-cro`](../../library/alirezarezvani-claude-skills/skills/signup-flow-cro) | ⚪ Reserve | `alirezarezvani-claude-skills` | When the user wants to optimize signup, registration, account creation, or trial activation flo... |
 | [`skill-idea-miner`](../../library/tradermonty-claude-trading-skills/skills/skill-idea-miner) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Mine Claude Code session logs for skill idea candidates. Use when running the weekly skill gene... |
-| [`slides`](../../library/nexu-io-open-design/skills/slides) | ⚪ Reserve | `nexu-io-open-design` | Create and edit .pptx presentation decks with PptxGenJS. Useful for sales decks, kickoff briefs... |
+| [`slides`](../../library/feimacode-open-design-agent-kit/skills/slides) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Create and edit .pptx presentation decks with PptxGenJS. Useful for sales decks, kickoff briefs... |
 | [`social-graph-ranker`](../../library/affaan-m-ecc/skills/social-graph-ranker) | ⚪ Reserve | `affaan-m-ecc` | Weighted social-graph ranking for warm intro discovery, bridge scoring, and network gap analysi... |
 | [`social-selling-planner`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/social-selling-planner) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "set up my founder social-selling routine", "build a daily engagement... |
 | [`solve-crm`](../../library/membranedev-application-skills/skills/solve-crm) | ⚪ Reserve | `membranedev-application-skills` | Solve CRM integration. Manage Organizations, Pipelines, Users, Goals, Filters. Use when the use... |

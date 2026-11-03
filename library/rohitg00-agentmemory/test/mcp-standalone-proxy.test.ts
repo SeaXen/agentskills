@@ -1,0 +1,537 @@
+import { describe, expect, it, beforeEach, afterEach, vi } from "vitest";
+import { handleToolCall, handleToolsList } from "../src/mcp/standalone.js";
+import { resetHandleForTests } from "../src/mcp/rest-proxy.js";
+import { InMemoryKV } from "../src/mcp/in-memory-kv.js";
+
+type FetchMock = ReturnType<typeof vi.fn>;
+
+function installFetch(handler: (url: string, init?: RequestInit) => Response): FetchMock {
+  const fn = vi.fn(async (url: string | URL, init?: RequestInit) =>
+    handler(url.toString(), init),
+  );
+  (globalThis as { fetch: typeof fetch }).fetch = fn as unknown as typeof fetch;
+  return fn;
+}
+
+const BASE = "http://localhost:3111";
+
+describe("@agentmemory/mcp standalone — server proxy", () => {
+  const originalFetch = globalThis.fetch;
+
+  beforeEach(() => {
+    resetHandleForTests();
+    process.env["AGENTMEMORY_URL"] = BASE;
+    delete process.env["AGENTMEMORY_SECRET"];
+  });
+
+  afterEach(() => {
+    resetHandleForTests();
+    globalThis.fetch = originalFetch;
+    delete process.env["AGENTMEMORY_URL"];
+  });
+
+  it("proxies memory_sessions to GET /agentmemory/sessions when server is up", async () => {
+    const calls: Array<{ url: string; method: string }> = [];
+    installFetch((url, init) => {
+      calls.push({ url, method: init?.method || "GET" });
+      if (url.endsWith("/agentmemory/livez")) {
+        return new Response("ok", { status: 200 });
+      }
+      if (url.includes("/agentmemory/sessions")) {
+        return new Response(
+          JSON.stringify({ sessions: [{ id: "sess-1", observations: 69 }] }),
+          { status: 200, headers: { "content-type": "application/json" } },
+        );
+      }
+      return new Response("not found", { status: 404 });
+    });
+
+    const res = await handleToolCall("memory_sessions", { limit: 5 });
+    const body = JSON.parse(res.content[0].text);
+    expect(body.sessions).toHaveLength(1);
+    expect(body.sessions[0].id).toBe("sess-1");
+    expect(calls.find((c) => c.url.includes("/sessions"))).toBeDefined();
+  });
+
+  it("preserves session scope and continuation through URL encoding", async () => {
+    const cursor = Buffer.from(JSON.stringify({ key: "2026-01-02", id: "session-2" })).toString("base64url");
+    let requested: URL | undefined;
+    installFetch((url) => {
+      if (url.endsWith("/agentmemory/livez")) return new Response("ok", { status: 200 });
+      requested = new URL(url);
+      return new Response(JSON.stringify({ sessions: [], nextCursor: null }), { status: 200 });
+    });
+    await handleToolCall("memory_sessions", { project: "repo & branch/#1", agentId: "agent/b", cursor, limit: 2 });
+    expect(Object.fromEntries(requested!.searchParams)).toEqual({ project: "repo & branch/#1", agentId: "agent/b", cursor, limit: "2" });
+  });
+
+  it("proxies memory_smart_search to POST /agentmemory/smart-search", async () => {
+    installFetch((url, init) => {
+      if (url.endsWith("/agentmemory/livez")) return new Response("ok", { status: 200 });
+      if (url.endsWith("/agentmemory/smart-search")) {
+        const body = JSON.parse((init?.body as string) || "{}");
+        return new Response(
+          JSON.stringify({
+            mode: "compact",
+            query: body.query,
+            results: [{ id: "m1", score: 0.9 }],
+          }),
+          { status: 200 },
+        );
+      }
+      return new Response("", { status: 404 });
+    });
+    const res = await handleToolCall("memory_smart_search", { query: "auth bug", limit: 5 });
+    const body = JSON.parse(res.content[0].text);
+    expect(body.query).toBe("auth bug");
+    expect(body.results[0].id).toBe("m1");
+  });
+
+  it("proxies memory_recall to POST /agentmemory/search and forwards format/token_budget", async () => {
+    const calls: Array<{ url: string; body?: unknown }> = [];
+    installFetch((url, init) => {
+      if (url.endsWith("/agentmemory/livez")) return new Response("ok", { status: 200 });
+      const body = init?.body ? JSON.parse(init.body as string) : undefined;
+      calls.push({ url, body });
+      if (url.endsWith("/agentmemory/search")) {
+        return new Response(
+          JSON.stringify({
+            mode: "full",
+            facts: [{ id: "m1" }],
+            narrative: "n",
+            concepts: ["c"],
+            files: ["f"],
+          }),
+          { status: 200, headers: { "content-type": "application/json" } },
+        );
+      }
+      return new Response("not found", { status: 404 });
+    });
+    const res = await handleToolCall("memory_recall", {
+      query: "auth bug",
+      limit: 5,
+      format: "full",
+      token_budget: 800,
+    });
+    const body = JSON.parse(res.content[0].text);
+    expect(body.mode).toBe("full");
+    expect(body.facts[0].id).toBe("m1");
+    const searchCall = calls.find((c) => c.url.endsWith("/agentmemory/search"));
+    expect(searchCall).toBeDefined();
+    expect(searchCall?.body).toEqual({
+      query: "auth bug",
+      limit: 5,
+      format: "full",
+      token_budget: 800,
+      targetLayer: "all",
+    });
+    expect(calls.find((c) => c.url.endsWith("/agentmemory/smart-search"))).toBeUndefined();
+  });
+
+  it("memory_recall defaults format to 'full' when omitted", async () => {
+    let recallBody: Record<string, unknown> | undefined;
+    installFetch((url, init) => {
+      if (url.endsWith("/agentmemory/livez")) return new Response("ok", { status: 200 });
+      if (url.endsWith("/agentmemory/search")) {
+        recallBody = init?.body ? JSON.parse(init.body as string) : undefined;
+        return new Response(JSON.stringify({ mode: "full", facts: [] }), { status: 200 });
+      }
+      return new Response("not found", { status: 404 });
+    });
+    await handleToolCall("memory_recall", { query: "x" });
+    expect(recallBody?.["format"]).toBe("full");
+    expect(recallBody).not.toHaveProperty("token_budget");
+  });
+
+  it("proxies memory_governance_delete to the DELETE REST endpoint", async () => {
+    const calls: Array<{ url: string; method: string; body?: unknown }> = [];
+    installFetch((url, init) => {
+      const method = init?.method || "GET";
+      if (url.endsWith("/agentmemory/livez")) return new Response("ok", { status: 200 });
+      calls.push({
+        url,
+        method,
+        body: init?.body ? JSON.parse(init.body as string) : undefined,
+      });
+      if (url.endsWith("/agentmemory/governance/memories") && method === "DELETE") {
+        return new Response(JSON.stringify({ success: true, deleted: 2 }), {
+          status: 200,
+          headers: { "content-type": "application/json" },
+        });
+      }
+      return new Response("method not allowed", { status: 405, statusText: "Method Not Allowed" });
+    });
+
+    const res = await handleToolCall("memory_governance_delete", {
+      memoryIds: "mem_1, mem_2",
+      reason: "cleanup stale test data",
+    });
+
+    expect(JSON.parse(res.content[0].text)).toEqual({ success: true, deleted: 2 });
+    expect(calls).toEqual([
+      {
+        url: `${BASE}/agentmemory/governance/memories`,
+        method: "DELETE",
+        body: {
+          memoryIds: ["mem_1", "mem_2"],
+          reason: "cleanup stale test data",
+        },
+      },
+    ]);
+  });
+
+  it("local fallback returns the same shape as proxy for memory_smart_search", async () => {
+    installFetch(() => {
+      throw new Error("ECONNREFUSED");
+    });
+    const localKv = new InMemoryKV(undefined);
+    await handleToolCall("memory_save", { content: "shape-check entry" }, localKv);
+    const res = await handleToolCall("memory_smart_search", { query: "shape" }, localKv);
+    const body = JSON.parse(res.content[0].text);
+    expect(body).toHaveProperty("mode", "compact");
+    expect(Array.isArray(body.results)).toBe(true);
+    expect(body.results[0].content).toBe("shape-check entry");
+  });
+
+  it("attaches Bearer token on the proxied tool request, not just the probe", async () => {
+    process.env["AGENTMEMORY_SECRET"] = "s3cret";
+    const authByPath = new Map<string, string | undefined>();
+    installFetch((url, init) => {
+      const auth = (init?.headers as Record<string, string> | undefined)?.[
+        "authorization"
+      ];
+      const u = new URL(url);
+      authByPath.set(u.pathname, auth);
+      if (url.endsWith("/agentmemory/livez")) return new Response("ok", { status: 200 });
+      return new Response(JSON.stringify({ sessions: [] }), { status: 200 });
+    });
+    await handleToolCall("memory_sessions", {});
+    expect(authByPath.get("/agentmemory/livez")).toBe("Bearer s3cret");
+    expect(authByPath.get("/agentmemory/sessions")).toBe("Bearer s3cret");
+  });
+
+  it.each([401, 403])("propagates HTTP %i for every tool without reading or mutating local fallback", async (status) => {
+    installFetch((url) => url.endsWith("/agentmemory/livez")
+      ? new Response("ok")
+      : new Response(JSON.stringify({ error: "Authentication rejected", oversized: true }), { status }));
+    const localKv = new InMemoryKV(undefined);
+    const localMemory = { id: "mem_local", content: "local-only fixture", title: "local-only fixture", sessionIds: [] };
+    await localKv.set("mem:memories", localMemory.id, localMemory);
+    const cases: Array<[string, Record<string, unknown>]> = [
+      ["memory_save", { content: "must not save locally" }],
+      ["memory_recall", { query: "local-only" }],
+      ["memory_smart_search", { query: "local-only" }],
+      ["memory_sessions", {}],
+      ["memory_export", {}],
+      ["memory_audit", {}],
+      ["memory_governance_delete", { memoryIds: localMemory.id }],
+      ["memory_lesson_save", { title: "must not save", content: "fixture" }],
+    ];
+    for (const [name, args] of cases) {
+      await expect(handleToolCall(name, args, localKv), name).rejects.toMatchObject({ status });
+      expect(await localKv.list("mem:memories")).toEqual([localMemory]);
+    }
+  });
+
+  it.each([401, 403])("does not replace a rejected tool inventory with a successful fallback on HTTP %i", async (status) => {
+    installFetch((url) => url.endsWith("/agentmemory/livez")
+      ? new Response("ok") : new Response("Unauthorized", { status }));
+    await expect(handleToolsList()).rejects.toMatchObject({ status });
+  });
+
+  it("falls back to local InMemoryKV when server is unreachable", async () => {
+    installFetch(() => {
+      throw new Error("ECONNREFUSED");
+    });
+    const localKv = new InMemoryKV(undefined);
+    await handleToolCall("memory_save", { content: "local only" }, localKv);
+    const recall = await handleToolCall("memory_recall", { query: "local" }, localKv);
+    const out = JSON.parse(recall.content[0].text);
+    expect(out.format).toBe("full");
+    expect(out.results).toHaveLength(1);
+    expect(out.results[0].observation.narrative).toBe("local only");
+  });
+
+  it("invalidates the handle on proxy failure, so the next call re-probes", async () => {
+    let probeCount = 0;
+    let serverUp = true;
+    installFetch((url) => {
+      if (url.endsWith("/agentmemory/livez")) {
+        probeCount++;
+        return serverUp ? new Response("ok", { status: 200 }) : new Response("", { status: 500 });
+      }
+      return new Response("boom", { status: 500, statusText: "Internal Server Error" });
+    });
+    const localKv = new InMemoryKV(undefined);
+    await handleToolCall("memory_save", { content: "first fallback" }, localKv);
+    expect(probeCount).toBe(1);
+    serverUp = false;
+    await handleToolCall("memory_save", { content: "second fallback" }, localKv);
+    expect(probeCount).toBe(2);
+  });
+
+  it("surfaces the export refusal body on a 413 instead of falling back to local KV", async () => {
+    let probeCount = 0;
+    const refusal = {
+      success: false,
+      error: "Response is 20.0 MiB, over the ~15 MiB engine transport frame limit; narrow the range",
+      oversized: true,
+      bytes: 20 * 1024 * 1024,
+      limitBytes: 15 * 1024 * 1024,
+    };
+    installFetch((url) => {
+      if (url.endsWith("/agentmemory/livez")) {
+        probeCount++;
+        return new Response("ok", { status: 200 });
+      }
+      if (url.endsWith("/agentmemory/export")) {
+        return new Response(JSON.stringify(refusal), {
+          status: 413,
+          headers: { "content-type": "application/json" },
+        });
+      }
+      if (url.includes("/agentmemory/sessions")) {
+        return new Response(JSON.stringify({ sessions: [] }), {
+          status: 200,
+          headers: { "content-type": "application/json" },
+        });
+      }
+      return new Response("not found", { status: 404 });
+    });
+
+    const res = await handleToolCall("memory_export", {});
+    const body = JSON.parse(res.content[0].text);
+    expect(body.oversized).toBe(true);
+    expect(body.success).toBe(false);
+    expect(body.bytes).toBe(refusal.bytes);
+
+    expect(probeCount).toBe(1);
+    const sessionsRes = await handleToolCall("memory_sessions", { limit: 5 });
+    expect(JSON.parse(sessionsRes.content[0].text).sessions).toEqual([]);
+    expect(probeCount).toBe(1);
+  });
+
+  it("forwards memory_export paging arguments to /agentmemory/export", async () => {
+    const urls: string[] = [];
+    installFetch((url) => {
+      urls.push(url);
+      if (url.endsWith("/agentmemory/livez")) return new Response("ok", { status: 200 });
+      if (url.includes("/agentmemory/export")) {
+        return new Response(JSON.stringify({ version: "0.9.29" }), { status: 200 });
+      }
+      return new Response("", { status: 404 });
+    });
+
+    await handleToolCall("memory_export", {
+      maxSessions: 2,
+      offset: 4,
+      collectionLimit: 10,
+      collectionOffset: 20,
+      collections: "",
+    });
+
+    const exportUrl = new URL(urls.find((u) => u.includes("/agentmemory/export"))!);
+    expect(Object.fromEntries(exportUrl.searchParams)).toEqual({
+      maxSessions: "2",
+      offset: "4",
+      collectionLimit: "10",
+      collectionOffset: "20",
+      collections: "",
+    });
+  });
+
+  it("drops memory_export arguments that are not usable page bounds", async () => {
+    const urls: string[] = [];
+    installFetch((url) => {
+      urls.push(url);
+      if (url.endsWith("/agentmemory/livez")) return new Response("ok", { status: 200 });
+      return new Response(JSON.stringify({ version: "0.9.29" }), { status: 200 });
+    });
+
+    await handleToolCall("memory_export", {
+      maxSessions: 0,
+      offset: -1,
+      collectionLimit: "many",
+      collectionOffset: 1.5,
+    });
+
+    const exportUrl = new URL(urls.find((u) => u.includes("/agentmemory/export"))!);
+    expect(exportUrl.search).toBe("");
+  });
+
+  it("forwards non-essential tools to /agentmemory/mcp/call", async () => {
+    const calls: Array<{ url: string; body?: unknown }> = [];
+    installFetch((url, init) => {
+      if (url.endsWith("/agentmemory/livez")) {
+        return new Response("ok", { status: 200 });
+      }
+      if (url.endsWith("/agentmemory/mcp/call")) {
+        const body = init?.body ? JSON.parse(init.body as string) : null;
+        calls.push({ url, body });
+        return new Response(
+          JSON.stringify({
+            content: [
+              {
+                type: "text",
+                text: JSON.stringify({ saved: "lesson_xyz" }),
+              },
+            ],
+          }),
+          { status: 200, headers: { "content-type": "application/json" } },
+        );
+      }
+      return new Response("not found", { status: 404 });
+    });
+
+    const res = await handleToolCall("memory_lesson_save", {
+      title: "Always pin lockfiles",
+      content: "...",
+    });
+    const body = JSON.parse(res.content[0].text);
+    expect(body.saved).toBe("lesson_xyz");
+    expect(calls).toHaveLength(1);
+    expect(calls[0].body).toEqual({
+      name: "memory_lesson_save",
+      arguments: { title: "Always pin lockfiles", content: "..." },
+    });
+  });
+
+  it("rejects non-essential tools when no server is reachable", async () => {
+    installFetch(() => {
+      throw new Error("ECONNREFUSED");
+    });
+    const localKv = new InMemoryKV(undefined);
+    await expect(
+      handleToolCall("memory_lesson_save", { title: "x" }, localKv),
+    ).rejects.toThrow(/Unknown tool: memory_lesson_save/);
+  });
+
+  it("does not retry local after a validation error", async () => {
+    const fetchFn = installFetch((url) => {
+      if (url.endsWith("/agentmemory/livez")) return new Response("ok", { status: 200 });
+      return new Response("{}", { status: 200 });
+    });
+    const localKv = new InMemoryKV(undefined);
+    await expect(
+      handleToolCall("memory_save", { content: "" }, localKv),
+    ).rejects.toThrow("content is required");
+    const remembersCalled = fetchFn.mock.calls.some(([url]) =>
+      String(url).endsWith("/agentmemory/remember"),
+    );
+    expect(remembersCalled).toBe(false);
+  });
+
+  it("AGENTMEMORY_FORCE_PROXY=1 skips livez probe and trusts the server", async () => {
+    process.env["AGENTMEMORY_FORCE_PROXY"] = "1";
+    const calls: string[] = [];
+    installFetch((url, init) => {
+      calls.push(url);
+      if (url.endsWith("/agentmemory/livez")) {
+        throw new Error("probe should be skipped");
+      }
+      if (url.endsWith("/agentmemory/remember")) {
+        return new Response(JSON.stringify({ id: "m-1", action: "created" }), {
+          status: 200,
+          headers: { "content-type": "application/json" },
+        });
+      }
+      return new Response("not found", { status: 404 });
+    });
+    try {
+      const result = await handleToolCall("memory_save", { content: "force-proxy" });
+      expect(JSON.parse(result.content[0].text)).toEqual({ id: "m-1", action: "created" });
+      expect(calls.some((u) => u.endsWith("/agentmemory/livez"))).toBe(false);
+      expect(calls.some((u) => u.endsWith("/agentmemory/remember"))).toBe(true);
+    } finally {
+      delete process.env["AGENTMEMORY_FORCE_PROXY"];
+    }
+  });
+
+  it.each(["1", "true"])("forced proxy mode %s preserves request failures instead of switching stores", async (value) => {
+    process.env.AGENTMEMORY_FORCE_PROXY = value;
+    const localKv = new InMemoryKV(undefined);
+    try {
+      for (const failure of ["network", "http", "json"]) {
+        installFetch(() => {
+          if (failure === "network") throw new Error("synthetic connection refused");
+          return failure === "http" ? new Response("unavailable", { status: 500 }) : new Response("malformed-json");
+        });
+        await expect(handleToolCall("memory_save", { content: "must not save locally" }, localKv)).rejects.toThrow();
+        await expect(handleToolCall("memory_recall", { query: "fixture" }, localKv)).rejects.toThrow();
+        await expect(handleToolsList()).rejects.toThrow();
+        expect(await localKv.list("mem:memories")).toEqual([]);
+      }
+      installFetch(() => new Response('{"unexpected":true}'));
+      await expect(handleToolsList()).rejects.toThrow(/inventory/i);
+    } finally { delete process.env.AGENTMEMORY_FORCE_PROXY; }
+  });
+
+  it("logs probe failure to stderr so sandboxed clients can diagnose silently dropped tools", async () => {
+    installFetch((url) => {
+      if (url.endsWith("/agentmemory/livez")) {
+        throw new Error("ECONNREFUSED 127.0.0.1:3111");
+      }
+      return new Response("not found", { status: 404 });
+    });
+    const writes: string[] = [];
+    const origWrite = process.stderr.write.bind(process.stderr);
+    process.stderr.write = ((chunk: string | Uint8Array) => {
+      writes.push(typeof chunk === "string" ? chunk : Buffer.from(chunk).toString("utf8"));
+      return true;
+    }) as typeof process.stderr.write;
+    try {
+      const localKv = new InMemoryKV(undefined);
+      await handleToolCall("memory_save", { content: "diag" }, localKv);
+    } finally {
+      process.stderr.write = origWrite;
+    }
+    const joined = writes.join("");
+    expect(joined).toMatch(/livez probe .* failed/);
+    expect(joined).toMatch(/AGENTMEMORY_FORCE_PROXY/);
+  });
+
+  it("local fallback tools/list returns all 7 IMPLEMENTED_TOOLS regardless of AGENTMEMORY_TOOLS env", async () => {
+    const { handleToolsList } = await import("../src/mcp/standalone.js");
+    installFetch(() => {
+      throw new Error("ECONNREFUSED");
+    });
+    delete process.env["AGENTMEMORY_TOOLS"];
+    const before = await handleToolsList();
+    const beforeTools = before.tools as Array<{ name: string }>;
+    expect(beforeTools.map((t) => t.name).sort()).toEqual([
+      "memory_audit",
+      "memory_export",
+      "memory_governance_delete",
+      "memory_recall",
+      "memory_save",
+      "memory_sessions",
+      "memory_smart_search",
+    ]);
+    expect(beforeTools).toHaveLength(7);
+
+    resetHandleForTests();
+    process.env["AGENTMEMORY_TOOLS"] = "core";
+    const core = await handleToolsList();
+    expect((core.tools as unknown[]).length).toBe(7);
+    delete process.env["AGENTMEMORY_TOOLS"];
+  });
+
+  it("AGENTMEMORY_PROBE_TIMEOUT_MS overrides the default probe timeout", async () => {
+    process.env["AGENTMEMORY_PROBE_TIMEOUT_MS"] = "50";
+    let probeStarted = 0;
+    installFetch((url) => {
+      if (url.endsWith("/agentmemory/livez")) {
+        probeStarted++;
+        return new Response("ok", { status: 200 });
+      }
+      return new Response("not found", { status: 404 });
+    });
+    try {
+      const localKv = new InMemoryKV(undefined);
+      await handleToolCall("memory_save", { content: "timeout-knob" }, localKv);
+      expect(probeStarted).toBe(1);
+    } finally {
+      delete process.env["AGENTMEMORY_PROBE_TIMEOUT_MS"];
+    }
+  });
+});

@@ -545,3 +545,85 @@ Hooks supplement independently enforced host permissions and do not claim to
 sandbox arbitrary shell code. Packet leases require explicit recovery after
 owner termination; automatic expiry could release live work and is rejected.
 The configured CI gate includes both integration and security regressions.
+
+
+## 2026-11-02 — Human QA vetoes and protected changes constrain automerge
+
+`om-auto-merge-buddy` previously treated its three signals as sufficient even
+when a human had set `qa-failed` or `do-not-merge`; dropping `needs-qa` could make
+QA `n/a`. Those labels and unresolved trusted human QA NO-GO verdicts now stop
+both preparation and merging independently of QA requirements. Automatic PASS,
+pushes and replacement PRs cannot release a human veto; release is explicit and
+human, and remaining hard-stop labels must also be removed.
+
+The invocation-only risk override remains available for ordinary fixes, but no
+longer waives strict risk checks for executable migrations, money, or changes to
+permissions/tenant isolation. These areas are inferred from the actual diff and
+require human QA pinned to the current head, even without `risk-high`/`needs-qa`
+labels or with `--force`. Automatic PASS/self-QA is supporting evidence only.
+The existing status comment explains the protected behavior or veto, evidence,
+actor, exact release action and resume condition. No config keys, tracker
+operations, parsed signal fields or shared standard references change.
+
+
+## 2026-11-02 — Extend automerge human gates to architecture and compatibility
+
+Architecture changes and backward-incompatible changes join the protected areas
+in `om-auto-merge-buddy`: force cannot waive their risk checks or pinned human QA.
+They additionally require explicit current-head human technical approval from a
+maintainer or designated architecture/contract owner, even under the default
+policy without independent native review. Behavior-preserving local refactors
+and compatible additive contracts do not qualify solely on those grounds.
+
+A human approval cannot waive the repository's required compatibility path:
+deprecation/bridges, versioning/migration, affected consumers and rollout evidence
+remain review gates. Missing approval or compatibility evidence has an explicit
+owner, reason and resume condition in the existing status comment. No shared
+parsed schema or standard reference file changes.
+
+
+## 2026-11-02: Per-item automerge policy modifiers
+
+The queue can contain items requiring different handling in the same run.
+`automerge-force` applies the buddy’s `--skip-risk-checks --force` request to
+one PR; `--skip-risk-checks` is now an alias of the buddy’s existing risk-only
+`--force`. Child `--force` retains its claim-takeover meaning and is never
+forwarded. `automerge-prepare` restricts an item to existing `prepare-to-merge`
+mode even over explicit merge CLI mode. Both labels combine, require the
+configured queue label, and preserve protected human gates and signal evidence.
+
+Fresh labels resolve policy per worker and at the final guard, including on
+resume and replacement. The existing child-validation force marker and parsed
+signal/result formats remain intact; actual CLI/label provenance is recorded
+separately. Optional modifier labels need no config migration and are created
+by operators when used. Shared setup text stays unchanged: only the buddy’s
+specifics change, after comparison with all other setup copies.
+
+
+## 2026-11-03 — Complex QA is the default depth
+
+A blind run of `om-auto-qa-pr` on four PRs that human QA had already tested found
+6 of 23 human-reported defects. The misses clustered: shared components tested
+only on the screens the PR named, no undo/delete on money and stock, amounts not
+reconciled, no second user or stale write, and data loss accepted because the PR
+text described it. Complex depth adds those checks as required scenario steps in
+`references/complex-mode.md` by default, including orchestrated runs. The user
+explicitly requested this default; `--complex` stays accepted and `--basic`
+opts into the earlier scoped depth. Applicable unexercised checks yield PARTIAL
+and cannot grant automatic QA approval. It never relaxes a gate or the
+self-QA criteria. Product specifics (locales, risk checklist) stay in the
+consuming repo's local extension.
+
+
+## 2026-11-03 — Automerge routes human-lane work away from the queue
+
+Triage proposed PRs that the buddy would then hold for human QA, and policy
+work such as features or a design owner's UX fixes had no gate at all.
+`automerge.humanOnlyLabels` and `automerge.humanOnlyAuthors` now route that
+work to pinned human QA, and triage lists protected and human-only PRs in a
+*Human QA lane* instead of proposing them, plus a *Needs clarification* list
+for changed defaults and conflicts. Both default to empty, so existing setups
+keep their behavior. `automerge.complexQa` (default `always`, per explicit user direction) runs
+`om-auto-qa-pr --complex` where human-style depth matters. A gate map at the
+top of `human-gates.md` lists every gate, so adapting the skill starts in one
+place.

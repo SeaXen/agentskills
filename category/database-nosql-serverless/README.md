@@ -1,7 +1,7 @@
 # ⚡ NoSQL, Serverless & Vector DBs
 
 > **Category**: `database-nosql-serverless`  
-> **Total Curated Skills**: 105 skills  
+> **Total Curated Skills**: 106 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -53,6 +53,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`exploiting-nosql-injection-vulnerabilities`](../../library/mukul975-anthropic-cybersecurity-skills/skills/exploiting-nosql-injection-vulnerabilities) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Detects and exploits NoSQL injection vulnerabilities in MongoDB, CouchDB, |
 | [`extension-to-functions-codebase`](../../library/firebase-agent-skills/skills/extension-to-functions-codebase) | ⚪ Reserve | `firebase-agent-skills` | Skill for converting an installed Firebase Extension (or extension source) into a standalone Cl... |
 | [`firebase-admin-sdk`](../../library/membranedev-application-skills/skills/firebase-admin-sdk) | ⚪ Reserve | `membranedev-application-skills` | Firebase Admin SDK integration. Manage data, records, and automate workflows. Use when the user... |
+| [`firebase-analytics`](../../library/firebase-agent-skills/skills/firebase-analytics) | ⚪ Reserve | `firebase-agent-skills` | Comprehensive guide for Google Analytics for Firebase (GA4F), including base setup, SDK initial... |
 | [`firebase-app-platform`](../../library/sickn33-agentic-awesome-skills/skills/firebase-app-platform) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Build and operate apps on Firebase using Auth, Firestore, Cloud Functions, |
 | [`firebase-auth-basics`](../../library/firebase-agent-skills/skills/firebase-auth-basics) | ⚪ Reserve | `firebase-agent-skills` | Guide for setting up and using Firebase Authentication. Use this skill when the user's app requ... |
 | [`firebase-basics`](../../library/davila7-claude-code-templates/skills/firebase-basics) | ⚪ Reserve | `davila7-claude-code-templates` | Sets up and develops projects using Firebase products and services, especially for mobile or we... |

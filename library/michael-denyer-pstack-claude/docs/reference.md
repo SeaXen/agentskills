@@ -65,6 +65,7 @@ All runtimes share [one skills tree](../plugins/pstack/skills/). A skills-only i
 | Pi | Install the repository as a Pi package with `pi install`. The [Pi extension](../plugins/pstack/pi/index.ts) registers the subagent, question, and wake-up tools and `/loop`, and the [Pi mapping](../plugins/pstack/skills/poteto-mode/references/pi-tools.md) translates Claude tools and model names. The [equivalence table](pi-equivalence.md) records each Claude Code mechanism and how it was verified on Pi 1.1. |
 | GitHub Copilot | Install the plugin through the repository's marketplace; the CLI and the GitHub Copilot app share it. The [Copilot mapping](../plugins/pstack/skills/poteto-mode/references/copilot-tools.md) translates Claude tools, paths, and model roles, and maps app-only tools to CLI fallbacks. Install, routing, agent dispatch, and first-run setup are smoke-tested on the CLI; see [GitHub Copilot](#github-copilot). |
 | Muse | Install the native plugin bundle with `muse plugins install`, then approve its hooks and agent definitions with `muse plugins approve pstack`. The [Muse mapping](../plugins/pstack/skills/poteto-mode/references/muse-tools.md) translates Claude tools, subagents, transcripts, and model roles. See [Muse](#muse). |
+| MiniMax Code | Copy `plugins/pstack` into `${MINIMAX_DATA_DIR:-~/.minimax}/plugins/`, where MiniMax Code loads it as the local plugin `pstack@local` through its Claude Code reader, skills, agents, and routing hook included. The [MiniMax Code mapping](../plugins/pstack/skills/poteto-mode/references/minimax-tools.md) translates Claude tools, subagents, and model roles. Plugin loading is smoke-tested on 0.7.4 with `tests/minimax-smoke.sh`; no live MiniMax Code session has been run, so the routing hook, skill loading, and agent dispatch in a session are untested. |
 | Prime Agent | Its documentation describes shared-directory discovery; it has not been tested in a live session. Choose tools and models through Prime's configuration. |
 | opencode | Verified on version 2.0.30: discovery and skill loading in the CLI and the desktop app, and delegation through its `subagent` tool in the CLI. Configure agents, commands, and permissions in `opencode.json`. Its picker also lists principle skills. |
 | Gemini CLI | Its documentation describes shared-directory discovery; it has not been tested in a live session. Use `/skills list` to check discovery and `/skills reload` after changes. |
@@ -73,7 +74,7 @@ These checks cover skill discovery. Delegation remains unverified on Prime Agent
 
 ### Automatic routing
 
-The Claude Code, Codex, and GitHub Copilot plugins load the same short [routing instruction](../plugins/pstack/hooks/session-start-context.md) on startup, resume, clear, and compact. The Muse plugin loads its [Muse wording](../plugins/pstack/hooks/session-start-muse.md) of the same instruction. The [POSIX hook](../plugins/pstack/hooks/session-start.sh) runs on Claude Code, POSIX Codex, and GitHub Copilot, where it prints the instruction as JSON `additionalContext` with a Copilot addendum, and on Muse, where it prints plain text. On Windows, Codex runs a [PowerShell adapter](../plugins/pstack/hooks/session-start.ps1) through its `commandWindows` override, and Muse runs the same adapter as a second SessionStart hook, so neither requires Bash. The adapter runs with `-ExecutionPolicy Bypass`, which a machine or user execution policy set by Group Policy overrides; on such machines the hook fails and no instruction loads. Codex requires the user to trust plugin hooks through `/hooks`. On Pi, the [extension](../plugins/pstack/pi/prompt.ts) adds the same instruction to the system prompt at every agent start, so it survives compaction. The instruction invokes `poteto-mode` when a task meets any of these conditions:
+The Claude Code, Codex, and GitHub Copilot plugins load the same short [routing instruction](../plugins/pstack/hooks/session-start-context.md) on startup, resume, clear, and compact. The Muse plugin loads its [Muse wording](../plugins/pstack/hooks/session-start-muse.md) of the same instruction. MiniMax Code runs the Claude Code hook, which finds `MINIMAX_PLUGIN_ROOT` and loads the [MiniMax Code wording](../plugins/pstack/hooks/session-start-minimax.md) instead. The [POSIX hook](../plugins/pstack/hooks/session-start.sh) runs on Claude Code, POSIX Codex, and GitHub Copilot, where it prints the instruction as JSON `additionalContext` with a Copilot addendum, and on Muse, where it prints plain text. On Windows, Codex runs a [PowerShell adapter](../plugins/pstack/hooks/session-start.ps1) through its `commandWindows` override, and Muse runs the same adapter as a second SessionStart hook, so neither requires Bash. The adapter runs with `-ExecutionPolicy Bypass`, which a machine or user execution policy set by Group Policy overrides; on such machines the hook fails and no instruction loads. Codex requires the user to trust plugin hooks through `/hooks`. On Pi, the [extension](../plugins/pstack/pi/prompt.ts) adds the same instruction to the system prompt at every agent start, so it survives compaction. The instruction invokes `poteto-mode` when a task meets any of these conditions:
 
 - It touches more than one file or changes a signature other files call.
 - It involves a design or architecture choice.
@@ -181,8 +182,8 @@ Install dependencies for the workflows you use:
 
 | Dependency | When you need it |
 | --- | --- |
-| GitHub CLI, `gh` | PR monitoring, shipping, and the `orch` stack frontier. Authenticate with `gh auth login`. The playbooks use Origin's CLI, `origin`, instead when it can resolve the repository. |
-| Bun | The bundled `watch-pr` and `orch` scripts. Their bootstrap installs script dependencies on first run. |
+| GitHub CLI, `gh` | PR monitoring and shipping. Authenticate with `gh auth login`. The playbooks use Origin's CLI, `origin`, instead when it can resolve the repository. |
+| Bun | The bundled `watch-pr` scripts. Their bootstrap installs script dependencies on first run. |
 | `plugin-dev` | Claude Code skill-authoring guidance used by `automate-me`, `reflect`, and `poteto-mode`. |
 
 Install the Claude Code skill-authoring companion with:
@@ -214,7 +215,7 @@ plugins/pstack/
   pi/                            Pi extension (subagent, question, and wake-up tools)
   skills/                        Shared skills, references, and scripts
   agents/                        Claude Code subagent definitions (Muse agent definitions too)
-  hooks/                         Startup routing for Claude Code, Codex, Copilot, and Muse; Copilot tool checks
+  hooks/                         Startup routing for Claude Code, Codex, Copilot, Muse, and MiniMax Code; Copilot tool checks
 tools/                           Generation, validation, and upstream sync
 tests/                           Repository checks
 ```
@@ -241,7 +242,7 @@ CI also checks shell scripts, workflows, Markdown, relative links, and the bundl
 
 ### Port scope and attribution
 
-The skill tree is synced against upstream `ab1f702` (v0.15.35). The thermos skills and agents are synced against `118e73b` (thermos 1.0.0).
+The skill tree is synced against upstream `c742dd6` (v0.15.36). The thermos skills and agents are synced against `118e73b` (thermos 1.0.0).
 
 This repository ports Lauren Tan's pstack from Cursor to Claude Code and shares the skills with other runtimes. It includes six cursor-team-kit skills, the three thermos skills with their two review subagents, and an independently authored `babysit` skill. The port supplies Claude Code plugin registration and routing, Codex manifests and shortcuts, the Codex tool mapping, the Pi package, extension, and tool mapping, the GitHub Copilot hooks and tool mapping, and the Muse native plugin, routing hook, and tool mapping.
 

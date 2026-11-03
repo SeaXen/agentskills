@@ -1,10 +1,30 @@
 [
   {
+    "id": "audit-clerk-skill",
+    "name": "audit-clerk-skill",
+    "repository": "clerk-skills",
+    "category": "general",
+    "description": "Audits the bundled `clerk-cli` skill against the Clerk CLI source tree and proposes or applies updates. Use when the user says \"audit the clerk-cli skill\", \"update the clerk-cli skill\", \"check clerk-cli against the CLI source\", \"resync clerk-cli skill\", \"run audit-clerk-skill\", or after Clerk CLI commands, flags, or agent-mode behavior change.",
+    "path": "library/clerk-skills/skills/audit-clerk-skill",
+    "activation_cmd": "python .agents/library/activate_skill.py activate audit-clerk-skill",
+    "link_cmd": "python .agents/library/activate_skill.py link audit-clerk-skill"
+  },
+  {
+    "id": "audit-expo-skill",
+    "name": "audit-expo-skill",
+    "repository": "clerk-skills",
+    "category": "general",
+    "description": "Audits the bundled `clerk-expo` skill against the @clerk/expo SDK source and clerk-docs, then proposes or applies updates. Use when the user says \"audit the expo skill\", \"update the clerk-expo skill\", \"check clerk-expo against the SDK\", \"resync clerk-expo skill\", \"run audit-expo-skill\", or after @clerk/expo ships a minor or major release.",
+    "path": "library/clerk-skills/skills/audit-expo-skill",
+    "activation_cmd": "python .agents/library/activate_skill.py activate audit-expo-skill",
+    "link_cmd": "python .agents/library/activate_skill.py link audit-expo-skill"
+  },
+  {
     "id": "clerk",
     "name": "clerk",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "Clerk authentication router. Use when user asks about Clerk CLI operations,",
     "path": "library/clerk-skills/skills/clerk",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk",
     "link_cmd": "python .agents/library/activate_skill.py link clerk"
@@ -14,7 +34,7 @@
     "name": "clerk-android",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "Implement Clerk authentication for native Android apps using Kotlin and",
     "path": "library/clerk-skills/skills/clerk-android",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-android",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-android"
@@ -24,7 +44,7 @@
     "name": "clerk-astro-patterns",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "'Astro patterns with Clerk \u2014 middleware, SSR pages, island components,",
     "path": "library/clerk-skills/skills/clerk-astro-patterns",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-astro-patterns",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-astro-patterns"
@@ -34,7 +54,7 @@
     "name": "clerk-backend-api",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Clerk Backend REST API explorer and executor. Browse tags, inspect endpoint schemas, and execute authenticated requests. Use when listing users, managing organizations, or calling any Clerk API endpoint.\"",
     "path": "library/clerk-skills/skills/clerk-backend-api",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-backend-api",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-backend-api"
@@ -44,7 +64,7 @@
     "name": "clerk-billing",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "Clerk Billing for subscription management - render Clerk's PricingTable",
     "path": "library/clerk-skills/skills/clerk-billing",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-billing",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-billing"
@@ -54,7 +74,7 @@
     "name": "clerk-chrome-extension-patterns",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "'Chrome Extension auth with @clerk/chrome-extension -- popup/sidepanel",
     "path": "library/clerk-skills/skills/clerk-chrome-extension-patterns",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-chrome-extension-patterns",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-chrome-extension-patterns"
@@ -64,7 +84,7 @@
     "name": "clerk-cli",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/clerk-skills/skills/clerk-cli",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-cli",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-cli"
@@ -74,7 +94,7 @@
     "name": "clerk-custom-ui",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "Custom authentication flows and component appearance - hooks (useSignIn,",
     "path": "library/clerk-skills/skills/clerk-custom-ui",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-custom-ui",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-custom-ui"
@@ -84,7 +104,7 @@
     "name": "clerk-expo",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "Add Clerk authentication to Expo and React Native apps using @clerk/expo.",
     "path": "library/clerk-skills/skills/clerk-expo",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-expo",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-expo"
@@ -94,7 +114,7 @@
     "name": "clerk-nextjs-patterns",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "Advanced Next.js patterns - middleware, Server Actions, caching with",
     "path": "library/clerk-skills/skills/clerk-nextjs-patterns",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-nextjs-patterns",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-nextjs-patterns"
@@ -104,7 +124,7 @@
     "name": "clerk-nuxt-patterns",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "'Nuxt 3 auth patterns with @clerk/nuxt - middleware, composables, server",
     "path": "library/clerk-skills/skills/clerk-nuxt-patterns",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-nuxt-patterns",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-nuxt-patterns"
@@ -114,7 +134,7 @@
     "name": "clerk-orgs",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "Clerk Organizations for B2B and multi-tenant apps - org switching,",
     "path": "library/clerk-skills/skills/clerk-orgs",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-orgs",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-orgs"
@@ -124,7 +144,7 @@
     "name": "clerk-react-patterns",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "'React SPA auth patterns with @clerk/react for Vite/CRA - ClerkProvider",
     "path": "library/clerk-skills/skills/clerk-react-patterns",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-react-patterns",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-react-patterns"
@@ -134,7 +154,7 @@
     "name": "clerk-react-router-patterns",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "'React Router v7/v8 patterns with Clerk \u2014 rootAuthLoader, getAuth in loaders,",
     "path": "library/clerk-skills/skills/clerk-react-router-patterns",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-react-router-patterns",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-react-router-patterns"
@@ -144,7 +164,7 @@
     "name": "clerk-setup",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "Set up Clerk authentication in any project with the Clerk CLI and official framework quickstarts. Use when adding Clerk, initializing Clerk, scaffolding a new app with Clerk, or migrating an existing authentication system to Clerk.",
     "path": "library/clerk-skills/skills/clerk-setup",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-setup",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-setup"
@@ -154,7 +174,7 @@
     "name": "clerk-swift",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "Implement Clerk authentication UI in native Swift apps on iOS and macOS with ClerkKitUI prebuilt views or custom ClerkKit flows. Set up Clerk first with the iOS setup prompt, which uses the Clerk CLI. Do not use for Expo or React Native projects.",
     "path": "library/clerk-skills/skills/clerk-swift",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-swift",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-swift"
@@ -164,7 +184,7 @@
     "name": "clerk-tanstack-patterns",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "'TanStack React Start auth patterns with @clerk/tanstack-react-start",
     "path": "library/clerk-skills/skills/clerk-tanstack-patterns",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-tanstack-patterns",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-tanstack-patterns"
@@ -174,7 +194,7 @@
     "name": "clerk-testing",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "E2E testing for Clerk apps. Use with Playwright or Cypress for auth flow",
     "path": "library/clerk-skills/skills/clerk-testing",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-testing",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-testing"
@@ -184,7 +204,7 @@
     "name": "clerk-vue-patterns",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "'Vue 3 patterns with Clerk \u2014 composables (useAuth, useUser,",
     "path": "library/clerk-skills/skills/clerk-vue-patterns",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-vue-patterns",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-vue-patterns"
@@ -194,7 +214,7 @@
     "name": "clerk-webhooks",
     "repository": "clerk-skills",
     "category": "general",
-    "description": "",
+    "description": "Clerk webhooks for real-time events and data syncing. Verify with verifyWebhook",
     "path": "library/clerk-skills/skills/clerk-webhooks",
     "activation_cmd": "python .agents/library/activate_skill.py activate clerk-webhooks",
     "link_cmd": "python .agents/library/activate_skill.py link clerk-webhooks"

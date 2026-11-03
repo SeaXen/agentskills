@@ -1,7 +1,7 @@
 # ⚡ Backend Systems, REST & Microservices
 
 > **Category**: `backend-api-design`  
-> **Total Curated Skills**: 1332 skills  
+> **Total Curated Skills**: 1337 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -296,6 +296,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`byok-custom-model`](../../library/starchild-ai-agent-official-skills/skills/byok-custom-model) | ⚪ Reserve | `starchild-ai-agent-official-skills` | Register a custom LLM endpoint with your own API key for chat in Starchild. |
 | [`bypassing-authentication-with-forced-browsing`](../../library/mukul975-anthropic-cybersecurity-skills/skills/bypassing-authentication-with-forced-browsing) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Discovering and accessing unprotected pages, APIs, and administrative |
 | [`c-sharp`](../../library/mindrally-skills/skills/c-sharp) | ⚪ Reserve | `mindrally-skills` | Guidelines for C# development including Blazor, Unity game development, and .NET backend best p... |
+| [`caffeine-app`](../../library/caffeinelabs-skills/skills/caffeine-app) | ⚪ Reserve | `caffeinelabs-skills` | Scaffold and build a complete Caffeine app (caffeine.ai) from scratch — the project layout, the... |
 | [`caio-review`](../../library/alirezarezvani-claude-skills/skills/caio-review) | ⚪ Reserve | `alirezarezvani-claude-skills` | /c-level-agents:caio-review [plan] — Eval-demanding Chief AI Officer interrogation of any plan ... |
 | [`callerapi-automation`](../../library/composio-community-awesome-codex-skills/skills/callerapi-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Callerapi tasks via Rube MCP (Composio). Always search tools first for current schemas... |
 | [`carapi`](../../library/membranedev-application-skills/skills/carapi) | ⚪ Reserve | `membranedev-application-skills` | CarAPI integration. Manage data, records, and automate workflows. Use when the user wants to in... |
@@ -457,6 +458,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`doca-telemetry-traceback-application`](../../library/nvidia-skills/skills/doca-telemetry-traceback-application) | ⚪ Reserve | `nvidia-skills` | Use this skill when the operator is driving the DOCA Telemetry Traceback application to monitor... |
 | [`docs-code-sample-standards`](../../library/samber-developer-relations-skills/skills/docs-code-sample-standards) | ⚪ Reserve | `samber-developer-relations-skills` | Defines the policy every code sample in developer documentation must meet and audits an existin... |
 | [`docs-guard`](../../library/sickn33-agentic-awesome-skills/skills/docs-guard) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Review generated or changed documentation before it ships, including READMEs, API references, d... |
+| [`docs-page`](../../library/feimacode-open-design-agent-kit/skills/docs-page) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A documentation page — inline-start nav, scrollable article body, inline-end table of contents.... |
 | [`docs-search`](../../library/davila7-claude-code-templates/skills/docs-search) | ⚪ Reserve | `davila7-claude-code-templates` | Search auto-generated codebase documentation for function signatures, API docs, class definitio... |
 | [`docs-versioning-strategy`](../../library/samber-developer-relations-skills/skills/docs-versioning-strategy) | ⚪ Reserve | `samber-developer-relations-skills` | Decides how developer docs track several product, library or API versions - whether to version ... |
 | [`document-api-endpoint`](../../library/getsentry-skills/skills/document-api-endpoint) | ⚪ Reserve | `getsentry-skills` | Document and type a Sentry API endpoint. Write or fix @extend_schema decorators, specify respon... |
@@ -517,7 +519,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`exploiting-mass-assignment-in-rest-apis`](../../library/mukul975-anthropic-cybersecurity-skills/skills/exploiting-mass-assignment-in-rest-apis) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Discovers and exploits mass assignment (autobinding) in REST APIs by injecting unexpected or hi... |
 | [`expo-api-routes`](../../library/sickn33-agentic-awesome-skills/skills/expo-api-routes) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Guidelines for creating API routes in Expo Router with EAS Hosting |
 | [`expo-data-fetching`](../../library/expo-skills/skills/expo-data-fetching) | ⚪ Reserve | `expo-skills` | Use when implementing or debugging ANY network request, API call, or data fetching. Covers fetc... |
-| [`export-download-debugging`](../../library/nexu-io-open-design/skills/export-download-debugging) | ⚪ Reserve | `nexu-io-open-design` | Diagnose and fix browser, preview, or Electron export/download failures, especially image expor... |
+| [`export-download-debugging`](../../library/feimacode-open-design-agent-kit/skills/export-download-debugging) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Diagnose and fix browser, preview, or Electron export/download failures, especially image expor... |
 | [`express-bus-booking`](../../library/nomadamas-k-skill/skills/express-bus-booking) | ⚪ Reserve | `nomadamas-k-skill` | Search and assist Korean 고속버스/KOBUS bookings using official HTTP/API-first flows; use for 고속버스 ... |
 | [`extension-core-infrastructure`](../../library/caffeinelabs-skills/skills/extension-core-infrastructure) | ⚪ Reserve | `caffeinelabs-skills` | Core infrastructure providing backend connection configuration, storage client, and React app e... |
 | [`extension-http-outcalls`](../../library/caffeinelabs-skills/skills/extension-http-outcalls) | ⚪ Reserve | `caffeinelabs-skills` | HTTP outcalls performed by the backend canister (not in the frontend), including mandatory loca... |
@@ -540,6 +542,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`fidel-api`](../../library/membranedev-application-skills/skills/fidel-api) | ⚪ Reserve | `membranedev-application-skills` | Fidel API integration. Manage Persons, Organizations, Deals, Leads, Projects, Activities and mo... |
 | [`fidel-api-automation`](../../library/composio-community-awesome-codex-skills/skills/fidel-api-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Fidel API tasks via Rube MCP (Composio). Always search tools first for current schemas... |
 | [`field-service-sobject-create-configure`](../../library/forcedotcom-sf-skills/skills/field-service-sobject-create-configure) | ⚪ Reserve | `forcedotcom-sf-skills` | Headless 360 REST API deployment step for creating sObject records. Handles describe-based fiel... |
+| [`figma-use`](../../library/feimacode-open-design-agent-kit/skills/figma-use) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Run Figma Plugin API scripts for canvas writes, inspections, variables, and design-system work.... |
 | [`figshare-api`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/figshare-api) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Research data sharing and repository |
 | [`finance-sentiment`](../../library/himself65-finance-skills/skills/finance-sentiment) | ⚪ Reserve | `himself65-finance-skills` | Fetch normalized stock sentiment across Reddit, X.com, financial news, and Polymarket from the ... |
 | [`finapi`](../../library/membranedev-application-skills/skills/finapi) | ⚪ Reserve | `membranedev-application-skills` | FinAPI integration. Manage data, records, and automate workflows. Use when the user wants to in... |
@@ -566,6 +569,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`fred-api`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/fred-api) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Federal Reserve Economic Data API for US economic indicators |
 | [`freebuff2api-openai-proxy`](../../library/reason-machines-trending-skills/skills/freebuff2api-openai-proxy) | ⚪ Reserve | `reason-machines-trending-skills` | OpenAI-compatible proxy server for Freebuff that translates standard OpenAI API requests into F... |
 | [`frontend-api-integration-patterns`](../../library/sickn33-agentic-awesome-skills/skills/frontend-api-integration-patterns) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Production-ready patterns for integrating frontend applications with backend APIs, including ra... |
+| [`frontend-dev`](../../library/feimacode-open-design-agent-kit/skills/frontend-dev) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Full-stack frontend with cinematic animations, AI-generated media via MiniMax API, and generati... |
 | [`frontend-state-management`](../../library/aj-geddes-useful-ai-prompts/skills/frontend-state-management) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Manage application state using Redux, MobX, Zustand, and Context API. Use when centralizing sta... |
 | [`frontend-to-backend-requirements`](../../library/davila7-claude-code-templates/skills/frontend-to-backend-requirements) | ⚪ Reserve | `davila7-claude-code-templates` | Document frontend data needs for backend developers. Use when frontend needs to communicate API... |
 | [`fsc-corporate-info`](../../library/nomadamas-k-skill/skills/fsc-corporate-info) | ⚪ Reserve | `nomadamas-k-skill` | 금융위원회 기업기본정보(법인 개요)를 공공데이터포털 API(k-skill-proxy 경유)로 조회한다. 법인명으로 대표자·설립일·업종 등 법인 개요를 확인하고, 응답에 사... |
@@ -587,6 +591,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`genomic-intelligence`](../../library/k-dense-ai-scientific-agent-skills/skills/genomic-intelligence) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Predicts regulatory features, gene structure, and expression directly from DNA sequence using G... |
 | [`geoapify`](../../library/membranedev-application-skills/skills/geoapify) | ⚪ Reserve | `membranedev-application-skills` | Geoapify integration. Manage data, records, and automate workflows. Use when the user wants to ... |
 | [`geoapify-automation`](../../library/composio-community-awesome-codex-skills/skills/geoapify-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Geoapify tasks via Rube MCP (Composio). Always search tools first for current schemas. |
+| [`gif-sticker-maker`](../../library/feimacode-open-design-agent-kit/skills/gif-sticker-maker) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Convert photos into animated GIF stickers in Funko Pop / Pop Mart style via the MiniMax API. Us... |
 | [`gke-manifest-generation`](../../library/google-skills/skills/gke-manifest-generation) | ⚪ Reserve | `google-skills` | Generates and updates secure, production-ready Kubernetes YAML manifests optimized for GKE Auto... |
 | [`gke-service-networking`](../../library/google-skills/skills/gke-service-networking) | ⚪ Reserve | `google-skills` | Configures GKE edge networking, traffic routing, load balancing, and private service endpoints.... |
 | [`gke-workload-identity`](../../library/google-skills/skills/gke-workload-identity) | ⚪ Reserve | `google-skills` | Configures and diagnoses Workload Identity Federation for GKE authentication failures for Pods ... |
@@ -996,7 +1001,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`physical-ai-infrastructure-setup-and-resilient-scaling`](../../library/nvidia-skills/skills/physical-ai-infrastructure-setup-and-resilient-scaling) | ⚪ Reserve | `nvidia-skills` | Use when the user wants to set up, scale, validate, or harden NVIDIA physical AI infrastructure... |
 | [`pi-computer-use`](../../library/reason-machines-trending-skills/skills/pi-computer-use) | ⚪ Reserve | `reason-machines-trending-skills` | Control macOS applications with Pi agents using semantic Accessibility API targets and optional... |
 | [`pii-detect`](../../library/ruvnet-ruflo/skills/pii-detect) | ⚪ Reserve | `ruvnet-ruflo` | Detect and flag personally identifiable information (PII) in text, code, and configurations. Us... |
-| [`pixelbin-media`](../../library/nexu-io-open-design/skills/pixelbin-media) | ⚪ Reserve | `nexu-io-open-design` | Generate and edit images and videos with an 85+ API portfolio and build visually appealing webs... |
+| [`pixelbin-media`](../../library/feimacode-open-design-agent-kit/skills/pixelbin-media) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Generate and edit images and videos with an 85+ API portfolio and build visually appealing webs... |
 | [`pixijs-scene-graphics`](../../library/pixijs-pixijs-skills/skills/pixijs-scene-graphics) | ⚪ Reserve | `pixijs-pixijs-skills` | Use this skill when drawing vector shapes and paths in PixiJS v8. Covers the Graphics API: shap... |
 | [`placecall`](../../library/sickn33-agentic-awesome-skills/skills/placecall) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Place real outbound phone calls to US businesses through the PlaceCall API: book, ask, get quot... |
 | [`plaid-fintech`](../../library/antigravity-awesome-skills/skills/plaid-fintech) | ⚪ Reserve | `antigravity-awesome-skills` | Expert patterns for Plaid API integration including Link token flows, transactions sync, identi... |
@@ -1277,9 +1282,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`validate-urp-render-graph-renderer-feature`](../../library/unity-technologies-skills/skills/validate-urp-render-graph-renderer-feature) | ⚪ Reserve | `unity-technologies-skills` | Reviews a Unity 6 URP ScriptableRendererFeature that uses the Render Graph API, checking resour... |
 | [`value-dividend-screener`](../../library/tradermonty-claude-trading-skills/skills/value-dividend-screener) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Screen US stocks for high-quality dividend opportunities combining value characteristics (P/E r... |
 | [`vapi`](../../library/membranedev-application-skills/skills/vapi) | ⚪ Reserve | `membranedev-application-skills` | Vapi integration. Manage data, records, and automate workflows. Use when the user wants to inte... |
-| [`venice-image-edit`](../../library/nexu-io-open-design/skills/venice-image-edit) | ⚪ Reserve | `nexu-io-open-design` | Image edits, upscaling, and background removal via the Venice.ai API. |
-| [`venice-image-generate`](../../library/nexu-io-open-design/skills/venice-image-generate) | ⚪ Reserve | `nexu-io-open-design` | Image generation endpoints and available styles via the Venice.ai API. |
-| [`venice-video`](../../library/nexu-io-open-design/skills/venice-video) | ⚪ Reserve | `nexu-io-open-design` | Video generation and transcription workflows via the Venice.ai API. |
+| [`venice-image-edit`](../../library/feimacode-open-design-agent-kit/skills/venice-image-edit) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Image edits, upscaling, and background removal via the Venice.ai API. |
+| [`venice-image-generate`](../../library/feimacode-open-design-agent-kit/skills/venice-image-generate) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Image generation endpoints and available styles via the Venice.ai API. |
+| [`venice-video`](../../library/feimacode-open-design-agent-kit/skills/venice-video) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Video generation and transcription workflows via the Venice.ai API. |
 | [`vercel-ai-sdk-expert`](../../library/sickn33-agentic-awesome-skills/skills/vercel-ai-sdk-expert) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Expert in the Vercel AI SDK. Covers Core API (generateText, streamText), UI hooks (useChat, use... |
 | [`version-migration-guide`](../../library/samber-developer-relations-skills/skills/version-migration-guide) | ⚪ Reserve | `samber-developer-relations-skills` | Writes or audits the migration guide for a breaking change - what breaks, ordered by blast radi... |
 | [`viaf-authority-api`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/viaf-authority-api) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Disambiguate author identities via the VIAF authority file API |

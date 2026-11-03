@@ -1,0 +1,466 @@
+import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
+
+vi.mock("../src/logger.js", () => ({
+  logger: { info: vi.fn(), warn: vi.fn(), error: vi.fn() },
+}));
+
+import { registerGovernanceFunction } from "../src/functions/governance.js";
+import {
+  getSearchIndex,
+  setIndexPersistence,
+} from "../src/functions/search.js";
+import { memoryToObservation } from "../src/state/memory-utils.js";
+import type { Memory, AuditEntry, Facet } from "../src/types.js";
+
+function mockKV() {
+  const store = new Map<string, Map<string, unknown>>();
+  return {
+    get: async <T>(scope: string, key: string): Promise<T | null> => {
+      return (store.get(scope)?.get(key) as T) ?? null;
+    },
+    set: async <T>(scope: string, key: string, data: T): Promise<T> => {
+      if (!store.has(scope)) store.set(scope, new Map());
+      store.get(scope)!.set(key, data);
+      return data;
+    },
+    delete: async (scope: string, key: string): Promise<void> => {
+      store.get(scope)?.delete(key);
+    },
+    list: async <T>(scope: string): Promise<T[]> => {
+      const entries = store.get(scope);
+      return entries ? (Array.from(entries.values()) as T[]) : [];
+    },
+  };
+}
+
+function mockSdk() {
+  const functions = new Map<string, Function>();
+  return {
+    registerFunction: (idOrOpts: string | { id: string }, handler: Function) => {
+      const id = typeof idOrOpts === "string" ? idOrOpts : idOrOpts.id;
+      functions.set(id, handler);
+    },
+    registerTrigger: () => {},
+    trigger: async (idOrInput: string | { function_id: string; payload: unknown }, data?: unknown) => {
+      const id = typeof idOrInput === "string" ? idOrInput : idOrInput.function_id;
+      const payload = typeof idOrInput === "string" ? data : idOrInput.payload;
+      const fn = functions.get(id);
+      if (!fn) throw new Error(`No function: ${id}`);
+      return fn(payload);
+    },
+  };
+}
+
+function makeMemory(id: string, type: Memory["type"] = "pattern"): Memory {
+  return {
+    id,
+    createdAt: "2026-02-01T00:00:00Z",
+    updatedAt: "2026-02-01T00:00:00Z",
+    type,
+    title: `Memory ${id}`,
+    content: `Content for ${id}`,
+    concepts: ["test"],
+    files: [],
+    sessionIds: ["ses_1"],
+    strength: 5,
+    version: 1,
+    isLatest: true,
+  };
+}
+
+function makeFacet(id: string, targetId: string): Facet {
+  return {
+    id,
+    targetId,
+    targetType: "memory",
+    dimension: "probe",
+    value: "value",
+    createdAt: "2026-02-01T00:00:00Z",
+  };
+}
+
+describe("Governance Functions", () => {
+  let sdk: ReturnType<typeof mockSdk>;
+  let kv: ReturnType<typeof mockKV>;
+
+  beforeEach(async () => {
+    sdk = mockSdk();
+    kv = mockKV();
+    registerGovernanceFunction(sdk as never, kv as never);
+
+    await kv.set("mem:memories", "mem_1", makeMemory("mem_1", "pattern"));
+    await kv.set("mem:memories", "mem_2", makeMemory("mem_2", "bug"));
+    await kv.set("mem:memories", "mem_3", makeMemory("mem_3", "pattern"));
+  });
+
+  it("governance-delete removes specified memories", async () => {
+    const result = (await sdk.trigger("mem::governance-delete", {
+      memoryIds: ["mem_1"],
+      reason: "outdated",
+    })) as { success: boolean; deleted: number; total: number };
+
+    expect(result.success).toBe(true);
+    expect(result.deleted).toBe(1);
+    expect(result.total).toBe(1);
+
+    const remaining = await kv.list("mem:memories");
+    expect(remaining.length).toBe(2);
+  });
+
+  it("governance-delete handles non-existent IDs gracefully", async () => {
+    const result = (await sdk.trigger("mem::governance-delete", {
+      memoryIds: ["nonexistent_1", "nonexistent_2"],
+    })) as { success: boolean; deleted: number; total: number };
+
+    expect(result.success).toBe(true);
+    expect(result.deleted).toBe(0);
+    expect(result.total).toBe(2);
+
+    const remaining = await kv.list("mem:memories");
+    expect(remaining.length).toBe(3);
+  });
+
+  it("governance-bulk deletes by type filter", async () => {
+    const result = (await sdk.trigger("mem::governance-bulk", {
+      type: ["pattern"],
+    })) as { success: boolean; deleted: number };
+
+    expect(result.success).toBe(true);
+    expect(result.deleted).toBe(2);
+
+    const remaining = await kv.list<Memory>("mem:memories");
+    expect(remaining.length).toBe(1);
+    expect(remaining[0].type).toBe("bug");
+  });
+
+  it("governance-bulk respects dryRun", async () => {
+    const result = (await sdk.trigger("mem::governance-bulk", {
+      type: ["pattern"],
+      dryRun: true,
+    })) as { success: boolean; dryRun: boolean; wouldDelete: number; ids: string[] };
+
+    expect(result.success).toBe(true);
+    expect(result.dryRun).toBe(true);
+    expect(result.wouldDelete).toBe(2);
+    expect(result.ids).toContain("mem_1");
+    expect(result.ids).toContain("mem_3");
+
+    const remaining = await kv.list("mem:memories");
+    expect(remaining.length).toBe(3);
+  });
+
+  it("governance-delete removes facets pointing at the deleted memory", async () => {
+    await kv.set("mem:facets", "fct_1", makeFacet("fct_1", "mem_1"));
+    await kv.set("mem:facets", "fct_2", makeFacet("fct_2", "mem_2"));
+
+    const result = (await sdk.trigger("mem::governance-delete", {
+      memoryIds: ["mem_1"],
+    })) as { success: boolean; deleted: number };
+
+    expect(result.deleted).toBe(1);
+    const remaining = await kv.list<Facet>("mem:facets");
+    expect(remaining.map((f) => f.id)).toEqual(["fct_2"]);
+  });
+
+  it("governance-delete sweeps facets for already-missing memories", async () => {
+    await kv.set("mem:facets", "fct_1", makeFacet("fct_1", "mem_gone"));
+    await kv.set("mem:facets", "fct_2", makeFacet("fct_2", "mem_2"));
+    await kv.set("mem:facets", "fct_obs", {
+      ...makeFacet("fct_obs", "obs_1"),
+      targetType: "observation",
+    });
+
+    const result = (await sdk.trigger("mem::governance-delete", {
+      memoryIds: ["mem_gone", "obs_1"],
+    })) as { success: boolean; deleted: number; notFound: string[] };
+
+    expect(result.deleted).toBe(0);
+    expect(result.notFound).toEqual(["mem_gone", "obs_1"]);
+    const remaining = await kv.list<Facet>("mem:facets");
+    expect(remaining.map((f) => f.id).sort()).toEqual(["fct_2", "fct_obs"]);
+  });
+
+  it("governance-delete keeps facets on live semantic records", async () => {
+    await kv.set("mem:semantic", "sem_1", { id: "sem_1", content: "x" });
+    await kv.set("mem:facets", "fct_s", makeFacet("fct_s", "sem_1"));
+
+    const result = (await sdk.trigger("mem::governance-delete", {
+      memoryIds: ["sem_1"],
+    })) as { notFound: string[] };
+
+    expect(result.notFound).toEqual(["sem_1"]);
+    const remaining = await kv.list<Facet>("mem:facets");
+    expect(remaining.map((f) => f.id)).toEqual(["fct_s"]);
+  });
+
+  it("governance-bulk removes facets for every deleted memory", async () => {
+    await kv.set("mem:facets", "fct_1", makeFacet("fct_1", "mem_1"));
+    await kv.set("mem:facets", "fct_2", makeFacet("fct_2", "mem_2"));
+    await kv.set("mem:facets", "fct_3", makeFacet("fct_3", "mem_3"));
+
+    const result = (await sdk.trigger("mem::governance-bulk", {
+      type: ["pattern"],
+    })) as { success: boolean; deleted: number };
+
+    expect(result.deleted).toBe(2);
+    const remaining = await kv.list<Facet>("mem:facets");
+    expect(remaining.map((f) => f.id)).toEqual(["fct_2"]);
+  });
+
+  // Delete paths must tear down the BM25 index entry and trigger an
+  // IndexPersistence save so a hard process exit can't restore a stale
+  // snapshot at next boot.
+  describe("search index cleanup on delete", () => {
+    function indexedObs(id: string, title: string) {
+      return memoryToObservation({
+        id,
+        createdAt: "2026-02-01T00:00:00Z",
+        updatedAt: "2026-02-01T00:00:00Z",
+        type: "fact",
+        title,
+        content: title,
+        concepts: [],
+        files: [],
+        sessionIds: ["ses_1"],
+        strength: 5,
+        version: 1,
+        isLatest: true,
+      });
+    }
+
+    function mockPersistence() {
+      return {
+        scheduleSave: vi.fn(),
+        save: vi.fn(async () => {}),
+      };
+    }
+
+    beforeEach(() => {
+      // SearchIndex is a module-level singleton — wipe it so cases
+      // don't bleed into each other.
+      getSearchIndex().clear();
+      setIndexPersistence(null);
+    });
+
+    // The persistence singleton is module-scoped; without this reset
+    // the last test's mock would leak into sibling tests in the outer
+    // suite and trigger unexpected spy invocations.
+    afterEach(() => {
+      setIndexPersistence(null);
+    });
+
+    it("governance-delete removes the memory from the search index", async () => {
+      getSearchIndex().add(indexedObs("mem_1", "alpha"));
+      getSearchIndex().add(indexedObs("mem_2", "beta"));
+      expect(getSearchIndex().has("mem_1")).toBe(true);
+
+      await sdk.trigger("mem::governance-delete", {
+        memoryIds: ["mem_1"],
+      });
+
+      expect(getSearchIndex().has("mem_1")).toBe(false);
+      expect(getSearchIndex().has("mem_2")).toBe(true);
+    });
+
+    it("governance-delete flushes persistence immediately", async () => {
+      const persistence = mockPersistence();
+      setIndexPersistence(persistence);
+      getSearchIndex().add(indexedObs("mem_1", "alpha"));
+
+      await sdk.trigger("mem::governance-delete", { memoryIds: ["mem_1"] });
+
+      // Delete paths must use the synchronous save (not the debounced
+      // scheduleSave) so a process exit immediately after delete can't
+      // resurrect the entry on next boot.
+      expect(persistence.save).toHaveBeenCalled();
+    });
+
+    it("governance-delete skips persistence flush when nothing was deleted", async () => {
+      const persistence = mockPersistence();
+      setIndexPersistence(persistence);
+
+      await sdk.trigger("mem::governance-delete", {
+        memoryIds: ["nonexistent_999"],
+      });
+
+      expect(persistence.save).not.toHaveBeenCalled();
+    });
+
+    it("governance-bulk removes deleted memories from the search index", async () => {
+      getSearchIndex().add(indexedObs("mem_1", "alpha"));
+      getSearchIndex().add(indexedObs("mem_2", "beta"));
+      getSearchIndex().add(indexedObs("mem_3", "gamma"));
+
+      await sdk.trigger("mem::governance-bulk", { type: ["pattern"] });
+
+      // mem_1 and mem_3 are type "pattern" per the outer beforeEach.
+      expect(getSearchIndex().has("mem_1")).toBe(false);
+      expect(getSearchIndex().has("mem_3")).toBe(false);
+      expect(getSearchIndex().has("mem_2")).toBe(true);
+    });
+
+    it("governance-bulk flushes persistence immediately", async () => {
+      const persistence = mockPersistence();
+      setIndexPersistence(persistence);
+      getSearchIndex().add(indexedObs("mem_1", "alpha"));
+
+      await sdk.trigger("mem::governance-bulk", { type: ["pattern"] });
+
+      expect(persistence.save).toHaveBeenCalled();
+    });
+  });
+
+  it("audit-query returns audit entries", async () => {
+    await sdk.trigger("mem::governance-delete", {
+      memoryIds: ["mem_1"],
+      reason: "cleanup",
+    });
+
+    const { entries } = (await sdk.trigger("mem::audit-query", {})) as {
+      entries: AuditEntry[];
+    };
+
+    expect(entries.length).toBe(1);
+    expect(entries[0].operation).toBe("delete");
+    expect(entries[0].functionId).toBe("mem::governance-delete");
+  });
+});
+
+describe("governance deletes count only what was really deleted", () => {
+  let sdk: ReturnType<typeof mockSdk>;
+  let kv: ReturnType<typeof mockKV>;
+
+  beforeEach(async () => {
+    sdk = mockSdk();
+    kv = mockKV();
+    registerGovernanceFunction(sdk as never, kv as never);
+    await kv.set("mem:memories", "mem_1", { ...makeMemory("mem_1", "pattern"), project: "alpha" });
+    await kv.set("mem:memories", "mem_2", { ...makeMemory("mem_2", "pattern"), project: "beta" });
+  });
+
+  async function auditRows() {
+    const { entries } = (await sdk.trigger("mem::audit-query", {})) as {
+      entries: AuditEntry[];
+    };
+    return entries;
+  }
+
+  it("governance-delete writes no audit row when no id existed", async () => {
+    const result = (await sdk.trigger("mem::governance-delete", {
+      memoryIds: ["missing_1"],
+    })) as { deleted: number; notFound: string[] };
+
+    expect(result.deleted).toBe(0);
+    expect(result.notFound).toEqual(["missing_1"]);
+    expect(await auditRows()).toHaveLength(0);
+  });
+
+  it("governance-delete audits only the ids it deleted", async () => {
+    const result = (await sdk.trigger("mem::governance-delete", {
+      memoryIds: ["mem_1", "missing_1"],
+    })) as { deleted: number; notFound: string[]; failed: number };
+
+    expect(result.deleted).toBe(1);
+    expect(result.notFound).toEqual(["missing_1"]);
+    expect(result.failed).toBe(0);
+    const rows = await auditRows();
+    expect(rows).toHaveLength(1);
+    expect(rows[0].targetIds).toEqual(["mem_1"]);
+  });
+
+  it("governance-delete reports a failed delete separately", async () => {
+    const realDelete = kv.delete;
+    kv.delete = async (scope: string, key: string) => {
+      if (key === "mem_2") throw new Error("disk full");
+      return realDelete(scope, key);
+    };
+
+    const result = (await sdk.trigger("mem::governance-delete", {
+      memoryIds: ["mem_1", "mem_2"],
+    })) as { success: boolean; deleted: number; failed: number };
+
+    expect(result.success).toBe(false);
+    expect(result.deleted).toBe(1);
+    expect(result.failed).toBe(1);
+    expect((await auditRows())[0].targetIds).toEqual(["mem_1"]);
+  });
+
+  it("governance-bulk dry run applies the same project filter as the live call", async () => {
+    const dry = (await sdk.trigger("mem::governance-bulk", {
+      project: "alpha",
+      dryRun: true,
+    })) as { wouldDelete: number; ids: string[] };
+    expect(dry.wouldDelete).toBe(1);
+    expect(dry.ids).toEqual(["mem_1"]);
+
+    const live = (await sdk.trigger("mem::governance-bulk", {
+      project: "alpha",
+    })) as { success: boolean; deleted: number };
+    expect(live.success).toBe(true);
+    expect(live.deleted).toBe(1);
+    const remaining = await kv.list<Memory>("mem:memories");
+    expect(remaining.map((m) => m.id)).toEqual(["mem_2"]);
+  });
+
+  it("governance-bulk rejects an empty filter in dry run and live alike", async () => {
+    for (const body of [{ dryRun: true }, {}]) {
+      const result = (await sdk.trigger("mem::governance-bulk", body)) as {
+        success: boolean;
+        error: string;
+      };
+      expect(result.success).toBe(false);
+      expect(result.error).toContain("At least one filter");
+    }
+    expect(await kv.list("mem:memories")).toHaveLength(2);
+  });
+
+  it("governance-bulk rejects an empty or non-string project in dry run and live alike", async () => {
+    for (const body of [
+      { project: "", type: ["pattern"], dryRun: true },
+      { project: "  ", type: ["pattern"] },
+      { project: 42, type: ["pattern"] },
+    ]) {
+      const result = (await sdk.trigger("mem::governance-bulk", body)) as {
+        success: boolean;
+        error: string;
+      };
+      expect(result.success).toBe(false);
+      expect(result.error).toContain("project must be a non-empty string");
+    }
+    expect(await kv.list("mem:memories")).toHaveLength(2);
+  });
+
+  it("governance-bulk rejects unsupported filter keys in dry run and live alike", async () => {
+    for (const body of [
+      { ids: ["mem_1"], dryRun: true },
+      { ids: ["mem_1"] },
+      { concepts: ["test"], type: ["pattern"], dryRun: true },
+    ]) {
+      const result = (await sdk.trigger("mem::governance-bulk", body)) as {
+        success: boolean;
+        error: string;
+      };
+      expect(result.success).toBe(false);
+      expect(result.error).toContain("Unsupported bulk delete filter");
+    }
+    expect(await kv.list("mem:memories")).toHaveLength(2);
+  });
+
+  it("governance-bulk does not count or audit a candidate that vanished before delete", async () => {
+    const realGet = kv.get;
+    kv.get = async <T>(scope: string, key: string): Promise<T | null> => {
+      if (key === "mem_2") return null;
+      return realGet<T>(scope, key);
+    };
+
+    const result = (await sdk.trigger("mem::governance-bulk", {
+      type: ["pattern"],
+    })) as { deleted: number; notFound: string[] };
+
+    expect(result.deleted).toBe(1);
+    expect(result.notFound).toEqual(["mem_2"]);
+    const rows = await auditRows();
+    expect(rows).toHaveLength(1);
+    expect(rows[0].targetIds).toEqual(["mem_1"]);
+  });
+});

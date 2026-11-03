@@ -21,7 +21,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | :--- | :---: | :--- | :--- |
 | [`agent-development`](../../library/anthropics-claude-plugins-official/skills/agent-development) | ⚪ Reserve | `anthropics-claude-plugins-official` | This skill should be used when the user asks to "create an agent", "add an agent", "write a sub... |
 | [`agentcore`](../../library/vercel-labs-agent-browser/skills/agentcore) | ⚪ Reserve | `vercel-labs-agent-browser` | Run agent-browser on AWS Bedrock AgentCore cloud browsers. Use when the user wants to use Agent... |
-| [`brand-extract`](../../library/nexu-io-open-design/skills/brand-extract) | ⚪ Reserve | `nexu-io-open-design` | Extract a complete Brand Kit from a live website by driving the in-app browser. Use when a bran... |
+| [`brand-extract`](../../library/feimacode-open-design-agent-kit/skills/brand-extract) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Extract a complete Brand Kit from a live website by driving the in-app browser. Use when a bran... |
 | [`bug-hunt-swarm`](../../library/dimillian-skills/skills/bug-hunt-swarm) | ⚪ Reserve | `dimillian-skills` | Parallel read-only multi-agent root-cause investigation for bugs, regressions, crashes, flaky b... |
 | [`clawteam-agent-swarm`](../../library/reason-machines-trending-skills/skills/clawteam-agent-swarm) | ⚪ Reserve | `reason-machines-trending-skills` | name: clawteam-agent-swarm |
 | [`clawteam-openclaw-swarm`](../../library/reason-machines-trending-skills/skills/clawteam-openclaw-swarm) | ⚪ Reserve | `reason-machines-trending-skills` | name: clawteam-openclaw-swarm |

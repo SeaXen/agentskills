@@ -4,7 +4,7 @@
     "name": "agent-only-skill",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "An agent-only skill not intended for direct user invocation",
     "path": "library/everyinc-compound-engineering-plugin/skills/agent-only-skill",
     "activation_cmd": "python .agents/library/activate_skill.py activate agent-only-skill",
     "link_cmd": "python .agents/library/activate_skill.py link agent-only-skill"
@@ -14,7 +14,7 @@
     "name": "ce-babysit-pr",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Babysits an open GitHub PR until merge-ready, first judging whether an old PR still belongs. Use when asked to watch a PR over time or update an old one \u2014 not for one-shot comment resolution or one CI failure. GitHub (incl. Enterprise) only.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-babysit-pr",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-babysit-pr",
     "link_cmd": "python .agents/library/activate_skill.py link ce-babysit-pr"
@@ -24,7 +24,7 @@
     "name": "ce-bakeoff",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Develop independent competing solutions to a defined brief, compare them, and synthesize a winning approach. Use when choosing well requires developing alternatives beyond their current form. Use ce-pov to judge developed material and ce-ideate to discover opportunities.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-bakeoff",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-bakeoff",
     "link_cmd": "python .agents/library/activate_skill.py link ce-bakeoff"
@@ -34,7 +34,7 @@
     "name": "ce-brainstorm",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Explore vague or ambitious ideas into a right-sized requirements-only unified plan. Use when the user wants to brainstorm or scope what to build. Not for executing already-specified work. Use ce-pov for a verdict on adopting a named external technology.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-brainstorm",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-brainstorm",
     "link_cmd": "python .agents/library/activate_skill.py link ce-brainstorm"
@@ -44,7 +44,7 @@
     "name": "ce-code-review",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Review a named diff or PR for bugs, regressions, tests, and standards. Use when asked to review code or when a shipping skill needs a review receipt. Use when asked to apply this review's findings locally. Use ce-resolve-pr-feedback for feedback already left on a PR.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-code-review",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-code-review",
     "link_cmd": "python .agents/library/activate_skill.py link ce-code-review"
@@ -54,7 +54,7 @@
     "name": "ce-commit",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "Create a git commit with a clear, value-communicating message. Use when the user asks to commit/save staged or unstaged changes with a repo-appropriate message.",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-commit",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-commit",
     "link_cmd": "python .agents/library/activate_skill.py link ce-commit"
@@ -64,7 +64,7 @@
     "name": "ce-commit-push-pr",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "Commit, push, and open a PR. Use when asked to ship/open a PR, or for PR-description-only flows like writing, rewriting, or describing a PR body.",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-commit-push-pr",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-commit-push-pr",
     "link_cmd": "python .agents/library/activate_skill.py link ce-commit-push-pr"
@@ -74,7 +74,7 @@
     "name": "ce-compound",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "Capture a solved problem's lesson in its cheapest durable form, a test or lint rule, a coding standard, or a repo learning, or refresh existing learnings against the codebase. Use when verified work produced non-obvious reasoning absent from its final code, tests, or existing docs, or when auditing stale, overlapping, or drifted learnings. Avoid routine fixes whose artifacts already explain the lesson.",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-compound",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-compound",
     "link_cmd": "python .agents/library/activate_skill.py link ce-compound"
@@ -84,7 +84,7 @@
     "name": "ce-compound-refresh",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "Old name for refreshing learnings, which now lives in `ce-compound`. Use only when a prompt or standing instruction names `ce-compound-refresh`; use `ce-compound` for every other learnings audit.",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-compound-refresh",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-compound-refresh",
     "link_cmd": "python .agents/library/activate_skill.py link ce-compound-refresh"
@@ -94,7 +94,7 @@
     "name": "ce-debug",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Diagnosis loop for bugs and failing behavior. Use when asked to debug or fix failing or slow behavior.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-debug",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-debug",
     "link_cmd": "python .agents/library/activate_skill.py link ce-debug"
@@ -104,7 +104,7 @@
     "name": "ce-doc-review",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "Review requirements, plans, or specs with role-specific lenses. Use when the user wants to improve an existing planning document.",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-doc-review",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-doc-review",
     "link_cmd": "python .agents/library/activate_skill.py link ce-doc-review"
@@ -114,7 +114,7 @@
     "name": "ce-dogfood",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Hands-off, diff-scoped browser QA of the active branch: maps user flows, drives a real browser, autonomously fixes small breakages with regression tests and commits, judges experience against product personas, and writes a durable dogfood report. Manual invocation only.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-dogfood",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-dogfood",
     "link_cmd": "python .agents/library/activate_skill.py link ce-dogfood"
@@ -124,7 +124,7 @@
     "name": "ce-explain",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Explain how and why something has its current shape, or what happened over a window of work, grounded in evidence. Use when the user asks for an explanation. Use ce-pov for a judgment or recommendation.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-explain",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-explain",
     "link_cmd": "python .agents/library/activate_skill.py link ce-explain"
@@ -134,7 +134,7 @@
     "name": "ce-handoff",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "Create a session handoff for another agent, or resume, find, and read any user-selected continuity source. Use when work or conversation must continue without access to the current session history.",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-handoff",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-handoff",
     "link_cmd": "python .agents/library/activate_skill.py link ce-handoff"
@@ -144,7 +144,7 @@
     "name": "ce-help",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Help and orientation for Compound Engineering: place the user's work on the compounding loop and recommend the next command, without running it. Use when the user invokes ce-help to ask which skill fits, what comes next, how setup, configuration, cost, or upgrades work, or why a skill misbehaved.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-help",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-help",
     "link_cmd": "python .agents/library/activate_skill.py link ce-help"
@@ -154,7 +154,7 @@
     "name": "ce-ideate",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Generate and evaluate grounded ideas. Use when the user wants ideas, improvements, or surprising directions before choosing one to develop. Not for refining an idea they already have (ce-brainstorm) or judging one already on the table (ce-pov).\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-ideate",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-ideate",
     "link_cmd": "python .agents/library/activate_skill.py link ce-ideate"
@@ -164,7 +164,7 @@
     "name": "ce-noslop",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Rewrite, check, or draft prose so it carries no AI writing tells, reads plainly on the first read, and keeps every source fact. Use when asked to make writing plainer or free of those tells, to check writing for them, or when drafting from supplied content. Use ce-promote for channel-specific marketing copy.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-noslop",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-noslop",
     "link_cmd": "python .agents/library/activate_skill.py link ce-noslop"
@@ -174,7 +174,7 @@
     "name": "ce-optimize",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Optimize a named target with a measured loop: attribute a workload's cost, or score variants and keep winners. Use when a working system's metric should move and the winning change is not already known. Use ce-debug when the job is diagnosis; use ce-work when the change is already known.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-optimize",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-optimize",
     "link_cmd": "python .agents/library/activate_skill.py link ce-optimize"
@@ -184,7 +184,7 @@
     "name": "ce-plan",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Create structured plans for multi-step work, including software and non-software tasks. Use when asked to plan, break down implementation, plan from requirements, or deepen an existing plan; prefer ce-brainstorm for exploratory framing.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-plan",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-plan",
     "link_cmd": "python .agents/library/activate_skill.py link ce-plan"
@@ -194,7 +194,7 @@
     "name": "ce-polish",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Polish a working feature through user-directed live browser feedback. Use when a functional feature needs focused UX refinement before shipping.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-polish",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-polish",
     "link_cmd": "python .agents/library/activate_skill.py link ce-polish"
@@ -204,7 +204,7 @@
     "name": "ce-pov",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Judge a supplied subject against the project's evidence and constraints. Use when assessing an external-adoption question, a holistic take on a document, or a supplied approach set. Use for an oracle panel to consult other models and reconcile their opinions. Use ce-explain for understanding and ce-doc-review for findings review.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-pov",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-pov",
     "link_cmd": "python .agents/library/activate_skill.py link ce-pov"
@@ -214,7 +214,7 @@
     "name": "ce-product-pulse",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Generate time-windowed product pulse reports from configured signals.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-product-pulse",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-product-pulse",
     "link_cmd": "python .agents/library/activate_skill.py link ce-product-pulse"
@@ -224,7 +224,7 @@
     "name": "ce-promote",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Draft launch or promotion copy for a shipped feature.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-promote",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-promote",
     "link_cmd": "python .agents/library/activate_skill.py link ce-promote"
@@ -234,7 +234,7 @@
     "name": "ce-proof",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "Publish, read, comment on, or edit markdown in Proof. Use for Proof links, sharing specs/plans/drafts, or publish handoffs from planning workflows; avoid proofread, math, evidence, or proof-of-concept meanings.",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-proof",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-proof",
     "link_cmd": "python .agents/library/activate_skill.py link ce-proof"
@@ -244,7 +244,7 @@
     "name": "ce-prototype",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "Build a throwaway prototype to answer how something should work, feel, or read. Use when committing the wrong answer would be expensive to unravel and a cheap sketch cannot settle it. Not a rough visual probe during brainstorming, not for deciding what to build, not polishing a feature that already works, not implementing the real thing.",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-prototype",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-prototype",
     "link_cmd": "python .agents/library/activate_skill.py link ce-prototype"
@@ -254,7 +254,7 @@
     "name": "ce-resolve-pr-feedback",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "Judge PR feedback centrally, apply valid fixes, and complete review conversations with publication verified. Use when addressing feedback already left on a PR, preparing local fixes for a caller to publish, or completing a saved feedback batch. Use ce-code-review for reviewing code before feedback exists.",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-resolve-pr-feedback",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-resolve-pr-feedback",
     "link_cmd": "python .agents/library/activate_skill.py link ce-resolve-pr-feedback"
@@ -264,7 +264,7 @@
     "name": "ce-retune",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Retune a skill corpus for a new model, measurement-first: mine the run archive for a baseline, establish a noise floor, audit the corpus adversarially, then cut in measured passes until a pre-registered bar clears. Requires a benchmark harness that can A/B two builds of the corpus; refuses without one.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-retune",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-retune",
     "link_cmd": "python .agents/library/activate_skill.py link ce-retune"
@@ -274,7 +274,7 @@
     "name": "ce-riffrec-feedback-analysis",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Analyze recorded product feedback into evidence for bugs and requirements. Use when a Riffrec capture or other screen, voice, or notes artifact needs interpretation. Use for Riffrec setup, capture, or sharing help when no recording exists yet.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-riffrec-feedback-analysis",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-riffrec-feedback-analysis",
     "link_cmd": "python .agents/library/activate_skill.py link ce-riffrec-feedback-analysis"
@@ -284,7 +284,7 @@
     "name": "ce-setup",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Check Compound Engineering health and repo-local config, scaffold a Compound Pack with `pack:<id>`, or draft or refresh coding standards and review docs with `standards`.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-setup",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-setup",
     "link_cmd": "python .agents/library/activate_skill.py link ce-setup"
@@ -294,7 +294,7 @@
     "name": "ce-simplify-code",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Simplify code for clarity, reuse, quality, and efficiency while preserving behavior, and prune tests and comments that carry no value. Use after implementation and before review, or to audit tests or comments in any part of a repo; use ce-debug for bugs.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-simplify-code",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-simplify-code",
     "link_cmd": "python .agents/library/activate_skill.py link ce-simplify-code"
@@ -304,7 +304,7 @@
     "name": "ce-skill-work",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Applies this repository's skill-authoring standard as a procedure. Use for any change to, or judgment about, a file under skills/** \u2014 a SKILL.md, a reference, a persona prompt, a bundled script's instructions: creating a skill, editing one, reviewing a skill change, or acting on review feedback (human or bot) about one. Not for src/, tests/, or scripts/ code.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-skill-work",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-skill-work",
     "link_cmd": "python .agents/library/activate_skill.py link ce-skill-work"
@@ -314,7 +314,7 @@
     "name": "ce-strategy",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Create or update STRATEGY.md. Use when starting a product, adding a strategy doc, or changing direction or roadmap.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-strategy",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-strategy",
     "link_cmd": "python .agents/library/activate_skill.py link ce-strategy"
@@ -324,7 +324,7 @@
     "name": "ce-sweep",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Sweep configured feedback sources (Slack, GitHub Issues; email experimental) for new items: acknowledge at source, analyze recordings, verify fixes merged to main, and emit an `lfg`-ready plan. First run sets up sources; supports mode:non-interactive for scheduled runs.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-sweep",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-sweep",
     "link_cmd": "python .agents/library/activate_skill.py link ce-sweep"
@@ -334,7 +334,7 @@
     "name": "ce-test-browser",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "Run browser tests for pages affected by the current branch or PR. Use when asked to run or check browser tests for the current change.",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-test-browser",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-test-browser",
     "link_cmd": "python .agents/library/activate_skill.py link ce-test-browser"
@@ -344,7 +344,7 @@
     "name": "ce-test-xcode",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Test iOS apps in a simulator with XcodeBuildMCP. Use when iOS changes need simulator evidence before handoff.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-test-xcode",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-test-xcode",
     "link_cmd": "python .agents/library/activate_skill.py link ce-test-xcode"
@@ -354,7 +354,7 @@
     "name": "ce-work",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "Execute a plan or concrete work prompt end-to-end. Use when implementing from a plan document, a spec path, or a clear build request; use ce-debug for open-ended bugs. Use when an outer orchestrator needs implementation and local verification only, without the shipping tail.",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-work",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-work",
     "link_cmd": "python .agents/library/activate_skill.py link ce-work"
@@ -364,7 +364,7 @@
     "name": "ce-worktree",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "Set up isolated git worktrees \u2014 create a new branch for fresh work, or attach a worktree to an existing branch, PR, or commit. Use when starting isolated work or isolating an existing ref.",
     "path": "library/everyinc-compound-engineering-plugin/skills/ce-worktree",
     "activation_cmd": "python .agents/library/activate_skill.py activate ce-worktree",
     "link_cmd": "python .agents/library/activate_skill.py link ce-worktree"
@@ -374,7 +374,7 @@
     "name": "claude-only-skill",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "A skill restricted to Claude Code only",
     "path": "library/everyinc-compound-engineering-plugin/skills/claude-only-skill",
     "activation_cmd": "python .agents/library/activate_skill.py activate claude-only-skill",
     "link_cmd": "python .agents/library/activate_skill.py link claude-only-skill"
@@ -404,7 +404,7 @@
     "name": "disabled-skill",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "A skill with model invocation disabled",
     "path": "library/everyinc-compound-engineering-plugin/skills/disabled-skill",
     "activation_cmd": "python .agents/library/activate_skill.py activate disabled-skill",
     "link_cmd": "python .agents/library/activate_skill.py link disabled-skill"
@@ -414,7 +414,7 @@
     "name": "lfg",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Take a request all the way to done, hands-off, through the right Compound Engineering skills. A code change ends as an open pull request, pushed without stopping. Use only when the user explicitly asks for autonomous end-to-end work or invokes lfg directly. Use ce-plan, ce-work, ce-debug, or ce-commit-push-pr for work the user reviews step by step.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/lfg",
     "activation_cmd": "python .agents/library/activate_skill.py activate lfg",
     "link_cmd": "python .agents/library/activate_skill.py link lfg"
@@ -424,7 +424,7 @@
     "name": "skill-one",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "Sample skill",
     "path": "library/everyinc-compound-engineering-plugin/skills/skill-one",
     "activation_cmd": "python .agents/library/activate_skill.py activate skill-one",
     "link_cmd": "python .agents/library/activate_skill.py link skill-one"
@@ -434,7 +434,7 @@
     "name": "wtf",
     "repository": "everyinc-compound-engineering-plugin",
     "category": "general",
-    "description": "",
+    "description": "\"Explain the last message, or a supplied file, link, or passage, in plain language a person follows on the first read. Use when the user invokes wtf because they did not follow something. Use ce-explain to investigate how or why code works, and ce-noslop to rewrite prose.\"",
     "path": "library/everyinc-compound-engineering-plugin/skills/wtf",
     "activation_cmd": "python .agents/library/activate_skill.py activate wtf",
     "link_cmd": "python .agents/library/activate_skill.py link wtf"

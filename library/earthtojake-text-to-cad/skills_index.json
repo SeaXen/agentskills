@@ -4,7 +4,7 @@
     "name": "bambu-labs",
     "repository": "earthtojake-text-to-cad",
     "category": "general",
-    "description": "",
+    "description": "Send prints to Bambu Lab printers through Bambu Connect, Bambu Lab's official app for printing from other software, or Bambu Studio. Use when the user wants to print a sliced `.gcode.3mf`, a Bambu `.gcode` or an unsliced model on a Bambu Lab printer, over Bambu Cloud or LAN. The agent opens the file in the app; the user picks the printer and starts the print there.",
     "path": "library/earthtojake-text-to-cad/skills/bambu-labs",
     "activation_cmd": "python .agents/library/activate_skill.py activate bambu-labs",
     "link_cmd": "python .agents/library/activate_skill.py link bambu-labs"
@@ -14,7 +14,7 @@
     "name": "cad",
     "repository": "earthtojake-text-to-cad",
     "category": "general",
-    "description": "",
+    "description": "Creates and edits parametric CAD parts and assemblies as Python build123d models that text-to-cad's server builds and the CAD Viewer shows live; exports STEP, STL, 3MF, GLB and xbf files on request; resolves prompt references, measures geometry, and articulates or animates assemblies. Use for 3D CAD modeling, editing a model script (any change to a part's or assembly's `.py`), organizing a CAD project, exporting or converting CAD files, Quick Edit prompts, mechanisms, and explode or showcase animations. Opens and reviews existing XBF, STEP/STP, STL, 3MF and GLB files in the CAD Viewer. Covers 3D parts and assemblies, including the part a 2D drawing projects, not the 2D DXF drawing itself or URDF, SRDF and SDF robot descriptions.",
     "path": "library/earthtojake-text-to-cad/skills/cad",
     "activation_cmd": "python .agents/library/activate_skill.py activate cad",
     "link_cmd": "python .agents/library/activate_skill.py link cad"
@@ -24,7 +24,7 @@
     "name": "dfam-check",
     "repository": "earthtojake-text-to-cad",
     "category": "general",
-    "description": "",
+    "description": "Measure mesh files against Design for Additive Manufacturing (DfAM) rules and report printability findings per process (FDM, SLS, SLA/DLP, metal PBF, MJF). Use when the user asks whether a part is printable, wants overhang/wall-thickness/support analysis of an `.stl`, `.obj`, `.ply`, or `.3mf` mesh, wants a build-orientation recommendation, or wants DfAM redesign guidance before slicing or regenerating geometry. Measures meshes; it does not slice, print or edit the model.",
     "path": "library/earthtojake-text-to-cad/skills/dfam-check",
     "activation_cmd": "python .agents/library/activate_skill.py activate dfam-check",
     "link_cmd": "python .agents/library/activate_skill.py link dfam-check"
@@ -34,7 +34,7 @@
     "name": "dfm",
     "repository": "earthtojake-text-to-cad",
     "category": "general",
-    "description": "",
+    "description": "Design-for-manufacturing review of a part for sheet metal, CNC machining, or injection molding - bends, reliefs and flat patterns; machining access, internal corners, deep features and setups; draft, undercuts and projected area. Use when the user asks whether a part can be bent, machined or molded, asks about manufacturability or tooling, or asks for a DFM review or redesign. Not for additive manufacturing (3D printing) printability.",
     "path": "library/earthtojake-text-to-cad/skills/dfm",
     "activation_cmd": "python .agents/library/activate_skill.py activate dfm",
     "link_cmd": "python .agents/library/activate_skill.py link dfm"
@@ -44,7 +44,7 @@
     "name": "dxf",
     "repository": "earthtojake-text-to-cad",
     "category": "general",
-    "description": "",
+    "description": "Generates, regenerates and validates 2D DXF drawings from Python build123d models, exported by text-to-cad. Use for DXF files, `.py` drawing scripts, 2D profiles, outlines, templates, gaskets, panels, flat patterns, laser/plasma/waterjet cut layouts, and 2D drawing exports of CAD geometry. Opens and visually reviews existing DXF files in the CAD Viewer. Covers the 2D drawing, not the 3D part or assembly it derives from, and not a cutting service's order preflight.",
     "path": "library/earthtojake-text-to-cad/skills/dxf",
     "activation_cmd": "python .agents/library/activate_skill.py activate dxf",
     "link_cmd": "python .agents/library/activate_skill.py link dxf"
@@ -54,7 +54,7 @@
     "name": "engineering-drawing",
     "repository": "earthtojake-text-to-cad",
     "category": "general",
-    "description": "",
+    "description": "Make an engineering drawing of a part as a PDF - orthographic views with hidden lines and centre marks, real dimensions, hole callouts, notes and a title block on ISO sheets, all projected from the part's geometry so the drawing follows the model. Use when the user asks for a drawing, a dimensioned sheet, shop or manufacturing drawings, a print, or \"2D views of this part\". Not for DXF cut layouts or flat patterns.",
     "path": "library/earthtojake-text-to-cad/skills/engineering-drawing",
     "activation_cmd": "python .agents/library/activate_skill.py activate engineering-drawing",
     "link_cmd": "python .agents/library/activate_skill.py link engineering-drawing"
@@ -64,7 +64,7 @@
     "name": "gcode",
     "repository": "earthtojake-text-to-cad",
     "category": "general",
-    "description": "",
+    "description": "Slice 3D models into printer-ready G-code with OrcaSlicer, the open-source slicer with built-in profiles for most FDM printers (Prusa, Bambu Lab, Creality, Voron and more). Use when the user wants an `.stl`, `.3mf` or `.obj` model sliced for their printer, as a sliced `.gcode.3mf` or plain `.gcode`, headless with OrcaSlicer's command line or by opening the model in OrcaSlicer. Never contacts a printer.",
     "path": "library/earthtojake-text-to-cad/skills/gcode",
     "activation_cmd": "python .agents/library/activate_skill.py activate gcode",
     "link_cmd": "python .agents/library/activate_skill.py link gcode"
@@ -74,7 +74,7 @@
     "name": "sdf",
     "repository": "earthtojake-text-to-cad",
     "category": "general",
-    "description": "",
+    "description": "SDFormat/SDF model and world authoring, validation, and simulator handoff. Use for `.sdf` files, SDFormat XML, models, worlds, links, joints, poses, frames, inertials, visual/collision geometry, mesh URIs, sensors, lights, physics, plugins, includes, Gazebo, static SDF review, or simulator-specific metadata. Do not use for signed-distance-field geometry. Open and visually review existing SDF files in CAD Viewer.",
     "path": "library/earthtojake-text-to-cad/skills/sdf",
     "activation_cmd": "python .agents/library/activate_skill.py activate sdf",
     "link_cmd": "python .agents/library/activate_skill.py link sdf"
@@ -84,7 +84,7 @@
     "name": "sendcutsend",
     "repository": "earthtojake-text-to-cad",
     "category": "general",
-    "description": "",
+    "description": "Review DXF and STEP/STP uploads for SendCutSend.com orders using its ordering guide, catalog, and specs. Use only for SendCutSend.com preflight reports covering upload readiness, selected material/SKU/thickness/service availability, and service-specific checks for laser cutting, CNC routing, bending, tapping, countersinking, hardware insertion, and finishing.",
     "path": "library/earthtojake-text-to-cad/skills/sendcutsend",
     "activation_cmd": "python .agents/library/activate_skill.py activate sendcutsend",
     "link_cmd": "python .agents/library/activate_skill.py link sendcutsend"
@@ -94,7 +94,7 @@
     "name": "srdf",
     "repository": "earthtojake-text-to-cad",
     "category": "general",
-    "description": "",
+    "description": "MoveIt2 SRDF authoring, validation, and planning-semantics workflow. Use when creating, editing, inspecting, or validating `.srdf` files, MoveIt planning groups, virtual joints, passive joints, end effectors, group states, disabled collisions, URDF-paired planning semantics, or SRDF handoff for live review. Covers MoveIt planning semantics, not the robot's structure (URDF) or simulator descriptions (SDF). Open and visually review existing SRDF files in CAD Viewer.",
     "path": "library/earthtojake-text-to-cad/skills/srdf",
     "activation_cmd": "python .agents/library/activate_skill.py activate srdf",
     "link_cmd": "python .agents/library/activate_skill.py link srdf"
@@ -104,7 +104,7 @@
     "name": "step-parts",
     "repository": "earthtojake-text-to-cad",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/earthtojake-text-to-cad/skills/step-parts",
     "activation_cmd": "python .agents/library/activate_skill.py activate step-parts",
     "link_cmd": "python .agents/library/activate_skill.py link step-parts"
@@ -113,8 +113,8 @@
     "id": "text-to-cad",
     "name": "text-to-cad",
     "repository": "earthtojake-text-to-cad",
-    "category": "general",
-    "description": "",
+    "category": "code-quality-refactoring",
+    "description": "A set of skills for generating parametric CAD models and sending sliced files to Bambu Lab printers.",
     "path": "library/earthtojake-text-to-cad/skills/text-to-cad",
     "activation_cmd": "python .agents/library/activate_skill.py activate text-to-cad",
     "link_cmd": "python .agents/library/activate_skill.py link text-to-cad"
@@ -124,7 +124,7 @@
     "name": "urdf",
     "repository": "earthtojake-text-to-cad",
     "category": "general",
-    "description": "",
+    "description": "URDF robot description authoring and validation. Use when creating, editing, inspecting, validating, or debugging `.urdf` files, robot links, joints, limits, inertials, visual/collision geometry, mesh references, frame conventions, or robot-description artifacts. Covers the robot's structure, not MoveIt2 semantic groups or IK/path-planning semantics (SRDF), and not the STEP/STL/3MF/DXF/GLB files its meshes come from. Open and visually review existing URDF files in CAD Viewer.",
     "path": "library/earthtojake-text-to-cad/skills/urdf",
     "activation_cmd": "python .agents/library/activate_skill.py activate urdf",
     "link_cmd": "python .agents/library/activate_skill.py link urdf"

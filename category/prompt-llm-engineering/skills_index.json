@@ -576,14 +576,6 @@
     "path": "category/prompt-llm-engineering/bitget-wallet"
   },
   {
-    "id": "bmad-advanced-elicitation",
-    "name": "bmad-advanced-elicitation",
-    "category": "prompt-llm-engineering",
-    "repository": "bmad-code-org-bmad-method",
-    "description": "Push the LLM to reconsider, refine, and improve its recent output. Use when user asks for deeper critique or mentions a known deeper critique method, e.g. socratic, first principles, pre-mortem, red team",
-    "path": "category/prompt-llm-engineering/bmad-advanced-elicitation"
-  },
-  {
     "id": "bmad-deep-recon",
     "name": "bmad-deep-recon",
     "category": "prompt-llm-engineering",
@@ -686,6 +678,14 @@
     "repository": "nvidia-skills",
     "description": "Use when running the CDF AnomalyGen pipeline over a defect dataset \u2014 mask placement, fine-tuning, synthetic defect-image generation (SDG), evaluation, quality refinement, and pseudo-labeling \u2014 even when the user names only one stage.",
     "path": "category/prompt-llm-engineering/cdf-anomalygen"
+  },
+  {
+    "id": "ce-compound-refresh",
+    "name": "ce-compound-refresh",
+    "category": "prompt-llm-engineering",
+    "repository": "everyinc-compound-engineering-plugin",
+    "description": "Old name for refreshing learnings, which now lives in `ce-compound`. Use only when a prompt or standing instruction names `ce-compound-refresh`; use `ce-compound` for every other learnings audit.",
+    "path": "category/prompt-llm-engineering/ce-compound-refresh"
   },
   {
     "id": "ce-skill-work",
@@ -1219,8 +1219,8 @@
     "id": "enhance-prompt",
     "name": "enhance-prompt",
     "category": "prompt-llm-engineering",
-    "repository": "google-labs-code-stitch-skills",
-    "description": "Transforms vague UI ideas into polished, Stitch-optimized prompts. Enhances specificity, adds UI/UX keywords, injects design system context, and structures output for better generation results.",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Improve prompts with design specs and UI/UX vocabulary. Useful for design-to-code workflows and clarifying requests for visual output.",
     "path": "category/prompt-llm-engineering/enhance-prompt"
   },
   {
@@ -1408,6 +1408,14 @@
     "path": "category/prompt-llm-engineering/firecrawl-knowledge-base"
   },
   {
+    "id": "flow-onboarding",
+    "name": "flow-onboarding",
+    "category": "prompt-llm-engineering",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "A linked first-run flow: welcome, goals, permissions with the reason before the system prompt, and an optional paywall, as one collection.",
+    "path": "category/prompt-llm-engineering/flow-onboarding"
+  },
+  {
     "id": "flux-image",
     "name": "flux-image",
     "category": "prompt-llm-engineering",
@@ -1435,7 +1443,7 @@
     "id": "frontend-skill",
     "name": "frontend-skill",
     "category": "prompt-llm-engineering",
-    "repository": "nexu-io-open-design",
+    "repository": "feimacode-open-design-agent-kit",
     "description": "Create visually strong landing pages, websites, and app UIs with restrained composition. OpenAI's production frontend playbook.",
     "path": "category/prompt-llm-engineering/frontend-skill"
   },
@@ -1691,7 +1699,7 @@
     "id": "hand-drawn-diagrams",
     "name": "hand-drawn-diagrams",
     "category": "prompt-llm-engineering",
-    "repository": "nexu-io-open-design",
+    "repository": "feimacode-open-design-agent-kit",
     "description": "Generate hand-drawn Excalidraw diagrams from a prompt \u2014 animated SVG, hosted edit link, and PNG export. Works with Claude Code, Codex, Gemini CLI, and any agent supporting standard skill paths.",
     "path": "category/prompt-llm-engineering/hand-drawn-diagrams"
   },
@@ -2360,6 +2368,14 @@
     "path": "category/prompt-llm-engineering/metaplex"
   },
   {
+    "id": "minimax-pdf",
+    "name": "minimax-pdf",
+    "category": "prompt-llm-engineering",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Generate, fill, and reformat PDFs with a token-based design system and 15 cover styles. Useful for branded PDFs, e-guides, and reports.",
+    "path": "category/prompt-llm-engineering/minimax-pdf"
+  },
+  {
     "id": "mistral-ai-automation",
     "name": "mistral-ai-automation",
     "category": "prompt-llm-engineering",
@@ -2640,6 +2656,14 @@
     "path": "category/prompt-llm-engineering/online-evals"
   },
   {
+    "id": "open-design-recurring",
+    "name": "open-design-recurring",
+    "category": "prompt-llm-engineering",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Set up a design that rebuilds itself on a schedule (a weekly report deck, next week's social posts, a refreshed one-pager), or run one such job \u2014 one job file, one supervised run, then a one-line prompt for the scheduler \u2014 use whenever the user wants a design made again every day, every week or every month, on a schedule, or as a recurring job, or when a prompt says \"Run the Open Design job <path>\", even if they don't mention Open Design",
+    "path": "category/prompt-llm-engineering/open-design-recurring"
+  },
+  {
     "id": "openai",
     "name": "openai",
     "category": "prompt-llm-engineering",
@@ -2715,7 +2739,7 @@
     "id": "output-skill",
     "name": "output-skill",
     "category": "prompt-llm-engineering",
-    "repository": "nexu-io-open-design",
+    "repository": "feimacode-open-design-agent-kit",
     "description": "Overrides default LLM truncation behavior. Enforces complete code generation, bans placeholder patterns, and handles token-limit splits cleanly. Apply to any task requiring exhaustive, unabridged output.",
     "path": "category/prompt-llm-engineering/output-skill"
   },
@@ -3584,6 +3608,14 @@
     "path": "category/prompt-llm-engineering/tavily-extract"
   },
   {
+    "id": "tavily-sdk",
+    "name": "tavily-sdk",
+    "category": "prompt-llm-engineering",
+    "repository": "tavily-ai-skills",
+    "description": "Build production-ready Tavily integrations with best practices baked in. Reference documentation for developers using coding assistants to implement web search, content extraction, crawling, and research in agentic workflows, RAG systems, or autonomous agents.",
+    "path": "category/prompt-llm-engineering/tavily-sdk"
+  },
+  {
     "id": "tavily-search",
     "name": "tavily-search",
     "category": "prompt-llm-engineering",
@@ -3670,6 +3702,14 @@
     "repository": "composio-community-awesome-codex-skills",
     "description": "Automate Token Metrics tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/prompt-llm-engineering/token-metrics-automation"
+  },
+  {
+    "id": "token-report",
+    "name": "token-report",
+    "category": "prompt-llm-engineering",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Report how many tokens the Roslyn Navigator MCP server has saved, across one repository or all of them, with a per-tool leaderboard, adoption rate, and the methodology behind the number. Use when: \"token report\", \"token savings\", \"how many tokens saved\", \"is the MCP worth it\", \"MCP usage\", \"tool leaderboard\", \"adoption rate\", \"which MCP tools are used\", \"prove the savings\".",
+    "path": "category/prompt-llm-engineering/token-report"
   },
   {
     "id": "token-scoring",

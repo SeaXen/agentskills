@@ -16,6 +16,14 @@
     "path": "category/graphics-branding-design/3d-falling-leaves"
   },
   {
+    "id": "3d-object-logo",
+    "name": "3d-object-logo",
+    "category": "graphics-branding-design",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "The brand's SVG mark extruded and bevelled in brushed gold, turning slowly. The extruded logo variant.",
+    "path": "category/graphics-branding-design/3d-object-logo"
+  },
+  {
     "id": "ad-manager",
     "name": "ad-manager",
     "category": "graphics-branding-design",
@@ -184,6 +192,14 @@
     "path": "category/graphics-branding-design/cv-generator"
   },
   {
+    "id": "deck-open-slide-canvas",
+    "name": "deck-open-slide-canvas",
+    "category": "graphics-branding-design",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Open-Slide 1920 Canvas Deck (Open Design) \u2014 use only when explicitly invoked, not for general design requests",
+    "path": "category/graphics-branding-design/deck-open-slide-canvas"
+  },
+  {
     "id": "design-critique",
     "name": "design-critique",
     "category": "graphics-branding-design",
@@ -304,19 +320,19 @@
     "path": "category/graphics-branding-design/figma-automation"
   },
   {
-    "id": "figma-create-design-system-rules",
-    "name": "figma-create-design-system-rules",
+    "id": "figma-code-connect-components",
+    "name": "figma-code-connect-components",
     "category": "graphics-branding-design",
-    "repository": "figma-mcp-server-guide",
-    "description": "Generates custom design system rules for the user's codebase. Use when user says \"create design system rules\", \"generate rules for my project\", \"set up design rules\", \"customize design system guidelines\", or wants to establish project-specific conventions for Figma-to-code workflows. Requires Figma MCP server connection.",
-    "path": "category/graphics-branding-design/figma-create-design-system-rules"
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Connect Figma design components to code components using Code Connect so design-system updates flow into the codebase automatically.",
+    "path": "category/graphics-branding-design/figma-code-connect-components"
   },
   {
     "id": "figma-create-new-file",
     "name": "figma-create-new-file",
     "category": "graphics-branding-design",
-    "repository": "figma-mcp-server-guide",
-    "description": "Always use this skill when the user wants to create a new Figma Design, FigJam, or Slides file. You MUST invoke this skill BEFORE every `create_new_file` tool call.",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Create a new blank Figma Design or FigJam file. Useful as the first step in scripted design-system or workshop workflows.",
     "path": "category/graphics-branding-design/figma-create-new-file"
   },
   {
@@ -326,6 +342,22 @@
     "repository": "figma-mcp-server-guide",
     "description": "**MANDATORY prerequisite** \u2014 you MUST invoke this skill BEFORE calling the `get_design_context` Figma MCP tool. You MUST trigger this skill whenever the user wants to implement, build, port, or code up a Figma design as code. Example prompts (not exhaustive) are 'implement this Figma design', 'build this screen from Figma', 'turn this Figma into code', 'design to code'. This skill provides critical instructions and steps to the agent on how to correctly implement Figma designs in code and must NOT be skipped.",
     "path": "category/graphics-branding-design/figma-design-to-code"
+  },
+  {
+    "id": "figma-generate-design",
+    "name": "figma-generate-design",
+    "category": "graphics-branding-design",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Build or update screens in Figma from code or description using design system components. Translate app pages into Figma using design tokens.",
+    "path": "category/graphics-branding-design/figma-generate-design"
+  },
+  {
+    "id": "figma-generate-library",
+    "name": "figma-generate-library",
+    "category": "graphics-branding-design",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Build or update a professional-grade design system library in Figma from a codebase. Useful for keeping the Figma source of truth in sync with shipped components.",
+    "path": "category/graphics-branding-design/figma-generate-library"
   },
   {
     "id": "figma-generative-plugins",
@@ -368,14 +400,6 @@
     "path": "category/graphics-branding-design/figma-spec"
   },
   {
-    "id": "figma-use",
-    "name": "figma-use",
-    "category": "graphics-branding-design",
-    "repository": "figma-mcp-server-guide",
-    "description": "**MANDATORY prerequisite** \u2014 you MUST invoke this skill BEFORE every `use_figma` tool call. NEVER call `use_figma` directly without loading this skill first. Skipping it causes common, hard-to-debug failures. Trigger whenever the user wants to perform a write action or a unique read action that requires JavaScript execution in the Figma file context \u2014 e.g. create/edit/delete nodes, set up variables or tokens, build components and variants, modify auto-layout or fills, bind variables to properties, or inspect file structure programmatically.",
-    "path": "category/graphics-branding-design/figma-use"
-  },
-  {
     "id": "figma-use-figjam",
     "name": "figma-use-figjam",
     "category": "graphics-branding-design",
@@ -406,6 +430,22 @@
     "repository": "jakeschincariol-founder-skill",
     "description": "Your brand designer. Names the business (with the trademark, domain and handle checks to run before falling in love with a name), writes the voice, a one-line promise and a tagline, and briefs the look: colours, type, logo and the first things a customer sees, so they match the positioning the marketing director chose. Use when the user says \"name my business\", \"brand this\", \"logo\", \"brand identity\", \"what should it look like\", \"tagline\", or \"brand voice\".",
     "path": "category/graphics-branding-design/founder-brand"
+  },
+  {
+    "id": "frame-logo-outro",
+    "name": "frame-logo-outro",
+    "category": "graphics-branding-design",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Logo Outro Frame (Open Design) \u2014 use only when explicitly invoked, not for general design requests",
+    "path": "category/graphics-branding-design/frame-logo-outro"
+  },
+  {
+    "id": "frame-macos-notification",
+    "name": "frame-macos-notification",
+    "category": "graphics-branding-design",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "macOS Notification Banner (Open Design) \u2014 use only when explicitly invoked, not for general design requests",
+    "path": "category/graphics-branding-design/frame-macos-notification"
   },
   {
     "id": "image-outpainting",
@@ -459,7 +499,7 @@
     "id": "library-curator",
     "name": "library-curator",
     "category": "graphics-branding-design",
-    "repository": "nexu-io-open-design",
+    "repository": "feimacode-open-design-agent-kit",
     "description": "Search the OD Library (the global asset registry) and apply matching assets into the current project mid-task. Use when the user asks to reuse an image they captured/uploaded earlier, \"pull a logo/screenshot from my library\", or to find and drop a stored asset into the page being built.",
     "path": "category/graphics-branding-design/library-curator"
   },
@@ -544,6 +584,22 @@
     "path": "category/graphics-branding-design/obviously-awesome"
   },
   {
+    "id": "od-deck-deck-open-slide-canvas",
+    "name": "od-deck-deck-open-slide-canvas",
+    "category": "graphics-branding-design",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Open-Slide 1920 Canvas Deck (Open Design) \u2014 use only when the user explicitly runs this skill",
+    "path": "category/graphics-branding-design/od-deck-deck-open-slide-canvas"
+  },
+  {
+    "id": "od-prototype-social-youtube-thumbnail",
+    "name": "od-prototype-social-youtube-thumbnail",
+    "category": "graphics-branding-design",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "YouTube Thumbnail (Open Design) \u2014 use only when the user explicitly runs this skill",
+    "path": "category/graphics-branding-design/od-prototype-social-youtube-thumbnail"
+  },
+  {
     "id": "og-image-design",
     "name": "og-image-design",
     "category": "graphics-branding-design",
@@ -566,6 +622,14 @@
     "repository": "nexscope-ai-ecommerce-skills",
     "description": "Plan and execute omnichannel e-commerce strategy. Unify selling across Amazon, Shopify, Walmart, TikTok Shop, eBay, and Etsy with consistent branding, inventory sync, and customer experience.",
     "path": "category/graphics-branding-design/omnichannel-ecommerce"
+  },
+  {
+    "id": "open-design-integrations",
+    "name": "open-design-integrations",
+    "category": "graphics-branding-design",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Show which services Open Design can use directly (Canva, Figma, Notion, Google Drive, Slack, social posting), whether each is connected, and how to set one up \u2014 use whenever the user asks which integrations, connectors or services Open Design can use, what's connected, or how to connect Canva, Figma, Notion, Google Drive, Slack or a social posting service",
+    "path": "category/graphics-branding-design/open-design-integrations"
   },
   {
     "id": "osterwalder-canvas-architect",
@@ -688,12 +752,28 @@
     "path": "category/graphics-branding-design/service-concierge-portal-generate"
   },
   {
+    "id": "shop-pack",
+    "name": "shop-pack",
+    "category": "graphics-branding-design",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Everything a small online shop needs from one product list and the seller's own photos: square product images, a store banner and collection header, a care or thank-you card for the parcel, and a launch post, all in one style and filled per product.",
+    "path": "category/graphics-branding-design/shop-pack"
+  },
+  {
     "id": "social-content-engine",
     "name": "social-content-engine",
     "category": "graphics-branding-design",
     "repository": "anthropics-knowledge-work",
     "description": "Runs the owner's content operation as a standing thing rather than a one-off: keeps a rolling posting calendar, learns the owner's voice, generates on-brand Canva graphics, writes captions that sound like them, repurposes one asset into every channel format, and stages posts for approval instead of publishing on its own. Pulls product photos and prices from Shopify when connected; with no connectors, drafts the calendar and asset briefs for manual posting. Use this whenever the owner talks about posting, content, or social \u2014 including \"I need to post more,\" \"we've gone quiet on Instagram,\" \"what should we post this month,\" \"make the content,\" \"give me a month of posts,\" \"write this in my voice,\" \"repurpose this,\" or \"set up our content calendar.\" Reach for it for a single post as readily as for a full quarter. One handoff: a finished, approved campaign brief goes to canva-creator; this skill owns the standing operation.",
     "path": "category/graphics-branding-design/social-content-engine"
+  },
+  {
+    "id": "social-youtube-thumbnail",
+    "name": "social-youtube-thumbnail",
+    "category": "graphics-branding-design",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "YouTube Thumbnail (Open Design) \u2014 use only when explicitly invoked, not for general design requests",
+    "path": "category/graphics-branding-design/social-youtube-thumbnail"
   },
   {
     "id": "startup-canvas",
@@ -710,6 +790,14 @@
     "repository": "samber-developer-relations-skills",
     "description": "Designs a company's student and university developer program: the one job it serves (adoption after graduation, hiring or ecosystem), components ranked for it (verified student offer with graduation bridge, faculty classroom kit, campus champions, internship funnel), calendar, legal edges and outcome metrics. Use whenever someone mentions a student developer program, university or campus outreach, student ambassadors, campus clubs, a student pack, getting professors to teach the product, or turning students into interns - even if they only say 'we want to be big on campuses'. Not academic research partnerships. Do NOT use for champions among working developers (samber/developer-relations-skills@developer-champions) or campus recruiting alone (samber/developer-relations-skills@tech-employer-branding).",
     "path": "category/graphics-branding-design/student-developer-programs"
+  },
+  {
+    "id": "team-okrs",
+    "name": "team-okrs",
+    "category": "graphics-branding-design",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "OKR tracker page \u2014 quarter banner, three objectives with their key results as progress bars, owner avatars, status pills, and a \"this quarter at a glance\" sidebar. Use when the brief mentions \"OKRs\", \"key results\", \"objectives\", or \"\u76ee\u6807\".",
+    "path": "category/graphics-branding-design/team-okrs"
   },
   {
     "id": "tech-employer-branding",

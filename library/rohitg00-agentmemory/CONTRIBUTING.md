@@ -1,0 +1,129 @@
+# Contributing to agentmemory
+
+Thanks for taking an interest. This file is the short path from "I have an idea" to "it's in main."
+
+## Ground rules
+
+- Apache-2.0 license applies to every contribution.
+- Sign-off is required on every commit (see [DCO](#developer-certificate-of-origin) below).
+- Be civil. [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md) applies.
+- No attribution headers ("Generated with Claude Code", "Co-Authored-By: Claude", etc.) in commits or PR descriptions.
+
+## Before you open an issue
+
+Search existing issues first:
+
+- [open issues](https://github.com/rohitg00/agentmemory/issues?q=is%3Aissue+is%3Aopen)
+- [closed issues](https://github.com/rohitg00/agentmemory/issues?q=is%3Aissue+is%3Aclosed)
+
+If it's a bug: provide the repro steps, your Node version, OS, agentmemory version (`npm view @agentmemory/agentmemory version`), and what you expected vs. what you saw.
+
+If it's a feature: describe the user problem before the implementation. "I couldn't X because Y" beats "please add X."
+
+## Before you open a PR
+
+1. Fork the repo and create a branch off `main`:
+   - `feat/<short-name>` for features
+   - `fix/<issue-number>-<short-name>` for bug fixes
+   - `docs/<topic>`, `refactor/<topic>`, `chore/<topic>` for the rest
+2. `npm install` — you need Node >=20.
+3. `npm run build` — TypeScript must compile clean.
+4. `npm test` — the full test suite must pass. The one integration test under `test/integration.test.ts` needs a live server on `:3111` and is fine to skip locally.
+5. Commit with sign-off. Rebase over tiny fixup commits so the history stays readable.
+
+Run `npm run build` before focused DSH connector tests too: `npm test -- test/connect-dsh.test.ts` loads the generated `dist/integrations/dsh.mjs` bundle.
+
+## Pull request flow
+
+- Keep PRs small and focused. One logical change per PR.
+- Write a clear description: what it does, why, and how to verify.
+- Link the issue the PR resolves (`Fixes #NNN` / `Closes #NNN`).
+- Expect CodeRabbit to review automatically. Address its comments before asking a human.
+- Address review feedback in new commits (do not force-push to the same branch). Maintainers may squash on merge.
+- A maintainer will merge when tests pass, CodeRabbit is green, and any review comments are addressed.
+
+## Developer Certificate of Origin
+
+Every commit must carry a `Signed-off-by` trailer stating you have the right to submit the contribution under Apache-2.0. The full text of the DCO is at <https://developercertificate.org>.
+
+Add it automatically:
+
+```bash
+git commit -s -m "feat: your message"
+```
+
+PRs with commits lacking sign-off will not merge.
+
+## Coding style
+
+- TypeScript strict mode. No `any` unless justified in a comment.
+- Prettier-compatible formatting (editor on save is fine; no repo-wide hook).
+- No code comments that restate what the code does. Only write a comment when the *why* is non-obvious — a hidden constraint, an invariant, a workaround for a specific bug.
+- No dead code, no commented-out imports.
+- Tests live next to the feature in `test/<feature>.test.ts`. Name the test after the behavior, not the implementation.
+
+## Subsystems at a glance
+
+| Directory | What lives here |
+|-|-|
+| `src/triggers/api.ts` | Every HTTP endpoint under `/agentmemory/*`. Adding an MCP tool? Add the REST twin here too. |
+| `src/mcp/` | Standalone MCP server (`@agentmemory/mcp`), tools registry, transport, in-memory KV. |
+| `src/functions/` | Core memory operations — observe, compress, consolidate, retention, forget, graph, smart-search, export-import, governance. |
+| `src/hooks/` | The 12 auto-hooks that capture sessions in agents. |
+| `src/cli/` | The `agentmemory` CLI, including `connect/` adapters for 18 agents and the guideline writer for hook-less agents. |
+| `src/health/` | Liveness + readiness + alert thresholds. |
+| `src/state/` | KV schema, keyed mutex, access log. |
+| `integrations/` | First-party plugins: `hermes/`, `openclaw/`, `pi/`, `filesystem-watcher/`. |
+| `plugin/` | Agent plugin bundle: Claude Code plugin, hook manifests for Codex/Copilot/Droid, the OpenCode capture plugin, and the skills. Hook manifests and skill REFERENCE files are partly generated; run `npm run skills:gen` after touching registered endpoints or env vars. |
+| `website/` | Marketing site (Next.js 16). |
+| `test/` | Vitest test suite. |
+
+## Adding an MCP tool
+
+1. Register the function in `src/functions/<area>.ts`.
+2. Register the HTTP trigger in `src/triggers/api.ts` with a matching `api_path`.
+3. Add the tool entry in `src/mcp/tools-registry.ts`.
+4. Implement in `src/mcp/standalone.ts` if the standalone MCP package should also expose it.
+5. Write a test under `test/`.
+6. No CHANGELOG touch in the PR itself — release PRs are the only place CHANGELOG changes.
+
+## Adding an auto-hook
+
+1. Add the new `HookType` string to the union in `src/types.ts`.
+2. Wire the handler in `src/hooks/<hook-name>.ts`.
+3. Add a Vitest case that fires the hook and asserts the observation gets written.
+
+## Release process
+
+Maintainers cut releases. To bump the version, change only `package.json`, then run `npm run docs:sync`. It carries the new version into `src/version.ts`, the `ExportData.version` union in `src/types.ts`, the `supportedVersions` set in `src/functions/export-import.ts`, every plugin and package manifest that shared the old version, the deploy templates, the AGENTS.md stats heading, and CHANGELOG.md (the Unreleased section becomes the new version with today's date and its compare link). Commit everything it changes, and check with `npm run docs:check`.
+
+No lockfiles are committed. `test/export-import.test.ts` asserts against the `VERSION` constant, so it needs no per-release edit. Run `npm run skills:gen` if the endpoint or env surface changed.
+
+Before publishing, run the release gate on the release commit:
+
+```bash
+npm run release:gate
+```
+
+It builds, packs `@agentmemory/agentmemory` and `@agentmemory/mcp`, installs both tarballs into a fresh prefix with a clean `HOME`, starts the installed CLI on random free ports with a deterministic local embedding server (no API keys), and checks capture through the bundled hooks, offline capture and spool recovery, replay dedup after a force kill, dead letters across a restart, vector survival before the first checkpoint, `agentmemory stop` then start, export and import into a fresh home, the MCP entrypoints, and the viewer plus `/agentmemory/status`. It prints a pass or fail line per scenario and a JSON summary, writes logs and `summary.json` to the output directory it prints, and stops only the processes it started. To gate the exact file you will publish, pass it in: `npm pack` then `npm run release:gate -- --tarball agentmemory-agentmemory-<version>.tgz`, and publish that tarball. Do not publish when a scenario fails. The `Release gate` workflow runs the same script on Ubuntu and macOS for pull requests and pushes to main.
+
+For startup changes, also run `npm run test:startup:packaged`. It installs the packed CLI in isolated homes and tests delayed and externally managed Worker Compose runtimes, `--no-engine` joining, worker and readiness failures, timeout cleanup, environment-file precedence, doctor, observability storage, and demo. It does not test adoption of an arbitrary already-running engine or Docker-specific CLI startup scenarios. The default slow-worker case waits 48 seconds before importing the installed worker. Pass `--tarball <file.tgz>` to test an existing artifact. Run the standard release gate first to cache the pinned engine, or set `AGENTMEMORY_GATE_ENGINE` to that engine binary.
+
+For Hermes, OpenClaw or shared skill changes, follow [Native integration tests](docs/native-integration-tests.md). Those gates load plugins and skills from an installed tarball and inspect the native model requests and backend records. Source tests alone do not establish native lifecycle capture or skill discovery.
+
+Then: CHANGELOG section, PR, merge, tag, GitHub release. The `Publish to npm` workflow picks up the release trigger and publishes `@agentmemory/agentmemory` and `@agentmemory/mcp` to npm with provenance. It packs once, runs the release gate with both exact tarballs, checks their hashes again, and publishes those files with lifecycle scripts disabled. It retains the manifest, tarballs and gate logs as workflow artifacts. A failed gate prevents publication.
+
+Manual runs accept a comma-separated selection of `agentmemory`, `mcp`, and `fs-watcher`. The default is `agentmemory,mcp`; `@agentmemory/fs-watcher` versions independently and must be explicitly selected when releasing a new connector version. Its exact packed CLI must pass capture, credential, scope and shutdown checks. An MCP-only run also verifies that the registry's main package is the artifact used in its gate.
+
+Before publishing any selected package, the workflow checks existing versions. An existing version is accepted only when its SHA512 matches the gated tarball and its cryptographically verified SLSA provenance identifies this repository, workflow, ref and source commit. Conflicting or unprovenanced versions fail the run and cannot be overwritten. Only a registry version lookup returning HTTP 404 permits publication; authorization, network and other registry failures never count as absence. After publication, bounded retries allow registry metadata and provenance to propagate, then require the same verification. Reruns can skip only identical, verified artifacts from the same source identity.
+
+These checks do not configure or prove npm publish authorization. Maintainers must separately ensure that each selected package permits this workflow to publish, using its configured trusted publisher or publish token. The workflow retains the existing credential configuration. A successful dry run does not establish that npm will accept a future publication or persist its provenance.
+
+## Security issues
+
+Do not open a public issue for a security report. See [SECURITY.md](./SECURITY.md).
+
+## Questions
+
+- Implementation questions: open a GitHub Discussion.
+- Governance questions: open an issue labeled `governance`. See [GOVERNANCE.md](./GOVERNANCE.md).

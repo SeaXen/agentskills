@@ -1,7 +1,7 @@
 # 🎙️ Audio, Voice Cloning & Sound Design
 
 > **Category**: `audio-voice-sound`  
-> **Total Curated Skills**: 161 skills  
+> **Total Curated Skills**: 163 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -29,7 +29,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ads-dna`](../../library/agricidaniel-claude-ads/skills/ads-dna) | ⚪ Reserve | `agricidaniel-claude-ads` | Extract a public-safe brand and offer profile for paid advertising from an authorized website a... |
 | [`agentforce-persona-generate`](../../library/forcedotcom-sf-skills/skills/agentforce-persona-generate) | ⚪ Reserve | `forcedotcom-sf-skills` | Use to design an AI agent persona — identity, voice, tone, behavioral style, guardrails — and e... |
 | [`ai-music`](../../library/gencraft-labs-skills/skills/ai-music) | ⚪ Reserve | `gencraft-labs-skills` | Generate AI music on RunComfy via the `runcomfy` CLI — a smart router across the music-model ca... |
-| [`ai-music-album`](../../library/nexu-io-open-design/skills/ai-music-album) | ⚪ Reserve | `nexu-io-open-design` | Full-lifecycle AI music album production — concept, lyric drafting, track sequencing, and expor... |
+| [`ai-music-album`](../../library/feimacode-open-design-agent-kit/skills/ai-music-album) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Full-lifecycle AI music album production — concept, lyric drafting, track sequencing, and expor... |
 | [`ai-music-generation`](../../library/101-skills-superpowers/skills/ai-music-generation) | ⚪ Reserve | `101-skills-superpowers` | Generate AI music and songs with ElevenLabs, Diffrythm, Tencent Song Generation via inference.s... |
 | [`ai-podcast-creation`](../../library/101-skills-superpowers/skills/ai-podcast-creation) | ⚪ Reserve | `101-skills-superpowers` | Create AI-powered podcasts with text-to-speech, music, and audio editing. Tools: Kokoro TTS, DI... |
 | [`ai-podcast-voiceover`](../../library/sickn33-agentic-awesome-skills/skills/ai-podcast-voiceover) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Install and use the official AI Podcast Voiceover package, pinned by digest, for paid hosted wo... |
@@ -39,6 +39,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`arcmira-find-quotes`](../../library/sickn33-agentic-awesome-skills/skills/arcmira-find-quotes) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Search indexed YouTube and podcast transcripts for quotes, speakers and clip boundaries with ti... |
 | [`article-writing`](../../library/affaan-m-ecc/skills/article-writing) | ⚪ Reserve | `affaan-m-ecc` | Write articles, guides, blog posts, tutorials, newsletter issues, and other long-form content i... |
 | [`audience-mapper`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/audience-mapper) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "analyze my target audience", "build an audience profile for influenc... |
+| [`audio-jingle`](../../library/feimacode-open-design-agent-kit/skills/audio-jingle) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Audio generation skill — jingles, beds, voiceover, and sound effects. Routes music requests to ... |
 | [`audio-setup-mixers`](../../library/unity-technologies-skills/skills/audio-setup-mixers) | ⚪ Reserve | `unity-technologies-skills` | Routes Audio Sources into existing Audio Mixer Groups, classifying each source by what it plays... |
 | [`audioaccessorykit`](../../library/dpearson2699-swift-ios-skills/skills/audioaccessorykit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Support automatic audio switching for paired third-party Bluetooth headphones or earbuds with A... |
 | [`avoid-ai-writing`](../../library/conorbronsdon-avoid-ai-writing/skills/avoid-ai-writing) | ⚪ Reserve | `conorbronsdon-avoid-ai-writing` | Audit and rewrite content to remove AI writing patterns ("AI-isms"). Use this skill when asked ... |
@@ -48,6 +49,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`azure-speech-service`](../../library/membranedev-application-skills/skills/azure-speech-service) | ⚪ Reserve | `membranedev-application-skills` | Azure Speech Service integration. Manage data, records, and automate workflows. Use when the us... |
 | [`better-writing`](../../library/jakubkrehel-skills/skills/better-writing) | ⚪ Reserve | `jakubkrehel-skills` | Writes and reviews interface copy, from labels and errors to empty states and confirmations, so... |
 | [`blog-writing-guide`](../../library/getsentry-skills/skills/blog-writing-guide) | ⚪ Reserve | `getsentry-skills` | Write, review, and improve blog posts for the Sentry engineering blog following Sentry's specif... |
+| [`bmad-ingest`](../../library/bmad-code-org-bmad-method/skills/bmad-ingest) | ⚪ Reserve | `bmad-code-org-bmad-method` | Turns a transcript, thread, voice memo or long document into a cited note agents can act on. Us... |
 | [`book-sft-pipeline`](../../library/muratcankoylan-agent-skills-for-context-engineering/skills/book-sft-pipeline) | ⚪ Reserve | `muratcankoylan-agent-skills-for-context-engineering` | This skill should be used for book-to-SFT pipelines: ePub extraction, literary segmentation, au... |
 | [`brand-discovery`](../../library/affaan-m-ecc/skills/brand-discovery) | ⚪ Reserve | `affaan-m-ecc` | Run a structured, resumable multi-session brand identity interview across 8 modules (purpose, p... |
 | [`brand-review`](../../library/anthropics-knowledge-work/skills/brand-review) | ⚪ Reserve | `anthropics-knowledge-work` | Review content against your brand voice, style guide, and messaging pillars, flagging deviation... |
@@ -164,8 +166,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`twilio-sms`](../../library/claude-office-skills-skills/skills/twilio-sms) | ⚪ Reserve | `claude-office-skills-skills` | Automate SMS communications, two-way messaging, notifications, and voice workflows with Twilio |
 | [`typeno-voice-input`](../../library/reason-machines-trending-skills/skills/typeno-voice-input) | ⚪ Reserve | `reason-machines-trending-skills` | name: typeno-voice-input |
 | [`unity-ai-game-creator`](../../library/sickn33-agentic-awesome-skills/skills/unity-ai-game-creator) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Transform raw game ideas into complete Unity projects with AI-powered asset generation, scene b... |
-| [`venice-audio-music`](../../library/nexu-io-open-design/skills/venice-audio-music) | ⚪ Reserve | `nexu-io-open-design` | Music generation queueing, retrieval, and completion endpoints via Venice.ai. Suited for jingle... |
-| [`venice-audio-speech`](../../library/nexu-io-open-design/skills/venice-audio-speech) | ⚪ Reserve | `nexu-io-open-design` | Text-to-speech models, voices, formats, and streaming via Venice.ai. Useful for narration, voic... |
+| [`venice-audio-music`](../../library/feimacode-open-design-agent-kit/skills/venice-audio-music) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Music generation queueing, retrieval, and completion endpoints via Venice.ai. Suited for jingle... |
+| [`venice-audio-speech`](../../library/feimacode-open-design-agent-kit/skills/venice-audio-speech) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Text-to-speech models, voices, formats, and streaming via Venice.ai. Useful for narration, voic... |
 | [`voice-agents`](../../library/antigravity-awesome-skills/skills/voice-agents) | ⚪ Reserve | `antigravity-awesome-skills` | Voice agents represent the frontier of AI interaction - humans speaking naturally with AI syste... |
 | [`voice-builder`](../../library/charlie947-social-media-skills/skills/voice-builder) | ⚪ Reserve | `charlie947-social-media-skills` | Build a personalised voice profile inside a Codex or Claude project from a short interview plus... |
 | [`voice-cloning-studio`](../../library/sickn33-agentic-awesome-skills/skills/voice-cloning-studio) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Install and use the official AI Voice Cloning package, pinned by digest, for paid hosted work o... |

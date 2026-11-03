@@ -1,7 +1,7 @@
 # 🚀 Productivity, Slack, Notion & Linear
 
 > **Category**: `productivity-workspace-tools`  
-> **Total Curated Skills**: 227 skills  
+> **Total Curated Skills**: 231 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -80,6 +80,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`event-volunteer-experience`](../../library/samber-dev-event-organizer-skills/skills/event-volunteer-experience) | ⚪ Reserve | `samber-dev-event-organizer-skills` | Design what a volunteer gets when they are not standing at a post, and how one edition closes w... |
 | [`event-volunteers`](../../library/samber-dev-event-organizer-skills/skills/event-volunteers) | ⚪ Reserve | `samber-dev-event-organizer-skills` | Recruit and organize the volunteer workforce that staffs one edition of a technical event - ros... |
 | [`eventkit`](../../library/dpearson2699-swift-ios-skills/skills/eventkit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Create, read, and manage calendar events and reminders using EventKit and EventKitUI. Use when ... |
+| [`exec-briefing-memo`](../../library/feimacode-open-design-agent-kit/skills/exec-briefing-memo) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A one-page decision memo: the decision needed, a clear recommendation with confidence, key fact... |
+| [`exec-briefing-memo-board-memo`](../../library/feimacode-open-design-agent-kit/skills/exec-briefing-memo-board-memo) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A one-page decision memo: the decision needed, a clear recommendation with confidence, key fact... |
+| [`exec-briefing-memo-board-paper`](../../library/feimacode-open-design-agent-kit/skills/exec-briefing-memo-board-paper) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A one-page decision memo: the decision needed, a clear recommendation with confidence, key fact... |
 | [`experience-content-media-stock-image-search`](../../library/forcedotcom-sf-skills/skills/experience-content-media-stock-image-search) | ⚪ Reserve | `forcedotcom-sf-skills` | Searches for and downloads ethically-licensed stock images via the media-management MCP server.... |
 | [`experience-map`](../../library/owl-listener-designer-skills/skills/experience-map) | ⚪ Reserve | `owl-listener-designer-skills` | Map the full ecosystem of touchpoints, channels, and relationships across a service. Use when t... |
 | [`extension-email-calendar-events`](../../library/caffeinelabs-skills/skills/extension-email-calendar-events) | ⚪ Reserve | `caffeinelabs-skills` | Support for organising events/meetings and sending invitations by email. |
@@ -113,6 +116,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`jira-expert`](../../library/alirezarezvani-claude-skills/skills/jira-expert) | ⚪ Reserve | `alirezarezvani-claude-skills` | Atlassian Jira expert for creating and managing projects, planning, product discovery, JQL quer... |
 | [`jira-service-desk`](../../library/membranedev-application-skills/skills/jira-service-desk) | ⚪ Reserve | `membranedev-application-skills` | Jira Service Desk integration. Manage Tickets, Customers, Agents. Use when the user wants to in... |
 | [`jira-tickets`](../../library/stablyai-orca/skills/jira-tickets) | ⚪ Reserve | `stablyai-orca` | Read and update Jira tickets through Orca's saved Jira connections. Use when a task comes from ... |
+| [`kami-deck`](../../library/feimacode-open-design-agent-kit/skills/kami-deck) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A lab-meeting deck on gut-microbiome links to sleep quality — the design, the results, the cave... |
 | [`knowledge-capture`](../../library/makenotion-notion-cookbook/skills/knowledge-capture) | ⚪ Reserve | `makenotion-notion-cookbook` | Captures conversations and supplied notes as Notion wiki pages, how-to guides, FAQs, decision r... |
 | [`korean-holiday-calendar`](../../library/nomadamas-k-skill/skills/korean-holiday-calendar) | ⚪ Reserve | `nomadamas-k-skill` | 한국천문연구원 특일 정보 API를 k-skill-proxy 경유로 호출해 공휴일·국경일·기념일·24절기·잡절을 조회한다. 조회 전용. |
 | [`korean-marathon-schedule`](../../library/nomadamas-k-skill/skills/korean-marathon-schedule) | ⚪ Reserve | `nomadamas-k-skill` | 고러닝과 대한철인3종협회 공개 표면으로 한국 마라톤·철인3종 경기 일정, 장소, 신청 마감일, 종목을 조회한다. 돌쇠에서는 공식 표면을 통한 후속 액션까지 진행한다. |

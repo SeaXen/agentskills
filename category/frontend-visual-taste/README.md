@@ -1,7 +1,7 @@
 # 👁️ Visual Taste, Critique & Typography
 
 > **Category**: `frontend-visual-taste`  
-> **Total Curated Skills**: 145 skills  
+> **Total Curated Skills**: 150 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -45,7 +45,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`brand-guidelines-anthropic`](../../library/antigravity-awesome-skills/skills/brand-guidelines-anthropic) | ⚪ Reserve | `antigravity-awesome-skills` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benef... |
 | [`brand-guidelines-community`](../../library/antigravity-awesome-skills/skills/brand-guidelines-community) | ⚪ Reserve | `antigravity-awesome-skills` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benef... |
 | [`brand-style`](../../library/anthropics-knowledge-work/skills/brand-style) | ⚪ Reserve | `anthropics-knowledge-work` | Sets and updates the owner's brand look and output preferences, which every page and document t... |
-| [`brandkit`](../../library/nexu-io-open-design/skills/brandkit) | ⚪ Reserve | `nexu-io-open-design` | Premium brand-kit image generation skill for creating high-end brand-guidelines boards, logo sy... |
+| [`brandkit`](../../library/feimacode-open-design-agent-kit/skills/brandkit) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Premium brand-kit image generation skill for creating high-end brand-guidelines boards, logo sy... |
 | [`cafe`](../../library/bergside-awesome-design-skills/skills/cafe) | ⚪ Reserve | `bergside-awesome-design-skills` | Cozy cafe-inspired interface with warm tones, soft typography, and clean layouts for a relaxed ... |
 | [`chinese-quote-converter`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/chinese-quote-converter) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Convert English straight quotation marks ("...") to Chinese curved quotation marks ("..." U+201... |
 | [`claude`](../../library/bergside-awesome-design-skills/skills/claude) | ⚪ Reserve | `bergside-awesome-design-skills` | A research-journal aesthetic printed on warm stone — authoritative, editorial, almost achromati... |
@@ -63,7 +63,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`critique-typography`](../../library/owl-listener-designer-skills/skills/critique-typography) | ⚪ Reserve | `owl-listener-designer-skills` | Critique a rendered screen's typography — scale usage, readability, consistency, and token comp... |
 | [`dark-mode-design`](../../library/owl-listener-designer-skills/skills/dark-mode-design) | ⚪ Reserve | `owl-listener-designer-skills` | Adapt an existing palette to dark mode — surface elevation, contrast rebalancing, and desaturat... |
 | [`data-visualization`](../../library/101-skills-superpowers/skills/data-visualization) | ⚪ Reserve | `101-skills-superpowers` | Data visualization with chart selection, color theory, and annotation best practices. Covers ch... |
-| [`design-brief`](../../library/nexu-io-open-design/skills/design-brief) | ⚪ Reserve | `nexu-io-open-design` | Parse a structured design brief written in I-Lang protocol format into a concrete design spec. ... |
+| [`dating-web`](../../library/feimacode-open-design-agent-kit/skills/dating-web) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A consumer-feeling dating / matchmaking dashboard — left rail navigation, ticker bar of communi... |
+| [`design-brief`](../../library/feimacode-open-design-agent-kit/skills/design-brief) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Parse a structured design brief written in I-Lang protocol format into a concrete design spec. ... |
 | [`design-first-ui-prompting`](../../library/mengto-skills/skills/design-first-ui-prompting) | ⚪ Reserve | `mengto-skills` | Use when you need design-first, spec-driven, skimmable prompts for UI generation. Covers prompt... |
 | [`design-it`](../../library/sickn33-agentic-awesome-skills/skills/design-it) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Routes frontend design tasks to 48 specific UI styles. Triggers for websites, app screens, or U... |
 | [`design-mirror`](../../library/davila7-claude-code-templates/skills/design-mirror) | ⚪ Reserve | `davila7-claude-code-templates` | Replicate the visual style of any website and apply it to your existing codebase. Use this skil... |
@@ -72,7 +73,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`design-theme-guide`](../../library/sickn33-agentic-awesome-skills/skills/design-theme-guide) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Design-token register: colour, typography, spacing and radius tokens with light and dark values... |
 | [`design-token-contrast`](../../library/sickn33-agentic-awesome-skills/skills/design-token-contrast) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Checks WCAG 2.2 contrast between the color tokens of a project (light and dark theme) and sugge... |
 | [`designlang-design-extract`](../../library/reason-machines-trending-skills/skills/designlang-design-extract) | ⚪ Reserve | `reason-machines-trending-skills` | Extract complete design systems from any website — colors, typography, spacing, shadows, and mo... |
-| [`doc-kami-parchment`](../../library/nexu-io-open-design/skills/doc-kami-parchment) | ⚪ Reserve | `nexu-io-open-design` | Warm parchment canvas (#f5f4ed), monochrome ink-blue accent (#1B365D), one serif family, and ed... |
 | [`editorial`](../../library/bergside-awesome-design-skills/skills/editorial) | ⚪ Reserve | `bergside-awesome-design-skills` | Magazine-inspired editorial layout with refined serif typography, structured grids, and elegant... |
 | [`editorial-portfolio-chapters`](../../library/mengto-skills/skills/editorial-portfolio-chapters) | ⚪ Reserve | `mengto-skills` | Create or redesign creative-studio, agency, photographer, artist, and portfolio websites where ... |
 | [`editorial-tech`](../../library/mengto-skills/skills/editorial-tech) | ⚪ Reserve | `mengto-skills` | Blend editorial magazine composition with precision product-tech detailing using asymmetrical g... |
@@ -80,7 +80,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`experience-cms-brand-create`](../../library/forcedotcom-sf-skills/skills/experience-cms-brand-create) | ⚪ Reserve | `forcedotcom-sf-skills` | Author a Salesforce Digital Experience brand (a \"brand.json\") so the VS Code Brand Toolkit ca... |
 | [`fantasy`](../../library/bergside-awesome-design-skills/skills/fantasy) | ⚪ Reserve | `bergside-awesome-design-skills` | Game-inspired fantasy aesthetic with bold, premium visuals, rich color palettes, and immersive ... |
 | [`fiction`](../../library/bergside-awesome-design-skills/skills/fiction) | ⚪ Reserve | `bergside-awesome-design-skills` | A playful, energetic, cartoonesque interface inspired by friendly children's-book illustrations... |
-| [`field-notes-editorial-template`](../../library/nexu-io-open-design/skills/field-notes-editorial-template) | ⚪ Reserve | `nexu-io-open-design` | Editorial "Field Notes" report template with soft paper background, serif hero typography, roun... |
+| [`field-notes-editorial-template`](../../library/feimacode-open-design-agent-kit/skills/field-notes-editorial-template) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Editorial "Field Notes" report template with soft paper background, serif hero typography, roun... |
 | [`field-service-mobile-branding-configure`](../../library/forcedotcom-sf-skills/skills/field-service-mobile-branding-configure) | ⚪ Reserve | `forcedotcom-sf-skills` | Derive a Field Service mobile app color scheme from a brand source (URL, hex codes, brand-guide... |
 | [`figures`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/figures) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Design and format publication-quality figures: chart choice, color, scales, legends, captions, ... |
 | [`flat`](../../library/bergside-awesome-design-skills/skills/flat) | ⚪ Reserve | `bergside-awesome-design-skills` | Two-dimensional minimalist style with vibrant colors, clean typography, and no 3D effects for f... |
@@ -97,7 +97,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`higgsfield-brandkit`](../../library/higgsfield-ai-skills/skills/higgsfield-brandkit) | ⚪ Reserve | `higgsfield-ai-skills` | Create and extend complete visual brand systems through the Higgsfield CLI and bundled determin... |
 | [`higgsfield-product-photoshoot`](../../library/higgsfield-ai-skills/skills/higgsfield-product-photoshoot) | ⚪ Reserve | `higgsfield-ai-skills` | Generate brand-quality product images through Higgsfield product-photoshoot prompt enhancement ... |
 | [`high-perf-browser`](../../library/wondelai-skills/skills/high-perf-browser) | ⚪ Reserve | `wondelai-skills` | Optimize web performance through network protocols, resource loading, and browser rendering int... |
-| [`imagegen-frontend-mobile`](../../library/nexu-io-open-design/skills/imagegen-frontend-mobile) | ⚪ Reserve | `nexu-io-open-design` | Elite mobile app image-generation skill for creating premium, app-native screen concepts and fl... |
+| [`hps-bauhaus`](../../library/feimacode-open-design-agent-kit/skills/hps-bauhaus) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A visual-design fundamentals course for new brand designers — grid, type, color, and the exerci... |
+| [`imagegen-frontend-mobile`](../../library/feimacode-open-design-agent-kit/skills/imagegen-frontend-mobile) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Elite mobile app image-generation skill for creating premium, app-native screen concepts and fl... |
 | [`improve-website`](../../library/wondelai-skills/skills/improve-website) | ⚪ Reserve | `wondelai-skills` | Guided journey from a live website that underperforms to a prioritized, evidence-backed backlog... |
 | [`indie-horror-aesthetics`](../../library/arjun988-blender-skills/skills/indie-horror-aesthetics) | ⚪ Reserve | `arjun988-blender-skills` | Indie horror aesthetic pack for Blender covering Silent Hill, Fear to Fathom, Puppet Combo, cor... |
 | [`industrial-brutalist-ui`](../../library/sickn33-agentic-awesome-skills/skills/industrial-brutalist-ui) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use when creating raw industrial or tactical telemetry UIs with rigid grids, stark typography, ... |
@@ -109,7 +110,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`maui-theming`](../../library/dotnet-skills/skills/maui-theming) | ⚪ Reserve | `dotnet-skills` | Guide for theming .NET MAUI apps — light/dark mode via AppThemeBinding, ResourceDictionary them... |
 | [`minimal`](../../library/bergside-awesome-design-skills/skills/minimal) | ⚪ Reserve | `bergside-awesome-design-skills` | Stripped-back design emphasizing whitespace, clean typography, and restrained color for maximum... |
 | [`minimax-music-playlist`](../../library/minimax-ai-skills/skills/minimax-music-playlist) | ⚪ Reserve | `minimax-ai-skills` | Generate personalized music playlists by analyzing the user's music taste and generation feedba... |
-| [`minimax-pdf`](../../library/minimax-ai-skills/skills/minimax-pdf) | ⚪ Reserve | `minimax-ai-skills` | Use this skill when visual quality and design identity matter for a PDF. CREATE (generate from ... |
 | [`modern`](../../library/bergside-awesome-design-skills/skills/modern) | ⚪ Reserve | `bergside-awesome-design-skills` | Contemporary editorial style with serif typography, minimal palettes, and clean layouts for pol... |
 | [`mono`](../../library/bergside-awesome-design-skills/skills/mono) | ⚪ Reserve | `bergside-awesome-design-skills` | Monospace-driven, matrix-inspired design with high-contrast elements, compact density, and a ha... |
 | [`no-ai-design-slop`](../../library/mengto-skills/skills/no-ai-design-slop) | ⚪ Reserve | `mengto-skills` | Prevent and remove generic AI-generated design defaults, incoherent visual choices, and establi... |
@@ -138,6 +138,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`roku`](../../library/bergside-awesome-design-skills/skills/roku) | ⚪ Reserve | `bergside-awesome-design-skills` | App dashboard with purple-themed aesthetic, top-bar navigation, card-based layouts, and develop... |
 | [`s1dashu-ip-as-logo`](../../library/s1dashu-ip-as-logo-skill/skills/s1dashu-ip-as-logo) | ⚪ Reserve | `s1dashu-ip-as-logo-skill` | Generate extremely simple, cute, personified square character images with rounded heavy forms, ... |
 | [`s1dashu-ip-as-logo-skill`](../../library/s1dashu-ip-as-logo-skill/skills/s1dashu-ip-as-logo-skill) | ⚪ Reserve | `s1dashu-ip-as-logo-skill` | Generate extremely simple, cute, personified square character images with rounded heavy forms, ... |
+| [`saas-landing`](../../library/feimacode-open-design-agent-kit/skills/saas-landing) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Single-page SaaS landing with hero, features, social proof, pricing, and CTA. Respects the acti... |
 | [`site-specification`](../../library/cline-skills/skills/site-specification) | ⚪ Reserve | `cline-skills` | Extract comprehensive site specifications from simple descriptions. Use when analyzing a user's... |
 | [`sleek`](../../library/bergside-awesome-design-skills/skills/sleek) | ⚪ Reserve | `bergside-awesome-design-skills` | Modern minimalist aesthetic with clean lines, intentional color palette, subtle interactions, a... |
 | [`split-layout-technical`](../../library/mengto-skills/skills/split-layout-technical) | ⚪ Reserve | `mengto-skills` | Create a technical split-screen design system with dual panels, fine frame lines, mono metadata... |
@@ -146,9 +147,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`taste`](../../library/affaan-m-ecc/skills/taste) | ⚪ Reserve | `affaan-m-ecc` | Creative-direction layer for music videos and short-form edits in the angelcore / cloud-trance ... |
 | [`taste-application`](../../library/affaan-m-ecc/skills/taste-application) | ⚪ Reserve | `affaan-m-ecc` | Generate new video against a distilled style pack and cut it into a finished piece - plan takes... |
 | [`taste-distillation`](../../library/affaan-m-ecc/skills/taste-distillation) | ⚪ Reserve | `affaan-m-ecc` | Measure a set of reference videos into a reusable style pack - colour grade as a 3D LUT, cut rh... |
-| [`taste-skill`](../../library/nexu-io-open-design/skills/taste-skill) | ⚪ Reserve | `nexu-io-open-design` | Anti-slop frontend skill for landing pages, portfolios, and redesigns. The agent reads the brie... |
+| [`taste-skill`](../../library/feimacode-open-design-agent-kit/skills/taste-skill) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Anti-slop frontend skill for landing pages, portfolios, and redesigns. The agent reads the brie... |
 | [`taste-skill-frontend-design`](../../library/reason-machines-trending-skills/skills/taste-skill-frontend-design) | ⚪ Reserve | `reason-machines-trending-skills` | name: taste-skill-frontend-design |
-| [`taste-skill-v1`](../../library/nexu-io-open-design/skills/taste-skill-v1) | ⚪ Reserve | `nexu-io-open-design` | The original v1 taste-skill, preserved for projects depending on its exact behavior. The curren... |
+| [`taste-skill-v1`](../../library/feimacode-open-design-agent-kit/skills/taste-skill-v1) | ⚪ Reserve | `feimacode-open-design-agent-kit` | The original v1 taste-skill, preserved for projects depending on its exact behavior. The curren... |
 | [`tasteforge-video`](../../library/affaan-m-ecc/skills/tasteforge-video) | ⚪ Reserve | `affaan-m-ecc` | Use for file-driven multimodal image, video, and 3D-asset discovery; taste interviews; distill ... |
 | [`tech-doc-style-chinese`](../../library/reason-machines-trending-skills/skills/tech-doc-style-chinese) | ⚪ Reserve | `reason-machines-trending-skills` | Writing skill for Chinese technical documentation and product copy — enforces clarity, correct ... |
 | [`threejs-postprocessing`](../../library/cloudai-x-threejs-skills/skills/threejs-postprocessing) | ⚪ Reserve | `cloudai-x-threejs-skills` | Three.js post-processing: composer pass chains, built-in renderer effects, and the WebGPU/TSL n... |
@@ -162,5 +163,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`visual-audit`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/visual-audit) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Perform adversarial visual audit of Quarto or Beamer slides checking for overflow, font consist... |
 | [`visual-design-foundations`](../../library/wshobson-agents/skills/visual-design-foundations) | ⚪ Reserve | `wshobson-agents` | Apply typography, color theory, spacing systems, and iconography principles to create cohesive ... |
 | [`visual-emotion-engineer`](../../library/sickn33-agentic-awesome-skills/skills/visual-emotion-engineer) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Create a visual direction brief for color, typography, imagery, and hierarchy when design must ... |
+| [`waitlist-page`](../../library/feimacode-open-design-agent-kit/skills/waitlist-page) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Minimal pre-launch landing with email capture, brand logo, and optional decorative layer. Reads... |
 | [`walmart-product-detail`](../../library/browser-act-skills/skills/walmart-product-detail) | ⚪ Reserve | `browser-act-skills` | Walmart product detail page extractor: given a walmart.com product URL (walmart.com/ip/...), ex... |
 | [`walmart-product-reviews`](../../library/browser-act-skills/skills/walmart-product-reviews) | ⚪ Reserve | `browser-act-skills` | Walmart product reviews scraper: given a walmart.com product item ID, navigate to the reviews p... |
+| [`web-prototype-taste-brutalist`](../../library/feimacode-open-design-agent-kit/skills/web-prototype-taste-brutalist) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Swiss industrial-print web prototype. Newsprint canvas, monolithic black grotesque, viewport-bl... |
+| [`webgl-halftone-drift`](../../library/feimacode-open-design-agent-kit/skills/webgl-halftone-drift) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A self-contained WebGL2 hero: a flowing field screened through a rotated halftone dot grid into... |
+| [`wireframe-annotated`](../../library/feimacode-open-design-agent-kit/skills/wireframe-annotated) | ⚪ Reserve | `feimacode-open-design-agent-kit` | An annotated / redline lo-fi wireframe — a desktop landing/marketing page drawn as flat greybox... |

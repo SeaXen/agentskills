@@ -1,0 +1,117 @@
+#!/usr/bin/env node
+import { resolveClientSecret } from "../secret-store.js";
+import { resolveProject, hookCwd } from "./_project.js";
+
+// Inlined from ./sdk-guard so each hook bundles to a single self-contained
+// .mjs (matches the pattern used by every other hook entry in tsdown.config).
+function isSdkChildContext(payload: unknown): boolean {
+  if (process.env["AGENTMEMORY_SDK_CHILD"] === "1") return true;
+  if (!payload || typeof payload !== "object") return false;
+  return (payload as { entrypoint?: unknown }).entrypoint === "sdk-ts";
+}
+
+const INJECT_CONTEXT = process.env["AGENTMEMORY_INJECT_CONTEXT"] === "true";
+
+const REST_URL = process.env["AGENTMEMORY_URL"] || "http://localhost:3111";
+const SECRET = resolveClientSecret(REST_URL);
+
+const INJECT_TIMEOUT_MS = 1500;
+const REGISTER_TIMEOUT_MS = 800;
+
+function authHeaders(): Record<string, string> {
+  const h: Record<string, string> = { "Content-Type": "application/json" };
+  if (SECRET) h["Authorization"] = `Bearer ${SECRET}`;
+  return h;
+}
+
+function isPlainTextHost(): boolean {
+  return Boolean(
+    process.env["FACTORY_PROJECT_DIR"] || process.env["DROID_PLUGIN_ROOT"],
+  );
+}
+
+function wantsStructuredOutput(data: Record<string, unknown>): boolean {
+  if (process.env["DEVIN_PROJECT_DIR"] || data.prompt_id !== undefined) {
+    return true;
+  }
+  return data.hook_event_name === "SessionStart" && !isPlainTextHost();
+}
+
+function contextPayload(data: Record<string, unknown>, context: string): string {
+  if (process.env["COPILOT_PLUGIN_ROOT"] && !data.hook_event_name) {
+    return JSON.stringify({ additionalContext: context });
+  }
+  if (
+    typeof data.cursor_version === "string" ||
+    data.hook_event_name === "sessionStart"
+  ) {
+    return JSON.stringify({ additional_context: context });
+  }
+  if (wantsStructuredOutput(data)) {
+    return JSON.stringify({
+      hookSpecificOutput: {
+        hookEventName: "SessionStart",
+        additionalContext: context,
+      },
+    });
+  }
+  return context;
+}
+
+async function main() {
+  let input = "";
+  for await (const chunk of process.stdin) {
+    input += chunk;
+  }
+
+  let data: Record<string, unknown>;
+  try {
+    data = JSON.parse(input);
+  } catch {
+    return;
+  }
+
+  if (!data || typeof data !== "object") return;
+  if (isSdkChildContext(data)) return;
+
+  const sessionId =
+    ((data.session_id || data.sessionId || data.conversation_id) as string) ||
+    `ses_${Date.now().toString(36)}`;
+  const cwd = hookCwd(data) || process.cwd();
+  const project = resolveProject(cwd);
+
+  const url = `${REST_URL}/agentmemory/session/start`;
+  const init: RequestInit = {
+    method: "POST",
+    headers: authHeaders(),
+    body: JSON.stringify({ sessionId, project, cwd }),
+  };
+
+  if (!INJECT_CONTEXT) {
+    // Pure telemetry path: caller never reads the response, so don't
+    // block on it. AbortSignal.timeout caps the wait the event loop
+    // gives the pending socket before exit.
+    fetch(url, {
+      ...init,
+      signal: AbortSignal.timeout(REGISTER_TIMEOUT_MS),
+    }).catch(() => {});
+    return;
+  }
+
+  try {
+    const res = await fetch(url, {
+      ...init,
+      signal: AbortSignal.timeout(INJECT_TIMEOUT_MS),
+    });
+    if (res.ok) {
+      const result = (await res.json()) as { context?: string };
+      if (result.context) {
+        process.stdout.write(contextPayload(data, result.context));
+      }
+    }
+  } catch {
+    // silently fail -- don't block Claude Code startup
+  }
+}
+
+main().catch(() => process.exit(0));

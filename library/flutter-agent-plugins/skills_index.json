@@ -4,7 +4,7 @@
     "name": "api-review",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Reviews the specified code against the canonical API Design guidelines. Use this skill when the user asks for an API review or to check code against API design principles.",
     "path": "library/flutter-agent-plugins/skills/api-review",
     "activation_cmd": "python .agents/library/activate_skill.py activate api-review",
     "link_cmd": "python .agents/library/activate_skill.py link api-review"
@@ -14,7 +14,7 @@
     "name": "code-documentation",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Guide for writing effective code documentation, including docstrings, JSDoc, dartdoc, and implementation comments. Use this skill when writing new code, adding features, or improving existing documentation in Dart, Python, or TypeScript to ensure clarity and maintainability.",
     "path": "library/flutter-agent-plugins/skills/code-documentation",
     "activation_cmd": "python .agents/library/activate_skill.py activate code-documentation",
     "link_cmd": "python .agents/library/activate_skill.py link code-documentation"
@@ -24,7 +24,7 @@
     "name": "code-review",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Performs a comprehensive, multi-step code review of pull requests or local code changes, using iterative refinement (generation, critique, synthesis) to ensure high-quality, actionable feedback. Use when you need to review code changes thoroughly.",
     "path": "library/flutter-agent-plugins/skills/code-review",
     "activation_cmd": "python .agents/library/activate_skill.py activate code-review",
     "link_cmd": "python .agents/library/activate_skill.py link code-review"
@@ -34,7 +34,7 @@
     "name": "dart-add-unit-test",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Write and organize unit tests for functions, methods, and classes using `package:test`. Use when creating new logic or fixing bugs to ensure code remains correct and regression-free.",
     "path": "library/flutter-agent-plugins/skills/dart-add-unit-test",
     "activation_cmd": "python .agents/library/activate_skill.py activate dart-add-unit-test",
     "link_cmd": "python .agents/library/activate_skill.py link dart-add-unit-test"
@@ -44,7 +44,7 @@
     "name": "dart-build-cli-app",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/flutter-agent-plugins/skills/dart-build-cli-app",
     "activation_cmd": "python .agents/library/activate_skill.py activate dart-build-cli-app",
     "link_cmd": "python .agents/library/activate_skill.py link dart-build-cli-app"
@@ -54,7 +54,7 @@
     "name": "dart-collect-coverage",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Collect coverage using the coverage packge and create an LCOV report",
     "path": "library/flutter-agent-plugins/skills/dart-collect-coverage",
     "activation_cmd": "python .agents/library/activate_skill.py activate dart-collect-coverage",
     "link_cmd": "python .agents/library/activate_skill.py link dart-collect-coverage"
@@ -64,7 +64,7 @@
     "name": "dart-fix-runtime-errors",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Uses get_runtime_errors and lsp to fetch an active stack trace, locate the failing line, apply a fix, and verify resolution via hot_reload.",
     "path": "library/flutter-agent-plugins/skills/dart-fix-runtime-errors",
     "activation_cmd": "python .agents/library/activate_skill.py activate dart-fix-runtime-errors",
     "link_cmd": "python .agents/library/activate_skill.py link dart-fix-runtime-errors"
@@ -74,7 +74,7 @@
     "name": "dart-generate-test-mocks",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Define and generate mock objects for external dependencies using `package:mockito` and `build_runner`. Use when unit testing classes that depend on complex external services like APIs or databases.",
     "path": "library/flutter-agent-plugins/skills/dart-generate-test-mocks",
     "activation_cmd": "python .agents/library/activate_skill.py activate dart-generate-test-mocks",
     "link_cmd": "python .agents/library/activate_skill.py link dart-generate-test-mocks"
@@ -84,7 +84,7 @@
     "name": "dart-migrate-to-checks-package",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "|-",
     "path": "library/flutter-agent-plugins/skills/dart-migrate-to-checks-package",
     "activation_cmd": "python .agents/library/activate_skill.py activate dart-migrate-to-checks-package",
     "link_cmd": "python .agents/library/activate_skill.py link dart-migrate-to-checks-package"
@@ -94,7 +94,7 @@
     "name": "dart-resolve-package-conflicts",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Workflow for fixing package version conflicts. Use this when `pub get` fails due to incompatible package versions.",
     "path": "library/flutter-agent-plugins/skills/dart-resolve-package-conflicts",
     "activation_cmd": "python .agents/library/activate_skill.py activate dart-resolve-package-conflicts",
     "link_cmd": "python .agents/library/activate_skill.py link dart-resolve-package-conflicts"
@@ -104,7 +104,7 @@
     "name": "dart-run-static-analysis",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Execute `dart analyze` to identify warnings and errors, and use `dart fix --apply` to automatically resolve mechanical lint issues. Use during development to ensure code quality and before committing changes.",
     "path": "library/flutter-agent-plugins/skills/dart-run-static-analysis",
     "activation_cmd": "python .agents/library/activate_skill.py activate dart-run-static-analysis",
     "link_cmd": "python .agents/library/activate_skill.py link dart-run-static-analysis"
@@ -114,7 +114,7 @@
     "name": "dart-setup-ffi-assets",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "\"Guides agents in compiling and packaging C/C++ source code into dynamic or static libraries (Code Assets) using Dart's Native Assets hook system (via hook/build.dart and hook/link.dart utilizing package:hooks and package:native_toolchain_c). Use when a user asks to: 'setup native assets', 'compile C/C++ source code', 'bundle dynamic libraries', 'build native C code', 'link native assets', 'implement build.dart or link.dart hooks', or 'integrate C/C++ interop in Dart/Flutter'. Helps agents avoid manual toolchain orchestration and configures secure hash-validated binary downloads or advanced linker tree-shaking with package:record_use mapping.\"",
     "path": "library/flutter-agent-plugins/skills/dart-setup-ffi-assets",
     "activation_cmd": "python .agents/library/activate_skill.py activate dart-setup-ffi-assets",
     "link_cmd": "python .agents/library/activate_skill.py link dart-setup-ffi-assets"
@@ -124,7 +124,7 @@
     "name": "dart-use-doc-examples",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "\"How to inject external code examples into Dartdoc using the {@example} directive, and how to filter those files using #hide, #region, and #endregion tags.\"",
     "path": "library/flutter-agent-plugins/skills/dart-use-doc-examples",
     "activation_cmd": "python .agents/library/activate_skill.py activate dart-use-doc-examples",
     "link_cmd": "python .agents/library/activate_skill.py link dart-use-doc-examples"
@@ -134,7 +134,7 @@
     "name": "dart-use-ffigen",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Guide agents to use `package:ffigen` to automatically generate FFI bindings instead of writing them manually. Use this skill when a task involves writing new FFI bindings, extending C/Objective-C/Swift integrations, or replacing hand-crafted `dart:ffi` setups.",
     "path": "library/flutter-agent-plugins/skills/dart-use-ffigen",
     "activation_cmd": "python .agents/library/activate_skill.py activate dart-use-ffigen",
     "link_cmd": "python .agents/library/activate_skill.py link dart-use-ffigen"
@@ -144,7 +144,7 @@
     "name": "dart-use-path-package",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/flutter-agent-plugins/skills/dart-use-path-package",
     "activation_cmd": "python .agents/library/activate_skill.py activate dart-use-path-package",
     "link_cmd": "python .agents/library/activate_skill.py link dart-use-path-package"
@@ -154,7 +154,7 @@
     "name": "dart-use-pattern-matching",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/flutter-agent-plugins/skills/dart-use-pattern-matching",
     "activation_cmd": "python .agents/library/activate_skill.py activate dart-use-pattern-matching",
     "link_cmd": "python .agents/library/activate_skill.py link dart-use-pattern-matching"
@@ -164,7 +164,7 @@
     "name": "dart-use-primary-constructors",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/flutter-agent-plugins/skills/dart-use-primary-constructors",
     "activation_cmd": "python .agents/library/activate_skill.py activate dart-use-primary-constructors",
     "link_cmd": "python .agents/library/activate_skill.py link dart-use-primary-constructors"
@@ -174,7 +174,7 @@
     "name": "dart-write-documentation",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "\"Rules and formatting guidelines for writing Dart /// API documentation and doc comments. Use when documenting Dart code, writing doc comments for any Dart declaration (libraries, classes, methods, variables, etc.), or when instructed to follow the Effective Dart documentation guidelines.\"",
     "path": "library/flutter-agent-plugins/skills/dart-write-documentation",
     "activation_cmd": "python .agents/library/activate_skill.py activate dart-write-documentation",
     "link_cmd": "python .agents/library/activate_skill.py link dart-write-documentation"
@@ -184,7 +184,7 @@
     "name": "flutter-add-integration-test",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Configures Flutter Driver for app interaction and converts MCP actions into permanent integration tests. Use when adding integration testing to a project, exploring UI components via MCP, or automating user flows with the integration_test package.",
     "path": "library/flutter-agent-plugins/skills/flutter-add-integration-test",
     "activation_cmd": "python .agents/library/activate_skill.py activate flutter-add-integration-test",
     "link_cmd": "python .agents/library/activate_skill.py link flutter-add-integration-test"
@@ -194,7 +194,7 @@
     "name": "flutter-add-widget-preview",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Adds interactive widget previews to the project using the previews.dart system. Use when creating new UI components or updating existing screens to ensure consistent design and interactive testing.",
     "path": "library/flutter-agent-plugins/skills/flutter-add-widget-preview",
     "activation_cmd": "python .agents/library/activate_skill.py activate flutter-add-widget-preview",
     "link_cmd": "python .agents/library/activate_skill.py link flutter-add-widget-preview"
@@ -204,7 +204,7 @@
     "name": "flutter-add-widget-test",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Implement a component-level test using `WidgetTester` to verify UI rendering and user interactions (tapping, scrolling, entering text). Use when validating that a specific widget displays correct data and responds to events as expected.",
     "path": "library/flutter-agent-plugins/skills/flutter-add-widget-test",
     "activation_cmd": "python .agents/library/activate_skill.py activate flutter-add-widget-test",
     "link_cmd": "python .agents/library/activate_skill.py link flutter-add-widget-test"
@@ -214,7 +214,7 @@
     "name": "flutter-apply-architecture-best-practices",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Architects a Flutter application using the recommended layered approach (UI, Logic, Data). Use when structuring a new project or refactoring for scalability.",
     "path": "library/flutter-agent-plugins/skills/flutter-apply-architecture-best-practices",
     "activation_cmd": "python .agents/library/activate_skill.py activate flutter-apply-architecture-best-practices",
     "link_cmd": "python .agents/library/activate_skill.py link flutter-apply-architecture-best-practices"
@@ -224,7 +224,7 @@
     "name": "flutter-build-responsive-layout",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Use `LayoutBuilder`, `MediaQuery`, or `Expanded/Flexible` to create a layout that adapts to different screen sizes. Use when you need the UI to look good on both mobile and tablet/desktop form factors.",
     "path": "library/flutter-agent-plugins/skills/flutter-build-responsive-layout",
     "activation_cmd": "python .agents/library/activate_skill.py activate flutter-build-responsive-layout",
     "link_cmd": "python .agents/library/activate_skill.py link flutter-build-responsive-layout"
@@ -234,7 +234,7 @@
     "name": "flutter-fix-layout-issues",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Fixes Flutter layout errors (overflows, unbounded constraints) using Dart and Flutter MCP tools. Use when addressing \"RenderFlex overflowed\", \"Vertical viewport was given unbounded height\", or similar layout issues.",
     "path": "library/flutter-agent-plugins/skills/flutter-fix-layout-issues",
     "activation_cmd": "python .agents/library/activate_skill.py activate flutter-fix-layout-issues",
     "link_cmd": "python .agents/library/activate_skill.py link flutter-fix-layout-issues"
@@ -244,7 +244,7 @@
     "name": "flutter-implement-json-serialization",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Create model classes with `fromJson` and `toJson` methods using `dart:convert`. Use when manually mapping JSON keys to class properties for simple data structures.",
     "path": "library/flutter-agent-plugins/skills/flutter-implement-json-serialization",
     "activation_cmd": "python .agents/library/activate_skill.py activate flutter-implement-json-serialization",
     "link_cmd": "python .agents/library/activate_skill.py link flutter-implement-json-serialization"
@@ -254,7 +254,7 @@
     "name": "flutter-setup-declarative-routing",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Configure `MaterialApp.router` using a package like `go_router` for advanced URL-based navigation. Use when developing web applications or mobile apps that require specific deep linking and browser history support.",
     "path": "library/flutter-agent-plugins/skills/flutter-setup-declarative-routing",
     "activation_cmd": "python .agents/library/activate_skill.py activate flutter-setup-declarative-routing",
     "link_cmd": "python .agents/library/activate_skill.py link flutter-setup-declarative-routing"
@@ -264,7 +264,7 @@
     "name": "flutter-setup-localization",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Add `flutter_localizations` and `intl` dependencies, enable \"generate true\" in `pubspec.yaml`, and create an `l10n.yaml` configuration file. Use when initializing localization support for a new Flutter project.",
     "path": "library/flutter-agent-plugins/skills/flutter-setup-localization",
     "activation_cmd": "python .agents/library/activate_skill.py activate flutter-setup-localization",
     "link_cmd": "python .agents/library/activate_skill.py link flutter-setup-localization"
@@ -274,7 +274,7 @@
     "name": "flutter-use-http-package",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Use the `http` package to execute GET, POST, PUT, or DELETE requests. Use when you need to fetch from or send data to a REST API.",
     "path": "library/flutter-agent-plugins/skills/flutter-use-http-package",
     "activation_cmd": "python .agents/library/activate_skill.py activate flutter-use-http-package",
     "link_cmd": "python .agents/library/activate_skill.py link flutter-use-http-package"
@@ -284,7 +284,7 @@
     "name": "grill-with-docs",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates documentation (CONTEXT.md, ADRs) inline as decisions crystallise. Use when user wants to stress-test a plan against their project's language and documented decisions.",
     "path": "library/flutter-agent-plugins/skills/grill-with-docs",
     "activation_cmd": "python .agents/library/activate_skill.py activate grill-with-docs",
     "link_cmd": "python .agents/library/activate_skill.py link grill-with-docs"
@@ -294,7 +294,7 @@
     "name": "natural-writing",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Contains well-defined rules for creating natural, accurate, and readable writing. Use whenever authoring longer text, like analysis documents, PR or CL descriptions, or documentation.",
     "path": "library/flutter-agent-plugins/skills/natural-writing",
     "activation_cmd": "python .agents/library/activate_skill.py activate natural-writing",
     "link_cmd": "python .agents/library/activate_skill.py link natural-writing"
@@ -304,7 +304,7 @@
     "name": "unix-cli-best-practices",
     "repository": "flutter-agent-plugins",
     "category": "general",
-    "description": "",
+    "description": "Safe, portable, and efficient command-line patterns for macOS/BSD Unix tools (grep, find, sed, awk, xargs, mdfind, pbcopy, open) and modern alternatives (ripgrep, fd). Covers common shell scripting and one-liner use cases including fast searching, text processing, codebase navigation, and parallel execution.",
     "path": "library/flutter-agent-plugins/skills/unix-cli-best-practices",
     "activation_cmd": "python .agents/library/activate_skill.py activate unix-cli-best-practices",
     "link_cmd": "python .agents/library/activate_skill.py link unix-cli-best-practices"

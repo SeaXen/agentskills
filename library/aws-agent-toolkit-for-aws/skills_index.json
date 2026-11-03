@@ -4,7 +4,7 @@
     "name": "agent-advisor",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Entry point for AI-agent work on AWS: pick a runtime, plan a migration for existing workloads, and build an executable POC \u2014 one phased flow. Triggers on: which runtime for my agent, AgentCore vs ECS vs EKS vs Lambda, AgentCore vs Lambda MicroVMs, deploy an AI agent on AWS, agent architecture on AWS, I have an agent idea what do I build, move/migrate my agents to AWS, agent migration plan, add AgentCore services (memory, gateway, identity, policy, observability) to an agent already on AWS, Temporal on AWS (migrate/run Temporal workers on AWS, a service orchestrated by Temporal, Temporal Cloud vs self-hosted). Temporal Workflow code is never rewritten into Step Functions. Requires at least one agentic component \u2014 a purely non-agent system (plain services, batch jobs, HTTP endpoints, non-agent Temporal Activities) is out of scope, redirected to gcp-to-aws / heroku-to-aws / llm-to-bedrock. Not for: compute/data migration with no AI agent; pure LLM SDK rewrite (use llm-to-bedrock); per-model pricing.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/agent-advisor",
     "activation_cmd": "python .agents/library/activate_skill.py activate agent-advisor",
     "link_cmd": "python .agents/library/activate_skill.py link agent-advisor"
@@ -14,7 +14,7 @@
     "name": "agents-build",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/agents-build",
     "activation_cmd": "python .agents/library/activate_skill.py activate agents-build",
     "link_cmd": "python .agents/library/activate_skill.py link agents-build"
@@ -24,7 +24,7 @@
     "name": "agents-connect",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/agents-connect",
     "activation_cmd": "python .agents/library/activate_skill.py activate agents-connect",
     "link_cmd": "python .agents/library/activate_skill.py link agents-connect"
@@ -34,7 +34,7 @@
     "name": "agents-debug",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/agents-debug",
     "activation_cmd": "python .agents/library/activate_skill.py activate agents-debug",
     "link_cmd": "python .agents/library/activate_skill.py link agents-debug"
@@ -44,7 +44,7 @@
     "name": "agents-deploy",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/agents-deploy",
     "activation_cmd": "python .agents/library/activate_skill.py activate agents-deploy",
     "link_cmd": "python .agents/library/activate_skill.py link agents-deploy"
@@ -54,7 +54,7 @@
     "name": "agents-get-started",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/agents-get-started",
     "activation_cmd": "python .agents/library/activate_skill.py activate agents-get-started",
     "link_cmd": "python .agents/library/activate_skill.py link agents-get-started"
@@ -64,7 +64,7 @@
     "name": "agents-harden",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/agents-harden",
     "activation_cmd": "python .agents/library/activate_skill.py activate agents-harden",
     "link_cmd": "python .agents/library/activate_skill.py link agents-harden"
@@ -74,7 +74,7 @@
     "name": "agents-optimize",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/agents-optimize",
     "activation_cmd": "python .agents/library/activate_skill.py activate agents-optimize",
     "link_cmd": "python .agents/library/activate_skill.py link agents-optimize"
@@ -84,7 +84,7 @@
     "name": "agents-pay",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/agents-pay",
     "activation_cmd": "python .agents/library/activate_skill.py activate agents-pay",
     "link_cmd": "python .agents/library/activate_skill.py link agents-pay"
@@ -94,7 +94,7 @@
     "name": "amazon-aurora-mysql",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/amazon-aurora-mysql",
     "activation_cmd": "python .agents/library/activate_skill.py activate amazon-aurora-mysql",
     "link_cmd": "python .agents/library/activate_skill.py link amazon-aurora-mysql"
@@ -104,7 +104,7 @@
     "name": "amazon-aurora-postgresql",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/amazon-aurora-postgresql",
     "activation_cmd": "python .agents/library/activate_skill.py activate amazon-aurora-postgresql",
     "link_cmd": "python .agents/library/activate_skill.py link amazon-aurora-postgresql"
@@ -114,7 +114,7 @@
     "name": "amazon-bedrock",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Builds generative AI applications on Amazon Bedrock. Covers model invocation (Converse API, InvokeModel), RAG with Knowledge Bases, Bedrock Agents, Guardrails, and AgentCore (including the Harness managed agent loop). Applies when invoking models, setting up Knowledge Bases, deploying to AgentCore, migrating/porting/converting a Bedrock Agent (including inline agents) to an AgentCore Harness, troubleshooting Bedrock errors (ThrottlingException, AccessDeniedException), or choosing Bedrock models (Claude, Llama, Nova, Titan). Also for KB migration to Managed, prompt caching, quota and throttling diagnosis, cost tracking, migrating between Claude model generations, chunking strategies, and Bedrock model selection. Covers AgentCore Payments (x402, microtransactions, Payment Manager, Connector, Instrument, Coinbase CDP, Stripe Privy, paid endpoints, agent payments). NOT for custom model training, Rekognition, or Comprehend. For SageMaker model discovery, customization, or endpoints, use aws-ai-ml.",
     "path": "library/aws-agent-toolkit-for-aws/skills/amazon-bedrock",
     "activation_cmd": "python .agents/library/activate_skill.py activate amazon-bedrock",
     "link_cmd": "python .agents/library/activate_skill.py link amazon-bedrock"
@@ -124,7 +124,7 @@
     "name": "amazon-braket",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Runs quantum computing workflows on AWS through Amazon Braket \u2014 discovering devices (QPUs and simulators) and their availability, building gate-model circuits and analog Hamiltonian programs, submitting quantum tasks, program sets and hybrid jobs, looking up prices, and capping spend with spending limits. Applies to any request about quantum computing, quantum hardware, quantum simulation, AHS, OpenQASM, or running a quantum algorithm on AWS.",
     "path": "library/aws-agent-toolkit-for-aws/skills/amazon-braket",
     "activation_cmd": "python .agents/library/activate_skill.py activate amazon-braket",
     "link_cmd": "python .agents/library/activate_skill.py link amazon-braket"
@@ -134,7 +134,7 @@
     "name": "amazon-documentdb",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Manages Amazon DocumentDB end-to-end \u2014 serverless-on-8.0 cluster setup, TLS/VPC/driver config, flexible-schema and vector-search data modeling, MongoDB compatibility assessment, DMS-based migration, slow-query diagnosis, major version upgrades (4.0->5.0->8.0), Well-Architected reviews (41-check wa_review.py), cost estimation, and security hardening. Retrieve for every DocumentDB question and when the user asks to set up or migrate MongoDB to AWS \u2014 DocumentDB is AWS's MongoDB-compatible managed database. Triggers: JSON document store, document database, MongoDB on AWS, Nested fields, Lambda cannot connect, TLS handshake, VPC port 27017, IAM auth, Secrets Manager, encryption at rest, $graphLookup, flexible schema, COLLSCAN, compound index, DMS migration, CDC cutover, $vectorSearch, RAG, Global Clusters, DR replication, cost sizing, audit, health check, production-readiness.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/amazon-documentdb",
     "activation_cmd": "python .agents/library/activate_skill.py activate amazon-documentdb",
     "link_cmd": "python .agents/library/activate_skill.py link amazon-documentdb"
@@ -144,7 +144,7 @@
     "name": "amazon-dynamodb",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Designs, reviews, and debugs DynamoDB data layers from design axioms \u2014 enumerates access patterns, chooses partition/sort keys and GSIs, decides single-table vs. multi-table, configures Streams, Global Tables, TTL, vector indexes for similarity search, and zero-ETL integrations to OpenSearch/Redshift/SageMaker Lakehouse, and produces a defensible data-layer design with a monthly cost estimate and optional live validation. Applies whenever a user is designing, reviewing, or refactoring anything backed by DynamoDB \u2014 schemas, access patterns, GSIs, single- vs. multi-table choices, Streams consumers, transactional outboxes, Global Tables, zero-ETL pipelines, or storing embeddings and running semantic/vector similarity search with SearchVectors on items already in DynamoDB \u2014 even when they don't say \"axioms\" or \"design review.\" Also applies when debugging hot partitions, throttling, unbounded Scans, LWW conflicts, or surprise bills on DynamoDB workloads.",
     "path": "library/aws-agent-toolkit-for-aws/skills/amazon-dynamodb",
     "activation_cmd": "python .agents/library/activate_skill.py activate amazon-dynamodb",
     "link_cmd": "python .agents/library/activate_skill.py link amazon-dynamodb"
@@ -154,7 +154,7 @@
     "name": "amazon-ec2-image-builder",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Creates and automates custom image builds with EC2 Image Builder - Linux, Windows, and macOS AMIs, and container images to ECR. Covers the build IAM role, Amazon-managed and custom components, image recipes, infrastructure and distribution configuration (launch templates, SSM parameters, other Regions), one-off builds, recurring scheduled pipelines for golden AMI automation and OS patching, custom image workflows, and diagnosing failed builds. Applies when creating, automating, or scheduling AMI or container image builds with Image Builder, or when debugging a failed build. Not for launching instances from existing AMIs, AMI lifecycle/retirement, or general EC2 fleet management.",
     "path": "library/aws-agent-toolkit-for-aws/skills/amazon-ec2-image-builder",
     "activation_cmd": "python .agents/library/activate_skill.py activate amazon-ec2-image-builder",
     "link_cmd": "python .agents/library/activate_skill.py link amazon-ec2-image-builder"
@@ -164,7 +164,7 @@
     "name": "amazon-elasticache",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Activate when developers have latent caching needs: slow API responses, database read bottlenecks, DynamoDB throttling or cost, RDS/Aurora scaling pressure, Bedrock latency or cost, or adding a cache; activate when working with Redis, Valkey, Memcached, or any in-memory data store, cache-aside patterns, session stores, rate limiting, leaderboards, counters, streams, queues, pub/sub, distributed locks, feature flags, shopping carts, or other caching strategies. Activate for GenAI and ML retrieval: vector similarity search for low-latency retrieval, semantic caching, RAG, LLM response caching, embedding stores, AI agent memory, recommendation, personalization. Activate for ElastiCache lifecycle: provisioning (serverless or node-based), engine selection, CloudFormation/CDK/Terraform IaC, VPC connectivity, TLS, RBAC, IAM auth, Global Datastore, monitoring, troubleshooting, cost optimization, and migration from self-managed Redis. Do not trigger for browser caches, CDN/CloudFront, HTTP Cache-Control, CPU caches.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/amazon-elasticache",
     "activation_cmd": "python .agents/library/activate_skill.py activate amazon-elasticache",
     "link_cmd": "python .agents/library/activate_skill.py link amazon-elasticache"
@@ -174,7 +174,7 @@
     "name": "amazon-eventbridge-event-bus",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Builds, runs, debugs, and operates event-driven applications using EventBridge Event Bus - a managed, centrally governed publish/subscribe event bus that an organization can share across many teams and accounts. Applicable when workloads need event-driven architectures, decoupling, choreography, asynchronous integration, pub/sub, fan-out, event ordering, delivered in sequence, event router, event broker, event bus, event store, event retention, event replay, deduplication, avro, protobuf, cloudevents, uses events or messages. Designed as a centrally managed event bus platform allowing governance and control - such as subscriber control, revocation, per-account throttling - while giving application owners flexibility across an organization spanning multiple accounts, with end-to-end open-standards observability and cost allocation. Also helps reduce costs in high fan-out scenarios where multi-account forwarding adds cost. A serverless, managed alternative to self-managed event streaming platforms.",
     "path": "library/aws-agent-toolkit-for-aws/skills/amazon-eventbridge-event-bus",
     "activation_cmd": "python .agents/library/activate_skill.py activate amazon-eventbridge-event-bus",
     "link_cmd": "python .agents/library/activate_skill.py link amazon-eventbridge-event-bus"
@@ -184,7 +184,7 @@
     "name": "amazon-keyspaces",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/amazon-keyspaces",
     "activation_cmd": "python .agents/library/activate_skill.py activate amazon-keyspaces",
     "link_cmd": "python .agents/library/activate_skill.py link amazon-keyspaces"
@@ -194,7 +194,7 @@
     "name": "amazon-neptune",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Provides authoritative guidance on Amazon Neptune Database and Neptune Analytics for graph, knowledge-graph, and relationship-heavy workloads \u2014 fraud detection / fraud rings, agentic memory / chatbot context across sessions, recommendations, identity resolution, Gremlin / openCypher / SPARQL queries, supernode / slow traversal, Neo4j to Neptune migration / APOC compatibility, Neptune Database vs Analytics engine selection, PageRank / community detection, GraphRAG, and connectivity from Lambda / EC2 / applications. Creates and modifies Neptune Database clusters/instances and Neptune Analytics graphs on explicit user confirmation; blocks destructive operations (delete, reset-graph, failover, major upgrade) and redirects to change-control.",
     "path": "library/aws-agent-toolkit-for-aws/skills/amazon-neptune",
     "activation_cmd": "python .agents/library/activate_skill.py activate amazon-neptune",
     "link_cmd": "python .agents/library/activate_skill.py link amazon-neptune"
@@ -204,7 +204,7 @@
     "name": "amazon-opensearch-service",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Guides migration, provisioning, search, log-analytics, trace-analytics, and Agentic AI Assistant workflows for Amazon OpenSearch Service and Serverless across six capabilities \u2014 migration (Solr/ES/self-managed into AOS/AOSS, schema/query translation, sizing, cutover); provisioning (domain + AOSS lifecycle, upgrades, FGAC, monitoring); search (vector / semantic / hybrid / RAG with Bedrock); log-analytics (PPL, OSI, anomaly detection, Dashboards); trace-analytics (OTel spans, service maps, Data Prepper); ai-assistant (natural language data exploration, incident investigation, root cause analysis). Triggers on OpenSearch, AOS, AOSS, Elasticsearch, Solr, vector/k-NN/semantic/hybrid search, RAG, log analytics, PPL, trace analytics, ISM, FAISS, HNSW, Migration Assistant, UltraWarm, OR1, query my data, analyze logs, investigate errors, root cause analysis.",
     "path": "library/aws-agent-toolkit-for-aws/skills/amazon-opensearch-service",
     "activation_cmd": "python .agents/library/activate_skill.py activate amazon-opensearch-service",
     "link_cmd": "python .agents/library/activate_skill.py link amazon-opensearch-service"
@@ -214,7 +214,7 @@
     "name": "amazon-ses",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Guides Amazon SES onboarding for domain-based email sending. Covers identity configuration, production access, an optional first test send, and troubleshooting setup, authentication, or sending failures. Use when setting up SES, resuming incomplete onboarding, or leaving the sandbox. Does not cover inbound email or Mail Manager, SMS/voice, WhatsApp, SNS, Pinpoint, or WorkMail.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/amazon-ses",
     "activation_cmd": "python .agents/library/activate_skill.py activate amazon-ses",
     "link_cmd": "python .agents/library/activate_skill.py link amazon-ses"
@@ -224,7 +224,7 @@
     "name": "amazon-workspaces-agent-access",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Connects AI agents to remote Windows desktop applications on Amazon WorkSpaces Applications (AppStream 2.0) through the managed Agent Access MCP server, and guides reliable desktop automation. Covers connecting an agent to the MCP endpoint (SigV4, streaming URL, and Active Directory SAML/Domain Join), BLOCKING vs POLLING connect modes, the computer-use tools (screenshot, click, type, key, scroll), screenshot-budget and action-batching discipline, MCP tool forwarding (forwarded___ tools), session lifecycle and expire-on-delete, and troubleshooting connection errors. Use when building or debugging an agent that drives a remote Windows desktop or GUI application via WorkSpaces Applications / AppStream \u2014 including \"dcv session not ready\", \"client_disconnected\", 400 signing-region, POLLING/connection_status, SAML assertion, or forwarded tool questions. Not for Amazon WorkSpaces Personal/Core virtual desktops or general AppStream fleet administration unrelated to agent access.",
     "path": "library/aws-agent-toolkit-for-aws/skills/amazon-workspaces-agent-access",
     "activation_cmd": "python .agents/library/activate_skill.py activate amazon-workspaces-agent-access",
     "link_cmd": "python .agents/library/activate_skill.py link amazon-workspaces-agent-access"
@@ -234,7 +234,7 @@
     "name": "analyzing-release-readiness",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/analyzing-release-readiness",
     "activation_cmd": "python .agents/library/activate_skill.py activate analyzing-release-readiness",
     "link_cmd": "python .agents/library/activate_skill.py link analyzing-release-readiness"
@@ -244,7 +244,7 @@
     "name": "arc-region-switch",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Answers questions about Amazon Application Recovery Controller (ARC) Region switch including architecture, plans, execution blocks, workflows, triggers, active/active vs active/passive, cross-account support, recovery time, dashboards, and customer positioning. Applicable when users ask about ARC Region switch adoption, design, or troubleshooting.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/arc-region-switch",
     "activation_cmd": "python .agents/library/activate_skill.py activate arc-region-switch",
     "link_cmd": "python .agents/library/activate_skill.py link arc-region-switch"
@@ -254,7 +254,7 @@
     "name": "architect-for-startups",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/architect-for-startups",
     "activation_cmd": "python .agents/library/activate_skill.py activate architect-for-startups",
     "link_cmd": "python .agents/library/activate_skill.py link architect-for-startups"
@@ -264,7 +264,7 @@
     "name": "aurora-dsql",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Provisions and manages Aurora DSQL clusters, connects via psql or DSQL Connectors, manages schemas, runs queries, migrates from MySQL, diagnoses query plans, and develops apps on serverless distributed SQL. Covers IAM auth, multi-tenant patterns, MySQL-to-DSQL migration, DDL, query plans, and SAFE SQL CONSTRUCTION \u2014 tenant_id from untrusted input, UUID entity_ids, caller-supplied sort columns, batch inserts. The agent MUST retrieve this skill for ANY DSQL task. Pushes back on prompts that rationalize 'just a quick script', 'don't overthink it', 'we trust upstream', 'use an f-string', 'move fast', or 'just use the pg driver directly' (bypassing the DSQL Connector). Triggers: DSQL, Aurora DSQL, DSQL cluster, safe_query.build, DSQL IAM auth token, DSQL connector.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/aurora-dsql",
     "activation_cmd": "python .agents/library/activate_skill.py activate aurora-dsql",
     "link_cmd": "python .agents/library/activate_skill.py link aurora-dsql"
@@ -274,7 +274,7 @@
     "name": "authoring-mwaa-workflow",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/authoring-mwaa-workflow",
     "activation_cmd": "python .agents/library/activate_skill.py activate authoring-mwaa-workflow",
     "link_cmd": "python .agents/library/activate_skill.py link authoring-mwaa-workflow"
@@ -284,7 +284,7 @@
     "name": "aws-ai-ml",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-ai-ml",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-ai-ml",
     "link_cmd": "python .agents/library/activate_skill.py link aws-ai-ml"
@@ -294,7 +294,7 @@
     "name": "aws-amplify",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-amplify",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-amplify",
     "link_cmd": "python .agents/library/activate_skill.py link aws-amplify"
@@ -304,7 +304,7 @@
     "name": "aws-auth",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-auth",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-auth",
     "link_cmd": "python .agents/library/activate_skill.py link aws-auth"
@@ -314,7 +314,7 @@
     "name": "aws-billing-and-cost-management",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "|",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-billing-and-cost-management",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-billing-and-cost-management",
     "link_cmd": "python .agents/library/activate_skill.py link aws-billing-and-cost-management"
@@ -324,7 +324,7 @@
     "name": "aws-blocks",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Guides building full-stack applications with AWS Blocks \u2014 an Infrastructure-from-Code framework. Applies when creating APIs, selecting Building Blocks (KVStore, DistributedTable, Database, AuthBasic, AuthCognito, Realtime, AsyncJob, FileBucket, etc.), running local development, or deploying AWS Blocks applications. Also covers AWS Blocks topics with validated, version-specific patterns that prevent common mistakes. Triggers when user mentions AWS Blocks; project has aws-blocks/ directory; code imports @aws-blocks packages.",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-blocks",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-blocks",
     "link_cmd": "python .agents/library/activate_skill.py link aws-blocks"
@@ -334,7 +334,7 @@
     "name": "aws-cdk",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Authors, deploys, and troubleshoots AWS infrastructure using CDK with TypeScript or Python. Covers best practices, stack architecture, and construct patterns. Applies when writing CDK constructs, bootstrapping environments, running cdk deploy/synth/diff, fixing CDK or CloudFormation errors, planning stack structure, importing existing resources, resolving drift, or refactoring stacks without resource replacement.",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-cdk",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-cdk",
     "link_cmd": "python .agents/library/activate_skill.py link aws-cdk"
@@ -344,7 +344,7 @@
     "name": "aws-cleanrooms",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Troubleshoots and debugs AWS Clean Rooms collaboration issues related to IAM roles, S3 bucket policies, KMS keys, Lake Formation permissions, and CloudWatch logging for custom ML model training and inference jobs. Use when a customer reports permission failures, access errors, or log publishing issues in Clean Rooms.",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-cleanrooms",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-cleanrooms",
     "link_cmd": "python .agents/library/activate_skill.py link aws-cleanrooms"
@@ -354,7 +354,7 @@
     "name": "aws-cloudformation",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Authors, validates, and troubleshoots AWS CloudFormation templates. Covers template authoring with secure defaults, local validation with either cfn-lint or cloudformation-validate, cfn-guard security and compliance checks as a recommended default, account-aware CloudFormation service pre-deployment validation, CloudFormation Express mode for faster deployments, and root-cause diagnosis of failed stacks using CloudFormation events and CloudTrail correlation. Also covers author-time template intelligence with the CloudFormation Language Server and published cloudformation-validate libraries.",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-cloudformation",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-cloudformation",
     "link_cmd": "python .agents/library/activate_skill.py link aws-cloudformation"
@@ -364,7 +364,7 @@
     "name": "aws-compute",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Provisions, scales, and operates Amazon EC2 virtual-machine workloads: instance-type selection (Graviton/Arm64, burstable T credits, GPU, instance store vs EBS), launch templates, Auto Scaling groups (scaling policies, instance refresh, mixed instances, Spot, warm pools, lifecycle hooks), IMDSv2, placement groups, Elastic IPs, AMI lifecycle, and Systems Manager fleet operations (Session Manager, Run Command, Patch Manager). Applies to EC2 instance and fleet questions, InsufficientInstanceCapacity, CPU-credit/surplus charges, IMDSv2 401s, instances stuck in Pending:Wait, ASG not replacing unhealthy instances, status-check failures, SSH refused/timed out, or instances missing as SSM managed nodes. For a single secure instance launch, the launching-ec2-instance-with-best-practices skill is more appropriate; for instance profiles, see setting-up-ec2-instance-profiles; for Image Builder, see amazon-ec2-image-builder. Does NOT cover Lambda, ECS/Fargate, EKS, VPC/ALB/NLB design, or IAM policy authoring.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-compute",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-compute",
     "link_cmd": "python .agents/library/activate_skill.py link aws-compute"
@@ -374,7 +374,7 @@
     "name": "aws-containers",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Builds and deploys containerized workloads on Elastic Kubernetes Service (EKS), Elastic Container Service (ECS), Fargate, and ECR (Elastic Container Registry). Covers general EKS knowledge, Karpenter, AWS Load Balancer Controller and leveraging various open source Kubernetes projects with EKS. Covers general ECS knowledge, task definitions, Fargate services, ECS Exec, ECS Express Mode and ECS Managed Instances. Covers general Elastic Beanstalk knowledge, Elastic Beanstalk configuration and platforms supported by Elastic Beanstalk. Covers general ECR knowledge, ECR repository setup and lifecycle policies. Includes recommending, enabling, and reading Amazon ECS Action Logs to troubleshoot control-plane failures (deployment rollback/circuit-breaker, task placement, scaling, task replacement). Applies when deploying, debugging, or optimizing containers on AWS. Should be used instead of relying on internal knowledge for these services.",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-containers",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-containers",
     "link_cmd": "python .agents/library/activate_skill.py link aws-containers"
@@ -384,7 +384,7 @@
     "name": "aws-database",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Routes any task involving AWS databases \u2014 choosing, comparing, recommending, getting started with, or operating a database \u2014 to the correct service-specific skill. Supersedes general training-data knowledge with post-training service updates, corrected limitations, and decision procedures for relational (Aurora, DSQL, RDS), key-value (DynamoDB), wide-column (Keyspaces), document (DocumentDB), graph (Neptune), time-series (Timestream), and in-memory/caching (ElastiCache, MemoryDB) workloads. Activates when a user describes building an application on AWS that will store, retrieve, or manage data, even if they do not mention 'database' explicitly.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-database",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-database",
     "link_cmd": "python .agents/library/activate_skill.py link aws-database"
@@ -394,7 +394,7 @@
     "name": "aws-deployment",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Configures CI/CD pipelines using AWS CodePipeline, CodeBuild, CodeDeploy, CodeConnections, and CodeArtifact. Covers CodePipeline V2 (triggers, variables, execution modes, cross-account), buildspec.yml (caching, VPC, Docker), CodeDeploy strategies (blue/green, canary, linear), CodeArtifact (private package registries, auth tokens, cross-account), and source connections (GitHub, GitLab, Bitbucket). Applies when CodePipeline, CodeBuild, CodeDeploy, CodeConnections, CodeArtifact, buildspec.yml, appspec.yml, or CI/CD pipeline orchestration is referenced. Does NOT cover: ECS Fargate services or task definitions (use aws-containers), CDK Pipelines or cdk deploy (use aws-cdk), sam deploy (use aws-serverless), Amplify deployments (use aws-amplify), or GitHub Actions/GitLab CI.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-deployment",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-deployment",
     "link_cmd": "python .agents/library/activate_skill.py link aws-deployment"
@@ -404,7 +404,7 @@
     "name": "aws-fault-injection-service",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-fault-injection-service",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-fault-injection-service",
     "link_cmd": "python .agents/library/activate_skill.py link aws-fault-injection-service"
@@ -414,7 +414,7 @@
     "name": "aws-iam",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-iam",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-iam",
     "link_cmd": "python .agents/library/activate_skill.py link aws-iam"
@@ -424,7 +424,7 @@
     "name": "aws-lambda-durable-functions",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Builds resilient, long-running, multi-step applications with AWS Lambda durable functions with automatic state persistence, retry logic, and orchestration for long-running executions. Covers the critical replay model, step operations, wait/callback patterns, error handling with saga pattern, testing with LocalDurableTestRunner. Triggers on phrases like lambda durable functions, durable execution, workflow orchestration, state machines, retry/checkpoint patterns, long-running stateful Lambda functions, saga pattern, human-in-the-loop callbacks, reliable serverless applications, context.step, context.wait, context.invoke, context.runInChildContext, withDurableExecution, DurableContext, UnrecoverableInvocationError, durable-execution-sdk, qualified ARN invocation, and durable handler replay.",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-lambda-durable-functions",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-lambda-durable-functions",
     "link_cmd": "python .agents/library/activate_skill.py link aws-lambda-durable-functions"
@@ -434,7 +434,7 @@
     "name": "aws-lambda-managed-instances",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Evaluates, configures, and migrates workloads to AWS Lambda Managed Instances (LMI). Runs Lambda Event Functions (standard Lambda) on EC2 instances in the user's account while AWS manages provisioning, patching, scaling, routing, and load balancing. Triggers when queries mention Lambda Managed Instances, LMI, capacity providers, multi-concurrent execution environments, EC2-backed Lambda, persistent Lambda instances, PerExecutionEnvironmentMaxConcurrency, CapacityProviderConfig, cold start elimination via dedicated instances, SOCI (Seekable OCI) image lazy loading, migrating Lambda Event Functions to managed instances, or cost comparison between Lambda Event Functions and LMI with Savings Plans or Reserved Instances. Also covers long-running and asynchronous workloads and the 90-minute (5400s) function timeout for asynchronous and event-source-mapping (SQS, Kinesis, DynamoDB Streams / ESM) invocations, including how to raise the function timeout up to 90 minutes / 5400s and the related duration limits.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-lambda-managed-instances",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-lambda-managed-instances",
     "link_cmd": "python .agents/library/activate_skill.py link aws-lambda-managed-instances"
@@ -444,7 +444,7 @@
     "name": "aws-lambda-microvms",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Builds, runs, debugs, and operates applications on AWS Lambda MicroVMs \u2014 Firecracker-isolated, snapshot-resumable serverless compute environments running inside a container with up to 8 hr lifetimes. Applicable when workloads need strong isolation between tenants, isolated serverless compute, sandbox compute, or secure multi-tenant execution. Also suited for AI/agent code-execution sandboxes, interactive code playgrounds and notebooks (Jupyter, REPLs, dev environments running user-supplied code), reinforcement-learning environments, multi-tenant CI executors and build runners, sessionful game or simulation servers, or isolated security scanners. Also applicable when the workload needs long-lived sessions, a real port-listening server (gRPC, WebSocket, custom TCP protocols), state preserved across periods of inactivity (suspend/resume), container-level access (FUSE, eBPF, custom syscalls), or session-affine routing.",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-lambda-microvms",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-lambda-microvms",
     "link_cmd": "python .agents/library/activate_skill.py link aws-lambda-microvms"
@@ -454,7 +454,7 @@
     "name": "aws-lambda-web-functions",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-lambda-web-functions",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-lambda-web-functions",
     "link_cmd": "python .agents/library/activate_skill.py link aws-lambda-web-functions"
@@ -464,7 +464,7 @@
     "name": "aws-marketplace-metering",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Deploys, queries, and debugs AWS Marketplace usage-based (PAYG) metering \u2014 the pipeline (ResolveCustomer, BatchMeterUsage, EventBridge via SAM) and querying/debugging metering records, statuses, failures, discrepancies. Covers Concurrent Agreements (CustomerAWSAccountId + LicenseArn), multi-product, CloudTrail Event History (90 days; never CloudTrail Lake), Seller Reports (Billed Revenue/Usage columns + CSV/SDDS parsing), existing-stack detection, metering region for BatchMeterUsage/MeterUsage (DisabledApiException), metered AMI/Container + IAM roles, where registration data lives (customer-profile table), legacy ProductCode + CustomerIdentifier, DuplicateRecord/CustomerNotSubscribed, bad LicenseArn. Also SCOPES adjacent asks \u2014 flat-rate/SaaS-Subscription \"do I still meter\", CCP included-units + overage, contract term/annual renewal, forecasting future bills/usage \u2014 with the right answer or a one-line redirect. Use for any BatchMeterUsage/ResolveCustomer or SaaS usage-billing question.",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-marketplace-metering",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-marketplace-metering",
     "link_cmd": "python .agents/library/activate_skill.py link aws-marketplace-metering"
@@ -474,7 +474,7 @@
     "name": "aws-media-services",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Designs, deploys, reviews, evaluates, audits, and troubleshoots video streaming workflows across AWS media services (MediaConnect, MediaLive, MediaConvert, MediaPackage v2, MediaTailor, CloudFront). Includes per-service validation rules, cross-service workflow patterns for live streaming, linear channels, VOD pipelines, and live-to-VOD, service-specific troubleshooting, best practices assessment, cost optimization, encoder settings, DRM, SCTE-35 ad insertion, epoch locking, and CDN cache configuration.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-media-services",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-media-services",
     "link_cmd": "python .agents/library/activate_skill.py link aws-media-services"
@@ -484,7 +484,7 @@
     "name": "aws-messaging-and-streaming",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-messaging-and-streaming",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-messaging-and-streaming",
     "link_cmd": "python .agents/library/activate_skill.py link aws-messaging-and-streaming"
@@ -494,7 +494,7 @@
     "name": "aws-network-monitoring",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-network-monitoring",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-network-monitoring",
     "link_cmd": "python .agents/library/activate_skill.py link aws-network-monitoring"
@@ -504,7 +504,7 @@
     "name": "aws-networking",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Routes AWS networking requests to the correct service skill for implementation. Covers Route 53 (DNS, health checks, routing policies, Resolver, DNS Firewall), CloudFront (caching, edge, OAC, mTLS, signed URLs), Transit Gateway (multi-VPC hub, segmentation, centralized egress), Direct Connect (hybrid link, DX Gateway, MACsec), Site-to-Site VPN (IPsec tunnels, static or BGP), WAF (web ACLs, AWS Managed Rules, rate-based rules, Bot and Fraud Control), and Shield Advanced (L3/L4 DDoS). Applicable when creating, configuring, troubleshooting, or designing across these services, choosing between them, or diagnosing connectivity or traffic-filtering issues. Not for VPC subnets and route tables, load balancers, VPC endpoints, PrivateLink, API Gateway, IAM policy logic, container or serverless networking, or IaC authoring.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-networking",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-networking",
     "link_cmd": "python .agents/library/activate_skill.py link aws-networking"
@@ -514,7 +514,7 @@
     "name": "aws-observability",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-observability",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-observability",
     "link_cmd": "python .agents/library/activate_skill.py link aws-observability"
@@ -524,7 +524,7 @@
     "name": "aws-resilience-lifecycle",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-resilience-lifecycle",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-resilience-lifecycle",
     "link_cmd": "python .agents/library/activate_skill.py link aws-resilience-lifecycle"
@@ -534,7 +534,7 @@
     "name": "aws-sdk-js-v3-usage",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "|",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-sdk-js-v3-usage",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-sdk-js-v3-usage",
     "link_cmd": "python .agents/library/activate_skill.py link aws-sdk-js-v3-usage"
@@ -544,7 +544,7 @@
     "name": "aws-sdk-python-usage",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "|",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-sdk-python-usage",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-sdk-python-usage",
     "link_cmd": "python .agents/library/activate_skill.py link aws-sdk-python-usage"
@@ -554,7 +554,7 @@
     "name": "aws-sdk-swift-usage",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "|",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-sdk-swift-usage",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-sdk-swift-usage",
     "link_cmd": "python .agents/library/activate_skill.py link aws-sdk-swift-usage"
@@ -564,7 +564,7 @@
     "name": "aws-secrets-manager",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-secrets-manager",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-secrets-manager",
     "link_cmd": "python .agents/library/activate_skill.py link aws-secrets-manager"
@@ -574,7 +574,7 @@
     "name": "aws-security",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"AWS security service suitability, coverage and cost recommendations: WAF/origin overlap, AWS Network Firewall inspection coverage and policy review, VPC endpoint, Transit Gateway/Cloud WAN segmentation and DNS Firewall security-control suitability, certificate renewal ownership and monitoring, incident response triage ownership, centralized security log store (CloudWatch or Security Lake). Also factual configuration, findings, data sources and severity scoring for GuardDuty, Inspector, Security Hub V2/OCSF (Exposure, connectors, automation), Security Hub CSPM/ASFF (standards, controls), Macie, Detective, Security Lake, AWS Security Incident Response membership and case coverage, and Organizations security policies. Applies to advisory security-service choices even when one service is named. Implementation, rule or code authoring, deployment, scans and troubleshooting outside these factual procedures belong to specialist skills. Supports local AWS CLI and AWS MCP.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-security",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-security",
     "link_cmd": "python .agents/library/activate_skill.py link aws-security"
@@ -584,7 +584,7 @@
     "name": "aws-serverless",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Routes serverless requests to a compute form factor and the skill that owns it. Applies first to Lambda, API Gateway, EventBridge, Step Functions and event-driven work while the compute, orchestration or integration choice is open \u2014 API backends, webhooks, jobs, cron, queue/stream consumers, durable workflows, event routing, Step Functions vs Durable Functions, and Pipes vs native event source mappings for queues and streams. Decides Event Functions on-demand vs Managed Instances, Web Functions, MicroVMs, EventBridge rules/Scheduler/Pipes/bus, HTTP vs REST API. Owns shared Lambda references (cold starts, SnapStart, concurrency, event sources, function URLs, throttling, troubleshooting). Defers to the specialized skill once a request commits to one form factor or service, or describes its defining feature, even unnamed (durable checkpointing and automatic step retries, Firecracker sandbox, managed instances, Node.js server). Not for EC2, ECS/EKS/Fargate or Amplify hosting.",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-serverless",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-serverless",
     "link_cmd": "python .agents/library/activate_skill.py link aws-serverless"
@@ -594,7 +594,7 @@
     "name": "aws-sms-voice",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-sms-voice",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-sms-voice",
     "link_cmd": "python .agents/library/activate_skill.py link aws-sms-voice"
@@ -604,7 +604,7 @@
     "name": "aws-social-messaging",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Manages WhatsApp messaging through AWS End User Messaging Social. Covers managing templates (create, update, delete, library), sending messages (utility/marketing/auth templates and freeform), uploading and managing media, configuring event destinations for delivery tracking, and troubleshooting delivery failures. Applicable when a user needs to send WhatsApp messages, create or manage templates, upload media, configure delivery notifications, or diagnose messaging issues.",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-social-messaging",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-social-messaging",
     "link_cmd": "python .agents/library/activate_skill.py link aws-social-messaging"
@@ -614,7 +614,7 @@
     "name": "aws-step-functions",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Authors and edits AWS Step Functions state machines: writes Amazon States Language (ASL) in JSONata, and chooses and structures state types (Task, Choice, Map, Parallel, Pass, Wait, Succeed, Fail). Covers ASL syntax, JSONata data transformation and variables, Retry/Catch error handling, service integrations (.sync, waitForTaskToken callbacks), Distributed Map for large-scale S3/CSV processing, saga/compensation patterns, Standard vs Express workflow choice, TestState API unit testing, and migrating state machines from JSONPath to JSONata. Use when the user is building, authoring, debugging, or migrating a Step Functions state machine or ASL definition, or orchestrating multi-step workflows with branching, retries, or human-approval callbacks, even if they don't say 'Step Functions.' Do NOT use for general Lambda function code, API Gateway, EventBridge wiring, or SAM/CDK application packaging.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-step-functions",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-step-functions",
     "link_cmd": "python .agents/library/activate_skill.py link aws-step-functions"
@@ -624,7 +624,7 @@
     "name": "aws-storage",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Selects, investigates, and compares AWS object, file, and block storage services, and answers cost, performance, configuration, security, and troubleshooting questions about storage services. Applies when a user asks where to store or archive data based on their usage patterns; which storage service to choose or how two compare; how to migrate data from on-premises or between AWS services; how to protect, replicate, or recover data; how to optimize storage costs; where to deploy shared NFS, SMB, or POSIX file systems; where to store vector embeddings or tabular data; what storage backs enterprise file shares, self-managed databases on EC2, VMware, or stateful containers; or asks what an AWS storage service can do or how it works. Relevant for storage needs for workloads such as AI/ML, analytics, EDA, HPC, media, genomics, or financial trading. Not applicable for SQL query engines (Athena, Spark, Redshift, EMR), ETL (Glue), streaming (Kafka, MSK, Kinesis), or managed database services (RDS, Aurora, DynamoDB).\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-storage",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-storage",
     "link_cmd": "python .agents/library/activate_skill.py link aws-storage"
@@ -634,7 +634,7 @@
     "name": "aws-transform",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Performs code upgrades, migrations, and transformations using the AWS Transform (ATX) CLI. Use when upgrading language versions, migrating AWS SDKs, migrating frameworks (Angular, Vue.js, Spring Boot, React), upgrading libraries, optimizing performance, migrating x86 to Graviton, analyzing codebases / generating documentation, or defining custom transformations with natural language. Runs locally on a few repositories or at scale across hundreds via AWS Batch/Fargate.",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-transform",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-transform",
     "link_cmd": "python .agents/library/activate_skill.py link aws-transform"
@@ -644,7 +644,7 @@
     "name": "aws-well-architected-review",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Performs a full AWS Well-Architected Framework review evaluating every framework question across all pillars discovered from the live AWS documentation by analyzing code, IaC, and configurations to produce evidence-backed findings with Eisenhower-prioritized remediation. Supports full reviews (every framework best practice with BP ID citations), quick reviews (question-level), pillar-scoped reviews, score-mode reviews (a maturity scorecard with per-pillar scores and filtered findings), and lens-specific reviews using lenses discovered from the live AWS documentation. Triggers on mentions of Well-Architected review, WA review, WAR, pillar assessment, architecture review across pillars, workload assessment, cloud readiness evaluation, or a Well-Architected score, grade, or scorecard request. Does not apply to single-pillar deep-dives, learning WA concepts, ADRs, or migration readiness assessments.",
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-well-architected-review",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-well-architected-review",
     "link_cmd": "python .agents/library/activate_skill.py link aws-well-architected-review"
@@ -654,7 +654,7 @@
     "name": "azure-to-aws",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Migrate workloads from Microsoft Azure to AWS. Triggers on: migrate from Azure, Azure to AWS, migrate AKS to EKS, migrate App Service or Azure VMs to AWS compute, migrate Azure SQL or Azure Database to RDS, migrate Cosmos DB to DynamoDB, migrate Azure OpenAI to Bedrock, estimate AWS costs for Azure, what-if workshop. Runs a 6-phase process: discover Azure resources from Terraform, the live `az` CLI, a customer-supplied Resource Discovery for Azure (RDfA) report, and app code, then clarify, design, estimate, optionally reprice, generate artifacts, and collect feedback. Clarify gates Design, Estimate, and Generate; Generate is opt-in at the post-Estimate gate. Bicep/ARM discovery is not yet implemented; a Bicep/ARM-only workspace halts. Azure Cost Management billing-export discovery is not implemented. Do not use for: GCP (see gcp-to-aws) or Heroku (see heroku-to-aws) migrations, general AWS architecture advice (see architect-for-startups), AWS-to-Azure reverse migration, or Azure-to-Azure refactoring.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/azure-to-aws",
     "activation_cmd": "python .agents/library/activate_skill.py activate azure-to-aws",
     "link_cmd": "python .agents/library/activate_skill.py link azure-to-aws"
@@ -664,7 +664,7 @@
     "name": "chatting-with-aws-devops-agent",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/chatting-with-aws-devops-agent",
     "activation_cmd": "python .agents/library/activate_skill.py activate chatting-with-aws-devops-agent",
     "link_cmd": "python .agents/library/activate_skill.py link chatting-with-aws-devops-agent"
@@ -674,7 +674,7 @@
     "name": "cloudfront",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/cloudfront",
     "activation_cmd": "python .agents/library/activate_skill.py activate cloudfront",
     "link_cmd": "python .agents/library/activate_skill.py link cloudfront"
@@ -684,7 +684,7 @@
     "name": "configuring-vpc-endpoints-for-private-aws-service-access",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Configures VPC endpoints (interface and gateway) for private AWS service access using AWS PrivateLink. Use when setting up secure private connectivity to S3, DynamoDB, and other AWS services without internet gateway, NAT device, or public IP addresses. Covers endpoint creation, security groups, route tables, and DNS configuration.",
     "path": "library/aws-agent-toolkit-for-aws/skills/configuring-vpc-endpoints-for-private-aws-service-access",
     "activation_cmd": "python .agents/library/activate_skill.py activate configuring-vpc-endpoints-for-private-aws-service-access",
     "link_cmd": "python .agents/library/activate_skill.py link configuring-vpc-endpoints-for-private-aws-service-access"
@@ -694,7 +694,7 @@
     "name": "connecting-lambda-to-api-gateway",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Connects an existing AWS Lambda function to Amazon API Gateway by creating a REST or HTTP API with resource/method setup, Lambda proxy integration, permissions, and deployment. Always use this skill when connecting Lambda to API Gateway \u2014 it handles CORS, throttling, access logging, and production security hardening that are easy to miss.",
     "path": "library/aws-agent-toolkit-for-aws/skills/connecting-lambda-to-api-gateway",
     "activation_cmd": "python .agents/library/activate_skill.py activate connecting-lambda-to-api-gateway",
     "link_cmd": "python .agents/library/activate_skill.py link connecting-lambda-to-api-gateway"
@@ -704,7 +704,7 @@
     "name": "connecting-lambda-to-dynamodb",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Connects an AWS Lambda function to DynamoDB with IAM roles, stream event source mapping, and read/write permissions. Use when setting up Lambda-DynamoDB integration, processing DynamoDB stream events, or deploying serverless event-driven architectures.",
     "path": "library/aws-agent-toolkit-for-aws/skills/connecting-lambda-to-dynamodb",
     "activation_cmd": "python .agents/library/activate_skill.py activate connecting-lambda-to-dynamodb",
     "link_cmd": "python .agents/library/activate_skill.py link connecting-lambda-to-dynamodb"
@@ -714,7 +714,7 @@
     "name": "connecting-to-data-source",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/connecting-to-data-source",
     "activation_cmd": "python .agents/library/activate_skill.py activate connecting-to-data-source",
     "link_cmd": "python .agents/library/activate_skill.py link connecting-to-data-source"
@@ -724,7 +724,7 @@
     "name": "connecting-vpcs-with-peering",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Establishes VPC peering connections between two VPCs for direct private network connectivity. Always use this skill when creating or managing VPC peering \u2014 it validates CIDR overlap, updates all route tables in both VPCs, configures DNS resolution, and provides security group guidance that are critical for correct connectivity.",
     "path": "library/aws-agent-toolkit-for-aws/skills/connecting-vpcs-with-peering",
     "activation_cmd": "python .agents/library/activate_skill.py activate connecting-vpcs-with-peering",
     "link_cmd": "python .agents/library/activate_skill.py link connecting-vpcs-with-peering"
@@ -734,7 +734,7 @@
     "name": "contextual-offers-for-startups",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Surfaces a single, genuinely relevant AWS Activate partner offer as optional context AFTER another AWS Startup Advisor skill has finalized its recommendation, plan, or build \u2014 never influencing the technical advice. Consulted by architect-for-startups, start-building-for-startups, agent-advisor, gcp-to-aws, heroku-to-aws, and llm-to-bedrock: once their output is final, this skill checks whether a relevant Activate offer exists for what the founder is building or migrating and, if so, appends one quiet, dismissible line with a tracked redeem link. Merit-first (offers never change the recommendation), relevance-gated to what the founder actually surfaced, at most one per response and often none, muteable. Offer content is read live from the sibling knowledge-base-for-startups skill (references/offers.md). Do NOT use for account-specific lookups (credits balance, Activate membership, application status) \u2014 send those to https://aws.amazon.com/startups.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/contextual-offers-for-startups",
     "activation_cmd": "python .agents/library/activate_skill.py activate contextual-offers-for-startups",
     "link_cmd": "python .agents/library/activate_skill.py link contextual-offers-for-startups"
@@ -744,7 +744,7 @@
     "name": "coordinating-multi-space-devops-agent",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Coordinate the AWS DevOps Agent across multiple AgentSpaces from one Claude Code session \u2014 route questions to the right space (prod vs staging vs knowledge), query several spaces in parallel and synthesize, or compare findings across accounts. Use whenever the user has more than one AgentSpace configured, mentions multiple AWS accounts, or asks something like \"check both prod and staging\", \"compare across accounts\", or \"ask the knowledge space\".",
     "path": "library/aws-agent-toolkit-for-aws/skills/coordinating-multi-space-devops-agent",
     "activation_cmd": "python .agents/library/activate_skill.py activate coordinating-multi-space-devops-agent",
     "link_cmd": "python .agents/library/activate_skill.py link coordinating-multi-space-devops-agent"
@@ -764,7 +764,7 @@
     "name": "creating-amazon-aurora-db-cluster-with-instances",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Creates a complete Amazon Aurora database cluster with instances, handling cluster creation, instance provisioning, and Secrets Manager password management in the proper sequence. Use when setting up new Aurora MySQL or PostgreSQL clusters with production-ready configuration.",
     "path": "library/aws-agent-toolkit-for-aws/skills/creating-amazon-aurora-db-cluster-with-instances",
     "activation_cmd": "python .agents/library/activate_skill.py activate creating-amazon-aurora-db-cluster-with-instances",
     "link_cmd": "python .agents/library/activate_skill.py link creating-amazon-aurora-db-cluster-with-instances"
@@ -774,7 +774,7 @@
     "name": "creating-api-gateway-stage",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Creates an API Gateway stage with CloudWatch logging, X-Ray tracing, throttling, WAF integration, and IAM roles following AWS best practices. Use when deploying a REST API to different environments such as dev, test, or production.",
     "path": "library/aws-agent-toolkit-for-aws/skills/creating-api-gateway-stage",
     "activation_cmd": "python .agents/library/activate_skill.py activate creating-api-gateway-stage",
     "link_cmd": "python .agents/library/activate_skill.py link creating-api-gateway-stage"
@@ -784,7 +784,7 @@
     "name": "creating-data-lake-table",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/creating-data-lake-table",
     "activation_cmd": "python .agents/library/activate_skill.py activate creating-data-lake-table",
     "link_cmd": "python .agents/library/activate_skill.py link creating-data-lake-table"
@@ -794,7 +794,7 @@
     "name": "creating-production-vpc-multi-az",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Creates a production-ready VPC with public and private subnets across multiple Availability Zones, including internet gateway, NAT gateways, route tables, and security groups following AWS Well-Architected principles. Use when deploying multi-AZ VPC infrastructure with automatic CIDR planning and DNS resolution.",
     "path": "library/aws-agent-toolkit-for-aws/skills/creating-production-vpc-multi-az",
     "activation_cmd": "python .agents/library/activate_skill.py activate creating-production-vpc-multi-az",
     "link_cmd": "python .agents/library/activate_skill.py link creating-production-vpc-multi-az"
@@ -804,7 +804,7 @@
     "name": "creating-secrets-using-best-practices",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Creates and manages secrets in AWS Secrets Manager following security best practices. Always use this skill when creating secrets \u2014 it sets up dedicated KMS encryption keys, automatic rotation, least-privilege IAM policies, CloudTrail auditing, and lifecycle management that are essential for production-grade secret handling.",
     "path": "library/aws-agent-toolkit-for-aws/skills/creating-secrets-using-best-practices",
     "activation_cmd": "python .agents/library/activate_skill.py activate creating-secrets-using-best-practices",
     "link_cmd": "python .agents/library/activate_skill.py link creating-secrets-using-best-practices"
@@ -814,7 +814,7 @@
     "name": "debugging-lambda-timeouts",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Debugs AWS Lambda function timeout failures by systematically analyzing function configuration, CloudWatch logs and metrics, VPC/networking, cold starts, memory constraints, and downstream dependencies to identify root causes with actionable fixes. Use when a Lambda function is timing out or approaching its timeout limit.",
     "path": "library/aws-agent-toolkit-for-aws/skills/debugging-lambda-timeouts",
     "activation_cmd": "python .agents/library/activate_skill.py activate debugging-lambda-timeouts",
     "link_cmd": "python .agents/library/activate_skill.py link debugging-lambda-timeouts"
@@ -824,7 +824,7 @@
     "name": "debugging-mwaa-workflow",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/debugging-mwaa-workflow",
     "activation_cmd": "python .agents/library/activate_skill.py activate debugging-mwaa-workflow",
     "link_cmd": "python .agents/library/activate_skill.py link debugging-mwaa-workflow"
@@ -834,7 +834,7 @@
     "name": "deploying-containers-to-amazon-lightsail",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/deploying-containers-to-amazon-lightsail",
     "activation_cmd": "python .agents/library/activate_skill.py activate deploying-containers-to-amazon-lightsail",
     "link_cmd": "python .agents/library/activate_skill.py link deploying-containers-to-amazon-lightsail"
@@ -844,7 +844,7 @@
     "name": "deploying-custom-domain-rest-api",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/deploying-custom-domain-rest-api",
     "activation_cmd": "python .agents/library/activate_skill.py activate deploying-custom-domain-rest-api",
     "link_cmd": "python .agents/library/activate_skill.py link deploying-custom-domain-rest-api"
@@ -854,7 +854,7 @@
     "name": "developing-applications-on-managed-service-for-apache-flink",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/developing-applications-on-managed-service-for-apache-flink",
     "activation_cmd": "python .agents/library/activate_skill.py activate developing-applications-on-managed-service-for-apache-flink",
     "link_cmd": "python .agents/library/activate_skill.py link developing-applications-on-managed-service-for-apache-flink"
@@ -864,7 +864,7 @@
     "name": "diff-scanning-with-aws-security-agent",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Run a fast AWS Security Agent diff scan on only the changed code since a git ref. Use when the user asks to scan changes, run a diff scan, check what changed for security issues, scan before committing, scan before PR, or any pre-commit/pre-push security check.",
     "path": "library/aws-agent-toolkit-for-aws/skills/diff-scanning-with-aws-security-agent",
     "activation_cmd": "python .agents/library/activate_skill.py activate diff-scanning-with-aws-security-agent",
     "link_cmd": "python .agents/library/activate_skill.py link diff-scanning-with-aws-security-agent"
@@ -874,7 +874,7 @@
     "name": "directconnect",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/directconnect",
     "activation_cmd": "python .agents/library/activate_skill.py activate directconnect",
     "link_cmd": "python .agents/library/activate_skill.py link directconnect"
@@ -884,7 +884,7 @@
     "name": "dms-schema-conversion",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Handles the full DMS Schema Conversion lifecycle including creating migration projects, converting database schemas to a target engine, running compatibility assessments, navigating metadata trees, exporting converted DDL to S3, applying schema changes to a target database, and converting SQL statements between database engines. Applies when migrating database schemas between heterogeneous engines using AWS DMS Schema Conversion.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/dms-schema-conversion",
     "activation_cmd": "python .agents/library/activate_skill.py activate dms-schema-conversion",
     "link_cmd": "python .agents/library/activate_skill.py link dms-schema-conversion"
@@ -894,7 +894,7 @@
     "name": "enabling-lambda-vpc-internet-access",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Enables internet access for AWS Lambda functions deployed in VPC subnets by creating NAT Gateway infrastructure, configuring public/private subnet routing, and updating security groups. Use when a VPC-attached Lambda function cannot reach the internet.",
     "path": "library/aws-agent-toolkit-for-aws/skills/enabling-lambda-vpc-internet-access",
     "activation_cmd": "python .agents/library/activate_skill.py activate enabling-lambda-vpc-internet-access",
     "link_cmd": "python .agents/library/activate_skill.py link enabling-lambda-vpc-internet-access"
@@ -904,7 +904,7 @@
     "name": "exploring-data-catalog",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/exploring-data-catalog",
     "activation_cmd": "python .agents/library/activate_skill.py activate exploring-data-catalog",
     "link_cmd": "python .agents/library/activate_skill.py link exploring-data-catalog"
@@ -914,7 +914,7 @@
     "name": "exporting-rds-to-s3",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Exports Amazon RDS or Aurora database snapshots to Amazon S3 in Apache Parquet format for analytics, backup, or data migration. Handles snapshot selection or creation, IAM role setup, KMS encryption, S3 bucket preparation, export task execution, progress monitoring, and data verification. Use when exporting RDS/Aurora data to S3 for Athena, Glue, or Redshift Spectrum consumption.",
     "path": "library/aws-agent-toolkit-for-aws/skills/exporting-rds-to-s3",
     "activation_cmd": "python .agents/library/activate_skill.py activate exporting-rds-to-s3",
     "link_cmd": "python .agents/library/activate_skill.py link exporting-rds-to-s3"
@@ -924,7 +924,7 @@
     "name": "finding-data-lake-assets",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/finding-data-lake-assets",
     "activation_cmd": "python .agents/library/activate_skill.py activate finding-data-lake-assets",
     "link_cmd": "python .agents/library/activate_skill.py link finding-data-lake-assets"
@@ -934,7 +934,7 @@
     "name": "gcp-to-aws",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Migrate workloads from Google Cloud Platform to AWS \u2014 plus AI and agentic workloads from any provider. Triggers on: migrate from GCP, GCP to AWS, move off Google Cloud, migrate Terraform to AWS, migrate Cloud SQL to RDS, migrate GKE to EKS, migrate Cloud Run to Fargate, migrate App Engine to Elastic Beanstalk, migrate from OpenAI to Bedrock, move off OpenAI, switch from ChatGPT API to AWS, migrate from Gemini to Bedrock, migrate LangChain to Bedrock, migrate LangGraph to AWS, migrate agentic workloads to AWS, move AI workloads to AWS, migrate my AI app to AWS. Runs a 6-phase process: discover GCP resources from Terraform, app code, or billing exports, then clarify, design, estimate costs, generate artifacts, and collect feedback. Clarify must finish before Design, Estimate, or Generate. Do not use for: Azure migrations (see azure-to-aws), on-premises migrations, AWS-to-GCP reverse migration, general AWS architecture advice without migration intent, or GCP-to-GCP refactoring.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/gcp-to-aws",
     "activation_cmd": "python .agents/library/activate_skill.py activate gcp-to-aws",
     "link_cmd": "python .agents/library/activate_skill.py link gcp-to-aws"
@@ -944,7 +944,7 @@
     "name": "heroku-to-aws",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Migrate workloads from Heroku to AWS. Triggers on: migrate from Heroku, Heroku to AWS, move off Heroku, migrate Heroku Postgres to RDS, migrate Heroku Redis to ElastiCache, migrate Heroku Kafka to MSK, migrate dynos to Elastic Beanstalk, migrate dynos to Fargate, migrate Heroku Private Space, Heroku to ECS, leave Heroku, what-if workshop, compare migration scenarios, workshop mode. Runs a 6-phase process: discover Heroku resources live via the authenticated Heroku CLI (read-only, consent-gated) and/or from Terraform, Procfile/app.json, and billing exports, then clarify, design, estimate costs, generate artifacts, and collect feedback. Clarify must finish before Design, Estimate, or Generate. An optional post-Estimate what-if workshop reprices region/HA/compute/Graviton scenarios. Do not use for: GCP migrations (see gcp-to-aws), Azure migrations (see azure-to-aws), AWS-to-Heroku reverse migration, general AWS architecture advice without migration intent, or Heroku-to-Heroku refactoring.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/heroku-to-aws",
     "activation_cmd": "python .agents/library/activate_skill.py activate heroku-to-aws",
     "link_cmd": "python .agents/library/activate_skill.py link heroku-to-aws"
@@ -954,7 +954,7 @@
     "name": "ingesting-into-data-lake",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/ingesting-into-data-lake",
     "activation_cmd": "python .agents/library/activate_skill.py activate ingesting-into-data-lake",
     "link_cmd": "python .agents/library/activate_skill.py link ingesting-into-data-lake"
@@ -964,7 +964,7 @@
     "name": "investigating-incidents-with-aws-devops-agent",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Run a deep root-cause investigation on the AWS DevOps Agent. Use when the user describes an incident, alarm, outage, or unexplained behavior \u2014 keywords like \"5xx\", \"503\", \"OOM\", \"latency spike\", \"deployment failure\", \"rollback\", \"sev1\", \"investigate\", \"root cause\", \"debug\", \"alarm fired\", \"service down\". Polls and streams progress, then surfaces recommendations.",
     "path": "library/aws-agent-toolkit-for-aws/skills/investigating-incidents-with-aws-devops-agent",
     "activation_cmd": "python .agents/library/activate_skill.py activate investigating-incidents-with-aws-devops-agent",
     "link_cmd": "python .agents/library/activate_skill.py link investigating-incidents-with-aws-devops-agent"
@@ -974,7 +974,7 @@
     "name": "knowledge-base-for-startups",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"AWS Startups reference content \u2014 Activate FAQ, credits guide, programs, partner offers, sample architectures, and hundreds of learn articles spanning generative AI, cloud architecture, cost optimization, security, fundraising, go-to-market, and real-world startup case studies. Use when the user asks factual questions about AWS Activate (eligibility, credits, programs, providers), wants a sample architecture or solution guide, or needs an AWS-curated learn article on a specific startup topic. For copy-paste AI prompts (RAG chatbot, MVP scaffold, security baseline, GPU quota, etc.), see the prompt-library-for-startups skill. Do not use for: account-specific lookups (credits balance, Activate membership status, application status), real-time event listings beyond the events stub, or content not present in the bundled `references/` tree.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/knowledge-base-for-startups",
     "activation_cmd": "python .agents/library/activate_skill.py activate knowledge-base-for-startups",
     "link_cmd": "python .agents/library/activate_skill.py link knowledge-base-for-startups"
@@ -984,7 +984,7 @@
     "name": "launch-with-aws",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Migrates vibe-coded web applications to AWS. Handles the full workflow from analysis through migration to deployment, producing deployable AWS Blocks infrastructure code. Supports full-stack apps built with vibe-coding platforms (Lovable, Bolt.new, Replit) and frontend web applications and websites: React, Vue, Angular, Next.js, Nuxt, Astro, SvelteKit, Gatsby, Vite, Svelte, Solid, Docusaurus, and others (static sites, SPAs, and SSR frameworks with static export). Triggers on: launch with AWS, launch on AWS, deploy to AWS, migrate to AWS, host my app on AWS, move my app to AWS, transfer my app to AWS. Activates when the user wants to migrate a vibe-coded app or frontend web app to AWS, even if they don't say 'migrate' explicitly.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/launch-with-aws",
     "activation_cmd": "python .agents/library/activate_skill.py activate launch-with-aws",
     "link_cmd": "python .agents/library/activate_skill.py link launch-with-aws"
@@ -994,7 +994,7 @@
     "name": "launching-ec2-instance-with-best-practices",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Launches an EC2 instance with secure, cost-efficient defaults including AMI selection, burstable instance sizing, least-privilege IAM roles, hardened security groups, encrypted EBS volumes, and comprehensive tagging. Use when deploying new EC2 instances following AWS best practices for security and cost optimization.",
     "path": "library/aws-agent-toolkit-for-aws/skills/launching-ec2-instance-with-best-practices",
     "activation_cmd": "python .agents/library/activate_skill.py activate launching-ec2-instance-with-best-practices",
     "link_cmd": "python .agents/library/activate_skill.py link launching-ec2-instance-with-best-practices"
@@ -1004,7 +1004,7 @@
     "name": "llm-to-bedrock",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Use when the user wants to migrate code that calls OpenAI, Gemini/Google AI, or the Anthropic API to Amazon Bedrock \u2014 a pure model/SDK rewrite. End-to-end: assesses the codebase, rewrites SDK calls, evaluates output quality against Bedrock, and delivers a ready-to-merge git branch. Also has an access-only mode for checking or enabling Bedrock model access for specific models (e.g. 'request access to Claude on Bedrock', 'which models do I turn on') with no code migration \u2014 it checks each model and walks the right access step, then stops. Not for agent runtime selection or agent migration planning (use agent-advisor), nor standalone cost estimates or infra-only migration. The full migration REQUIRES gcp-to-aws OR azure-to-aws installed alongside this skill (gcp-to-aws preferred when both are present); access-only mode needs neither.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/llm-to-bedrock",
     "activation_cmd": "python .agents/library/activate_skill.py activate llm-to-bedrock",
     "link_cmd": "python .agents/library/activate_skill.py link llm-to-bedrock"
@@ -1014,7 +1014,7 @@
     "name": "managing-amazon-kinesis-data-streams",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/managing-amazon-kinesis-data-streams",
     "activation_cmd": "python .agents/library/activate_skill.py activate managing-amazon-kinesis-data-streams",
     "link_cmd": "python .agents/library/activate_skill.py link managing-amazon-kinesis-data-streams"
@@ -1024,7 +1024,7 @@
     "name": "managing-amazon-msk",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/managing-amazon-msk",
     "activation_cmd": "python .agents/library/activate_skill.py activate managing-amazon-msk",
     "link_cmd": "python .agents/library/activate_skill.py link managing-amazon-msk"
@@ -1034,7 +1034,7 @@
     "name": "managing-data-asset-access",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/managing-data-asset-access",
     "activation_cmd": "python .agents/library/activate_skill.py activate managing-data-asset-access",
     "link_cmd": "python .agents/library/activate_skill.py link managing-data-asset-access"
@@ -1044,7 +1044,7 @@
     "name": "managing-data-catalog",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/managing-data-catalog",
     "activation_cmd": "python .agents/library/activate_skill.py activate managing-data-catalog",
     "link_cmd": "python .agents/library/activate_skill.py link managing-data-catalog"
@@ -1054,7 +1054,7 @@
     "name": "migrate-to-msk",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/migrate-to-msk",
     "activation_cmd": "python .agents/library/activate_skill.py activate migrate-to-msk",
     "link_cmd": "python .agents/library/activate_skill.py link migrate-to-msk"
@@ -1064,7 +1064,7 @@
     "name": "migrating-to-amazon-redshift",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Guides an end-to-end data-warehouse migration to Amazon Redshift \u2014 discovery, schema/SQL/stored-procedure/macro/script conversion, data migration, validation, performance comparison, and reporting. Source-routed via `references/<source>/`; Teradata (Vantage) is the supported source; additional sources are added as their own `references/<source>/` sets. Text-only knowledge (no executable code) \u2014 the AI generates all execution at runtime. Applies when a user wants to migrate Teradata to Amazon Redshift, convert Teradata DDL/SQL/stored procedures/macros/BTEQ to Redshift/RSQL, or assess Teradata-to-Redshift migration complexity. Applies only to migrations targeting Amazon Redshift; migrations to other platforms (Snowflake, BigQuery, Databricks, etc.) are out of scope regardless of source. Does not cover general Redshift administration, performance tuning, or troubleshooting of existing Redshift clusters (no migration involved), or sources not listed under references/.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/migrating-to-amazon-redshift",
     "activation_cmd": "python .agents/library/activate_skill.py activate migrating-to-amazon-redshift",
     "link_cmd": "python .agents/library/activate_skill.py link migrating-to-amazon-redshift"
@@ -1074,7 +1074,7 @@
     "name": "operate-on-aws",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Operate a live AWS workload with AWS DevOps Agent \u2014 incident investigation, root-cause analysis, and release-readiness review \u2014 for startups with no dedicated DevOps or SRE engineer. Use when a live AWS workload is misbehaving (production is down, 5xx errors, latency spike, timeouts, it broke after the last deploy, an alarm fired, a pasted CloudWatch alarm or stack trace, find the root cause, write a postmortem, no one on call), for pre-merge review (is this PR safe to ship, blast radius), or to set up, pause, stop, or check the cost of AWS DevOps Agent. Detects existing setup first and never re-onboards. Asks one explicit Yes/No covering cost (two-month trial, Activate credits) and account access before any setup; code egress stays off unless asked. Do not use for: new architecture (architect-for-startups), scaffolding (start-building-for-startups), migrations (gcp-to-aws, azure-to-aws, heroku-to-aws, llm-to-bedrock), or general Activate and credits questions (knowledge-base-for-startups).\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/operate-on-aws",
     "activation_cmd": "python .agents/library/activate_skill.py activate operate-on-aws",
     "link_cmd": "python .agents/library/activate_skill.py link operate-on-aws"
@@ -1084,7 +1084,7 @@
     "name": "pentesting-with-aws-security-agent",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Run an AWS Security Agent penetration test against a live web application \u2014 registers and verifies the target domain, exercises the supplied endpoints with the managed Security Agent service, and returns verified runtime findings. Use when the user asks to pentest, run a penetration test, test their app's attack surface, find runtime vulnerabilities, register or verify a target domain, or check pentest status / findings.",
     "path": "library/aws-agent-toolkit-for-aws/skills/pentesting-with-aws-security-agent",
     "activation_cmd": "python .agents/library/activate_skill.py activate pentesting-with-aws-security-agent",
     "link_cmd": "python .agents/library/activate_skill.py link pentesting-with-aws-security-agent"
@@ -1094,7 +1094,7 @@
     "name": "processing-s3-uploads-with-step-functions",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/processing-s3-uploads-with-step-functions",
     "activation_cmd": "python .agents/library/activate_skill.py activate processing-s3-uploads-with-step-functions",
     "link_cmd": "python .agents/library/activate_skill.py link processing-s3-uploads-with-step-functions"
@@ -1104,7 +1104,7 @@
     "name": "prompt-library-for-startups",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"AWS-curated copy-paste prompts for AI coding agents (MVP scaffolding, RAG chatbot with Claude on Bedrock, security baseline evaluation, cost anomaly detection, GPU quota requests, EKS deployment, Well-Architected review, etc.) plus downloadable installable agents (Multi-Account Transition Advisor, Bill Shock Preventer, Service Quota Agent, Bedrock Model Availability Agent, AWS DB Advisor). Use when the user asks for a prompt to do X on AWS, wants an installable agent for multi-account / cost monitoring / quota management / Bedrock model availability / database selection, or asks how to use AWS prompts. For migration intent (GCP to AWS, Azure to AWS, OpenAI/Gemini to Bedrock), route to the migration skills in this plugin (`gcp-to-aws`, `azure-to-aws`, `heroku-to-aws`, `llm-to-bedrock`). Do not use for: factual AWS Activate / programs / credits questions, learn articles, sample architectures, or for prompts that are not in the bundled `references/prompt-library/` tree.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/prompt-library-for-startups",
     "activation_cmd": "python .agents/library/activate_skill.py activate prompt-library-for-startups",
     "link_cmd": "python .agents/library/activate_skill.py link prompt-library-for-startups"
@@ -1114,7 +1114,7 @@
     "name": "querying-aws-cloudwatch",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/querying-aws-cloudwatch",
     "activation_cmd": "python .agents/library/activate_skill.py activate querying-aws-cloudwatch",
     "link_cmd": "python .agents/library/activate_skill.py link querying-aws-cloudwatch"
@@ -1124,7 +1124,7 @@
     "name": "querying-aws-redshift",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/querying-aws-redshift",
     "activation_cmd": "python .agents/library/activate_skill.py activate querying-aws-redshift",
     "link_cmd": "python .agents/library/activate_skill.py link querying-aws-redshift"
@@ -1134,7 +1134,7 @@
     "name": "querying-aws-s3",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/querying-aws-s3",
     "activation_cmd": "python .agents/library/activate_skill.py activate querying-aws-s3",
     "link_cmd": "python .agents/library/activate_skill.py link querying-aws-s3"
@@ -1144,7 +1144,7 @@
     "name": "querying-aws-sagemaker-catalog",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/querying-aws-sagemaker-catalog",
     "activation_cmd": "python .agents/library/activate_skill.py activate querying-aws-sagemaker-catalog",
     "link_cmd": "python .agents/library/activate_skill.py link querying-aws-sagemaker-catalog"
@@ -1154,7 +1154,7 @@
     "name": "querying-data-lake",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/querying-data-lake",
     "activation_cmd": "python .agents/library/activate_skill.py activate querying-data-lake",
     "link_cmd": "python .agents/library/activate_skill.py link querying-data-lake"
@@ -1164,7 +1164,7 @@
     "name": "rds-db2",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Provisions, connects, migrates, and operates Amazon RDS for Db2. Applies when provisioning with IBM customer and site IDs (License Manager, BYOL, GovCloud), connecting over TLS, fixing SQL30082N after Secrets Manager rotation, migration from Db2 LUW (Linux, AIX, Windows, AS400) or z/OS mainframe (ADB2GEN, Q Replication), choosing code page/collation (EBCDIC, CCSID), S3 backup/restore, Multi-AZ and cross-region standby replicas, RDSADMIN procedures, customer-managed KMS BYOK, self-managed Active Directory Kerberos, Db2 audit to S3, minimum IAM, or colocation.",
     "path": "library/aws-agent-toolkit-for-aws/skills/rds-db2",
     "activation_cmd": "python .agents/library/activate_skill.py activate rds-db2",
     "link_cmd": "python .agents/library/activate_skill.py link rds-db2"
@@ -1174,7 +1174,7 @@
     "name": "rds-oracle",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Diagnoses and resolves Amazon RDS for Oracle connectivity, authentication, networking, and driver troubleshooting. Applicable to any RDS-for-Oracle question including connecting a Python Lambda to RDS Oracle in a VPC with pooling and cold-start optimization, EKS pods to RDS Oracle via the Secrets Manager CSI driver with IRSA and SecretProviderClass, ORA-12170 cross-VPC timeouts from EC2, DPI-1047 cannot-locate-64-bit-Oracle-Client errors, and Oracle Connection Manager (CMAN) on EC2 as a proxy with HA across two AZs. Covers python-oracledb thin vs thick mode, init_oracle_client, RDS Proxy does NOT support RDS Oracle, port 1521, VPC peering, Transit Gateway, Kerberos with AWS Managed Microsoft AD, SSL/TLS/NNE, SSM port forwarding, EC2/ECS Fargate/EKS/Lambda, SQL Developer/DBeaver/Toad/SQLcl, and Secrets Manager.",
     "path": "library/aws-agent-toolkit-for-aws/skills/rds-oracle",
     "activation_cmd": "python .agents/library/activate_skill.py activate rds-oracle",
     "link_cmd": "python .agents/library/activate_skill.py link rds-oracle"
@@ -1184,7 +1184,7 @@
     "name": "rds-oss",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Advises on Amazon RDS open-source engines (MySQL, MariaDB, PostgreSQL) for instance creation, upgrade planning, commitment pricing, proxy evaluation, and Blue/Green deployments. Handles any RDS MySQL, MariaDB, or PostgreSQL question, including create a production-ready RDS MySQL instance, provision an RDS PostgreSQL database, run the RDS upgrade advisor for my RDS MySQL instance, what are my upgrade options, upgrade RDS MariaDB from 10.6 to the latest version, should I buy reserved instances or a savings plan for db.r7g.2xlarge RDS MySQL, change a VARCHAR to INT column on RDS MySQL 8.0 with Blue/Green, and does RDS Proxy help when PgBouncer already runs in transaction mode. Covers instance creation with production best practices, describe-db-instances and describe-db-engine-versions upgrade-target workflow, live prechecks via SSM or direct connection, RI versus DSP commitment pricing, RDS Proxy versus PgBouncer, and Blue/Green lifecycle with binlog replay compatibility.",
     "path": "library/aws-agent-toolkit-for-aws/skills/rds-oss",
     "activation_cmd": "python .agents/library/activate_skill.py activate rds-oss",
     "link_cmd": "python .agents/library/activate_skill.py link rds-oss"
@@ -1194,7 +1194,7 @@
     "name": "rds-sqlserver",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Provides connectivity, authentication, and troubleshooting guidance for Amazon RDS for SQL Server. Applicable when users ask about SSMS times out connecting from EC2, Cannot generate SSPI context with Windows auth, connect RDS SQL Server from Lambda with pymssql, auth_scheme shows NTLM instead of KERBEROS on ECS Fargate, SSM tunnel to RDS SQL Server from laptop, port 1433 security group, TrustServerCertificate=True for localhost tunnels, SPN MSSQLSvc, AWS Managed Microsoft AD, CNAME not RDS endpoint for Kerberos, tds_version='7.4', encryption='require', port-as-string for pymssql, Secrets Manager credential caching in Lambda, error 18456 login failed. Covers Python (pymssql, pyodbc), .NET (Microsoft.Data.SqlClient), Java (JDBC mssql-jdbc), Node.js (tedious), IAM auth via RDS Proxy, and VPC/ECS/EKS/Lambda deployment.",
     "path": "library/aws-agent-toolkit-for-aws/skills/rds-sqlserver",
     "activation_cmd": "python .agents/library/activate_skill.py activate rds-sqlserver",
     "link_cmd": "python .agents/library/activate_skill.py link rds-sqlserver"
@@ -1204,7 +1204,7 @@
     "name": "recovery-controller-setup",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/recovery-controller-setup",
     "activation_cmd": "python .agents/library/activate_skill.py activate recovery-controller-setup",
     "link_cmd": "python .agents/library/activate_skill.py link recovery-controller-setup"
@@ -1214,7 +1214,7 @@
     "name": "redshift-guide",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Amazon Redshift is NOT PostgreSQL; corrects LLM mistakes; covers SQL, metadata, connectivity/auth, storage, query performance, and operations. Applies ONLY to Redshift (provisioned or Serverless). Pushes back on: CREATE INDEX, string_agg, pg_catalog, text type, SERIAL, stl_query. Triggers on: Redshift SQL, Redshift CREATE TABLE, Redshift COPY/UNLOAD, slow or suddenly slow Redshift query, EXPLAIN plan, queue wait, stale statistics/ANALYZE, result cache, Redshift permission denied, Redshift disk full, storage growth, snapshot/backup cost, ghost rows/bloat, VACUUM, spill to disk, distribution skew, Redshift system views, QUALIFY, PIVOT, MERGE, materialized views, Redshift Data API (Python/boto3), Redshift workload management (WLM), concurrency scaling, Redshift resize, Spectrum, awsdatacatalog, connection failures (SSL/TLS, ODBC/JDBC, connection limit), IAM/SAML federation, IAM Identity Center, datashares. Does NOT apply to: S3 policies, Athena, Glue/Iceberg outside Redshift, Aurora, RDS, DynamoDB.\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/redshift-guide",
     "activation_cmd": "python .agents/library/activate_skill.py activate redshift-guide",
     "link_cmd": "python .agents/library/activate_skill.py link redshift-guide"
@@ -1224,7 +1224,7 @@
     "name": "remediating-with-aws-security-agent",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/remediating-with-aws-security-agent",
     "activation_cmd": "python .agents/library/activate_skill.py activate remediating-with-aws-security-agent",
     "link_cmd": "python .agents/library/activate_skill.py link remediating-with-aws-security-agent"
@@ -1234,7 +1234,7 @@
     "name": "resilience-hub-failure-mode-assessment",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/resilience-hub-failure-mode-assessment",
     "activation_cmd": "python .agents/library/activate_skill.py activate resilience-hub-failure-mode-assessment",
     "link_cmd": "python .agents/library/activate_skill.py link resilience-hub-failure-mode-assessment"
@@ -1244,7 +1244,7 @@
     "name": "resilience-hub-getting-started",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/resilience-hub-getting-started",
     "activation_cmd": "python .agents/library/activate_skill.py activate resilience-hub-getting-started",
     "link_cmd": "python .agents/library/activate_skill.py link resilience-hub-getting-started"
@@ -1254,7 +1254,7 @@
     "name": "resilience-hub-multi-account",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/resilience-hub-multi-account",
     "activation_cmd": "python .agents/library/activate_skill.py activate resilience-hub-multi-account",
     "link_cmd": "python .agents/library/activate_skill.py link resilience-hub-multi-account"
@@ -1264,7 +1264,7 @@
     "name": "resilience-program-design",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/resilience-program-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate resilience-program-design",
     "link_cmd": "python .agents/library/activate_skill.py link resilience-program-design"
@@ -1274,7 +1274,7 @@
     "name": "route53",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/route53",
     "activation_cmd": "python .agents/library/activate_skill.py activate route53",
     "link_cmd": "python .agents/library/activate_skill.py link route53"
@@ -1284,7 +1284,7 @@
     "name": "routing-traffic-with-route53-and-cloudfront",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Configures Amazon Route 53 to route traffic to a CloudFront distribution using a custom domain. Use when setting up DNS alias records, alternate domain names (CNAMEs), ACM certificates for HTTPS, and IPv6 support for CloudFront.",
     "path": "library/aws-agent-toolkit-for-aws/skills/routing-traffic-with-route53-and-cloudfront",
     "activation_cmd": "python .agents/library/activate_skill.py activate routing-traffic-with-route53-and-cloudfront",
     "link_cmd": "python .agents/library/activate_skill.py link routing-traffic-with-route53-and-cloudfront"
@@ -1294,7 +1294,7 @@
     "name": "running-release-tests",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/running-release-tests",
     "activation_cmd": "python .agents/library/activate_skill.py activate running-release-tests",
     "link_cmd": "python .agents/library/activate_skill.py link running-release-tests"
@@ -1304,7 +1304,7 @@
     "name": "scanning-with-aws-security-agent",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Run an AWS Security Agent scan on the workspace \u2014 uploads the source to AWS, scans it with the managed Security Agent service, and returns ranked, verified findings with code locations and remediations. Use when the user asks to scan code, find vulnerabilities, run a security scan or review, check security issues, check scan status, show findings, list recent scans, or stop a scan.",
     "path": "library/aws-agent-toolkit-for-aws/skills/scanning-with-aws-security-agent",
     "activation_cmd": "python .agents/library/activate_skill.py activate scanning-with-aws-security-agent",
     "link_cmd": "python .agents/library/activate_skill.py link scanning-with-aws-security-agent"
@@ -1314,7 +1314,7 @@
     "name": "securing-s3-buckets",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/securing-s3-buckets",
     "activation_cmd": "python .agents/library/activate_skill.py activate securing-s3-buckets",
     "link_cmd": "python .agents/library/activate_skill.py link securing-s3-buckets"
@@ -1324,7 +1324,7 @@
     "name": "setting-up-cloudtrail-multi-region",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Enables a multi-region AWS CloudTrail trail with S3 log storage, CloudWatch Logs integration, and CloudWatch Logs Insights queries for security monitoring and compliance auditing. Use when setting up centralized API activity logging across all AWS regions.",
     "path": "library/aws-agent-toolkit-for-aws/skills/setting-up-cloudtrail-multi-region",
     "activation_cmd": "python .agents/library/activate_skill.py activate setting-up-cloudtrail-multi-region",
     "link_cmd": "python .agents/library/activate_skill.py link setting-up-cloudtrail-multi-region"
@@ -1334,7 +1334,7 @@
     "name": "setting-up-cloudwatch-alarm-notifications",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Sets up notification channels for CloudWatch alarms using SNS topics and subscriptions. Always use this skill when configuring alarm notifications \u2014 it creates encrypted SNS topics, configures topic policies for CloudWatch access, sets up email/SMS/webhook subscriptions, and links alarms to notification actions with proper security controls.",
     "path": "library/aws-agent-toolkit-for-aws/skills/setting-up-cloudwatch-alarm-notifications",
     "activation_cmd": "python .agents/library/activate_skill.py activate setting-up-cloudwatch-alarm-notifications",
     "link_cmd": "python .agents/library/activate_skill.py link setting-up-cloudwatch-alarm-notifications"
@@ -1344,7 +1344,7 @@
     "name": "setting-up-cloudwatch-observability",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/setting-up-cloudwatch-observability",
     "activation_cmd": "python .agents/library/activate_skill.py activate setting-up-cloudwatch-observability",
     "link_cmd": "python .agents/library/activate_skill.py link setting-up-cloudwatch-observability"
@@ -1354,7 +1354,7 @@
     "name": "setting-up-ec2-instance-profiles",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Configures EC2 instances to securely call AWS services by creating and attaching IAM roles via instance profiles, eliminating hardcoded credentials. Use when an EC2 instance needs permissions to access AWS services like S3, DynamoDB, SQS, or CloudWatch through temporary credentials.",
     "path": "library/aws-agent-toolkit-for-aws/skills/setting-up-ec2-instance-profiles",
     "activation_cmd": "python .agents/library/activate_skill.py activate setting-up-ec2-instance-profiles",
     "link_cmd": "python .agents/library/activate_skill.py link setting-up-ec2-instance-profiles"
@@ -1364,7 +1364,7 @@
     "name": "setup",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Set up the AWS DevOps Agent and AWS Security Agent connections. Use when the user says \"set up\", \"configure\", \"connect\", or when MCP tools are missing.",
     "path": "library/aws-agent-toolkit-for-aws/skills/setup",
     "activation_cmd": "python .agents/library/activate_skill.py activate setup",
     "link_cmd": "python .agents/library/activate_skill.py link setup"
@@ -1374,7 +1374,7 @@
     "name": "setup-devops-agent",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Setup and diagnostics for the AWS DevOps Agent MCP connection. Triggers when aws-devops-agent is missing from .mcp.json, when the connection is broken, or when the user says \"set up devops agent\" / \"configure agent\". Does NOT trigger if the MCP is already connected and working.",
     "path": "library/aws-agent-toolkit-for-aws/skills/setup-devops-agent",
     "activation_cmd": "python .agents/library/activate_skill.py activate setup-devops-agent",
     "link_cmd": "python .agents/library/activate_skill.py link setup-devops-agent"
@@ -1384,7 +1384,7 @@
     "name": "setup-security-agent",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Configure AWS Security Agent for the current workspace \u2014 provision or reuse an agent space, IAM service role, and S3 bucket. Use when the user asks to \"set up security agent\", \"configure security scanner\", \"is security agent configured\", or on first-time use before any scan or pentest.",
     "path": "library/aws-agent-toolkit-for-aws/skills/setup-security-agent",
     "activation_cmd": "python .agents/library/activate_skill.py activate setup-security-agent",
     "link_cmd": "python .agents/library/activate_skill.py link setup-security-agent"
@@ -1394,7 +1394,7 @@
     "name": "shieldadvanced",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/shieldadvanced",
     "activation_cmd": "python .agents/library/activate_skill.py activate shieldadvanced",
     "link_cmd": "python .agents/library/activate_skill.py link shieldadvanced"
@@ -1404,7 +1404,7 @@
     "name": "signing-in-to-aws",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "|",
     "path": "library/aws-agent-toolkit-for-aws/skills/signing-in-to-aws",
     "activation_cmd": "python .agents/library/activate_skill.py activate signing-in-to-aws",
     "link_cmd": "python .agents/library/activate_skill.py link signing-in-to-aws"
@@ -1414,7 +1414,7 @@
     "name": "sitetositevpn",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/sitetositevpn",
     "activation_cmd": "python .agents/library/activate_skill.py activate sitetositevpn",
     "link_cmd": "python .agents/library/activate_skill.py link sitetositevpn"
@@ -1434,7 +1434,7 @@
     "name": "start-building-for-startups",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "\"Interactive discovery + implementation workflow that gathers requirements through picker-based questions (intent, scope, constraints, preferences), scans the codebase for what it can already infer, then writes an AWS architectural scaffold and implementation directly into the project. Use when the user wants to build a new app, scaffold a project, or expand/refactor an existing one on AWS \u2014 anything that calls for a structured discovery flow followed by code changes, not a one-off lookup. Do not use for: factual lookups about AWS Activate / programs / credits, requests for a single copy-paste prompt, non-AWS architectural work, architecture advice/recommendations without code changes (see architect-for-startups), a new idea centered on an AI agent \u2014 runtime selection, agentic architecture, or an agent POC (see agent-advisor), or migrating an existing GCP/Azure/Heroku workload or an LLM SDK rewrite (see gcp-to-aws / azure-to-aws / heroku-to-aws / llm-to-bedrock).\"",
     "path": "library/aws-agent-toolkit-for-aws/skills/start-building-for-startups",
     "activation_cmd": "python .agents/library/activate_skill.py activate start-building-for-startups",
     "link_cmd": "python .agents/library/activate_skill.py link start-building-for-startups"
@@ -1444,7 +1444,7 @@
     "name": "storing-and-querying-vectors",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/storing-and-querying-vectors",
     "activation_cmd": "python .agents/library/activate_skill.py activate storing-and-querying-vectors",
     "link_cmd": "python .agents/library/activate_skill.py link storing-and-querying-vectors"
@@ -1454,7 +1454,7 @@
     "name": "testing-mwaa-workflow",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/testing-mwaa-workflow",
     "activation_cmd": "python .agents/library/activate_skill.py activate testing-mwaa-workflow",
     "link_cmd": "python .agents/library/activate_skill.py link testing-mwaa-workflow"
@@ -1464,7 +1464,7 @@
     "name": "tf-best-practices",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/tf-best-practices",
     "activation_cmd": "python .agents/library/activate_skill.py activate tf-best-practices",
     "link_cmd": "python .agents/library/activate_skill.py link tf-best-practices"
@@ -1474,7 +1474,7 @@
     "name": "threat-modeling-with-aws-security-agent",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Run an AWS Security Agent threat model review on spec/design documents. Use when the user asks to review a spec for security, run a threat model, check if a design introduces security risks, review requirements.md or design.md for security posture changes, or STRIDE analysis.",
     "path": "library/aws-agent-toolkit-for-aws/skills/threat-modeling-with-aws-security-agent",
     "activation_cmd": "python .agents/library/activate_skill.py activate threat-modeling-with-aws-security-agent",
     "link_cmd": "python .agents/library/activate_skill.py link threat-modeling-with-aws-security-agent"
@@ -1484,7 +1484,7 @@
     "name": "timestream-influxdb",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Retrieves authoritative guidance on Amazon Timestream for InfluxDB across its supported engine variants. Applicable to any InfluxDB-on-AWS request including engine variant and licensing selection, provisioning and IAM, encryption at rest (AWS-owned and customer-managed KMS keys, key policies, and key lifecycle), schema design (tags vs fields, cardinality, HTTP/sensor/metric data modeling), migration from LiveAnalytics, Processing Engine plugins, connectivity (database endpoints and private or public access), and write/query errors.",
     "path": "library/aws-agent-toolkit-for-aws/skills/timestream-influxdb",
     "activation_cmd": "python .agents/library/activate_skill.py activate timestream-influxdb",
     "link_cmd": "python .agents/library/activate_skill.py link timestream-influxdb"
@@ -1494,7 +1494,7 @@
     "name": "transitgateway",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/transitgateway",
     "activation_cmd": "python .agents/library/activate_skill.py activate transitgateway",
     "link_cmd": "python .agents/library/activate_skill.py link transitgateway"
@@ -1504,7 +1504,7 @@
     "name": "troubleshooting-application-failures",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": "Troubleshoots failing applications by discovering and analyzing CloudWatch log groups to identify error patterns, root causes, and actionable solutions. Use when an application is experiencing failures and log-based diagnosis is needed.",
     "path": "library/aws-agent-toolkit-for-aws/skills/troubleshooting-application-failures",
     "activation_cmd": "python .agents/library/activate_skill.py activate troubleshooting-application-failures",
     "link_cmd": "python .agents/library/activate_skill.py link troubleshooting-application-failures"
@@ -1514,7 +1514,7 @@
     "name": "troubleshooting-efs",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/troubleshooting-efs",
     "activation_cmd": "python .agents/library/activate_skill.py activate troubleshooting-efs",
     "link_cmd": "python .agents/library/activate_skill.py link troubleshooting-efs"
@@ -1524,7 +1524,7 @@
     "name": "troubleshooting-s3-files",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/troubleshooting-s3-files",
     "activation_cmd": "python .agents/library/activate_skill.py activate troubleshooting-s3-files",
     "link_cmd": "python .agents/library/activate_skill.py link troubleshooting-s3-files"
@@ -1534,7 +1534,7 @@
     "name": "upgrading-mwaa-environments",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/aws-agent-toolkit-for-aws/skills/upgrading-mwaa-environments",
     "activation_cmd": "python .agents/library/activate_skill.py activate upgrading-mwaa-environments",
     "link_cmd": "python .agents/library/activate_skill.py link upgrading-mwaa-environments"
@@ -1544,7 +1544,7 @@
     "name": "waf",
     "repository": "aws-agent-toolkit-for-aws",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/aws-agent-toolkit-for-aws/skills/waf",
     "activation_cmd": "python .agents/library/activate_skill.py activate waf",
     "link_cmd": "python .agents/library/activate_skill.py link waf"

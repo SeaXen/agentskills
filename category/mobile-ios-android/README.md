@@ -1,7 +1,7 @@
 # 📱 Mobile Development (iOS, Android, React Native)
 
 > **Category**: `mobile-ios-android`  
-> **Total Curated Skills**: 222 skills  
+> **Total Curated Skills**: 227 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -46,12 +46,13 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`app-store-screenshots`](../../library/101-skills-superpowers/skills/app-store-screenshots) | ⚪ Reserve | `101-skills-superpowers` | App Store and Google Play screenshot creation with exact platform specs. Covers iOS/Android dim... |
 | [`appfunctions`](../../library/android-skills/skills/appfunctions) | ⚪ Reserve | `android-skills` | Analyzes Android apps to identify key user workflows for AppFunctions |
 | [`apple-crash-symbolication`](../../library/dotnet-skills/skills/apple-crash-symbolication) | ⚪ Reserve | `dotnet-skills` | Symbolicate .NET runtime frames in Apple platform .ips crash logs (iOS, tvOS, Mac Catalyst, mac... |
-| [`apple-hig`](../../library/nexu-io-open-design/skills/apple-hig) | ⚪ Reserve | `nexu-io-open-design` | Apple Human Interface Guidelines as 14 agent skills covering platforms, foundations, components... |
+| [`apple-hig`](../../library/feimacode-open-design-agent-kit/skills/apple-hig) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Apple Human Interface Guidelines as 14 agent skills covering platforms, foundations, components... |
 | [`apple-shortcuts`](../../library/claude-office-skills-skills/skills/apple-shortcuts) | ⚪ Reserve | `claude-office-skills-skills` | Create and trigger Apple Shortcuts for iOS/macOS automation and cross-platform workflows |
 | [`appllama-usage`](../../library/appllama-appllama-skills/skills/appllama-usage) | ⚪ Reserve | `appllama-appllama-skills` | Use the Appllama MCP (mcp.appllama.io) well — research real top-grossing mobile apps, their scr... |
 | [`asc-shots-pipeline`](../../library/rorkai-app-store-connect-cli-skills/skills/asc-shots-pipeline) | ⚪ Reserve | `rorkai-app-store-connect-cli-skills` | Orchestrate iOS screenshot automation with xcodebuild/simctl for build-run, AXe for UI actions,... |
 | [`asc-wall-submit`](../../library/rorkai-app-store-connect-cli-skills/skills/asc-wall-submit) | ⚪ Reserve | `rorkai-app-store-connect-cli-skills` | Submit or update a Wall of Apps entry in the App-Store-Connect-CLI repository using `asc apps w... |
 | [`asc-xcode-build`](../../library/rorkai-app-store-connect-cli-skills/skills/asc-xcode-build) | ⚪ Reserve | `rorkai-app-store-connect-cli-skills` | Build, archive, export, and manage Xcode version/build numbers with asc, including portable iOS... |
+| [`audit-expo-skill`](../../library/clerk-skills/skills/audit-expo-skill) | ⚪ Reserve | `clerk-skills` | Audits the bundled `clerk-expo` skill against the @clerk/expo SDK source and clerk-docs, then p... |
 | [`author-game-levels`](../../library/mengto-skills/skills/author-game-levels) | ⚪ Reserve | `mengto-skills` | Author or revise readable, flat-world Three.js game levels. Use for movement and camera routes,... |
 | [`aws-messaging-and-streaming`](../../library/aws-agent-toolkit-for-aws/skills/aws-messaging-and-streaming) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Guides general use of AWS messaging and streaming services. Covers Amazon SQS, Amazon SNS, Amaz... |
 | [`aws-sdk-swift-usage`](../../library/aws-agent-toolkit-for-aws/skills/aws-sdk-swift-usage) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | AWS SDK for Swift development patterns. Use when writing Swift code that uses AWS services via ... |
@@ -115,6 +116,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`flutter-implement-json-serialization`](../../library/flutter-agent-plugins/skills/flutter-implement-json-serialization) | ⚪ Reserve | `flutter-agent-plugins` | Create model classes with `fromJson` and `toJson` methods using `dart:convert`. Use when manual... |
 | [`flutter-setup-declarative-routing`](../../library/flutter-agent-plugins/skills/flutter-setup-declarative-routing) | ⚪ Reserve | `flutter-agent-plugins` | Configure `MaterialApp.router` using a package like `go_router` for advanced URL-based navigati... |
 | [`flutter-setup-localization`](../../library/flutter-agent-plugins/skills/flutter-setup-localization) | ⚪ Reserve | `flutter-agent-plugins` | Add `flutter_localizations` and `intl` dependencies, enable "generate true" in `pubspec.yaml`, ... |
+| [`gamified-app`](../../library/feimacode-open-design-agent-kit/skills/gamified-app) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A multi-frame gamified mobile-app prototype — three phone frames on a dark showcase stage. Fram... |
 | [`gesture-patterns`](../../library/owl-listener-designer-skills/skills/gesture-patterns) | ⚪ Reserve | `owl-listener-designer-skills` | Design gesture interactions for touch and pointer — swipe, drag, long-press, and their discover... |
 | [`glance-appwidget-updates-and-memory`](../../library/android-skills/skills/glance-appwidget-updates-and-memory) | ⚪ Reserve | `android-skills` | Manages Android AppWidget state updates, background syncs, and RemoteViews |
 | [`google-mobile-ads-android-migrate-to-next-gen`](../../library/google-skills/skills/google-mobile-ads-android-migrate-to-next-gen) | ⚪ Reserve | `google-skills` | Migrates Android applications from the old, legacy Google Mobile |
@@ -151,7 +153,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`limrun-xcode-bazel`](../../library/limrun-inc-skills/skills/limrun-xcode-bazel) | ⚪ Reserve | `limrun-inc-skills` | Legacy: build a Bazel iOS app with `lim xcode rbe` on a dedicated Xcode sandbox and install it ... |
 | [`liquid-glass-design`](../../library/affaan-m-ecc/skills/liquid-glass-design) | ⚪ Reserve | `affaan-m-ecc` | iOS 26 Liquid Glass design system — dynamic glass material with blur, reflection, and interacti... |
 | [`litert-runtime`](../../library/android-skills/skills/litert-runtime) | ⚪ Reserve | `android-skills` | Configures and implements LiteRT (.tflite) on-device inference on Android |
-| [`login-flow`](../../library/nexu-io-open-design/skills/login-flow) | ⚪ Reserve | `nexu-io-open-design` | Mobile login and authentication flow screens |
+| [`login-flow`](../../library/feimacode-open-design-agent-kit/skills/login-flow) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Mobile login and authentication flow screens |
 | [`lsfg-android-frame-generation`](../../library/reason-machines-trending-skills/skills/lsfg-android-frame-generation) | ⚪ Reserve | `reason-machines-trending-skills` | Skill for building, configuring, and extending LSFG-Android — a Vulkan frame-generation overlay... |
 | [`mapkit`](../../library/dpearson2699-swift-ios-skills/skills/mapkit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Implement, review, or improve maps and location features in iOS/macOS apps using MapKit and Cor... |
 | [`market-top-detector`](../../library/tradermonty-claude-trading-skills/skills/market-top-detector) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Assesses heuristic market top risk using O'Neil Distribution Days, Minervini Leading Stock Dete... |
@@ -170,6 +172,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`mobile-first-design`](../../library/aj-geddes-useful-ai-prompts/skills/mobile-first-design) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Design for mobile devices first, then scale up to larger screens. Create responsive interfaces ... |
 | [`mobile-games`](../../library/davila7-claude-code-templates/skills/mobile-games) | ⚪ Reserve | `davila7-claude-code-templates` | Mobile game development principles. Touch input, battery, performance, app stores. |
 | [`mobile-ios-design`](../../library/wshobson-agents/skills/mobile-ios-design) | ⚪ Reserve | `wshobson-agents` | Master iOS Human Interface Guidelines and SwiftUI patterns for building native iOS apps. Use wh... |
+| [`mobile-onboarding`](../../library/feimacode-open-design-agent-kit/skills/mobile-onboarding) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A multi-screen mobile onboarding flow rendered as three phone frames side by side — splash, val... |
 | [`mobile-platform-native-capabilities-integrate`](../../library/forcedotcom-sf-skills/skills/mobile-platform-native-capabilities-integrate) | ⚪ Reserve | `forcedotcom-sf-skills` | Build a Salesforce LWC that uses native mobile device capabilities — barcode scanner, biometric... |
 | [`mobile-security-coder`](../../library/antigravity-awesome-skills/skills/mobile-security-coder) | ⚪ Reserve | `antigravity-awesome-skills` | Expert in secure mobile coding practices specializing in input |
 | [`mobile-ssl-pinning-bypass`](../../library/yaklang-hack-skills/skills/mobile-ssl-pinning-bypass) | ⚪ Reserve | `yaklang-hack-skills` | Mobile SSL pinning bypass playbook. Use when intercepting HTTPS traffic from mobile application... |
@@ -177,6 +180,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`natural-language`](../../library/dpearson2699-swift-ios-skills/skills/natural-language) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Tokenize, tag, and analyze natural language text using Apple's NaturalLanguage framework and tr... |
 | [`network-config-validation`](../../library/affaan-m-ecc/skills/network-config-validation) | ⚪ Reserve | `affaan-m-ecc` | Pre-deployment checks for router and switch configuration, including dangerous commands, duplic... |
 | [`open-autoglm-phone-agent`](../../library/reason-machines-trending-skills/skills/open-autoglm-phone-agent) | ⚪ Reserve | `reason-machines-trending-skills` | Expert skill for Open-AutoGLM, an AI phone agent framework that controls Android/HarmonyOS/iOS ... |
+| [`open-design-site-audit`](../../library/feimacode-open-design-agent-kit/skills/open-design-site-audit) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Audit a live website with Open Design's own checks — contrast, tap targets, phone layout, large... |
 | [`orca-emulator`](../../library/stablyai-orca/skills/orca-emulator) | ⚪ Reserve | `stablyai-orca` | iOS Simulator control from inside Orca, with the live device view in Orca's emulator pane. Use ... |
 | [`paid-ads-review`](../../library/nowork-studio-notfair-plugin/skills/paid-ads-review) | ⚪ Reserve | `nowork-studio-notfair-plugin` | Produce a read-only, evidence-based paid-media performance review across connected platforms or... |
 | [`paid-landing-page-audit`](../../library/mbfinotti-advertising-skills/skills/paid-landing-page-audit) | ⚪ Reserve | `mbfinotti-advertising-skills` | Audit a landing page receiving paid traffic against post-click conversion best practice and ret... |
@@ -189,7 +193,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`performing-mobile-device-forensics-with-cellebrite`](../../library/mukul975-anthropic-cybersecurity-skills/skills/performing-mobile-device-forensics-with-cellebrite) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Acquire and analyze mobile device data using Cellebrite UFED Touch/4PC, UFED Physical Analyzer,... |
 | [`phoneclaw-ios-ai-agent`](../../library/reason-machines-trending-skills/skills/phoneclaw-ios-ai-agent) | ⚪ Reserve | `reason-machines-trending-skills` | name: phoneclaw-ios-ai-agent |
 | [`platform-conventions`](../../library/owl-listener-designer-skills/skills/platform-conventions) | ⚪ Reserve | `owl-listener-designer-skills` | Design to iOS and Android conventions — what each OS mandates, where they diverge, and when to ... |
-| [`platform-design`](../../library/nexu-io-open-design/skills/platform-design) | ⚪ Reserve | `nexu-io-open-design` | 300+ design rules from Apple HIG, Material Design 3, and WCAG 2.2 for cross-platform apps. Usef... |
+| [`platform-design`](../../library/feimacode-open-design-agent-kit/skills/platform-design) | ⚪ Reserve | `feimacode-open-design-agent-kit` | 300+ design rules from Apple HIG, Material Design 3, and WCAG 2.2 for cross-platform apps. Usef... |
 | [`play-billing-library-version-upgrade`](../../library/android-skills/skills/play-billing-library-version-upgrade) | ⚪ Reserve | `android-skills` | Use this skill when upgrading or migrating an Android project from any |
 | [`pokeclaw-android-ai-agent`](../../library/reason-machines-trending-skills/skills/pokeclaw-android-ai-agent) | ⚪ Reserve | `reason-machines-trending-skills` | PokeClaw (PocketClaw) — on-device Android AI phone agent using Gemma 4 via LiteRT-LM with tool ... |
 | [`post-formatter`](../../library/charlie947-social-media-skills/skills/post-formatter) | ⚪ Reserve | `charlie947-social-media-skills` | Turn a topic into a ready-to-publish LinkedIn post using PAS, AIDA, BAB, STAR, or SLAY framewor... |
@@ -240,4 +244,5 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`vpn-detector-android`](../../library/reason-machines-trending-skills/skills/vpn-detector-android) | ⚪ Reserve | `reason-machines-trending-skills` | name: vpn-detector-android |
 | [`weatherkit`](../../library/dpearson2699-swift-ios-skills/skills/weatherkit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Fetch WeatherKit current, minute, hourly, and daily forecasts; weather alerts; iOS 18+ changes,... |
 | [`web-review`](../../library/sickn33-agentic-awesome-skills/skills/web-review) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Review a website or landing page and list what to fix, most important first: message, generic A... |
+| [`wireframe-mobile-flow`](../../library/feimacode-open-design-agent-kit/skills/wireframe-mobile-flow) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A lo-fi multi-screen MOBILE flow wireframe — three or four phone frames laid out in a row on a ... |
 | [`youtube-thumbnail-design`](../../library/101-skills-superpowers/skills/youtube-thumbnail-design) | ⚪ Reserve | `101-skills-superpowers` | YouTube thumbnail design with specific dimensions, contrast rules, and mobile preview optimizat... |

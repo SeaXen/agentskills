@@ -1,0 +1,221 @@
+# Memory Surface
+
+Five files carry what the vault remembers between sessions: `index.md`, `log.md`, `hot.md`, and two tables under `_meta/`. This page covers what they are, who writes them, and how a session picks them up. For command flags, see [CLI Reference → Memory surface](cli.md#memory-surface).
+
+## The problem this solves
+
+These files used to be maintained by prose. Fifteen-odd skills each restated "append a line to the log, add the new pages to the index, rewrite the hot cache" in their own words, rewrote the files wholesale, and took no lock.
+
+Two consequences, both real:
+
+- **Parallel writers dropped updates.** A batch ingest fan-out, or the Dockerized server writing a vault a local skill also has open, is a plain read-modify-write race. Whichever write landed second won, and the first vanished with no error.
+- **Documented rules were not rules.** The `~500-word` cap on `hot.md` appeared in five places and was enforced in none.
+
+![Before and after the memory writer](images/memory-architecture.png)
+
+Now one code path handles all five files, serialised by the same advisory lock the manifest writer uses and written atomically via `os.replace`. Nothing torn, nothing dropped.
+
+## The one call you usually want
+
+After any write operation:
+
+```bash
+obsidian-wiki memory sync INGEST source="papers/attention.pdf" pages_created=3
+```
+
+That appends the log line, reconciles the index against the pages actually on disk, and regenerates the hot cache — **all under one lock**, so another writer cannot interleave between the three and leave a snapshot describing a vault state that never existed.
+
+![The memory commands in a terminal](images/memory-cli-session.png)
+
+## What is generated and what is yours
+
+This is the distinction that matters most in daily use.
+
+| File | Written by | Your part |
+|---|---|---|
+| `log.md` | `memory log` / `memory sync` | Nothing — append-only history |
+| `index.md` | `memory index` / `memory sync` | Any section whose heading is not a category |
+| `hot.md` | `memory hot` / `memory sync` | `## Key Takeaways` |
+| `_meta/profile.md` | `memory profile set` | Hand edits round-trip |
+| `_meta/todos.md` | `memory todo add` | Hand edits round-trip |
+
+**`index.md` is reconciled, not overwritten.** One section per category is regenerated from disk. The preamble and any section whose heading is not a category are preserved verbatim — a hand-written "Reading queue" survives, a stale entry for a deleted page does not.
+
+**Sub-wikis can be linked instead of inlined.** Add `index_folder_hubs: true` to the frontmatter of the root `index.md` and any folder that has its own `index.md` is listed once, as a link to that index with a page count, rather than page by page. Nested hubs collapse into the outermost one. This keeps the root index small in a vault made of per-project sub-wikis, and the setting travels with the vault because it lives in the file it controls.
+
+**`hot.md` is generated except for one slot.** `## Key Takeaways` is where a model records what it concluded, and it carries across every rebuild unless `--takeaways` replaces it. Everything else in that file is derived, and hand edits to it are overwritten.
+
+![The generated hot cache](images/memory-hot-cache.png)
+
+The word cap is real. It defaults to 500, overridable with `OBSIDIAN_HOT_MAX_WORDS`, and counts content only — frontmatter and the generated-file note do not spend the budget. Over budget, sections drop in increasing order of value: activity lines first, then contradictions, then threads, and the takeaways are truncated last, because they are the only part written on purpose.
+
+## Timestamps and the vault's timezone
+
+Every stamp the writer puts in a vault — the bracketed time on a log line, `updated:` on `hot.md`, the dates on profile facts and todos, the adoption record, backup directory names — comes from one clock. By default it is UTC in the `Z` spelling (`2026-10-10T18:40:37Z`), which is what the writer has always produced.
+
+A vault can name its own zone in the frontmatter of `index.md` (`obsidian-wiki setup --timezone America/Detroit` writes it, and a brand-new vault created on a terminal is asked once):
+
+```yaml
+---
+title: Wiki Index
+timezone: America/Detroit
+---
+```
+
+From then on every new stamp carries that zone's offset for its own instant (`2026-10-10T14:40:37-04:00`, and `-05:00` once daylight saving ends), and a bare date is the calendar day there rather than in UTC — the difference that files an evening's work under tomorrow's date for anyone west of Greenwich. The key lives in the file it governs, like `index_folder_hubs`, so it travels with the vault and applies to the CLI, the server, and the Python API alike, whichever `.env` they resolved; `memory index` preserves the frontmatter, so it survives every rebuild. A misspelled zone fails the write with the name in the error instead of writing UTC under a local label.
+
+Skills write their own `created:` and `updated:` into pages. `obsidian-wiki memory now` prints the stamp to use (`--date` for the bare form), so an agent never has to know which zone the vault is in.
+
+The key governs new writes. To bring the vault's history along, `obsidian-wiki memory timezone America/Detroit` previews, per file, every existing stamp that would change — frontmatter, log lines, `hot.md`, page bodies, each converted by its own instant — and `--apply` copies every file it will touch to `_archives/pre-timezone-migration-<stamp>/`, records the key, rewrites the files, and logs one `TIMEZONE` line. Bare dates and naive stamps are left alone and counted; `--skip GLOB` protects a file whose stamps are quoted source text; a second run changes nothing. Details and flags in [CLI Reference → Timestamps](cli.md#timestamps).
+
+## Adopting an existing vault
+
+If your vault predates this writer, its memory files are hand-curated and **nothing overwrites them until you say so.**
+
+`index.md` and `hot.md` are written only when they carry a `generated_by` marker. Without it the guard refuses, and `memory sync` writes just the log line — append-only, always safe — then reports what it skipped. A vault created by `setup` is born marked, so this only affects upgrades.
+
+```bash
+obsidian-wiki memory migrate            # preview — changes nothing
+obsidian-wiki memory migrate --apply    # back up to _archives/, then adopt
+```
+
+![The migration preview](images/memory-migrate.png)
+
+What migration guarantees:
+
+- **A timestamped backup first**, under `_archives/pre-memory-migration-<ts>/`. Everything the generator cannot reconstruct is recoverable from it.
+- **Your sections keep their position.** The generated catalog is appended below them, in their original order. A custom table, a Quick Reference code block, a bespoke preamble — all preserved verbatim.
+- **Narrative threads become todos.** A hand-written `## Active Threads` list is parsed into the todo index before the rebuild, so that prose survives as live entries rather than being replaced by "no open threads". Skipped entirely if you already have todos.
+- **Key Takeaways carry across**, as they do on every rebuild.
+
+Adoption is recorded in `_meta/.memory-adopted`, not only in the files themselves. A skill that still rewrites `hot.md` by hand drops the per-file marker, and without the vault-level record the next sync would refuse as if the vault had never been migrated. Delete that file to re-arm the guard, for instance after restoring a curated `index.md` from `_archives/`.
+
+`obsidian-wiki doctor` reports migration state, so an upgraded install surfaces it on its own.
+
+## Owner profile and todo index
+
+Two tables under `_meta/`, both created empty by `setup`.
+
+```bash
+obsidian-wiki memory profile set stack "Python, FastAPI, Postgres" --confidence 0.85
+obsidian-wiki memory todo add "Persist the retrieval index" --origin projects/obsidian-wiki.md
+obsidian-wiki memory todo done t1
+```
+
+They are markdown tables so Obsidian renders them and you can edit them in place; the parser round-trips hand edits, including values containing a literal `|`.
+
+Three rules worth knowing:
+
+- **Only record what the user actually told you.** A durable fact about a person should never be inferred from a document that was ingested — that is the document's content, and it belongs on a page.
+- **Confidence is the writer's own calibration**, not a measurement. Stated outright is around 0.9; inferred from one session's behaviour is around 0.5.
+- **Time-bound facts take `--until YYYY-MM-DD`.** "Exams this weekend" drops out of the session recap once the date passes instead of being repeated for months; the row stays in the table until you `forget` it.
+- **Staleness is reported, never enforced.** An open thread untouched for 30 days is flagged in `memory todo list` and in the recap. Nothing closes it on your behalf.
+
+### Who writes them
+
+`wiki-capture` is the loop that keeps these alive. It proposes profile facts and open threads from a conversation under the same KEEP/SKIP discipline it already uses for pages, so the profile fills in as you work rather than needing hand-entry.
+
+Two rules it enforces, both worth repeating:
+
+- **Only what the user actually told you**, directly or by clear demonstration. A fact inferred from an ingested document is that document's content and belongs on a page.
+- **Stable, not incidental.** "Uses Postgres" is a fact. "Ran a migration today" is an event, and belongs in the log.
+
+## Session lifecycle
+
+Two hooks bracket a session. One injects memory at the start, the other captures it at the end.
+
+`obsidian-wiki setup` registers both. To check them, or to wire them up after `setup --no-hooks`:
+
+```bash
+obsidian-wiki hooks status
+obsidian-wiki hooks install
+```
+
+![Session lifecycle](images/memory-session-lifecycle.png)
+
+`wiki-session-recap.sh` runs at SessionStart and prints the profile, open threads, and recent activity, which Claude Code adds to the session's context. Before it existed, every session started blind and the model had to remember to go read `hot.md`, which it mostly did not. On a vault that has been set up but not used yet, it prints a one-line "Getting started" hint (capture, ingest, query) instead, until the first real write.
+
+`wiki-stop-capture.sh` runs at Stop and nudges a `/wiki-capture --quick` when the session changed anything.
+
+`wiki-prompt-recall.sh` is an opt-in third hook, at UserPromptSubmit. On each prompt it adds up to 4 note links with their summaries, or nothing when no note clearly matches, which is most of the time. A note counts only when at least two words of the prompt match its title, aliases, tags, or summary. It is not installed by default because it touches every turn:
+
+```bash
+obsidian-wiki hooks install --only UserPromptSubmit
+```
+
+**Neither hook can fail a session.** Every error path — no vault configured, package not importable, vault directory missing, slow filesystem — exits 0 with no output. A hook that breaks session startup is worse than a hook that contributes nothing.
+
+The cost of that silence is that a missing registration or an unreachable package is invisible from inside a session. `obsidian-wiki hooks status` and `doctor` both check for it, and `WIKI_RECAP_DEBUG=1` makes the recap hook say why it exited.
+
+Tune or disable per session:
+
+| Variable | Default | Effect |
+|---|---|---|
+| `WIKI_SESSION_RECAP` | *(on)* | `false` skips recap injection |
+| `WIKI_RECAP_MAX_WORDS` | `350` | Word budget for the injected block |
+| `WIKI_RECAP_MIN_CONFIDENCE` | `0.0` | Drop profile facts below this confidence |
+| `WIKI_RECAP_TIMEOUT` | `10` | Seconds before the recap is abandoned |
+| `WIKI_RECAP_PROJECT` | *(auto)* | Override the scoped project (default: git repo name) |
+| `WIKI_STOP_CAPTURE` | *(on)* | `false` skips the end-of-session capture nudge |
+| `WIKI_PROMPT_RECALL` | *(on once registered)* | `false` silences the opt-in per-prompt recall hook |
+| `WIKI_RECALL_TIMEOUT` | `5` | Seconds before a per-prompt recall is abandoned |
+
+`HIVEMIND_CAPTURE=false` is the older spelling of `WIKI_STOP_CAPTURE=false` and is still honoured.
+
+The injected block is framed as reference data, not instructions. It describes the user and their open work; it is not a channel for telling the agent what to do.
+
+## Keeping it honest in CI
+
+`--check` reports drift and exits **2** without writing, so a job can fail on a stale index without a bot committing to the vault. Exit 1 stays reserved for bad input, so a caller can tell the two apart.
+
+![The check gate](images/memory-check-gate.png)
+
+```yaml
+- name: Vault index is current
+  run: obsidian-wiki memory index --check --vault ./vault
+```
+
+`memory status --json` gives the same picture as a document: index drift, log size, hot-cache budget, profile and todo counts.
+
+## From Python
+
+```python
+from obsidian_wiki import Memory
+
+memory = Memory("~/brain", user_id="alice")
+memory.add("Postgres was chosen for partial indexes.")
+memory.recap()
+```
+
+`user_id` namespaces the profile and todo list so one vault can serve several people; pages stay shared. Full reference, and an honest comparison with the vector-store memory layers, in [Python API](python-api.md).
+
+## For remote agents
+
+The Dockerized server exposes the same surface, so an agent that reaches the vault over HTTP or MCP gets memory rather than just search.
+
+| MCP tool | REST | Purpose |
+|---|---|---|
+| `memory_recap` | `GET /v1/memory/recap` | Call at session start; takes `project` |
+| `memory_profile` | `GET`/`POST /v1/memory/profile` | `list` / `set` / `forget` |
+| `memory_todo` | `GET`/`POST /v1/memory/todos` | `list` / `add` / `done` / `drop` |
+| `memory_sync` | `POST /v1/memory/sync` | Reconcile after writes, under one lock |
+
+`memory_sync` returns **409** on an unmigrated vault rather than clobbering it, matching the CLI's refusal. Page writes through the API now go through the shared writer too, so they produce the same parseable log line as every other operation.
+
+## For skill authors
+
+If your skill writes to the vault, end it with `memory sync`. If it only reads, the **only** write you may perform is the log line:
+
+```bash
+obsidian-wiki memory log QUERY query="how do transformers work" result_pages=4
+```
+
+Do not touch `index.md`, `hot.md`, `_insights.md`, or `.manifest.json` from a read-only skill.
+
+The full procedure, including the verb list and the profile/todo rules, is in [`.skills/llm-wiki/references/MEMORY.md`](../.skills/llm-wiki/references/MEMORY.md).
+
+## Related
+
+- [CLI Reference → Memory surface](cli.md#memory-surface) — every flag
+- [Architecture](architecture.md) — where this sits in the ingest pipeline
+- [Configuration](configuration.md#session-hooks) — the hook variables

@@ -30,7 +30,7 @@ var init_temml = __esm({
 
 // src/cli.js
 import { parseArgs } from "node:util";
-import { readFileSync as readFileSync10, writeFileSync as writeFileSync8, mkdirSync as mkdirSync6, existsSync as existsSync8, rmSync as rmSync7, statSync as statSync5 } from "node:fs";
+import { readFileSync as readFileSync10, writeFileSync as writeFileSync8, mkdirSync as mkdirSync6, existsSync as existsSync8, rmSync as rmSync7, statSync as statSync6 } from "node:fs";
 
 // src/assets.js
 var VERSION = "0.5.10";
@@ -43,6 +43,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 code, pre, kbd { font-family: var(--font-mono); }
+/* Korean is written with spaces between words, so break lines at the spaces, not between syllables. A word longer than the line still breaks. */
+:lang(ko) { word-break: keep-all; overflow-wrap: break-word; }
+:lang(ko) :is(pre, code, kbd), :is(pre, code, kbd):lang(ko) { word-break: normal; overflow-wrap: normal; }
 
 /* \u2500\u2500 Toolbar \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 */
 .am-toolbar {
@@ -232,7 +235,10 @@ body.am-has-reply-bar { padding-block-end: 72px; }
 }
 
 /* \u2500\u2500 Status badges ok / no / warn \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 */
-.am-status { white-space: nowrap; font-weight: 500; }
+/* A long note wraps beside its icon, so it does not push the table past a narrow panel; one long word breaks too (break-word, not anywhere, which would let a table squeeze its columns to one word per line). The note is one flex item, so the spaces around its inline tags stay. */
+.am-status { display: inline-flex; align-items: flex-start; max-width: 100%; font-weight: 500; }
+.am-status-icon { flex: none; }
+.am-status-text { min-width: 0; overflow-wrap: break-word; }
 .am-status--ok { color: var(--ok); }
 .am-status--no { color: var(--err); }
 .am-status--warn { color: var(--warn); }
@@ -637,6 +643,27 @@ table.am-mark { background: none; }
 @media print { .am-remark-pop { display: none !important; } }
 `;
 var RUNTIME_JS = "(() => {\n// How a formula reads in a quote. MathML has no plain text, so src/math.js writes the formula as the draft wrote it, delimiters included, in\n// data-am-tex on the <math> element, and the Remark and Reply scripts read page text through this file. On a page without math there is no\n// such element, so formulaOf is null and every text comes out as it did before.\n// A plain ES module for tests; the page gets it with its `export` keyword dropped (src/runtime/compose.js).\n\nconst TEX = 'data-am-tex';\n\n// The formula that holds a node, or null.\nconst formulaOf = (node) => node.parentElement?.closest(`[${TEX}]`) ?? null;\n\nconst firstText = (el) => {\n  for (const child of el.childNodes) {\n    const found = child.nodeType === 3 ? child : firstText(child);\n    if (found) return found;\n  }\n  return null;\n};\n\n// What a text node adds to a quote: its data. The first text node of a formula adds the formula, and the others add nothing.\n// (A formula in an error style is plain text with its delimiters, not a <math>, so it comes out once.)\nfunction nodeText(node) {\n  const math = formulaOf(node);\n  if (!math) return node.data;\n  return firstText(math) === node ? math.getAttribute(TEX) : '';\n}\n\n// The text of a node as textContent reads it, but with each formula as written.\nconst textWithMath = (node) => (node.nodeType === 3 ? nodeText(node) : [...node.childNodes].map(textWithMath).join(''));\n\n(() => {\n  const root = document.documentElement;\n  // A host that serves this page inside its own document leaves the real root without the page's settings. The toolbar keeps a copy;\n  // set back what the root lacks, before anything below reads the root. A root's own value, even an empty one, is never replaced.\n  const carrier = document.querySelector('.am-toolbar');\n  for (const [attr, key] of [['lang', 'data-am-root-lang'], ['dir', 'data-am-root-dir'], ['data-theme', 'data-am-root-theme'], ['data-mode', 'data-am-root-mode'], ['data-style', 'data-am-root-style']]) {\n    if (root.getAttribute(attr) === null && carrier?.getAttribute(key) != null) root.setAttribute(attr, carrier.getAttribute(key));\n  }\n  // Each toolbar list sets one root attribute; its options name the values, so the runtime names no theme or mode.\n  for (const [name, attr] of [['theme', 'data-theme'], ['mode', 'data-mode']]) {\n    const select = document.querySelector(`select[data-am=\"${name}\"]`);\n    if (!select) continue;\n    select.value = root.getAttribute(attr);\n    select.addEventListener('change', () => root.setAttribute(attr, select.value));\n  }\n\n  // \u2500\u2500 Text size \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n  // A\u2212 / A+ set --am-scale on the root; every page size and line (src/themes/type-scale.js) follows it, and the drawing boxes grow\n  // with it while their viewBox keeps the units Node measured. The buttons carry the range from SCALE, so this script keeps no\n  // second copy of the numbers. A reader's choice is remembered in this browser and wins over the page's own scale; where storage\n  // is off (am serve, file://) it lasts for this tab, and the click still works.\n  const scaleDown = document.querySelector('[data-am=\"scale-down\"]');\n  const scaleUp = document.querySelector('[data-am=\"scale-up\"]');\n  if (scaleDown && scaleUp) {\n    const min = Number(scaleDown.dataset.min);\n    const max = Number(scaleDown.dataset.max);\n    const step = Number(scaleDown.dataset.step);\n    const storeKey = 'am-scale';\n    let value;\n\n    const inRange = (n) => Number.isFinite(n) && n >= min && n <= max;\n    const savedScale = () => {\n      try {\n        return Number(localStorage.getItem(storeKey));\n      } catch {\n        return NaN;\n      }\n    };\n    const saveScale = (n) => {\n      try {\n        localStorage.setItem(storeKey, String(n));\n      } catch {\n        // Storage may be off (am serve, file://); the size then lasts until the tab closes.\n      }\n    };\n\n    const updateButtons = () => {\n      const setUnavailable = (btn, unavailable) => {\n        if (unavailable) btn.setAttribute('aria-disabled', 'true');\n        else btn.removeAttribute('aria-disabled');\n      };\n      setUnavailable(scaleDown, value <= min);\n      setUnavailable(scaleUp, value >= max);\n    };\n\n    // One step is a multiple of `step`: Math.round first, then two decimals, so 1.1500000000000001 becomes 1.15.\n    const setScale = (next, remember = false) => {\n      value = Math.min(max, Math.max(min, Number((Math.round(next / step) * step).toFixed(2))));\n      root.style.setProperty('--am-scale', String(value));\n      for (const svg of document.querySelectorAll('.am-diagram:not(.am-lightbox-canvas) > svg[role=\"img\"]')) {\n        const box = svg.viewBox?.baseVal;\n        if (!box || !(box.width > 0) || !(box.height > 0)) continue;\n        svg.setAttribute('width', String(Math.ceil(box.width * value)));\n        svg.setAttribute('height', String(Math.ceil(box.height * value)));\n      }\n      updateButtons();\n      if (remember) saveScale(value);\n      window.dispatchEvent(new Event('am-scale'));\n    };\n\n    // A page with no stored choice is left exactly as it was rendered: no inline variable, no svg rewrite, no extra layout pass.\n    value = parseFloat(getComputedStyle(root).getPropertyValue('--am-scale')) || 1;\n    updateButtons();\n    const saved = savedScale();\n    if (inRange(saved) && saved !== value) setScale(saved);\n    scaleDown.hidden = false;\n    scaleUp.hidden = false;\n    scaleDown.addEventListener('click', () => {\n      if (scaleDown.getAttribute('aria-disabled') === 'true') return;\n      setScale(value - step, true);\n    });\n    scaleUp.addEventListener('click', () => {\n      if (scaleUp.getAttribute('aria-disabled') === 'true') return;\n      setScale(value + step, true);\n    });\n  }\n\n  // A phone cannot show the whole toolbar. Its end (Reply, Remark, Copy source) is what a phone showed before the text-size\n  // buttons, so open at that end: Theme, Mode and A\u2212 / A+ are reached by scrolling toward the start. A reader scroll leaves the\n  // position we set, so a later resize does not pull the toolbar back.\n  if (carrier) {\n    const rtl = getComputedStyle(carrier).direction === 'rtl';\n    let lastProgrammatic = null;\n    let readerScrolled = false;\n    const scrollToEnd = () => {\n      if (carrier.scrollWidth <= carrier.clientWidth) return;\n      // Chrome keeps a right-to-left box's scrollLeft negative; the browser clamps either value to the real end.\n      carrier.scrollTo({ left: rtl ? -carrier.scrollWidth : carrier.scrollWidth });\n      lastProgrammatic = carrier.scrollLeft;\n    };\n    carrier.addEventListener('scroll', () => {\n      if (Math.abs(carrier.scrollLeft - lastProgrammatic) > 1) readerScrolled = true;\n    });\n    scrollToEnd();\n    addEventListener('resize', () => {\n      if (!readerScrolled) scrollToEnd();\n    });\n  }\n\n  const copyText = async (text) => {\n    try {\n      await navigator.clipboard.writeText(text);\n    } catch {\n      const ta = Object.assign(document.createElement('textarea'), { value: text });\n      document.body.append(ta);\n      ta.select();\n      document.execCommand('copy');\n      ta.remove();\n    }\n  };\n  // A button reads its label from data-done for a moment after a copy, then comes back to the label it started from. That label is\n  // read once, here: a second click inside the moment would otherwise read the copied label off the button and restore that instead,\n  // and the label would never come back. The moment starts again on each click: the timer of the previous one is left to fire and\n  // does nothing (a token, so this needs no timer bookkeeping the page scripts do not already have).\n  const flasher = (btn) => {\n    const idle = btn.textContent;\n    let clicks = 0;\n    return () => {\n      btn.textContent = btn.dataset.done;\n      const mine = ++clicks;\n      setTimeout(() => { if (mine === clicks) btn.textContent = idle; }, 1400);\n    };\n  };\n\n  const copyBtn = document.querySelector('[data-am=\"copy\"]');\n  if (copyBtn) {\n    const flash = flasher(copyBtn);\n    copyBtn.addEventListener('click', async () => {\n      const nodes = document.querySelectorAll('#am-source');\n      await copyText(nodes[nodes.length - 1]?.value ?? '');\n      flash();\n    });\n  }\n\n  // Each code block copies its own lines, without the line numbers.\n  for (const btn of document.querySelectorAll('[data-am=\"copy-code\"]')) {\n    const flash = flasher(btn);\n    btn.addEventListener('click', async () => {\n      const lines = btn.closest('.am-codeblock')?.querySelectorAll('.am-ln') ?? [];\n      await copyText([...lines].map((l) => l.textContent).join('\\n'));\n      flash();\n    });\n  }\n\n  // \u2500\u2500 Diagram Lightbox & Pan-Zoom Viewer \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n  const diagrams = document.querySelectorAll('.am-diagram:not(.am-lightbox-canvas)');\n  const lb = document.querySelector('.am-lightbox');\n  if (diagrams.length && lb) {\n    const backdrop = lb.querySelector('.am-lightbox-backdrop');\n    const titleText = lb.querySelector('.am-lightbox-title-text');\n    const stage = lb.querySelector('.am-lightbox-stage');\n    const canvas = lb.querySelector('.am-lightbox-canvas');\n    const closeBtn = lb.querySelector('.am-lightbox-close');\n    const expandLabel = lb.getAttribute('data-expand') || 'Expand diagram';\n\n    let scale = 1, x = 0, y = 0, fitScale = 1, curVw = 800, curVh = 600;\n    let isDragging = false, activePointerId = null, startX = 0, startY = 0, origX = 0, origY = 0;\n    let lastTrigger = null;\n\n    const apply = () => {\n      canvas.style.transform = `translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, 0) scale(${scale.toFixed(4)})`;\n    };\n\n    const zoomTo = (newScale, pivotX, pivotY) => {\n      newScale = Math.max(0.2, Math.min(6.0, newScale));\n      if (Math.abs(newScale - scale) < 0.0001) return;\n      const r = newScale / scale;\n      x = pivotX - (pivotX - x) * r;\n      y = pivotY - (pivotY - y) * r;\n      scale = newScale;\n      apply();\n    };\n\n    const open = (diag, trigger) => {\n      const svg = [...diag.children].find((el) => el.tagName.toLowerCase() === 'svg');\n      if (!svg) return;\n      lastTrigger = trigger;\n\n      const panel = diag.closest('.am-panel');\n      const panelTitle = panel?.querySelector('.am-panel-head h2')?.textContent?.trim() || panel?.querySelector('h2')?.textContent?.trim() || lb.getAttribute('aria-label') || 'Diagram viewer';\n      if (titleText) titleText.textContent = panelTitle;\n\n      const clone = svg.cloneNode(true);\n      const defElements = clone.querySelectorAll('[id]');\n      if (defElements.length) {\n        const idMap = new Map();\n        defElements.forEach((el, i) => {\n          const oldId = el.id;\n          const newId = `${oldId}-lb-${i}`;\n          idMap.set(oldId, newId);\n          el.id = newId;\n        });\n        const urlAttrs = ['marker-start', 'marker-mid', 'marker-end', 'fill', 'stroke', 'filter', 'clip-path', 'mask'];\n        clone.querySelectorAll('*').forEach((el) => {\n          for (const attr of urlAttrs) {\n            const val = el.getAttribute(attr);\n            if (val && val.startsWith('url(#')) {\n              const id = val.slice(5, -1);\n              if (idMap.has(id)) el.setAttribute(attr, `url(#${idMap.get(id)})`);\n            }\n          }\n          const href = el.getAttribute('href') || el.getAttribute('xlink:href');\n          if (href && href.startsWith('#')) {\n            const id = href.slice(1);\n            if (idMap.has(id)) {\n              if (el.hasAttribute('href')) el.setAttribute('href', `#${idMap.get(id)}`);\n              if (el.hasAttribute('xlink:href')) el.setAttribute('xlink:href', `#${idMap.get(id)}`);\n            }\n          }\n        });\n      }\n\n      const vb = svg.viewBox?.baseVal;\n      curVw = (vb && vb.width > 0) ? vb.width : (parseFloat(svg.getAttribute('width')) || svg.clientWidth || 800);\n      curVh = (vb && vb.height > 0) ? vb.height : (parseFloat(svg.getAttribute('height')) || svg.clientHeight || 600);\n      clone.style.width = `${curVw}px`;\n      clone.style.height = `${curVh}px`;\n      canvas.innerHTML = '';\n      canvas.append(clone);\n      lb.removeAttribute('hidden');\n      document.body.style.overflow = 'hidden';\n\n      const rect = stage.getBoundingClientRect();\n      const pad = 48;\n      const availW = Math.max(100, rect.width - pad * 2);\n      const availH = Math.max(100, rect.height - pad * 2);\n      fitScale = Math.min(availW / curVw, availH / curVh, 1.0);\n      scale = fitScale;\n      x = (rect.width - curVw * scale) / 2;\n      y = (rect.height - curVh * scale) / 2;\n      apply();\n      closeBtn.focus();\n    };\n\n    const close = () => {\n      if (lb.hasAttribute('hidden')) return;\n      lb.setAttribute('hidden', '');\n      canvas.innerHTML = '';\n      document.body.style.overflow = '';\n      lastTrigger?.focus();\n    };\n\n    stage.addEventListener('wheel', (e) => {\n      e.preventDefault();\n      const rect = stage.getBoundingClientRect();\n      const dy = e.deltaMode === 1 ? e.deltaY * 16 : (e.deltaMode === 2 ? e.deltaY * 400 : e.deltaY);\n      const factor = Math.exp(-Math.max(-200, Math.min(200, dy)) * 0.0015);\n      zoomTo(scale * factor, e.clientX - rect.left, e.clientY - rect.top);\n    }, { passive: false });\n\n    stage.addEventListener('pointerdown', (e) => {\n      if (e.button !== 0 || isDragging) return;\n      isDragging = true;\n      activePointerId = e.pointerId;\n      startX = e.clientX;\n      startY = e.clientY;\n      origX = x;\n      origY = y;\n      stage.setPointerCapture(e.pointerId);\n      stage.classList.add('am-panning');\n    });\n\n    stage.addEventListener('pointermove', (e) => {\n      if (!isDragging || e.pointerId !== activePointerId) return;\n      x = origX + (e.clientX - startX);\n      y = origY + (e.clientY - startY);\n      apply();\n    });\n\n    const endDrag = (e) => {\n      if (!isDragging || e.pointerId !== activePointerId) return;\n      isDragging = false;\n      activePointerId = null;\n      stage.classList.remove('am-panning');\n      try { stage.releasePointerCapture(e.pointerId); } catch {}\n    };\n    stage.addEventListener('pointerup', endDrag);\n    stage.addEventListener('pointercancel', endDrag);\n\n    stage.addEventListener('dblclick', () => {\n      const rect = stage.getBoundingClientRect();\n      scale = fitScale;\n      x = (rect.width - curVw * scale) / 2;\n      y = (rect.height - curVh * scale) / 2;\n      apply();\n    });\n\n    closeBtn.addEventListener('click', close);\n    backdrop.addEventListener('click', close);\n    window.addEventListener('keydown', (e) => {\n      if (e.key === 'Escape' && !lb.hasAttribute('hidden')) close();\n    });\n\n    lb.addEventListener('keydown', (e) => {\n      if (e.key !== 'Tab') return;\n      const focusables = lb.querySelectorAll('button:not([disabled]), [tabindex]:not([tabindex=\"-1\"])');\n      if (!focusables.length) return;\n      const first = focusables[0];\n      const last = focusables[focusables.length - 1];\n      if (e.shiftKey && document.activeElement === first) {\n        e.preventDefault();\n        last.focus();\n      } else if (!e.shiftKey && document.activeElement === last) {\n        e.preventDefault();\n        first.focus();\n      }\n    });\n\n    const expandSvg = '<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><polyline points=\"15 3 21 3 21 9\"></polyline><polyline points=\"9 21 3 21 3 15\"></polyline><line x1=\"21\" y1=\"3\" x2=\"14\" y2=\"10\"></line><line x1=\"3\" y1=\"21\" x2=\"10\" y2=\"14\"></line></svg>';\n    diagrams.forEach((diag) => {\n      const btn = document.createElement('button');\n      btn.type = 'button';\n      btn.className = 'am-diagram-expand';\n      btn.title = expandLabel;\n      btn.setAttribute('aria-label', expandLabel);\n      btn.innerHTML = expandSvg;\n      btn.addEventListener('click', () => open(diag, btn));\n      diag.prepend(btn);\n    });\n  }\n})();\n(() => {\n// The reply a reader copies from the page: one Markdown text with the decisions, the panel comments and the block remarks.\n// A plain ES module for tests; the page gets it with its `export` keyword dropped (src/runtime/compose.js).\n// decisions: [{ panel, question, picked: [label], suggested: [label], touched }]; comments: [{ panel, title, text }];\n// remarks: [{ panel, quote, kind, note }], where quote is the start of the marked block and kind is a key of ui.kinds.\n// Comment and remark text is quoted line by line, so text the reader typed cannot pass as part of the structure.\n// rtl: the page reads right to left, so the arrow before each answer points left, the way the text runs.\nfunction replyText({ title, decisions, comments, remarks = [], ui, rtl = false }) {\n  const arrow = rtl ? '\u2190' : '\u2192';\n  const out = [`# Re: ${title}`];\n  if (decisions.length) {\n    out.push('', `## ${ui.decisions}`);\n    decisions.forEach((d, i) => {\n      const answer = d.picked.length ? d.picked.map((l) => `**${l}**`).join(', ') : '**\u2014**';\n      // Every option starts unselected, so an ask the reader never clicked has no answer: the reply names the suggestion\n      // instead of passing it off as the reader's choice.\n      const same = d.picked.length === d.suggested.length && d.picked.every((l) => d.suggested.includes(l));\n      const suggested = d.suggested.join(', ') || '\u2014';\n      const why = !d.touched ? `${ui.untouched}: ${suggested}` : same ? ui.confirmed : `${ui.was}: ${suggested}`;\n      out.push(`${i + 1}. [${d.panel}] ${d.question}`, `   ${arrow} ${answer} _(${why})_`);\n    });\n  }\n  const written = comments.filter((c) => c.text.trim());\n  const quoted = (text) => (text.trim() ? text.trim().split('\\n').map((l) => `  > ${l}`) : []);\n  if (written.length) {\n    out.push('', `## ${ui.comments}`);\n    for (const c of written) out.push(`- **${c.panel} \xB7 ${c.title}**`, ...quoted(c.text));\n  }\n  if (remarks.length) {\n    out.push('', `## ${ui.remarks}`);\n    for (const r of remarks) {\n      const label = [r.panel, ui.kinds?.[r.kind] ?? r.kind].filter(Boolean).join(' \xB7 ');\n      out.push(`- **${label}** \"${r.quote}\"`, ...quoted(r.note));\n    }\n  }\n  if (written.length || remarks.some((r) => r.note.trim())) out.push('', `_${ui.typed}_`);\n  return `${out.join('\\n')}\\n`;\n}\n\n// A letter of a right-to-left script. One definition for the page builder (src/bidi.js) and for the right-to-left page script\n// (src/runtime/reply-view.js), so the two cannot drift apart. A plain ES module; the page script gets this file in front of\n// reply-view.js, with its `export` keyword dropped and reply-view.js's import of it removed (src/runtime/compose.js).\nconst RTL_LETTER = /[\\p{Script=Hebrew}\\p{Script=Arabic}\\p{Script=Syriac}\\p{Script=Thaana}\\p{Script=Nko}\\p{Script=Samaritan}\\p{Script=Mandaic}]/u;\n\n// The reply as the reader sees it in the Reply sheet (src/runtime/reply.js): the Markdown that Copy copies, drawn as headings, bold answers\n// and quoted comments instead of raw \"# Re: ...\", \"1. [E] ...\" and \"- **A \xB7 ...**\" lines. Each line gets its own direction, so a\n// Hebrew reader sees Latin answers and paths in place; a line with no right-to-left letter reads left to right, as on any other page.\n// The raw Markdown stays in the sheet under a fold, so the copied text does not change.\n// A plain ES module for tests; the page gets it with its `export` keyword dropped and rtl-letter.js in front of it in place of the\n// import (src/runtime/compose.js).\n\nconst escHtml = (s) => s.replace(/[&<>\"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '\"': '&quot;' })[c]);\n// A line with a right-to-left letter reads right to left; a line without one (an English comment, a path) reads left to right.\nconst dirOf = (s) => (RTL_LETTER.test(s) ? 'rtl' : 'ltr');\n\n// The only inline Markdown src/runtime/reply-text.js writes: **answer**, _(note)_ and the \"quote\" of a remark. Each piece is isolated in its own direction,\n// so a Latin answer inside a Hebrew line keeps its place, and \"A \xB7 title\" still starts with the panel letter.\nconst piece = (tag, text) => `<${tag}><bdi dir=\"${dirOf(text)}\">${text}</bdi></${tag}>`;\nfunction inline(s) {\n  return escHtml(s)\n    .replace(/\\*\\*(.+?)\\*\\*/g, (_, t) => piece('strong', t))\n    .replace(/(^|\\s)_(.+?)_(?=\\s|$)/g, (_, pre, t) => pre + piece('em', t))\n    // The quoted start of a marked block (\"- **A \xB7 concern** \"text\"\"): isolated, so Latin text in a Hebrew line keeps its place.\n    .replace(/&quot;(.+)&quot;$/, (_, t) => `&quot;<bdi dir=\"${dirOf(t)}\">${t}</bdi>&quot;`);\n}\n\n// The reply text (src/runtime/reply-text.js) as HTML, one block per line.\nfunction replyViewHtml(text) {\n  return text\n    .replace(/\\n$/, '')\n    .split('\\n')\n    .map((line) => {\n      const dir = dirOf(line);\n      let m;\n      if (!line.trim()) return '<div class=\"am-rv-gap\"></div>';\n      if ((m = line.match(/^(#{1,2}) (.*)$/))) return `<div class=\"am-rv-h${m[1].length}\" dir=\"${dir}\">${inline(m[2])}</div>`;\n      if ((m = line.match(/^(\\d+)\\. \\[([^\\]]*)\\] (.*)$/))) {\n        return `<div class=\"am-rv-q\" dir=\"${dir}\"><bdi>${m[1]}.</bdi> <bdi class=\"am-rv-tag\">${escHtml(m[2])}</bdi> ${inline(m[3])}</div>`;\n      }\n      if ((m = line.match(/^ {3}([\u2190\u2192]) (.*)$/))) return `<div class=\"am-rv-a\" dir=\"${dir}\">${m[1]} ${inline(m[2])}</div>`;\n      if ((m = line.match(/^- (.*)$/))) return `<div class=\"am-rv-c\" dir=\"${dir}\">${inline(m[1])}</div>`;\n      // A comment line is shown exactly as the reader typed it.\n      if ((m = line.match(/^ {2}> ?(.*)$/))) return `<div class=\"am-rv-quote\" dir=\"${dirOf(m[1])}\">${escHtml(m[1]) || '&nbsp;'}</div>`;\n      return `<div dir=\"${dir}\">${inline(line)}</div>`;\n    })\n    .join('');\n}\n\n// Answer on the page: every panel gets a Comment box, and the Reply button collects the ask answers, the comments and the remarks\n// into one Markdown reply (replyText) to copy back to the agent. Answers and comments stay in localStorage across reloads.\n// The remark script (remark.js) adds the blocks the reader marked, through window.__amRemarkData, and tells this script about a change\n// with an \"am-remark-change\" event on the document.\n// The Reply sheet shows the reply drawn (replyViewHtml) with the Markdown that Copy copies under a fold. Once the reader has given any\n// input, a bar at the bottom of the page shows the counts and copies the reply in one click, so there is no trip to the top-right button.\nconst replyBtn = document.querySelector('[data-am=\"reply\"]');\nconst COMMENT_ICON = '<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"></path></svg>';\nif (replyBtn) {\n  const ui = JSON.parse(replyBtn.dataset.ui);\n  const storeKey = `am-reply:${location.pathname}`;\n  // A page served by `am serve` runs without localStorage and the phone may discard its tab, so it keeps the answers on the\n  // server: data-am-save names the write route and data-am-state carries what the server already holds for this page version.\n  const serve = (() => {\n    const { amSave: save, amState: state } = document.body?.dataset ?? {};\n    if (!save) return null;\n    try {\n      return { save, restored: state ? JSON.parse(state) : null };\n    } catch {\n      return { save, restored: null };\n    }\n  })();\n  let saveTimer = null;\n  let pendingPatch = null;\n  const sendSave = (patch) => {\n    fetch(serve.save, { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify(patch), keepalive: true })\n      .catch(() => {}); // a page that cannot reach the server keeps its state until it closes, as before\n  };\n  // Typing must not put one request per keystroke on the server; localStorage is written at once, the network follows.\n  const saveSoon = (patch) => {\n    clearTimeout(saveTimer);\n    pendingPatch = patch;\n    saveTimer = setTimeout(() => {\n      pendingPatch = null;\n      sendSave(patch);\n    }, 400);\n  };\n  // A hidden or closing page sends the change it still holds, before the timer can run.\n  const flushSave = () => {\n    if (!pendingPatch) return;\n    clearTimeout(saveTimer);\n    sendSave(pendingPatch);\n    pendingPatch = null;\n  };\n  document.addEventListener('visibilitychange', () => {\n    if (document.visibilityState === 'hidden') flushSave();\n  });\n  window.addEventListener('pagehide', flushSave);\n  const panels = [...document.querySelectorAll('.am-panel')];\n  const asks = [...document.querySelectorAll('.am-ask')];\n  // Answers are saved by question text, so they still match after am patch has renumbered the asks.\n  // Page text without the word joiners a right-to-left page puts after a Hebrew prefix hyphen (src/bidi.js): the reply and the saved\n  // answers hold the text as the draft wrote it, a formula too (src/runtime/math-text.js).\n  const WJ = new RegExp(String.fromCharCode(0x2060), 'g');\n  const textOf = (el) => el && textWithMath(el).replace(WJ, '').trim();\n  const keyOf = (ask) => textOf(ask.querySelector('legend')) ?? ask.dataset.ask;\n  const touched = new Set();\n  const boxes = new Map();\n  // The bar is built below with the sheet; the handlers that change the counts only call this.\n  let refreshBar = () => {};\n  // The textarea a failed copy keeps selected, so the reader can still use the keyboard shortcut.\n  let stuck = null;\n\n  const load = () => {\n    if (serve?.restored?.reply) return serve.restored.reply;\n    try {\n      return JSON.parse(localStorage.getItem(storeKey)) || {};\n    } catch {\n      return {};\n    }\n  };\n  const save = () => {\n    const state = {\n      asks: Object.fromEntries(asks.map((a) => [keyOf(a), { picked: picked(a), touched: touched.has(a) }])),\n      comments: Object.fromEntries([...boxes].map(([id, box]) => [id, box.value]).filter(([, text]) => text.trim())),\n    };\n    try {\n      localStorage.setItem(storeKey, JSON.stringify(state));\n    } catch {\n      // Storage may be off (private window, file:// policy); answers then last until the page closes.\n    }\n    if (serve) saveSoon({ reply: state });\n  };\n  const picked = (ask) => [...ask.querySelectorAll('input')].filter((i) => i.checked).map((i) => i.value);\n  const panelOf = (el) => {\n    const panel = el.closest('.am-panel');\n    return { id: panel?.id.replace(/^panel-/, '') ?? '', title: textOf(panel?.querySelector('.am-panel-head h2')) ?? '' };\n  };\n\n  const saved = load();\n  for (const ask of asks) {\n    const inputs = [...ask.querySelectorAll('input')];\n    const state = saved.asks?.[keyOf(ask)];\n    // A saved answer applies only while every picked option still exists on the page, and only if the reader clicked: older versions started\n    // with the suggestion selected and saved it untouched, and that state must come back unselected.\n    if (state?.touched && Array.isArray(state.picked) && state.picked.every((v) => inputs.some((i) => i.value === v))) {\n      for (const input of inputs) input.checked = state.picked.includes(input.value);\n      touched.add(ask);\n    }\n    // A click counts even on the option that is already picked: the reader confirms the suggestion.\n    const answer = () => {\n      touched.add(ask);\n      save();\n      refreshBar();\n    };\n    ask.addEventListener('change', answer);\n    ask.addEventListener('click', (e) => { if (e.target.matches('input')) answer(); });\n  }\n\n  for (const panel of panels) {\n    const id = panel.id.replace(/^panel-/, '');\n    // An icon only: narrow panels have no room for a word next to the title.\n    const btn = Object.assign(document.createElement('button'), { type: 'button', className: 'am-comment-btn', title: ui.comment, innerHTML: COMMENT_ICON });\n    btn.setAttribute('aria-label', `${ui.comment} ${id}`);\n    btn.setAttribute('aria-expanded', 'false');\n    const wrap = Object.assign(document.createElement('div'), { className: 'am-comment', hidden: true });\n    const box = Object.assign(document.createElement('textarea'), { rows: 3, placeholder: ui.commentHint, value: saved.comments?.[id] ?? '' });\n    box.setAttribute('aria-label', `${ui.comment} ${id}`);\n    wrap.append(box);\n    const show = (open) => {\n      wrap.hidden = !open;\n      btn.setAttribute('aria-expanded', String(open));\n    };\n    btn.addEventListener('click', () => {\n      show(wrap.hidden);\n      if (!wrap.hidden) box.focus();\n    });\n    box.addEventListener('input', () => {\n      btn.classList.toggle('am-comment-btn--on', Boolean(box.value.trim()));\n      save();\n      refreshBar();\n    });\n    btn.classList.toggle('am-comment-btn--on', Boolean(box.value.trim()));\n    if (box.value.trim()) show(true);\n    (panel.querySelector('.am-panel-head') ?? panel).append(btn);\n    panel.append(wrap);\n    boxes.set(id, box);\n  }\n\n  const sheet = document.createElement('dialog');\n  sheet.className = 'am-reply';\n  sheet.setAttribute('aria-label', ui.title);\n  sheet.innerHTML = '<div class=\"am-reply-head\"><strong></strong><span></span></div><div class=\"am-reply-view\" tabindex=\"0\"></div><details class=\"am-reply-raw\"><summary></summary><textarea readonly rows=\"10\"></textarea></details><div class=\"am-reply-actions\"><button type=\"button\" class=\"am-btn\" data-act=\"copy\"></button><button type=\"button\" class=\"am-btn\" data-act=\"close\"></button></div>';\n  sheet.querySelector('strong').textContent = ui.title;\n  sheet.querySelector('span').textContent = ui.hint;\n  sheet.querySelector('summary').textContent = ui.raw;\n  const view = sheet.querySelector('.am-reply-view');\n  const raw = sheet.querySelector('details');\n  const text = sheet.querySelector('textarea');\n  const copy = sheet.querySelector('[data-act=\"copy\"]');\n  const close = sheet.querySelector('[data-act=\"close\"]');\n  copy.textContent = ui.copy;\n  close.textContent = ui.close;\n  document.body.append(sheet);\n\n  const compose = () => {\n    const decisions = asks.map((ask) => ({\n      panel: panelOf(ask).id,\n      question: textOf(ask.querySelector('legend')) ?? '',\n      picked: picked(ask),\n      suggested: [...ask.querySelectorAll('input[data-suggested]')].map((i) => i.value),\n      touched: touched.has(ask),\n    }));\n    const comments = [...boxes].map(([id, box]) => ({ panel: id, title: panelOf(box).title, text: box.value }));\n    const remarks = window.__amRemarkData?.() ?? [];\n    const empty = !decisions.length && !comments.some((c) => c.text.trim()) && !remarks.length;\n    const title = textOf(document.querySelector('.am-head h1')) ?? document.title;\n    return empty ? '' : replyText({ title, decisions, comments, remarks, ui, rtl: document.documentElement.dir === 'rtl' });\n  };\n\n  // The text goes through the clipboard API; a page the browser treats as insecure (file://) falls back to selecting a temporary\n  // textarea, because the sheet's own textarea can sit inside a closed fold, where it cannot be selected.\n  // That fallback reports whether it worked. When it does not, the text stays selected (so Cmd/Ctrl+C still copies it) and the\n  // button says what to do instead of showing the \"Copied \u2713\" label the reader cannot trust.\n  const copyText = async (str, btn) => {\n    stuck?.remove();\n    stuck = null;\n    try {\n      await navigator.clipboard.writeText(str);\n      // The close_after_reply script (close-after-reply.js) closes the tab once the reply is on the clipboard.\n      document.dispatchEvent(new Event('am-reply-copied'));\n    } catch {\n      const tmp = Object.assign(document.createElement('textarea'), { value: str });\n      tmp.style.cssText = 'position:fixed;top:-100px;opacity:0';\n      // Inside the sheet while it is open: while a modal dialog is open the rest of the document cannot take focus, so a textarea\n      // in the body can be selected but not focused, and the keyboard shortcut the reader is told to press would copy nothing.\n      // The bottom bar copies while the sheet is closed, and a closed dialog is not rendered, so there the textarea goes in the body.\n      (sheet.open ? sheet : document.body).append(tmp);\n      tmp.select();\n      let copied = false;\n      try {\n        copied = document.execCommand('copy');\n      } catch {\n        copied = false;\n      }\n      if (!copied) {\n        stuck = tmp;\n        btn.textContent = ui.copyFailed;\n        setTimeout(() => { btn.textContent = ui.copy; }, 3000);\n        return;\n      }\n      tmp.remove();\n    }\n    btn.textContent = ui.done;\n    setTimeout(() => { btn.textContent = ui.copy; }, 1400);\n  };\n\n  const open = () => {\n    const reply = compose();\n    if (reply) view.innerHTML = replyViewHtml(reply);\n    else view.textContent = ui.empty;\n    view.scrollTop = 0;\n    text.value = reply;\n    raw.open = false;\n    raw.hidden = !reply;\n    copy.disabled = !reply;\n    if (sheet.showModal) sheet.showModal();\n    else sheet.setAttribute('open', '');\n    (reply ? copy : close).focus();\n  };\n  replyBtn.addEventListener('click', open);\n  close.addEventListener('click', () => (sheet.close ? sheet.close() : sheet.removeAttribute('open')));\n  // A failed copy leaves the text selected for Cmd/Ctrl+C; closing the sheet drops that textarea.\n  sheet.addEventListener('close', () => { stuck?.remove(); stuck = null; });\n  copy.addEventListener('click', () => copyText(text.value, copy));\n\n  const bar = Object.assign(document.createElement('div'), { className: 'am-reply-bar', hidden: true });\n  bar.setAttribute('role', 'region');\n  bar.setAttribute('aria-label', ui.title);\n  const summary = Object.assign(document.createElement('span'), { className: 'am-reply-bar-count' });\n  summary.setAttribute('aria-live', 'polite');\n  const preview = Object.assign(document.createElement('button'), { type: 'button', className: 'am-btn', textContent: ui.preview });\n  const barCopy = Object.assign(document.createElement('button'), { type: 'button', className: 'am-btn am-btn--reply', textContent: ui.copy });\n  preview.addEventListener('click', open);\n  barCopy.addEventListener('click', () => copyText(compose(), barCopy));\n  bar.append(summary, preview, barCopy);\n  document.body.append(bar);\n\n  // The bar shows only the counts that are above zero, and only once there is any input at all.\n  refreshBar = () => {\n    const counts = {\n      answered: touched.size,\n      comments: [...boxes.values()].filter((box) => box.value.trim()).length,\n      remarks: (window.__amRemarkData?.() ?? []).length,\n    };\n    const parts = Object.entries(counts).filter(([, n]) => n > 0).map(([kind, n]) => ui.count[kind].replace('{n}', n));\n    summary.textContent = parts.join(' \xB7 ');\n    bar.hidden = !parts.length;\n    document.body.classList.toggle('am-has-reply-bar', parts.length > 0);\n  };\n  document.addEventListener('am-remark-change', () => refreshBar());\n  // Saved remarks are restored by remark.js, which runs after this script in the same <script> element: its data is not there yet.\n  // A microtask runs when that whole element has finished, so the first count includes them.\n  queueMicrotask(() => refreshBar());\n}\n})();\n(() => {\n// Text helpers for remark mode (src/runtime/remark.js): how a marked block is named and quoted.\n// A plain ES module for tests; the page gets it with its `export` keyword dropped (src/runtime/compose.js).\n// A block keeps its mark across `am patch` because the key is its panel, its tag and the start of its text, not its position.\n\nconst collapse = (text) => String(text).replace(/\\s+/g, ' ').trim();\n\n// The start of a block's text with whitespace collapsed: the readable identity of the block.\nfunction fingerprint(text, len = 80) {\n  return collapse(text).slice(0, len);\n}\n\n// What the reply quotes of a block: the start of its text, with an ellipsis when it is cut.\nfunction quote(text, len = 60) {\n  const t = collapse(text);\n  return t.length > len ? `${t.slice(0, len).trimEnd()}\u2026` : t;\n}\n\n// Two blocks with the same text (two identical list items) get the same base key. The n-th one in the page gets \"\\t<n>\" added;\n// a tab cannot be in a fingerprint, which has its whitespace collapsed, so the new key never meets another base key.\nfunction occurrenceKeys(bases) {\n  const seen = new Map();\n  return bases.map((base) => {\n    const n = seen.get(base) ?? 0;\n    seen.set(base, n + 1);\n    return n ? `${base}\\t${n}` : base;\n  });\n}\n\n// Remark mode: the reader turns it on, clicks a block, tags it (suggestion, keep, question, concern) and may add a note.\n// A mark shows as a bar and a note chip inside the block, lives in localStorage like panel comments, and the Reply button carries it\n// back to the agent: reply.js calls window.__amRemarkData, and replyText (reply-text.js) writes the Remarks section.\n(() => {\n  const btn = document.querySelector('[data-am=\"remark\"]');\n  if (!btn) return;\n  const ui = JSON.parse(btn.dataset.ui);\n  const KINDS = ['suggestion', 'keep', 'question', 'concern'];\n  const storeKey = `am-remark:${location.pathname}`;\n  // A page served by `am serve` has no localStorage and the phone may discard its tab; it keeps the marks on the server, in the\n  // same record as the answers (reply.js), so a re-opened page finds them again.\n  const serve = (() => {\n    const { amSave: save, amState: state } = document.body?.dataset ?? {};\n    if (!save) return null;\n    try {\n      return { save, restored: state ? JSON.parse(state) : null };\n    } catch {\n      return { save, restored: null };\n    }\n  })();\n  let saveTimer = null;\n  let pendingPatch = null;\n  const sendSave = (patch) => {\n    fetch(serve.save, { method: 'PUT', headers: { 'content-type': 'application/json' }, body: JSON.stringify(patch), keepalive: true })\n      .catch(() => {});\n  };\n  const saveSoon = (patch) => {\n    clearTimeout(saveTimer);\n    pendingPatch = patch;\n    saveTimer = setTimeout(() => {\n      pendingPatch = null;\n      sendSave(patch);\n    }, 400);\n  };\n  // A hidden or closing page sends the change it still holds, before the timer can run.\n  const flushSave = () => {\n    if (!pendingPatch) return;\n    clearTimeout(saveTimer);\n    sendSave(pendingPatch);\n    pendingPatch = null;\n  };\n  document.addEventListener('visibilitychange', () => {\n    if (document.visibilityState === 'hidden') flushSave();\n  });\n  window.addEventListener('pagehide', flushSave);\n  // The one definition of a block a reader can mark: the content under <main>. The page and panel titles are left out, because the\n  // reply reads them as text; a panel has its Comment button.\n  // A $$ block on its own is a div; a $$ formula inside a sentence is a span of its paragraph.\n  const BLOCK = 'main :is(h1,h2,h3,h4,h5,h6,p,li,blockquote,pre,table,dd,dt,figure,div.am-math-block):not(.am-head *, .am-panel-head *, .am-toc *)';\n  // A click on these does what it always did.\n  const LIVE = '.am-remark-pop, .am-toolbar, a, button, input, textarea, select, label';\n  const blockAt = (target) => (target.closest(LIVE) ? null : target.closest(BLOCK));\n\n  const WJ = new RegExp(String.fromCharCode(0x2060), 'g'); // word joiners of a right-to-left page (src/bidi.js); not part of the draft's text\n  // A narrow horizontal timeline shows its date and title inline (src/themes/base.css). They stay parts of their own, so a block key\n  // does not change with the width of the window (#194).\n  const OWN_BOX = '.am-timeline--h .am-tl-when, .am-timeline--h .am-tl-title';\n  const inlineBox = new WeakMap();\n  const isInline = (el) => {\n    if (!inlineBox.has(el)) inlineBox.set(el, !el.matches(OWN_BOX) && getComputedStyle(el).display.startsWith('inline'));\n    return inlineBox.get(el);\n  };\n  // The text of a block as the reader sees it: separate lines, cells and timeline parts are joined by a space (textContent would run\n  // \"2026\" and \"Ship\" together), and the note chip is not part of it. A formula is one box and reads as the TeX the draft wrote\n  // (src/runtime/math-text.js), not as the MathML tokens.\n  const blockText = (el) => {\n    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);\n    let text = '';\n    let last = null;\n    for (let node = walker.nextNode(); node; node = walker.nextNode()) {\n      if (node.parentElement.closest('.am-mark-note')) continue;\n      let box = formulaOf(node) ?? node.parentElement;\n      while (box !== el && isInline(box)) box = box.parentElement;\n      if (last && box !== last) text += ' ';\n      text += nodeText(node).replace(WJ, '');\n      last = box;\n    }\n    return text;\n  };\n\n  const panelOf = (el) => el.closest('.am-panel')?.id.replace(/^panel-/, '') ?? '';\n  // Block keys, in page order. Built when first needed: a page nobody marked pays nothing.\n  let keys = null;\n  const keyMap = () => {\n    if (!keys) {\n      const blocks = [...document.querySelectorAll(BLOCK)];\n      const ids = occurrenceKeys(blocks.map((el) => `${panelOf(el)}|${el.localName}|${fingerprint(blockText(el))}`));\n      keys = new Map(blocks.map((el, i) => [el, ids[i]]));\n    }\n    return keys;\n  };\n\n  const load = () => {\n    const restored = serve?.restored?.remark;\n    if (Array.isArray(restored)) return restored.filter((m) => typeof m?.key === 'string' && KINDS.includes(m.kind));\n    try {\n      const saved = JSON.parse(localStorage.getItem(storeKey));\n      return Array.isArray(saved) ? saved.filter((m) => typeof m?.key === 'string' && KINDS.includes(m.kind)) : [];\n    } catch {\n      return [];\n    }\n  };\n  // A mark whose block is gone from the page stays stored (it may return with `am patch`); it is neither painted nor sent.\n  const marks = new Map(load().map((m) => [m.key, { key: m.key, kind: m.kind, note: String(m.note ?? '') }]));\n  // Kind and note of a popover closed without Save, by block key, until the page reloads (see open below).\n  const drafts = new Map();\n  const clearBtn = document.createElement('button');\n  clearBtn.type = 'button';\n  clearBtn.className = 'am-btn am-btn--remark-clear';\n  clearBtn.textContent = ui.clear;\n  // Clear all drops saved marks and drafts, so it shows while either exists.\n  const toClear = () => marks.size + drafts.size;\n  const showClear = () => { clearBtn.hidden = toClear() === 0; };\n  btn.insertAdjacentElement('afterend', clearBtn);\n  let clearTimer = null;\n  let clearArmed = false;\n  const resetClear = () => {\n    if (clearTimer !== null) clearTimeout(clearTimer);\n    clearTimer = null;\n    clearArmed = false;\n    clearBtn.classList.remove('is-armed');\n    clearBtn.textContent = ui.clear;\n    showClear();\n  };\n  const armClear = () => {\n    clearArmed = true;\n    clearBtn.classList.add('is-armed');\n    clearBtn.textContent = ui.clearConfirm.replace('{n}', toClear());\n    clearTimer = setTimeout(resetClear, 4000);\n  };\n  clearBtn.addEventListener('click', () => {\n    if (!clearArmed) {\n      armClear();\n      return;\n    }\n    for (const el of document.querySelectorAll('.am-mark')) unpaint(el);\n    marks.clear();\n    // A draft is a remark the reader has not saved yet; Clear all drops it too, so no block reopens with an old kind.\n    drafts.clear();\n    try {\n      localStorage.removeItem(storeKey);\n    } catch {\n      // Storage may be off (private window, a sandboxed page); the in-memory marks still clear.\n    }\n    if (serve) saveSoon({ remark: [] });\n    resetClear();\n    document.dispatchEvent(new Event('am-remark-change'));\n  });\n  const save = () => {\n    try {\n      localStorage.setItem(storeKey, JSON.stringify([...marks.values()]));\n    } catch {\n      // Storage may be off (private window, a sandboxed page); marks then last until the page closes.\n    }\n    if (serve) saveSoon({ remark: [...marks.values()] });\n    // The reply bar (reply.js) shows the number of marks.\n    document.dispatchEvent(new Event('am-remark-change'));\n    showClear();\n  };\n\n  const chip = (el, mark) => {\n    const note = document.createElement(el.localName === 'table' ? 'caption' : 'span');\n    note.className = 'am-mark-note';\n    const kind = document.createElement('b');\n    kind.textContent = ui.kinds[mark.kind];\n    note.append(kind, mark.note ? ` ${mark.note}` : '');\n    return note;\n  };\n  const clearChip = (el) => el.querySelector(':scope > .am-mark-note')?.remove();\n  const paint = (el, mark) => {\n    clearChip(el);\n    el.classList.add('am-mark');\n    el.dataset.kind = mark.kind;\n    // Inside the block, so a list item stays a child of its list. A table takes it as its caption; a list item with a sub-list shows\n    // it under its own text, before the sub-list.\n    const sub = el.querySelector(':scope > ul, :scope > ol');\n    if (el.localName === 'table') el.prepend(chip(el, mark));\n    else if (sub) sub.before(chip(el, mark));\n    else el.append(chip(el, mark));\n  };\n  const unpaint = (el) => {\n    clearChip(el);\n    el.classList.remove('am-mark');\n    delete el.dataset.kind;\n  };\n  showClear();\n  if (marks.size) for (const [el, key] of keyMap()) if (marks.has(key)) paint(el, marks.get(key));\n\n  // The popover edits one block. Save stays off until a kind is picked, and a hint says so. 1\u20134 pick a kind from the keyboard and\n  // move to the note; Ctrl / Cmd + Enter saves. A popover closed without Save keeps its kind and note as a draft for that block until the page reloads.\n  const pop = document.createElement('div');\n  pop.className = 'am-remark-pop';\n  pop.hidden = true;\n  pop.setAttribute('role', 'dialog');\n  pop.setAttribute('aria-label', ui.button);\n  document.body.append(pop);\n  let opener = null;\n  let anchor = null;\n  let keepDraft = null;\n  const close = (restoreFocus) => {\n    if (pop.hidden) return;\n    keepDraft?.();\n    keepDraft = null;\n    pop.hidden = true;\n    if (restoreFocus) (opener?.isConnected && opener !== document.body ? opener : btn).focus();\n  };\n  const place = () => {\n    const rect = anchor.getBoundingClientRect();\n    const rtl = getComputedStyle(document.documentElement).direction === 'rtl';\n    const x = rtl ? rect.right - pop.offsetWidth : rect.left;\n    // Under the block; a block taller than the window gets the popover at the bottom of the window instead.\n    const y = Math.min(rect.bottom + 6, window.innerHeight - pop.offsetHeight - 8);\n    pop.style.left = `${window.scrollX + Math.min(Math.max(8, x), window.innerWidth - pop.offsetWidth - 8)}px`;\n    pop.style.top = `${window.scrollY + Math.max(8, y)}px`;\n  };\n  const make = (tag, props) => Object.assign(document.createElement(tag), props);\n  const open = (el) => {\n    const key = keyMap().get(el);\n    const mark = marks.get(key);\n    const draft = drafts.get(key);\n    let kind = draft?.kind ?? mark?.kind ?? '';\n    opener = document.activeElement;\n    anchor = el;\n\n    const note = make('textarea', { rows: 2, placeholder: ui.hint, value: draft?.note ?? mark?.note ?? '' });\n    note.setAttribute('aria-label', ui.hint);\n    const keep = make('button', { type: 'button', className: 'am-btn', textContent: ui.save, disabled: !kind });\n    const need = make('span', { className: 'am-remark-need', textContent: ui.need, hidden: Boolean(kind) });\n    keepDraft = () => {\n      if (kind || note.value.trim()) drafts.set(key, { kind, note: note.value });\n      else drafts.delete(key);\n      showClear();\n    };\n    const done = () => { drafts.delete(key); keepDraft = null; showClear(); };\n    keep.addEventListener('click', () => {\n      done();\n      const saved = { key, kind, note: note.value.trim() };\n      marks.set(key, saved);\n      save();\n      paint(el, saved);\n      close(true);\n    });\n    const actions = make('div', { className: 'am-remark-actions' });\n    actions.append(keep);\n    if (mark) {\n      const drop = make('button', { type: 'button', className: 'am-btn', textContent: ui.remove });\n      drop.addEventListener('click', () => {\n        done();\n        marks.delete(key);\n        save();\n        unpaint(el);\n        close(true);\n      });\n      actions.append(drop);\n    }\n    const choose = (k) => {\n      kind = k;\n      for (const other of kindBtns) other.setAttribute('aria-pressed', String(other.dataset.kind === k));\n      keep.disabled = false;\n      need.hidden = true;\n    };\n    const kindBtns = KINDS.map((k, i) => {\n      const kb = make('button', { type: 'button', className: 'am-remark-kind', textContent: ui.kinds[k] });\n      kb.dataset.kind = k;\n      kb.dataset.n = i + 1;\n      kb.setAttribute('aria-pressed', String(k === kind));\n      kb.addEventListener('click', () => choose(k));\n      return kb;\n    });\n    // Ctrl / Cmd + Enter presses Save (nothing while Save waits for a kind). A digit types into the note, so it picks a kind\n    // only while the focus is outside the note.\n    pop.onkeydown = (e) => {\n      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey) && !e.isComposing) {\n        e.preventDefault();\n        if (!keep.disabled) keep.click();\n        return;\n      }\n      if (e.target === note || e.ctrlKey || e.metaKey || e.altKey || !/^[1-4]$/.test(e.key)) return;\n      e.preventDefault();\n      choose(KINDS[Number(e.key) - 1]);\n      note.focus();\n    };\n    actions.append(need);\n    pop.replaceChildren(make('div', { className: 'am-remark-kinds' }), note, actions);\n    pop.firstChild.append(...kindBtns);\n    pop.hidden = false;\n    place();\n    (kindBtns.find((b) => b.dataset.kind === kind) ?? kindBtns[0]).focus({ preventScroll: true });\n  };\n\n  // Picking works only while remark mode is on. A click on a marked block edits its mark, on a plain block starts one.\n  // The block under the pointer gets an outline: the same blockAt decides what is outlined and what a click picks.\n  let hover = null;\n  const track = (e) => {\n    const el = e.type === 'mouseout' && e.relatedTarget === null ? null : blockAt(e.target);\n    if (el === hover) return;\n    hover?.classList.remove('am-remark-hover');\n    hover = el;\n    hover?.classList.add('am-remark-hover');\n  };\n  const pick = (e) => {\n    const el = blockAt(e.target);\n    if (el) open(el);\n  };\n  // The keyboard picks too: while the mode is on, every block takes focus with Tab, and Enter or Space opens its popover. A block\n  // that already had a tabindex keeps it; only the ones the mode added lose it again.\n  const pickKey = (e) => {\n    if ((e.key !== 'Enter' && e.key !== ' ') || e.ctrlKey || e.metaKey || e.altKey || !e.target.hasAttribute?.('data-am-pick')) return;\n    e.preventDefault();\n    open(e.target);\n  };\n  const focusable = (on) => {\n    if (!on && !keys) return; // the mode starts off: a page nobody marked builds no block keys\n    for (const el of keyMap().keys()) {\n      if (on && !el.hasAttribute('tabindex')) {\n        el.tabIndex = 0;\n        el.setAttribute('data-am-pick', '');\n      } else if (!on && el.hasAttribute('data-am-pick')) {\n        el.removeAttribute('tabindex');\n        el.removeAttribute('data-am-pick');\n      }\n    }\n  };\n  const setMode = (on) => {\n    btn.classList.toggle('is-on', on);\n    btn.setAttribute('aria-pressed', String(on));\n    const toggle = on ? 'addEventListener' : 'removeEventListener';\n    document.body[toggle]('click', pick);\n    document.body[toggle]('mouseover', track);\n    document.body[toggle]('mouseout', track);\n    document.body[toggle]('keydown', pickKey);\n    focusable(on);\n    if (!on) {\n      track({ type: 'mouseout', relatedTarget: null });\n      close(false);\n    }\n  };\n  btn.addEventListener('click', () => setMode(btn.getAttribute('aria-pressed') !== 'true'));\n  document.addEventListener('keydown', (e) => {\n    if (e.key === 'Escape') close(true);\n  });\n  // A click outside the popover closes it; the same click may then start another mark.\n  document.addEventListener('click', (e) => {\n    if (!pop.hidden && !pop.contains(e.target)) close(false);\n  }, true);\n  setMode(false);\n\n  // What the Reply button reads: the marked blocks that are on the page, in page order.\n  window.__amRemarkData = () => {\n    if (!marks.size) return [];\n    const live = [];\n    for (const [el, key] of keyMap()) {\n      const mark = marks.get(key);\n      if (mark) live.push({ panel: panelOf(el), quote: quote(blockText(el)), kind: mark.kind, note: mark.note });\n    }\n    return live;\n  };\n})();\n})();\n(() => {\n// Pure planner for justified (\"photo wall\") rows on sheet pages. No DOM access.\n//\n// This file must stay inlinable into the page script: top-level declarations only, no imports, and the exports are\n// `planLayout` and the constants the DOM adapter shares (STEP, MAX_SCALE, MIN_SCALE). The page build strips the `export ` keyword,\n// and test/layout-plan.test.js checks that this still works.\n//\n// planLayout({ width, gap, cols, panels }) -> { rows: [{ columns: [{ panels: [index, ...], width }], height }] }\n//\n// Input (all lengths in px):\n//   width   container width\n//   gap     space between columns, and between two panels stacked in one column\n//   cols    most columns in one row (the planner never uses more than MAX_COLUMNS, but spans stay shares of `cols`)\n//   panels  one entry per panel, in reading order:\n//     samples   [{ w, h }] panel height at sampled widths, ascending by w (heights between samples are interpolated)\n//     minWidth  narrowest feasible width (clamped to `width`)\n//     maxWidth  widest useful width; beyond it the panel only gains empty space (default: no limit)\n//     natural   natural diagram width for a diagram-only panel (default: none)\n//     pad       panel width not used by the diagram (padding and border; default 0)\n//     span      the author's width hint in grid columns (default 1); span >= cols keeps the panel alone in its row\n//\n// Output: { rows, maxScale }. Rows are in reading order; a row is a list of columns (at most `cols`); a column holds one panel or two\n// consecutive panels, stacked. For integer inputs the column widths plus the gaps between them equal `width`.\n// Rows are chosen by dynamic programming over break points; widths by a search in STEP px steps. Cost per row:\n//   H = tallest column; waste = sum((H - columnHeight) * columnWidth) + sum over diagrams wider than maxWidth of (w - maxWidth) * h\n//   dev = sum(((w - preferred) / oneColumn)^2) + SCALE_WEIGHT * sum over diagrams of (ln(scale) / ln(MAX_SCALE))^2\n//   cost = waste / 1000 + PREF_WEIGHT * dev * H\n// Scale band: diagrams on one page stay at similar sizes. With the result's `maxScale` as the diagram size limit, a diagram is\n// shown at scale min(maxScale, (width - pad) / natural). The planner tries a few bands [lo, lo * BAND_RATIO] (lo in BAND_LOS) and\n// keeps the cheapest plan in which no diagram is narrower than scale lo and none is shown above the band's top, so the largest and\n// smallest diagram scale on the page differ by at most BAND_RATIO. A panel wider than its diagram's top size keeps the diagram at\n// that size, and the page script must set the diagram's max-width to natural * maxScale. The band starts no higher than the\n// largest scale the page allows the least roomy diagram, so one wide diagram lowers the band for the others.\n// If no band is feasible the plan is made without a band (maxScale = MAX_SCALE); if no plan fits (or the input is unusable) the\n// result is a single column: one panel per row at the full width.\n\nconst STEP = 10;\nconst MAX_SCALE = 1.25;\nconst MIN_SCALE = 0.75; // the narrowest a diagram is shown, as a share of its natural width\nconst MAX_COLUMNS = 6; // rows with more columns are unreadable, and the search grows steeply with the column count\nconst BAND_RATIO = 1.25; // the largest and smallest diagram scale on a page differ by at most this\nconst BAND_LOS = [MIN_SCALE, 0.85, 0.95, 1]; // lower ends tried for the band; lo * BAND_RATIO is the upper end (1.25 means no upper limit)\nconst SCALE_WEIGHT = 3;\nconst PREF_WEIGHT = 0.15;\n\nfunction heightAt(samples, w) {\n  const i = samples.findIndex((s) => s.w >= w);\n  if (i === -1) return samples[samples.length - 1].h;\n  if (i === 0) return samples[0].h;\n  const a = samples[i - 1];\n  const b = samples[i];\n  return a.h + ((b.h - a.h) * (w - a.w)) / (b.w - a.w);\n}\n\n// Every way to split `len` consecutive panels into columns of 1 or 2 panels, as lists of column sizes.\nfunction splits(len) {\n  if (len === 0) return [[]];\n  return [1, 2].filter((k) => k <= len).flatMap((k) => splits(len - k).map((rest) => [k, ...rest]));\n}\n\nfunction singleColumn(width, panels) {\n  return { rows: panels.map((_, i) => ({ columns: [{ panels: [i], width }], height: 0 })) };\n}\n\nfunction planLayout({ width, gap = 0, cols = 3, panels }) {\n  const usable = Number.isFinite(width) && width > 0 && panels.every((p) => Array.isArray(p.samples) && p.samples.length > 0);\n  if (!usable) return singleColumn(width, panels);\n\n  // `cols` stays the unit of the author's spans; no row gets more than MAX_COLUMNS columns however large `cols` is.\n  const maxColumns = Math.min(cols, MAX_COLUMNS);\n  const oneColumn = Math.max(1, (width - gap * (cols - 1)) / cols);\n  // Per-panel limits. With a band [lo, lo * BAND_RATIO], a diagram is no narrower than scale lo and shown at most at the top of the\n  // band: a wider panel keeps it at that size and gains empty space, which the cost counts as waste.\n  const prepare = (lo) => panels.map((p) => {\n    const pad = p.pad ?? 0;\n    const diagram = lo > 0 && p.natural > 0;\n    const scaleCap = diagram ? Math.min(MAX_SCALE, lo * BAND_RATIO) : MAX_SCALE;\n    return {\n      ...p,\n      minWidth: Math.min(width, Math.max(Math.ceil(p.minWidth || 0), diagram ? Math.ceil(p.natural * lo + pad) : 0)),\n      maxWidth: Math.min(p.maxWidth ?? Infinity, diagram ? p.natural * scaleCap + pad : Infinity),\n      scaleCap,\n      pad,\n      preferred: Math.min(width, (p.span ?? 1) * oneColumn + ((p.span ?? 1) - 1) * gap),\n      alone: (p.span ?? 1) >= cols,\n    };\n  });\n  let info = prepare(0);\n  // Beyond its maxWidth a panel only gains empty space, so its height stops changing there (matters when a band lowers maxWidth).\n  const heightOf = (p, w) => heightAt(p.samples, Math.min(w, p.maxWidth));\n  const columnHeight = (col, w) => col.reduce((h, k) => h + heightOf(info[k], w), 0) + gap * (col.length - 1);\n\n  function bestColumns(columns) {\n    const avail = width - gap * (columns.length - 1);\n    const mins = columns.map((c) => Math.max(...c.map((k) => info[k].minWidth)));\n    const minsFrom = mins.map((_, n) => mins.slice(n).reduce((s, w) => s + w, 0));\n    if (minsFrom[0] > avail) return null;\n    let best = null;\n    const evaluate = (ws) => {\n      const hs = ws.map((w, n) => columnHeight(columns[n], w));\n      const H = Math.max(...hs);\n      let waste = 0;\n      let dev = 0;\n      ws.forEach((w, n) => {\n        waste += (H - hs[n]) * w;\n        for (const k of columns[n]) {\n          const p = info[k];\n          if (w > p.maxWidth) waste += (w - p.maxWidth) * heightOf(p, w);\n          dev += ((w - p.preferred) / oneColumn) ** 2;\n          if (p.natural > 0) {\n            const scale = Math.min(p.scaleCap, Math.max(w - p.pad, 1) / p.natural);\n            dev += SCALE_WEIGHT * (Math.log(scale) / Math.log(MAX_SCALE)) ** 2;\n          }\n        }\n      });\n      const cost = waste / 1000 + PREF_WEIGHT * dev * H;\n      if (!best || cost < best.cost) best = { cost, ws, height: H, columns };\n    };\n    const choose = (n, used, ws) => {\n      if (n === columns.length - 1) {\n        const w = avail - used;\n        if (w >= mins[n]) evaluate([...ws, w]);\n        return;\n      }\n      for (let w = mins[n]; used + w + minsFrom[n + 1] <= avail; w += STEP) choose(n + 1, used + w, [...ws, w]);\n    };\n    choose(0, 0, []);\n    return best;\n  }\n\n  // Best columns for one row of panels i..j.\n  function bestRow(i, j) {\n    if (j > i && info.slice(i, j + 1).some((p) => p.alone)) return null;\n    let best = null;\n    for (const split of splits(j - i + 1)) {\n      if (split.length > maxColumns) continue;\n      let next = i;\n      const columns = split.map((size) => Array.from({ length: size }, () => next++));\n      const r = bestColumns(columns);\n      if (r && (!best || r.cost < best.cost)) best = r;\n    }\n    return best;\n  }\n\n  // Row breaks in reading order, for the band set up in `info`. A row holds at most 2 * maxColumns panels. Null if nothing fits.\n  function solve() {\n    const n = panels.length;\n    const total = Array(n + 1).fill(Infinity);\n    const from = Array(n + 1).fill(-1);\n    const chosen = Array(n + 1).fill(null);\n    total[0] = 0;\n    for (let j = 1; j <= n; j++) {\n      for (let i = Math.max(0, j - 2 * maxColumns); i < j; i++) {\n        if (total[i] === Infinity) continue;\n        const r = bestRow(i, j - 1);\n        if (r && total[i] + r.cost < total[j]) {\n          total[j] = total[i] + r.cost;\n          from[j] = i;\n          chosen[j] = r;\n        }\n      }\n    }\n    if (total[n] === Infinity) return null;\n    const rows = [];\n    for (let j = n; j > 0; j = from[j]) {\n      const r = chosen[j];\n      rows.unshift({ columns: r.columns.map((panelsInColumn, c) => ({ panels: panelsInColumn, width: r.ws[c] })), height: r.height });\n    }\n    return { rows, cost: total[n] };\n  }\n\n  let best = null;\n  const diagrams = panels.filter((p) => p.natural > 0);\n  if (diagrams.length > 1) {\n    // No diagram can be shown larger than the page allows, so the band cannot start above the smallest of those limits.\n    const reach = Math.min(...diagrams.map((p) => Math.min(MAX_SCALE, Math.max(width - (p.pad ?? 0), 1) / p.natural)));\n    for (const lo of new Set([...BAND_LOS.filter((x) => x < reach), reach])) {\n      info = prepare(lo);\n      const r = solve();\n      if (r && (!best || r.cost < best.cost)) best = { ...r, maxScale: Math.min(MAX_SCALE, lo * BAND_RATIO) };\n    }\n    info = prepare(0);\n  }\n  best ??= solve();\n  return best ? { rows: best.rows, maxScale: best.maxScale ?? MAX_SCALE } : singleColumn(width, panels);\n}\n\n// DOM adapter for the sheet's justified (\"photo wall\") layout. Not a module: compose.js puts it after src/runtime/layout-plan.js\n// (which defines planLayout and the shared STEP, MAX_SCALE, MIN_SCALE) inside one function scope of the page script.\n//\n// It measures every panel at sampled widths, asks planLayout for rows and column widths, and applies them with flexbox.\n// The rendered HTML keeps the plain CSS grid: with JavaScript off, at the single-column breakpoint, or while printing, the grid is what\n// shows (the planned widths belong to the screen width, so print never gets a mix of the two); after printing the layout comes back.\n\nconst grid = document.querySelector('.am-grid');\nconst panels = grid ? [...grid.children].filter((el) => el.classList.contains('am-panel')) : [];\n\nif (panels.length > 1) {\n  const SINGLE_COLUMN = '(max-width: 760px)'; // the single-column breakpoint in src/themes/base.css\n  const TWO_COLUMNS = '(max-width: 1100px)'; // below this the CSS grid has two columns\n  const SAMPLE_STEP = 20; // width sampling step, px; the planner interpolates between samples\n  // The width floors are text sizes (px at scale 1). They take the page scale on every pass, so a runtime change of --am-scale re-plans.\n  const TEXT_MIN = 260; // text keeps at least about 16 CJK characters per line\n  const TABLE_COL_MIN = 96; // per table column, px\n  const TABLE_COL_COMFORT = 220; // a table column this wide reads three or four words per line\n  const KV_COL_MIN = 120; // per key-value column, px: a value of two short words stays on one line\n  const DIAGRAM_MIN = 160;\n  const RESIZE_DELAY = 150;\n  const pageScale = () => {\n    const scale = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--am-scale'));\n    return Number.isFinite(scale) && scale > 0 ? scale : 1;\n  };\n  const OVERFLOWING = '.am-table-wrap, .am-diagram, .am-annot-scroll, pre';\n\n  // The first-row cells of each table carry the column widths fitTables() sets, so restore() resets them too.\n  const tables = [...grid.querySelectorAll('.am-table-wrap > table')];\n  const headCells = (table) => [...(table.rows[0]?.cells ?? [])];\n  const original = new Map([grid, ...panels, ...grid.querySelectorAll('.am-diagram > svg'), ...tables.flatMap(headCells)].map((el) => [el, el.getAttribute('style')]));\n  const restoreStyle = (el) => (original.get(el) === null ? el.removeAttribute('style') : el.setAttribute('style', original.get(el)));\n\n  // Back to the plain grid markup and styles.\n  const restore = () => {\n    for (const box of grid.querySelectorAll(':scope > .am-col')) box.replaceWith(...box.children);\n    for (const el of original.keys()) restoreStyle(el);\n  };\n\n  // The author's width hint, rendered as data-span only when the author wrote one. The inline grid-column is the no-JavaScript fallback\n  // and may hold spans the server added, so it is never read here.\n  const spanHint = (el) => Number(el.dataset.span) || 1;\n  const diagramOnly = (el) => {\n    const body = el.querySelector(':scope > .am-panel-body');\n    return body && body.children.length === 1 ? body.querySelector(':scope > .am-diagram > svg') : null;\n  };\n  const naturalWidth = (svg) => Number(svg.getAttribute('width')) || 0;\n\n  // The width each column of a table reads well at: its natural width, but no wider than TABLE_COL_COMFORT unless its longest word\n  // needs more. Below it the cells wrap one word per line, so a panel with a table is not planned narrower than the sum, and\n  // fitTables() keeps each column at its share (the browser would otherwise give the room to the longest column).\n  const columnWidths = new Map();\n  function comfortableWidth(table, scale) {\n    const saved = table.getAttribute('style');\n    const columns = (width) => {\n      table.style.width = width;\n      return headCells(table).map((cell) => cell.getBoundingClientRect().width);\n    };\n    const most = columns('max-content');\n    const least = columns('min-content');\n    if (saved === null) table.removeAttribute('style');\n    else table.setAttribute('style', saved);\n    // A max-content column comes out a fraction under its text in Chrome, enough to wrap the last word, so it gets one pixel more.\n    const want = most.map((w, i) => Math.min(Math.ceil(w) + 1, Math.max(least[i], TABLE_COL_COMFORT * scale)));\n    columnWidths.set(table, { least, want });\n    return want.reduce((sum, w) => sum + w, 0);\n  }\n\n  // After the layout: each column gets at least its comfortable width, scaled down toward its longest word when the panel came out\n  // narrower than planned (a page narrower than the table), so a table scrolls sideways only when even its longest words do not fit.\n  function fitTables() {\n    for (const [table, { least, want }] of columnWidths) {\n      // Each width is rounded up to a whole pixel (a column a fraction too narrow wraps its last word), so keep a pixel per column spare.\n      const room = table.parentElement.clientWidth - want.length;\n      const low = least.reduce((s, w) => s + w, 0);\n      const high = want.reduce((s, w) => s + w, 0);\n      const k = high > room ? Math.max(0, (room - low) / (high - low || 1)) : 1;\n      headCells(table).forEach((cell, i) => { cell.style.minWidth = `${Math.ceil(least[i] + (want[i] - least[i]) * k)}px`; });\n    }\n  }\n\n  // Height (and, for panels with tables or code, the narrowest width without sideways scrolling) at sampled widths.\n  // Only one panel is displayed while it is measured, so each width change lays out that panel alone.\n  function measure(width) {\n    const scale = pageScale();\n    grid.style.display = 'block';\n    for (const el of panels) {\n      el.style.display = 'none';\n      el.style.boxSizing = 'border-box';\n      for (const svg of el.querySelectorAll('.am-diagram > svg')) {\n        svg.style.width = '100%';\n        svg.style.maxWidth = `${naturalWidth(svg) * MAX_SCALE}px`;\n      }\n    }\n    const info = panels.map((el) => {\n      const svg = diagramOnly(el);\n      const svgs = [...el.querySelectorAll('.am-diagram > svg')];\n      const scrollers = el.querySelectorAll(OVERFLOWING);\n      const tableCols = Math.max(0, ...[...el.querySelectorAll('table tr:first-child')].map((tr) => tr.children.length));\n      el.style.display = '';\n      el.style.width = `${width}px`;\n      const pad = svg ? el.offsetWidth - svg.parentElement.clientWidth : 0;\n      const natural = svg ? naturalWidth(svg) : 0;\n      const shrunk = Math.max(0, ...svgs.map((s) => naturalWidth(s) * MIN_SCALE)) + (svg ? pad : 34);\n      const tableFloors = [...el.querySelectorAll('.am-table-wrap > table')].map((t) => comfortableWidth(t, scale) + el.offsetWidth - t.parentElement.clientWidth);\n      // A key-value grid gets the same care: the room a table gains must not squeeze a neighbouring grid to one word per line.\n      const kvs = [...el.querySelectorAll('.am-kv')].map((kv) => (Number(kv.style.getPropertyValue('--kv-cols')) || 1) * KV_COL_MIN * scale + el.offsetWidth - kv.clientWidth);\n      const floor = svg ? Math.max(DIAGRAM_MIN * scale, natural * MIN_SCALE + pad) : Math.max(TEXT_MIN * scale, shrunk, tableCols * TABLE_COL_MIN * scale + 34, ...tableFloors, ...kvs);\n      const from = Math.min(width, Math.floor(floor / STEP) * STEP);\n      const samples = [];\n      let fits = null;\n      for (let w = from; ; w += SAMPLE_STEP) {\n        w = Math.min(w, width);\n        el.style.width = `${w}px`;\n        if (fits === null && !svg && scrollers.length && ![...scrollers].some((s) => s.scrollWidth > s.clientWidth + 1)) fits = w;\n        samples.push({ w, h: el.offsetHeight });\n        if (w === width) break;\n      }\n      el.style.display = 'none';\n      return {\n        samples,\n        minWidth: svg ? floor : Math.max(floor, fits ?? (scrollers.length ? width : 0)),\n        maxWidth: svg ? natural * MAX_SCALE + pad : Infinity,\n        natural,\n        pad,\n        span: spanHint(el),\n      };\n    });\n    for (const el of panels) {\n      el.style.display = '';\n      el.style.width = '';\n    }\n    return info;\n  }\n\n  // Each column gets a fixed width. A row adds up to the full width, so flex-wrap breaks rows by itself.\n  // Stacked panels go into a column wrapper whose last panel absorbs the extra height.\n  function apply(plan, gap) {\n    grid.style.display = 'flex';\n    grid.style.flexWrap = 'wrap';\n    grid.style.alignItems = 'stretch';\n    grid.style.gap = `${gap}px`;\n    for (const el of panels) {\n      el.style.gridColumn = '';\n      el.style.gridRow = '';\n      el.style.flex = '0 0 auto';\n    }\n    for (const row of plan.rows) {\n      for (const col of row.columns) {\n        const width = `${col.width}px`;\n        if (col.panels.length === 1) {\n          panels[col.panels[0]].style.width = width;\n          continue;\n        }\n        const box = document.createElement('div');\n        box.className = 'am-col';\n        box.style.cssText = `width:${width};flex:0 0 auto;display:flex;flex-direction:column;gap:${gap}px`;\n        panels[col.panels[0]].before(box);\n        for (const k of col.panels) {\n          panels[k].style.width = '';\n          box.append(panels[k]);\n        }\n        panels[col.panels[col.panels.length - 1]].style.flex = '1 1 auto';\n      }\n    }\n  }\n\n  // Diagram-only panels show their diagram at most at the top of the page's scale band; a wider panel gains empty space instead.\n  function capDiagrams(maxScale) {\n    for (const el of panels) {\n      const svg = diagramOnly(el);\n      if (svg) svg.style.maxWidth = `${naturalWidth(svg) * maxScale}px`;\n    }\n  }\n\n  const containerWidth = () => Math.floor(grid.getBoundingClientRect().width);\n\n  function justify() {\n    if (printing || printQuery.matches) return;\n    try {\n      // A vertical scrollbar can appear or vanish once the rows change height; plan again if the width moved.\n      let planned = -1;\n      for (let pass = 0; pass < 3 && planned !== containerWidth(); pass++) {\n        restore();\n        if (matchMedia(SINGLE_COLUMN).matches) return;\n        planned = containerWidth();\n        const gap = parseFloat(getComputedStyle(grid).columnGap) || 0;\n        const cols = Math.max(1, Number(getComputedStyle(grid).getPropertyValue('--cols')) || 3);\n        const plan = planLayout({ width: planned, gap, cols: matchMedia(TWO_COLUMNS).matches ? Math.min(cols, 2) : cols, panels: measure(planned) });\n        apply(plan, gap);\n        capDiagrams(plan.maxScale);\n        fitTables();\n      }\n      // The width never settled: columns planned for another width would overflow or leave gaps, so show the plain grid.\n      if (planned !== containerWidth()) restore();\n    } catch {\n      restore();\n    }\n  }\n\n  // Printing: back to the plain grid (spans and all), and the layout again afterwards. Browsers disagree on which of the\n  // `beforeprint` event and the print media query change fires first, or at all, so listen to both; both are idempotent.\n  // While `printing` is set (beforeprint to afterprint) justify() does nothing, so a late resize cannot bring flex widths into the print layout.\n  let printing = false;\n  const printQuery = matchMedia('print');\n  let timer = 0;\n  const later = () => {\n    clearTimeout(timer);\n    timer = setTimeout(justify, RESIZE_DELAY);\n  };\n  const toPrint = () => {\n    clearTimeout(timer);\n    restore();\n  };\n  justify();\n  addEventListener('resize', later);\n  // A reader's text size changes every panel's text widths and heights, so the sheet is planned again like a resize.\n  addEventListener('am-scale', later);\n  addEventListener('beforeprint', () => {\n    printing = true;\n    toPrint();\n  });\n  addEventListener('afterprint', () => {\n    printing = false;\n    later();\n  });\n  printQuery.addEventListener('change', (e) => (e.matches ? toPrint() : later()));\n  // Late changes to panel heights: web fonts arriving, and images inside the grid finishing their load (load does not bubble, so capture it).\n  document.fonts?.ready.then(later);\n  grid.addEventListener('load', later, true);\n  // Switching theme changes paddings and fonts, hence panel heights.\n  document.querySelector('[data-am=\"theme\"]')?.addEventListener('click', later);\n}\n})();\n// The outline rail of a doc page (src/templates/doc.js): the markup already works without a script, <details> opens the list and the\n// links jump. This adds the hover dwell, the open direction, the keys, the tap outside and the marking of the current section.\n(() => {\n  const nav = document.querySelector('nav.am-toc');\n  const box = nav && nav.querySelector('details.am-outline');\n  if (!box) return;\n  const sum = box.querySelector('summary');\n  const links = Array.from(box.querySelectorAll('.am-outline-list a'));\n  const ticks = Array.from(box.querySelectorAll('.am-tick'));\n  const LIST_W = 240; // keep in step with .am-outline-list in src/themes/base.css\n  const EDGE = 10; // the 6px gap to the rail plus a margin to the viewport edge\n  let current = '';\n  let byHover = false;\n  let dwell = 0;\n  let leave = 0;\n\n  // Open away from the body when the room outside the rail fits the list; otherwise over the body. Never past the viewport.\n  const place = () => {\n    const r = sum.getBoundingClientRect();\n    const right = r.left + r.width / 2 > innerWidth / 2;\n    const room = right ? innerWidth - r.right : r.left;\n    nav.dataset.flow = room >= Math.min(LIST_W, innerWidth - 48) + EDGE ? 'out' : 'in';\n  };\n  const setOpen = (open) => {\n    if (open) place();\n    box.open = open;\n    if (!open) byHover = false;\n  };\n  const peek = (tick) => ticks.forEach((t) => t.classList.toggle('is-peek', t === tick));\n  const currentLink = () => links.find((a) => a.getAttribute('aria-current') === 'true') || links[0];\n\n  const mark = (id) => {\n    current = id;\n    ticks.forEach((t) => t.classList.toggle('is-current', t.dataset.id === id));\n    links.forEach((a) => {\n      if (a.getAttribute('href') === `#panel-${id}`) a.setAttribute('aria-current', 'true');\n      else a.removeAttribute('aria-current');\n    });\n  };\n  const sections = ticks.map((t) => document.getElementById(`panel-${t.dataset.id}`)).filter(Boolean);\n  if (sections.length) mark(sections[0].id.slice(6));\n  if (sections.length && 'IntersectionObserver' in window) {\n    // A thin band a third of the way down the viewport: the section across it is the one being read.\n    const seen = new Set();\n    const io = new IntersectionObserver((entries) => {\n      entries.forEach((e) => (e.isIntersecting ? seen.add(e.target) : seen.delete(e.target)));\n      const hit = sections.filter((s) => seen.has(s)).pop();\n      if (hit && hit.id.slice(6) !== current) mark(hit.id.slice(6));\n    }, { rootMargin: '-30% 0px -65% 0px' });\n    sections.forEach((s) => io.observe(s));\n  }\n\n  place();\n  addEventListener('resize', place);\n\n  // Mouse: dwelling on the rail opens the list, leaving it closes a list opened that way. A tap or click opens it for good.\n  box.addEventListener('pointerenter', (e) => {\n    clearTimeout(leave);\n    if (e.pointerType !== 'mouse' || box.open) return;\n    dwell = setTimeout(() => { setOpen(true); byHover = true; }, 300);\n  });\n  box.addEventListener('pointerleave', () => {\n    clearTimeout(dwell);\n    // A link the keyboard moved into keeps the list open; focusout closes it once the focus leaves the nav.\n    if (byHover) leave = setTimeout(() => { if (!nav.contains(document.activeElement)) setOpen(false); }, 250);\n  });\n  sum.addEventListener('click', (e) => {\n    clearTimeout(dwell);\n    if (box.open && byHover) { e.preventDefault(); byHover = false; return; }\n    place();\n  });\n  box.addEventListener('toggle', () => { if (box.open) peek(null); });\n\n  // Keyboard: the summary opens with Enter or Space (native); arrows move through the links; Esc closes and returns to the rail.\n  sum.addEventListener('focus', () => {\n    if (sum.matches(':focus-visible')) peek(ticks.find((t) => t.dataset.id === current));\n  });\n  sum.addEventListener('blur', () => peek(null));\n  nav.addEventListener('keydown', (e) => {\n    if (e.key === 'Escape' && box.open) {\n      e.preventDefault();\n      setOpen(false);\n      sum.focus();\n      return;\n    }\n    if (!['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(e.key)) return;\n    const at = links.indexOf(document.activeElement);\n    if (at < 0 && e.target !== sum) return;\n    e.preventDefault();\n    if (!box.open) setOpen(true);\n    let next;\n    if (e.key === 'Home') next = links[0];\n    else if (e.key === 'End') next = links[links.length - 1];\n    else if (at < 0) next = e.key === 'ArrowDown' ? currentLink() : links[links.length - 1];\n    else next = links[Math.min(links.length - 1, Math.max(0, at + (e.key === 'ArrowDown' ? 1 : -1)))];\n    next.focus();\n  });\n  nav.addEventListener('focusout', (e) => {\n    if (box.open && e.relatedTarget && !nav.contains(e.relatedTarget)) setOpen(false);\n  });\n\n  // Choosing a section or tapping outside closes the list.\n  links.forEach((a) => a.addEventListener('click', () => setOpen(false)));\n  document.addEventListener('pointerdown', (e) => { if (box.open && !nav.contains(e.target)) setOpen(false); });\n  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && box.open && !nav.contains(e.target)) setOpen(false); });\n})();\n})();\n";
+var TABLE_JS = "(() => {\n  const NUMBER = /^[+-]?(?:\\d+(?:\\.\\d*)?|\\.\\d+)(?:e[+-]?\\d+)?$/i;\n  const FORMATTED_NUMBER = /^[+-]?\\$?(?:(?:\\d{1,3}(?:,\\d{3})+|\\d+)(?:\\.\\d*)?|\\.\\d+)%?$/;\n  const INTEGER = /^[+-]?\\d+$/;\n  const ZERO_FRACTION = /^[+-]?\\d+\\.0*$/;\n  const DATE = /^\\d{4}-\\d{2}-\\d{2}(?:[T ]\\d{2}:\\d{2}(?::\\d{2}(?:\\.\\d{1,3})?)?(?:Z|[+-]\\d{2}:?\\d{2})?)?$/;\n  const INTERACTIVE = 'a, button, input, select, textarea, details, audio[controls], video[controls], [contenteditable], [tabindex]';\n  const validDate = (text) => {\n    if (!DATE.test(text)) return false;\n    const [year, month, day] = text.slice(0, 10).split('-').map(Number);\n    const date = new Date(0);\n    date.setUTCHours(0, 0, 0, 0);\n    date.setUTCFullYear(year, month - 1, day);\n    return date.getUTCFullYear() === year && date.getUTCMonth() === month - 1 && date.getUTCDate() === day && Number.isFinite(Date.parse(text));\n  };\n  const numberValue = (text) => {\n    let normalized = text;\n    if (FORMATTED_NUMBER.test(text)) normalized = text.replace(/[$,%]/g, '');\n    else if (!NUMBER.test(text)) return null;\n    if (INTEGER.test(normalized)) return BigInt(normalized);\n    if (ZERO_FRACTION.test(normalized)) return BigInt(normalized.slice(0, normalized.indexOf('.')));\n    const value = Number(normalized);\n    return Number.isFinite(value) ? value : null;\n  };\n  const typedValue = (text) => {\n    const number = numberValue(text);\n    if (number !== null) return number;\n    return validDate(text) ? Date.parse(text) : null;\n  };\n  const relayout = () => window.dispatchEvent(new Event('resize'));\n\n  for (const table of document.querySelectorAll('table[data-am-table]')) {\n    const options = new Set(table.dataset.amTable.split(/\\s+/));\n    const body = table.tBodies[0];\n    if (!body) continue;\n\n    if (options.has('filter')) {\n      const controls = table.parentElement.previousElementSibling;\n      const input = controls?.classList.contains('am-table-controls') ? controls.querySelector('[data-am-table-filter]') : null;\n      if (input) {\n        controls.hidden = false;\n        input.addEventListener('input', () => {\n          const query = input.value.trim().toLocaleLowerCase();\n          for (const row of body.rows) row.hidden = Boolean(query) && !row.textContent.toLocaleLowerCase().includes(query);\n          relayout();\n        });\n      }\n    }\n\n    if (!options.has('sort')) continue;\n    const headers = [...(table.tHead?.rows[0]?.cells ?? [])];\n    headers.forEach((head, column) => {\n      const button = document.createElement('button');\n      button.type = 'button';\n      button.className = 'am-table-sort';\n      button.setAttribute('aria-label', head.textContent.trim());\n      const moved = [...head.childNodes].filter((child) => !(child.nodeType === 1 && (child.matches(INTERACTIVE) || child.querySelector(INTERACTIVE))));\n      head.insertBefore(button, moved[0] ?? null);\n      button.append(...moved);\n      button.addEventListener('click', () => {\n        const direction = head.getAttribute('aria-sort') === 'ascending' ? 'descending' : 'ascending';\n        for (const cell of headers) cell.removeAttribute('aria-sort');\n        head.setAttribute('aria-sort', direction);\n        const rows = [...body.rows];\n        const texts = rows.map((row) => row.cells[column]?.textContent.trim() ?? '');\n        const numeric = texts.every((text) => numberValue(text) !== null);\n        const dates = texts.every(validDate);\n        const byValue = head.getAttribute('align') === 'right' || numeric || dates;\n        const sorted = rows.map((row, index) => ({ row, index, text: texts[index], value: byValue ? typedValue(texts[index]) : null }));\n        sorted.sort((a, b) => {\n          let compared;\n          if (byValue && (a.value !== null || b.value !== null)) {\n            if (a.value === null) compared = 1;\n            else if (b.value === null) compared = -1;\n            else compared = a.value < b.value ? -1 : a.value > b.value ? 1 : 0;\n          }\n          compared ??= a.text.localeCompare(b.text);\n          return compared === 0 ? a.index - b.index : direction === 'ascending' ? compared : -compared;\n        });\n        body.append(...sorted.map(({ row }) => row));\n        relayout();\n      });\n    });\n  }\n})();\n";
+var TABLE_CSS = `.am-table-controls { margin: 0 0 8px; }
+.am-table-filter { display: flex; align-items: center; gap: 8px; font-size: var(--am-fs-small); color: var(--ink-2); }
+.am-table-filter input {
+  min-width: 0; flex: 1; padding: 6px 8px; color: var(--ink); background: var(--paper);
+  border: 1px solid var(--line-2); border-radius: var(--radius); font: var(--am-fs-small)/1.4 var(--font-sans);
+}
+.am-table-filter input:focus-visible, .am-table-sort:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.am-table-sort {
+  appearance: none; display: block; width: 100%; margin: 0; padding: 0; border: 0;
+  color: inherit; background: transparent; font: inherit; font-weight: inherit; text-align: inherit; cursor: pointer;
+}
+.am-table-sort::after { margin-inline-start: 5px; color: var(--ink-3); font-size: var(--am-fs-label); }
+.am-md th[aria-sort="ascending"] .am-table-sort::after { content: '\u25B2'; }
+.am-md th[aria-sort="descending"] .am-table-sort::after { content: '\u25BC'; }
+@media print {
+  .am-table-controls { display: none !important; }
+  .am-table-sort { cursor: default; }
+  .am-table-sort::after { content: none !important; }
+}
+`;
 var DIFF_CSS = "/* Diff block (only on pages that have one): red and green lines, a hunk row, and two gutters, old and new, drawn from data-o / data-n.\n   The hues are fixed and mixed into the theme's own --fill and --ink, so they read as green and red in every theme, light and dark. */\n.am-codeblock--diff { --diff-add: #1f9d4d; --diff-del: #d1344a; }\n.am-code-stat { display: inline-flex; gap: 6px; flex: none; font: var(--am-fs-small)/1.3 var(--font-mono); }\n.am-code-stat-add { color: color-mix(in srgb, var(--diff-add) 75%, var(--ink)); }\n.am-code-stat-del { color: color-mix(in srgb, var(--diff-del) 75%, var(--ink)); }\n.am-code--diff .am-ln { display: flex; padding: 0 14px 0 0; }\n.am-code--diff:not(.am-code--dnum) .am-ln { padding-left: 14px; }\n.am-code--dnum .am-ln::before, .am-code--dnum .am-ln::after {\n  flex: none; box-sizing: content-box; width: 3.5ch; padding: 0 6px; text-align: right; color: var(--ink-3);\n  user-select: none; -webkit-user-select: none;\n}\n.am-code--dnum .am-ln::before { content: attr(data-o); order: -2; }\n.am-code--dnum .am-ln::after { content: attr(data-n); order: -1; margin-right: 10px; }\n.am-ln--add { background: color-mix(in srgb, var(--diff-add) 14%, var(--fill)); }\n.am-ln--del { background: color-mix(in srgb, var(--diff-del) 14%, var(--fill)); }\n.am-ln--add::before, .am-ln--add::after { background: color-mix(in srgb, var(--diff-add) 28%, var(--fill)); }\n.am-ln--del::before, .am-ln--del::after { background: color-mix(in srgb, var(--diff-del) 28%, var(--fill)); }\n.am-code--diff .am-ln--hl { box-shadow: none; }\n.am-code--diff .am-ln--hl::before { box-shadow: inset 3px 0 0 var(--accent); }\n.am-code--diff .am-ln--ctx.am-ln--hl { background: var(--accent-bg); }\n.am-code--diff .am-ln--hunk { display: block; min-height: 0; padding: 1px 14px; font-size: var(--am-fs-fine); color: var(--ink-3); background: color-mix(in srgb, var(--accent) 8%, var(--fill)); }\n.am-code--dnum .am-ln--hunk::before, .am-code--dnum .am-ln--hunk::after { content: none; }\n.am-code--diff .am-ln--meta { display: none; }\n";
 var DELTA_CSS = `/* Change markers (only on pages that have one). Only the Changes view (.am-view-changes) draws change styling: colors, strike-through, faded items
    and badges. Before and After look like a plain diagram, and the items that do not exist in the view are hidden.
@@ -1357,7 +1384,7 @@ var VIDEO_EXPORT_JS = "// The export engine for the path that has no ffmpeg: the
 var VIDEO_MUX_JS = "// Minimal WebM (Matroska) writer for the export path that has no ffmpeg: the browser encodes the frames (WebCodecs,\n// see src/runtime/video.js) and this module writes the container. One VP8/VP9 video track and an optional Opus audio\n// track. The blocks are buffered, sorted by time and cut into clusters of about a second, so the sound and the\n// picture of a moment sit next to each other in the file. The Segment and the Clusters carry the unknown size, which\n// is how a stream is written: nothing needs to be measured first and nothing is patched afterwards.\n// Plain bytes only (no Buffer, no imports), so the same source runs in Node and inside a page (scripts/inline-assets.mjs\n// turns it into a script for the player page).\nconst APP = 'answer-me-with-html';   // MuxingApp / WritingApp\nconst CLUSTER_MS = 1000;              // how much time one cluster holds\nconst SEEK_PRE_ROLL_NS = 80_000_000;  // what the Opus specification asks for\n\nconst ID = {\n  EBML: [0x1a, 0x45, 0xdf, 0xa3],\n  EBMLVersion: [0x42, 0x86], EBMLReadVersion: [0x42, 0xf7], EBMLMaxIDLength: [0x42, 0xf2], EBMLMaxSizeLength: [0x42, 0xf3],\n  DocType: [0x42, 0x82], DocTypeVersion: [0x42, 0x87], DocTypeReadVersion: [0x42, 0x85],\n  Segment: [0x18, 0x53, 0x80, 0x67], Info: [0x15, 0x49, 0xa9, 0x66], TimecodeScale: [0x2a, 0xd7, 0xb1],\n  MuxingApp: [0x4d, 0x80], WritingApp: [0x57, 0x41], Duration: [0x44, 0x89],\n  Tracks: [0x16, 0x54, 0xae, 0x6b], TrackEntry: [0xae], TrackNumber: [0xd7], TrackUID: [0x73, 0xc5], FlagLacing: [0x9c],\n  CodecID: [0x86], TrackType: [0x83], Video: [0xe0], PixelWidth: [0xb0], PixelHeight: [0xba],\n  Audio: [0xe1], SamplingFrequency: [0xb5], Channels: [0x9f], CodecPrivate: [0x63, 0xa2],\n  CodecDelay: [0x56, 0xaa], SeekPreRoll: [0x56, 0xbb],\n  Cluster: [0x1f, 0x43, 0xb6, 0x75], Timecode: [0xe7], SimpleBlock: [0xa3],\n};\nconst UNKNOWN_SIZE = new Uint8Array([0x01, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff]);\n\nconst concat = (parts) => {\n  let total = 0;\n  for (const p of parts) total += p.length;\n  const out = new Uint8Array(total);\n  let at = 0;\n  for (const p of parts) { out.set(p, at); at += p.length; }\n  return out;\n};\nconst bytes = (id) => new Uint8Array(id);\nconst text = (s) => new TextEncoder().encode(s);\n\n// Element size as a variable-size integer, in the shortest length that fits; the all-ones value is reserved.\nfunction size(n) {\n  for (let len = 1; len <= 8; len++) {\n    if (len === 8 || n < 2 ** (7 * len) - 1) {\n      const out = new Uint8Array(len);\n      let v = n;\n      for (let i = len - 1; i >= 0; i--) {\n        out[i] = v & 0xff;\n        v = Math.floor(v / 256);\n      }\n      out[0] |= 0x80 >> (len - 1);\n      return out;\n    }\n  }\n}\n\n// Unsigned integer, big endian, as short as it can be (a Matroska integer drops leading zero bytes).\nfunction uint(n) {\n  const out = [];\n  let v = Math.round(n);\n  do {\n    out.unshift(v & 0xff);\n    v = Math.floor(v / 256);\n  } while (v > 0);\n  return new Uint8Array(out);\n}\n\nfunction f64(x) {\n  const out = new Uint8Array(8);\n  new DataView(out.buffer).setFloat64(0, x);\n  return out;\n}\n\nconst elem = (id, payload) => concat([bytes(id), size(payload.length), payload]);\n\n// WebM writer. video: { width, height, codec } with codec 'V_VP9' or 'V_VP8'; audio: null or\n// { channels, codecPrivate, preSkipSamples }. Duration is written up front, so a player knows the length at once.\nclass WebmWriter {\n  constructor({ width, height, durationMs, videoCodec = 'V_VP9', audio = null }) {\n    this.width = width;\n    this.height = height;\n    this.durationMs = durationMs;\n    this.videoCodec = videoCodec;\n    this.audio = audio;\n    this.blocks = [];\n  }\n\n  // track 1 is the picture, track 2 the sound. key marks a key frame; tsUs is the time in microseconds.\n  block({ track, key, tsUs, data }) {\n    this.blocks.push({ track, key: Boolean(key), ms: Math.round(tsUs / 1000), data });\n  }\n\n  count(track) {\n    return this.blocks.reduce((n, b) => n + (b.track === track ? 1 : 0), 0);\n  }\n\n  build() {\n    const parts = [\n      elem(ID.EBML, concat([\n        elem(ID.EBMLVersion, uint(1)),\n        elem(ID.EBMLReadVersion, uint(1)),\n        elem(ID.EBMLMaxIDLength, uint(4)),\n        elem(ID.EBMLMaxSizeLength, uint(8)),\n        elem(ID.DocType, text('webm')),\n        elem(ID.DocTypeVersion, uint(4)),\n        elem(ID.DocTypeReadVersion, uint(2)),\n      ])),\n      concat([bytes(ID.Segment), UNKNOWN_SIZE]),\n      elem(ID.Info, concat([\n        elem(ID.TimecodeScale, uint(1_000_000)),\n        elem(ID.MuxingApp, text(APP)),\n        elem(ID.WritingApp, text(APP)),\n        elem(ID.Duration, f64(this.durationMs)),\n      ])),\n      elem(ID.Tracks, concat([this.#videoTrack(), ...(this.audio ? [this.#audioTrack()] : [])])),\n    ];\n    for (const cluster of this.#clusters()) parts.push(cluster);\n    return concat(parts);\n  }\n\n  #track(num, type, codecId, extra) {\n    return elem(ID.TrackEntry, concat([\n      elem(ID.TrackNumber, uint(num)),\n      elem(ID.TrackUID, uint(num)),\n      elem(ID.FlagLacing, uint(0)),\n      elem(ID.CodecID, text(codecId)),\n      elem(ID.TrackType, uint(type)),\n      ...extra,\n    ]));\n  }\n\n  #videoTrack() {\n    return this.#track(1, 1, this.videoCodec, [\n      elem(ID.Video, concat([elem(ID.PixelWidth, uint(this.width)), elem(ID.PixelHeight, uint(this.height))])),\n    ]);\n  }\n\n  #audioTrack() {\n    const { channels, codecPrivate, preSkipSamples } = this.audio;\n    const extra = [elem(ID.Audio, concat([elem(ID.SamplingFrequency, f64(48000)), elem(ID.Channels, uint(channels))]))];\n    if (codecPrivate) extra.unshift(elem(ID.CodecPrivate, codecPrivate));\n    // The encoder adds pre-skip samples of silence; CodecDelay tells the player to drop them again.\n    extra.push(elem(ID.CodecDelay, uint((preSkipSamples / 48000) * 1e9)), elem(ID.SeekPreRoll, uint(SEEK_PRE_ROLL_NS)));\n    return this.#track(2, 2, 'A_OPUS', extra);\n  }\n\n  #clusters() {\n    const blocks = [...this.blocks].sort((a, b) => a.ms - b.ms || a.track - b.track);\n    const out = [];\n    for (let i = 0; i < blocks.length; ) {\n      const start = blocks[i].ms;\n      const body = [elem(ID.Timecode, uint(start))];\n      while (i < blocks.length && blocks[i].ms - start <= CLUSTER_MS) {\n        body.push(this.#block(blocks[i], start));\n        i++;\n      }\n      out.push(concat([bytes(ID.Cluster), UNKNOWN_SIZE, ...body]));\n    }\n    return out;\n  }\n\n  #block(b, clusterStart) {\n    const head = new Uint8Array(4);\n    head[0] = 0x80 | b.track;                 // the track number as a variable-size integer\n    new DataView(head.buffer).setInt16(1, b.ms - clusterStart);\n    head[3] = b.key ? 0x80 : 0x00;\n    return elem(ID.SimpleBlock, concat([head, b.data]));\n  }\n}\n\nwindow.__amvWebm = { WebmWriter };\n";
 
 // src/cli.js
-import { join as join13, resolve as resolve5, dirname as dirname4, basename as basename5, extname as extname3, sep as sep4 } from "node:path";
+import { join as join13, resolve as resolve6, dirname as dirname5, basename as basename5, extname as extname3, sep as sep4 } from "node:path";
 import { spawn as spawn5 } from "node:child_process";
 
 // src/languages/zh.js
@@ -1421,7 +1448,8 @@ var zh_default = {
     delta: { added: "\u65B0\u589E", removed: "\u5220\u9664", changed: "\u4FEE\u6539", view: "\u89C6\u56FE", before: "\u6539\u524D", changes: "\u53D8\u66F4", after: "\u6539\u540E" },
     generated: "Generated by",
     limits: { value: "{value} / max {limit}", limit: "max {limit}" },
-    chart: { name: "\u56FE\u8868", data: "\u6570\u636E", value: "\u6570\u503C", share: "\u5360\u6BD4" }
+    chart: { name: "\u56FE\u8868", data: "\u6570\u636E", value: "\u6570\u503C", share: "\u5360\u6BD4" },
+    table: { filter: "\u7B5B\u9009\u8868\u683C" }
   },
   videoUi: {
     play: "\u64AD\u653E",
@@ -1503,7 +1531,8 @@ var zh_Hant_default = {
     delta: { added: "\u65B0\u589E", removed: "\u522A\u9664", changed: "\u4FEE\u6539", view: "\u6AA2\u8996", before: "\u6539\u524D", changes: "\u8B8A\u66F4", after: "\u6539\u5F8C" },
     generated: "Generated by",
     limits: { value: "{value} / max {limit}", limit: "max {limit}" },
-    chart: { name: "\u5716\u8868", data: "\u8CC7\u6599", value: "\u6578\u503C", share: "\u5360\u6BD4" }
+    chart: { name: "\u5716\u8868", data: "\u8CC7\u6599", value: "\u6578\u503C", share: "\u5360\u6BD4" },
+    table: { filter: "\u7BE9\u9078\u8868\u683C" }
   },
   videoUi: {
     play: "\u64AD\u653E",
@@ -1579,7 +1608,8 @@ var en_default = {
     delta: { added: "added", removed: "removed", changed: "changed", view: "View", before: "Before", changes: "Changes", after: "After" },
     generated: "Generated by",
     limits: { value: "{value} / max {limit}", limit: "max {limit}" },
-    chart: { name: "Chart", data: "Data", value: "Value", share: "Share" }
+    chart: { name: "Chart", data: "Data", value: "Value", share: "Share" },
+    table: { filter: "Filter table" }
   },
   // Player labels. drawn..duration are the title block cells; sheet is the scene header, with {n} and {total} the zero-padded numbers.
   videoUi: {
@@ -1661,7 +1691,8 @@ var ja_default = {
     delta: { added: "\u8FFD\u52A0", removed: "\u524A\u9664", changed: "\u5909\u66F4", view: "\u8868\u793A", before: "\u5909\u66F4\u524D", changes: "\u5DEE\u5206", after: "\u5909\u66F4\u5F8C" },
     generated: "Generated by",
     limits: { value: "{value} / max {limit}", limit: "max {limit}" },
-    chart: { name: "\u30B0\u30E9\u30D5", data: "\u30C7\u30FC\u30BF", value: "\u5024", share: "\u5272\u5408" }
+    chart: { name: "\u30B0\u30E9\u30D5", data: "\u30C7\u30FC\u30BF", value: "\u5024", share: "\u5272\u5408" },
+    table: { filter: "\u8868\u3092\u7D5E\u308A\u8FBC\u3080" }
   },
   videoUi: {
     play: "\u518D\u751F",
@@ -1741,7 +1772,8 @@ var he_default = {
     delta: { added: "\u05E0\u05D5\u05E1\u05E3", removed: "\u05D4\u05D5\u05E1\u05E8", changed: "\u05E9\u05D5\u05E0\u05D4", view: "\u05EA\u05E6\u05D5\u05D2\u05D4", before: "\u05DC\u05E4\u05E0\u05D9", changes: "\u05E9\u05D9\u05E0\u05D5\u05D9\u05D9\u05DD", after: "\u05D0\u05D7\u05E8\u05D9" },
     generated: "\u05E0\u05D5\u05E6\u05E8 \u05D1\u05D0\u05DE\u05E6\u05E2\u05D5\u05EA",
     limits: { value: "{value} \u05DE\u05EA\u05D5\u05DA {limit}", limit: "\u05E2\u05D3 {limit}" },
-    chart: { name: "\u05EA\u05E8\u05E9\u05D9\u05DD", data: "\u05E0\u05EA\u05D5\u05E0\u05D9\u05DD", value: "\u05E2\u05E8\u05DA", share: "\u05D7\u05DC\u05E7" }
+    chart: { name: "\u05EA\u05E8\u05E9\u05D9\u05DD", data: "\u05E0\u05EA\u05D5\u05E0\u05D9\u05DD", value: "\u05E2\u05E8\u05DA", share: "\u05D7\u05DC\u05E7" },
+    table: { filter: "\u05E1\u05D9\u05E0\u05D5\u05DF \u05D4\u05D8\u05D1\u05DC\u05D4" }
   },
   // Names for the frontmatter keys an agent writes most (`author: …`), shown under the title. Other keys show as written.
   metaKeys: {
@@ -4291,6 +4323,25 @@ function mathExtension({ enabled, note: note2 }) {
   };
 }
 
+// src/attrs.js
+var NUMERIC_KEYS = /* @__PURE__ */ new Set(["cols", "span"]);
+var ATTR_TOKEN = /([\w-]+)(?:=("[^"]*"|'[^']*'|\S+))?/g;
+function parseAttrs(text2) {
+  const attrs = {};
+  for (const m of text2.matchAll(ATTR_TOKEN)) {
+    attrs[m[1]] = m[2] === void 0 ? true : coerce(m[1], unquote(m[2]));
+  }
+  return attrs;
+}
+function unquote(v) {
+  const s = v.trim();
+  return /^(["']).*\1$/.test(s) ? s.slice(1, -1) : s;
+}
+function coerce(key, value) {
+  if (NUMERIC_KEYS.has(key) && /^\d+$/.test(value)) return Number(value);
+  return value;
+}
+
 // src/markdown.js
 var sink = null;
 var note = (at3, message) => sink?.push({ at: at3, message });
@@ -4310,8 +4361,54 @@ function collectHtmlNotes(render, { math: math2 = true } = {}) {
 }
 var marked = new F({ gfm: true });
 var inline = new F({ gfm: true });
-marked.use({ hooks: { processAllTokens: (tokens) => filterBlocks(tokens, { lex: (source) => marked.lexer(source), note }) } });
+var TABLE_ATTR = /^\{table\s+([^{}]*)\}$/;
+var tableUi;
+var tableInteractive = true;
+function tableOptions(tokens) {
+  for (let k2 = 0; k2 < tokens.length; k2++) {
+    const token = tokens[k2];
+    if (token.type === "table") {
+      const row = token.rows.at(-1);
+      const rowOption = row?.[0]?.text.trim().match(TABLE_ATTR);
+      const rowMatch = rowOption && row.length > 1 && row.slice(1).every((cell) => !cell.text.trim()) && rowOption;
+      const nextIndex = tokens.findIndex((candidate, index) => index > k2 && candidate.type !== "space");
+      const next = tokens[nextIndex];
+      const paragraphMatch = next?.type === "paragraph" && next.text.trim().match(TABLE_ATTR);
+      const match = rowMatch || paragraphMatch;
+      if (match) {
+        const options = parseAttrs(match[1]);
+        if (["sort", "filter"].some((flag) => options[flag] === true)) {
+          token.amTable = options;
+          if (rowMatch) token.rows.pop();
+          else tokens.splice(nextIndex, 1);
+        } else {
+          note(match[0], "unrecognized table option; use {table sort}, {table filter}, or {table sort filter}");
+        }
+      } else if (rowOption && !["sort", "filter"].some((flag) => parseAttrs(rowOption[1])[flag] === true)) {
+        note(rowOption[0], "unrecognized table option; use {table sort}, {table filter}, or {table sort filter}");
+      }
+    } else if (token.type === "list") {
+      token.items.forEach((item) => tableOptions(item.tokens));
+    } else if (token.type === "blockquote") {
+      tableOptions(token.tokens);
+    }
+  }
+  return tokens;
+}
+marked.use({ hooks: { processAllTokens: (tokens) => filterBlocks(tableOptions(tokens), { lex: (source) => tableOptions(marked.lexer(source)), note }) } });
 inline.use({ hooks: { processAllTokens: (tokens) => filterInline(tokens, note) } });
+marked.use({ extensions: [{
+  name: "table",
+  renderer(token) {
+    if (!tableInteractive || !token.amTable) return false;
+    const flags = ["sort", "filter"].filter((flag) => token.amTable[flag] === true);
+    if (!flags.length) return false;
+    const table = this.parser.renderer.table(token).replace("<table>", `<table data-am-table="${flags.join(" ")}">`);
+    if (!token.amTable.filter) return table;
+    const label = esc(tableUi?.filter ?? "Filter table");
+    return `<div class="am-table-controls" hidden><label class="am-table-filter"><span>${label}</span><input type="search" data-am-table-filter aria-label="${label}"></label></div>${table}`;
+  }
+}] });
 var math = mathExtension({ enabled: () => mathOn, note: (at3, message) => sink?.push({ at: at3, message, math: true }) });
 marked.use(math);
 inline.use(math);
@@ -4325,7 +4422,7 @@ function statusHtml(word, label = "") {
   const kind2 = STATUS[STATUS_ALIAS[word] ?? word];
   if (!kind2) return null;
   const text2 = label.trim();
-  return `<span class="am-status am-status--${kind2.cls}"><span class="am-status-icon" aria-hidden="true">${kind2.icon}</span>${text2}</span>`;
+  return `<span class="am-status am-status--${kind2.cls}"><span class="am-status-icon" aria-hidden="true">${kind2.icon}</span>${text2 ? `<span class="am-status-text">${text2}</span>` : ""}</span>`;
 }
 var IMAGE_ONLY = /<p>\s*(<img\b[^>]*>)\s*<\/p>/g;
 var CELL_STATUS = /<td([^>]*)>\s*(ok|no|warn|✓|✔|✗|✘|⚠)(?:\s+((?:(?!<\/?td\b)[\s\S])*?))?\s*<\/td>/g;
@@ -4334,14 +4431,23 @@ function figure(img) {
   return `<figure class="am-figure">${img}${alt ? `<figcaption>${alt}</figcaption>` : ""}</figure>`;
 }
 function decorate(html) {
-  return html.replace(/<table>/g, '<div class="am-table-wrap"><table>').replace(/<\/table>/g, "</table></div>").replace(IMAGE_ONLY, (_2, img) => figure(img)).replace(CELL_STATUS, (_2, attrs, word, label = "") => `<td${attrs}>${statusHtml(word, label)}</td>`);
+  return html.replace(/<table data-am-table=/g, '<div class="am-table-wrap"><table data-am-table=').replace(/<table>/g, '<div class="am-table-wrap"><table>').replace(/<\/table>/g, "</table></div>").replace(IMAGE_ONLY, (_2, img) => figure(img)).replace(CELL_STATUS, (_2, attrs, word, label = "") => `<td${attrs}>${statusHtml(word, label)}</td>`);
 }
 var SPACED_IMAGE = /(`[^`\n]*`)|(!\[[^\]\n]*\]\()\s*((?:[^()<>"\n]|\([^()<>"\n]*\))*?)(\s+"[^"\n]*")?\s*\)/g;
 function wrapSpacedImages(text2) {
   return text2.replace(SPACED_IMAGE, (whole, code, head, dest, title = "") => code || !/\s/.test(dest) ? whole : `${head}<${dest}>${title})`);
 }
-function md(text2) {
-  return decorate(marked.parse(wrapSpacedImages(String(text2 ?? ""))));
+function md(text2, { ui, interactive = true } = {}) {
+  const outerUi = tableUi;
+  const outerInteractive = tableInteractive;
+  tableUi = ui?.table;
+  tableInteractive = interactive;
+  try {
+    return decorate(marked.parse(wrapSpacedImages(String(text2 ?? ""))));
+  } finally {
+    tableUi = outerUi;
+    tableInteractive = outerInteractive;
+  }
 }
 function mdInline(text2) {
   return inline.parseInline(wrapSpacedImages(String(text2 ?? "")));
@@ -4373,7 +4479,7 @@ Body (Markdown)
 \`\`\`
 - If the first argument is not a type, the whole argument string is the title and the type is info.`,
   example: "```callout warn Caution\nClose the valve before you remove the pump.\n```",
-  render(text2, { args }) {
+  render(text2, { args, ui, video }) {
     const [first = "", ...rest] = args.split(/\s+/).filter(Boolean);
     const kind2 = KINDS.has(first) ? first : "info";
     const title = (KINDS.has(first) ? rest.join(" ") : args).trim();
@@ -4386,29 +4492,10 @@ Body (Markdown)
       throw new ComponentError(`callout: put the type on the fence line, not in the body: \`\`\`callout ${wrongKind} [title]. The line "${firstLine.text}" would show as body text`, firstLine.line);
     }
     const head = title ? `<div class="am-callout-title">${esc(title)}</div>` : "";
-    const body = text2.trim() ? `<div class="am-callout-body am-md">${md(text2)}</div>` : "";
+    const body = text2.trim() ? `<div class="am-callout-body am-md">${md(text2, { ui, interactive: !video })}</div>` : "";
     return `<div class="am-callout am-callout--${kind2}" role="note">${head}${body}</div>`;
   }
 };
-
-// src/attrs.js
-var NUMERIC_KEYS = /* @__PURE__ */ new Set(["cols", "span"]);
-var ATTR_TOKEN = /([\w-]+)(?:=("[^"]*"|'[^']*'|\S+))?/g;
-function parseAttrs(text2) {
-  const attrs = {};
-  for (const m of text2.matchAll(ATTR_TOKEN)) {
-    attrs[m[1]] = m[2] === void 0 ? true : coerce(m[1], unquote(m[2]));
-  }
-  return attrs;
-}
-function unquote(v) {
-  const s = v.trim();
-  return /^(["']).*\1$/.test(s) ? s.slice(1, -1) : s;
-}
-function coerce(key, value) {
-  if (NUMERIC_KEYS.has(key) && /^\d+$/.test(value)) return Number(value);
-  return value;
-}
 
 // src/components/kv.js
 var kv_default = {
@@ -8793,11 +8880,11 @@ var videoSel = (t) => `html[data-video][data-theme="${t.name}"]`;
 var scoped = (css, sel) => css.replace(/&/g, sel);
 var languageFontCss = () => fontLanguages().map((l3) => block(langSelector(l3, "html", "[data-theme][data-mode]"), { "--font-sans": l3.fonts.sans }));
 var ownLanguageFont = (t) => fontLanguages().map((l3) => block(langSelector(l3, "html", `[data-theme="${t.name}"][data-mode]`), { "--font-sans": t.tokens.common["--font-sans"] }));
-function pageCss(list2 = themes("page"), { diff = false, delta = false, rtl = false, math: math2 = false, chart = false, update: update2 = false, closeAfter = false, fonts = true, scale = 1 } = {}) {
+function pageCss(list2 = themes("page"), { diff = false, delta = false, rtl = false, math: math2 = false, chart = false, table = false, update: update2 = false, closeAfter = false, fonts = true, scale = 1 } = {}) {
   const decorations = list2.filter((t) => t.css).map((t) => scoped(t.css, pageSel(t)));
   const fontFaces = fonts ? [...new Set(list2.map((t) => t.font).filter((f2) => f2 && FONT_CSS[f2]))].map((f2) => FONT_CSS[f2]) : [];
   const ownFonts = list2.filter((t) => t.ownFont).flatMap(ownLanguageFont);
-  return [list2.map((t) => tokenCss(pageSel(t), t.tokens)).join("\n\n"), ...languageFontCss(), ...ownFonts, typeScaleCss(), ...scale === 1 ? [] : [`html { --am-scale: ${scale}; }`], BASE_CSS, ...math2 ? [MATH_CSS] : [], ...chart ? [CHART_CSS] : [], ...diff ? [DIFF_CSS] : [], ...delta ? [DELTA_CSS] : [], ...update2 ? [UPDATE_CSS] : [], ...closeAfter ? [CLOSE_AFTER_CSS] : [], ...rtl ? [RTL_CSS] : [], ...fontFaces, ...decorations].join("\n\n");
+  return [list2.map((t) => tokenCss(pageSel(t), t.tokens)).join("\n\n"), ...languageFontCss(), ...ownFonts, typeScaleCss(), ...scale === 1 ? [] : [`html { --am-scale: ${scale}; }`], BASE_CSS, ...math2 ? [MATH_CSS] : [], ...chart ? [CHART_CSS] : [], ...table ? [TABLE_CSS] : [], ...diff ? [DIFF_CSS] : [], ...delta ? [DELTA_CSS] : [], ...update2 ? [UPDATE_CSS] : [], ...closeAfter ? [CLOSE_AFTER_CSS] : [], ...rtl ? [RTL_CSS] : [], ...fontFaces, ...decorations].join("\n\n");
 }
 function videoCss(list2 = themes("video"), { diff = false, delta = false, rtl = false, chart = false } = {}) {
   const parts = list2.filter((t) => t.video).flatMap((t) => [
@@ -9671,7 +9758,7 @@ function renderBlocks(blocks, ctx) {
   }).join("\n");
 }
 function renderBlock(b, ctx) {
-  const { result, notes } = collectHtmlNotes(() => b.type === "md" ? `<div class="am-md">${md(b.text)}</div>` : renderFence(b, ctx), { math: !ctx.video });
+  const { result, notes } = collectHtmlNotes(() => b.type === "md" ? `<div class="am-md">${md(b.text, { ui: ctx.ui, interactive: !ctx.video })}</div>` : renderFence(b, ctx), { math: !ctx.video });
   noteHtml(b, notes.filter((n) => !n.math), ctx);
   noteMath(b, notes.filter((n) => n.math), ctx);
   const out = embedImages(b, result, ctx);
@@ -9727,7 +9814,16 @@ function embedImages(block2, html, ctx) {
 }
 function renderFence(block2, ctx) {
   const { lang, args, text: text2, line } = block2;
-  if (RAW_LANGS.has(lang)) return text2;
+  if (RAW_LANGS.has(lang)) {
+    if (lang === "html" || lang === "svg") {
+      const style = lang === "html" ? "|<style\\b[^>]*>[\\s\\S]*?(?:<\\/style\\s*>|$)" : "";
+      for (const match of text2.matchAll(new RegExp(`<!--[\\s\\S]*?(?:-->|$)|<textarea\\b[^>]*>[\\s\\S]*?(?:<\\/textarea\\s*>|$)${style}|<script\\b`, "gi"))) {
+        if (match[0].toLowerCase() !== "<script") continue;
+        ctx.stats.htmlWarnings?.push({ line: line + 1 + text2.slice(0, match.index).split("\n").length - 1, message: "this script will not run: the page allows only am's own scripts" });
+      }
+    }
+    return text2;
+  }
   const comp = COMPONENTS.get(lang);
   if (!comp) return codeBlock(block2, ctx);
   if (comp.pageOnly && ctx.video) throw new RenderError(`${lang} works on a page only; a video cannot take answers`, { line, component: lang, example: comp.example });
@@ -9832,8 +9928,9 @@ function shell({ meta, language, body, source, embedded, update: update2, closeA
   const notice = updateNotice(ui, update2, labelKey);
   const pick = (name, label, values, current) => `<label class="am-pick">${esc(label)}<select data-am="${name}">${values.map(([value, text2]) => `<option value="${esc(value)}"${value === current ? " selected" : ""}>${esc(text2)}</option>`).join("")}</select></label>`;
   const root = { lang: language.htmlLang, dir: language.dir, theme: meta.theme, mode: meta.mode, style: meta.style, scale };
+  const interactiveTable = body.includes("<table data-am-table=");
   const script = `
-${RUNTIME_JS}${hasDelta(body) ? DELTA_JS : ""}${update2 ? UPDATE_JS : ""}${closeAfter ? CLOSE_AFTER_JS : ""}`;
+${RUNTIME_JS}${interactiveTable ? TABLE_JS : ""}${hasDelta(body) ? DELTA_JS : ""}${update2 ? UPDATE_JS : ""}${closeAfter ? CLOSE_AFTER_JS : ""}`;
   return `<!doctype html>
 ${rootTag(root)}
 <head>
@@ -9843,7 +9940,7 @@ ${cspMeta([script], { live: true })}
 <meta name="generator" content="Answer me with HTML ${VERSION}">
 <title>${esc(meta.title || "Answer me with HTML")}</title>
 <style>
-${pageCss(embedded, { diff: body.includes('class="am-codeblock am-codeblock--diff"'), delta: hasDelta(body), rtl: language.dir === "rtl", math: hasMath(body), chart: hasChart(body), update: Boolean(update2), closeAfter, scale })}
+${pageCss(embedded, { diff: body.includes('class="am-codeblock am-codeblock--diff"'), delta: hasDelta(body), rtl: language.dir === "rtl", math: hasMath(body), chart: hasChart(body), table: interactiveTable, update: Boolean(update2), closeAfter, scale })}
 </style>
 </head>
 <body>
@@ -10474,9 +10571,15 @@ function splitNarration(blocks) {
   }
   return { blocks: out, beats };
 }
+function normalizeNarration(raw) {
+  return normalizeNarrationText(raw.replace(NARRATION, "$1"));
+}
+function normalizeNarrationText(raw) {
+  return raw.replace(FOCUS, "$1").replace(/\s+/g, " ").trim();
+}
 function beat(raw, line) {
   const focus = [...raw.matchAll(FOCUS)].map((m) => m[1].trim());
-  return { raw, text: raw.replace(FOCUS, "$1"), focus: focus[0] ?? null, line };
+  return { raw, text: normalizeNarrationText(raw), focus: focus[0] ?? null, line };
 }
 function estimateSeconds(text2) {
   let cjk = 0;
@@ -10527,9 +10630,9 @@ var round3 = (x2) => Math.round(x2 * 1e3) / 1e3;
 // src/video/tts.js
 import { spawn, spawnSync as spawnSync2 } from "node:child_process";
 import { createHash as createHash2 } from "node:crypto";
-import { mkdirSync as mkdirSync3, readFileSync as readFileSync7, writeFileSync as writeFileSync4, existsSync as existsSync4, rmSync as rmSync3, mkdtempSync, renameSync as renameSync4 } from "node:fs";
+import { mkdirSync as mkdirSync3, readFileSync as readFileSync7, writeFileSync as writeFileSync4, existsSync as existsSync4, rmSync as rmSync3, mkdtempSync, renameSync as renameSync4, statSync as statSync4 } from "node:fs";
 import { tmpdir as tmpdir2 } from "node:os";
-import { join as join7 } from "node:path";
+import { dirname as dirname2, join as join7, resolve as resolve3 } from "node:path";
 
 // src/sys.js
 import { spawnSync } from "node:child_process";
@@ -10680,6 +10783,120 @@ function localSpeech(env) {
     }
   };
 }
+function audioMapProvider(mapPath, { which = hasCommand, runCommand = run } = {}) {
+  const mapFile = resolve3(mapPath);
+  let source;
+  let mapStat;
+  try {
+    source = readFileSync7(mapFile, "utf8").replace(/^\uFEFF/, "");
+    mapStat = statSync4(mapFile);
+  } catch (e) {
+    throw new TtsError(`Cannot read audio map ${mapFile}: ${e.message}`);
+  }
+  let json;
+  try {
+    const duplicate = duplicateRawKey(source);
+    if (duplicate !== void 0) throw new TtsError(`Audio map ${mapFile} has duplicate narration key "${duplicate}"`);
+    json = JSON.parse(source);
+  } catch (e) {
+    if (e instanceof TtsError) throw e;
+    throw new TtsError(`Cannot parse audio map ${mapFile}: ${e.message}`);
+  }
+  if (!json || typeof json !== "object" || Array.isArray(json)) throw new TtsError(`Audio map ${mapFile} must be a JSON object of narration lines to audio files`);
+  const entries = /* @__PURE__ */ new Map();
+  for (const [key, value] of Object.entries(json)) {
+    const text2 = normalizeNarration(key);
+    if (!text2) throw new TtsError(`Audio map ${mapFile} has an empty narration key`);
+    if (entries.has(text2)) throw new TtsError(`Audio map ${mapFile} has more than one entry for narration line "${text2}"`);
+    if (typeof value !== "string" || !value.trim()) throw new TtsError(`Audio map entry for narration line "${text2}" must name an audio file`);
+    const audioFile = resolve3(dirname2(mapFile), value);
+    let stat2;
+    let audio;
+    try {
+      stat2 = statSync4(audioFile);
+      if (!stat2.isFile()) throw new TtsError(`Audio file for narration line "${text2}" is not a file: ${audioFile}`);
+      audio = readFileSync7(audioFile);
+    } catch (e) {
+      if (e instanceof TtsError) throw e;
+      throw new TtsError(`Cannot read audio file for narration line "${text2}": ${audioFile}: ${e.message}`);
+    }
+    entries.set(text2, { file: audioFile, size: stat2.size, mtimeMs: stat2.mtimeMs, sha256: createHash2("sha256").update(audio).digest("hex") });
+  }
+  const signature = {
+    map: { file: mapFile, size: mapStat.size, mtimeMs: mapStat.mtimeMs },
+    audio: [...entries].map(([text2, entry]) => ({ text: text2, ...entry }))
+  };
+  return {
+    name: "audio-map",
+    voice: "audio-map",
+    id: `audio-map:${stableJson(signature)}`,
+    concurrency: 1,
+    async synth(text2) {
+      const key = normalizeNarrationText(text2);
+      const entry = entries.get(key);
+      if (!entry) throw new TtsError(`No audio map entry for narration line "${key}"`);
+      let buf;
+      try {
+        buf = readFileSync7(entry.file);
+      } catch (e) {
+        throw new TtsError(`Cannot read audio file for narration line "${key}": ${entry.file}: ${e.message}`);
+      }
+      const samples = await mappedSamples(buf, entry.file, { which, runCommand });
+      const trimmed = trimSilence(samples);
+      if (!trimmed.some((x2) => Math.abs(x2) >= SILENCE)) throw new TtsError(`Audio file for narration line "${key}" contains only silence: ${entry.file}`);
+      return trimmed;
+    }
+  };
+}
+async function mappedSamples(buf, file, { which, runCommand }) {
+  if (buf.toString("ascii", 0, 4) === "RIFF" && buf.toString("ascii", 8, 12) === "WAVE") {
+    try {
+      return readWav(buf, { downmix: true });
+    } catch (e) {
+      if (!which("ffmpeg")) throw new TtsError(`Cannot decode audio map file ${file} (needs 16-bit PCM WAV): ${e.message}`);
+    }
+  } else if (!which("ffmpeg")) {
+    throw new TtsError(`Audio map file ${file} is not WAV; converting it needs ffmpeg. Install ffmpeg or use 16-bit PCM WAV`);
+  }
+  return withTemp(async (out) => {
+    try {
+      await runCommand("ffmpeg", ["-v", "error", "-y", "-i", file, "-ac", "1", "-ar", String(SAMPLE_RATE), "-c:a", "pcm_s16le", out]);
+      return readWav(readFileSync7(out));
+    } catch (e) {
+      throw new TtsError(`Cannot convert audio map file ${file} with ffmpeg: ${e.message}`);
+    }
+  });
+}
+function duplicateRawKey(source) {
+  const keys = /* @__PURE__ */ new Set();
+  let depth = 0;
+  let previous = "";
+  let rootObject = false;
+  for (let i = 0; i < source.length; i++) {
+    const ch = source[i];
+    if (/\s/.test(ch)) continue;
+    if (ch === '"') {
+      let end = i + 1;
+      while (end < source.length) {
+        if (source[end] === "\\") end += 2;
+        else if (source[end++] === '"') break;
+      }
+      if (rootObject && depth === 1 && (previous === "{" || previous === ",")) {
+        const key = JSON.parse(source.slice(i, end));
+        if (keys.has(key)) return key;
+        keys.add(key);
+      }
+      previous = '"';
+      i = end - 1;
+      continue;
+    }
+    if (!depth) rootObject = ch === "{";
+    if (ch === "{" || ch === "[") depth++;
+    if (ch === "}" || ch === "]") depth--;
+    previous = ch;
+  }
+  return void 0;
+}
 function stableJson(value) {
   if (Array.isArray(value)) return `[${value.map(stableJson).join(",")}]`;
   if (value && typeof value === "object") {
@@ -10773,14 +10990,14 @@ function bestVoice(candidates, base) {
 }
 var stripName = (name) => name.replace(/\s*[(（].*$/, "");
 function run(cmd, args) {
-  return new Promise((resolve6, reject) => {
+  return new Promise((resolve7, reject) => {
     const p = spawn(cmd, args, { stdio: ["ignore", "ignore", "pipe"] });
     let err = "";
     p.stderr.on("data", (d) => {
       err += d;
     });
     p.on("error", reject);
-    p.on("close", (code) => code === 0 ? resolve6() : reject(new TtsError(`${cmd} failed (${code}): ${err.slice(0, 200)}`)));
+    p.on("close", (code) => code === 0 ? resolve7() : reject(new TtsError(`${cmd} failed (${code}): ${err.slice(0, 200)}`)));
   });
 }
 function textFile(wavFile, text2) {
@@ -10796,19 +11013,28 @@ async function withTemp(fn3) {
     rmSync3(dir, { recursive: true, force: true });
   }
 }
-function readWav(buf) {
+function readWav(buf, { downmix = false } = {}) {
   if (buf.toString("ascii", 0, 4) !== "RIFF" || buf.toString("ascii", 8, 12) !== "WAVE") throw new TtsError("Not a WAV file");
   let pos = 12;
   let fmt2 = null;
   while (pos + 8 <= buf.length) {
     const id = buf.toString("ascii", pos, pos + 4);
     const size = buf.readUInt32LE(pos + 4);
-    if (id === "fmt ") fmt2 = { channels: buf.readUInt16LE(pos + 10), rate: buf.readUInt32LE(pos + 12), bits: buf.readUInt16LE(pos + 22) };
+    if (id === "fmt ") fmt2 = { format: buf.readUInt16LE(pos + 8), channels: buf.readUInt16LE(pos + 10), rate: buf.readUInt32LE(pos + 12), bits: buf.readUInt16LE(pos + 22) };
     if (id === "data") {
-      if (!fmt2 || fmt2.bits !== 16) throw new TtsError("Only 16-bit PCM WAV is supported");
+      if (!fmt2 || fmt2.format !== 1 || fmt2.bits !== 16) throw new TtsError("Only 16-bit PCM WAV is supported");
       const n = Math.floor(Math.min(size, buf.length - pos - 8) / 2 / fmt2.channels);
       const samples = new Int16Array(n);
-      for (let i = 0; i < n; i++) samples[i] = buf.readInt16LE(pos + 8 + i * 2 * fmt2.channels);
+      for (let i = 0; i < n; i++) {
+        const frame = pos + 8 + i * 2 * fmt2.channels;
+        if (!downmix) {
+          samples[i] = buf.readInt16LE(frame);
+          continue;
+        }
+        let sum2 = 0;
+        for (let channel = 0; channel < fmt2.channels; channel++) sum2 += buf.readInt16LE(frame + channel * 2);
+        samples[i] = Math.round(sum2 / fmt2.channels);
+      }
       return fmt2.rate === SAMPLE_RATE ? samples : resample({ rate: fmt2.rate, samples });
     }
     pos += 8 + size + size % 2;
@@ -11191,7 +11417,7 @@ function waitForLoad(loaded, timeoutMs = LOAD_TIMEOUT_MS) {
   ]).finally(() => clearTimeout(timer));
 }
 function devtoolsUrl(chrome, timeoutMs = CHROME_START_TIMEOUT_MS) {
-  return new Promise((resolve6, reject) => {
+  return new Promise((resolve7, reject) => {
     let buf = "";
     const fail = (msg) => {
       clearTimeout(timer);
@@ -11207,13 +11433,13 @@ ${tail}` : msg));
       const m = buf.match(/DevTools listening on (ws:\/\/\S+)/);
       if (m) {
         clearTimeout(timer);
-        resolve6(m[1]);
+        resolve7(m[1]);
       }
     });
   });
 }
 function connect(url) {
-  return new Promise((resolve6, reject) => {
+  return new Promise((resolve7, reject) => {
     const ws = new WebSocket(url);
     const pending = /* @__PURE__ */ new Map();
     const waiters = /* @__PURE__ */ new Map();
@@ -11231,7 +11457,7 @@ function connect(url) {
         waiters.delete(msg.method);
       }
     });
-    ws.addEventListener("open", () => resolve6({
+    ws.addEventListener("open", () => resolve7({
       send(method, params = {}, sessionId) {
         return new Promise((ok, fail) => {
           const msgId = ++id;
@@ -11324,14 +11550,14 @@ async function exportMp4(htmlFile, mp4File, { wav: wav2, env = process.env, onPr
     });
     ffmpeg.stdin.on("error", () => {
     });
-    const done = new Promise((resolve6, reject) => {
+    const done = new Promise((resolve7, reject) => {
       ffmpeg.on("error", (e) => {
         exited = true;
         reject(new ExportError(`Cannot run ffmpeg: ${e.message}`));
       });
       ffmpeg.on("close", (code) => {
         exited = true;
-        if (code === 0) resolve6();
+        if (code === 0) resolve7();
         else reject(new ExportError(`ffmpeg failed (${code}): ${ffErr.slice(0, 300)}`));
       });
     });
@@ -11388,17 +11614,18 @@ async function exportWebm(htmlFile, webmFile, { env = process.env, onProgress = 
 }
 
 // src/export.js
-import { existsSync as existsSync6, mkdirSync as mkdirSync4, statSync as statSync4, writeFileSync as writeFileSync6 } from "node:fs";
-import { basename as basename3, dirname as dirname2, join as join10, resolve as resolve3 } from "node:path";
+import { existsSync as existsSync6, lstatSync as lstatSync2, mkdirSync as mkdirSync4, readdirSync as readdirSync2, readlinkSync, realpathSync as realpathSync3, statSync as statSync5, unlinkSync, writeFileSync as writeFileSync6 } from "node:fs";
+import { basename as basename3, dirname as dirname3, join as join10, resolve as resolve4 } from "node:path";
 import { pathToFileURL as pathToFileURL2 } from "node:url";
 var VIEWPORT = 1200;
 var DEVICE_SCALE = 2;
 var MAX_SLICE = 1800;
 var SETTLE_MS = 400;
 var CHROME_CSS = `.am-toolbar, .am-reply, .am-reply-bar, .am-comment, .am-comment-btn, .am-remark-pop,
-.am-update, .am-btn--update, .am-lightbox, .am-code-copy, .am-diagram-expand, .am-toc, .am-delta-switch {
+.am-update, .am-btn--update, .am-lightbox, .am-code-copy, .am-diagram-expand, .am-toc, .am-delta-switch, .am-table-controls {
   display: none !important;
-}`;
+}
+.am-table-sort::after { content: none !important; }`;
 function slicePoints(pageHeight, boxes = [], maxHeight = MAX_SLICE) {
   const limit = Math.floor(maxHeight);
   if (!(limit > 0)) throw new RangeError("maxHeight must be greater than 0");
@@ -11423,19 +11650,33 @@ function gapCut(start, target, boxes) {
   }
 }
 async function exportPage(file, { pdf, png, env = process.env, onFile = () => {
+}, onWarn = () => {
 } } = {}) {
   if (typeof WebSocket === "undefined") throw new ExportError("Export needs Node.js 22 or later (built-in WebSocket)");
   if (pdf && existsSync6(pdf) && sameFile(pdf, file)) {
     throw new ExportError(`The PDF ${pdf} is the input page: choose another file name`);
   }
-  if (pdf && png && resolve3(dirname2(pdf)) === resolve3(png) && isSliceOf(basename3(pdf), sliceName(file))) {
+  if (pdf && png && sameDirectory(dirname3(pdf), png) && isSliceOf(basename3(pdf), sliceName(file))) {
     throw new ExportError(`The PDF ${pdf} has the name of a PNG slice in ${png}: choose another file name`);
   }
+  if (pdf && png && lstatSync2(pdf, { throwIfNoEntry: false })?.isSymbolicLink()) {
+    const target = resolve4(dirname3(pdf), readlinkSync(pdf));
+    if (sameDirectory(dirname3(target), png) && isSliceOf(basename3(target), sliceName(file))) {
+      throw new ExportError(`The PDF ${pdf} has the name of a PNG slice in ${png}: choose another file name`);
+    }
+  }
+  if (pdf && png && existsSync6(pdf)) checkPdfCollision(file, pdf, png);
   const chrome = findChrome(env);
   if (!chrome) throw new ExportError("No Chrome / Chromium / Edge found. Set the browser path with the AM_CHROME environment variable");
   if (isPath(chrome) && !existsSync6(chrome)) {
     const from = env.AM_CHROME ? "AM_CHROME" : env.CHROME_PATH ? "CHROME_PATH" : "the built-in path";
     throw new ExportError(`No browser at ${chrome} (from ${from}). Set AM_CHROME to the Chrome / Chromium / Edge binary`);
+  }
+  let inputStat;
+  try {
+    inputStat = statSync5(file);
+  } catch (e) {
+    throw new ExportError(`Cannot read the page ${file}: ${e.message}`);
   }
   const page = await openPage(pathToFileURL2(file).href, {
     env,
@@ -11449,11 +11690,12 @@ async function exportPage(file, { pdf, png, env = process.env, onFile = () => {
   try {
     if (pdf) {
       const writtenPdf = await writePdf(page, pdf);
+      if (png) checkPdfCollision(file, pdf, png);
       written.push(writtenPdf);
       onFile(writtenPdf);
     }
     if (png) {
-      const writtenPngs = await writePngSlices(page, file, png);
+      const writtenPngs = await writePngSlices(page, file, png, onWarn, inputStat);
       written.push(...writtenPngs);
       writtenPngs.forEach(onFile);
     }
@@ -11461,6 +11703,24 @@ async function exportPage(file, { pdf, png, env = process.env, onFile = () => {
     await page.close();
   }
   return written;
+}
+function checkPdfCollision(file, pdf, png) {
+  let entries;
+  try {
+    entries = statSync5(png, { throwIfNoEntry: false })?.isDirectory() ? readdirSync2(png) : [];
+  } catch (e) {
+    throw new ExportError(`Cannot check the PNG folder ${png} for a PDF collision: ${e.message}`);
+  }
+  const checked = /* @__PURE__ */ new Set();
+  for (const entry of entries) {
+    const index = entry.match(/-([1-9]\d*)\.png$/i)?.[1];
+    if (!index || checked.has(index)) continue;
+    checked.add(index);
+    const slice = join10(png, `${sliceName(file)}-${index}.png`);
+    if (existsSync6(slice) && sameFile(slice, pdf)) {
+      throw new ExportError(`The PDF ${pdf} has the name of a PNG slice in ${png}: choose another file name`);
+    }
+  }
 }
 async function writePdf(page, file) {
   await page.page("Emulation.setEmulatedMedia", { media: "print" });
@@ -11476,14 +11736,15 @@ async function writePdf(page, file) {
     paperHeight: 11.69
   });
   try {
-    mkdirSync4(dirname2(file), { recursive: true });
+    mkdirSync4(dirname3(file), { recursive: true });
     writeFileSync6(file, Buffer.from(data, "base64"));
   } catch (e) {
     throw new ExportError(`Cannot write the PDF ${file}: ${e.message}`);
   }
   return file;
 }
-async function writePngSlices(page, htmlFile, folder) {
+async function writePngSlices(page, htmlFile, folder, onWarn = () => {
+}, inputStat = statSync5(htmlFile)) {
   await page.page("Emulation.setEmulatedMedia", { media: "screen" });
   await settle2(page);
   const layout4 = await page.evaluate(`(async () => {
@@ -11508,7 +11769,7 @@ async function writePngSlices(page, htmlFile, folder) {
   if (layout4.empty) throw new ExportError("The page is empty: there is nothing to export");
   try {
     mkdirSync4(folder, { recursive: true });
-    if (!statSync4(folder).isDirectory()) throw new Error("not a folder");
+    if (!statSync5(folder).isDirectory()) throw new Error("not a folder");
   } catch (e) {
     throw new ExportError(`Cannot use the PNG folder ${folder}: ${e.message}`);
   }
@@ -11527,7 +11788,7 @@ async function writePngSlices(page, htmlFile, folder) {
       clip: { x: 0, y: top2, width: VIEWPORT, height, scale: 1 }
     });
     const file = join10(folder, `${name}-${i}.png`);
-    if (existsSync6(file) && sameFile(file, htmlFile)) throw new ExportError(`The PNG ${file} is the input page: choose another folder`);
+    if (isInputFile(file, htmlFile, inputStat)) throw new ExportError(`The PNG ${file} is the input page: choose another folder`);
     try {
       writeFileSync6(file, Buffer.from(data, "base64"));
     } catch (e) {
@@ -11535,7 +11796,36 @@ async function writePngSlices(page, htmlFile, folder) {
     }
     written.push(file);
   }
+  if (written.length) removeStaleSlices(folder, name, new Set(written.map((f2) => basename3(f2))), htmlFile, onWarn, inputStat);
   return written;
+}
+function removeStaleSlices(folder, name, kept, htmlFile, onWarn = () => {
+}, inputStat = statSync5(htmlFile, { throwIfNoEntry: false })) {
+  let entries;
+  try {
+    entries = readdirSync2(folder);
+  } catch (e) {
+    onWarn(`Cannot list ${folder} to remove old PNG slices: ${e.message}`);
+    return;
+  }
+  for (const entry of entries) {
+    if (!isSliceOf(entry, name) || kept.has(entry)) continue;
+    const file = join10(folder, entry);
+    try {
+      const st3 = lstatSync2(file);
+      if (!st3.isFile() && !st3.isSymbolicLink()) {
+        onWarn(`Left ${file} in place: it is not a PNG file`);
+        continue;
+      }
+      if (isInputFile(file, htmlFile, inputStat)) {
+        onWarn(`Left ${file} in place: it is the input page`);
+        continue;
+      }
+      unlinkSync(file);
+    } catch (e) {
+      onWarn(`Cannot remove the old PNG slice ${file}: ${e.message}`);
+    }
+  }
 }
 var settle2 = (page) => page.evaluate(`(async () => {
   await document.fonts.ready;
@@ -11544,7 +11834,7 @@ var settle2 = (page) => page.evaluate(`(async () => {
   return true;
 })()`);
 function isHtmlPage(file) {
-  return /\.html?$/i.test(file) && statSync4(file, { throwIfNoEntry: false })?.isFile() === true;
+  return /\.html?$/i.test(file) && statSync5(file, { throwIfNoEntry: false })?.isFile() === true;
 }
 var sliceName = (htmlFile) => basename3(htmlFile).replace(/\.html?$/i, "") || "page";
 var isSliceOf = (fileName, name) => {
@@ -11552,14 +11842,38 @@ var isSliceOf = (fileName, name) => {
   return /^[1-9]\d*$/.test(fileName.slice(name.length + 1, -".png".length));
 };
 var sameFile = (a, b) => {
-  const x2 = statSync4(a);
-  const y2 = statSync4(b);
-  return x2.dev === y2.dev && x2.ino === y2.ino;
+  return sameIdentity(statSync5(a), statSync5(b));
+};
+var sameIdentity = (a, b) => a.dev === b.dev && a.ino === b.ino;
+var isInputFile = (file, htmlFile, inputStat) => {
+  if (!existsSync6(file)) return false;
+  const st3 = statSync5(file);
+  return inputStat && sameIdentity(st3, inputStat) || existsSync6(htmlFile) && sameIdentity(st3, statSync5(htmlFile));
+};
+var realOrAncestor = (path) => {
+  const missing = [];
+  let current = resolve4(path);
+  while (!existsSync6(current) && dirname3(current) !== current) {
+    missing.unshift(basename3(current));
+    current = dirname3(current);
+  }
+  return join10(realpathSync3(current), ...missing);
+};
+var sameDirectory = (a, b) => {
+  if (resolve4(a) === resolve4(b)) return true;
+  try {
+    if (realOrAncestor(a) === realOrAncestor(b)) return true;
+    const x2 = statSync5(a);
+    const y2 = statSync5(b);
+    return x2.dev === y2.dev && x2.ino === y2.ino;
+  } catch {
+    return false;
+  }
 };
 var isPath = (value) => value.includes("/") || value.includes("\\");
 
 // src/housekeeping.js
-import { readdirSync as readdirSync2, lstatSync as lstatSync2, rmSync as rmSync5, readFileSync as readFileSync8 } from "node:fs";
+import { readdirSync as readdirSync3, lstatSync as lstatSync3, rmSync as rmSync5, readFileSync as readFileSync8 } from "node:fs";
 import { join as join11 } from "node:path";
 
 // src/update.js
@@ -11672,8 +11986,8 @@ var HOUR = DAY / 24;
 function walk(dir) {
   let entries;
   try {
-    if (!lstatSync2(dir).isDirectory()) return [];
-    entries = readdirSync2(dir, { withFileTypes: true });
+    if (!lstatSync3(dir).isDirectory()) return [];
+    entries = readdirSync3(dir, { withFileTypes: true });
   } catch {
     return [];
   }
@@ -11681,7 +11995,7 @@ function walk(dir) {
     const p = join11(dir, e.name);
     if (e.isDirectory()) return walk(p);
     try {
-      const s = lstatSync2(p);
+      const s = lstatSync3(p);
       return s.isFile() ? [{ path: p, bytes: s.size, mtime: s.mtimeMs }] : [];
     } catch {
       return [];
@@ -11708,7 +12022,7 @@ function clean2(home, { days = CLEAN.days, all = false, dryRun = false, now = Da
     if (all || f2.mtime < cutoff) return true;
     try {
       const file = JSON.parse(readFileSync8(f2.path, "utf8"))?.file;
-      return typeof file !== "string" || gone.has(join11(home, "pages", file)) || !lstatSync2(join11(home, "pages", file)).isFile();
+      return typeof file !== "string" || gone.has(join11(home, "pages", file)) || !lstatSync3(join11(home, "pages", file)).isFile();
     } catch {
       return true;
     }
@@ -11817,9 +12131,9 @@ import { connect as connect2, isIP } from "node:net";
 import { spawnSync as spawnSync3 } from "node:child_process";
 import { networkInterfaces, uptime } from "node:os";
 import { createHmac, createHash as createHash3, randomBytes, timingSafeEqual } from "node:crypto";
-import { readFileSync as readFileSync9, writeFileSync as writeFileSync7, renameSync as renameSync5, rmSync as rmSync6, mkdirSync as mkdirSync5, watch, lstatSync as lstatSync3, existsSync as existsSync7, openSync, fstatSync, closeSync, linkSync, constants as fsConstants } from "node:fs";
+import { readFileSync as readFileSync9, writeFileSync as writeFileSync7, renameSync as renameSync5, rmSync as rmSync6, mkdirSync as mkdirSync5, watch, lstatSync as lstatSync4, existsSync as existsSync7, openSync, fstatSync, closeSync, linkSync, constants as fsConstants } from "node:fs";
 import { lstat, realpath, readFile, stat } from "node:fs/promises";
-import { join as join12, resolve as resolve4, dirname as dirname3, basename as basename4, sep as sep3 } from "node:path";
+import { join as join12, resolve as resolve5, dirname as dirname4, basename as basename4, sep as sep3 } from "node:path";
 var DEFAULT_PORT = 8765;
 var HOST = "127.0.0.1";
 var LAN_BIND = "0.0.0.0";
@@ -11914,7 +12228,7 @@ var SECRET_PATTERN = /^[0-9a-f]{64}$/;
 function loadSecret(secretFile) {
   if (secretFile === void 0) return randomBytes(32).toString("hex");
   try {
-    if (fsConstants.O_NOFOLLOW === void 0 && lstatSync3(secretFile).isSymbolicLink()) {
+    if (fsConstants.O_NOFOLLOW === void 0 && lstatSync4(secretFile).isSymbolicLink()) {
       throw new ServeError("--secret-file must not be a symbolic link");
     }
     const flags = fsConstants.O_RDONLY | (fsConstants.O_NOFOLLOW ?? 0) | (fsConstants.O_NONBLOCK ?? 0);
@@ -11996,8 +12310,8 @@ function serveLink(home, file) {
   try {
     const info = readServeInfo(home);
     if (!info) return null;
-    const path = resolve4(file);
-    const dir = ["pages", "videos"].find((d) => dirname3(path) === resolve4(home, d));
+    const path = resolve5(file);
+    const dir = ["pages", "videos"].find((d) => dirname4(path) === resolve5(home, d));
     const name = basename4(path);
     return dir && validFileName(name) ? pageLink(info, dir, name) : null;
   } catch {
@@ -12393,8 +12707,8 @@ Usage:
                       [--template sheet|doc] [--style off|80|strict] [--mode auto|light|dark]
   am patch  <html> --panel <title> [file|-] [--from file] [--theme \u2026] [--no-open]
                                                   replace one ## panel of an existing page and overwrite that HTML in place
-  am video  <file|->  [-o <file>] [--voice auto|elevenlabs|local|system|off] [--mp4] [--webm] [--no-open]
-                      [--theme ${["auto", ...themeNames("video")].join("|")}] [--mode light|dark]
+  am video  <file|->  [-o <file>] [--voice auto|elevenlabs|local|system|off | --audio-map <file.json>]
+                      [--mp4] [--webm] [--no-open] [--theme ${["auto", ...themeNames("video")].join("|")}] [--mode light|dark]
                                                   render a video draft into a 3b1b-style explainer video player page (--mp4 / --webm also save a video file)
   am export <page.html> [--pdf <file.pdf>] [--png <dir>]
                         export a rendered page as an A4 PDF and/or as PNG slices for a chat app (needs Chrome)
@@ -12431,12 +12745,13 @@ Intro (optional, shown below the title)
 ## A Panel title {span=2 meta="top-right note"}
 Plain Markdown: paragraphs, lists, tables, quotes, inline code...
 Write ok / no / warn in a table cell (text may follow, e.g. "ok approved") to get a \u2713 / \u2717 / ! badge.
+After a table, {table sort} enables header sorting, {table filter} adds a text filter; combine them as {table sort filter}.
 
 \`\`\`flow LR          \u2190 fence language = component name, followed by component arguments
 A -> B
 \`\`\`
 
-\`\`\`html             \u2190 html / svg fences are embedded as-is (escape hatch)
+\`\`\`html             \u2190 html / svg fences are embedded as-is; a script in an html fence does not run (render warns)
 <div>any content</div>
 \`\`\`
 
@@ -12544,6 +12859,11 @@ Client -> Server: ACK
   and am always sets input, response_format and stream. A line whose duration is clearly wrong is synthesized again,
   up to AM_TTS_ATTEMPTS times per line (default 3; set 1 to turn this off).
   Example: AM_TTS_URL=http://127.0.0.1:8000 AM_TTS_MODEL=mlx-community/Qwen3-TTS-12Hz-1.7B-CustomVoice-4bit       AM_TTS_VOICE=vivian am video draft.md --voice local
+  --audio-map lines.json reads ready-made audio from a JSON object of narration line to audio file, for example
+  {"First the client sends SYN.":"audio/01.mp3"}. Relative audio paths start at the map file's folder. Keys ignore > and [ ]
+  markers and extra whitespace. Non-WAV audio needs ffmpeg; every line needs an entry and every audio file must exist.
+  --audio-map cannot be combined with an explicit --voice; when a map is given, the configured voice is ignored.
+  Example: am video draft.md --audio-map lines.json
 - Output goes to ~/.answer-me-with-html/videos/. The player carries a chapter strip (a chip jumps into that scene), a
   speed button (0.5x to 2x) and an export button that saves the same video through the browser, without a terminal.
 - --mp4 also saves a 1080p .mp4 next to the page (H.264 + AAC; needs ffmpeg; about 1.3 times the video length).
@@ -12573,6 +12893,7 @@ async function main(argv, io = {}) {
         style: { type: "string" },
         mode: { type: "string" },
         voice: { type: "string" },
+        "audio-map": { type: "string" },
         mp4: { type: "boolean" },
         webm: { type: "boolean" },
         pdf: { type: "string" },
@@ -12645,7 +12966,7 @@ async function withSource(arg, io, fail, fn3) {
   const cwd = io.cwd ?? process.cwd();
   let src;
   try {
-    src = arg === "-" ? await readStream(io.stdin ?? process.stdin) : readFileSync10(resolve5(cwd, arg), "utf8");
+    src = arg === "-" ? await readStream(io.stdin ?? process.stdin) : readFileSync10(resolve6(cwd, arg), "utf8");
   } catch (e) {
     fail(`\u2717 Cannot read the draft: ${e.message}`);
     return 2;
@@ -12654,7 +12975,7 @@ async function withSource(arg, io, fail, fn3) {
     fail("\u2717 The draft is empty");
     return 2;
   }
-  return fn3(src, arg === "-" ? cwd : dirname4(resolve5(cwd, arg)), arg === "-" ? { stdin: true } : { file: resolve5(cwd, arg) });
+  return fn3(src, arg === "-" ? cwd : dirname5(resolve6(cwd, arg)), arg === "-" ? { stdin: true } : { file: resolve6(cwd, arg) });
 }
 async function readStream(stream) {
   const chunks = [];
@@ -12693,7 +13014,7 @@ async function cmdRender(src, opts, ctx, baseDir, from) {
   const written = emit(result, file, ctx, { fallback: opts.out ? void 0 : "pages" });
   if (!written) return 1;
   if (opts.out && !extname3(file)) print("! -o names a file without an extension; use .html for an HTML page");
-  if (replaced && replaced !== resolve5(written)) removeEarlier(replaced, ctx);
+  if (replaced && replaced !== resolve6(written)) removeEarlier(replaced, ctx);
   keepDraft(result, src, from, ctx);
   const held = !opts.open && hasRetryWarnings(result) && shouldOpen(opts, ctx.env, config.values);
   if (held) print(`  Not opened because of the warnings; to render again, add --replace ${written}`);
@@ -12701,7 +13022,7 @@ async function cmdRender(src, opts, ctx, baseDir, from) {
 }
 var updateFor = (config, { env, io }) => pageUpdate(readState(amHome(env)), VERSION, io.scriptPath, env, config.values);
 var hasWarnings = (result) => hasRetryWarnings(result) || (result.stats.componentWarnings ?? []).length > 0 || (result.stats.htmlWarnings ?? []).length > 0;
-var draftsDir = (home) => join13(resolve5(home), "drafts");
+var draftsDir = (home) => join13(resolve6(home), "drafts");
 function draftTitle(src) {
   const m = src.match(/^title:\s*["']?(.+?)["']?\s*$/m) ?? src.match(/^#\s+(.+)$/m);
   return m?.[1] ?? "";
@@ -12748,7 +13069,7 @@ function keepDraft(result, src, from, ctx) {
   }
 }
 function isKeptDraft(path, { env }) {
-  return [draftsDir(amHome(env)), draftsDir(tempHome())].includes(dirname4(path)) && basename5(path).endsWith(".md");
+  return [draftsDir(amHome(env)), draftsDir(tempHome())].includes(dirname5(path)) && basename5(path).endsWith(".md");
 }
 var isDraftError = (e) => e instanceof DraftErrors || e instanceof RenderError || e instanceof LintError || e instanceof ParseError && e.line > 0;
 function reportDraftError(e, src, from, ctx) {
@@ -12761,9 +13082,9 @@ function reportDraftError(e, src, from, ctx) {
 }
 var hasRetryWarnings = (result) => result.warnings.length > 0 || (result.stats.codeWarnings ?? []).length > 0 || (result.stats.mathWarnings ?? []).length > 0;
 function pagePath(arg, { env, io }) {
-  const path = resolve5(io.cwd ?? process.cwd(), arg);
-  const folders = [resolve5(amHome(env), "pages"), resolve5(tempHome(), "pages")];
-  return folders.includes(dirname4(path)) && basename5(path).endsWith(".html") ? path : false;
+  const path = resolve6(io.cwd ?? process.cwd(), arg);
+  const folders = [resolve6(amHome(env), "pages"), resolve6(tempHome(), "pages")];
+  return folders.includes(dirname5(path)) && basename5(path).endsWith(".html") ? path : false;
 }
 var EXPORT_HELP = `Export a rendered page as an A4 PDF and/or PNG slices for a chat app
 
@@ -12777,6 +13098,9 @@ Usage:
 - --png writes <dir>/<page-name>-1.png, -2.png ... at 1200 CSS px wide and 2x (2400 px), in slices no taller than 1800 CSS px.
   A cut falls in a gap between panels; a panel taller than 1800 CSS px is cut at the limit, so its text can span two PNG files.
   The toolbar, the reply and remark controls and the new-version notice are left out.
+  A later export into the same folder removes <page-name>-<n>.png slices it did not write again. Other files stay.
+  A slice that is the input page, or that cannot be removed, is left in place and reported.
+  Run one export of a page into a folder at a time. Two at once can remove each other's slices.
 - Give both flags to write both; at least one is required. The folder for --png is created when missing.
 - Needs Chrome / Chromium / Edge, like am video --mp4 / --webm. Set AM_CHROME when it is not in a usual place.
 - A PDF or PNG is a picture: reply, remarks, the theme switch and the Before/After switches do not work in it.`;
@@ -12855,7 +13179,7 @@ async function cmdPatch(htmlArg, fromArg, opts, ctx) {
     return 2;
   }
   const cwd = io.cwd ?? process.cwd();
-  const file = resolve5(cwd, htmlArg);
+  const file = resolve6(cwd, htmlArg);
   let html;
   try {
     html = readFileSync10(file, "utf8");
@@ -12872,7 +13196,7 @@ async function cmdPatch(htmlArg, fromArg, opts, ctx) {
   const from = opts.from ?? fromArg;
   let replacement;
   try {
-    replacement = !from || from === "-" ? await readStream(io.stdin ?? process.stdin) : readFileSync10(resolve5(cwd, from), "utf8");
+    replacement = !from || from === "-" ? await readStream(io.stdin ?? process.stdin) : readFileSync10(resolve6(cwd, from), "utf8");
   } catch (e) {
     fail(`\u2717 Cannot read the new panel draft: ${e.message}`);
     return 2;
@@ -12902,15 +13226,20 @@ async function cmdPatch(htmlArg, fromArg, opts, ctx) {
   let result;
   try {
     if (video) {
+      if (!validAudioMap(opts, fail)) return 2;
       const voice = opts.voice ?? (page.voiced ? page.voice ?? config.values.voice : "off");
-      if (!validVoice(voice, fail)) return 2;
+      if (page.voice === "audio-map" && opts.voice === void 0 && opts["audio-map"] === void 0) {
+        fail("\u2717 This video uses an audio map; pass --audio-map <file.json> or choose another source with --voice");
+        return 2;
+      }
+      if (opts["audio-map"] === void 0 && !validVoice(voice, fail)) return 2;
       result = await buildVideo(patched, voice, { ...opts, theme: overrides.theme, mode: overrides.mode, style: overrides.style, previousLanguage: page.lang }, config, ctx);
     } else {
       result = renderDoc(patched, overrides, { theme, mode, style }, { themes: ctx.themes, previousLanguage: page.lang, baseDir: cwd, codeDir: cwd, knownImages: readEmbeddedImages(html), knownCode: readEmbeddedCode(html), update: updateFor(config, ctx), closeAfter: config.values.close_after_reply, scale: page.scale });
     }
   } catch (e) {
     if (e instanceof TtsError) {
-      fail(`\u2717 Voice-over failed: ${e.message}. Add --voice off for captions only`);
+      fail(`\u2717 Voice-over failed: ${e.message}. ${opts["audio-map"] === void 0 ? "Add --voice off" : "Remove --audio-map and add --voice off"} for captions only`);
       return 1;
     }
     return reportError(e, fail);
@@ -12934,7 +13263,7 @@ async function cmdExport(arg, opts, ctx) {
     return 2;
   }
   const cwd = io.cwd ?? process.cwd();
-  const file = resolve5(cwd, arg);
+  const file = resolve6(cwd, arg);
   let isPage;
   try {
     isPage = isHtmlPage(file);
@@ -12946,10 +13275,10 @@ async function cmdExport(arg, opts, ctx) {
     fail(`\u2717 ${arg} is not an existing .html file: am export takes a page am render wrote`);
     return 2;
   }
-  const pdf = opts.pdf === void 0 ? void 0 : resolve5(cwd, opts.pdf);
-  const png = opts.png === void 0 ? void 0 : resolve5(cwd, opts.png);
+  const pdf = opts.pdf === void 0 ? void 0 : resolve6(cwd, opts.pdf);
+  const png = opts.png === void 0 ? void 0 : resolve6(cwd, opts.png);
   try {
-    await exportPage(file, { pdf, png, env, onFile: (f2) => print(`\u2713 ${f2}`) });
+    await exportPage(file, { pdf, png, env, onFile: (f2) => print(`\u2713 ${f2}`), onWarn: (message) => fail(`! ${message}`) });
     return 0;
   } catch (e) {
     if (!(e instanceof ExportError)) throw e;
@@ -12959,9 +13288,10 @@ async function cmdExport(arg, opts, ctx) {
 }
 async function cmdVideo(src, opts, ctx, from) {
   const { fail, print } = ctx;
+  if (!validAudioMap(opts, fail)) return 2;
   const config = loadConfig(ctx);
   const voice = opts.voice ?? config.values.voice;
-  if (!validVoice(voice, fail)) return 2;
+  if (opts["audio-map"] === void 0 && !validVoice(voice, fail)) return 2;
   let file = opts.out ? outputPath("videos", "", opts, ctx) : null;
   if (opts.out && !file) return 2;
   let result;
@@ -12969,7 +13299,7 @@ async function cmdVideo(src, opts, ctx, from) {
     result = await buildVideo(src, voice, opts, config, ctx);
   } catch (e) {
     if (!(e instanceof TtsError)) return reportDraftError(e, src, from, ctx);
-    fail(`\u2717 Voice-over failed: ${e.message}. Add --voice off for captions only`);
+    fail(`\u2717 Voice-over failed: ${e.message}. ${opts["audio-map"] === void 0 ? "Add --voice off" : "Remove --audio-map and add --voice off"} for captions only`);
     return 1;
   }
   file ??= outputPath("videos", result.meta.title, opts, ctx);
@@ -12988,8 +13318,20 @@ function validVoice(voice, fail) {
   fail(`\u2717 Invalid voice value "${voice}". Choose one of: ${VOICES.join(" | ")}`);
   return false;
 }
+function validAudioMap(opts, fail) {
+  if (opts["audio-map"] === void 0) return true;
+  if (!opts["audio-map"].trim()) {
+    fail("\u2717 --audio-map needs a JSON file path");
+    return false;
+  }
+  if (opts.voice !== void 0) {
+    fail("\u2717 --audio-map cannot be used with --voice; choose one narration source");
+    return false;
+  }
+  return true;
+}
 async function buildVideo(src, voice, opts, config, { fail, env, io, themes: themes2 }) {
-  const provider = io.ttsProvider !== void 0 ? io.ttsProvider : pickProvider(voice, env);
+  const provider = opts["audio-map"] !== void 0 ? audioMapProvider(resolve6(io.cwd ?? process.cwd(), opts["audio-map"])) : io.ttsProvider !== void 0 ? io.ttsProvider : pickProvider(voice, env);
   const result = await renderVideo(src, {
     provider,
     cacheDir: provider ? narrationCache(amHome(env)) : void 0,
@@ -13041,8 +13383,8 @@ function themeWarnings({ fail, themes: themes2 }) {
 }
 function outputPath(dir, title, opts, { env, io, fail }) {
   if (opts.out) {
-    const file2 = resolve5(io.cwd ?? process.cwd(), opts.out);
-    if (statSync5(file2, { throwIfNoEntry: false })?.isDirectory()) {
+    const file2 = resolve6(io.cwd ?? process.cwd(), opts.out);
+    if (statSync6(file2, { throwIfNoEntry: false })?.isDirectory()) {
       fail("\u2717 -o names a folder; give a file path, for example -o page.html");
       return null;
     }
@@ -13058,12 +13400,12 @@ function unusedPagePath(file) {
   }
 }
 function writePage(file, html, env) {
-  const home = resolve5(amHome(env));
-  const path = resolve5(file);
+  const home = resolve6(amHome(env));
+  const path = resolve6(file);
   if (path.startsWith(home + sep4)) ensureHome(home);
-  mkdirSync6(dirname4(file), { recursive: true });
+  mkdirSync6(dirname5(file), { recursive: true });
   if (!path.startsWith(join13(home, "pages") + sep4)) return writeFileSync8(file, html);
-  const tmp = join13(dirname4(file), `.${basename5(file)}.${process.pid}.tmp`);
+  const tmp = join13(dirname5(file), `.${basename5(file)}.${process.pid}.tmp`);
   try {
     writeFileSync8(tmp, html);
     renameOver(tmp, file);
@@ -13073,7 +13415,7 @@ function writePage(file, html, env) {
 }
 function savePage(html, file, { fallback, inPlace }, { fail, env }) {
   const home = amHome(env);
-  const inHome = resolve5(file).startsWith(resolve5(home) + sep4);
+  const inHome = resolve6(file).startsWith(resolve6(home) + sep4);
   const hint = (path) => {
     if (inPlace) return "Copy the page to a folder this session can write to and patch the copy";
     return inHome ? `If this session can write only inside the workspace, run the command again with -o "<workspace>/.tmp/answers/${basename5(path)}"` : "Give -o a file in a folder this session can write to";
@@ -13210,7 +13552,7 @@ function cmdServe(opts, { print, fail, env, io }) {
     return 2;
   }
   const port = opts.port === void 0 ? DEFAULT_PORT : Number(opts.port);
-  const secretFile = opts["secret-file"] === void 0 ? void 0 : resolve5(io?.cwd ?? process.cwd(), opts["secret-file"]);
+  const secretFile = opts["secret-file"] === void 0 ? void 0 : resolve6(io?.cwd ?? process.cwd(), opts["secret-file"]);
   return runServe({ home: amHome(env), port, lan: !!opts.lan, tailscale: !!opts.tailscale, publicUrl: opts["public-url"], secretFile, print, fail });
 }
 function cmdLint(src, opts, { print, fail }) {
@@ -13340,7 +13682,7 @@ function cmdTheme(action, target, opts, ctx) {
     return 2;
   }
   const isFile = /\.json$/i.test(target) || /[\\/]/.test(target);
-  const path = isFile ? resolve5(io.cwd ?? process.cwd(), target) : join13(amHome(env), "themes", `${target}.json`);
+  const path = isFile ? resolve6(io.cwd ?? process.cwd(), target) : join13(amHome(env), "themes", `${target}.json`);
   const name = isFile ? basename5(path).replace(/\.json$/i, "") : target;
   let theme;
   let errors = [];

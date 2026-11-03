@@ -3,8 +3,8 @@
     "id": "mirrord",
     "name": "mirrord",
     "repository": "metalbear-co-mirrord",
-    "category": "general",
-    "description": "",
+    "category": "testing-unit-tdd",
+    "description": "Injects artificial latency and connection errors into mirrord sessions to test application behavior under degraded network conditions.",
     "path": "library/metalbear-co-mirrord/skills/mirrord",
     "activation_cmd": "python .agents/library/activate_skill.py activate mirrord",
     "link_cmd": "python .agents/library/activate_skill.py link mirrord"
@@ -14,7 +14,7 @@
     "name": "mirrord-chaos",
     "repository": "metalbear-co-mirrord",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/metalbear-co-mirrord/skills/mirrord-chaos",
     "activation_cmd": "python .agents/library/activate_skill.py activate mirrord-chaos",
     "link_cmd": "python .agents/library/activate_skill.py link mirrord-chaos"
@@ -24,7 +24,7 @@
     "name": "mirrord-ci",
     "repository": "metalbear-co-mirrord",
     "category": "general",
-    "description": "",
+    "description": "Help users set up mirrord in CI pipelines for testing against real Kubernetes environments. Use when users want to run end-to-end tests, integration tests, or automated tests in CI using mirrord to connect to staging/shared clusters.",
     "path": "library/metalbear-co-mirrord/skills/mirrord-ci",
     "activation_cmd": "python .agents/library/activate_skill.py activate mirrord-ci",
     "link_cmd": "python .agents/library/activate_skill.py link mirrord-ci"
@@ -34,7 +34,7 @@
     "name": "mirrord-config",
     "repository": "metalbear-co-mirrord",
     "category": "general",
-    "description": "",
+    "description": "Helps users generate, edit, and validate mirrord.json configuration files for mirrord (MetalBear). Use when the user wants to connect their local process to a Kubernetes environment, configure features (env/fs/network), or needs feedback on an existing mirrord.json. Always ensures output JSON is valid and schema-conformant.",
     "path": "library/metalbear-co-mirrord/skills/mirrord-config",
     "activation_cmd": "python .agents/library/activate_skill.py activate mirrord-config",
     "link_cmd": "python .agents/library/activate_skill.py link mirrord-config"
@@ -44,7 +44,7 @@
     "name": "mirrord-db-branching",
     "repository": "metalbear-co-mirrord",
     "category": "general",
-    "description": "",
+    "description": "Helps users configure mirrord.json for database branching, enabling isolated database copies for safe development and testing. Use when the user wants to set up MySQL, MariaDB, PostgreSQL, MSSQL, MongoDB, Redis, DynamoDB, ClickHouse, Google Spanner, Amazon S3, turbopuffer, or generic branches, configure copy modes, connection sources, schema migrations, IAM authentication, or manage database branches.",
     "path": "library/metalbear-co-mirrord/skills/mirrord-db-branching",
     "activation_cmd": "python .agents/library/activate_skill.py activate mirrord-db-branching",
     "link_cmd": "python .agents/library/activate_skill.py link mirrord-db-branching"
@@ -54,7 +54,7 @@
     "name": "mirrord-header-propagation",
     "repository": "metalbear-co-mirrord",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/metalbear-co-mirrord/skills/mirrord-header-propagation",
     "activation_cmd": "python .agents/library/activate_skill.py activate mirrord-header-propagation",
     "link_cmd": "python .agents/library/activate_skill.py link mirrord-header-propagation"
@@ -64,7 +64,7 @@
     "name": "mirrord-kafka",
     "repository": "metalbear-co-mirrord",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/metalbear-co-mirrord/skills/mirrord-kafka",
     "activation_cmd": "python .agents/library/activate_skill.py activate mirrord-kafka",
     "link_cmd": "python .agents/library/activate_skill.py link mirrord-kafka"
@@ -74,7 +74,7 @@
     "name": "mirrord-operator",
     "repository": "metalbear-co-mirrord",
     "category": "general",
-    "description": "",
+    "description": "Help users install and configure the mirrord Operator for team/enterprise environments. Use when users ask about operator setup, Helm installation, cloud API key or license configuration, air-gapped/offline licensing, enabling features (queue splitting, DB branching, preview environments, multi-cluster), internal registries, OpenShift/GKE Autopilot, RBAC, or multi-user mirrord deployments. Also use when an AI agent hits a Team or Enterprise feature on a cluster with no license and needs to offer the user a trial (agent-started trial; the trial is Enterprise tier).",
     "path": "library/metalbear-co-mirrord/skills/mirrord-operator",
     "activation_cmd": "python .agents/library/activate_skill.py activate mirrord-operator",
     "link_cmd": "python .agents/library/activate_skill.py link mirrord-operator"
@@ -84,7 +84,7 @@
     "name": "mirrord-prev-env",
     "repository": "metalbear-co-mirrord",
     "category": "general",
-    "description": "",
+    "description": "Help users create and manage mirrord preview environments \u2014 running a modified service as an isolated pod in a shared Kubernetes cluster, scoped by an environment key and HTTP/queue traffic filtering, so teams can validate and review changes against real traffic without affecting live services. Use when a developer wants to run \"mirrord preview\" ad hoc, share a preview via a link (mirrord-share-ingress), or wire preview environments into CI with the metalbear-co/mirrord-preview GitHub Action (e.g. per-PR previews, least-privilege cluster access).",
     "path": "library/metalbear-co-mirrord/skills/mirrord-prev-env",
     "activation_cmd": "python .agents/library/activate_skill.py activate mirrord-prev-env",
     "link_cmd": "python .agents/library/activate_skill.py link mirrord-prev-env"
@@ -94,7 +94,7 @@
     "name": "mirrord-propagation-discovery",
     "repository": "metalbear-co-mirrord",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/metalbear-co-mirrord/skills/mirrord-propagation-discovery",
     "activation_cmd": "python .agents/library/activate_skill.py activate mirrord-propagation-discovery",
     "link_cmd": "python .agents/library/activate_skill.py link mirrord-propagation-discovery"
@@ -104,7 +104,7 @@
     "name": "mirrord-quickstart",
     "repository": "metalbear-co-mirrord",
     "category": "general",
-    "description": "",
+    "description": "Guide users from zero to their first working mirrord session \u2014 check system requirements, install mirrord via CLI, VS Code, or IntelliJ, run a first session against a Kubernetes target, and verify the connection. Use when a user is new to mirrord, wants to install it, needs help running their first session, or wants to debug or test a local process against their Kubernetes cluster.",
     "path": "library/metalbear-co-mirrord/skills/mirrord-quickstart",
     "activation_cmd": "python .agents/library/activate_skill.py activate mirrord-quickstart",
     "link_cmd": "python .agents/library/activate_skill.py link mirrord-quickstart"
@@ -114,7 +114,7 @@
     "name": "mirrord-temporal",
     "repository": "metalbear-co-mirrord",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/metalbear-co-mirrord/skills/mirrord-temporal",
     "activation_cmd": "python .agents/library/activate_skill.py activate mirrord-temporal",
     "link_cmd": "python .agents/library/activate_skill.py link mirrord-temporal"
@@ -124,7 +124,7 @@
     "name": "mirrord-up",
     "repository": "metalbear-co-mirrord",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/metalbear-co-mirrord/skills/mirrord-up",
     "activation_cmd": "python .agents/library/activate_skill.py activate mirrord-up",
     "link_cmd": "python .agents/library/activate_skill.py link mirrord-up"

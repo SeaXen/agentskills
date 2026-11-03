@@ -2,6 +2,58 @@
 
 This file is the release changelog, with one `## <version> - <title>` entry per release, newest first. The Cursor-to-Claude rewrite rules live in [`tools/substitutions.json`](tools/substitutions.json), and the [sync boundary](CONTRIBUTING.md#the-sync-boundary) in `CONTRIBUTING.md` defines how a change to upstream's skill content is declared.
 
+## 0.9.125 - MiniMax Code
+
+pstack now runs on MiniMax Code. MiniMax Code 0.7.4 loads the Claude Code plugin unchanged through its Claude Code reader, with all 67 skills and 4 agents, so there is no separate MiniMax manifest. Copy `plugins/pstack` into `plugins/` in MiniMax's data directory, as the README shows. MiniMax's loader reads a top-level `plugin.json` or a `.minimax-plugin/plugin.json` before `.claude-plugin/plugin.json`, so the generator now fails when either exists in the plugin. The `SessionStart` hook recognizes MiniMax by the `MINIMAX_PLUGIN_ROOT` it sets, injects the poteto-mode mandate in MiniMax wording, and reads `session hook` from `~/.minimax/pstack-models.md`. MiniMax withholds `MINIMAX_DATA_DIR` from hooks and its `bash` tool, so the sheet stays in `~/.minimax` even when the data directory moves. The new [`minimax-tools.md`](plugins/pstack/skills/poteto-mode/references/minimax-tools.md) maps Claude tools to MiniMax's, with parameter names taken from the 0.7.4 tool schemas, and ships no default MiniMax models, because a session's models depend on the providers the user connected.
+
+`tests/minimax.test.mjs` and new cases in `tests/session-hook.test.mjs` cover the mapping, the manifest order, and the hook. `tests/minimax-smoke.sh` installs MiniMax Code and checks that it loads every skill and agent; CI does not run it. No live MiniMax session has run, because MiniMax requires a MiniMax account for every session, so the hook, skill loading, and agent dispatch inside a session are untested. @wittkung proposed the port and mapped MiniMax's tools in [#344](https://github.com/michael-denyer/pstack-claude/issues/344).
+
+## 0.9.124 - program objective in the store's notes.md
+
+The Autopilot-full and multi-phase-plan playbooks wrote the program objective into "the standing orders", the port's stand-in for Cursor's `/goal`. The term's only definition was the `preferences.md` register in the Orchestrate playbook, which 0.9.123 dropped with upstream's rewrite. Both playbooks now write the objective into `notes.md` in the program's store under `~/.claude/orchestrate/<slug>/`, the tracker the Orchestrate playbook names, and each audit tick re-reads it from there instead of from "the standing objective". `check-plan.mjs` requires a program checklist line that writes into `notes.md` in the program's store, where it required "standing orders", so a plan written from an earlier skeleton fails the check until that line is updated.
+
+## 0.9.123 - sync to upstream c742dd6 (v0.15.36): agentic Orchestrate, orch scripts removed
+
+The upstream pin moves from `ab1f702` to `c742dd6`, upstream v0.15.36, 1 pstack commit. The Orchestrate playbook now runs a program with the coordinator's own tools: the `Agent` tool for workers, a store under `~/.claude/orchestrate/<slug>/` with `notes.md` as its tracker, and PR and CI event subscriptions where the runtime has them. It calls no scripts and runs no polling loops. Two sections, Topology and Supervision, replace all nine earlier sections, Roles and placement through Escalation. The `preferences.md` register of standing orders went with them, and so did the port's rule to keep a human ruling in its original wording. The playbook no longer names `units.tsv`, `frontier.json`, or the inbox, so a store an earlier release wrote keeps those files but the playbook does not read them.
+
+Upstream deleted the `orch` scripts, and the port follows. `orch/orch.ts`, `orch/store.ts`, and `orch/orch.test.ts` are gone, with the silent-failure fixes the port carried in the last two. The scripts' `test` script, the `orch` case in `watch-pr/fresh-install.test.ts`, and the `orch` lines in `.prettierignore` went with them, and so did `tla/OrchStoreLock`, the TLA+ model of the store's lock. The Codex, Copilot, Muse, and Pi mapping notes and the requirements table in `docs/reference.md` no longer list the `orch` CLI.
+
+New substitution rules rewrite the playbook's Project tracker and Project store sentence, its cloud VM sentence, and "a control-skill check". A fourth rewrites its line on forking a worker: a Claude Code fork copies the coordinator, so new work that needs a worker's checkout goes to a fresh worker in that worker's worktree. The denylist now rejects "Project tracker" and "Project store". Four rules whose upstream text is gone were removed.
+
+## 0.9.122 - Pi wakeups as the agent's own messages, and Pi agent names in permission asks
+
+Four fixes from outside contributors.
+
+A wakeup the agent schedules with `schedule_wakeup` now arrives as a `pstack-wakeup` custom message, not a user message. A permission check reads a user message as the user's request, so a prompt the agent wrote for itself could pass as the user's consent. A `/skill:` or prompt-template prompt arrives expanded, with its arguments split as Pi splits a command the user types. A `/loop` prompt runs the loop, and what the loop sends also arrives as custom messages. When a skill file cannot be read, the extension shows the error and sends the prompt as written. The user's own `/loop` still sends user messages. @foreztgump found and fixed this in [#367](https://github.com/michael-denyer/pstack-claude/pull/367). @agammann's review of it found that the first version split an argument with a quote inside it, such as `--title="Fix login flow"`, into three.
+
+Each child agent's system prompt now carries an `<active_agent>` tag with its agent type. `@gotgenes/pi-permission-system` 42.0.0 reads the tag to name the agent in a permission ask it forwards to the parent, which said "unknown" before, and to pick that agent's `permission:` policy. @foreztgump found and fixed this in [#366](https://github.com/michael-denyer/pstack-claude/pull/366).
+
+The skill link check now reads a bare link destination with parentheses in it, such as `references/guide(v1).md`, in full. It used to stop at the first `)`, so a link to a file that exists failed as missing `references/guide(v1`. @idealistichacker found and fixed this in [#368](https://github.com/michael-denyer/pstack-claude/pull/368).
+
+`bun tools/generate.mjs` now runs on a native Windows checkout. With Git for Windows' default `core.autocrlf=true`, files came out with CRLF line endings, and the generator failed with `no anchor for the Models section to stamp`. A `.gitattributes` now checks text files out with LF endings, and the generator writes the paths it reports with forward slashes. @dajiaohuang found and fixed this in [#372](https://github.com/michael-denyer/pstack-claude/pull/372).
+
+## 0.9.121 - Pi agent type descriptions
+
+Two follow-ups to the Pi extension's `agent` tool from 0.9.120, and a fix to the live Pi suite.
+
+The `agent` tool's `subagent_type` description now lists each type with the `description:` from its agent file, as Claude Code's Agent tool does, so a model can tell when to use a type from `pstack-agents`. A `description:` on one line or as a YAML `|` or `>` block, as Claude Code agent files often write it, reads as its text. `general-purpose` shows Claude Code's description of its built-in type ([#371](https://github.com/michael-denyer/pstack-claude/pull/371)).
+
+When an agent file supplies the `model` or `effort`, only an error about that value now starts with the file's path. A `models.json` that cannot be read keeps its own message instead of reading as the agent file's fault ([#370](https://github.com/michael-denyer/pstack-claude/pull/370)).
+
+The live Pi suite's panel test no longer requires `opus`, `fable`, and `sonnet` to map to three different models. The `openai` and `openai-codex` tables map `opus` and `sonnet` to the same model, so the test failed on those providers ([#369](https://github.com/michael-denyer/pstack-claude/pull/369)).
+
+## 0.9.120 - Pi agent file fixes
+
+Four fixes to the Pi extension's `agent` tool, for the gaps that [#357](https://github.com/michael-denyer/pstack-claude/pull/357) listed after 0.9.119 added user agent files.
+
+An agent file's frontmatter now skips a byte-order mark before the `---` and drops YAML quotes around a whole value, so `effort: 'high'` is `high`. A value with a quote of the same kind inside, an escape, or a trailing comment is still read as written. Before, a file saved with a byte-order mark had no fields, and its frontmatter went into the child's system prompt ([#362](https://github.com/michael-denyer/pstack-claude/pull/362)).
+
+A `send_message` resume that cannot set up its system prompt file or its worktree now fails and leaves the agent's record alone. Before, it wrote a failed record over the completed one, so `list_agents` and a reloaded session lost the earlier result ([#363](https://github.com/michael-denyer/pstack-claude/pull/363)).
+
+The `agent` tool's `subagent_type` description now names every type the session starts with, each file in `pstack-agents` included. Before, it named only `general-purpose` and the plugin's four types, so a model found a user type only when told its name ([#364](https://github.com/michael-denyer/pstack-claude/pull/364)).
+
+An invalid `model:` or `effort:` in an agent file now gives an error that starts with the file's path. A bad value passed on the call gives the same error as before ([#365](https://github.com/michael-denyer/pstack-claude/pull/365)).
+
 ## 0.9.119 - Pi user agents, agent file effort, and permission asks from Pi agents
 
 Three changes to the Pi extension's `agent` tool, all from @foreztgump.
