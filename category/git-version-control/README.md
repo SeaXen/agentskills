@@ -1,7 +1,7 @@
 # 🐙 Git, Worktrees & PR Workflows
 
 > **Category**: `git-version-control`  
-> **Total Curated Skills**: 436 skills  
+> **Total Curated Skills**: 450 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -200,18 +200,26 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`github-actions-debugger`](../../library/sickn33-agentic-awesome-skills/skills/github-actions-debugger) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Specialized skill for diagnosing, analyzing, and fixing failing GitHub Actions workflows by par... |
 | [`github-actions-templates`](../../library/antigravity-awesome-skills/skills/github-actions-templates) | ⚪ Reserve | `antigravity-awesome-skills` | Create production-ready GitHub Actions workflows for automated testing, building, and deploying... |
 | [`github-actions-workflow`](../../library/aj-geddes-useful-ai-prompts/skills/github-actions-workflow) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Build comprehensive GitHub Actions workflows for CI/CD, testing, security, and deployment. Mast... |
+| [`github-auth`](../../library/seaxen-skills-backup/skills/github-auth) | ⚪ Reserve | `seaxen-skills-backup` | GitHub auth setup: HTTPS tokens, SSH keys, gh CLI login. |
 | [`github-automation`](../../library/antigravity-awesome-skills/skills/github-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate GitHub repositories, issues, pull requests, branches, CI/CD, and permissions via Rube ... |
+| [`github-code-review`](../../library/seaxen-skills-backup/skills/github-code-review) | ⚪ Reserve | `seaxen-skills-backup` | Review PRs: diffs, inline comments via gh or REST. |
 | [`github-dashboard`](../../library/feimacode-open-design-agent-kit/skills/github-dashboard) | ⚪ Reserve | `feimacode-open-design-agent-kit` | GitHub repository analytics dashboard — stars, forks, contributors, issues, pull requests, rece... |
 | [`github-engagement-playbook`](../../library/samber-developer-platform-skills/skills/github-engagement-playbook) | ⚪ Reserve | `samber-developer-platform-skills` | Plans a repository's post-launch engagement on GitHub as a social platform - stars, watchers an... |
 | [`github-issue-creator`](../../library/antigravity-awesome-skills/skills/github-issue-creator) | ⚪ Reserve | `antigravity-awesome-skills` | Convert raw notes, error logs, voice dictation, or screenshots into crisp GitHub-flavored markd... |
+| [`github-issue-to-pr`](../../library/seaxen-skills-backup/skills/github-issue-to-pr) | ⚪ Reserve | `seaxen-skills-backup` | Carry a GitHub issue to a verified PR with honest CI state. |
+| [`github-issues`](../../library/seaxen-skills-backup/skills/github-issues) | ⚪ Reserve | `seaxen-skills-backup` | Create, triage, label, assign GitHub issues via gh or REST. |
 | [`github-marketplace-playbook`](../../library/samber-developer-platform-skills/skills/github-marketplace-playbook) | ⚪ Reserve | `samber-developer-platform-skills` | Gets a vendor's GitHub App or GitHub Action listed on GitHub Marketplace and, for apps, selling... |
+| [`github-operations`](../../library/seaxen-skills-backup/skills/github-operations) | ⚪ Reserve | `seaxen-skills-backup` | Use when working across the GitHub lifecycle: auth, repositories, issues, pull requests, review... |
 | [`github-ops`](../../library/affaan-m-ecc/skills/github-ops) | ⚪ Reserve | `affaan-m-ecc` | GitHub repository operations, automation, and management. Issue triage, PR management, CI/CD op... |
 | [`github-outside-sandbox`](../../library/davidondrej-skills/skills/github-outside-sandbox) | ⚪ Reserve | `davidondrej-skills` | Run Git and GitHub CLI commands on the host when sandboxing blocks Keychain auth, network acces... |
+| [`github-pr-workflow`](../../library/seaxen-skills-backup/skills/github-pr-workflow) | ⚪ Reserve | `seaxen-skills-backup` | GitHub PR lifecycle: branch, commit, open, CI, merge. |
 | [`github-presence`](../../library/sickn33-agentic-awesome-skills/skills/github-presence) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | When the user wants to optimize their GitHub profile, README, or project discoverability. Trigg... |
 | [`github-profile-optimization`](../../library/samber-developer-relations-skills/skills/github-profile-optimization) | ⚪ Reserve | `samber-developer-relations-skills` | Audits and rebuilds a personal or organization profile on GitHub as a developer-relations surfa... |
 | [`github-project-contributor-finder-api-skill`](../../library/browser-act-skills/skills/github-project-contributor-finder-api-skill) | ⚪ Reserve | `browser-act-skills` | This skill helps users extract GitHub repository project details and contributor contact inform... |
 | [`github-release`](../../library/jezweb-claude-skills/skills/github-release) | ⚪ Reserve | `jezweb-claude-skills` | Prepare and publish GitHub releases. Sanitizes code for public release (secrets scan, personal ... |
+| [`github-repo-management`](../../library/seaxen-skills-backup/skills/github-repo-management) | ⚪ Reserve | `seaxen-skills-backup` | Clone/create/fork repos; manage remotes, releases. |
 | [`github-sandbox-file-downloader`](../../library/reason-machines-trending-skills/skills/github-sandbox-file-downloader) | ⚪ Reserve | `reason-machines-trending-skills` | Download files into a GitHub repository by writing special commit messages that trigger a GitHu... |
+| [`github-skills-library-backup`](../../library/seaxen-skills-backup/skills/github-skills-library-backup) | ⚪ Reserve | `seaxen-skills-backup` | Push Hermes skills library to new private GitHub repo. |
 | [`github-triage`](../../library/trailofbits-skills/skills/github-triage) | ⚪ Reserve | `trailofbits-skills` | Triages a repository's open GitHub issues and pull requests via the gh CLI. Optionally reviews ... |
 | [`github-workflow`](../../library/mindrally-skills/skills/github-workflow) | ⚪ Reserve | `mindrally-skills` | GitHub best practices for pull requests, code reviews, issues, Actions workflows, and repositor... |
 | [`github-workflow-automation`](../../library/antigravity-awesome-skills/skills/github-workflow-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate GitHub workflows with AI assistance. Includes PR reviews, issue triage, CI/CD integrat... |
@@ -235,6 +243,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`google-workspace-cli`](../../library/alirezarezvani-claude-skills/skills/google-workspace-cli) | ⚪ Reserve | `alirezarezvani-claude-skills` | Google Workspace administration via the gws CLI (github.com/googleworkspace/cli). Install, auth... |
 | [`grill-me`](../../library/alirezarezvani-claude-skills/skills/grill-me) | ⚪ Reserve | `alirezarezvani-claude-skills` | Interview the user relentlessly about a plan or design until reaching shared understanding, res... |
 | [`here-be-git`](../../library/intellectronica-agent-skills/skills/here-be-git) | ⚪ Reserve | `intellectronica-agent-skills` | Initialise a git repository with optional agent commit instructions and .gitignore. Use when us... |
+| [`hermes-git-config-snapshots`](../../library/seaxen-skills-backup/skills/hermes-git-config-snapshots) | ⚪ Reserve | `seaxen-skills-backup` | Version Hermes Agent config.yaml, cron/jobs.json, plugin configs, dashboard themes, profile ove... |
+| [`hermes-skills-library-maintenance`](../../library/seaxen-skills-backup/skills/hermes-skills-library-maintenance) | ⚪ Reserve | `seaxen-skills-backup` | Reconcile manifest, INDEX, GitHub backup for skill library. |
 | [`hivemind`](../../library/alirezarezvani-claude-skills/skills/hivemind) | ⚪ Reserve | `alirezarezvani-claude-skills` | Orchestrate free opencode workers from Claude Code to cut token costs. Use when delegating grun... |
 | [`hotfix`](../../library/donchitos-claude-code-game-studios/skills/hotfix) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Emergency fix bypassing normal sprint process — hotfix branch, approvals tracked, backport veri... |
 | [`html-ppt`](../../library/feimacode-open-design-agent-kit/skills/html-ppt) | ⚪ Reserve | `feimacode-open-design-agent-kit` | For consulting delivery work: turn diagnosis, frameworks, and project work into a client-adopta... |
@@ -273,6 +283,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`managed-deep-agents`](../../library/langchain-ai-langchain-skills/skills/managed-deep-agents) | ⚪ Reserve | `langchain-ai-langchain-skills` | INVOKE THIS SKILL when building, testing, or deploying Managed Deep Agents in LangSmith. Walks ... |
 | [`mcore-create-issue`](../../library/nvidia-skills/skills/mcore-create-issue) | ⚪ Reserve | `nvidia-skills` | Investigate a failing GitHub Actions run or job and create a GitHub issue for the failure. |
 | [`mcp-configure`](../../library/launchdarkly-ai-tooling/skills/mcp-configure) | ⚪ Reserve | `launchdarkly-ai-tooling` | Configure the LaunchDarkly hosted MCP server during onboarding. Use when the parent LaunchDarkl... |
+| [`medsea-chapter-audit`](../../library/seaxen-skills-backup/skills/medsea-chapter-audit) | ⚪ Reserve | `seaxen-skills-backup` | Use when verifying whether a MedSea chapter (Davidson 24/25th ed medicine notes) is 100% comple... |
+| [`medsea-multi-platform-sync`](../../library/seaxen-skills-backup/skills/medsea-multi-platform-sync) | ⚪ Reserve | `seaxen-skills-backup` | Sync medical content from /mnt/tb/Medicine to MedSea across 4 platforms — local repo, GitHub (S... |
+| [`medsea-publishing-pipeline`](../../library/seaxen-skills-backup/skills/medsea-publishing-pipeline) | ⚪ Reserve | `seaxen-skills-backup` | Build and publish Davidson's Principles & Practice of Medicine chapters to the MedSea platform ... |
 | [`merge`](../../library/alirezarezvani-claude-skills/skills/merge) | ⚪ Reserve | `alirezarezvani-claude-skills` | Merge the winning agent's branch into base, archive losers, and clean up worktrees. Use when th... |
 | [`message-house-builder`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/message-house-builder) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "build a message house", "write a PR-FAQ for our launch", or "define ... |
 | [`message-system-architect`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/message-system-architect) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "author our durable brand message hierarchy", "build the brand messag... |
@@ -407,6 +420,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skill-scout`](../../library/affaan-m-ecc/skills/skill-scout) | ⚪ Reserve | `affaan-m-ecc` | Search existing local, marketplace, GitHub, and web skill sources before creating a new skill. ... |
 | [`skill-seekers`](../../library/antigravity-awesome-skills/skills/skill-seekers) | ⚪ Reserve | `antigravity-awesome-skills` | -Automatically convert documentation websites, GitHub repositories, and PDFs into Claude AI ski... |
 | [`skill-tester`](../../library/alirezarezvani-claude-skills/skills/skill-tester) | ⚪ Reserve | `alirezarezvani-claude-skills` | Validate, test, and score the quality of skills within the claude-skills ecosystem. Comprehensi... |
+| [`smart-git-commit`](../../library/seaxen-skills-backup/skills/smart-git-commit) | ⚪ Reserve | `seaxen-skills-backup` | Use when the user asks to commit, push, prepare a PR, or clean up git history. Produces discipl... |
 | [`springboot-verification`](../../library/affaan-m-ecc/skills/springboot-verification) | ⚪ Reserve | `affaan-m-ecc` | Run the full Spring Boot verification loop — Maven or Gradle build, SpotBugs, PMD, and Checksty... |
 | [`star-history-chart`](../../library/davila7-claude-code-templates/skills/star-history-chart) | ⚪ Reserve | `davila7-claude-code-templates` | Add a self-hosted "Stargazers over time" chart to any GitHub repo's README. GitHub now restrict... |
 | [`supercov`](../../library/sickn33-agentic-awesome-skills/skills/supercov) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Measure line, branch and MC/DC coverage of a project's existing tests with the supercov CLI, th... |

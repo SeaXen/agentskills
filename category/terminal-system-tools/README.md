@@ -1,7 +1,7 @@
 # 💻 Terminal, Shell & System Automation
 
 > **Category**: `terminal-system-tools`  
-> **Total Curated Skills**: 393 skills  
+> **Total Curated Skills**: 400 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -207,8 +207,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`hardening-linux-endpoint-with-cis-benchmark`](../../library/mukul975-anthropic-cybersecurity-skills/skills/hardening-linux-endpoint-with-cis-benchmark) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Hardens Linux endpoints using CIS Benchmark recommendations for Ubuntu, |
 | [`hasdata-cli`](../../library/sickn33-agentic-awesome-skills/skills/hasdata-cli) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Command-line access to search, scraping, and structured web data. |
 | [`herdr`](../../library/davidondrej-skills/skills/herdr) | ⚪ Reserve | `davidondrej-skills` | Operate and coordinate AI agents in Herdr workspaces in Ghostty. Use when the user mentions Her... |
+| [`hermes-plugin-development`](../../library/seaxen-skills-backup/skills/hermes-plugin-development) | ⚪ Reserve | `seaxen-skills-backup` | Build, install, and debug user-installed Hermes plugins. Covers plugin manifest format, slash c... |
 | [`hf-cli`](../../library/huggingface-skills/skills/hf-cli) | ⚪ Reserve | `huggingface-skills` | Hugging Face Hub CLI (`hf`) for downloading, uploading, and managing models, datasets, spaces, ... |
 | [`holoscan-app-debug-build-run`](../../library/nvidia-skills/skills/holoscan-app-debug-build-run) | ⚪ Reserve | `nvidia-skills` | Use when a concrete holoscan command in holoscan-applications or a standalone Module fails, han... |
+| [`host-memory-pressure-diagnosis`](../../library/seaxen-skills-backup/skills/host-memory-pressure-diagnosis) | ⚪ Reserve | `seaxen-skills-backup` | Diagnose and fix Linux host memory pressure on machines running Hermes + Docker + Python + brow... |
 | [`hsb-ip-def`](../../library/nvidia-skills/skills/hsb-ip-def) | ⚪ Reserve | `nvidia-skills` | Generate, validate, compare, or explain HSB HOLOLINK_def.svh macros. Do not use for FPGA_top.sv... |
 | [`html-ppt-hermes-cyber-terminal`](../../library/feimacode-open-design-agent-kit/skills/html-ppt-hermes-cyber-terminal) | ⚪ Reserve | `feimacode-open-design-agent-kit` | OpenDesign + BYOK: choosing and wiring your own model, hands-on — cost, quality, and the routin... |
 | [`html-ppt-taste-brutalist`](../../library/feimacode-open-design-agent-kit/skills/html-ppt-taste-brutalist) | ⚪ Reserve | `feimacode-open-design-agent-kit` | 16:9 HTML deck in tactical-telemetry / CRT-terminal taste. Deactivated-CRT charcoal slides, whi... |
@@ -237,6 +239,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`hunting-for-shadow-copy-deletion`](../../library/mukul975-anthropic-cybersecurity-skills/skills/hunting-for-shadow-copy-deletion) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Runs a hypothesis-driven threat hunt for Volume Shadow Copy deletion (T1490) by querying SIEM/E... |
 | [`hunting-for-unusual-network-connections`](../../library/mukul975-anthropic-cybersecurity-skills/skills/hunting-for-unusual-network-connections) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Runs a hypothesis-driven threat hunt for command-and-control activity (T1071) by querying SIEM/... |
 | [`hunting-for-webshell-activity`](../../library/mukul975-anthropic-cybersecurity-skills/skills/hunting-for-webshell-activity) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Runs a hypothesis-driven threat hunt for web shell deployment (T1505.003) on internet-facing se... |
+| [`hyperliquid-alt`](../../library/seaxen-skills-backup/skills/hyperliquid-alt) | ⚪ Reserve | `seaxen-skills-backup` | Read-only Hyperliquid market data assistant (perps + spot optional) with support for natural-la... |
 | [`hyperliquid-leaderboard-analytics`](../../library/reason-machines-data-skills/skills/hyperliquid-leaderboard-analytics) | ⚪ Reserve | `reason-machines-data-skills` | Terminal analytics dashboard for tracking Hyperliquid DEX top traders by PnL, ROI, and performa... |
 | [`ide-extension-offering`](../../library/samber-developer-platform-skills/skills/ide-extension-offering) | ⚪ Reserve | `samber-developer-platform-skills` | Decides whether a developer platform should ship an official IDE extension (VS Code, JetBrains)... |
 | [`implementing-data-loss-prevention-with-microsoft-purview`](../../library/mukul975-anthropic-cybersecurity-skills/skills/implementing-data-loss-prevention-with-microsoft-purview) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Implements DLP policies using Microsoft Purview PowerShell cmdlets and |
@@ -263,7 +266,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`linear-sdk-scripting`](../../library/cline-skills/skills/linear-sdk-scripting) | ⚪ Reserve | `cline-skills` | Perform actions in Linear (read, create, update, search issues, projects, comments, teams, cycl... |
 | [`linux`](../../library/anthropics-knowledge-work/skills/linux) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Video SDK for Linux - C++ headless bots, raw audio/video capture/injection, Qt/GTK integra... |
 | [`linux-administration`](../../library/sickn33-agentic-awesome-skills/skills/linux-administration) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | System administration for Linux servers. Manage packages, services, and |
+| [`linux-desktop-app-bundles`](../../library/seaxen-skills-backup/skills/linux-desktop-app-bundles) | ⚪ Reserve | `seaxen-skills-backup` | Install or update vendor-distributed Linux desktop apps from tarballs or direct downloads, wire... |
 | [`linux-hardening`](../../library/sickn33-agentic-awesome-skills/skills/linux-hardening) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Apply CIS benchmarks and secure Linux servers. |
+| [`linux-host-performance-diagnosis`](../../library/seaxen-skills-backup/skills/linux-host-performance-diagnosis) | ⚪ Reserve | `seaxen-skills-backup` | Diagnose CPU load, temperature spikes, and periodic resource consumption on a Linux host (lapto... |
 | [`linux-lateral-movement`](../../library/yaklang-hack-skills/skills/linux-lateral-movement) | ⚪ Reserve | `yaklang-hack-skills` | Linux lateral movement playbook. Use after gaining initial access to pivot across Linux hosts v... |
 | [`linux-privilege-escalation`](../../library/antigravity-awesome-skills/skills/linux-privilege-escalation) | ⚪ Reserve | `antigravity-awesome-skills` | This skill should be used when the user asks to \"escalate privileges on Linux\", \"find prives... |
 | [`linux-security-bypass`](../../library/yaklang-hack-skills/skills/linux-security-bypass) | ⚪ Reserve | `yaklang-hack-skills` | Linux security mechanism bypass playbook. Use when facing restricted bash/rbash, read-only or n... |
@@ -409,6 +414,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`wiki-cli`](../../library/agricidaniel-claude-obsidian/skills/wiki-cli) | ⚪ Reserve | `agricidaniel-claude-obsidian` | Detect and use the official Obsidian command-line interface for read-only vault access; use for... |
 | [`windows-shell-reliability`](../../library/sickn33-agentic-awesome-skills/skills/windows-shell-reliability) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Reliable command execution on Windows: paths, encoding, and common binary pitfalls. |
 | [`wizard`](../../library/mattpocock-skills/skills/wizard) | ⚪ Reserve | `mattpocock-skills` | Generate an interactive bash wizard that walks a human through steps only they can perform. Use... |
+| [`workspace-boundary-discipline`](../../library/seaxen-skills-backup/skills/workspace-boundary-discipline) | ⚪ Reserve | `seaxen-skills-backup` | Keep plans, scaffolds, and edits inside the correct project boundary when the shell cwd and tas... |
 | [`wterm-web-terminal`](../../library/reason-machines-trending-skills/skills/wterm-web-terminal) | ⚪ Reserve | `reason-machines-trending-skills` | Web terminal emulator with Zig/WASM core, DOM rendering, and React/vanilla JS bindings |
 | [`wx-cli-wechat-local-data`](../../library/reason-machines-trending-skills/skills/wx-cli-wechat-local-data) | ⚪ Reserve | `reason-machines-trending-skills` | name: wx-cli-wechat-local-data |
 | [`x-ray-a-company`](../../library/useosint-skills/skills/x-ray-a-company) | ⚪ Reserve | `useosint-skills` | Corporate due-diligence workflow — resolve a brand or website to its registered legal entity, m... |
+| [`yoinks-ink-tui-downloader`](../../library/seaxen-skills-backup/skills/yoinks-ink-tui-downloader) | ⚪ Reserve | `seaxen-skills-backup` | Use when building an Ink terminal TUI or wrapping yt-dlp. |

@@ -1,0 +1,16 @@
+You are a Hermes cron agent. Run the config drift watchdog. Notify the failure channel ONLY if the drift exceeds the threshold (50 lines).
+
+Steps:
+1. Run: DRIFT_THRESHOLD=50 /root/.hermes-config-snapshots/scripts/drift-watchdog.sh
+   - The script silently exits 0 if drift is below threshold (most runs).
+   - The script exits 1 and prints a summary if drift exceeds 50 lines.
+   - The summary includes: change count, +added/-removed, baseline path, top changes, recovery command.
+2. Capture exit code:
+   - exit 0 → success, no notification needed
+   - exit 1 → FAILURE: use discord action=create with channel_id=1509927046258757792 to post the exact message the script printed
+3. On success: stay silent, no tool calls.
+
+Important:
+- Do NOT post on success. Do NOT post twice on failure.
+- Do not attempt to restore the file. Just report.
+- Do not retry.

@@ -1,7 +1,7 @@
 # 📊 Technical Diagrams & Isometric SVG
 
 > **Category**: `diagrams-technical-visuals`  
-> **Total Curated Skills**: 88 skills  
+> **Total Curated Skills**: 89 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -75,6 +75,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`market-movers`](../../library/appeeky-aso-skills/skills/market-movers) | ⚪ Reserve | `appeeky-aso-skills` | When the user wants to track App Store chart rank changes, find top gainers and losers, detect ... |
 | [`market-pulse`](../../library/appeeky-aso-skills/skills/market-pulse) | ⚪ Reserve | `appeeky-aso-skills` | When the user wants a comprehensive App Store market overview, daily/weekly market briefing, or... |
 | [`matplotlib`](../../library/davila7-claude-code-templates/skills/matplotlib) | ⚪ Reserve | `davila7-claude-code-templates` | Foundational plotting library. Create line plots, scatter, bar, histograms, heatmaps, 3D, subpl... |
+| [`medical-chapter-study-pack`](../../library/seaxen-skills-backup/skills/medical-chapter-study-pack) | ⚪ Reserve | `seaxen-skills-backup` | Use when preparing structured exam-oriented chapter notes for a medical subject such as nephrol... |
 | [`mermaid-architect-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/mermaid-architect-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Design complex multi-diagram architectures using advanced Mermaid syntax |
 | [`mermaid-diagram`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/mermaid-diagram) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate Mermaid diagrams from user requirements. Save .mmd and .md files to figures/ with synt... |
 | [`mermaid-diagram-specialist`](../../library/davila7-claude-code-templates/skills/mermaid-diagram-specialist) | ⚪ Reserve | `davila7-claude-code-templates` | Mermaid diagram specialist for creating flowcharts, sequence diagrams, ERDs, |

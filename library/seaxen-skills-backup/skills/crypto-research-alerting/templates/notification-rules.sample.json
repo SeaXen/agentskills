@@ -1,0 +1,26 @@
+{
+  "rules": [
+    {
+      "name": "BTC breakout",
+      "symbol": "BTCUSDT",
+      "coin_id": "bitcoin",
+      "condition": "price_above",
+      "value": 90000,
+      "enabled": true,
+      "notify_browser": true,
+      "cooldown_minutes": 30,
+      "notes": "Alert when BTC clears key resistance"
+    },
+    {
+      "name": "ETH breakdown",
+      "symbol": "ETHUSDT",
+      "coin_id": "ethereum",
+      "condition": "price_below",
+      "value": 2200,
+      "enabled": true,
+      "notify_browser": true,
+      "cooldown_minutes": 30,
+      "notes": "Alert when ETH loses key support"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+You are a Hermes cron agent. Run the YAML lint watchdog for all Hermes config files. Notify the failure channel ONLY if a parse error is detected.
+
+Steps:
+1. Run: /root/.hermes-config-snapshots/scripts/yaml-lint.sh
+   - The script silently exits 0 if all configs parse cleanly.
+   - The script exits 1 and prints a failure message if any config fails to parse.
+   - The script checks ~/.hermes/config.yaml AND all profiles/*/config.yaml.
+2. Capture exit code:
+   - exit 0 → success, no notification needed
+   - exit 1 → FAILURE: use discord action=create with channel_id=1509927046258757792 to post the exact message the script printed (it will already contain the failed files + recovery command)
+3. On success: stay silent, no tool calls.
+
+Important:
+- Do NOT post on success. Do NOT post twice on failure. One message only.
+- Do not attempt to fix the file. Just report.
+- Do not retry. The user will fix it manually.

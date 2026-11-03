@@ -1,7 +1,7 @@
 # ⚡ NoSQL, Serverless & Vector DBs
 
 > **Category**: `database-nosql-serverless`  
-> **Total Curated Skills**: 106 skills  
+> **Total Curated Skills**: 107 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -87,6 +87,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`nosql-expert`](../../library/antigravity-awesome-skills/skills/nosql-expert) | ⚪ Reserve | `antigravity-awesome-skills` | Expert guidance for distributed NoSQL databases (Cassandra, DynamoDB). Focuses on mental models... |
 | [`optimize-for-gpu`](../../library/k-dense-ai-scientific-agent-skills/skills/optimize-for-gpu) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | GPU-accelerates scientific Python on NVIDIA hardware and verifies that the result is correct an... |
 | [`paidf-cosmos-predict`](../../library/nvidia-skills/skills/paidf-cosmos-predict) | ⚪ Reserve | `nvidia-skills` | Prepare and run PAIDF Cosmos Predict video generation for DEFT media samples. |
+| [`pdf-callout-box-snapshot-extractor`](../../library/seaxen-skills-backup/skills/pdf-callout-box-snapshot-extractor) | ⚪ Reserve | `seaxen-skills-backup` | Extract visual callout boxes (numbered "Box N.N" or similar boxed figures/tables) from a textbo... |
 | [`physical-ai-defect-image-generation`](../../library/nvidia-skills/skills/physical-ai-defect-image-generation) | ⚪ Reserve | `nvidia-skills` | Use when the user wants to orchestrate defect image generation with NVIDIA Cosmos AnomalyGen (C... |
 | [`query-caching-strategies`](../../library/aj-geddes-useful-ai-prompts/skills/query-caching-strategies) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Implement query caching strategies to improve performance. Use when setting up caching layers, ... |
 | [`rag`](../../library/giuseppe-trisciuoglio-developer-kit/skills/rag) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Implements document chunking, embedding generation, vector storage, and retrieval pipelines for... |

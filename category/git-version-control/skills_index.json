@@ -1448,12 +1448,28 @@
     "path": "category/git-version-control/github-actions-workflow"
   },
   {
+    "id": "github-auth",
+    "name": "github-auth",
+    "category": "git-version-control",
+    "repository": "seaxen-skills-backup",
+    "description": "GitHub auth setup: HTTPS tokens, SSH keys, gh CLI login.",
+    "path": "category/git-version-control/github-auth"
+  },
+  {
     "id": "github-automation",
     "name": "github-automation",
     "category": "git-version-control",
     "repository": "antigravity-awesome-skills",
     "description": "Automate GitHub repositories, issues, pull requests, branches, CI/CD, and permissions via Rube MCP (Composio). Manage code workflows, review PRs, search code, and handle deployments programmatically.",
     "path": "category/git-version-control/github-automation"
+  },
+  {
+    "id": "github-code-review",
+    "name": "github-code-review",
+    "category": "git-version-control",
+    "repository": "seaxen-skills-backup",
+    "description": "Review PRs: diffs, inline comments via gh or REST.",
+    "path": "category/git-version-control/github-code-review"
   },
   {
     "id": "github-dashboard",
@@ -1480,12 +1496,36 @@
     "path": "category/git-version-control/github-issue-creator"
   },
   {
+    "id": "github-issue-to-pr",
+    "name": "github-issue-to-pr",
+    "category": "git-version-control",
+    "repository": "seaxen-skills-backup",
+    "description": "Carry a GitHub issue to a verified PR with honest CI state.",
+    "path": "category/git-version-control/github-issue-to-pr"
+  },
+  {
+    "id": "github-issues",
+    "name": "github-issues",
+    "category": "git-version-control",
+    "repository": "seaxen-skills-backup",
+    "description": "Create, triage, label, assign GitHub issues via gh or REST.",
+    "path": "category/git-version-control/github-issues"
+  },
+  {
     "id": "github-marketplace-playbook",
     "name": "github-marketplace-playbook",
     "category": "git-version-control",
     "repository": "samber-developer-platform-skills",
     "description": "Gets a vendor's GitHub App or GitHub Action listed on GitHub Marketplace and, for apps, selling there - free vs paid listing, publisher verification, marketplace_purchase billing duties, immutable pricing plans, enterprise buyers Marketplace cannot bill, the verified creator badge, delisting. Use whenever a vendor mentions GitHub Marketplace, listing a GitHub App, Marketplace paid plans, or selling through GitHub billing. Publisher side only; not for buying or allowlisting Marketplace apps as a customer. Do NOT use for building the action (use samber/developer-platform-skills@github-action-offering), repository growth (use samber/developer-platform-skills@github-engagement-playbook), or launch announcements (use samber/developer-platform-skills@app-marketplace-launch-marketing).",
     "path": "category/git-version-control/github-marketplace-playbook"
+  },
+  {
+    "id": "github-operations",
+    "name": "github-operations",
+    "category": "git-version-control",
+    "repository": "seaxen-skills-backup",
+    "description": "Use when working across the GitHub lifecycle: auth, repositories, issues, pull requests, reviews, releases, and gh-vs-REST fallbacks.",
+    "path": "category/git-version-control/github-operations"
   },
   {
     "id": "github-ops",
@@ -1502,6 +1542,14 @@
     "repository": "davidondrej-skills",
     "description": "Run Git and GitHub CLI commands on the host when sandboxing blocks Keychain auth, network access, or .git writes. Use for gh auth, repo/PR operations, index.lock, or permission errors; covers execution context only.",
     "path": "category/git-version-control/github-outside-sandbox"
+  },
+  {
+    "id": "github-pr-workflow",
+    "name": "github-pr-workflow",
+    "category": "git-version-control",
+    "repository": "seaxen-skills-backup",
+    "description": "GitHub PR lifecycle: branch, commit, open, CI, merge.",
+    "path": "category/git-version-control/github-pr-workflow"
   },
   {
     "id": "github-presence",
@@ -1536,12 +1584,28 @@
     "path": "category/git-version-control/github-release"
   },
   {
+    "id": "github-repo-management",
+    "name": "github-repo-management",
+    "category": "git-version-control",
+    "repository": "seaxen-skills-backup",
+    "description": "Clone/create/fork repos; manage remotes, releases.",
+    "path": "category/git-version-control/github-repo-management"
+  },
+  {
     "id": "github-sandbox-file-downloader",
     "name": "github-sandbox-file-downloader",
     "category": "git-version-control",
     "repository": "reason-machines-trending-skills",
     "description": "Download files into a GitHub repository by writing special commit messages that trigger a GitHub Actions workflow.",
     "path": "category/git-version-control/github-sandbox-file-downloader"
+  },
+  {
+    "id": "github-skills-library-backup",
+    "name": "github-skills-library-backup",
+    "category": "git-version-control",
+    "repository": "seaxen-skills-backup",
+    "description": "Push Hermes skills library to new private GitHub repo.",
+    "path": "category/git-version-control/github-skills-library-backup"
   },
   {
     "id": "github-triage",
@@ -1726,6 +1790,22 @@
     "repository": "intellectronica-agent-skills",
     "description": "Initialise a git repository with optional agent commit instructions and .gitignore. Use when users say \"here be git\", \"init git\", \"initialise git\", or otherwise indicate they want to set up version control in the current directory.",
     "path": "category/git-version-control/here-be-git"
+  },
+  {
+    "id": "hermes-git-config-snapshots",
+    "name": "hermes-git-config-snapshots",
+    "category": "git-version-control",
+    "repository": "seaxen-skills-backup",
+    "description": "Version Hermes Agent config.yaml, cron/jobs.json, plugin configs, dashboard themes, profile overrides, and learnables config into a private GitHub repo using a line-based redactor (raw files mode 600 and gitignored). Pair with a 6h cron that posts to Discord only on failure and a pre-update hook that snapshots before any hermes update runs. Use when the user wants git-tracked history of their small Hermes config files, wants to detect config drift after a Hermes update, or asks to back up Hermes config without pulling in the full multi-GB state.db into git. Distinct from hermes-backup-watchers (which archives whole trees to TB/cloud) \u2014 this skill is the text-only, git-tracked, redacted, multi-file complement.",
+    "path": "category/git-version-control/hermes-git-config-snapshots"
+  },
+  {
+    "id": "hermes-skills-library-maintenance",
+    "name": "hermes-skills-library-maintenance",
+    "category": "git-version-control",
+    "repository": "seaxen-skills-backup",
+    "description": "Reconcile manifest, INDEX, GitHub backup for skill library.",
+    "path": "category/git-version-control/hermes-skills-library-maintenance"
   },
   {
     "id": "hivemind",
@@ -2030,6 +2110,30 @@
     "repository": "launchdarkly-ai-tooling",
     "description": "Configure the LaunchDarkly hosted MCP server during onboarding. Use when the parent LaunchDarkly onboarding skill reaches the MCP offer, after the first flag works. Supports Cursor, Claude Code, Windsurf, GitHub Copilot, and other MCP-compatible agents. OAuth authentication; no API keys for the hosted server.",
     "path": "category/git-version-control/mcp-configure"
+  },
+  {
+    "id": "medsea-chapter-audit",
+    "name": "medsea-chapter-audit",
+    "category": "git-version-control",
+    "repository": "seaxen-skills-backup",
+    "description": "Use when verifying whether a MedSea chapter (Davidson 24/25th ed medicine notes) is 100% complete across local files, Docker website, GitHub repo, and Notion database. Performs intelligent basename normalization to handle MedSea's prefix-renaming convention (`X.Y.Z-slug` vs source's `X.Y Name.md`) and identifies real vs false-positive gaps.",
+    "path": "category/git-version-control/medsea-chapter-audit"
+  },
+  {
+    "id": "medsea-multi-platform-sync",
+    "name": "medsea-multi-platform-sync",
+    "category": "git-version-control",
+    "repository": "seaxen-skills-backup",
+    "description": "Sync medical content from /mnt/tb/Medicine to MedSea across 4 platforms \u2014 local repo, GitHub (SeaXen/MedSea), Notion (medsea.notion.site), and the MedSea website (localhost:8855). Use when user asks to \"sync\", \"100% match\", \"add all information\", or \"check [chapters] all topic\" against /mnt/tb/Medicine. Embeds rate-limit handling, APPEND-only strategy, and the channel root IDs so future sessions start ready to sync.",
+    "path": "category/git-version-control/medsea-multi-platform-sync"
+  },
+  {
+    "id": "medsea-publishing-pipeline",
+    "name": "medsea-publishing-pipeline",
+    "category": "git-version-control",
+    "repository": "seaxen-skills-backup",
+    "description": "Build and publish Davidson's Principles & Practice of Medicine chapters to the MedSea platform \u2014 local content, MedSea git backup, Notion chapter database, static site, and Docker deployment. Use when adding new chapters, renumbering chapters to a new edition, syncing content across all five targets (local + MedSea + Notion + Website + GitHub), or troubleshooting any stage of the pipeline.",
+    "path": "category/git-version-control/medsea-publishing-pipeline"
   },
   {
     "id": "merge",
@@ -3102,6 +3206,14 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "Validate, test, and score the quality of skills within the claude-skills ecosystem. Comprehensive meta-skill: structure validation, Python script testing (syntax + imports + runtime + output format), multi-dimensional quality scoring with letter grades and tier classification (BASIC/STANDARD/POWERFUL). Use when authoring a new skill, auditing existing skills for tier promotion, setting up pre-commit hooks for skill quality, or integrating skill QA into CI.",
     "path": "category/git-version-control/skill-tester"
+  },
+  {
+    "id": "smart-git-commit",
+    "name": "smart-git-commit",
+    "category": "git-version-control",
+    "repository": "seaxen-skills-backup",
+    "description": "Use when the user asks to commit, push, prepare a PR, or clean up git history. Produces disciplined commits with diff review, selective staging, test checks, secret awareness, and concise rationale.",
+    "path": "category/git-version-control/smart-git-commit"
   },
   {
     "id": "springboot-verification",

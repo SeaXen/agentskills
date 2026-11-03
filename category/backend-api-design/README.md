@@ -1,7 +1,7 @@
 # ⚡ Backend Systems, REST & Microservices
 
 > **Category**: `backend-api-design`  
-> **Total Curated Skills**: 1337 skills  
+> **Total Curated Skills**: 1345 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -251,6 +251,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`backend-to-frontend-handoff-docs`](../../library/davila7-claude-code-templates/skills/backend-to-frontend-handoff-docs) | ⚪ Reserve | `davila7-claude-code-templates` | Create API handoff documentation for frontend developers. Use when backend work is complete and... |
 | [`baoyu-danger-gemini-web`](../../library/jimliu-baoyu-skills/skills/baoyu-danger-gemini-web) | ⚪ Reserve | `jimliu-baoyu-skills` | Generates images and text via reverse-engineered Gemini Web API. Supports text generation, imag... |
 | [`baoyu-danger-x-to-markdown`](../../library/jimliu-baoyu-skills/skills/baoyu-danger-x-to-markdown) | ⚪ Reserve | `jimliu-baoyu-skills` | Converts X (Twitter) tweets and articles to markdown with YAML front matter. Uses reverse-engin... |
+| [`base`](../../library/seaxen-skills-backup/skills/base) | ⚪ Reserve | `seaxen-skills-backup` | Query Base (Ethereum L2) blockchain data with USD pricing — wallet balances, token info, transa... |
 | [`base-academic-search`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/base-academic-search) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Search 400M+ open access documents via the BASE search engine API |
 | [`bdistill-knowledge-extraction`](../../library/sickn33-agentic-awesome-skills/skills/bdistill-knowledge-extraction) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Extract structured domain knowledge from AI models in-session or from local open-source models ... |
 | [`benchling-integration`](../../library/davila7-claude-code-templates/skills/benchling-integration) | ⚪ Reserve | `davila7-claude-code-templates` | Benchling R&D platform integration. Access registry (DNA, proteins), inventory, ELN entries, wo... |
@@ -538,6 +539,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`fastapi-router-py`](../../library/antigravity-awesome-skills/skills/fastapi-router-py) | ⚪ Reserve | `antigravity-awesome-skills` | Create FastAPI routers with CRUD operations, authentication dependencies, and proper response m... |
 | [`fastapi-templates`](../../library/antigravity-awesome-skills/skills/fastapi-templates) | ⚪ Reserve | `antigravity-awesome-skills` | Create production-ready FastAPI projects with async patterns, dependency injection, and compreh... |
 | [`fda-database`](../../library/davila7-claude-code-templates/skills/fda-database) | ⚪ Reserve | `davila7-claude-code-templates` | Query openFDA API for drugs, devices, adverse events, recalls, regulatory submissions (510k, PM... |
+| [`feature-building`](../../library/seaxen-skills-backup/skills/feature-building) | ⚪ Reserve | `seaxen-skills-backup` | Build polished full-stack web app features one at a time, with live verification between each, ... |
 | [`fetch-and-send-data`](../../library/dotnet-skills/skills/fetch-and-send-data) | ⚪ Reserve | `dotnet-skills` | Call APIs, load data into components, and handle the async lifecycle in Blazor. USE FOR fetchin... |
 | [`fidel-api`](../../library/membranedev-application-skills/skills/fidel-api) | ⚪ Reserve | `membranedev-application-skills` | Fidel API integration. Manage Persons, Organizations, Deals, Leads, Projects, Activities and mo... |
 | [`fidel-api-automation`](../../library/composio-community-awesome-codex-skills/skills/fidel-api-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Fidel API tasks via Rube MCP (Composio). Always search tools first for current schemas... |
@@ -547,7 +549,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`finance-sentiment`](../../library/himself65-finance-skills/skills/finance-sentiment) | ⚪ Reserve | `himself65-finance-skills` | Fetch normalized stock sentiment across Reddit, X.com, financial news, and Polymarket from the ... |
 | [`finapi`](../../library/membranedev-application-skills/skills/finapi) | ⚪ Reserve | `membranedev-application-skills` | FinAPI integration. Manage data, records, and automate workflows. Use when the user wants to in... |
 | [`find-reverse-engineered`](../../library/alexgaoth-awesome-reverse-engineered/skills/find-reverse-engineered) | ⚪ Reserve | `alexgaoth-awesome-reverse-engineered` | Find an open-source, reverse-engineered tool for a closed app, API, device, protocol, file form... |
-| [`find-skills`](../../library/vercel-labs-skills/skills/find-skills) | ⚪ Reserve | `vercel-labs-skills` | Helps users discover and install agent skills when they ask questions like "how do I do X", "fi... |
+| [`find-skills`](../../library/seaxen-skills-backup/skills/find-skills) | ⚪ Reserve | `seaxen-skills-backup` | Helps users discover and install agent skills when they ask questions like "how do I do X", "fi... |
 | [`finding-google-skills`](../../library/google-skills/skills/finding-google-skills) | ⚪ Reserve | `google-skills` | Google platform decision and setup guidance, loaded on demand from Google's skill catalog. Use ... |
 | [`finding-open-access-papers`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/finding-open-access-papers) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Use Unpaywall API to find free full-text versions of paywalled papers |
 | [`fintel-data`](../../library/himself65-finance-skills/skills/fintel-data) | ⚪ Reserve | `himself65-finance-skills` | Query Fintel (fintel.io) institutional market data through its REST API or official MCP server.... |
@@ -567,6 +569,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`fp-async`](../../library/sickn33-agentic-awesome-skills/skills/fp-async) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Practical async patterns using TaskEither - clean pipelines instead of try/catch hell, with rea... |
 | [`fp-taskeither-ref`](../../library/sickn33-agentic-awesome-skills/skills/fp-taskeither-ref) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Quick reference for TaskEither. Use when user needs async error handling, API calls, or Promise... |
 | [`fred-api`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/fred-api) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Federal Reserve Economic Data API for US economic indicators |
+| [`free-ai-api-tiers`](../../library/seaxen-skills-backup/skills/free-ai-api-tiers) | ⚪ Reserve | `seaxen-skills-backup` | Research and compare free AI API provider tiers, rate limits, credit systems, and cheap compute... |
 | [`freebuff2api-openai-proxy`](../../library/reason-machines-trending-skills/skills/freebuff2api-openai-proxy) | ⚪ Reserve | `reason-machines-trending-skills` | OpenAI-compatible proxy server for Freebuff that translates standard OpenAI API requests into F... |
 | [`frontend-api-integration-patterns`](../../library/sickn33-agentic-awesome-skills/skills/frontend-api-integration-patterns) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Production-ready patterns for integrating frontend applications with backend APIs, including ra... |
 | [`frontend-dev`](../../library/feimacode-open-design-agent-kit/skills/frontend-dev) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Full-stack frontend with cinematic animations, AI-generated media via MiniMax API, and generati... |
@@ -577,6 +580,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`g2b-sanctioned-supplier`](../../library/nomadamas-k-skill/skills/g2b-sanctioned-supplier) | ⚪ Reserve | `nomadamas-k-skill` | 조달청 나라장터 부정당제재업체정보를 공공데이터포털 API(k-skill-proxy 경유)로 조회한다. 사업자등록번호 정확 일치로 조회시점 현재 유효한 입찰참가자격 제한(부... |
 | [`game-analytics-platform-computer-vision`](../../library/reason-machines-data-skills/skills/game-analytics-platform-computer-vision) | ⚪ Reserve | `reason-machines-data-skills` | Real-time computer vision fitness game platform using YOLO, MediaPipe, Spring Boot orchestratio... |
 | [`gbif-api`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/gbif-api) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Global biodiversity data API for species occurrences and datasets |
+| [`gbrain-hermes-integration`](../../library/seaxen-skills-backup/skills/gbrain-hermes-integration) | ⚪ Reserve | `seaxen-skills-backup` | Integrate Hermes with GBrain as a shared deep-memory backend using official upstream patterns, ... |
+| [`gbrain-shared-operations`](../../library/seaxen-skills-backup/skills/gbrain-shared-operations) | ⚪ Reserve | `seaxen-skills-backup` | Operate a shared GBrain backend for Hermes where MCP, admin UI, embeddings, and operator CLI al... |
 | [`gemini-agents-api`](../../library/google-skills/skills/gemini-agents-api) | ⚪ Reserve | `google-skills` | Manages custom Agent resources on Gemini Enterprise Agent Platform. Use when the user wants to ... |
 | [`gemini-api-dev`](../../library/antigravity-awesome-skills/skills/gemini-api-dev) | ⚪ Reserve | `antigravity-awesome-skills` | Use this skill when building applications with Gemini models, Gemini API, working with multimod... |
 | [`gemini-api-integration`](../../library/sickn33-agentic-awesome-skills/skills/gemini-api-integration) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use when integrating Google Gemini API into projects. Covers model selection, multimodal inputs... |
@@ -1044,6 +1049,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`prompt-caching-strategy`](../../library/affaan-m-ecc/skills/prompt-caching-strategy) | ⚪ Reserve | `affaan-m-ecc` | Optimize LLM prompt caching hit rate to reduce API costs and improve latency. Analyzes prompt s... |
 | [`proof-checker`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/proof-checker) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Rigorous mathematical proof verification and fixing workflow. Reads a LaTeX proof, identifies g... |
 | [`protocolsio-integration`](../../library/davila7-claude-code-templates/skills/protocolsio-integration) | ⚪ Reserve | `davila7-claude-code-templates` | Integration with protocols.io API for managing scientific protocols. This skill should be used ... |
+| [`provider-credential-pools`](../../library/seaxen-skills-backup/skills/provider-credential-pools) | ⚪ Reserve | `seaxen-skills-backup` | Manage multiple API keys or OAuth credentials for a single Hermes provider with failover and ro... |
 | [`pubchem-api-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/pubchem-api-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Search PubChem for chemical compounds, structures, and bioassay data |
 | [`pubchem-database`](../../library/davila7-claude-code-templates/skills/pubchem-database) | ⚪ Reserve | `davila7-claude-code-templates` | Query PubChem via PUG-REST API/PubChemPy (110M+ compounds). Search by name/CID/SMILES, retrieve... |
 | [`pubmed-api`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/pubmed-api) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Search biomedical literature and retrieve records via PubMed E-utilities |
@@ -1304,6 +1310,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`water-crystal-skill-vfx`](../../library/mengto-skills/skills/water-crystal-skill-vfx) | ⚪ Reserve | `mengto-skills` | Build the effects of a water and crystal skill as one visual language in Three.js. Water that r... |
 | [`weather-observation-fetching`](../../library/sickn33-agentic-awesome-skills/skills/weather-observation-fetching) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Retrieve surface and upper-air weather observations from authoritative APIs and archives with s... |
 | [`web-analytics-agent-skill`](../../library/reason-machines-data-skills/skills/web-analytics-agent-skill) | ⚪ Reserve | `reason-machines-data-skills` | SEO automation and traffic diagnosis using Google Search Console, GA4, and Bing Webmaster APIs |
+| [`web-endpoint-reverse-sweep`](../../library/seaxen-skills-backup/skills/web-endpoint-reverse-sweep) | ⚪ Reserve | `seaxen-skills-backup` | Extract a hidden web API and run a safe rate-limited sweep. |
 | [`web-research-assistant`](../../library/browser-act-skills/skills/web-research-assistant) | ⚪ Reserve | `browser-act-skills` | AI-powered web research assistant that leverages BrowserAct API to supplement restricted web ac... |
 | [`web-scraping`](../../library/mindrally-skills/skills/web-scraping) | ⚪ Reserve | `mindrally-skills` | Expert in web scraping and data extraction with Python tools |
 | [`web-search`](../../library/101-skills-superpowers/skills/web-search) | ⚪ Reserve | `101-skills-superpowers` | Web search and content extraction with Tavily and Exa via inference.sh CLI. Apps: Tavily Search... |
@@ -1321,6 +1328,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`wolfram-alpha-api-automation`](../../library/composio-community-awesome-codex-skills/skills/wolfram-alpha-api-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Wolfram Alpha API tasks via Rube MCP (Composio). Always search tools first for current... |
 | [`wordpress-content`](../../library/jezweb-claude-skills/skills/wordpress-content) | ⚪ Reserve | `jezweb-claude-skills` | Create and manage WordPress posts, pages, media, categories, tags, and menus via WP-CLI or the ... |
 | [`wordpress-pro`](../../library/jeffallan-claude-skills/skills/wordpress-pro) | ⚪ Reserve | `jeffallan-claude-skills` | Develops custom WordPress themes and plugins, creates and registers Gutenberg blocks and block ... |
+| [`wordpress-rest-publishing`](../../library/seaxen-skills-backup/skills/wordpress-rest-publishing) | ⚪ Reserve | `seaxen-skills-backup` | Publish to WordPress via REST API using Application Passwords — verify auth, create drafts, pub... |
 | [`wordpress-setup`](../../library/jezweb-claude-skills/skills/wordpress-setup) | ⚪ Reserve | `jezweb-claude-skills` | Connect to a WordPress site via WP-CLI over SSH or the REST API. Check CLI, test SSH, set up au... |
 | [`workload-manager-basics`](../../library/google-skills/skills/workload-manager-basics) | ⚪ Reserve | `google-skills` | Use this skill to manage Google Cloud Workload Manager evaluations, rules, scanned resources, a... |
 | [`world-news-api`](../../library/membranedev-application-skills/skills/world-news-api) | ⚪ Reserve | `membranedev-application-skills` | World News API integration. Manage data, records, and automate workflows. Use when the user wan... |

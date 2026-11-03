@@ -1,0 +1,41 @@
+watchlist:
+  - ticker: TOKEN
+    coingecko_id: "fill-in-coingecko-id"
+    dex_query: "fill-in-search-term"
+    token_address: "fill in if needed"
+    chain_id: "fill in if using pair_address"
+    pair_address: "fill in if using direct pair lookup"
+    narrative: ai / meme / defi / l2 / rwa
+    venues: [dexscreener, coingecko]
+    thesis: "Speculative DEX setup only if liquidity holds"
+    invalidation: "Liquidity breaks or price loses support"
+    support: 0
+    resistance: 0
+    liquidity_floor_usd: 100000
+    move_24h_abs_threshold_pct: 10
+    price_above: 0
+    price_below: 0
+    alert_thresholds:
+      - "Liquidity drops below threshold"
+      - "24h volume spikes"
+      - "Price breaks resistance"
+    notes: "Use very small size until pair quality is proven"
+
+  - ticker: MEME
+    dex_query: "fill-in-search-term"
+    token_address: "fill in if needed"
+    narrative: meme
+    venues: [dexscreener]
+    thesis: "Only trade if volume and liquidity are real"
+    invalidation: "Volume collapses or liquidity too thin"
+    support: 0
+    resistance: 0
+    liquidity_floor_usd: 250000
+    move_24h_abs_threshold_pct: 15
+    price_above: 0
+    price_below: 0
+    alert_thresholds:
+      - "Liquidity drops below threshold"
+      - "24h volume spikes"
+      - "Price breaks resistance"
+    notes: "Highest risk bucket"

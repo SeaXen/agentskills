@@ -1,7 +1,7 @@
 # 🔒 Auth, Hardening & Compliance
 
 > **Category**: `security-compliance-auth`  
-> **Total Curated Skills**: 343 skills  
+> **Total Curated Skills**: 344 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -277,6 +277,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`privacy-parser-pii-extraction`](../../library/reason-machines-trending-skills/skills/privacy-parser-pii-extraction) | ⚪ Reserve | `reason-machines-trending-skills` | Extract structured PII spans from text using the OpenAI Privacy Filter 1.5B model reversed — re... |
 | [`privacy-policy`](../../library/phuryn-pm-skills/skills/privacy-policy) | ⚪ Reserve | `phuryn-pm-skills` | Draft a detailed privacy policy covering data types, jurisdiction, GDPR and compliance consider... |
 | [`protect-mcp-setup`](../../library/wshobson-agents/skills/protect-mcp-setup) | ⚪ Reserve | `wshobson-agents` | Configure Cedar policy enforcement and Ed25519 signed receipts for Claude Code tool calls. Use ... |
+| [`public-google-drive-ingest`](../../library/seaxen-skills-backup/skills/public-google-drive-ingest) | ⚪ Reserve | `seaxen-skills-backup` | Read and mirror publicly shared Google Drive folders and Google Docs without OAuth — batch expo... |
 | [`quality-documentation-manager`](../../library/alirezarezvani-claude-skills/skills/quality-documentation-manager) | ⚪ Reserve | `alirezarezvani-claude-skills` | Document control system management for medical device QMS. Covers document numbering, version c... |
 | [`quality-manager-qmr`](../../library/alirezarezvani-claude-skills/skills/quality-manager-qmr) | ⚪ Reserve | `alirezarezvani-claude-skills` | Senior Quality Manager Responsible Person (QMR) for HealthTech and MedTech companies. Provides ... |
 | [`quality-manager-qms-iso13485`](../../library/alirezarezvani-claude-skills/skills/quality-manager-qms-iso13485) | ⚪ Reserve | `alirezarezvani-claude-skills` | ISO 13485 Quality Management System implementation and maintenance for medical device organizat... |

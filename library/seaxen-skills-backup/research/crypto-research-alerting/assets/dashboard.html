@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Antigravity Multi-Exchange Terminal</title>
+  <style>
+    :root { --bg:#0b1020; --panel:#141b34; --text:#e9eefc; --muted:#9fb0d8; --accent:#68a0ff; --accent2:#27d7a1; --danger:#ff6b8b; --warn:#ffcc66; --border:rgba(255,255,255,.08); --shadow:0 20px 60px rgba(0,0,0,.35); }
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,sans-serif;background:radial-gradient(circle at top,#101837 0%,#0b1020 55%);color:var(--text);min-height:100vh}
+    .wrap{max-width:1520px;margin:0 auto;padding:20px}
+    .hero{display:flex;gap:16px;align-items:center;justify-content:space-between;margin-bottom:20px}
+    .nav{display:flex;gap:4px;background:#0d1430;padding:4px;border-radius:12px;border:1px solid var(--border);margin-bottom:20px}
+    .nav button{background:none;border:none;padding:10px 20px;color:var(--muted);cursor:pointer;border-radius:8px;font-weight:600}
+    .nav button.active{background:var(--panel);color:var(--accent);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+    .page{display:none} .page.active{display:block}
+    .grid{display:grid;gap:16px} .grid-4{grid-template-columns:repeat(4,1fr)} .grid-2{grid-template-columns:repeat(2,1fr)}
+    .card{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:var(--shadow)}
+    h2,h3{margin:0 0 16px;font-size:18px}
+    .controls{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+    label{display:block;font-size:11px;color:var(--muted);text-transform:uppercase;margin-bottom:6px}
+    input,select{width:100%;padding:10px;border-radius:10px;border:1px solid var(--border);background:#0d1430;color:var(--text)}
+    button{border:0;border-radius:10px;padding:12px 16px;cursor:pointer;font-weight:700}
+    .btn-main{background:linear-gradient(135deg,var(--accent),#8a6dff);color:white}
+    .btn-buy{background:linear-gradient(135deg,var(--accent2),#1a9e70);color:white}
+    .btn-sell{background:linear-gradient(135deg,var(--danger),#c93d5a);color:white}
+    .btn-sec{background:#1f2b52;color:var(--text);border:1px solid var(--border)}
+    table{width:100%;border-collapse:collapse} th,td{text-align:left;padding:12px 8px;border-bottom:1px solid var(--border)}
+    th{color:var(--muted);font-size:11px;text-transform:uppercase}
+    .pill{padding:4px 8px;border-radius:999px;font-size:10px;font-weight:700}
+    .pill.bullish{background:rgba(39,215,161,.1);color:var(--accent2)}
+    .pill.bearish{background:rgba(255,107,139,.1);color:var(--danger)}
+    .positive{color:var(--accent2)} .negative{color:var(--danger)}
+    .kpi{text-align:center} .kpi .val{font-size:32px;font-weight:800;margin:8px 0}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <h1>Terminal <span style="color:var(--accent)">Antigravity</span></h1>
+    <div class="nav" id="mainNav">
+      <button data-page="analysis" class="active">Analysis</button>
+      <button data-page="trading">Trading</button>
+      <button data-page="scanner">Scanner</button>
+      <button data-page="settings">Settings</button>
+    </div>
+  </div>
+
+  <!-- Page: Analysis -->
+  <div id="page-analysis" class="page active">
+    <div class="card">
+      <div class="controls">
+        <div><label>Symbol</label><input id="symbol" value="BTCUSDT"></div>
+        <div><label>CoinGecko ID</label><input id="coinId" value="bitcoin"></div>
+        <div><label>Mode</label><select id="tradeMode"><option value="one-way">One-Way</option><option value="hedge">Hedge</option></select></div>
+        <div><label>Watchlist</label><select id="watchlistPreset"><option value="top50-trading">Top 50 Trading</option><option value="majors">Majors</option></select></div>
+        <button id="runBtn" class="btn-main">Sync Market</button>
+      </div>
+    </div>
+    <div class="grid grid-4" style="margin-top:16px">
+      <div class="card kpi"><label>Global Price</label><div class="val" id="kpiPrice">—</div></div>
+      <div class="card kpi"><label>Setup Score</label><div class="val" id="kpiSetup">—</div></div>
+      <div class="card kpi"><label>Risk Score</label><div class="val" id="kpiRisk">—</div></div>
+      <div class="card kpi"><label>Sentiment</label><div class="val" id="kpiSentiment">—</div></div>
+    </div>
+    <div class="grid grid-2" style="margin-top:16px">
+      <div class="card"><h3>Market Snapshot</h3><table><tbody id="snapshotTable"></tbody></table></div>
+      <div class="card"><h3>Technical Analyzer</h3><div id="analysisPanel">Run sync to analyze...</div></div>
+    </div>
+  </div>
+
+  <!-- Page: Trading -->
+  <div id="page-trading" class="page">
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Risk & Execution</h3>
+        <div class="controls" style="grid-template-columns:1fr 1fr">
+          <div><label>Equity (USDT)</label><input id="equity" value="12000"></div>
+          <div><label>Risk %</label><input id="riskPct" value="1.0"></div>
+          <div><label id="labelEntry">Entry Price</label><input id="entry" value="90000"></div>
+          <div><label id="labelStop">Stop Loss</label><input id="stop" value="88000"></div>
+          <div class="hedge-only" style="display:none"><label>Short Entry</label><input id="shortEntry"></div>
+          <div class="hedge-only" style="display:none"><label>Short Stop</label><input id="shortStop"></div>
+          <button id="buyBtn" class="btn-buy">Place Long</button>
+          <button id="sellBtn" class="btn-sell">Place Short</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Open Positions (Binance)</h3>
+        <table><thead><tr><th>Symbol</th><th>Side</th><th>Size</th><th>PnL</th></tr></thead><tbody id="positionTable"></tbody></table>
+        <button class="btn-sec" style="margin-top:12px" onclick="loadPositions()">Refresh Positions</button>
+      </div>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <h3>Active Order Management</h3>
+      <div class="controls">
+        <button class="btn-sec">Close All</button>
+        <button class="btn-sec">Break-Even SL</button>
+        <button class="btn-main">Scale-In TP Grid</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page: Scanner -->
+  <div id="page-scanner" class="page">
+    <div class="grid grid-2">
+      <div class="card"><h3>Top Opportunities</h3><div id="scannerOpportunities"></div></div>
+      <div class="card"><h3>Caution List</h3><div id="scannerRisks"></div></div>
+    </div>
+    <button class="btn-main" style="margin-top:16px" onclick="runScanner()">Refresh Global Scan</button>
+  </div>
+
+  <!-- Page: Settings -->
+  <div id="page-settings" class="page">
+    <div class="card">
+      <h3>Exchange API Manager</h3>
+      <div class="controls">
+        <div><label>Exchange</label><select id="keyExchange"><option value="BINANCE">Binance</option><option value="BYBIT">Bybit</option></select></div>
+        <div><label>API Key</label><input id="apiKey" type="password"></div>
+        <div><label>API Secret</label><input id="apiSecret" type="password"></div>
+        <button id="saveKeyBtn" class="btn-sec">Save Securely</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const el=id=>document.getElementById(id);
+  const fmtNum=n=>(n===null||n===undefined)?'—':Number(n).toLocaleString(undefined,{maximumFractionDigits:2});
+  const fmtUsd=n=>(n===null||n===undefined)?'—':`$${Number(n).toLocaleString(undefined,{maximumFractionDigits:2})}`;
+
+  // WebSocket Live Price Feed
+  const ws = new WebSocket(`ws://${location.hostname}:8766`);
+  ws.onmessage = (event) => {
+    const prices = JSON.parse(event.data);
+    const symbol = el('symbol').value.toUpperCase();
+    if(prices[symbol]) {
+      const data = prices[symbol];
+      el('kpiPrice').textContent = fmtUsd(data.price);
+      el('kpiPrice').style.color = Number(data.change) >= 0 ? 'var(--accent2)' : 'var(--danger)';
+    }
+  };
+
+  // Page Routing
+  document.querySelectorAll('#mainNav button').forEach(btn=>{
+    btn.onclick=()=>{
+      document.querySelectorAll('.nav button, .page').forEach(el=>el.classList.remove('active'));
+      btn.classList.add('active');
+      el(`page-${btn.dataset.page}`).classList.add('active');
+    };
+  });
+
+  // Mode Toggle
+  el('tradeMode').onchange=()=>{
+    const isHedge=el('tradeMode').value==='hedge';
+    document.querySelectorAll('.hedge-only').forEach(n=>n.style.display=isHedge?'block':'none');
+    el('labelEntry').textContent=isHedge?'Long Entry':'Entry';
+    el('labelStop').textContent=isHedge?'Long Stop':'Stop';
+  };
+
+  async function loadPositions(){
+    const res=await fetch('/api/positions');
+    const data=await res.json();
+    el('positionTable').innerHTML=(data||[]).map(p=>`<tr><td>${p.symbol}</td><td><span class="pill ${Number(p.positionAmt)>0?'bullish':'bearish'}">${Number(p.positionAmt)>0?'LONG':'SHORT'}</span></td><td>${fmtNum(p.positionAmt)}</td><td class="${Number(p.unRealizedProfit)>0?'positive':'negative'}">${fmtUsd(p.unRealizedProfit)}</td></tr>`).join('') || '<tr><td colspan="4">No positions</td></tr>';
+  }
+
+  async function runDashboard(){
+    const p=new URLSearchParams();
+    p.set('symbol',el('symbol').value); p.set('coin_id',el('coinId').value);
+    p.set('mode',el('tradeMode').value); p.set('equity',el('equity').value);
+    p.set('entry',el('entry').value); p.set('stop',el('stop').value);
+    
+    el('runBtn').textContent='Syncing...';
+    try {
+      const res=await fetch(`/api/dashboard?${p.toString()}`);
+      const data=await res.json();
+      const s=data.summary?.market_snapshot||{};
+      el('kpiPrice').textContent=fmtUsd(s.hl_price || s.coingecko_price_usd);
+      el('kpiSetup').textContent=data.analysis?.setup_score || '—';
+      el('kpiRisk').textContent=data.analysis?.risk_score || '—';
+      el('kpiSentiment').textContent=data.analysis?.stance || 'NEUTRAL';
+      
+      const snaps=[['HL Mid',fmtUsd(s.hl_price)],['MEXC',fmtUsd(s.mexc_price)],['Binance',fmtUsd(s.coingecko_price_usd)],['HL Funding',s.hl_funding||'—']];
+      el('snapshotTable').innerHTML=snaps.map(([k,v])=>`<tr><th>${k}</th><td>${v}</td></tr>`).join('');
+    } finally { el('runBtn').textContent='Sync Market'; }
+  }
+
+  el('runBtn').onclick=runDashboard;
+  el('saveKeyBtn').onclick=async()=>{
+    const res=await fetch('/api/keys',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({exchange:el('keyExchange').value,key:el('apiKey').value,secret:el('apiSecret').value})});
+    const d=await res.json(); if(d.ok) alert('Keys saved');
+  };
+</script>
+</body>
+</html>

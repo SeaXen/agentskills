@@ -365,10 +365,16 @@ def sync_all_upstreams(force=False):
                 target_skills_dir = os.path.join(target_repo_dir, 'skills')
                 os.makedirs(target_skills_dir, exist_ok=True)
                 for root, dirs, files in os.walk(c_temp):
+                    dirs[:] = [d for d in dirs if not d.startswith('.')]
                     if 'SKILL.md' in files:
                         s_name = os.path.basename(root)
                         if s_name in ['skills', 'plugins', '.curated', '.system']: continue
                         s_dst = os.path.join(target_skills_dir, s_name)
+                        if os.path.exists(s_dst):
+                            parent = os.path.basename(os.path.dirname(root))
+                            if parent and parent not in [repo_id, '.', '']:
+                                s_name = f"{parent}-{s_name}"
+                                s_dst = os.path.join(target_skills_dir, s_name)
                         if not os.path.exists(s_dst): shutil.copytree(root, s_dst)
 
                 if remote_commit:

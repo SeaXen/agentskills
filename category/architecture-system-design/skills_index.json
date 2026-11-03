@@ -1320,6 +1320,14 @@
     "path": "category/architecture-system-design/create-epics"
   },
   {
+    "id": "creative-diagrams",
+    "name": "creative-diagrams",
+    "category": "architecture-system-design",
+    "repository": "seaxen-skills-backup",
+    "description": "Create architecture, infrastructure, flow, and sequence diagrams as SVG/HTML (architecture-diagram) or hand-drawn Excalidraw JSON (excalidraw).",
+    "path": "category/architecture-system-design/creative-diagrams"
+  },
+  {
     "id": "crxjs",
     "name": "crxjs",
     "category": "architecture-system-design",
@@ -1712,6 +1720,14 @@
     "path": "category/architecture-system-design/do-agent"
   },
   {
+    "id": "docker-safe-update",
+    "name": "docker-safe-update",
+    "category": "architecture-system-design",
+    "repository": "seaxen-skills-backup",
+    "description": "Safe Docker container update pattern \u2014 never lose data, keys, or config",
+    "path": "category/architecture-system-design/docker-safe-update"
+  },
+  {
     "id": "docs-canvas",
     "name": "docs-canvas",
     "category": "architecture-system-design",
@@ -1902,6 +1918,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Authorized email security review: phishing analysis, SPF/DKIM/DMARC header authentication, BEC pattern investigation, and mailbox token abuse research.",
     "path": "category/architecture-system-design/email-security"
+  },
+  {
+    "id": "encrypted-hls-download",
+    "name": "encrypted-hls-download",
+    "category": "architecture-system-design",
+    "repository": "seaxen-skills-backup",
+    "description": "Download AES-128-encrypted HLS videos from paid LMS / course platforms (Synapse, vidinfra/tenbyte-backed, etc.) when yt-dlp and IDM fail. Covers the key-server auth pattern (x-auth-nonce / timestamp / HMAC signature), the Playwright headless-browser key-capture trick, the parallel download + AES-CBC decrypt + concat pipeline, and the HLS spec details (segment-number IV, PKCS7 padding, CRLF playlists). Use when a user has legitimate login access to a course platform and yt-dlp / N_m3u8DL-RE / IDM return 403 / 'protected stream' / decrypted-but-corrupt output.",
+    "path": "category/architecture-system-design/encrypted-hls-download"
   },
   {
     "id": "engineering-blog-post",
@@ -2824,6 +2848,14 @@
     "path": "category/architecture-system-design/lightning-architecture-review"
   },
   {
+    "id": "lightweight-monitor-daemon",
+    "name": "lightweight-monitor-daemon",
+    "category": "architecture-system-design",
+    "repository": "seaxen-skills-backup",
+    "description": "Architecture template for building a small, standalone (no-Hermes, no-Docker, no-cron) system monitor + web dashboard + Telegram/Discord alerter. Python daemon + Flask + SQLite + systemd. Pattern distilled from the systor project (/mnt/tb/1Apps/systor).",
+    "path": "category/architecture-system-design/lightweight-monitor-daemon"
+  },
+  {
     "id": "liminal-space-style",
     "name": "liminal-space-style",
     "category": "architecture-system-design",
@@ -2974,6 +3006,22 @@
     "repository": "davila7-claude-code-templates",
     "description": "Provides guidance for interpreting and manipulating neural network internals using nnsight with optional NDIF remote execution. Use when needing to run interpretability experiments on massive models (70B+) without local GPU resources, or when working with any PyTorch architecture.",
     "path": "category/architecture-system-design/mechanistic-interpretability-nnsight"
+  },
+  {
+    "id": "medical-content-multi-target-pipeline",
+    "name": "medical-content-multi-target-pipeline",
+    "category": "architecture-system-design",
+    "repository": "seaxen-skills-backup",
+    "description": "Build a Davidson chapter (or any structured medical content set) and publish it to ALL FIVE distribution targets \u2014 local filesystem, Notion database, static website, GitHub repo, and Docker container. Also covers **auditing & patching existing chapters** (3-way source/MedSea/Notion sync) via `references/medsea-chapter-audit-script.md`. Use when the user asks to \"complete chapter N\", \"upload to notion, website, git and local\", \"build chapter from /mnt/tb/Medicine/<name>\", \"audit chapter N sync\", \"check which topics are missing on Notion\", or wants a chapter with full multi-target deployment. Covers the source-MD \u2192 render \u2192 Notion \u2192 site \u2192 git \u2192 docker pipeline including the renderer quirks (unnumbered ## headers, mermaid mindmap/flowchart, large-file truncation, output nesting), Notion database parent (not workspace), search-existing-root pattern to avoid duplicate pages, 25th Edition Davidson renumbering, and the 5-col static site generation.",
+    "path": "category/architecture-system-design/medical-content-multi-target-pipeline"
+  },
+  {
+    "id": "medical-fcps-mrcp-note-creation",
+    "name": "medical-fcps-mrcp-note-creation",
+    "category": "architecture-system-design",
+    "repository": "seaxen-skills-backup",
+    "description": "Pitfalls and lessons for the medical-fcps-mrcp-note-creation workflow. Covers the stream-timeout problem, parallel-delegate_task limits, subagent context-inheritance gotcha, MOC/Hierarchy false-completion trap, status-tag drift, the \"Exam Extras Append from Existing High-Yield Tables\" pattern (Pitfall 35), the root-level file glob trap (Pitfall 36), selective git add for multi-session repos (Pitfall 37), and the **\"10/10/8 Threshold Trap\" + Round 2 Top-Up Pattern (Pitfall 42)** for files that fall short of the 10-MCQ/10-SBA/8-FC minimum. Use when starting or reviewing any Davidson chapter build, appending exam content, or auditing.",
+    "path": "category/architecture-system-design/medical-fcps-mrcp-note-creation"
   },
   {
     "id": "melonjs-sprites-and-animation",
@@ -3296,6 +3344,14 @@
     "path": "category/architecture-system-design/om-ux-review-pr"
   },
   {
+    "id": "omniroute-update",
+    "name": "omniroute-update",
+    "category": "architecture-system-design",
+    "repository": "seaxen-skills-backup",
+    "description": "Safe update pattern for OmniRoute Docker deployment on DietPi server",
+    "path": "category/architecture-system-design/omniroute-update"
+  },
+  {
     "id": "omniverse-content-services",
     "name": "omniverse-content-services",
     "category": "architecture-system-design",
@@ -3398,6 +3454,14 @@
     "repository": "useosint-skills",
     "description": "Deep-dive a subject's social media presence \u2014 profile metadata, follower and mutual network, content analysis, and posting-time pattern of life across Instagram, Facebook, X/Twitter, TikTok, LinkedIn, Reddit, Telegram and Discord. Use when profiling a social account, mapping someone's associates, inferring a subject's timezone or routine from their posts, or archiving a profile before it is deleted. Applies to threat assessment and executive protection, insider-threat investigation, pre-litigation research, and personal exposure audits \u2014 with explicit limits on profiling uninvolved third parties. Reference at useosint.com/skills/pattern-of-life-from-socials.",
     "path": "category/architecture-system-design/pattern-of-life-from-socials"
+  },
+  {
+    "id": "pdf-textbook-callout-extractor",
+    "name": "pdf-textbook-callout-extractor",
+    "category": "architecture-system-design",
+    "repository": "seaxen-skills-backup",
+    "description": "Extract numbered callout boxes (e.g. \"1.1 Title\", \"10.6 Reason for X\") from a textbook PDF and produce one PDF per chapter containing visual snapshots of every box. Use when the user says \"extract all boxes\", \"per chapter box PDFs\", \"callouts\", \"highlighted boxes\", or asks for visual crops of sidebar/key-point panels from a medical/scientific textbook PDF. The skill detects the heading pattern (number.title, NOT the \"Box N.N\" prefix that only appears in inline cross-references), determines each box's extent by column-flow, crops the page at high DPI, and assembles a chapter PDF. Built around Davidson 25e but generalizes to any textbook with `N.N Title` style callouts.",
+    "path": "category/architecture-system-design/pdf-textbook-callout-extractor"
   },
   {
     "id": "performing-threat-hunting-with-yara-rules",
@@ -3992,6 +4056,14 @@
     "path": "category/architecture-system-design/software-architecture"
   },
   {
+    "id": "software-development-hermes-s6-container-supervision",
+    "name": "software-development-hermes-s6-container-supervision",
+    "category": "architecture-system-design",
+    "repository": "seaxen-skills-backup",
+    "description": "Modify, debug, or extend the s6-overlay supervision tree inside the Hermes Agent Docker image \u2014 adding new services, debugging profile gateways, understanding the Architecture B main-program pattern.",
+    "path": "category/architecture-system-design/software-development-hermes-s6-container-supervision"
+  },
+  {
     "id": "soroban-token-minter",
     "name": "soroban-token-minter",
     "category": "architecture-system-design",
@@ -4142,6 +4214,14 @@
     "repository": "aaron-he-zhu-aaron-marketing-skills",
     "description": "Use when the user asks to \"design our change narrative\", \"build the old-world-to-new-game story arc\", or \"frame the shift our category is undergoing\"; produces a Raskin-style strategic narrative arc \u2014 old world \u2192 the undeniable shift \u2192 winners vs losers under the new rules \u2192 the promised land \u2192 proof the promised land is real \u2014 derived from the positioning truth set and the belief/objection map, feeding the TALE Architecture arc sub-item. Every proof beat is labeled Measured / User-provided / [needs source] and this skill never adjudicates a claim. Not for the message house hierarchy \u2014 use message-system-architect; not for the pitch deck narrative \u2014 use pitch-narrative-builder; not for claim substantiation \u2014 use offer-claims-registry. \u53d8\u9769\u53d9\u4e8b\u5f27/\u65e7\u4e16\u754c/\u5e94\u8bb8\u4e4b\u5730/\u6218\u7565\u53d9\u4e8b\u7ed3\u6784",
     "path": "category/architecture-system-design/strategic-narrative-designer"
+  },
+  {
+    "id": "subagent-batch-note-conversion",
+    "name": "subagent-batch-note-conversion",
+    "category": "architecture-system-design",
+    "repository": "seaxen-skills-backup",
+    "description": "Validated pattern for batch-converting medical note scaffolds to full FCPS/MRCP notes using 3 parallel subagents. Use when 10+ topics need full content (15-25KB each) and direct sequential writing would exceed session time budget.",
+    "path": "category/architecture-system-design/subagent-batch-note-conversion"
   },
   {
     "id": "swift-architecture",
@@ -4526,6 +4606,14 @@
     "repository": "codewithmukesh-dotnet-claude-kit",
     "description": "Vertical Slice Architecture (VSA) for .NET applications \u2014 one of several supported architectures in dotnet-claude-kit. Covers feature folders, endpoint grouping, and handler patterns for Mediator, Wolverine, and raw handler classes. Load this skill when the architecture-advisor recommends VSA, when working in an existing VSA codebase, when adding features to a feature-folder project, or when discussing vertical slice patterns, feature folders, or handler patterns.",
     "path": "category/architecture-system-design/vertical-slice"
+  },
+  {
+    "id": "vision-support",
+    "name": "vision-support",
+    "category": "architecture-system-design",
+    "repository": "seaxen-skills-backup",
+    "description": "Handle image/vision analysis when the active model lacks vision support. Encode the correct user-facing response and fallback pattern.",
+    "path": "category/architecture-system-design/vision-support"
   },
   {
     "id": "visual-explainer",

@@ -1,7 +1,7 @@
 # 🚀 Productivity, Slack, Notion & Linear
 
 > **Category**: `productivity-workspace-tools`  
-> **Total Curated Skills**: 231 skills  
+> **Total Curated Skills**: 232 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -142,6 +142,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`marketing-loops`](../../library/coreyhaines31-marketingskills/skills/marketing-loops) | ⚪ Reserve | `coreyhaines31-marketingskills` | When the user wants to set up a recurring, self-running marketing workflow — a repeatable loop ... |
 | [`marketing-monday`](../../library/anthropics-knowledge-work/skills/marketing-monday) | ⚪ Reserve | `anthropics-knowledge-work` | Delivers the weekly growth briefing as one merged read — whether the growth engine is working, ... |
 | [`master-agreement-generator`](../../library/affaan-m-ecc/skills/master-agreement-generator) | ⚪ Reserve | `affaan-m-ecc` | Generate review drafts of counterparty master agreements from one template plus a JSON spec, wi... |
+| [`medical-study-hub-publisher`](../../library/seaxen-skills-backup/skills/medical-study-hub-publisher) | ⚪ Reserve | `seaxen-skills-backup` | Convert a medical chapter's source notes (e.g. /mnt/tb/Medicine/Cardiology) into a Notion study... |
 | [`meeting-analyzer`](../../library/alirezarezvani-claude-skills/skills/meeting-analyzer) | ⚪ Reserve | `alirezarezvani-claude-skills` | Analyzes meeting transcripts and recordings to surface behavioral patterns, communication anti-... |
 | [`meeting-distiller-pro`](../../library/sickn33-agentic-awesome-skills/skills/meeting-distiller-pro) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Transform messy meeting notes and transcripts into structured action |
 | [`meeting-insights-analyzer`](../../library/composio-community-awesome-codex-skills/skills/meeting-insights-analyzer) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Analyzes meeting transcripts and recordings to uncover behavioral patterns, communication insig... |

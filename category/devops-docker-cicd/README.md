@@ -1,7 +1,7 @@
 # 🚀 DevOps, Containers & Deployment
 
 > **Category**: `devops-docker-cicd`  
-> **Total Curated Skills**: 481 skills  
+> **Total Curated Skills**: 493 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -21,6 +21,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | :--- | :---: | :--- | :--- |
 | [`3d-retina-resolution`](../../library/mengto-skills/skills/3d-retina-resolution) | ⚪ Reserve | `mengto-skills` | Render a 3D canvas sharply on Retina and HiDPI displays, including explicit 200 percent resolut... |
 | [`3d-wood-lighting-scorecard`](../../library/mengto-skills/skills/3d-wood-lighting-scorecard) | ⚪ Reserve | `mengto-skills` | Light carved wood in a dark room in three.js, with procedural grain and pores, one warm key thr... |
+| [`9drive-self-hosted`](../../library/seaxen-skills-backup/skills/9drive-self-hosted) | ⚪ Reserve | `seaxen-skills-backup` | Deploy 9Drive Google Drive/S3 gateway with Docker, including host-network installs with relocat... |
+| [`9router-update`](../../library/seaxen-skills-backup/skills/9router-update) | ⚪ Reserve | `seaxen-skills-backup` | Update 9router Docker deployment with verified backup+pull+recreate+patch flow, plus version ch... |
 | [`agent-decision-receipts`](../../library/alirezarezvani-claude-skills/skills/agent-decision-receipts) | ⚪ Reserve | `alirezarezvani-claude-skills` | Mint a tamper-evident, post-quantum-signed receipt for a consequential agent action (deploy, de... |
 | [`agent-platform-alert-configuration`](../../library/google-skills/skills/agent-platform-alert-configuration) | ⚪ Reserve | `google-skills` | Configures best-practice alerting policies for AI agents using OpenTelemetry (OTel) metrics, ge... |
 | [`agentforce-generate`](../../library/forcedotcom-sf-skills/skills/agentforce-generate) | ⚪ Reserve | `forcedotcom-sf-skills` | Build, modify, audit, repair, optimize, debug, and deploy agents with Agentforce Agent Script. ... |
@@ -28,6 +30,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`agents-deploy`](../../library/aws-agent-toolkit-for-aws/skills/agents-deploy) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Use when deploying your agent to AWS, or when a deploy has failed. Handles pre-flight validatio... |
 | [`agents-optimize`](../../library/aws-agent-toolkit-for-aws/skills/agents-optimize) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Use when measuring or improving agent quality and performance — set up evaluators, online monit... |
 | [`agents-v2-py`](../../library/antigravity-awesome-skills/skills/agents-v2-py) | ⚪ Reserve | `antigravity-awesome-skills` | Build container-based Foundry Agents with Azure AI Projects SDK (ImageBasedHostedAgentDefinitio... |
+| [`ai-gateway-docker-deployment`](../../library/seaxen-skills-backup/skills/ai-gateway-docker-deployment) | ⚪ Reserve | `seaxen-skills-backup` | Install and operate self-hosted AI gateway / proxy products in Docker, including host-network d... |
 | [`ai-product-photography`](../../library/101-skills-superpowers/skills/ai-product-photography) | ⚪ Reserve | `101-skills-superpowers` | Generate professional AI product photography and commercial images. Models: FLUX, Imagen 3, Gro... |
 | [`ai-readiness`](../../library/anthropics-financial-services/skills/ai-readiness) | ⚪ Reserve | `anthropics-financial-services` | Scan the portfolio for the highest-leverage AI opportunities and rank where to deploy operating... |
 | [`airunway-aks-setup`](../../library/microsoft-azure-skills/skills/airunway-aks-setup) | ⚪ Reserve | `microsoft-azure-skills` | Set up AI Runway on AKS — from bare cluster to running model. Covers cluster verification, cont... |
@@ -201,6 +204,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`field-service-prework-brief-deployer-configure`](../../library/forcedotcom-sf-skills/skills/field-service-prework-brief-deployer-configure) | ⚪ Reserve | `forcedotcom-sf-skills` | Deploy the deterministic half of Einstein Pre-Work Brief on Field Service Mobile to a target or... |
 | [`finetuning`](../../library/microsoft-azure-skills/skills/finetuning) | ⚪ Reserve | `microsoft-azure-skills` | Fine-tune models on Microsoft Foundry using SFT (supervised), DPO (preference), or RFT (reinfor... |
 | [`fleet-hunting-with-velociraptor`](../../library/mukul975-anthropic-cybersecurity-skills/skills/fleet-hunting-with-velociraptor) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Deploy a Velociraptor server and agents, then author VQL (Velociraptor Query Language) artifact... |
+| [`freellmapi-update`](../../library/seaxen-skills-backup/skills/freellmapi-update) | ⚪ Reserve | `seaxen-skills-backup` | Update self-hosted freellmapi Docker with backup/recreate. |
 | [`frontend-patterns`](../../library/affaan-m-ecc/skills/frontend-patterns) | ⚪ Reserve | `affaan-m-ecc` | Frontend development patterns for React, Next.js, state management, performance optimization, a... |
 | [`funky-purple-container-tech`](../../library/mengto-skills/skills/funky-purple-container-tech) | ⚪ Reserve | `mengto-skills` | Create a dark container-led technical design system with fuchsia-purple accents, layered rounde... |
 | [`gcp-cloud-functions`](../../library/aj-geddes-useful-ai-prompts/skills/gcp-cloud-functions) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Deploy serverless functions on Google Cloud Platform with triggers, IAM roles, environment vari... |
@@ -235,6 +239,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`higgsfield`](../../library/starchild-ai-agent-official-skills/skills/higgsfield) | ⚪ Reserve | `starchild-ai-agent-official-skills` | AI agent skills for image and video generation via Higgsfield AI. Use this skill when asked to ... |
 | [`holoscan-install-container`](../../library/nvidia-skills/skills/holoscan-install-container) | ⚪ Reserve | `nvidia-skills` | Install and verify the Holoscan SDK 5.x CUDA 13 development container after checking release av... |
 | [`holyclaude-ai-workstation`](../../library/reason-machines-trending-skills/skills/holyclaude-ai-workstation) | ⚪ Reserve | `reason-machines-trending-skills` | Deploy a full AI coding workstation with Claude Code, web UI, headless browser, and 5 AI CLIs i... |
+| [`host-disk-docker-lifecycle`](../../library/seaxen-skills-backup/skills/host-disk-docker-lifecycle) | ⚪ Reserve | `seaxen-skills-backup` | Analyze SSD/HDD pressure on dual-disk Docker hosts, reclaim space safely (images/caches/Hermes ... |
 | [`hosted-agents-v2-py`](../../library/antigravity-awesome-skills/skills/hosted-agents-v2-py) | ⚪ Reserve | `antigravity-awesome-skills` | Build hosted agents using Azure AI Projects SDK with ImageBasedHostedAgentDefinition. Use when ... |
 | [`hsb-setup`](../../library/nvidia-skills/skills/hsb-setup) | ⚪ Reserve | `nvidia-skills` | Clone the latest NVIDIA Holoscan Sensor Bridge repo, ask which supported devkit is being used, ... |
 | [`huawei-cloud-ascend-models-deploy`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-ascend-models-deploy) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Huawei Cloud Ascend model deployment and testing skill for large language models on Ascend DevS... |
@@ -304,6 +309,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`implementing-zero-standing-privilege-with-cyberark`](../../library/mukul975-anthropic-cybersecurity-skills/skills/implementing-zero-standing-privilege-with-cyberark) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Deploy CyberArk Secure Cloud Access (SCA) to eliminate standing privileges in AWS, Azure, and G... |
 | [`integration-connectivity-connected-app-configure`](../../library/forcedotcom-sf-skills/skills/integration-connectivity-connected-app-configure) | ⚪ Reserve | `forcedotcom-sf-skills` | Salesforce Connected Apps and External Client Apps OAuth configuration with 120-point scoring. ... |
 | [`intelligent-oracle`](../../library/internet-court-internet-court-skill/skills/intelligent-oracle) | ⚪ Reserve | `internet-court-internet-court-skill` | Design, deploy, and monitor a GenLayer Intelligent Oracle prediction market from any coding age... |
+| [`interactive-quiz-tools`](../../library/seaxen-skills-backup/skills/interactive-quiz-tools) | ⚪ Reserve | `seaxen-skills-backup` | Build interactive study/quiz UIs (exam, flashcard, scenario, viva) on top of structured markdow... |
 | [`istio-traffic-management`](../../library/antigravity-awesome-skills/skills/istio-traffic-management) | ⚪ Reserve | `antigravity-awesome-skills` | Configure Istio traffic management including routing, load balancing, circuit breakers, and can... |
 | [`jenkins`](../../library/sickn33-agentic-awesome-skills/skills/jenkins) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Create and manage Jenkins CI/CD pipelines, configure agents, manage plugins, |
 | [`jetson-video-pipeline`](../../library/nvidia-skills/skills/jetson-video-pipeline) | ⚪ Reserve | `nvidia-skills` | Use when planning, executing, and independently validating Jetson Video Codec SDK or PyNvVideoC... |
@@ -365,6 +371,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`nvshmem-install`](../../library/nvidia-skills/skills/nvshmem-install) | ⚪ Reserve | `nvidia-skills` | Plan and validate NVSHMEM and NVSHMEM4Py installations. Use for package, container, or source d... |
 | [`octopus-deploy`](../../library/membranedev-application-skills/skills/octopus-deploy) | ⚪ Reserve | `membranedev-application-skills` | Octopus Deploy integration. Manage Projects, Accounts, Certificates, Feeds, Infrastructures, Us... |
 | [`odoo-docker-deployment`](../../library/sickn33-agentic-awesome-skills/skills/odoo-docker-deployment) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Production-ready Docker and docker-compose setup for Odoo with PostgreSQL, persistent volumes, ... |
+| [`omniroute`](../../library/seaxen-skills-backup/skills/omniroute) | ⚪ Reserve | `seaxen-skills-backup` | Install, update, and troubleshoot OmniRoute (AI gateway for multi-provider LLMs) on Docker. Cov... |
+| [`omniroute-safe-update`](../../library/seaxen-skills-backup/skills/omniroute-safe-update) | ⚪ Reserve | `seaxen-skills-backup` | Safely update the OmniRoute Docker deployment at /mnt/tb/1Apps/omniroute/ without losing DB set... |
 | [`omniverse-cad-to-simready`](../../library/nvidia-skills/skills/omniverse-cad-to-simready) | ⚪ Reserve | `nvidia-skills` | Coordinate the end-to-end CAD/source-asset to SimReady workflow. Use for broad requests such as... |
 | [`open-agent-sdk`](../../library/reason-machines-trending-skills/skills/open-agent-sdk) | ⚪ Reserve | `reason-machines-trending-skills` | Build and deploy autonomous AI agents in-process using Open Agent SDK, an open-source alternati... |
 | [`openclaw-deployment-hardening`](../../library/sickn33-agentic-awesome-skills/skills/openclaw-deployment-hardening) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Secure OpenClaw deployments with preflight hardening checks, CI/CD guardrails, |
@@ -429,6 +437,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`scanning-docker-images-with-trivy`](../../library/mukul975-anthropic-cybersecurity-skills/skills/scanning-docker-images-with-trivy) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Scans a Docker image with Trivy for vulnerabilities in OS packages and language dependencies, m... |
 | [`scanning-iac-and-images-with-trivy`](../../library/mukul975-anthropic-cybersecurity-skills/skills/scanning-iac-and-images-with-trivy) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Scans container images, Infrastructure-as-Code (Terraform, CloudFormation, |
 | [`scanning-kubernetes-manifests-with-kubesec`](../../library/mukul975-anthropic-cybersecurity-skills/skills/scanning-kubernetes-manifests-with-kubesec) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Scores Kubernetes resource manifests with Kubesec to flag misconfiguration and privilege-escala... |
+| [`searxng`](../../library/seaxen-skills-backup/skills/searxng) | ⚪ Reserve | `seaxen-skills-backup` | Deploy, configure, and optimize a self-hosted SearXNG instance for use with Hermes Agent and Om... |
+| [`searxng-update`](../../library/seaxen-skills-backup/skills/searxng-update) | ⚪ Reserve | `seaxen-skills-backup` | Update self-hosted SearXNG Docker with backup/recreate. |
 | [`secrets-management`](../../library/aj-geddes-useful-ai-prompts/skills/secrets-management) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Implement secrets management with HashiCorp Vault, AWS Secrets Manager, or Kubernetes Secrets f... |
 | [`securing-container-registry-images`](../../library/mukul975-anthropic-cybersecurity-skills/skills/securing-container-registry-images) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Secures container registry images (ECR, ACR, GCR, Docker Hub) by scanning |
 | [`securing-container-registry-with-harbor`](../../library/mukul975-anthropic-cybersecurity-skills/skills/securing-container-registry-with-harbor) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Configures the security features of the Harbor open-source container registry - integrated Triv... |
@@ -453,9 +463,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`solid`](../../library/vercel-labs-json-render/skills/solid) | ⚪ Reserve | `vercel-labs-json-render` | SolidJS renderer for json-render. Use when building @json-render/solid catalogs/registries, wir... |
 | [`spring-boot-test-patterns`](../../library/giuseppe-trisciuoglio-developer-kit/skills/spring-boot-test-patterns) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides comprehensive testing patterns for Spring Boot applications covering unit, integration... |
 | [`starknet-wallet`](../../library/internet-court-internet-court-skill/skills/starknet-wallet) | ⚪ Reserve | `internet-court-internet-court-skill` | Create and manage Starknet wallets for AI agents. Transfer tokens, check balances, manage sessi... |
+| [`static-spa-library-site`](../../library/seaxen-skills-backup/skills/static-spa-library-site) | ⚪ Reserve | `seaxen-skills-backup` | Build a dark-themed static SPA library site from a hierarchical content folder structure (e.g. ... |
 | [`status`](../../library/davila7-claude-code-templates/skills/status) | ⚪ Reserve | `davila7-claude-code-templates` | Check current Railway project status for this directory. Use when user asks "railway status", "... |
 | [`supply-chain-security`](../../library/sickn33-agentic-awesome-skills/skills/supply-chain-security) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Software supply-chain security assessment: SBOM generation, SCA scanning, CI/CD pipeline review... |
 | [`survey-research-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/survey-research-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Design, deploy, and analyze surveys for social science and organizational res... |
+| [`synapse-lms-download`](../../library/seaxen-skills-backup/skills/synapse-lms-download) | ⚪ Reserve | `seaxen-skills-backup` | Download encrypted HLS videos and PDF notes from Synapse Medical Academy LMS (lms.synapsepg.org... |
 | [`tao-data-io`](../../library/nvidia-skills/skills/tao-data-io) | ⚪ Reserve | `nvidia-skills` | The data-mover for TAO jobs — decides the storage tier (A pre-positioned mount with zero fetch ... |
 | [`tao-finetune-huggingface-model`](../../library/nvidia-skills/skills/tao-finetune-huggingface-model) | ⚪ Reserve | `nvidia-skills` | Fine-tune any HuggingFace CV / VLM / LLM model on local NVIDIA GPUs inside an NGC PyTorch conta... |
 | [`tao-launch-workflow`](../../library/nvidia-skills/skills/tao-launch-workflow) | ⚪ Reserve | `nvidia-skills` | The mandatory pre-launch gate and four-verb execution contract for every TAO workflow or action... |

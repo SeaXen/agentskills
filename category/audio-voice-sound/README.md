@@ -1,7 +1,7 @@
 # 🎙️ Audio, Voice Cloning & Sound Design
 
 > **Category**: `audio-voice-sound`  
-> **Total Curated Skills**: 163 skills  
+> **Total Curated Skills**: 164 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -42,6 +42,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`audio-jingle`](../../library/feimacode-open-design-agent-kit/skills/audio-jingle) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Audio generation skill — jingles, beds, voiceover, and sound effects. Routes music requests to ... |
 | [`audio-setup-mixers`](../../library/unity-technologies-skills/skills/audio-setup-mixers) | ⚪ Reserve | `unity-technologies-skills` | Routes Audio Sources into existing Audio Mixer Groups, classifying each source by what it plays... |
 | [`audioaccessorykit`](../../library/dpearson2699-swift-ios-skills/skills/audioaccessorykit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Support automatic audio switching for paired third-party Bluetooth headphones or earbuds with A... |
+| [`audiocraft`](../../library/seaxen-skills-backup/skills/audiocraft) | ⚪ Reserve | `seaxen-skills-backup` | AudioCraft: MusicGen text-to-music, AudioGen text-to-sound. |
 | [`avoid-ai-writing`](../../library/conorbronsdon-avoid-ai-writing/skills/avoid-ai-writing) | ⚪ Reserve | `conorbronsdon-avoid-ai-writing` | Audit and rewrite content to remove AI writing patterns ("AI-isms"). Use this skill when asked ... |
 | [`azure-ai-transcription-py`](../../library/antigravity-awesome-skills/skills/azure-ai-transcription-py) | ⚪ Reserve | `antigravity-awesome-skills` | Azure AI Transcription SDK for Python. Use for real-time and batch speech-to-text transcription... |
 | [`azure-ai-voicelive-dotnet`](../../library/antigravity-awesome-skills/skills/azure-ai-voicelive-dotnet) | ⚪ Reserve | `antigravity-awesome-skills` | Azure AI Voice Live SDK for .NET. Build real-time voice AI applications with bidirectional WebS... |

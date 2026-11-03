@@ -1,7 +1,7 @@
 # 👁️ Visual Taste, Critique & Typography
 
 > **Category**: `frontend-visual-taste`  
-> **Total Curated Skills**: 150 skills  
+> **Total Curated Skills**: 151 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -93,6 +93,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`geometric`](../../library/bergside-awesome-design-skills/skills/geometric) | ⚪ Reserve | `bergside-awesome-design-skills` | Geometric, structured design with clean typography, neutral colors, precise shapes, and intuiti... |
 | [`gpt-image-2`](../../library/gencraft-labs-skills/skills/gpt-image-2) | ⚪ Reserve | `gencraft-labs-skills` | Generate and edit images with OpenAI GPT Image 2 (ChatGPT Images 2.0) on RunComfy. Documents GP... |
 | [`gpt-image-edit`](../../library/gencraft-labs-skills/skills/gpt-image-edit) | ⚪ Reserve | `gencraft-labs-skills` | Edit images with OpenAI GPT Image 2 (the `/edit` endpoint of ChatGPT Images 2.0) on RunComfy — ... |
+| [`hermes-themes`](../../library/seaxen-skills-backup/skills/hermes-themes) | ⚪ Reserve | `seaxen-skills-backup` | Author a Hermes color theme that skins every surface. |
 | [`hig-project-context`](../../library/antigravity-awesome-skills/skills/hig-project-context) | ⚪ Reserve | `antigravity-awesome-skills` | Create or update a shared Apple design context document that other HIG skills use to tailor gui... |
 | [`higgsfield-brandkit`](../../library/higgsfield-ai-skills/skills/higgsfield-brandkit) | ⚪ Reserve | `higgsfield-ai-skills` | Create and extend complete visual brand systems through the Higgsfield CLI and bundled determin... |
 | [`higgsfield-product-photoshoot`](../../library/higgsfield-ai-skills/skills/higgsfield-product-photoshoot) | ⚪ Reserve | `higgsfield-ai-skills` | Generate brand-quality product images through Higgsfield product-photoshoot prompt enhancement ... |

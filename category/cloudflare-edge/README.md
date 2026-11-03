@@ -1,7 +1,7 @@
 # ☁️ Cloudflare Workers, Pages & Edge
 
 > **Category**: `cloudflare-edge`  
-> **Total Curated Skills**: 124 skills  
+> **Total Curated Skills**: 125 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -89,6 +89,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`inngest`](../../library/antigravity-awesome-skills/skills/inngest) | ⚪ Reserve | `antigravity-awesome-skills` | Inngest expert for serverless-first background jobs, event-driven workflows, and durable execut... |
 | [`invariant-guard`](../../library/sickn33-agentic-awesome-skills/skills/invariant-guard) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Correctness-first: forces writing the function contract, loop invariant, termination argument, ... |
 | [`k2`](../../library/cloudflare-skills/skills/k2) | ⚪ Reserve | `cloudflare-skills` | Build and troubleshoot Cloudflare K2 or K2 Streams durable logs. Use for stream setup, producin... |
+| [`kanban-worker`](../../library/seaxen-skills-backup/skills/kanban-worker) | ⚪ Reserve | `seaxen-skills-backup` | Pitfalls, examples, and edge cases for Hermes Kanban workers. The lifecycle itself is auto-inje... |
 | [`latent-briefing`](../../library/muratcankoylan-agent-skills-for-context-engineering/skills/latent-briefing) | ⚪ Reserve | `muratcankoylan-agent-skills-for-context-engineering` | This skill should be used when the user asks to \"share memory between agents\", \"KV cache com... |
 | [`loop-worker`](../../library/ruvnet-ruflo/skills/loop-worker) | ⚪ Reserve | `ruvnet-ruflo` | Run Ruflo background workers using Claude Code native /loop scheduling |
 | [`mhr-cfw-domain-fronting-relay`](../../library/reason-machines-trending-skills/skills/mhr-cfw-domain-fronting-relay) | ⚪ Reserve | `reason-machines-trending-skills` | Expert skill for setting up and using MHR-CFW, a domain-fronting relay that routes traffic thro... |

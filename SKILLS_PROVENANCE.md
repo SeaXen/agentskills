@@ -1,7 +1,7 @@
 # 🏛️ Complete Repository Provenance & Upstream Registry
 
-> **Active Reserve Libraries**: 377 repositories  
-> **Total Skills in Reserve**: 23,882 skills  
+> **Active Reserve Libraries**: 378 repositories  
+> **Total Skills in Reserve**: 24,234 skills  
 > **Source Registry**: [`library/upstreams.json`](library/upstreams.json)  
 > **Format Standard**: Pure isolated repositories (`['skills', 'README.md', 'skills_index.json']`), 0 `.git` directories.
 
@@ -319,6 +319,7 @@
 | `sawyerhood-dev-browser` | [SawyerHood/dev-browser](https://github.com/SawyerHood/dev-browser) | **1** | `python .agents/library/activate_skill.py activate dev-browser` |
 | `scrapecreators-social-media-research-skills` | [ScrapeCreators/social-media-research-skills](https://github.com/ScrapeCreators/social-media-research-skills) | **13** | `python .agents/library/activate_skill.py activate ad-library-teardown` |
 | `scrapegraphai-just-scrape` | [scrapegraphai/just-scrape](https://github.com/scrapegraphai/just-scrape) | **1** | `python .agents/library/activate_skill.py activate just-scrape` |
+| `seaxen-skills-backup` | [SeaXen/skills-backup](https://github.com/SeaXen/skills-backup) | **352** | `python .agents/library/activate_skill.py activate 1password` |
 | `sentry-dev` | [getsentry/sentry-cli](https://github.com/getsentry/sentry-cli) | **1** | `python .agents/library/activate_skill.py activate sentry-cli` |
 | `sergebulaev-linkedin-skills` | [sergebulaev/linkedin-skills](https://github.com/sergebulaev/linkedin-skills) | **1** | `python .agents/library/activate_skill.py activate linkedin` |
 | `shadcn-ui` | [shadcn/ui](https://github.com/shadcn-ui/ui) | **2** | `python .agents/library/activate_skill.py activate migrate-radix-to-base` |

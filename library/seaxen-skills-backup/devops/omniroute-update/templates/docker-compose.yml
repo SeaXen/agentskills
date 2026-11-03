@@ -1,0 +1,8 @@
+services:
+  omniroute:
+    image: diegosouzapw/omniroute:latest
+    container_name: omniroute
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ./data:/app/data

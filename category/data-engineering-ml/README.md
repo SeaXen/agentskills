@@ -1,7 +1,7 @@
 # 📊 Data Pipelines, BigQuery & Machine Learning
 
 > **Category**: `data-engineering-ml`  
-> **Total Curated Skills**: 3213 skills  
+> **Total Curated Skills**: 3216 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -1512,6 +1512,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`jumpseller`](../../library/membranedev-application-skills/skills/jumpseller) | ⚪ Reserve | `membranedev-application-skills` | Jumpseller integration. Manage Stores. Use when the user wants to interact with Jumpseller data... |
 | [`junip`](../../library/membranedev-application-skills/skills/junip) | ⚪ Reserve | `membranedev-application-skills` | Junip integration. Manage Persons, Organizations, Deals, Activities, Notes, Files and more. Use... |
 | [`jupiterone`](../../library/membranedev-application-skills/skills/jupiterone) | ⚪ Reserve | `membranedev-application-skills` | JupiterOne integration. Manage data, records, and automate workflows. Use when the user wants t... |
+| [`jupyter-live-kernel`](../../library/seaxen-skills-backup/skills/jupyter-live-kernel) | ⚪ Reserve | `seaxen-skills-backup` | Iterative Python via live Jupyter kernel (hamelnb). |
 | [`jupyter-notebook`](../../library/davila7-claude-code-templates/skills/jupyter-notebook) | ⚪ Reserve | `davila7-claude-code-templates` | Use when the user asks to create, scaffold, or edit Jupyter notebooks (`.ipynb`) for experiment... |
 | [`jupyter-notebook-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/jupyter-notebook-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Best practices for computational research notebooks with reproducible workflows |
 | [`justcall`](../../library/membranedev-application-skills/skills/justcall) | ⚪ Reserve | `membranedev-application-skills` | JustCall integration. Manage Persons, Organizations, Leads, Activities, Notes, Files and more. ... |
@@ -1751,6 +1752,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`maxmind-minfraud`](../../library/membranedev-application-skills/skills/maxmind-minfraud) | ⚪ Reserve | `membranedev-application-skills` | MaxMind minFraud integration. Manage data, records, and automate workflows. Use when the user w... |
 | [`maxxton`](../../library/membranedev-application-skills/skills/maxxton) | ⚪ Reserve | `membranedev-application-skills` | Maxxton integration. Manage data, records, and automate workflows. Use when the user wants to i... |
 | [`mboum`](../../library/membranedev-application-skills/skills/mboum) | ⚪ Reserve | `membranedev-application-skills` | Mboum integration. Manage Persons, Organizations, Deals, Leads, Projects, Activities and more. ... |
+| [`mcp-browser-pool-leak`](../../library/seaxen-skills-backup/skills/mcp-browser-pool-leak) | ⚪ Reserve | `seaxen-skills-backup` | Diagnose and fix MCP servers that leak chromedriver/chromium/user-data-dir memory. Use when chr... |
 | [`mctime`](../../library/membranedev-application-skills/skills/mctime) | ⚪ Reserve | `membranedev-application-skills` | McTime integration. Manage TimeSheets, Projects, Clients, Users. Use when the user wants to int... |
 | [`mediamath`](../../library/membranedev-application-skills/skills/mediamath) | ⚪ Reserve | `membranedev-application-skills` | MediaMath integration. Manage data, records, and automate workflows. Use when the user wants to... |
 | [`median`](../../library/membranedev-application-skills/skills/median) | ⚪ Reserve | `membranedev-application-skills` | Median integration. Manage data, records, and automate workflows. Use when the user wants to in... |
@@ -1988,6 +1990,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`openpayd`](../../library/membranedev-application-skills/skills/openpayd) | ⚪ Reserve | `membranedev-application-skills` | OpenPayd integration. Manage data, records, and automate workflows. Use when the user wants to ... |
 | [`opentargets-database`](../../library/davila7-claude-code-templates/skills/opentargets-database) | ⚪ Reserve | `davila7-claude-code-templates` | Query Open Targets Platform for target-disease associations, drug target discovery, tractabilit... |
 | [`openviking-context-database`](../../library/reason-machines-trending-skills/skills/openviking-context-database) | ⚪ Reserve | `reason-machines-trending-skills` | Expert skill for using OpenViking, the open-source context database for AI Agents that manages ... |
+| [`operator-dashboard-finishing-pass`](../../library/seaxen-skills-backup/skills/operator-dashboard-finishing-pass) | ⚪ Reserve | `seaxen-skills-backup` | Finishing-pass workflow for dense operational dashboards after the core data views already exis... |
 | [`opn`](../../library/membranedev-application-skills/skills/opn) | ⚪ Reserve | `membranedev-application-skills` | OPN integration. Manage Organizations, Pipelines, Users, Goals, Filters. Use when the user want... |
 | [`opsgenie`](../../library/membranedev-application-skills/skills/opsgenie) | ⚪ Reserve | `membranedev-application-skills` | Opsgenie integration. Manage Alerts. Use when the user wants to interact with Opsgenie data. |
 | [`opslevel`](../../library/membranedev-application-skills/skills/opslevel) | ⚪ Reserve | `membranedev-application-skills` | OpsLevel integration. Manage data, records, and automate workflows. Use when the user wants to ... |

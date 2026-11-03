@@ -1,0 +1,62 @@
+# Dark Mode and Mermaid Inject Template (mdsagar.com)
+
+This CSS/JS block ensures that the custom medical callout boxes and Mermaid diagrams render correctly in both light and dark modes on mdsagar.com.
+
+```html
+<style>
+/* ── Tooltip ── */
+.md-tip { border-bottom: 2px dotted #2563eb; cursor: help; position: relative; display: inline; }
+.md-tip::after {
+  content: attr(data-tip); position: absolute; bottom: 135%; left: 50%; transform: translateX(-50%);
+  background: #0f172a; color: #f1f5f9; font-size: 0.81em; padding: 8px 13px; border-radius: 7px;
+  white-space: normal; width: 270px; text-align: left; line-height: 1.55; z-index: 9999;
+  opacity: 0; pointer-events: none; transition: opacity 0.18s ease; box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+.md-tip::before {
+  content: ''; position: absolute; bottom: 127%; left: 50%; transform: translateX(-50%);
+  border: 6px solid transparent; border-top-color: #0f172a; opacity: 0; pointer-events: none; transition: opacity 0.18s ease;
+}
+.md-tip:hover::after, .md-tip:focus::after, .md-tip:hover::before, .md-tip:focus::before { opacity: 1; }
+
+/* TOC */
+.mp-toc { background: #dbeafe; border-left: 4px solid #2563eb; padding: 18px 22px; margin: 0 0 32px; border-radius: 7px; }
+.mp-toc, .mp-toc * { color: #1e3a8a !important; }
+.mp-toc a { color: #1d4ed8 !important; text-decoration: none; }
+
+/* CALLOUT BOXES */
+.mp-box { padding: 18px 22px; margin: 28px 0; border-radius: 7px; box-shadow: 0 1px 4px rgba(15,23,42,0.08); }
+.mp-box-yellow { background: #fefce8; border-left: 5px solid #ca8a04; }
+.mp-box-green  { background: #f0fdf4; border-left: 5px solid #16a34a; }
+.mp-box-red    { background: #fff1f2; border-left: 5px solid #dc2626; }
+.mp-box-blue   { background: #eff6ff; border-left: 5px solid #2563eb; }
+
+/* Color overrides to prevent theme issues */
+.mp-box, .mp-box * { color: #111827 !important; }
+.mp-box .mp-box-title { font-weight: 700; display: block; margin-bottom: 8px; font-size: 1.04em; color: #111827 !important; }
+
+/* Dark Mode Overrides */
+[data-theme="dark"] .mp-toc { background: #1e3a5f; }
+[data-theme="dark"] .mp-toc, [data-theme="dark"] .mp-toc * { color: #bfdbfe !important; }
+[data-theme="dark"] .mp-box-yellow { background: #2d2000 !important; border-left-color: #f59e0b !important; }
+[data-theme="dark"] .mp-box-green  { background: #052e16 !important; border-left-color: #22c55e !important; }
+[data-theme="dark"] .mp-box-red    { background: #2d0a0a !important; border-left-color: #f87171 !important; }
+[data-theme="dark"] .mp-box-blue   { background: #0f2240 !important; border-left-color: #60a5fa !important; }
+[data-theme="dark"] .mp-box, [data-theme="dark"] .mp-box * { color: #f1f5f9 !important; }
+
+/* Tables */
+.mp-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+.mp-th-blue  thead tr { background: #2563eb; }
+.mp-table thead th { color: #ffffff !important; padding: 10px 14px; text-align: left; }
+.mp-table tbody td { color: #111827 !important; padding: 9px 14px; border-bottom: 1px solid #cbd5e1; }
+[data-theme="dark"] .mp-table thead th { color: #f8fafc !important; }
+[data-theme="dark"] .mp-table tbody td { color: #f1f5f9 !important; border-bottom-color: rgba(255,255,255,0.1); }
+</style>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'default' });
+  if(document.documentElement.getAttribute('data-theme') === 'dark') {
+      mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+  }
+</script>
+```

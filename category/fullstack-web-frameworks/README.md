@@ -1,7 +1,7 @@
 # 🌐 Fullstack Web Frameworks & Apps
 
 > **Category**: `fullstack-web-frameworks`  
-> **Total Curated Skills**: 42 skills  
+> **Total Curated Skills**: 50 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -31,14 +31,22 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`hunt-nextjs`](../../library/elementalsouls-claude-bughunter/skills/hunt-nextjs) | ⚪ Reserve | `elementalsouls-claude-bughunter` | Hunt Next.js specific vulnerabilities — Server Actions arbitrary function execution, Middleware... |
 | [`ink-app-builder`](../../library/android-skills/skills/ink-app-builder) | ⚪ Reserve | `android-skills` | Adds inking and freehand drawing capabilities to an Android app using |
 | [`neon-realtime`](../../library/neondatabase-agent-skills/skills/neon-realtime) | ⚪ Reserve | `neondatabase-agent-skills` | Neon Realtime makes any SQL query live. Build realtime, reactive apps and agents on Lakebase Po... |
+| [`nextjs-action-id-extraction`](../../library/seaxen-skills-backup/skills/nextjs-action-id-extraction) | ⚪ Reserve | `seaxen-skills-backup` | Find Next.js Server Action IDs for a given site URL. |
+| [`nextjs-action-probe`](../../library/seaxen-skills-backup/skills/nextjs-action-probe) | ⚪ Reserve | `seaxen-skills-backup` | Call Next.js Server Actions via extracted action IDs. |
 | [`nextjs-app-router-patterns`](../../library/antigravity-awesome-skills/skills/nextjs-app-router-patterns) | ⚪ Reserve | `antigravity-awesome-skills` | Master Next.js 14+ App Router with Server Components, streaming, parallel routes, and advanced ... |
 | [`nextjs-authentication`](../../library/giuseppe-trisciuoglio-developer-kit/skills/nextjs-authentication) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides authentication implementation patterns for Next.js 15+ App Router using Auth.js 5 (Nex... |
 | [`nextjs-best-practices`](../../library/antigravity-awesome-skills/skills/nextjs-best-practices) | ⚪ Reserve | `antigravity-awesome-skills` | Next.js App Router principles. Server Components, data fetching, routing patterns. |
+| [`nextjs-client-runtime-debugging`](../../library/seaxen-skills-backup/skills/nextjs-client-runtime-debugging) | ⚪ Reserve | `seaxen-skills-backup` | Debug Next.js App Router pages when UI renders but client-side behavior, data loading, or brows... |
 | [`nextjs-data-fetching`](../../library/giuseppe-trisciuoglio-developer-kit/skills/nextjs-data-fetching) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides Next.js App Router data fetching patterns including SWR and React Query integration, p... |
 | [`nextjs-developer`](../../library/jeffallan-claude-skills/skills/nextjs-developer) | ⚪ Reserve | `jeffallan-claude-skills` | Use when building Next.js 14+ applications with App Router, server components, or server action... |
+| [`nextjs-dual-deploy`](../../library/seaxen-skills-backup/skills/nextjs-dual-deploy) | ⚪ Reserve | `seaxen-skills-backup` | Build a Next.js (App Router) webapp deployable to BOTH Docker (standalone output, fixed port) a... |
+| [`nextjs-legacy-script`](../../library/seaxen-skills-backup/skills/nextjs-legacy-script) | ⚪ Reserve | `seaxen-skills-backup` | Handling and refactoring Next.js apps that contain giant inline vanilla JS scripts in page.tsx ... |
 | [`nextjs-performance`](../../library/giuseppe-trisciuoglio-developer-kit/skills/nextjs-performance) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Expert Next.js performance optimization skill covering Core Web Vitals, image/font optimization... |
+| [`nextjs-production-audit`](../../library/seaxen-skills-backup/skills/nextjs-production-audit) | ⚪ Reserve | `seaxen-skills-backup` | Audit a Next.js/React trading or dashboard app before rating or declaring it production-ready. ... |
 | [`nextjs-react-expert`](../../library/vudovn-antigravity-kit/skills/nextjs-react-expert) | ⚪ Reserve | `vudovn-antigravity-kit` | React and Next.js performance optimization from Vercel Engineering. Use when building React com... |
 | [`nextjs-seo-indexing`](../../library/sickn33-agentic-awesome-skills/skills/nextjs-seo-indexing) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Fix SEO indexing issues, crawl budget problems, and Search Console coverage errors for Next.js ... |
+| [`nextjs-server-action-recon`](../../library/seaxen-skills-backup/skills/nextjs-server-action-recon) | ⚪ Reserve | `seaxen-skills-backup` | Extract Next.js action IDs; replay proxied web trackers. |
+| [`nextjs-server-action-scraping`](../../library/seaxen-skills-backup/skills/nextjs-server-action-scraping) | ⚪ Reserve | `seaxen-skills-backup` | Script Next.js Server Action POST calls with no public API. |
 | [`nextjs-supabase-auth`](../../library/antigravity-awesome-skills/skills/nextjs-supabase-auth) | ⚪ Reserve | `antigravity-awesome-skills` | Expert integration of Supabase Auth with Next.js App Router Use when: supabase auth next, authe... |
 | [`pixelfx`](../../library/patch-gg-pixelfx/skills/pixelfx) | ⚪ Reserve | `patch-gg-pixelfx` | Make pixel art effects and sprite animations in code with the pixelfx library, which has 244 re... |
 | [`react-native-patterns`](../../library/affaan-m-ecc/skills/react-native-patterns) | ⚪ Reserve | `affaan-m-ecc` | React Native and Expo app patterns — Expo Router navigation, state separation (server/client/ro... |

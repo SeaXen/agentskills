@@ -1,7 +1,7 @@
 # 🎬 Video Creation & Generative Motion
 
 > **Category**: `video-motion-production`  
-> **Total Curated Skills**: 184 skills  
+> **Total Curated Skills**: 185 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -68,6 +68,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`explainer-video-guide`](../../library/101-skills-superpowers/skills/explainer-video-guide) | ⚪ Reserve | `101-skills-superpowers` | Explainer video production guide: scripting, voiceover, visuals, and assembly. Covers script fo... |
 | [`extension-object-storage`](../../library/caffeinelabs-skills/skills/extension-object-storage) | ⚪ Reserve | `caffeinelabs-skills` | General file/object storage, such as for images, videos, files, documents and other bulk data. ... |
 | [`facebook-automation`](../../library/composio-community-awesome-codex-skills/skills/facebook-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Facebook Page management including post creation, scheduling, video uploads, Messenger... |
+| [`facebook-download`](../../library/seaxen-skills-backup/skills/facebook-download) | ⚪ Reserve | `seaxen-skills-backup` | Use when the user pastes a Facebook link (video reel/watch/permalink/share/fb.watch) — download... |
 | [`fal-ai-media`](../../library/affaan-m-ecc/skills/fal-ai-media) | ⚪ Reserve | `affaan-m-ecc` | Unified media generation via fal.ai MCP — image, video, and audio. Covers text-to-image (Nano B... |
 | [`fal-kling-o3`](../../library/feimacode-open-design-agent-kit/skills/fal-kling-o3) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Generate images and videos with Kling O3 — Kling's most powerful model family — via fal.ai. |
 | [`fal-lip-sync`](../../library/feimacode-open-design-agent-kit/skills/fal-lip-sync) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Create talking head videos and lip sync audio to video via fal.ai. Useful for explainer avatars... |

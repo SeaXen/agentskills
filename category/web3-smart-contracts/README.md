@@ -1,7 +1,7 @@
 # 🪙 Web3, Solidity & DeFi Architecture
 
 > **Category**: `web3-smart-contracts`  
-> **Total Curated Skills**: 94 skills  
+> **Total Curated Skills**: 95 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -40,6 +40,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`crypto-market-rank`](../../library/binance-binance-skills-hub/skills/crypto-market-rank) | ⚪ Reserve | `binance-binance-skills-hub` | Crypto market leaderboards — ranked aggregate feeds across the whole market: social-hype/sentim... |
 | [`crypto-protocol-diagram`](../../library/trailofbits-skills/skills/crypto-protocol-diagram) | ⚪ Reserve | `trailofbits-skills` | Extracts protocol message flow from source code, RFCs, academic papers, pseudocode, informal pr... |
 | [`crypto-report`](../../library/claude-office-skills-skills/skills/crypto-report) | ⚪ Reserve | `claude-office-skills-skills` | Analyze cryptocurrency projects with tokenomics, on-chain metrics, and market analysis. Generat... |
+| [`crypto-research-alerting`](../../library/seaxen-skills-backup/skills/crypto-research-alerting) | ⚪ Reserve | `seaxen-skills-backup` | High-performance multi-exchange research and execution dashboard for crypto traders. Integrates... |
 | [`ctf-crypto`](../../library/ljagiello-ctf-skills/skills/ctf-crypto) | ⚪ Reserve | `ljagiello-ctf-skills` | Provides cryptography attack techniques for CTF challenges. Use when attacking encryption, hash... |
 | [`ctf-writeup`](../../library/ljagiello-ctf-skills/skills/ctf-writeup) | ⚪ Reserve | `ljagiello-ctf-skills` | Generates a single standardized submission-style CTF writeup for competition handoff and organi... |
 | [`defi-protocol-templates`](../../library/antigravity-awesome-skills/skills/defi-protocol-templates) | ⚪ Reserve | `antigravity-awesome-skills` | Implement DeFi protocols with production-ready templates for staking, AMMs, governance, and len... |

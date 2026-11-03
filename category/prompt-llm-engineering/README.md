@@ -1,7 +1,7 @@
 # 💬 Prompt Engineering, LLMs & RAG
 
 > **Category**: `prompt-llm-engineering`  
-> **Total Curated Skills**: 487 skills  
+> **Total Curated Skills**: 495 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -141,6 +141,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`create-skill`](../../library/dotnet-skills/skills/create-skill) | ⚪ Reserve | `dotnet-skills` | Scaffolds new agent skills for the dotnet/skills repository. Use when creating a new skill, gen... |
 | [`cross-eval`](../../library/alirezarezvani-claude-skills/skills/cross-eval) | ⚪ Reserve | `alirezarezvani-claude-skills` | /c-level-agents:cross-eval [memo] — Multi-model consensus on a board memo or strategy brief. Cl... |
 | [`crucix-intelligence-dashboard`](../../library/reason-machines-trending-skills/skills/crucix-intelligence-dashboard) | ⚪ Reserve | `reason-machines-trending-skills` | Personal intelligence agent that aggregates 27 OSINT data sources into a self-hosted Jarvis-sty... |
+| [`crypto-analysis`](../../library/seaxen-skills-backup/skills/crypto-analysis) | ⚪ Reserve | `seaxen-skills-backup` | Use when the user wants a fast but thorough crypto read on a coin/token. Selectively gathers pr... |
 | [`crypto-bd-agent`](../../library/antigravity-awesome-skills/skills/crypto-bd-agent) | ⚪ Reserve | `antigravity-awesome-skills` | Autonomous crypto business development patterns — multi-chain token discovery, 100-point scorin... |
 | [`cryptotokenkit`](../../library/dpearson2699-swift-ios-skills/skills/cryptotokenkit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Access security tokens and smart cards using CryptoTokenKit. Use when building TKTokenDriver or... |
 | [`ctf-ai-ml`](../../library/ljagiello-ctf-skills/skills/ctf-ai-ml) | ⚪ Reserve | `ljagiello-ctf-skills` | Provides AI and machine learning techniques for CTF challenges. Use when attacking ML models, c... |
@@ -261,7 +262,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`inference-serving-vllm`](../../library/davila7-claude-code-templates/skills/inference-serving-vllm) | ⚪ Reserve | `davila7-claude-code-templates` | Serves LLMs with high throughput using vLLM's PagedAttention and continuous batching. Use when ... |
 | [`interview-cheatsheet`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/interview-cheatsheet) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate a long-form Chinese interview-prep cheat sheet on a specific ML/LLM topic — formulas w... |
 | [`jetson-llm-serve`](../../library/nvidia-skills/skills/jetson-llm-serve) | ⚪ Reserve | `nvidia-skills` | Stand up vLLM or SGLang serving on Jetson, using upstream vLLM on Thor and Orin JetPack 7.2+, a... |
+| [`jev-decision-layer`](../../library/seaxen-skills-backup/skills/jev-decision-layer) | ⚪ Reserve | `seaxen-skills-backup` | Use when a decision should be a typed call, not an LLM. |
 | [`jupiter`](../../library/starchild-ai-agent-official-skills/skills/jupiter) | ⚪ Reserve | `starchild-ai-agent-official-skills` | Solana DEX aggregator: token swaps, limit orders, dollar-cost averaging. |
+| [`kanban-orchestrator`](../../library/seaxen-skills-backup/skills/kanban-orchestrator) | ⚪ Reserve | `seaxen-skills-backup` | Decomposition playbook + anti-temptation rules for an orchestrator profile routing work through... |
 | [`karpathy-guidelines`](../../library/multica-ai-andrej-karpathy-skills/skills/karpathy-guidelines) | ⚪ Reserve | `multica-ai-andrej-karpathy-skills` | Behavioral guidelines to reduce common LLM coding mistakes. Use when writing, reviewing, or ref... |
 | [`karpathy-jobs-bls-visualizer`](../../library/reason-machines-trending-skills/skills/karpathy-jobs-bls-visualizer) | ⚪ Reserve | `reason-machines-trending-skills` | Research tool for visually exploring BLS Occupational Outlook Handbook data with an interactive... |
 | [`keenable-search-mcp`](../../library/sickn33-agentic-awesome-skills/skills/keenable-search-mcp) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Search the public web with site and date filters, and read pages with an extraction prompt, thr... |
@@ -297,11 +300,13 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`llm-internals-learning`](../../library/reason-machines-trending-skills/skills/llm-internals-learning) | ⚪ Reserve | `reason-machines-trending-skills` | name: llm-internals-learning |
 | [`llm-prompt-injection`](../../library/yaklang-hack-skills/skills/llm-prompt-injection) | ⚪ Reserve | `yaklang-hack-skills` | LLM prompt injection playbook. Use when testing AI/LLM applications for direct injection, indir... |
 | [`llm-prompt-optimizer`](../../library/sickn33-agentic-awesome-skills/skills/llm-prompt-optimizer) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use when improving prompts for any LLM. Applies proven prompt engineering techniques to boost o... |
+| [`llm-provider-routing`](../../library/seaxen-skills-backup/skills/llm-provider-routing) | ⚪ Reserve | `seaxen-skills-backup` | Set up and troubleshoot multi-key LLM provider routing, credential pools, and external router e... |
 | [`llm-public-opinion-analytics`](../../library/reason-machines-data-skills/skills/llm-public-opinion-analytics) | ⚪ Reserve | `reason-machines-data-skills` | Multi-platform public opinion analysis assistant with web scraping, LLM-powered analytics, topi... |
 | [`llm-scientific-discovery-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/llm-scientific-discovery-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Survey of LLM agents for biomedical scientific discovery |
 | [`llm-trading-agent-security`](../../library/affaan-m-ecc/skills/llm-trading-agent-security) | ⚪ Reserve | `affaan-m-ecc` | Security patterns for autonomous trading agents with wallet or transaction authority. Covers pr... |
 | [`llm-wiki`](../../library/alirezarezvani-claude-skills/skills/llm-wiki) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when building or maintaining a persistent personal knowledge base (second brain) in Obsidia... |
 | [`llm-wiki-skill`](../../library/reason-machines-trending-skills/skills/llm-wiki-skill) | ⚪ Reserve | `reason-machines-trending-skills` | Build and maintain a personal knowledge base using Karpathy's llm-wiki methodology across Claud... |
+| [`local-llm-model-selection`](../../library/seaxen-skills-backup/skills/local-llm-model-selection) | ⚪ Reserve | `seaxen-skills-backup` | Recommend realistic local LLMs for a user's hardware, with emphasis on low-RAM CPU-only laptops... |
 | [`long-horizon-prompting`](../../library/muratcankoylan-agent-skills-for-context-engineering/skills/long-horizon-prompting) | ⚪ Reserve | `muratcankoylan-agent-skills-for-context-engineering` | This skill should be used when writing, enhancing, or evaluating the launch prompt for a long-r... |
 | [`lora-qlora-recipes`](../../library/wshobson-agents/skills/lora-qlora-recipes) | ⚪ Reserve | `wshobson-agents` | Configure LoRA and QLoRA supervised fine-tuning with current best-practice hyperparameters. Use... |
 | [`mac-mini-llm-lab`](../../library/sickn33-agentic-awesome-skills/skills/mac-mini-llm-lab) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Configure a Mac mini as a reliable local LLM server with remote access, |
@@ -318,6 +323,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`minimax-pdf`](../../library/feimacode-open-design-agent-kit/skills/minimax-pdf) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Generate, fill, and reformat PDFs with a token-based design system and 15 cover styles. Useful ... |
 | [`mistral-ai-automation`](../../library/composio-community-awesome-codex-skills/skills/mistral-ai-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Mistral AI operations -- manage files and libraries, upload documents for fine-tuning,... |
 | [`mistral_ai-automation`](../../library/composio-community-awesome-codex-skills/skills/mistral_ai-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Mistral AI tasks via Rube MCP (Composio): completions, embeddings, fine-tuning, and mo... |
+| [`mlops-obliteratus`](../../library/seaxen-skills-backup/skills/mlops-obliteratus) | ⚪ Reserve | `seaxen-skills-backup` | OBLITERATUS: abliterate LLM refusals (diff-in-means). |
 | [`mock-hunter`](../../library/sickn33-agentic-awesome-skills/skills/mock-hunter) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Audit a live web page in five phases (catalog, click, trace, classify, report) to identify mock... |
 | [`molykit`](../../library/sickn33-agentic-awesome-skills/skills/molykit) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | CRITICAL: Use for MolyKit AI chat toolkit. Triggers on: BotClient, OpenAI, SSE streaming, AI ch... |
 | [`monitor-ai-quality`](../../library/amplitude-mcp-marketplace/skills/monitor-ai-quality) | ⚪ Reserve | `amplitude-mcp-marketplace` | Monitors AI agent health across quality, cost, performance, and errors. Only use when the user ... |
@@ -439,6 +445,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`seo-dataforseo`](../../library/agricidaniel-claude-seo/skills/seo-dataforseo) | ⚪ Reserve | `agricidaniel-claude-seo` | Live SEO data via DataForSEO MCP server: SERP analysis, keyword research (volume, difficulty, i... |
 | [`seo-profound`](../../library/agricidaniel-claude-seo/skills/seo-profound) | ⚪ Reserve | `agricidaniel-claude-seo` | Profound LLM citation tracker (extension). Time-series brand citation rates across ChatGPT, Per... |
 | [`seo-seranking`](../../library/agricidaniel-claude-seo/skills/seo-seranking) | ⚪ Reserve | `agricidaniel-claude-seo` | SE Ranking AI visibility analyst (extension). Tracks AI Share-of-Voice across ChatGPT, Gemini, ... |
+| [`session-librarian`](../../library/seaxen-skills-backup/skills/session-librarian) | ⚪ Reserve | `seaxen-skills-backup` | Organize sessions by prompt: find, rename, archive, prune. |
 | [`session-source-fork`](../../library/mvschwarz-openrig/skills/session-source-fork) | ⚪ Reserve | `mvschwarz-openrig` | Use when authoring a rig spec member or `rig expand` payload that needs to start a new managed ... |
 | [`setup-engine`](../../library/donchitos-claude-code-game-studios/skills/setup-engine) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Configure engine and version. Pins it in CLAUDE.md; WebSearch fills reference docs when the ver... |
 | [`sharpen`](../../library/backnotprop-pstack/skills/sharpen) | ⚪ Reserve | `backnotprop-pstack` | Make a task deeper, not bigger, then rewrite the prompt. Use for /sharpen. |
@@ -452,6 +459,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`smart-explore`](../../library/thedotmack-claude-mem/skills/smart-explore) | ⚪ Reserve | `thedotmack-claude-mem` | Token-optimized structural code search using tree-sitter AST parsing. Use instead of reading fu... |
 | [`snippets`](../../library/launchdarkly-ai-tooling/skills/snippets) | ⚪ Reserve | `launchdarkly-ai-tooling` | Create and manage prompt snippets — reusable text blocks referenced inside config variation pro... |
 | [`soroban-liquidity-pool`](../../library/sickn33-agentic-awesome-skills/skills/soroban-liquidity-pool) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Automated market maker liquidity pool register: constant-product invariant curves, swap fee tie... |
+| [`spa-design-token-extraction`](../../library/seaxen-skills-backup/skills/spa-design-token-extraction) | ⚪ Reserve | `seaxen-skills-backup` | Extract JS-injected SPA tokens via browser computed styles. |
 | [`spring-ai-mcp-server-patterns`](../../library/giuseppe-trisciuoglio-developer-kit/skills/spring-ai-mcp-server-patterns) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides Spring Boot MCP server patterns that create Model Context Protocol servers with Spring... |
 | [`starknet-defi`](../../library/internet-court-internet-court-skill/skills/starknet-defi) | ⚪ Reserve | `internet-court-internet-court-skill` | Execute DeFi operations on Starknet including token swaps via avnu aggregator, DCA recurring bu... |
 | [`stata-skill-contributor`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/stata-skill-contributor) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Guide for contributing to the stata-skill project. Use when the user wants to run the eval pipe... |

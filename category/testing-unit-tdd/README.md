@@ -1,7 +1,7 @@
 # 🧪 Unit Testing, TDD & Verification
 
 > **Category**: `testing-unit-tdd`  
-> **Total Curated Skills**: 578 skills  
+> **Total Curated Skills**: 586 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -54,6 +54,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ai-agent-evaluation-benchmarking`](../../library/sickn33-agentic-awesome-skills/skills/ai-agent-evaluation-benchmarking) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Autonomous AI agent benchmark evaluation register: task completion rates, planning accuracy, to... |
 | [`ai-code-generation-guardrails`](../../library/sickn33-agentic-awesome-skills/skills/ai-code-generation-guardrails) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use when reviewing AI-generated code before merge or execution: plan AST/security checks, isola... |
 | [`ai-model-benchmarking`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/ai-model-benchmarking) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Benchmark AI models across 60+ academic evaluation suites and metrics |
+| [`ai-model-smoke-test`](../../library/seaxen-skills-backup/skills/ai-model-smoke-test) | ⚪ Reserve | `seaxen-skills-backup` | Live-test whether an AI model/provider is alive, working, and returning responses. Use when the... |
 | [`ai-research-explore`](../../library/lllllllama-rigorpilot-skills/skills/ai-research-explore) | ⚪ Reserve | `lllllllama-rigorpilot-skills` | Rigor Explore compatible skill slug for meaningful and potentially novel deep learning research... |
 | [`analytical-method-validation`](../../library/k-dense-ai-scientific-agent-skills/skills/analytical-method-validation) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Plans, executes, and documents validation, verification, and transfer of analytical procedures ... |
 | [`analytics`](../../library/coreyhaines31-marketingskills/skills/analytics) | ⚪ Reserve | `coreyhaines31-marketingskills` | When the user wants to set up, improve, or audit analytics tracking and measurement. Also use w... |
@@ -161,6 +162,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`darkmoon-pentest`](../../library/sickn33-agentic-awesome-skills/skills/darkmoon-pentest) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Start, follow and triage authorized autonomous AI pentest runs on a self-hosted Darkmoon Pro in... |
 | [`dart-fix-runtime-errors`](../../library/dart-lang-skills/skills/dart-fix-runtime-errors) | ⚪ Reserve | `dart-lang-skills` | Uses get_runtime_errors and lsp to fetch an active stack trace, locate the failing line, apply ... |
 | [`dart-generate-test-mocks`](../../library/dart-lang-skills/skills/dart-generate-test-mocks) | ⚪ Reserve | `dart-lang-skills` | Define and generate mock objects for external dependencies using `package:mockito` and `build_r... |
+| [`dashboard-ui-polish`](../../library/seaxen-skills-backup/skills/dashboard-ui-polish) | ⚪ Reserve | `seaxen-skills-backup` | Refine and verify self-hosted dashboard UI details from screenshot-driven feedback, especially ... |
 | [`data-engineering-data-driven-feature`](../../library/antigravity-awesome-skills/skills/data-engineering-data-driven-feature) | ⚪ Reserve | `antigravity-awesome-skills` | Build features guided by data insights, A/B testing, and continuous measurement using specializ... |
 | [`data-finder`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/data-finder) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Find and assess datasets for a research question. Dispatches Explorer agents to search across d... |
 | [`data-profile`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/data-profile) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate a complete, manuscript-ready data profile: demographics summary table, scale identific... |
@@ -256,6 +258,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`grilling`](../../library/mattpocock-skills/skills/grilling) | ⚪ Reserve | `mattpocock-skills` | Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-... |
 | [`harness-bench`](../../library/ruvnet-ruflo/skills/harness-bench) | ⚪ Reserve | `ruvnet-ruflo` | Create (`bench create {repo}`) or verify (`bench verify {suite.json}`) a @metaharness/darwin be... |
 | [`hash-attack-techniques`](../../library/yaklang-hack-skills/skills/hash-attack-techniques) | ⚪ Reserve | `yaklang-hack-skills` | Hash attack playbook. Use when exploiting length extension, MD5/SHA1 collisions, HMAC timing le... |
+| [`hermes-dashboard-restore`](../../library/seaxen-skills-backup/skills/hermes-dashboard-restore) | ⚪ Reserve | `seaxen-skills-backup` | Recover the main Hermes Agent dashboard (port 9119) after an update wipes auth/config — restore... |
 | [`holoscan-install-source`](../../library/nvidia-skills/skills/holoscan-install-source) | ⚪ Reserve | `nvidia-skills` | Build and verify Holoscan SDK 5.x from an explicit source ref with the repository run wrapper; ... |
 | [`holoscan-module-lifecycle`](../../library/nvidia-skills/skills/holoscan-module-lifecycle) | ⚪ Reserve | `nvidia-skills` | Develop external Holoscan Modules with the Holoscan CLI and use them in Holoscan applications: ... |
 | [`hsb-test`](../../library/nvidia-skills/skills/hsb-test) | ⚪ Reserve | `nvidia-skills` | Execute QA test plans on Holoscan Sensor Bridge hardware. Reads a user-provided test document, ... |
@@ -269,6 +272,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`huawei-cloud-skill-audit`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-skill-audit) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Audit Huawei Cloud skills for quality, security, and compliance using a three-check pipeline: s... |
 | [`huggingface-best`](../../library/huggingface-skills/skills/huggingface-best) | ⚪ Reserve | `huggingface-skills` | Use when the user asks about finding the best, top, or recommended model for a task, wants to k... |
 | [`hunter-automation`](../../library/composio-community-awesome-codex-skills/skills/hunter-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Hunter.io email intelligence -- search domains for email addresses, find specific cont... |
+| [`hybrid-memory-systems`](../../library/seaxen-skills-backup/skills/hybrid-memory-systems) | ⚪ Reserve | `seaxen-skills-backup` | Design, install, and verify layered memory stacks where Hermes remains the operator interface, ... |
 | [`hyperexecute-skill`](../../library/sickn33-agentic-awesome-skills/skills/hyperexecute-skill) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Operates HyperExecute end-to-end for TestMu AI/LambdaTest cloud test execution: analyze project... |
 | [`hypothesis-building`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/hypothesis-building) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Build falsifiable causal hypotheses: DAGs, FPCI, equivalence testing. |
 | [`hypothesis-testing-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/hypothesis-testing-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Statistical hypothesis testing, power analysis, and significance reporting |
@@ -330,6 +334,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`matlab`](../../library/k-dense-ai-scientific-agent-skills/skills/matlab) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Builds, reviews, migrates, and plans MATLAB or GNU Octave numerical workflows. Use for arrays, ... |
 | [`mcore-testing`](../../library/nvidia-skills/skills/mcore-testing) | ⚪ Reserve | `nvidia-skills` | Test system for Megatron-LM. Covers test layout, recipe YAML structure, adding and running unit... |
 | [`mechanistic-interpretability-pyvene`](../../library/davila7-claude-code-templates/skills/mechanistic-interpretability-pyvene) | ⚪ Reserve | `davila7-claude-code-templates` | Provides guidance for performing causal interventions on PyTorch models using pyvene's declarat... |
+| [`medical-fcps-mrcp-exam-notes`](../../library/seaxen-skills-backup/skills/medical-fcps-mrcp-exam-notes) | ⚪ Reserve | `seaxen-skills-backup` | Create FCPS/MRCP exam-oriented medical notes following Davidson Medicine curriculum structure. ... |
+| [`medical-folder-audit`](../../library/seaxen-skills-backup/skills/medical-folder-audit) | ⚪ Reserve | `seaxen-skills-backup` | Audit and synchronize medical study folders (FCPS/MRCP format) — verify completion status, fix ... |
 | [`message-test-designer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/message-test-designer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "test our messaging before we scale it", "design a message-market-fit... |
 | [`meta-ads-creative`](../../library/nowork-studio-notfair-plugin/skills/meta-ads-creative) | ⚪ Reserve | `nowork-studio-notfair-plugin` | Create evidence-based Meta ad creative briefs, copy angles, and testable asset concepts for Fac... |
 | [`microbenchmarking`](../../library/dotnet-skills/skills/microbenchmarking) | ⚪ Reserve | `dotnet-skills` | Activate this skill when BenchmarkDotNet (BDN) is involved in the task — creating, running, con... |
@@ -358,6 +364,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`not-human-search-mcp`](../../library/sickn33-agentic-awesome-skills/skills/not-human-search-mcp) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Search AI-ready websites, inspect indexed site details, verify MCP endpoints, and discover tool... |
 | [`novelty-check`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/novelty-check) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Verify research idea novelty against recent literature. Use when user says "查新", "novelty check... |
 | [`nvshmem-collect-performance-data`](../../library/nvidia-skills/skills/nvshmem-collect-performance-data) | ⚪ Reserve | `nvidia-skills` | Collect and package NVSHMEM put/get bandwidth, latency, and other perftest results with system ... |
+| [`obsidian-vault-learn-bridge`](../../library/seaxen-skills-backup/skills/obsidian-vault-learn-bridge) | ⚪ Reserve | `seaxen-skills-backup` | Umbrella workflow linking Dr. Sagar's Obsidian vault to Hermes skills and /learn: session start... |
 | [`odata-vocabularies-sync`](../../library/sap-open-ux-tools/skills/odata-vocabularies-sync) | ⚪ Reserve | `sap-open-ux-tools` | Sync odata-vocabularies package — update all vocabulary resource files to their latest publishe... |
 | [`odoo-automated-tests`](../../library/sickn33-agentic-awesome-skills/skills/odoo-automated-tests) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Write and run Odoo automated tests using TransactionCase, HttpCase, and browser tour tests. Cov... |
 | [`odoo-backup-strategy`](../../library/sickn33-agentic-awesome-skills/skills/odoo-backup-strategy) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Complete Odoo backup and restore strategy: database dumps, filestore backup, automated scheduli... |
@@ -552,6 +559,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`testrail`](../../library/alirezarezvani-claude-skills/skills/testrail) | ⚪ Reserve | `alirezarezvani-claude-skills` | Sync tests with TestRail. Use when user mentions "testrail", "test management", "test cases", "... |
 | [`tg-bot-binding`](../../library/starchild-ai-agent-official-skills/skills/tg-bot-binding) | ⚪ Reserve | `starchild-ai-agent-official-skills` | Telegram bot binding: create the bot, connect to Starchild, verify, troubleshoot. |
 | [`thick-client`](../../library/sickn33-agentic-awesome-skills/skills/thick-client) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Authorized security testing of desktop thick clients: local storage, update channels, IPC, traf... |
+| [`third-party-integration-audit`](../../library/seaxen-skills-backup/skills/third-party-integration-audit) | ⚪ Reserve | `seaxen-skills-backup` | Audit an external repo or tool for practical adoption: inspect claims, map integration surfaces... |
 | [`tilegym-improve-cutile-kernel-perf`](../../library/nvidia-skills/skills/tilegym-improve-cutile-kernel-perf) | ⚪ Reserve | `nvidia-skills` | Iteratively optimize cuTile kernel performance through systematic profiling, bottleneck analysi... |
 | [`time-series`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/time-series) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Econometrics skill for time series analysis. Activates when the user asks about: "time series",... |
 | [`tokenwise`](../../library/sickn33-agentic-awesome-skills/skills/tokenwise) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Measurement-driven model router for Claude Code. Routes Haiku/Sonnet/Opus per task class, logs ... |

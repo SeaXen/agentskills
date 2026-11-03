@@ -1,0 +1,104 @@
+<script>
+const CHAPTER_SLUG = "16-cardiology";
+const MANIFEST_URL = "/16-cardiology/topics.json";
+let MANIFEST = null;
+let CURRENT_TOPIC = null;
+
+// ---- Desktop: load topics.json + sidebar nav + topic render ----
+async function loadManifest() {
+  try {
+    const res = await fetch(MANIFEST_URL);
+    MANIFEST = await res.json();
+    const params = new URLSearchParams(location.search);
+    let t = params.get("topic");
+    if (t) {
+      const found = MANIFEST.topics.find(x => x.local_prefix === t || x.local_prefix === t.split("-")[0]);
+      if (found) showTopic(found.local_prefix);
+      else console.warn("Topic not found in manifest:", t);
+    }
+  } catch(e) {
+    console.error("Failed to load topics.json", e);
+  }
+}
+
+function navigateTopic(dir) {
+  if (!MANIFEST || !CURRENT_TOPIC) return;
+  const i = MANIFEST.topics.findIndex(x => x.local_prefix === CURRENT_TOPIC.local_prefix);
+  const ni = i + dir;
+  if (ni < 0 || ni >= MANIFEST.topics.length) return;
+  showTopic(MANIFEST.topics[ni].local_prefix);
+}
+
+function toggleTopicImage(btn) {
+  btn.classList.toggle("collapsed");
+  const wrap = btn.nextElementSibling;
+  if (wrap) {
+    wrap.classList.toggle("collapsed");
+    const span = btn.querySelector("span:last-child");
+    if (span) span.textContent = wrap.classList.contains("collapsed") ? "click to expand" : "click to collapse";
+  }
+}
+
+function showTopic(localPrefix) {
+  const t = MANIFEST.topics.find(x => x.local_prefix === localPrefix);
+  if (!t) return;
+  CURRENT_TOPIC = t;
+  document.querySelectorAll(".topic-item").forEach(el => el.classList.remove("active"));
+  const activeEl = document.querySelector(`.topic-item[data-topic="${localPrefix}"]`);
+  if (activeEl) {
+    activeEl.classList.add("active");
+    activeEl.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }
+  const url = new URL(location.href);
+  url.searchParams.set("topic", localPrefix);
+  history.replaceState(null, "", url);
+  const container = document.getElementById("topicContainer");
+  container.className = "topic-detail";
+  const imgHtml = t.png ? `
+    <div class="topic-image-toggle collapsed" onclick="toggleTopicImage(this)">
+      <span><span class="toggle-icon">▼</span> &nbsp;Show infographic image</span>
+      <span style="font-size:12px;color:var(--text-dim)">click to expand</span>
+    </div>
+    <div class="topic-image-wrap collapsed">
+      <div class="topic-image"><img src="/16-cardiology/${t.png}" alt="${t.title}"></div>
+    </div>` : "";
+  container.innerHTML = `
+    <div class="crumbs"><a href="/">Home</a> · <a href="/16-cardiology/">Cardiology</a> · <span>${t.hub_num} · ${t.hub_name}</span></div>
+    <div class="topic-header">
+      <div>
+        <h1>${t.title}</h1>
+        <p class="meta">${t.hub_num} · ${t.local_prefix} · ${t.slug}</p>
+      </div>
+      <div class="topic-actions">
+        ${t.png ? `<a href="/16-cardiology/${t.png}" download>Download PNG</a>` : ""}
+        ${t.md ? `<a href="/16-cardiology/${t.md}" download>Download MD</a>` : ""}
+        <button onclick="navigateTopic(-1)">← Prev</button>
+        <button onclick="navigateTopic(1)">Next →</button>
+      </div>
+    </div>
+    <div class="topic-content">${t.html}</div>
+    ${imgHtml}
+  `;
+  if (typeof window.renderMermaidIn === 'function') {
+    setTimeout(() => window.renderMermaidIn(container), 50);
+  }
+  container.scrollTop = 0;
+  document.querySelector('.chapter-main').scrollTop = 0;
+}
+
+// Wire up topic-item clicks in sidebar to call showTopic
+document.querySelectorAll(".topic-item").forEach(el => {
+  el.addEventListener("click", function(e) {
+    e.preventDefault();
+    const t = el.dataset.topic;
+    if (t) showTopic(t);
+  });
+});
+
+// Kick off manifest load
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', loadManifest);
+} else {
+  loadManifest();
+}
+</script>

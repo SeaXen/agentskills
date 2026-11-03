@@ -1,7 +1,7 @@
 # 🗄️ SQL Databases, ORMs & Indexing
 
 > **Category**: `database-sql-relational`  
-> **Total Curated Skills**: 414 skills  
+> **Total Curated Skills**: 417 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -21,6 +21,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | :--- | :---: | :--- | :--- |
 | [`360-feedback-system`](../../library/sickn33-agentic-awesome-skills/skills/360-feedback-system) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | 360 feedback register: reviewer, subject, review cycle, visibility, due date and score, as CSV,... |
 | [`52-keemanxp-slr-prisma`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/52-keemanxp-slr-prisma) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Guide users through writing a systematic literature review (SLR) following the PRISMA 2020 fram... |
+| [`9router-self-hosted`](../../library/seaxen-skills-backup/skills/9router-self-hosted) | ⚪ Reserve | `seaxen-skills-backup` | Operate and contribute to decolua/9router on self-hosted Docker (host network, SQLite data). Co... |
 | [`access-matrix`](../../library/sickn33-agentic-awesome-skills/skills/access-matrix) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Access matrix of role-by-module permissions, with per-role scope, confidentiality level and SME... |
 | [`accounting-software-selection`](../../library/sickn33-agentic-awesome-skills/skills/accounting-software-selection) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Scores shortlisted accounting packages against 57 evidence-backed fields, emitted as CSV, SQL, ... |
 | [`activecampaign-automation`](../../library/antigravity-awesome-skills/skills/activecampaign-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate ActiveCampaign tasks via Rube MCP (Composio): manage contacts, tags, list subscription... |
@@ -143,6 +144,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`discord-automation`](../../library/antigravity-awesome-skills/skills/discord-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate Discord tasks via Rube MCP (Composio): messages, channels, roles, webhooks, reactions.... |
 | [`django-security`](../../library/affaan-m-ecc/skills/django-security) | ⚪ Reserve | `affaan-m-ecc` | Django security best practices, authentication, authorization, CSRF protection, SQL injection p... |
 | [`dms-schema-conversion`](../../library/aws-agent-toolkit-for-aws/skills/dms-schema-conversion) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Handles the full DMS Schema Conversion lifecycle including creating migration projects, convert... |
+| [`docker-app-data-migration`](../../library/seaxen-skills-backup/skills/docker-app-data-migration) | ⚪ Reserve | `seaxen-skills-backup` | Use when moving a Dockerized app's persistent host data to another disk or mount point without ... |
 | [`docusign-automation`](../../library/antigravity-awesome-skills/skills/docusign-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate DocuSign tasks via Rube MCP (Composio): templates, envelopes, signatures, document man... |
 | [`drizzle-migration-conflict`](../../library/sickn33-agentic-awesome-skills/skills/drizzle-migration-conflict) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Diagnose, repair, and prevent Drizzle Kit migration conflicts involving generated SQL, snapshot... |
 | [`drizzle-orm-patterns`](../../library/giuseppe-trisciuoglio-developer-kit/skills/drizzle-orm-patterns) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides comprehensive Drizzle ORM patterns for schema definition, CRUD operations, relations, ... |
@@ -280,6 +282,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`neon-postgres-egress-optimizer`](../../library/neondatabase-agent-skills/skills/neon-postgres-egress-optimizer) | ⚪ Reserve | `neondatabase-agent-skills` | Diagnose and fix excessive Postgres egress (network data transfer) in a codebase. Use when a us... |
 | [`on-page-seo-checker`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/on-page-seo-checker) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "audit on-page SEO" or "diagnose why a single page dropped"; scores t... |
 | [`one-drive-automation`](../../library/antigravity-awesome-skills/skills/one-drive-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate OneDrive file management, search, uploads, downloads, sharing, permissions, and folder... |
+| [`openclaw-migration`](../../library/seaxen-skills-backup/skills/openclaw-migration) | ⚪ Reserve | `seaxen-skills-backup` | Import an OpenClaw setup (memories, skills) into Hermes. |
 | [`opentofu-migration`](../../library/sickn33-agentic-awesome-skills/skills/opentofu-migration) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Migrate from Terraform to OpenTofu with state compatibility, provider |
 | [`optimizing-ef-core-queries`](../../library/dotnet-skills/skills/optimizing-ef-core-queries) | ⚪ Reserve | `dotnet-skills` | Review and optimize application data access that uses Entity Framework Core (EF Core). Use for ... |
 | [`oracledb`](../../library/cline-skills/skills/oracledb) | ⚪ Reserve | `cline-skills` | Use these skills to manage and monitor Oracle databases by executing SQL statements, exploring ... |
