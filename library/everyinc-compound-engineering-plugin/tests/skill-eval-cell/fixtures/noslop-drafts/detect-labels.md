@@ -1,1 +1,0 @@
-This matters more than it sounds. The gateway serves as the entry point, and the billing service acts as the ledger for 12 regions. The demotion of the legacy queue is the change. As you can see, the migration of the data is the goal.

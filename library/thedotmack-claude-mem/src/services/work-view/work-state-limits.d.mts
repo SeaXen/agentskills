@@ -1,1 +1,0 @@
-export const MAX_WORK_STATE_FIELDS_JSON_CHARS: 2000;

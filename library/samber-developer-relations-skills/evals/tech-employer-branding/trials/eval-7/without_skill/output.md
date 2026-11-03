@@ -1,1 +1,0 @@
-Answer delivered above. Recorded the advice and the review-math reference in memory in case Fenwick comes up again.

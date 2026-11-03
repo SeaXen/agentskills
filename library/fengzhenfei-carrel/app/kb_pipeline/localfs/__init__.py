@@ -1,2 +1,0 @@
-"""Local mirror filesystem scanner."""
-

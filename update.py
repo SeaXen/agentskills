@@ -219,6 +219,7 @@ def find_global(query):
     print("=" * 75, flush=True)
 
 def clean_nested():
+    clean_unnecessary_library_files()
     nested_agents = os.path.join(agents_dir, '.agents')
     if os.path.exists(nested_agents):
         shutil.rmtree(nested_agents, onerror=remove_readonly)
@@ -342,28 +343,16 @@ def sync_all_upstreams(force=False):
             code, stdout, stderr = run_git_cmd(cmd, timeout=15)
 
             if code == 0 and os.path.exists(c_temp):
-                # Copy all files and directories of the repo into target_repo_dir (retain all files!)
-                for it in os.listdir(c_temp):
-                    if it == '.git': continue
-                    s_item = os.path.join(c_temp, it)
-                    d_item = os.path.join(target_repo_dir, it)
-                    if os.path.isdir(s_item):
-                        if it.lower() == 'skills':
-                            os.makedirs(d_item, exist_ok=True)
-                            for sk in os.listdir(s_item):
-                                sk_src = os.path.join(s_item, sk)
-                                sk_dst = os.path.join(d_item, sk)
-                                if os.path.exists(sk_dst): shutil.rmtree(sk_dst, onerror=remove_readonly)
-                                if os.path.isdir(sk_src): shutil.copytree(sk_src, sk_dst)
-                        else:
-                            if os.path.exists(d_item): shutil.rmtree(d_item, onerror=remove_readonly)
-                            shutil.copytree(s_item, d_item)
-                    else:
-                        shutil.copy2(s_item, d_item)
-
-                # Ensure any SKILL.md found in subdirectories are organized under target_repo_dir/skills/
                 target_skills_dir = os.path.join(target_repo_dir, 'skills')
                 os.makedirs(target_skills_dir, exist_ok=True)
+
+                # 1. Copy only README and LICENSE from repo root
+                for it in os.listdir(c_temp):
+                    lower = it.lower()
+                    if lower in ['readme.md', 'readme', 'readme.txt', 'readme.rst'] or lower.startswith('license'):
+                        shutil.copy2(os.path.join(c_temp, it), os.path.join(target_repo_dir, it))
+
+                # 2. Extract any SKILL.md found in subdirectories under target_repo_dir/skills/
                 for root, dirs, files in os.walk(c_temp):
                     dirs[:] = [d for d in dirs if not d.startswith('.')]
                     if 'SKILL.md' in files:
@@ -376,6 +365,17 @@ def sync_all_upstreams(force=False):
                                 s_name = f"{parent}-{s_name}"
                                 s_dst = os.path.join(target_skills_dir, s_name)
                         if not os.path.exists(s_dst): shutil.copytree(root, s_dst)
+
+                # 3. Automatically purge all unnecessary files (monorepos, packages, lockfiles, CI configs)
+                for item in os.listdir(target_repo_dir):
+                    lower = item.lower()
+                    if lower in ['skills', 'skills_index.json', '.upstream_commit'] or lower in ['readme.md', 'readme', 'readme.txt', 'readme.rst'] or lower.startswith('license'):
+                        continue
+                    ip = os.path.join(target_repo_dir, item)
+                    if os.path.isdir(ip): shutil.rmtree(ip, onerror=remove_readonly)
+                    else:
+                        try: os.remove(ip)
+                        except Exception: pass
 
                 if remote_commit:
                     with open(commit_file, 'w', encoding='utf-8') as cf:
@@ -446,6 +446,30 @@ def sync_active_skills():
         print("✓ Active workspace skills are already up to date.", flush=True)
 
 # 3. Incremental Indexing for all library repositories and Master Index
+# Clean Unnecessary Non-Skill Files
+def clean_unnecessary_library_files(lib_path=None):
+    target_lib = lib_path or library_dir
+    if not os.path.exists(target_lib):
+        return 0
+    keep_exact = {'skills', 'skills_index.json', '.upstream_commit'}
+    removed_count = 0
+    for r in os.listdir(target_lib):
+        rp = os.path.join(target_lib, r)
+        if not os.path.isdir(rp) or r.startswith('.') or r == '__pycache__':
+            continue
+        for item in os.listdir(rp):
+            lower = item.lower()
+            if lower in keep_exact or lower in ['readme.md', 'readme', 'readme.txt', 'readme.rst'] or lower.startswith('license'):
+                continue
+            ip = os.path.join(rp, item)
+            if os.path.isdir(ip):
+                shutil.rmtree(ip, onerror=remove_readonly)
+            else:
+                try: os.remove(ip)
+                except Exception: pass
+            removed_count += 1
+    return removed_count
+
 def rebuild_all_indexes(updated_repo_ids=None, force=False):
     print("\n[3/6] Re-indexing skills_index.json across all repositories and Master Index...", flush=True)
     if not os.path.exists(library_dir):

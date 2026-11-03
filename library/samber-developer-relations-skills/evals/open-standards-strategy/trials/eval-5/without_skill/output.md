@@ -1,1 +1,0 @@
-Delivered the plan above. I also saved a project memory noting the core diagnosis (rewrite/switching-cost is the real blocker, not feature count) in case this comes back in a future session.

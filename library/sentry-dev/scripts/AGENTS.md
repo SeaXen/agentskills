@@ -1,1 +1,0 @@
-../lib/AGENTS.md

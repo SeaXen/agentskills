@@ -1,9 +1,0 @@
-{
-  "applications": {<% targetAppSemanticObjects.forEach((targetAppSemanticObject, index) => { %>
-    "<%= targetAppSemanticObject %>": {
-      "additionalInformation": "SAPUI5.Component=<%= targetAppComponent %>",
-      "applicationType": "URL",
-      "url": "../resources/<%= targetAppComponent %>"
-    }<% if (targetAppSemanticObjects.length > 1 && index !== targetAppSemanticObjects.length - 1) { %>,<% } %><% }); %>
-  }
-}
