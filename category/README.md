@@ -22,7 +22,7 @@
 | **[`prompt-llm-engineering`](./prompt-llm-engineering)** | 💬 Prompt Engineering, LLMs & RAG | **509** | [Open Catalog](./prompt-llm-engineering/README.md) |
 | **[`git-version-control`](./git-version-control)** | 🐙 Git, Worktrees & PR Workflows | **508** | [Open Catalog](./git-version-control/README.md) |
 | **[`database-sql-relational`](./database-sql-relational)** | 🗄️ SQL Databases, ORMs & Indexing | **457** | [Open Catalog](./database-sql-relational/README.md) |
-| **[`terminal-system-tools`](./terminal-system-tools)** | 💻 Terminal, Shell & System Automation | **426** | [Open Catalog](./terminal-system-tools/README.md) |
+| **[`terminal-system-tools`](./terminal-system-tools)** | 💻 Terminal, Shell & System Automation | **425** | [Open Catalog](./terminal-system-tools/README.md) |
 | **[`security-vulnerability-audit`](./security-vulnerability-audit)** | 🛡️ Vulnerability Auditing & Pentesting | **405** | [Open Catalog](./security-vulnerability-audit/README.md) |
 | **[`security-compliance-auth`](./security-compliance-auth)** | 🔒 Auth, Hardening & Compliance | **396** | [Open Catalog](./security-compliance-auth/README.md) |
 | **[`programming-languages-core`](./programming-languages-core)** | 📐 Programming Languages & Type Systems | **373** | [Open Catalog](./programming-languages-core/README.md) |
@@ -31,7 +31,7 @@
 | **[`mobile-ios-android`](./mobile-ios-android)** | 📱 Mobile Development (iOS, Android, React Native) | **260** | [Open Catalog](./mobile-ios-android/README.md) |
 | **[`business-finance-accounting`](./business-finance-accounting)** | 💰 Financial Modeling, Tax & Accounting | **260** | [Open Catalog](./business-finance-accounting/README.md) |
 | **[`academic-writing-publishing`](./academic-writing-publishing)** | 📚 Academic Writing, Research & Literature | **248** | [Open Catalog](./academic-writing-publishing/README.md) |
-| **[`frontend-motion-animation`](./frontend-motion-animation)** | ✨ UI Motion, Animations & Polish | **241** | [Open Catalog](./frontend-motion-animation/README.md) |
+| **[`frontend-motion-animation`](./frontend-motion-animation)** | ✨ UI Motion, Animations & Polish | **242** | [Open Catalog](./frontend-motion-animation/README.md) |
 | **[`algorithms-logic`](./algorithms-logic)** | 🧮 Algorithms, Logic & Math | **231** | [Open Catalog](./algorithms-logic/README.md) |
 | **[`video-motion-production`](./video-motion-production)** | 🎬 Video Creation & Generative Motion | **198** | [Open Catalog](./video-motion-production/README.md) |
 | **[`audio-voice-sound`](./audio-voice-sound)** | 🎙️ Audio, Voice Cloning & Sound Design | **192** | [Open Catalog](./audio-voice-sound/README.md) |

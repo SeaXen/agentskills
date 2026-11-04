@@ -415,57 +415,81 @@ def sync_all_upstreams(force=False):
 # 2. Sync Active Skills
 def sync_active_skills(updated_repo_ids=None):
     print("\n[2/6] Synchronizing active workspace skills (.agents/skills)...", flush=True)
-    if not os.path.exists(skills_dir) or not os.path.exists(library_dir):
+    if not updated_repo_ids:
+        print("✓ Active workspace skills are protected and up to date (no upstream repo changes).", flush=True)
         return
 
-    # Load lockfile to respect authoritative sources and protect active customizations
-    lock_file = os.path.join(repo_root, "skills-lock.json")
-    locked_skills = {}
-    if os.path.exists(lock_file):
+    workspaces = [
+        ("Vault (.agents)", agents_dir),
+        ("Managment (.agents)", r"D:\Gravity\Managment\.agents")
+    ]
+
+    updated_set = set(updated_repo_ids or [])
+    lib_repo_list = sorted([
+        d for d in os.listdir(library_dir)
+        if os.path.isdir(os.path.join(library_dir, d)) and not d.startswith(".") and d != "__pycache__"
+    ])
+
+    total_synced = 0
+
+    for ws_name, ws_path in workspaces:
+        s_dir = os.path.join(ws_path, "skills")
+        lock_file = os.path.join(ws_path, "skills-lock.json")
+        if not os.path.exists(s_dir) or not os.path.exists(lock_file):
+            continue
+
         try:
             with open(lock_file, "r", encoding="utf-8") as lf:
                 locked_skills = json.load(lf).get("skills", {})
         except Exception:
-            pass
-
-    updated = 0
-    active_skills = [d for d in os.listdir(skills_dir) if os.path.isdir(os.path.join(skills_dir, d)) and not d.startswith('.')]
-    updated_set = set(updated_repo_ids or [])
-
-    for s_name in active_skills:
-        meta = locked_skills.get(s_name, {})
-        source = meta.get("source", "")
-        # Protect local-library or unmanaged active skills from arbitrary overwrites
-        if not source or source == "./local-library":
             continue
 
-        # Map source to library folder (e.g., pbakaus/impeccable -> pbakaus-impeccable)
-        expected_repo = source.replace("/", "-").lower()
-        matched_repo_dir = None
-        for rf in os.listdir(library_dir):
-            if rf.lower() == expected_repo:
-                matched_repo_dir = rf
-                break
+        active_skills = [
+            d for d in os.listdir(s_dir)
+            if os.path.isdir(os.path.join(s_dir, d)) and not d.startswith(".")
+        ]
 
-        if not matched_repo_dir:
-            continue
+        ws_updated = 0
+        for s_name in active_skills:
+            meta = locked_skills.get(s_name, {})
+            source = meta.get("source", "")
 
-        # Only sync if the authoritative upstream repo actually received a new commit in this run
-        if updated_repo_ids is not None and matched_repo_dir not in updated_set:
-            continue
+            # STRICT SAFETY GUARD:
+            # 1. Never overwrite local-library or Antigravity Kit custom skills
+            if not source or source in ["./local-library", "Antigravity Kit (Local Workspace)"]:
+                continue
 
-        src = os.path.join(library_dir, matched_repo_dir, "skills", s_name)
-        if os.path.exists(src):
-            dst = os.path.join(skills_dir, s_name)
-            # Sync cleanly from its exact authoritative source
-            if os.path.exists(dst):
-                shutil.rmtree(dst, onerror=remove_readonly)
-            shutil.copytree(src, dst)
-            updated += 1
-            print(f"  ✓ Updated active skill: {s_name} from authoritative source ({matched_repo_dir})", flush=True)
+            # 2. Match exact external repository from lockfile (e.g. pbakaus/impeccable -> pbakaus-impeccable)
+            expected_slug = source.replace("/", "-").lower()
+            matched_repo = None
+            for rf in lib_repo_list:
+                if rf.lower() == expected_slug:
+                    matched_repo = rf
+                    break
 
-    if updated > 0:
-        print(f"✓ Synchronized {updated} active skills from their authoritative upstreams.", flush=True)
+            if not matched_repo:
+                continue
+
+            # 3. ONLY update if this exact authoritative upstream repo received a real commit in this run
+            if matched_repo not in updated_set:
+                continue
+
+            src = os.path.join(library_dir, matched_repo, "skills", s_name)
+            dst = os.path.join(s_dir, s_name)
+
+            if os.path.exists(src):
+                if os.path.exists(dst):
+                    shutil.rmtree(dst, onerror=remove_readonly)
+                shutil.copytree(src, dst)
+                ws_updated += 1
+                total_synced += 1
+                print(f"  ✓ {ws_name}: Updated active skill '{s_name}' from fresh upstream commit in {matched_repo}", flush=True)
+
+        if ws_updated > 0:
+            print(f"  ✓ {ws_name}: Synchronized {ws_updated} active skills from updated upstream commits.", flush=True)
+
+    if total_synced > 0:
+        print(f"✓ Total {total_synced} active skills synchronized across workspaces.", flush=True)
     else:
         print("✓ Active workspace skills are protected and up to date.", flush=True)
 

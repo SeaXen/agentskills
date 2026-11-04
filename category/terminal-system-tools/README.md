@@ -1,7 +1,7 @@
 # 💻 Terminal, Shell & System Automation
 
 > **Category**: `terminal-system-tools`  
-> **Total Curated Skills**: 426 skills  
+> **Total Curated Skills**: 425 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -248,7 +248,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`hyperliquid-alt`](../../library/seaxen-skills-backup/skills/hyperliquid-alt) | ⚪ Reserve | `seaxen-skills-backup` | Read-only Hyperliquid market data assistant (perps + spot optional) with support for natural-la... |
 | [`hyperliquid-leaderboard-analytics`](../../library/reason-machines-data-skills/skills/hyperliquid-leaderboard-analytics) | ⚪ Reserve | `reason-machines-data-skills` | Terminal analytics dashboard for tracking Hyperliquid DEX top traders by PnL, ROI, and performa... |
 | [`ide-extension-offering`](../../library/samber-developer-platform-skills/skills/ide-extension-offering) | ⚪ Reserve | `samber-developer-platform-skills` | Decides whether a developer platform should ship an official IDE extension (VS Code, JetBrains)... |
-| [`impeccable`](../../skills/impeccable) | 🟢 Active | `active` | Use when the user wants frontend/UI critique or polish inspired by Impeccable, but using a safe... |
 | [`implementing-data-loss-prevention-with-microsoft-purview`](../../library/mukul975-anthropic-cybersecurity-skills/skills/implementing-data-loss-prevention-with-microsoft-purview) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Implements DLP policies using Microsoft Purview PowerShell cmdlets and |
 | [`implementing-file-integrity-monitoring-with-aide`](../../library/mukul975-anthropic-cybersecurity-skills/skills/implementing-file-integrity-monitoring-with-aide) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Configures AIDE (Advanced Intrusion Detection Environment) for file integrity monitoring on Lin... |
 | [`implementing-gcp-vpc-firewall-rules`](../../library/mukul975-anthropic-cybersecurity-skills/skills/implementing-gcp-vpc-firewall-rules) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Implements and audits GCP VPC firewall rules using gcloud, covering auditing overly permissive ... |

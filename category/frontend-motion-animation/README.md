@@ -1,7 +1,7 @@
 # ✨ UI Motion, Animations & Polish
 
 > **Category**: `frontend-motion-animation`  
-> **Total Curated Skills**: 241 skills  
+> **Total Curated Skills**: 242 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -133,6 +133,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`hyperframes-video-beats`](../../library/nateherkai-herk-edit-kit/skills/hyperframes-video-beats) | ⚪ Reserve | `nateherkai-herk-edit-kit` | Plan, write, time, style, and validate motion-graphic beats for long-form talking-head HyperFra... |
 | [`image-to-video`](../../library/101-skills-superpowers/skills/image-to-video) | ⚪ Reserve | `101-skills-superpowers` | Still-to-video conversion guide: model selection, motion prompting, and camera movement. Covers... |
 | [`immersive`](../../library/bergside-awesome-design-skills/skills/immersive) | ⚪ Reserve | `bergside-awesome-design-skills` | An immersive, interactive, exhibit-style interface that blends storytelling, animation, and gam... |
+| [`impeccable`](../../skills/impeccable) | 🟢 Active | `active` | Use when the user wants to design, redesign, shape, critique, audit, polish, simplify, harden, ... |
 | [`improve-animations`](../../library/emilkowalski-skills/skills/improve-animations) | ⚪ Reserve | `emilkowalski-skills` | Survey a codebase's animation and motion code as a senior motion advisor, then produce a priori... |
 | [`interaction-design`](../../library/aj-geddes-useful-ai-prompts/skills/interaction-design) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Design meaningful interactions and microinteractions. Create delightful user experiences throug... |
 | [`interfaces-that-feel`](../../library/owl-listener-designer-skills/skills/interfaces-that-feel) | ⚪ Reserve | `owl-listener-designer-skills` | Apply an emotional resonance lens to a UI that is technically correct but flat, prescribing cha... |
