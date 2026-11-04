@@ -413,37 +413,61 @@ def sync_all_upstreams(force=False):
     return updated_ids
 
 # 2. Sync Active Skills
-def sync_active_skills():
+def sync_active_skills(updated_repo_ids=None):
     print("\n[2/6] Synchronizing active workspace skills (.agents/skills)...", flush=True)
     if not os.path.exists(skills_dir) or not os.path.exists(library_dir):
         return
 
+    # Load lockfile to respect authoritative sources and protect active customizations
+    lock_file = os.path.join(repo_root, "skills-lock.json")
+    locked_skills = {}
+    if os.path.exists(lock_file):
+        try:
+            with open(lock_file, "r", encoding="utf-8") as lf:
+                locked_skills = json.load(lf).get("skills", {})
+        except Exception:
+            pass
+
     updated = 0
     active_skills = [d for d in os.listdir(skills_dir) if os.path.isdir(os.path.join(skills_dir, d)) and not d.startswith('.')]
-    
-    lib_skills = {}
-    for repo_f in os.listdir(library_dir):
-        r_path = os.path.join(library_dir, repo_f, 'skills')
-        if os.path.isdir(r_path):
-            for s in os.listdir(r_path):
-                lib_skills[s] = os.path.join(r_path, s)
+    updated_set = set(updated_repo_ids or [])
 
     for s_name in active_skills:
-        if s_name in lib_skills:
-            src = lib_skills[s_name]
+        meta = locked_skills.get(s_name, {})
+        source = meta.get("source", "")
+        # Protect local-library or unmanaged active skills from arbitrary overwrites
+        if not source or source == "./local-library":
+            continue
+
+        # Map source to library folder (e.g., pbakaus/impeccable -> pbakaus-impeccable)
+        expected_repo = source.replace("/", "-").lower()
+        matched_repo_dir = None
+        for rf in os.listdir(library_dir):
+            if rf.lower() == expected_repo:
+                matched_repo_dir = rf
+                break
+
+        if not matched_repo_dir:
+            continue
+
+        # Only sync if the authoritative upstream repo actually received a new commit in this run
+        if updated_repo_ids is not None and matched_repo_dir not in updated_set:
+            continue
+
+        src = os.path.join(library_dir, matched_repo_dir, "skills", s_name)
+        if os.path.exists(src):
             dst = os.path.join(skills_dir, s_name)
-            src_md = os.path.join(src, 'SKILL.md')
-            dst_md = os.path.join(dst, 'SKILL.md')
-            if os.path.exists(src_md) and os.path.exists(dst_md):
-                if os.path.getmtime(src_md) > os.path.getmtime(dst_md):
-                    shutil.rmtree(dst, onerror=remove_readonly)
-                    shutil.copytree(src, dst)
-                    updated += 1
+            # Sync cleanly from its exact authoritative source
+            if os.path.exists(dst):
+                shutil.rmtree(dst, onerror=remove_readonly)
+            shutil.copytree(src, dst)
+            updated += 1
+            print(f"  ✓ Updated active skill: {s_name} from authoritative source ({matched_repo_dir})", flush=True)
 
     if updated > 0:
-        print(f"✓ Synchronized {updated} active skills from upstream library reserves.", flush=True)
+        print(f"✓ Synchronized {updated} active skills from their authoritative upstreams.", flush=True)
     else:
-        print("✓ Active workspace skills are already up to date.", flush=True)
+        print("✓ Active workspace skills are protected and up to date.", flush=True)
 
 # 3. Incremental Indexing for all library repositories and Master Index
 # Clean Unnecessary Non-Skill Files
@@ -877,7 +901,7 @@ if __name__ == '__main__':
     updated_repos = sync_all_upstreams(force=force_run) or []
     has_changes = len(updated_repos) > 0 or force_run
 
-    sync_active_skills()
+    sync_active_skills(updated_ids)
     rebuild_all_indexes(updated_repo_ids=updated_repos, force=force_run)
     sync_lockfiles()
     deploy_run = '--deploy' in args
