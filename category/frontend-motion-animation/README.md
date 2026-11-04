@@ -1,7 +1,7 @@
 # ✨ UI Motion, Animations & Polish
 
 > **Category**: `frontend-motion-animation`  
-> **Total Curated Skills**: 240 skills  
+> **Total Curated Skills**: 241 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -77,6 +77,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cut-mistakes`](../../library/nateherkai-herk-edit-kit/skills/cut-mistakes) | ⚪ Reserve | `nateherkai-herk-edit-kit` | Agent 2 of the video editing pipeline. Finds and removes spoken mistakes — stutters, repeated w... |
 | [`cut-silences`](../../library/nateherkai-herk-edit-kit/skills/cut-silences) | ⚪ Reserve | `nateherkai-herk-edit-kit` | Agent 1 of the video editing pipeline. Removes silences and dead air from a talking-head record... |
 | [`daily-ui-inspiration-capture`](../../library/mengto-skills/skills/daily-ui-inspiration-capture) | ⚪ Reserve | `mengto-skills` | Create a recurring daily UI inspiration capture. Use when the user asks to run, refresh, packag... |
+| [`design-motion`](../../library/garrytan-gstack/skills/design-motion) | ⚪ Reserve | `garrytan-gstack` | Design motion: animate an approved design into a seamless MP4 and GIF loop. (gstack) |
 | [`design-taste-frontend`](../../library/sickn33-agentic-awesome-skills/skills/design-taste-frontend) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use when building high-agency frontend interfaces with strict design taste, calibrated color, r... |
 | [`developer-first-gtm`](../../library/samber-developer-relations-skills/skills/developer-first-gtm) | ⚪ Reserve | `samber-developer-relations-skills` | Designs the go-to-market motion for a developer-facing product - bottom-up self-serve adoption,... |
 | [`devrel-competitor-analysis`](../../library/samber-developer-relations-skills/skills/devrel-competitor-analysis) | ⚪ Reserve | `samber-developer-relations-skills` | Benchmarks a competitor's developer relations motion from publicly observable signals - documen... |
@@ -132,7 +133,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`hyperframes-video-beats`](../../library/nateherkai-herk-edit-kit/skills/hyperframes-video-beats) | ⚪ Reserve | `nateherkai-herk-edit-kit` | Plan, write, time, style, and validate motion-graphic beats for long-form talking-head HyperFra... |
 | [`image-to-video`](../../library/101-skills-superpowers/skills/image-to-video) | ⚪ Reserve | `101-skills-superpowers` | Still-to-video conversion guide: model selection, motion prompting, and camera movement. Covers... |
 | [`immersive`](../../library/bergside-awesome-design-skills/skills/immersive) | ⚪ Reserve | `bergside-awesome-design-skills` | An immersive, interactive, exhibit-style interface that blends storytelling, animation, and gam... |
-| [`impeccable`](../../skills/impeccable) | 🟢 Active | `active` | Use when the user wants to design, redesign, shape, critique, audit, polish, simplify, harden, ... |
 | [`improve-animations`](../../library/emilkowalski-skills/skills/improve-animations) | ⚪ Reserve | `emilkowalski-skills` | Survey a codebase's animation and motion code as a senior motion advisor, then produce a priori... |
 | [`interaction-design`](../../library/aj-geddes-useful-ai-prompts/skills/interaction-design) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Design meaningful interactions and microinteractions. Create delightful user experiences throug... |
 | [`interfaces-that-feel`](../../library/owl-listener-designer-skills/skills/interfaces-that-feel) | ⚪ Reserve | `owl-listener-designer-skills` | Apply an emotional resonance lens to a UI that is technically correct but flat, prescribing cha... |
@@ -215,6 +215,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`short-form-edit`](../../library/nateherkai-herk-edit-kit/skills/short-form-edit) | ⚪ Reserve | `nateherkai-herk-edit-kit` | Turn talking-head footage into a finished reel, YouTube Short, or short advertisement with curi... |
 | [`short-form-video`](../../library/nateherkai-herk-edit-kit/skills/short-form-video) | ⚪ Reserve | `nateherkai-herk-edit-kit` | Maintain the existing May Shorts teaching compositions using their legacy face-mode, scene-over... |
 | [`showcase-video`](../../library/rehan-remade-universal-modder/skills/showcase-video) | ⚪ Reserve | `rehan-remade-universal-modder` | Record and cut a short showcase video of a game mod, or a compilation of clips, ready to post o... |
+| [`skills-firecrawl-interact`](../../library/firecrawl-cli/skills/skills-firecrawl-interact) | ⚪ Reserve | `firecrawl-cli` | Drive a live browser on a scraped page: click, fill forms, log in, paginate, infinite-scroll. U... |
 | [`slack-gif-creator`](../../library/anthropics-official-skills/skills/slack-gif-creator) | ⚪ Reserve | `anthropics-official-skills` | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, v... |
 | [`sound-effects`](../../library/barty-bart-motion-graphics/skills/sound-effects) | ⚪ Reserve | `barty-bart-motion-graphics` | Add a measured sound pass to a motion-graphics video made with Claude Code (HyperFrames, Remoti... |
 | [`stitch-design-taste`](../../library/sickn33-agentic-awesome-skills/skills/stitch-design-taste) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use when generating Google Stitch DESIGN.md systems for premium typography, color, layout, moti... |

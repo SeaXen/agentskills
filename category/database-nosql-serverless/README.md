@@ -1,7 +1,7 @@
 # ⚡ NoSQL, Serverless & Vector DBs
 
 > **Category**: `database-nosql-serverless`  
-> **Total Curated Skills**: 107 skills  
+> **Total Curated Skills**: 123 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -41,6 +41,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cdf-augmentation`](../../library/nvidia-skills/skills/cdf-augmentation) | ⚪ Reserve | `nvidia-skills` | Use when authoring or validating Cosmos Data Factory (CDF) augmentation YAML configs, or runnin... |
 | [`cdf-curation-and-retrieval`](../../library/nvidia-skills/skills/cdf-curation-and-retrieval) | ⚪ Reserve | `nvidia-skills` | NVIDIA CDF curation and retrieval. Cosmos Curator video and image pipelines (split, dedup, shar... |
 | [`chunking-strategy`](../../library/giuseppe-trisciuoglio-developer-kit/skills/chunking-strategy) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides chunking strategies for RAG systems. Generates chunk size recommendations (256-1024 to... |
+| [`cloud-firebase-basics`](../../library/google-skills/skills/cloud-firebase-basics) | ⚪ Reserve | `google-skills` | Provides foundational Firebase CLI setup, CLI installation, version checks (`firebase-tools@lat... |
 | [`cosmos-vulnerability-scanner`](../../library/trailofbits-skills/skills/cosmos-vulnerability-scanner) | ⚪ Reserve | `trailofbits-skills` | Scans Cosmos SDK blockchain modules and CosmWasm contracts for consensus-critical vulnerabiliti... |
 | [`cosmosdb-best-practices`](../../library/cline-skills/skills/cosmosdb-best-practices) | ⚪ Reserve | `cline-skills` | Azure Cosmos DB performance optimization and best practices guidelines for NoSQL, partitioning,... |
 | [`cost-analysis`](../../library/microsoft-azure-skills/skills/cost-analysis) | ⚪ Reserve | `microsoft-azure-skills` | Analyze actual Azure spend, bill changes, and AKS or AI costs. WHEN: \"Azure cost breakdown\", ... |
@@ -101,8 +102,23 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`redis-labs`](../../library/membranedev-application-skills/skills/redis-labs) | ⚪ Reserve | `membranedev-application-skills` | Redis Labs integration. Manage data, records, and automate workflows. Use when the user wants t... |
 | [`redis-patterns`](../../library/affaan-m-ecc/skills/redis-patterns) | ⚪ Reserve | `affaan-m-ecc` | Redis data structure patterns, caching strategies, distributed locks, rate limiting, pub/sub, a... |
 | [`rvf-manage`](../../library/ruvnet-ruflo/skills/rvf-manage) | ⚪ Reserve | `ruvnet-ruflo` | Manage RVF (Ruflo Vector Format) files for portable agent memory and cross-platform transfer |
+| [`setup-gbrain`](../../library/garrytan-gstack/skills/setup-gbrain) | ⚪ Reserve | `garrytan-gstack` | Set up gbrain for this coding agent: install the CLI, initialize a local PGLite or Supabase bra... |
 | [`shopify-firebase-app`](../../library/sickn33-agentic-awesome-skills/skills/shopify-firebase-app) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Scaffold, extend and deploy Shopify embedded apps on Firebase with Nitrogen. Use for a Shopify ... |
 | [`similarity-search-patterns`](../../library/antigravity-awesome-skills/skills/similarity-search-patterns) | ⚪ Reserve | `antigravity-awesome-skills` | Implement efficient similarity search with vector databases. Use when building semantic search,... |
+| [`skills-azure-ai`](../../library/microsoft-azure-skills/skills/skills-azure-ai) | ⚪ Reserve | `microsoft-azure-skills` | Use for Azure AI: Search, Speech, OpenAI, Document Intelligence. Helps with search, vector/hybr... |
+| [`skills-caching`](../../library/codewithmukesh-dotnet-claude-kit/skills/skills-caching) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Caching strategies for .NET 10 applications. Covers HybridCache (the default), output caching, ... |
+| [`skills-extension-to-functions-codebase`](../../library/firebase-agent-skills/skills/skills-extension-to-functions-codebase) | ⚪ Reserve | `firebase-agent-skills` | Skill for converting an installed Firebase Extension (or extension source) into a standalone Cl... |
+| [`skills-firebase-analytics`](../../library/firebase-agent-skills/skills/skills-firebase-analytics) | ⚪ Reserve | `firebase-agent-skills` | Comprehensive guide for Google Analytics for Firebase (GA4F), including base setup, SDK initial... |
+| [`skills-firebase-auth-basics`](../../library/firebase-agent-skills/skills/skills-firebase-auth-basics) | ⚪ Reserve | `firebase-agent-skills` | Guide for setting up and using Firebase Authentication. Use this skill when the user's app requ... |
+| [`skills-firebase-basics`](../../library/firebase-agent-skills/skills/skills-firebase-basics) | ⚪ Reserve | `firebase-agent-skills` | Provides foundational Firebase CLI setup, CLI installation, version checks (`firebase-tools@lat... |
+| [`skills-firebase-crashlytics`](../../library/firebase-agent-skills/skills/skills-firebase-crashlytics) | ⚪ Reserve | `firebase-agent-skills` | Comprehensive guide for Firebase Crashlytics, including provisioning and SDK usage. Use this sk... |
+| [`skills-firebase-firestore`](../../library/firebase-agent-skills/skills/skills-firebase-firestore) | ⚪ Reserve | `firebase-agent-skills` | Sets up, manages, queries, and configures Cloud Firestore databases (Standard/Enterprise editio... |
+| [`skills-firebase-hosting-basics`](../../library/firebase-agent-skills/skills/skills-firebase-hosting-basics) | ⚪ Reserve | `firebase-agent-skills` | Deploys and configures classic Firebase Hosting for static websites, single-page apps (SPAs), a... |
+| [`skills-firebase-remote-config-basics`](../../library/firebase-agent-skills/skills/skills-firebase-remote-config-basics) | ⚪ Reserve | `firebase-agent-skills` | Manages Firebase Remote Config templates, feature flags, loading strategies, and SDKs (Android,... |
+| [`skills-firebase-security-rules-auditor`](../../library/firebase-agent-skills/skills/skills-firebase-security-rules-auditor) | ⚪ Reserve | `firebase-agent-skills` | Audits Firebase (Firestore, Cloud Storage) security rules for vulnerabilities, privilege escala... |
+| [`skills-firestore-rules-creation`](../../library/firebase-agent-skills/skills/skills-firestore-rules-creation) | ⚪ Reserve | `firebase-agent-skills` | Designs, authors, refactors, and hardens production-grade Cloud Firestore Security Rules (fires... |
+| [`skills-mirrord-header-propagation`](../../library/metalbear-co-mirrord/skills/skills-mirrord-header-propagation) | ⚪ Reserve | `metalbear-co-mirrord` | Makes a codebase propagate W3C baggage (the `baggage` header carrying `mirrord-session=<key>`) ... |
+| [`skills-xcode-project-setup`](../../library/firebase-agent-skills/skills/skills-xcode-project-setup) | ⚪ Reserve | `firebase-agent-skills` | Safely modifies Xcode projects (.pbxproj) to add Swift Packages and link files. Use this skill ... |
 | [`spring-boot-cache`](../../library/giuseppe-trisciuoglio-developer-kit/skills/spring-boot-cache) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides patterns for implementing Spring Boot caching: configures Redis/Caffeine/EhCache provi... |
 | [`supabase`](../../library/membranedev-application-skills/skills/supabase) | ⚪ Reserve | `membranedev-application-skills` | Supabase integration. Manage data, records, and automate workflows. Use when the user wants to ... |
 | [`supabase-development`](../../library/mindrally-skills/skills/supabase-development) | ⚪ Reserve | `mindrally-skills` | Supabase development guidelines for database, authentication, real-time subscriptions, and Edge... |

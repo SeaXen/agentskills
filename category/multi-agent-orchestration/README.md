@@ -1,7 +1,7 @@
 # 🤖 Multi-Agent Systems & Swarms
 
 > **Category**: `multi-agent-orchestration`  
-> **Total Curated Skills**: 29 skills  
+> **Total Curated Skills**: 35 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -41,7 +41,13 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`rebelytics-one-skill-to-rule-them-all`](../../library/rebelytics-one-skill-to-rule-them-all/skills/rebelytics-one-skill-to-rule-them-all) | ⚪ Reserve | `rebelytics-one-skill-to-rule-them-all` | Monitors task execution for skill improvement opportunities: logs patterns, user corrections an... |
 | [`review-loop`](../../library/2dmurali-review-loop-skill/skills/review-loop) | ⚪ Reserve | `2dmurali-review-loop-skill` | Iterative worker-reviewer cycle that spawns a critic subagent to score work 1-10 and provide ac... |
 | [`ruos-host-run`](../../library/ruvnet-ruflo/skills/ruos-host-run) | ⚪ Reserve | `ruvnet-ruflo` | Run a ruflo swarm agent on the user's own ruOS cloud desktop through the fleet MCP, stream its ... |
+| [`skill-data-agentcore`](../../library/vercel-labs-agent-browser/skills/skill-data-agentcore) | ⚪ Reserve | `vercel-labs-agent-browser` | Run agent-browser on AWS Bedrock AgentCore cloud browsers. Use when the user wants to use Agent... |
+| [`skill-data-electron`](../../library/vercel-labs-agent-browser/skills/skill-data-electron) | ⚪ Reserve | `vercel-labs-agent-browser` | Automate Electron desktop apps (VS Code, Slack, Discord, Figma, Notion, Spotify, etc.) using ag... |
 | [`skill-stocktake`](../../library/affaan-m-ecc/skills/skill-stocktake) | ⚪ Reserve | `affaan-m-ecc` | Use when auditing Claude skills and commands for quality. Supports Quick Scan (changed skills o... |
+| [`skills-agent-development`](../../library/anthropics-claude-plugins-official/skills/skills-agent-development) | ⚪ Reserve | `anthropics-claude-plugins-official` | This skill should be used when the user asks to "create an agent", "add an agent", "write a sub... |
+| [`skills-dispatching-parallel-agents`](../../library/obra-superpowers/skills/skills-dispatching-parallel-agents) | ⚪ Reserve | `obra-superpowers` | Use when facing 2+ independent tasks that can be worked on without shared state or sequential d... |
+| [`skills-executing-plans`](../../library/obra-superpowers/skills/skills-executing-plans) | ⚪ Reserve | `obra-superpowers` | Use when executing an implementation plan in the current session as the implementer yourself — ... |
+| [`skills-subagent-driven-development`](../../library/obra-superpowers/skills/skills-subagent-driven-development) | ⚪ Reserve | `obra-superpowers` | Use when executing implementation plans with independent tasks in the current session |
 | [`slfg`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/slfg) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Full autonomous research workflow using swarm mode for parallel execution |
 | [`slicing-code-context`](../../library/trailofbits-skills/skills/slicing-code-context) | ⚪ Reserve | `trailofbits-skills` | Selects bounded, graph-informed source slices with Trailmark and delegates focused code analysi... |
 | [`subagent-driven-development`](../../skills/subagent-driven-development) | 🟢 Active | `active` | Use when executing implementation plans with independent tasks in the current session |

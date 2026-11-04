@@ -1,7 +1,7 @@
 # 📚 Academic Writing, Research & Literature
 
 > **Category**: `academic-writing-publishing`  
-> **Total Curated Skills**: 238 skills  
+> **Total Curated Skills**: 248 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -105,6 +105,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`econ_intro_writing`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/econ_intro_writing) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Guide for writing the introduction to an academic economics paper. Use this skill whenever the ... |
 | [`elegant-paper-template`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/elegant-paper-template) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Beautiful LaTeX template for working papers and technical reports |
 | [`env-and-assets-bootstrap`](../../library/lllllllama-rigorpilot-skills/skills/env-and-assets-bootstrap) | ⚪ Reserve | `lllllllama-rigorpilot-skills` | Rigor Setup skill for README-first deep learning repo reproduction. Use when the task is specif... |
+| [`evaluate-domain-authority-auditor`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/evaluate-domain-authority-auditor) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when auditing domain authority, trust, or citation credibility; runs a peer-relative 40-ite... |
 | [`evaluating-paper-relevance`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/evaluating-paper-relevance) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Two-stage paper screening - abstract scoring then deep dive for specific data extraction |
 | [`execute-plan`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/execute-plan) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Use when a research implementation plan exists in docs/superpapers/plans/ and the user is ready... |
 | [`findpapers-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/findpapers-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Search multiple academic databases simultaneously with Findpapers |
@@ -119,6 +120,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`huggingface-paper-publisher`](../../library/huggingface-skills/skills/huggingface-paper-publisher) | ⚪ Reserve | `huggingface-skills` | Publish and manage research papers on Hugging Face Hub. Supports creating paper pages, linking ... |
 | [`hypogenic`](../../library/davila7-claude-code-templates/skills/hypogenic) | ⚪ Reserve | `davila7-claude-code-templates` | Automated hypothesis generation and testing using large language models. Use this skill when ge... |
 | [`i1`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/i1) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Paper Retrieval Agent - Multi-database paper fetching from Semantic Scholar, OpenAlex, arXiv Ha... |
+| [`implement-content-writer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/implement-content-writer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "write SEO content", "draft a blog post / landing page", "update outd... |
 | [`institutional-repository-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/institutional-repository-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Access papers from institutional and subject repositories at scale |
 | [`interlibrary-loan-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/interlibrary-loan-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Access papers through interlibrary loan and document delivery services |
 | [`introduction-writing-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/introduction-writing-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Guide to writing effective research paper introductions |
@@ -227,6 +229,13 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`seo-directory-backlinks`](../../library/sickn33-agentic-awesome-skills/skills/seo-directory-backlinks) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Directory and backlink register: platform, domain, target URL, follow attribute, authority and ... |
 | [`serply-search-mcp`](../../library/sickn33-agentic-awesome-skills/skills/serply-search-mcp) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Search Google, Bing, Google News and Google Scholar, and read public pages, with the Serply MCP... |
 | [`sketch`](../../library/bergside-awesome-design-skills/skills/sketch) | ⚪ Reserve | `bergside-awesome-design-skills` | A friendly, hand-drawn sketch interface inspired by pencil illustrations on warm cream paper. S... |
+| [`skills-nature-paper-card`](../../library/yuan1z0825-nature-skills/skills/skills-nature-paper-card) | ⚪ Reserve | `yuan1z0825-nature-skills` | Build a structured deep-reading Paper Card for one scientific paper, analysing methods, experim... |
+| [`skills-nature-paper-to-patent`](../../library/yuan1z0825-nature-skills/skills/skills-nature-paper-to-patent) | ⚪ Reserve | `yuan1z0825-nature-skills` | Turn research papers or inventor materials into evidence-grounded Chinese invention patent draf... |
+| [`skills-nature-paper-trans`](../../library/yuan1z0825-nature-skills/skills/skills-nature-paper-trans) | ⚪ Reserve | `yuan1z0825-nature-skills` | 将英文论文 PDF 的指定页面或全文逐页翻译为简体中文图片型 PDF，尽量保留原文的版式、分栏、图表和公式；最终仅交付中文 PDF。用于论文阅读翻译，不用于可编辑 Word 重建或逐字审校。 |
+| [`skills-nature-paper-xray`](../../library/yuan1z0825-nature-skills/skills/skills-nature-paper-xray) | ⚪ Reserve | `yuan1z0825-nature-skills` | Read one supplied paper closely enough to reconstruct how its authors actually got there, rathe... |
+| [`skills-nature-paper2ppt`](../../library/yuan1z0825-nature-skills/skills/skills-nature-paper2ppt) | ⚪ Reserve | `yuan1z0825-nature-skills` | Create or improve a Chinese academic PPTX from a scientific paper or research reading notes, wi... |
+| [`skills-nature-reader`](../../library/yuan1z0825-nature-skills/skills/skills-nature-reader) | ⚪ Reserve | `yuan1z0825-nature-skills` | Create source-grounded Chinese-English paper readers with aligned text, figures, tables, and eq... |
+| [`skills-start`](../../library/anthropics-knowledge-work/skills/skills-start) | ⚪ Reserve | `anthropics-knowledge-work` | Set up your bio-research environment and explore available tools. Use when first getting orient... |
 | [`slides-polish`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/slides-polish) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Per-page Codex review + targeted python-pptx / Beamer fixes for academic talk slides. Use AFTER... |
 | [`slr-automation-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/slr-automation-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Tools and pipelines for automating systematic literature reviews |
 | [`sophosia-reference-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/sophosia-reference-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Reference manager with PDF viewer and Markdown note support |
@@ -245,6 +254,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`tqx`](../../library/starchild-ai-agent-official-skills/skills/tqx) | ⚪ Reserve | `starchild-ai-agent-official-skills` | TQX (tqx.trade) HK/US stock quant: factor analysis, strategy backtests, and agent-driven tradin... |
 | [`trader-broker`](../../library/jakeschincariol-day-trader-skill/skills/trader-broker) | ⚪ Reserve | `jakeschincariol-day-trader-skill` | Order Executor. Sends approved orders to your broker, paper trading by default, never without y... |
 | [`traversing-citations`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/traversing-citations) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Smart backward and forward citation following via Semantic Scholar, with relevance filtering an... |
+| [`tune-content-quality-auditor`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/tune-content-quality-auditor) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when auditing content quality, E-E-A-T, or publish readiness; runs a typed 80-item CORE-EEA... |
 | [`unsplash-asset-images`](../../library/mengto-skills/skills/unsplash-asset-images) | ⚪ Reserve | `mengto-skills` | Use when you need to pick high-quality Unsplash images for product/design assets (avatars, head... |
 | [`write`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/write) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Draft academic paper sections with notation protocol, anti-hedging, and humanizer pass. Replace... |
 | [`write-paper`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/write-paper) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Draft a full academic paper manuscript from analysis outputs, project spec, and lit review. Mak... |

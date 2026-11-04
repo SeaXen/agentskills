@@ -1,7 +1,7 @@
 # 📐 Programming Languages & Type Systems
 
 > **Category**: `programming-languages-core`  
-> **Total Curated Skills**: 362 skills  
+> **Total Curated Skills**: 373 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -109,6 +109,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cc-skills-golang`](../../library/reason-machines-trending-skills/skills/cc-skills-golang) | ⚪ Reserve | `reason-machines-trending-skills` | name: cc-skills-golang |
 | [`cdk-patterns`](../../library/sickn33-agentic-awesome-skills/skills/cdk-patterns) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Common AWS CDK patterns and constructs for building cloud infrastructure with TypeScript, Pytho... |
 | [`claurst-claude-code-rust`](../../library/reason-machines-trending-skills/skills/claurst-claude-code-rust) | ⚪ Reserve | `reason-machines-trending-skills` | name: claurst-claude-code-rust |
+| [`cloud-bigtable-basics`](../../library/google-skills/skills/cloud-bigtable-basics) | ⚪ Reserve | `google-skills` | Assists in provisioning instances/tables, designing performant schemas, and querying data in Bi... |
+| [`cloud-developing-genkit-js`](../../library/google-skills/skills/cloud-developing-genkit-js) | ⚪ Reserve | `google-skills` | Develop AI-powered applications using Genkit in Node.js/TypeScript. Use when the user asks abou... |
+| [`cloud-gemini-api`](../../library/google-skills/skills/cloud-gemini-api) | ⚪ Reserve | `google-skills` | Use when the user asks about using Gemini in an enterprise environment or explicitly mentions V... |
+| [`cloud-google-cloud-storage-bucket-architect`](../../library/google-skills/skills/cloud-google-cloud-storage-bucket-architect) | ⚪ Reserve | `google-skills` | Creates Cloud Storage on Google Cloud (also known colloquially as GCS) buckets. Analyzes the wo... |
 | [`club-3090-llm-serving`](../../library/reason-machines-trending-skills/skills/club-3090-llm-serving) | ⚪ Reserve | `reason-machines-trending-skills` | Recipes and configs for serving LLMs locally on RTX 3090 GPUs using vLLM, llama.cpp, and SGLang... |
 | [`cmux-backend`](../../library/manaflow-ai-cmux/skills/cmux-backend) | ⚪ Reserve | `manaflow-ai-cmux` | Backend TypeScript and Cloud VM development rules for cmux. Use when editing web/app/api, web/s... |
 | [`code-flow-visualizer`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/code-flow-visualizer) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Convert Python, JavaScript, and TypeScript functions into Mermaid flowcharts |
@@ -217,6 +221,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`hunt-ssti`](../../library/elementalsouls-claude-bughunter/skills/hunt-ssti) | ⚪ Reserve | `elementalsouls-claude-bughunter` | Hunt server-side template injection (SSTI) across Jinja2 (Flask/Django), Twig (Symfony), Freema... |
 | [`hyperliquid-grid-trading-bot`](../../library/reason-machines-trending-skills/skills/hyperliquid-grid-trading-bot) | ⚪ Reserve | `reason-machines-trending-skills` | Configure and run an automated grid trading bot on Hyperliquid DEX with TypeScript/Node.js, sup... |
 | [`hyperliquid-trading-bot`](../../library/reason-machines-trending-skills/skills/hyperliquid-trading-bot) | ⚪ Reserve | `reason-machines-trending-skills` | Configurable grid trading bot for Hyperliquid DEX with TypeScript/Node.js primary implementatio... |
+| [`identity-sign-in-with-google-web`](../../library/google-skills/skills/identity-sign-in-with-google-web) | ⚪ Reserve | `google-skills` | Implement, configure, and secure Sign In With Google (SiwG) using Google Identity Services (GIS... |
 | [`inference-serving-llama-cpp`](../../library/davila7-claude-code-templates/skills/inference-serving-llama-cpp) | ⚪ Reserve | `davila7-claude-code-templates` | Runs LLM inference on CPU, Apple Silicon, and consumer GPUs without NVIDIA hardware. Use for ed... |
 | [`java`](../../library/mindrally-skills/skills/java) | ⚪ Reserve | `mindrally-skills` | Expert in Java development with Spring Boot and enterprise patterns |
 | [`java-architect`](../../library/jeffallan-claude-skills/skills/java-architect) | ⚪ Reserve | `jeffallan-claude-skills` | Use when building, configuring, or debugging enterprise Java applications with Spring Boot 3.x,... |
@@ -333,6 +338,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`sentry-node-sdk`](../../library/getsentry-sentry-for-ai/skills/sentry-node-sdk) | ⚪ Reserve | `getsentry-sentry-for-ai` | Full Sentry SDK setup for Node.js, Bun, and Deno. Use when asked to "add Sentry to Node.js", "a... |
 | [`setup-ts-deep-modules`](../../library/mattpocock-skills/skills/setup-ts-deep-modules) | ⚪ Reserve | `mattpocock-skills` | Wire dependency-cruiser into a TypeScript repo so each package is a deep module, with implement... |
 | [`sign-in-with-google-web`](../../library/google-skills/skills/sign-in-with-google-web) | ⚪ Reserve | `google-skills` | Implement, configure, and secure Sign In With Google (SiwG) using Google Identity Services (GIS... |
+| [`skills-azure-messaging`](../../library/microsoft-azure-skills/skills/skills-azure-messaging) | ⚪ Reserve | `microsoft-azure-skills` | Troubleshoot and resolve issues with Azure Messaging SDKs for Event Hubs and Service Bus. Cover... |
+| [`skills-azure-upgrade`](../../library/microsoft-azure-skills/skills/skills-azure-upgrade) | ⚪ Reserve | `microsoft-azure-skills` | Assess and upgrade Azure workloads between plans, tiers, or SKUs, or modernize Azure SDK depend... |
+| [`skills-principle-type-system-discipline`](../../library/cursor-plugins/skills/skills-principle-type-system-discipline) | ⚪ Reserve | `cursor-plugins` | Apply when designing types, reviewing a function signature, or writing code in any statically-t... |
+| [`skills-typescript-best-practices`](../../library/cursor-plugins/skills/skills-typescript-best-practices) | ⚪ Reserve | `cursor-plugins` | TypeScript best practices. Use when reading or editing any .ts or .tsx file. |
 | [`slack-bot-builder`](../../library/antigravity-awesome-skills/skills/slack-bot-builder) | ⚪ Reserve | `antigravity-awesome-skills` | Build Slack apps using the Bolt framework across Python, JavaScript, and Java. Covers Block Kit... |
 | [`solana`](../../library/mindrally-skills/skills/solana) | ⚪ Reserve | `mindrally-skills` | Expert guidelines for Solana program development with Rust, Anchor framework, and Web3.js integ... |
 | [`spec-to-repo`](../../library/alirezarezvani-claude-skills/skills/spec-to-repo) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when the user says 'build me an app', 'create a project from this spec', 'scaffold a new re... |
@@ -364,6 +373,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`unit-test-boundary-conditions`](../../library/giuseppe-trisciuoglio-developer-kit/skills/unit-test-boundary-conditions) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides edge case, corner case, boundary condition, and limit testing patterns for Java unit t... |
 | [`unit-test-parameterized`](../../library/giuseppe-trisciuoglio-developer-kit/skills/unit-test-parameterized) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides parameterized testing patterns with JUnit 5, generates data-driven unit tests using @P... |
 | [`unreal-engine-cpp-pro`](../../library/antigravity-awesome-skills/skills/unreal-engine-cpp-pro) | ⚪ Reserve | `antigravity-awesome-skills` | Expert guide for Unreal Engine 5.x C++ development, covering UObject hygiene, performance patte... |
+| [`video-sdk-web`](../../library/anthropics-knowledge-work/skills/video-sdk-web) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Video SDK for Web - JavaScript/TypeScript integration for browser-based video sessions, re... |
+| [`virtual-agent-android`](../../library/anthropics-knowledge-work/skills/virtual-agent-android) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Virtual Agent Android integration via WebView. Use for Java/Kotlin bridge callbacks, nativ... |
 | [`vitest-skill`](../../library/sickn33-agentic-awesome-skills/skills/vitest-skill) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Generates Vitest tests in JavaScript/TypeScript with Vite-native speed. Jest-compatible API wit... |
 | [`vue-application-structure`](../../library/aj-geddes-useful-ai-prompts/skills/vue-application-structure) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Structure Vue 3 applications using Composition API, component organization, and TypeScript. Use... |
 | [`vue-best-practices`](../../library/vuejs-ai-skills/skills/vue-best-practices) | ⚪ Reserve | `vuejs-ai-skills` | MUST be used for Vue.js tasks. Strongly recommends Composition API with `<script setup>` and Ty... |

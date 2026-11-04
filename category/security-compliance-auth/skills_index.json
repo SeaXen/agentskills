@@ -80,6 +80,14 @@
     "path": "category/security-compliance-auth/affiliate-program-terms"
   },
   {
+    "id": "agent-platform-access-audit",
+    "name": "agent-platform-access-audit",
+    "category": "security-compliance-auth",
+    "repository": "google-skills",
+    "description": "Audits AI agent data access, blast radius, and blocked policy operations in Google Cloud by querying Cloud Audit Logs via BigQuery. Use when investigating what resources or services an agent accessed, identifying top originating principals the agent is acting as, or triaging PERMISSION_DENIED errors to distinguish VPC Service Controls perimeter violations from IAM permission denials. Don't use for configuring Cloud Monitoring alert policies, modifying IAM policies or VPC Service Controls perimeters, querying non-audit application logs, or performing write operations.",
+    "path": "category/security-compliance-auth/agent-platform-access-audit"
+  },
+  {
     "id": "agent-platform-troubleshooting",
     "name": "agent-platform-troubleshooting",
     "category": "security-compliance-auth",
@@ -504,6 +512,110 @@
     "path": "category/security-compliance-auth/clinical-reports"
   },
   {
+    "id": "cloud-agent-platform-troubleshooting",
+    "name": "cloud-agent-platform-troubleshooting",
+    "category": "security-compliance-auth",
+    "repository": "google-skills",
+    "description": "Troubleshoots Google Cloud Gemini Enterprise Agent Platform issues across Agent Gateway, Agent Connectivity Templates (ACT), Agent Registry, Agent Identity, Identity-Aware Proxy (IAP), Unified Access Policies (UAP), Model Armor, Semantic Governance Policies (SGP), Cloud DNS peering, Private CA TrustConfig, Next-Hop Secure Web Proxy (SWP), Explicit HTTPS Proxy (L4 AuthzPolicy), and Cloud Trace. Use when agent requests fail with 401/403/404/498/500/503 or Code 13, Egress request is not authorized, HTTP CONNECT fails with 404, Agent Runtime crashes on startup, or gateway/ACT/IAP/Model Armor/SGP configs fail validation. Don't use for general Google Cloud Identity and Access Management (IAM) debugging or networking issues unrelated to the Agent Platform stack.",
+    "path": "category/security-compliance-auth/cloud-agent-platform-troubleshooting"
+  },
+  {
+    "id": "cloud-assured-workloads-basics",
+    "name": "cloud-assured-workloads-basics",
+    "category": "security-compliance-auth",
+    "repository": "google-skills",
+    "description": "Provisions, inspects, updates, and deletes Google Cloud Assured Workloads V1 compliant folders, CMEK settings, Sovereign Controls by Partners, and service usage restrictions. Use when creating, listing, describing, updating, or deleting an Assured Workloads workload for any compliance regime or data boundary (FedRAMP, DoD IL2/IL4/IL5, ITAR, CJIS, Healthcare, Sovereign Controls by Partners, or Regional Data Boundaries). Don't use for brownfield assessments or custom frameworks (use assuredworkloads-environment-assessor or assuredworkloads-frameworks-*), or non-compliant folders.",
+    "path": "category/security-compliance-auth/cloud-assured-workloads-basics"
+  },
+  {
+    "id": "cloud-assuredworkloads-environment-assessor",
+    "name": "cloud-assuredworkloads-environment-assessor",
+    "category": "security-compliance-auth",
+    "repository": "google-skills",
+    "description": "Discover Google Cloud resource telemetry and effective Org Policies, evaluate brownfield workloads against sovereign data boundary and compliance standards (EU Data Boundary with Support, FedRAMP Moderate/High, DoD IL4/IL5, ITAR, CJIS, US/EU Regional Data Boundaries), and recommend the optimal Assured Workloads Framework. Use when asked to: \"assess my environment for compliance\", \"which Assured Workloads framework should I use?\", \"check if my folder is ready for EU sovereignty\", \"evaluate compliance posture for folders/123 or projects/xyz\", or \"discover compliance gaps before deployment\". Do NOT use for live mutating policy deployments, generating deep audit reports via Cloud Audit Manager, generating remediation scripts, or authoring custom Assured Workloads frameworks.",
+    "path": "category/security-compliance-auth/cloud-assuredworkloads-environment-assessor"
+  },
+  {
+    "id": "cloud-cloud-logging-configuration-basics",
+    "name": "cloud-cloud-logging-configuration-basics",
+    "category": "security-compliance-auth",
+    "repository": "google-skills",
+    "description": "Configure single-project Cloud Logging on Google Cloud: regional log buckets, log sinks, log views, restricting or hiding sensitive logs in the default view (_Default) filter, IAM permissions for views (Logs View Accessor, IAM conditions), logs-based metrics, log exclusions, and sampling. Don't use for cross-project logging or multi-project setups.",
+    "path": "category/security-compliance-auth/cloud-cloud-logging-configuration-basics"
+  },
+  {
+    "id": "cloud-google-cloud-filestore-auditing",
+    "name": "cloud-google-cloud-filestore-auditing",
+    "category": "security-compliance-auth",
+    "repository": "google-skills",
+    "description": "Audits Filestore instances on Google Cloud across projects for disaster recovery readiness (missing or stale backups), security access governance (overly permissive NFS export rules, 0.0.0.0/0 exposure, missing ROOT_SQUASH), and reliability compliance (Physical Zone Isolation PZI and Physical Zone Separation PZS). Use when assessing storage health posture, auditing NFS export permissions, identifying unprotected file shares, or validating zone failure domains. Don't use for Cloud Storage buckets, Persistent Disk, or NetApp Volumes.",
+    "path": "category/security-compliance-auth/cloud-google-cloud-filestore-auditing"
+  },
+  {
+    "id": "cloud-google-cloud-filestore-log-troubleshooting",
+    "name": "cloud-google-cloud-filestore-log-troubleshooting",
+    "category": "security-compliance-auth",
+    "repository": "google-skills",
+    "description": "Diagnoses and resolves Filestore client mount failures on Google Cloud, permission errors (EACCES), and network timeouts (ETIMEDOUT). Use when an NFS mount hangs or fails from a Compute Engine VM, GKE pod, Cloud Run service, or Vertex AI workload, when `mount.nfs` reports \"Connection timed out\" or \"access denied by server\", when checking whether VPC ingress firewall rules or `nfsExportOptions` allow a client IP, or when a previously working Filestore share suddenly stops mounting after an administrative change. Don't use for Cloud Storage (GCS) buckets, Persistent Disk, or Cloud NetApp Volumes, and don't use for Filestore capacity scaling or backup and export-policy auditing.",
+    "path": "category/security-compliance-auth/cloud-google-cloud-filestore-log-troubleshooting"
+  },
+  {
+    "id": "cloud-google-cloud-recipe-auth",
+    "name": "cloud-google-cloud-recipe-auth",
+    "category": "security-compliance-auth",
+    "repository": "google-skills",
+    "description": "Provides expert guidance on Identity and Access Management (IAM) and authenticating and authorizing to Google Cloud services and APIs, covering human users, service identities, Application Default Credentials (ADC), and best practices for secure access.",
+    "path": "category/security-compliance-auth/cloud-google-cloud-recipe-auth"
+  },
+  {
+    "id": "cloud-google-cloud-storage-diagnostic",
+    "name": "cloud-google-cloud-storage-diagnostic",
+    "category": "security-compliance-auth",
+    "repository": "google-skills",
+    "description": "Troubleshoots and diagnoses Cloud Storage on Google Cloud (also known colloquially as GCS) access and permission denials (403 Permission Denied or Insufficient Permission) and access control conflicts. Use whenever a user encounters or asks to analyze a 403 error on a bucket or object \u2014 including analysis-only questions where no commands are run \u2014 or needs help with IAM bindings, fine-grained ACLs, Uniform Bucket-Level Access (UBLA), getIamPolicy inspection denials and least-privilege inspection roles, browser storage.cloud.google.com Cookieauth and Data Access Audit Logging conflicts, Signed URL SignatureDoesNotMatch errors, VPC Service Controls (VPC-SC) perimeters, explicit IAM Deny policies, Bucket IP Filtering, Requester Pays, Retention Policy locks, Compute Engine VM access scopes, Application Default Credentials (ADC) mismatches, recursive delete permissions, or recreated service accounts. Don't use for creating buckets, routine uploads/downloads, proactive security audits, or Cloud Storage FUSE mounts.",
+    "path": "category/security-compliance-auth/cloud-google-cloud-storage-diagnostic"
+  },
+  {
+    "id": "cloud-google-cloud-waf-security",
+    "name": "cloud-google-cloud-waf-security",
+    "category": "security-compliance-auth",
+    "repository": "google-skills",
+    "description": "Generates security-focused guidance for Google Cloud workloads based on the design principles and recommendations in the Google Cloud Well-Architected Framework (WAF). Use this skill to evaluate workloads, identify security requirements, and provide actionable recommendations for IAM, network security, data protection, and operational security.",
+    "path": "category/security-compliance-auth/cloud-google-cloud-waf-security"
+  },
+  {
+    "id": "cloud-iam-helper-for-policy-management",
+    "name": "cloud-iam-helper-for-policy-management",
+    "category": "security-compliance-auth",
+    "repository": "google-skills",
+    "description": "Streamlines the creation, modification, and management of IAM allow policies (v1) and deny policies (v2). Manages access control across Resource Manager resources (Organization, Folder, Project) and individual resources. Use when creating, updating, listing, or deleting IAM allow policies or deny policies. Don't use for access denial troubleshooting (use iam-helper-for-troubleshooting), temporary privileged access (use iam-helper-for-privileged-access-management), configuring VPC Service Controls, or managing network firewall rules.",
+    "path": "category/security-compliance-auth/cloud-iam-helper-for-policy-management"
+  },
+  {
+    "id": "cloud-iam-helper-for-policy-simulator",
+    "name": "cloud-iam-helper-for-policy-simulator",
+    "category": "security-compliance-auth",
+    "repository": "google-skills",
+    "description": "Safely simulates and applies Identity and Access Management (IAM) v1 (Allow) policy changes on Google Cloud. Uses the Policy Simulator to replay historical access logs against proposed policies to prevent breaking active workloads before applying the changes. Use when simulating or applying IAM v1 allow policies across Projects, Folders, or Organizations. Don't use for analyzing IAM v2 deny policies, VPC Service Controls, or performing general policy troubleshooting.",
+    "path": "category/security-compliance-auth/cloud-iam-helper-for-policy-simulator"
+  },
+  {
+    "id": "cloud-iam-helper-for-privileged-access-management",
+    "name": "cloud-iam-helper-for-privileged-access-management",
+    "category": "security-compliance-auth",
+    "repository": "google-skills",
+    "description": "Manages the end-to-end lifecycle of on-demand, temporary access using Privileged Access Manager (PAM). Use when a user asks to create, read, update, or delete PAM entitlements, request temporary access, or approve/deny pending PAM grants. Do NOT use for permanent IAM policy bindings, troubleshooting IAM permission errors, or general Google Cloud resource provisioning.",
+    "path": "category/security-compliance-auth/cloud-iam-helper-for-privileged-access-management"
+  },
+  {
+    "id": "cloud-iam-helper-for-troubleshooting",
+    "name": "cloud-iam-helper-for-troubleshooting",
+    "category": "security-compliance-auth",
+    "repository": "google-skills",
+    "description": "Diagnoses, remediates, and manages Identity and Access Management (IAM) access issues on Google Cloud. Supports two distinct operational modes: (1) Requester Flow for developers encountering access denials (capturing error context, self-service PAM JIT activations, elevated developer self-remediation, or logging structured tickets), and (2) Resolver Flow for privileged administrators (authoritative Policy Troubleshooter analysis, deny policy exemptions, least-privilege role discovery, and PAM/IAM provisioning).",
+    "path": "category/security-compliance-auth/cloud-iam-helper-for-troubleshooting"
+  },
+  {
     "id": "cloud-logging-configuration-basics",
     "name": "cloud-logging-configuration-basics",
     "category": "security-compliance-auth",
@@ -742,6 +854,14 @@
     "repository": "anthropics-knowledge-work",
     "description": "Debug broken Zoom implementations quickly. Use when auth, webhooks, SDK joins, MCP transport, or real-time media workflows are failing and you need to isolate the layer before proposing a fix.",
     "path": "category/security-compliance-auth/debug-zoom-integration"
+  },
+  {
+    "id": "deliver-inbox-placement-monitor",
+    "name": "deliver-inbox-placement-monitor",
+    "category": "security-compliance-auth",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"track where my emails are actually landing after I send\", \"read my seed-list inbox vs spam vs promotions results\", \"trend my Gmail Postmaster / Microsoft SNDS reputation\", or \"did placement drop after my last send\"; produces a per-provider inbox/spam/promotions placement read, a domain/IP reputation trend from Postmaster + SNDS, a send-over-send delta with named regressions, and a reusable SEND-S placement snapshot on your own exported telemetry. Not for the pre-send SPF/DKIM/DMARC auth pre-flight \u2014 use deliverability-qa; not for computing the EQS or running the vetoes \u2014 use email-quality-auditor. \u90ae\u4ef6\u6536\u4ef6\u7bb1\u843d\u70b9\u76d1\u6d4b/\u6536\u4ef6\u7bb1vs\u5783\u573e\u90ae\u4ef6/Postmaster\u58f0\u8a89\u8d8b\u52bf",
+    "path": "category/security-compliance-auth/deliver-inbox-placement-monitor"
   },
   {
     "id": "dependency-auditor",
@@ -1160,6 +1280,14 @@
     "path": "category/security-compliance-auth/hipaa-compliance"
   },
   {
+    "id": "host-engagement-inbox-manager",
+    "name": "host-engagement-inbox-manager",
+    "category": "security-compliance-auth",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"triage our comments, DMs, and mentions\", \"draft replies to this thread\", \"can we repost this fan post\", or \"set up inbox SLAs and an escalation path\"; produces a ranked triage queue with register detection (sincere / ironic / performative / parasocial, sentiment-inversion table included \u2014 \"this is so bad\" under a comedy register is praise), a commenter taxonomy (troll monitor-only / rager / misguided / unhappy-customer / advocate) with a response-tier ladder and per-channel SLAs, an escalation matrix ending at the crisis path, a moderation ladder plus house rules for owned spaces, and a UGC curation-and-rights mode whose dated permission entries route to the channel registry \u2014 every reply is a ranked DRAFT a human posts; nothing is ever auto-sent. Not for launch-window feedback triage \u2014 use launch-feedback-synthesizer. \u8bc4\u8bba\u79c1\u4fe1\u63d0\u53ca\u5206\u8bca/\u8bed\u57df\u8bc6\u522b/\u56de\u590d\u8349\u7a3f/UGC\u6388\u6743",
+    "path": "category/security-compliance-auth/host-engagement-inbox-manager"
+  },
+  {
     "id": "huawei-cloud-account-onboarding",
     "name": "huawei-cloud-account-onboarding",
     "category": "security-compliance-auth",
@@ -1318,6 +1446,14 @@
     "repository": "google-skills",
     "description": "Diagnoses, remediates, and manages Identity and Access Management (IAM) access issues on Google Cloud. Supports two distinct operational modes: (1) Requester Flow for developers encountering access denials (capturing error context, self-service PAM JIT activations, elevated developer self-remediation, or logging structured tickets), and (2) Resolver Flow for privileged administrators (authoritative Policy Troubleshooter analysis, deny policy exemptions, least-privilege role discovery, and PAM/IAM provisioning).",
     "path": "category/security-compliance-auth/iam-helper-for-troubleshooting"
+  },
+  {
+    "id": "identity-dpop-adoption",
+    "name": "identity-dpop-adoption",
+    "category": "security-compliance-auth",
+    "repository": "google-skills",
+    "description": "Implement and debug OAuth 2.0 DPoP (RFC 9449) refresh token sender-constraining for WebCrypto, Node.js ES6, and browser runtimes integrating with Google's OAuth platform. Use when configuring non-extractable asymmetric key pairs (P-256), generating DPoP Proof JWTs for authorization code exchange and token refresh, or handling 400 use_dpop_nonce challenge retry loops at oauth2.googleapis.com/token. Don't use for unconstrained OAuth 2.0 flows (where refresh tokens are not bound to a client key pair), or for Google Cloud IAM / service account authentication.",
+    "path": "category/security-compliance-auth/identity-dpop-adoption"
   },
   {
     "id": "implementing-anti-phishing-training-program",
@@ -1704,6 +1840,38 @@
     "path": "category/security-compliance-auth/meeting-sdk"
   },
   {
+    "id": "meeting-sdk-electron",
+    "name": "meeting-sdk-electron",
+    "category": "security-compliance-auth",
+    "repository": "anthropics-knowledge-work",
+    "description": "Zoom Meeting SDK for Electron desktop applications. Use when embedding Zoom meetings in an Electron app with the Node addon wrapper, JWT auth, join/start flows, settings controllers, and raw data integration.",
+    "path": "category/security-compliance-auth/meeting-sdk-electron"
+  },
+  {
+    "id": "meeting-sdk-ios",
+    "name": "meeting-sdk-ios",
+    "category": "security-compliance-auth",
+    "repository": "anthropics-knowledge-work",
+    "description": "Zoom Meeting SDK for iOS native apps. Use when embedding Zoom meetings in iOS with default/custom UI, PKCE + SDK auth, host start with ZAK, and mobile lifecycle handling.",
+    "path": "category/security-compliance-auth/meeting-sdk-ios"
+  },
+  {
+    "id": "meeting-sdk-macos",
+    "name": "meeting-sdk-macos",
+    "category": "security-compliance-auth",
+    "repository": "anthropics-knowledge-work",
+    "description": "Zoom Meeting SDK for macOS native apps. Use when embedding Zoom meetings in macOS with default/custom UI, PKCE + SDK auth, host start/join flows, and desktop meeting feature controllers.",
+    "path": "category/security-compliance-auth/meeting-sdk-macos"
+  },
+  {
+    "id": "meeting-sdk-react-native",
+    "name": "meeting-sdk-react-native",
+    "category": "security-compliance-auth",
+    "repository": "anthropics-knowledge-work",
+    "description": "Zoom Meeting SDK for React Native. Use when embedding Zoom meetings in React Native iOS/Android apps with @zoom/meetingsdk-react-native, JWT auth, join/start flows, platform setup, and native bridge troubleshooting.",
+    "path": "category/security-compliance-auth/meeting-sdk-react-native"
+  },
+  {
     "id": "memory-management",
     "name": "memory-management",
     "category": "security-compliance-auth",
@@ -1758,6 +1926,14 @@
     "repository": "forcedotcom-sf-skills",
     "description": "Use this skill to explain how the Salesforce Nonprofit Cloud Volunteer Management (VM) data model works and why, answering from reference material without connecting to an org. Answers what a VM object, field, or relationship is for and how features such as volunteer matching, shift capacity, hours rollups, sign-up approval, and permission gating behave, and maps a goal (\\\"track volunteer hours\\\", \\\"cap a shift\\\") to the objects and fields behind it. TRIGGER when a user asks what a VM object, field, or relationship is for, or how a VM feature works. DO NOT TRIGGER to plan a program (use nonprofit-volunteer-management-structure-generate), to create records (use nonprofit-volunteer-management-records-create), to enable Volunteer Management in an org, or for NPSP / Volunteers for Salesforce (V4S), which is unsupported.",
     "path": "category/security-compliance-auth/nonprofit-volunteer-management-model-get"
+  },
+  {
+    "id": "nurture-reactivation-specialist",
+    "name": "nurture-reactivation-specialist",
+    "category": "security-compliance-auth",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"build a win-back campaign\", \"re-engage lapsed subscribers\", \"run a re-permission / re-consent sweep\", or \"sunset my dead list\"; produces a closed-loop reactivation program \u2014 a lapsed-cohort definition, a staged offer ladder, a re-consent (re-permission) capture step, and a sunset-confirm / suppression rule. Owns none of the SEND-N sub-item notes: engagement-decay / sunset is email-sequence-designer''s and preference-center / frequency options is preference-frequency-manager''s \u2014 this skill references those notes, it does not re-emit them. Not for the general lifecycle flows (welcome/cart/post-purchase) \u2014 use email-sequence-designer; not for the preference-center / opt-down ladder \u2014 use preference-frequency-manager; not for the consent record itself \u2014 use consent-registry; not for computing EQS or the N1 veto \u2014 use email-quality-auditor. \u6d41\u5931\u53ec\u56de/\u91cd\u65b0\u6388\u6743/\u6c89\u9ed8\u7528\u6237\u6e05\u7406",
+    "path": "category/security-compliance-auth/nurture-reactivation-specialist"
   },
   {
     "id": "oauth",
@@ -2062,6 +2238,30 @@
     "repository": "wshobson-agents",
     "description": "Configure Cedar policy enforcement and Ed25519 signed receipts for Claude Code tool calls. Use when setting up projects that need cryptographic audit trails, policy-gated tool execution, or compliance-ready evidence of agent actions.",
     "path": "category/security-compliance-auth/protect-mcp-setup"
+  },
+  {
+    "id": "protocol-channel-registry",
+    "name": "protocol-channel-registry",
+    "category": "security-compliance-auth",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to register/query a social channel, record channel state, cadence, governance, voice adaptation, UGC permission, or advocacy facts; curates them through the append-only channels event stream and derived views. Not for ECHO scoring \u2014 use social-quality-auditor; not for channel selection \u2014 use channel-portfolio-planner. \u6e20\u9053\u53f0\u8d26/\u8d26\u53f7\u6863\u6848/UGC\u6388\u6743\u8bb0\u5f55",
+    "path": "category/security-compliance-auth/protocol-channel-registry"
+  },
+  {
+    "id": "protocol-creator-registry",
+    "name": "protocol-creator-registry",
+    "category": "security-compliance-auth",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks \"what did we pay this creator last time\" or to \"update the creator roster\"; curates creator identity, rate, rights, exclusivity, compliance-event, and performance facts through the append-only creators event stream. Not for scoring fit \u2014 use fit-scorer; not for reviewing content \u2014 use creator-content-auditor. \u521b\u4f5c\u8005\u6863\u6848/\u8fbe\u4eba\u540d\u518c",
+    "path": "category/security-compliance-auth/protocol-creator-registry"
+  },
+  {
+    "id": "protocol-memory-management",
+    "name": "protocol-memory-management",
+    "category": "security-compliance-auth",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"remember project context\", review saved findings, initialize runtime memory, archive stale work, reconcile notes, or erase a subject; manages authorized HOT/WARM/COLD working memory across all disciplines while preserving registry event ownership and privacy controls. Not for changing canonical registry facts - route those through the owning registry. \u9879\u76ee\u8bb0\u5fc6/\u8de8\u4f1a\u8bdd",
+    "path": "category/security-compliance-auth/protocol-memory-management"
   },
   {
     "id": "public-google-drive-ingest",
@@ -2432,6 +2632,14 @@
     "path": "category/security-compliance-auth/skill-comply"
   },
   {
+    "id": "skill-data-core",
+    "name": "skill-data-core",
+    "category": "security-compliance-auth",
+    "repository": "vercel-labs-agent-browser",
+    "description": "Core agent-browser usage guide. Read this before running any agent-browser commands. Covers the snapshot-and-ref workflow, navigating pages, interacting with elements (click, fill, type, select), extracting text and data, taking screenshots, managing tabs, handling forms and auth, waiting for content, running multiple browser sessions in parallel, and troubleshooting common failures. Use when the user asks to interact with a website, fill a form, click something, extract data, take a screenshot, log into a site, test a web app, or automate any browser task.",
+    "path": "category/security-compliance-auth/skill-data-core"
+  },
+  {
     "id": "skill-test",
     "name": "skill-test",
     "category": "security-compliance-auth",
@@ -2446,6 +2654,198 @@
     "repository": "getsentry-skills",
     "description": "Create, synthesize, and iteratively improve agent skills following the Agent Skills specification. Use when asked to \"create a skill\", \"write a skill\", \"synthesize sources into a skill\", \"improve a skill from positive/negative examples\", \"update a skill\", or \"maintain skill docs and registration\". Handles source capture, precision passes, authoring, registration, and validation.",
     "path": "category/security-compliance-auth/skill-writer"
+  },
+  {
+    "id": "skills-add-voice",
+    "name": "skills-add-voice",
+    "category": "security-compliance-auth",
+    "repository": "cursor-plugins",
+    "description": "Use when the user runs /add-voice, types Voice Mode, or asks to add Grok realtime voice to an app, including replacing an STT-LLM-TTS cascade or OpenAI Realtime.   Wire speech-to-speech, safe auth, and app mic. Composer: waveform button, mic icon reserved for dictation. For mic-to-text only use /add-dictation; to speak text replies use /add-read-aloud. To add debug logging and fix from logs use /debug-voice.",
+    "path": "category/security-compliance-auth/skills-add-voice"
+  },
+  {
+    "id": "skills-audit-support",
+    "name": "skills-audit-support",
+    "category": "security-compliance-auth",
+    "repository": "anthropics-knowledge-work",
+    "description": "Support SOX 404 compliance with control testing methodology, sample selection, and documentation standards. Use when generating testing workpapers, selecting audit samples, classifying control deficiencies, or preparing for internal or external audits.",
+    "path": "category/security-compliance-auth/skills-audit-support"
+  },
+  {
+    "id": "skills-azure-compliance",
+    "name": "skills-azure-compliance",
+    "category": "security-compliance-auth",
+    "repository": "microsoft-azure-skills",
+    "description": "Run Azure compliance and security audits with azqr plus Key Vault expiration checks. Covers best-practice assessment, resource review, policy/compliance validation, and security posture checks. WHEN: compliance scan, security audit, BEFORE running azqr (compliance cli tool), Azure best practices, Key Vault expiration check, expired certificates, expiring secrets, orphaned resources, compliance assessment.",
+    "path": "category/security-compliance-auth/skills-azure-compliance"
+  },
+  {
+    "id": "skills-browser-cdp",
+    "name": "skills-browser-cdp",
+    "category": "security-compliance-auth",
+    "repository": "zenstory-ai-oh-story-claudecode",
+    "description": "Use this skill when you need to control a Chrome browser via CDP (Chrome DevTools Protocol) to reuse existing login sessions. Covers: launching Chrome in debug mode, opening URLs, waiting for page load, evaluating JavaScript, taking snapshots, and extracting auth tokens. Trigger phrases: browser automation, CDP, agent-browser, \u6d4f\u89c8\u5668\u64cd\u4f5c, \u64cd\u4f5c\u6d4f\u89c8\u5668, Chrome CDP, \u590d\u7528\u767b\u5f55\u6001, extract token from browser.",
+    "path": "category/security-compliance-auth/skills-browser-cdp"
+  },
+  {
+    "id": "skills-clerk-chrome-extension-patterns",
+    "name": "skills-clerk-chrome-extension-patterns",
+    "category": "security-compliance-auth",
+    "repository": "clerk-skills",
+    "description": "Chrome Extension auth with @clerk/chrome-extension -- popup/sidepanel",
+    "path": "category/security-compliance-auth/skills-clerk-chrome-extension-patterns"
+  },
+  {
+    "id": "skills-clerk-nuxt-patterns",
+    "name": "skills-clerk-nuxt-patterns",
+    "category": "security-compliance-auth",
+    "repository": "clerk-skills",
+    "description": "Nuxt 3 auth patterns with @clerk/nuxt - middleware, composables, server",
+    "path": "category/security-compliance-auth/skills-clerk-nuxt-patterns"
+  },
+  {
+    "id": "skills-clerk-react-patterns",
+    "name": "skills-clerk-react-patterns",
+    "category": "security-compliance-auth",
+    "repository": "clerk-skills",
+    "description": "React SPA auth patterns with @clerk/react for Vite/CRA - ClerkProvider",
+    "path": "category/security-compliance-auth/skills-clerk-react-patterns"
+  },
+  {
+    "id": "skills-cobrowse-sdk",
+    "name": "skills-cobrowse-sdk",
+    "category": "security-compliance-auth",
+    "repository": "anthropics-knowledge-work",
+    "description": "Reference skill for Zoom Cobrowse SDK. Use after routing to a collaborative-support workflow when implementing browser co-browsing, annotation tools, privacy masking, remote assist, or PIN-based session sharing.",
+    "path": "category/security-compliance-auth/skills-cobrowse-sdk"
+  },
+  {
+    "id": "skills-compliance-check",
+    "name": "skills-compliance-check",
+    "category": "security-compliance-auth",
+    "repository": "anthropics-knowledge-work",
+    "description": "Run a compliance check on a proposed action, product feature, or business initiative, surfacing applicable regulations, required approvals, and risk areas. Use when launching a feature that touches personal data, when marketing or product proposes something with regulatory implications, or when you need to know which approvals and jurisdictional requirements apply before proceeding.",
+    "path": "category/security-compliance-auth/skills-compliance-check"
+  },
+  {
+    "id": "skills-compliance-tracking",
+    "name": "skills-compliance-tracking",
+    "category": "security-compliance-auth",
+    "repository": "anthropics-knowledge-work",
+    "description": "Track compliance requirements and audit readiness. Trigger with \"compliance\", \"audit prep\", \"SOC 2\", \"ISO 27001\", \"GDPR\", \"regulatory requirement\", or when the user needs help tracking, preparing for, or documenting compliance activities.",
+    "path": "category/security-compliance-auth/skills-compliance-tracking"
+  },
+  {
+    "id": "skills-connections",
+    "name": "skills-connections",
+    "category": "security-compliance-auth",
+    "repository": "makenotion-notion-cookbook",
+    "description": "Declare and use shared app-level Calendar, Mail, Slack, and OAuth connections in Notion Apps.",
+    "path": "category/security-compliance-auth/skills-connections"
+  },
+  {
+    "id": "skills-debug-zoom-integration",
+    "name": "skills-debug-zoom-integration",
+    "category": "security-compliance-auth",
+    "repository": "anthropics-knowledge-work",
+    "description": "Debug broken Zoom implementations quickly. Use when auth, webhooks, SDK joins, MCP transport, or real-time media workflows are failing and you need to isolate the layer before proposing a fix.",
+    "path": "category/security-compliance-auth/skills-debug-zoom-integration"
+  },
+  {
+    "id": "skills-entra-agent-id",
+    "name": "skills-entra-agent-id",
+    "category": "security-compliance-auth",
+    "repository": "microsoft-azure-skills",
+    "description": "Provision Microsoft Entra Agent Identity Blueprints, BlueprintPrincipals, and per-instance Agent Identities via Microsoft Graph, and configure OAuth 2.0 token exchange (fmi_path, OBO, cross-tenant) including the Microsoft Entra SDK for AgentID sidecar. USE FOR: Agent Identity Blueprint, BlueprintPrincipal, agent OAuth, fmi_path token exchange, agent OBO, Workload Identity Federation for agents, polyglot agent auth, Microsoft.Identity.Web.AgentIdentities. DO NOT USE FOR: standard Entra app registration (use entra-app-registration), Microsoft Foundry agent authoring (use microsoft-foundry).",
+    "path": "category/security-compliance-auth/skills-entra-agent-id"
+  },
+  {
+    "id": "skills-google-cloud-recipe-auth",
+    "name": "skills-google-cloud-recipe-auth",
+    "category": "security-compliance-auth",
+    "repository": "google-skills",
+    "description": "Provides expert guidance on Identity and Access Management (IAM) and authenticating and authorizing to Google Cloud services and APIs, covering human users, service identities, Application Default Credentials (ADC), and best practices for secure access.",
+    "path": "category/security-compliance-auth/skills-google-cloud-recipe-auth"
+  },
+  {
+    "id": "skills-levelplay-unity-integration",
+    "name": "skills-levelplay-unity-integration",
+    "category": "security-compliance-auth",
+    "repository": "unity-technologies-skills",
+    "description": "Integrates the LevelPlay ad mediation SDK via the Ads Mediation package. Use when the user asks about adding rewarded, interstitial, or banner ads, mediation or ad privacy setup, Android or iOS ad dependency build failures, or migrating from Unity Ads or IronSource APIs.",
+    "path": "category/security-compliance-auth/skills-levelplay-unity-integration"
+  },
+  {
+    "id": "skills-meeting-briefing",
+    "name": "skills-meeting-briefing",
+    "category": "security-compliance-auth",
+    "repository": "anthropics-knowledge-work",
+    "description": "Prepare structured briefings for meetings with legal relevance and track resulting action items. Use when preparing for contract negotiations, board meetings, compliance reviews, or any meeting where legal context, background research, or action tracking is needed.",
+    "path": "category/security-compliance-auth/skills-meeting-briefing"
+  },
+  {
+    "id": "skills-meeting-sdk",
+    "name": "skills-meeting-sdk",
+    "category": "security-compliance-auth",
+    "repository": "anthropics-knowledge-work",
+    "description": "Reference skill for Zoom Meeting SDK. Use after routing to a meeting-embed workflow when implementing real Zoom meeting joins, platform-specific SDK behavior, auth and join flows, waiting room issues, or meeting bot patterns.",
+    "path": "category/security-compliance-auth/skills-meeting-sdk"
+  },
+  {
+    "id": "skills-oauth",
+    "name": "skills-oauth",
+    "category": "security-compliance-auth",
+    "repository": "anthropics-knowledge-work",
+    "description": "Reference skill for Zoom authentication. Use after routing to an auth workflow when choosing app credentials, grant types, scopes, token refresh behavior, or debugging Zoom OAuth failures.",
+    "path": "category/security-compliance-auth/skills-oauth"
+  },
+  {
+    "id": "skills-om-pre-implement-spec",
+    "name": "skills-om-pre-implement-spec",
+    "category": "security-compliance-auth",
+    "repository": "open-mercato-skills",
+    "description": "Audit a spec before implementation \u2014 readiness gate, backward-compatibility check against BACKWARD_COMPATIBILITY.md, completeness, repo-rule compliance, risks, gaps \u2014 and leave a go/conditional/no-go report with a remediation plan. Read-only. Use for \"is this spec ready\", \"pre-implement\", \"spec readiness\", \"BC analysis\", \"spec gap analysis\".",
+    "path": "category/security-compliance-auth/skills-om-pre-implement-spec"
+  },
+  {
+    "id": "skills-om-share-this-session",
+    "name": "skills-om-share-this-session",
+    "category": "security-compliance-auth",
+    "repository": "open-mercato-skills",
+    "description": "Publicly share a sanitized coding-agent session plus a ZIP of the files it generated, then file a harness-feedback issue at the configured destination \u2014 local sanitization, full privacy review, exact fresh consent first. Use for \"share this session\", \"report this agent run\", \"udost\u0119pnij t\u0119 sesj\u0119\". Never for telemetry or without consent.",
+    "path": "category/security-compliance-auth/skills-om-share-this-session"
+  },
+  {
+    "id": "skills-phone",
+    "name": "skills-phone",
+    "category": "security-compliance-auth",
+    "repository": "anthropics-knowledge-work",
+    "description": "Reference skill for Zoom Phone. Use after routing to a phone workflow when implementing OAuth, Phone APIs, webhooks, Smart Embed events, URI schemes, CRM or CTI dialers, or call handling automation.",
+    "path": "category/security-compliance-auth/skills-phone"
+  },
+  {
+    "id": "skills-scribe",
+    "name": "skills-scribe",
+    "category": "security-compliance-auth",
+    "repository": "anthropics-knowledge-work",
+    "description": "Reference skill for Zoom AI Services Scribe. Use after routing to a transcription workflow when handling uploaded or stored media, Build-platform JWT auth, fast mode transcription, batch jobs, or transcript pipeline design.",
+    "path": "category/security-compliance-auth/skills-scribe"
+  },
+  {
+    "id": "skills-setup-zoom-oauth",
+    "name": "skills-setup-zoom-oauth",
+    "category": "security-compliance-auth",
+    "repository": "anthropics-knowledge-work",
+    "description": "Implement Zoom authentication correctly. Use when setting up app credentials, choosing an OAuth grant, requesting scopes, handling token refresh, or debugging auth failures.",
+    "path": "category/security-compliance-auth/skills-setup-zoom-oauth"
+  },
+  {
+    "id": "skills-sox-testing",
+    "name": "skills-sox-testing",
+    "category": "security-compliance-auth",
+    "repository": "anthropics-knowledge-work",
+    "description": "Generate SOX sample selections, testing workpapers, and control assessments. Use when planning quarterly or annual SOX 404 testing, pulling a sample for a control (revenue, P2P, ITGC, close), building a testing workpaper template, or evaluating and classifying a control deficiency.",
+    "path": "category/security-compliance-auth/skills-sox-testing"
   },
   {
     "id": "slack-app-directory-playbook",
@@ -2672,6 +3072,14 @@
     "path": "category/security-compliance-auth/vendor-management"
   },
   {
+    "id": "video-sdk-ios",
+    "name": "video-sdk-ios",
+    "category": "security-compliance-auth",
+    "repository": "anthropics-knowledge-work",
+    "description": "Zoom Video SDK for iOS native apps. Use when building custom iOS video sessions with full UI control, token-based session auth, and event-driven media/participant flows.",
+    "path": "category/security-compliance-auth/video-sdk-ios"
+  },
+  {
     "id": "warehouse",
     "name": "warehouse",
     "category": "security-compliance-auth",
@@ -2742,6 +3150,14 @@
     "repository": "anthropics-knowledge-work",
     "description": "Reference skill for Zoom Cobrowse SDK. Use after routing to a collaborative-support workflow when implementing browser co-browsing, annotation tools, privacy masking, remote assist, or PIN-based session sharing.",
     "path": "category/security-compliance-auth/zoom-cobrowse-sdk"
+  },
+  {
+    "id": "zoom-mcp-whiteboard",
+    "name": "zoom-mcp-whiteboard",
+    "category": "security-compliance-auth",
+    "repository": "anthropics-knowledge-work",
+    "description": "Guidance for the bundled Zoom Whiteboard MCP connector. Use for Whiteboard MCP auth, endpoints, ID mapping, and tool workflows such as list_whiteboards and get_a_whiteboard. Prefer this skill when the request is specifically about Whiteboard MCP rather than general Zoom MCP.",
+    "path": "category/security-compliance-auth/zoom-mcp-whiteboard"
   },
   {
     "id": "zoom-oauth",

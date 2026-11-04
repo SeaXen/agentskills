@@ -1,7 +1,7 @@
 # 📱 Mobile Development (iOS, Android, React Native)
 
 > **Category**: `mobile-ios-android`  
-> **Total Curated Skills**: 227 skills  
+> **Total Curated Skills**: 260 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -19,7 +19,15 @@ python .agents/library/activate_skill.py activate <skill-name>
 
 | Skill Name | Status | Origin Repository | Description |
 | :--- | :---: | :--- | :--- |
+| [`activate-conversion-signal-qa`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/activate-conversion-signal-qa) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "QA my conversion tracking before launch", "check my UTMs / pixel / e... |
 | [`add-app-clip`](../../library/sickn33-agentic-awesome-skills/skills/add-app-clip) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Add an iOS App Clip target to an Expo app. Use when the user mentions App Clip, AASA, apple-app... |
+| [`ads-google-mobile-ads-android-migrate-to-next-gen`](../../library/google-skills/skills/ads-google-mobile-ads-android-migrate-to-next-gen) | ⚪ Reserve | `google-skills` | Migrates Android applications from the old, legacy Google Mobile |
+| [`ads-google-mobile-ads-banner`](../../library/google-skills/skills/ads-google-mobile-ads-banner) | ⚪ Reserve | `google-skills` | Provides instructions to implement, integrate, or configure Google Mobile Ads (GMA) banner ads ... |
+| [`ads-google-mobile-ads-get-started`](../../library/google-skills/skills/ads-google-mobile-ads-get-started) | ⚪ Reserve | `google-skills` | Provides instructions for integrating the Google Mobile Ads (GMA) SDK. Use this skill when the ... |
+| [`ads-google-mobile-ads-interstitial`](../../library/google-skills/skills/ads-google-mobile-ads-interstitial) | ⚪ Reserve | `google-skills` | Provides instructions for implementing, integrating, or configuring Google Mobile Ads (GMA) SDK... |
+| [`ads-google-mobile-ads-rewarded`](../../library/google-skills/skills/ads-google-mobile-ads-rewarded) | ⚪ Reserve | `google-skills` | Provides instructions for implementing, integrating, or configuring Google Mobile Ads (GMA) SDK... |
+| [`ads-google-mobile-ads-validate`](../../library/google-skills/skills/ads-google-mobile-ads-validate) | ⚪ Reserve | `google-skills` | Validates a project's Google Mobile Ads (GMA) SDK integration for iOS, Android, or Unity projec... |
+| [`ads-ima-dai-sdk`](../../library/google-skills/skills/ads-ima-dai-sdk) | ⚪ Reserve | `google-skills` | Integrates the Google Interactive Media Ads (IMA) Dynamic Ad Insertion (DAI) SDK into websites,... |
 | [`ads-landing`](../../library/agricidaniel-claude-ads/skills/ads-landing) | ⚪ Reserve | `agricidaniel-claude-ads` | Audit paid-ad landing pages for message match, mobile experience, performance, accessibility, t... |
 | [`agp-9-upgrade`](../../library/android-skills/skills/agp-9-upgrade) | ⚪ Reserve | `android-skills` | Upgrades, or migrates, an Android project to use Android Gradle Plugin |
 | [`alarmkit`](../../library/dpearson2699-swift-ios-skills/skills/alarmkit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Implement AlarmKit alarms and countdown timers for iOS and iPadOS with Lock Screen, Dynamic Isl... |
@@ -71,9 +79,13 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`claude-code-game-studios`](../../library/donchitos-claude-code-game-studios/skills/claude-code-game-studios) | ⚪ Reserve | `donchitos-claude-code-game-studios` | A suite of 74 skills and AI agents designed to automate studio-grade game development workflows... |
 | [`clerk-android`](../../library/clerk-skills/skills/clerk-android) | ⚪ Reserve | `clerk-skills` | Implement Clerk authentication for native Android apps using Kotlin and |
 | [`clerk-expo`](../../library/clerk-skills/skills/clerk-expo) | ⚪ Reserve | `clerk-skills` | Add Clerk authentication to Expo and React Native apps using @clerk/expo. |
+| [`cloud-developer-device-platform-basics`](../../library/google-skills/skills/cloud-developer-device-platform-basics) | ⚪ Reserve | `google-skills` | Provides guidance and instructions on managing remote devices on Developer Device Platform (DDP... |
+| [`cloud-developing-genkit-dart`](../../library/google-skills/skills/cloud-developing-genkit-dart) | ⚪ Reserve | `google-skills` | Generates code and provides documentation for the Genkit Dart SDK. Use when the user asks to bu... |
 | [`cloudkit`](../../library/dpearson2699-swift-ios-skills/skills/cloudkit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Implement, review, or improve CloudKit and iCloud sync in iOS/macOS apps. Use when working with... |
 | [`cmux-test-bisect`](../../library/manaflow-ai-cmux/skills/cmux-test-bisect) | ⚪ Reserve | `manaflow-ai-cmux` | Find when and why tests broke on main: bisect a Swift package suite on CI across old commits, r... |
 | [`cmux-testing`](../../library/manaflow-ai-cmux/skills/cmux-testing) | ⚪ Reserve | `manaflow-ai-cmux` | Choose scoped cmux verification, add behavioral tests, and validate Swift test targets and wiri... |
+| [`contact-center-android`](../../library/anthropics-knowledge-work/skills/contact-center-android) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Contact Center SDK for Android. Use for native Android chat/video/ZVA/scheduled callback i... |
+| [`contact-center-ios`](../../library/anthropics-knowledge-work/skills/contact-center-ios) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Contact Center SDK for iOS. Use for native iOS chat/video/ZVA/scheduled callback integrati... |
 | [`conversion-signal-qa`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/conversion-signal-qa) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "QA my conversion tracking before launch", "check my UTMs / pixel / e... |
 | [`core-nfc`](../../library/dpearson2699-swift-ios-skills/skills/core-nfc) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Read and write NFC tags using CoreNFC. Use when scanning NDEF tags, reading ISO7816/ISO15693/Fe... |
 | [`coreml`](../../library/dpearson2699-swift-ios-skills/skills/coreml) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Integrate Core ML models in iOS apps for on-device machine learning inference. Covers model loa... |
@@ -135,12 +147,17 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`intercepting-mobile-traffic-with-burpsuite`](../../library/mukul975-anthropic-cybersecurity-skills/skills/intercepting-mobile-traffic-with-burpsuite) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Intercepts and analyzes HTTP/HTTPS traffic from mobile applications |
 | [`ios`](../../library/anthropics-knowledge-work/skills/ios) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Virtual Agent iOS integration via WKWebView. Use for Swift/Objective-C script injection, m... |
 | [`ios-accessibility`](../../library/dpearson2699-swift-ios-skills/skills/ios-accessibility) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Build and audit SwiftUI, UIKit, and AppKit accessibility for VoiceOver, Voice Control, Switch C... |
+| [`ios-clean`](../../library/garrytan-gstack/skills/ios-clean) | ⚪ Reserve | `garrytan-gstack` | Remove the DebugBridge SPM package and all #if DEBUG wiring from an iOS app. (gstack) |
 | [`ios-debugger-agent`](../../library/dimillian-skills/skills/ios-debugger-agent) | ⚪ Reserve | `dimillian-skills` | Use XcodeBuildMCP to build, run, launch, and debug the current iOS project on a booted simulato... |
+| [`ios-design-review`](../../library/garrytan-gstack/skills/ios-design-review) | ⚪ Reserve | `garrytan-gstack` | Visual design audit for iOS apps on real hardware. (gstack) |
 | [`ios-developer`](../../library/antigravity-awesome-skills/skills/ios-developer) | ⚪ Reserve | `antigravity-awesome-skills` | Develop native iOS applications with Swift/SwiftUI. Masters iOS 18, |
 | [`ios-ettrace-performance`](../../library/dpearson2699-swift-ios-skills/skills/ios-ettrace-performance) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Use when capturing or analyzing ETTrace profiles for a focused iOS launch or runtime flow, incl... |
+| [`ios-fix`](../../library/garrytan-gstack/skills/ios-fix) | ⚪ Reserve | `garrytan-gstack` | Autonomous iOS bug fixer. (gstack) |
 | [`ios-memgraph-analysis`](../../library/dpearson2699-swift-ios-skills/skills/ios-memgraph-analysis) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Use when capturing or analyzing an iOS .memgraph, especially when the task mentions a memory le... |
 | [`ios-pentesting-tricks`](../../library/yaklang-hack-skills/skills/ios-pentesting-tricks) | ⚪ Reserve | `yaklang-hack-skills` | iOS pentesting playbook. Use when testing iOS applications for keychain extraction, URL scheme ... |
+| [`ios-qa`](../../library/garrytan-gstack/skills/ios-qa) | ⚪ Reserve | `garrytan-gstack` | Live-device iOS QA for SwiftUI apps. (gstack) |
 | [`ios-screens`](../../library/sickn33-agentic-awesome-skills/skills/ios-screens) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Build iPhone app screens that feel native: navigation, sheets, Dynamic Type, dark mode, permiss... |
+| [`ios-sync`](../../library/garrytan-gstack/skills/ios-sync) | ⚪ Reserve | `garrytan-gstack` | Regenerate the iOS debug bridge against the latest upstream gstack templates. (gstack) |
 | [`jetpack-compose-performance`](../../library/android-skills/skills/jetpack-compose-performance) | ⚪ Reserve | `android-skills` | Diagnose and optimize Android Jetpack Compose UI code. Use this skill |
 | [`kanchi-dividend-review-monitor`](../../library/tradermonty-claude-trading-skills/skills/kanchi-dividend-review-monitor) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Monitor dividend portfolios with Kanchi-style forced-review triggers (T1-T5) and convert anomal... |
 | [`kotlin-coroutines-expert`](../../library/davila7-claude-code-templates/skills/kotlin-coroutines-expert) | ⚪ Reserve | `davila7-claude-code-templates` | Expert patterns for Kotlin Coroutines and Flow, covering structured concurrency, error handling... |
@@ -179,6 +196,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`mobile-text-alerts`](../../library/membranedev-application-skills/skills/mobile-text-alerts) | ⚪ Reserve | `membranedev-application-skills` | Mobile Text Alerts integration. Manage Accounts. Use when the user wants to interact with Mobil... |
 | [`natural-language`](../../library/dpearson2699-swift-ios-skills/skills/natural-language) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Tokenize, tag, and analyze natural language text using Apple's NaturalLanguage framework and tr... |
 | [`network-config-validation`](../../library/affaan-m-ecc/skills/network-config-validation) | ⚪ Reserve | `affaan-m-ecc` | Pre-deployment checks for router and switch configuration, including dangerous commands, duplic... |
+| [`observe-dark-social-attributor`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/observe-dark-social-attributor) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "figure out where our direct traffic really comes from", "measure dar... |
 | [`open-autoglm-phone-agent`](../../library/reason-machines-trending-skills/skills/open-autoglm-phone-agent) | ⚪ Reserve | `reason-machines-trending-skills` | Expert skill for Open-AutoGLM, an AI phone agent framework that controls Android/HarmonyOS/iOS ... |
 | [`open-design-site-audit`](../../library/feimacode-open-design-agent-kit/skills/open-design-site-audit) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Audit a live website with Open Design's own checks — contrast, tap targets, phone layout, large... |
 | [`orca-emulator`](../../library/stablyai-orca/skills/orca-emulator) | ⚪ Reserve | `stablyai-orca` | iOS Simulator control from inside Orca, with the live device view in Orca's emulator pane. Use ... |
@@ -217,6 +235,19 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`shopify-conversion-optimization`](../../library/nexscope-ai-ecommerce-skills/skills/shopify-conversion-optimization) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Increase Shopify store conversion rates with data-driven optimization. Product pages, checkout ... |
 | [`shopify-theme-optimization`](../../library/nexscope-ai-ecommerce-skills/skills/shopify-theme-optimization) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Theme speed and UX optimization — Core Web Vitals, Liquid code, image loading, mobile responsiv... |
 | [`skills`](../../library/android-skills/skills/skills) | ⚪ Reserve | `android-skills` | Migrates Android projects to Android Gradle Plugin 9 and updates the AGP DSL. |
+| [`skills-build-zoom-meeting-app`](../../library/anthropics-knowledge-work/skills/skills-build-zoom-meeting-app) | ⚪ Reserve | `anthropics-knowledge-work` | Build or embed a Zoom meeting flow. Use when implementing Meeting SDK joins, web or mobile meet... |
+| [`skills-clerk-android`](../../library/clerk-skills/skills/skills-clerk-android) | ⚪ Reserve | `clerk-skills` | Implement Clerk authentication for native Android apps using Kotlin and |
+| [`skills-clerk-expo`](../../library/clerk-skills/skills/skills-clerk-expo) | ⚪ Reserve | `clerk-skills` | Add Clerk authentication to Expo and React Native apps using @clerk/expo. |
+| [`skills-dart-setup-ffi-assets`](../../library/dart-lang-skills/skills/skills-dart-setup-ffi-assets) | ⚪ Reserve | `dart-lang-skills` | Guides agents in compiling and packaging C/C++ source code into dynamic or static libraries (Co... |
+| [`skills-dart-use-ffigen`](../../library/dart-lang-skills/skills/skills-dart-use-ffigen) | ⚪ Reserve | `dart-lang-skills` | Guide agents to use `package:ffigen` to automatically generate FFI bindings instead of writing ... |
+| [`skills-flutter-add-integration-test`](../../library/flutter-agent-plugins/skills/skills-flutter-add-integration-test) | ⚪ Reserve | `flutter-agent-plugins` | Configures Flutter Driver for app interaction and converts MCP actions into permanent integrati... |
+| [`skills-flutter-add-widget-preview`](../../library/flutter-agent-plugins/skills/skills-flutter-add-widget-preview) | ⚪ Reserve | `flutter-agent-plugins` | Adds interactive widget previews to the project using the previews.dart system. Use when creati... |
+| [`skills-flutter-build-responsive-layout`](../../library/flutter-agent-plugins/skills/skills-flutter-build-responsive-layout) | ⚪ Reserve | `flutter-agent-plugins` | Use `LayoutBuilder`, `MediaQuery`, or `Expanded/Flexible` to create a layout that adapts to dif... |
+| [`skills-flutter-fix-layout-issues`](../../library/flutter-agent-plugins/skills/skills-flutter-fix-layout-issues) | ⚪ Reserve | `flutter-agent-plugins` | Fixes Flutter layout errors (overflows, unbounded constraints) using Dart and Flutter MCP tools... |
+| [`skills-flutter-implement-json-serialization`](../../library/flutter-agent-plugins/skills/skills-flutter-implement-json-serialization) | ⚪ Reserve | `flutter-agent-plugins` | Create model classes with `fromJson` and `toJson` methods using `dart:convert`. Use when manual... |
+| [`skills-flutter-setup-declarative-routing`](../../library/flutter-agent-plugins/skills/skills-flutter-setup-declarative-routing) | ⚪ Reserve | `flutter-agent-plugins` | Configure `MaterialApp.router` using a package like `go_router` for advanced URL-based navigati... |
+| [`skills-flutter-setup-localization`](../../library/flutter-agent-plugins/skills/skills-flutter-setup-localization) | ⚪ Reserve | `flutter-agent-plugins` | Add `flutter_localizations` and `intl` dependencies, enable "generate true" in `pubspec.yaml`, ... |
+| [`skills-virtual-agent`](../../library/anthropics-knowledge-work/skills/skills-virtual-agent) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom Virtual Agent. Use after routing to a virtual-agent workflow when impl... |
 | [`speech-recognition`](../../library/dpearson2699-swift-ios-skills/skills/speech-recognition) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Transcribe speech to text using Apple's Speech framework. Use when implementing live microphone... |
 | [`stitch-ui-design`](../../library/antigravity-awesome-skills/skills/stitch-ui-design) | ⚪ Reserve | `antigravity-awesome-skills` | Expert guide for creating effective prompts for Google Stitch AI UI design tool. Use when user ... |
 | [`swift`](../../library/mindrally-skills/skills/swift) | ⚪ Reserve | `mindrally-skills` | Expert in Swift and SwiftUI development for iOS, macOS, and Apple platforms |
@@ -240,7 +271,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`upgrading-expo`](../../library/antigravity-awesome-skills/skills/upgrading-expo) | ⚪ Reserve | `antigravity-awesome-skills` | Upgrade Expo SDK versions |
 | [`use-dom`](../../library/sickn33-agentic-awesome-skills/skills/use-dom) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use Expo DOM components to run web code in a webview on native and as-is on web. Migrate web co... |
 | [`uxkin-research`](../../library/sickn33-agentic-awesome-skills/skills/uxkin-research) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Research how real products handle a screen, flow or visual style before designing it: search UX... |
+| [`video-sdk-android`](../../library/anthropics-knowledge-work/skills/video-sdk-android) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Video SDK for Android native apps. Use when building custom Android video experiences with... |
 | [`virtual-agent`](../../library/anthropics-knowledge-work/skills/virtual-agent) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom Virtual Agent. Use after routing to a virtual-agent workflow when impl... |
+| [`virtual-agent-ios`](../../library/anthropics-knowledge-work/skills/virtual-agent-ios) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Virtual Agent iOS integration via WKWebView. Use for Swift/Objective-C script injection, m... |
 | [`vpn-detector-android`](../../library/reason-machines-trending-skills/skills/vpn-detector-android) | ⚪ Reserve | `reason-machines-trending-skills` | name: vpn-detector-android |
 | [`weatherkit`](../../library/dpearson2699-swift-ios-skills/skills/weatherkit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Fetch WeatherKit current, minute, hourly, and daily forecasts; weather alerts; iOS 18+ changes,... |
 | [`web-review`](../../library/sickn33-agentic-awesome-skills/skills/web-review) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Review a website or landing page and list what to fix, most important first: message, generic A... |

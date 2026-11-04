@@ -128,6 +128,14 @@
     "path": "category/architecture-system-design/agent-memory-systems"
   },
   {
+    "id": "agent-platform-architecture",
+    "name": "agent-platform-architecture",
+    "category": "architecture-system-design",
+    "repository": "google-skills",
+    "description": "Designs, engineers, and validates enterprise Gemini platform architectures. Use when designing multi-project hierarchies (Host, Central Governance Hub, Runtime Spoke, Tool/MCP Spoke), configuring Agent Gateway, authoring Agent Connectivity Templates (ALL_TRAFFIC vs PRIVATE_RANGES_ONLY), deploying Secure Web Proxy (SWP) with Policy-Based Routing (PBR) or Cross-Cloud mTLS Egress Hubs, configuring Private CA TrustConfig with Internal ALB + Serverless NEG, implementing Unified Access Policies (UAP Policy V2 CEL) and Semantic Governance (SGP), configuring 3P IdP Token Exchange (EntraID/Ping/Okta via ext_proc + STS) or Agent Identity Auth Manager (SPIFFE), enforcing Model Armor Floor Settings and Fail-Closed guardrails, deploying Cross-Project Registry sync, binding ADK agents on Agent Runtime, or executing Day-2 lifecycle operations. Don't use for read-only live log triage or incident diagnosis, or generic Google Cloud Identity and Access Management (IAM) debugging.",
+    "path": "category/architecture-system-design/agent-platform-architecture"
+  },
+  {
     "id": "agent-skills-for-context-engineering",
     "name": "agent-skills-for-context-engineering",
     "category": "architecture-system-design",
@@ -350,6 +358,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "Master software architect specializing in modern architecture",
     "path": "category/architecture-system-design/architect-review"
+  },
+  {
+    "id": "architect-strategic-narrative-designer",
+    "name": "architect-strategic-narrative-designer",
+    "category": "architecture-system-design",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"design our change narrative\", \"build the old-world-to-new-game story arc\", or \"frame the shift our category is undergoing\"; produces a Raskin-style strategic narrative arc \u2014 old world \u2192 the undeniable shift \u2192 winners vs losers under the new rules \u2192 the promised land \u2192 proof the promised land is real \u2014 derived from the positioning truth set and the belief/objection map, feeding the TALE Architecture arc sub-item. Every proof beat is labeled Measured / User-provided / [needs source] and this skill never adjudicates a claim. Not for the message house hierarchy \u2014 use message-system-architect; not for the pitch deck narrative \u2014 use pitch-narrative-builder; not for claim substantiation \u2014 use offer-claims-registry. \u53d8\u9769\u53d9\u4e8b\u5f27/\u65e7\u4e16\u754c/\u5e94\u8bb8\u4e4b\u5730/\u6218\u7565\u53d9\u4e8b\u7ed3\u6784",
+    "path": "category/architecture-system-design/architect-strategic-narrative-designer"
   },
   {
     "id": "architecture",
@@ -582,6 +598,14 @@
     "repository": "aws-agent-toolkit-for-aws",
     "description": "Performs a full AWS Well-Architected Framework review evaluating every framework question across all pillars discovered from the live AWS documentation by analyzing code, IaC, and configurations to produce evidence-backed findings with Eisenhower-prioritized remediation. Supports full reviews (every framework best practice with BP ID citations), quick reviews (question-level), pillar-scoped reviews, score-mode reviews (a maturity scorecard with per-pillar scores and filtered findings), and lens-specific reviews using lenses discovered from the live AWS documentation. Triggers on mentions of Well-Architected review, WA review, WAR, pillar assessment, architecture review across pillars, workload assessment, cloud readiness evaluation, or a Well-Architected score, grade, or scorecard request. Does not apply to single-pillar deep-dives, learning WA concepts, ADRs, or migration readiness assessments.",
     "path": "category/architecture-system-design/aws-well-architected-review"
+  },
+  {
+    "id": "azure-app-onboard-scaffold",
+    "name": "azure-app-onboard-scaffold",
+    "category": "architecture-system-design",
+    "repository": "microsoft-azure-skills",
+    "description": "Generate deployment-ready infrastructure code from an architecture plan, verify it with adversarial self-review, and bridge to validation \u2014 all without deploying.",
+    "path": "category/architecture-system-design/azure-app-onboard-scaffold"
   },
   {
     "id": "azure-identity-java",
@@ -1022,6 +1046,86 @@
     "repository": "codewithmukesh-dotnet-claude-kit",
     "description": "Clean Architecture for .NET applications. Covers the 4-project layout (Domain, Application, Infrastructure, Api), dependency inversion, use case handlers, domain entities with behavior, and infrastructure as a plugin. Load this skill when building a project with Clean Architecture, discussing layered architecture, dependency inversion, use cases, or when the architecture-advisor recommends Clean Architecture.",
     "path": "category/architecture-system-design/clean-architecture"
+  },
+  {
+    "id": "cloud-cloud-operator",
+    "name": "cloud-cloud-operator",
+    "category": "architecture-system-design",
+    "repository": "google-skills",
+    "description": "Google Cloud (GCP) assistant and operator via the autocloud MCP server. Use for any GCP request: how-to, resources, Terraform/Kubernetes/Helm, rollouts, incidents, costs. Invoke it before answering a GCP question from your own knowledge or documentation search, and before proposing an architecture or backend, even when no cloud is named. Invoke it before reading or editing local *.tf or Kubernetes YAML. Don't use for non-GCP tasks or local machine setup like installing gcloud and setting up GCP.",
+    "path": "category/architecture-system-design/cloud-cloud-operator"
+  },
+  {
+    "id": "cloud-gke-custom-golden-image-discovery",
+    "name": "cloud-gke-custom-golden-image-discovery",
+    "category": "architecture-system-design",
+    "repository": "google-skills",
+    "description": "Discovers golden base images for creating GKE custom node images based on technical specifications or context clues. Use when finding the golden base image for custom GKE node creation, mapping cluster configuration parameters (GKE version, OS, architecture, accelerators, gVisor, cgroups) to image names, or querying GKE base image maps. Don't use for general GKE cluster creation (use gke-cluster-creation) or standard node pool management (use gke-basics).",
+    "path": "category/architecture-system-design/cloud-gke-custom-golden-image-discovery"
+  },
+  {
+    "id": "cloud-google-cloud-recipe-foundation-builder",
+    "name": "cloud-google-cloud-recipe-foundation-builder",
+    "category": "architecture-system-design",
+    "repository": "google-skills",
+    "description": "Deploys a baseline landing zone foundation for a Google Cloud Organization, establishing security guardrails using Organization Policies, resource hierarchy folders and projects, billing association, and centralized logging and monitoring. Deploys Google Cloud's recommended security controls and architecture. Use when setting up a new Google Cloud Organization or establishing a secure, enterprise-grade landing zone foundation.",
+    "path": "category/architecture-system-design/cloud-google-cloud-recipe-foundation-builder"
+  },
+  {
+    "id": "cloud-google-cloud-solution-agentic-ai-bidirectional-streaming",
+    "name": "cloud-google-cloud-solution-agentic-ai-bidirectional-streaming",
+    "category": "architecture-system-design",
+    "repository": "google-skills",
+    "description": "Guides agents to interactively discover customer requirements for live, bidirectional multi-agent AI systems that process continuous streams of multimodal data for real-time technical guidance and safety monitoring. Generates a custom Google Cloud solution that uses opinionated best practices and architecture guidance. Use when users need agentic assistance to design and create a multi-product solution in the cloud for live bidirectional multimodal streaming workloads. Don't use for simple text-based chat applications or workloads without real-time streaming requirements.",
+    "path": "category/architecture-system-design/cloud-google-cloud-solution-agentic-ai-bidirectional-streaming"
+  },
+  {
+    "id": "cloud-google-cloud-solution-agentic-ai-data-science-workflow",
+    "name": "cloud-google-cloud-solution-agentic-ai-data-science-workflow",
+    "category": "architecture-system-design",
+    "repository": "google-skills",
+    "description": "Designs a tailored multi-product agentic data science architecture on Google Cloud that incorporates opinionated best practices. Use when architecting multi-product solutions for agent-based data analytics or ML workloads. Don't use for simple queries, non-agentic pipelines, general cloud reviews, or writing agent code.",
+    "path": "category/architecture-system-design/cloud-google-cloud-solution-agentic-ai-data-science-workflow"
+  },
+  {
+    "id": "cloud-google-cloud-solution-architecture",
+    "name": "cloud-google-cloud-solution-architecture",
+    "category": "architecture-system-design",
+    "repository": "google-skills",
+    "description": "Interactively discovers requirements and designs holistic, multi-product system architectures, solution blueprints, and deployment recommendations for complex workloads on Google Cloud. Use when designing end-to-end cloud solutions, selecting and integrating Google Cloud services, generating architecture diagrams, or conducting requirements discovery for new cloud workloads or migrations. Don't use for single-product tasks (use product-specific skills), initial onboarding or authentication (use google-cloud-recipe-*), Well-Architected Framework reviews or audits (use google-cloud-waf-*), or workloads covered by specialized solution skills.",
+    "path": "category/architecture-system-design/cloud-google-cloud-solution-architecture"
+  },
+  {
+    "id": "cloud-google-cloud-solution-build-deploy-agents",
+    "name": "cloud-google-cloud-solution-build-deploy-agents",
+    "category": "architecture-system-design",
+    "repository": "google-skills",
+    "description": "Designs, builds, and deploys AI agents or multi-agent systems on Google Cloud. Provides an interactive workflow to gather requirements, recommend a tailored architecture, and generate deployment instructions. Use when designing or implementing agentic systems on Google Cloud. Don't use for general Google Cloud solution architecture (use google-cloud-solution-architecture instead) or for narrow tasks targeting a single product without agent context.",
+    "path": "category/architecture-system-design/cloud-google-cloud-solution-build-deploy-agents"
+  },
+  {
+    "id": "cloud-google-cloud-solution-n-tier-serverless-web-app",
+    "name": "cloud-google-cloud-solution-n-tier-serverless-web-app",
+    "category": "architecture-system-design",
+    "repository": "google-skills",
+    "description": "Assists in designing and implementing secure n-tier serverless web applications and microservices on Google Cloud. Use when users need architecture designs, security checklists, Terraform code, or deployment guidance for multi-tier serverless apps, regional data residency / European sovereignty compliance, zero-trust private VPC networking, or Private Service Connect. Don't use for VM, GKE, or non-Google Cloud architectures.",
+    "path": "category/architecture-system-design/cloud-google-cloud-solution-n-tier-serverless-web-app"
+  },
+  {
+    "id": "cloud-google-cloud-waf-cost-optimization",
+    "name": "cloud-google-cloud-waf-cost-optimization",
+    "category": "architecture-system-design",
+    "repository": "google-skills",
+    "description": "Evaluates Google Cloud workloads for cost efficiency and FinOps alignment using the Google Cloud Well-Architected Framework Cost Optimization pillar. Use when the user asks to analyze Google Cloud spend, reduce cloud bills, rightsize resources (for example, Compute, GKE, Storage, Databases), evaluate discount options (for example, CUDs, SUDs, Spot VMs), or eliminate idle capacity. Do not use for standalone product pricing lookups or non-cost architecture design.",
+    "path": "category/architecture-system-design/cloud-google-cloud-waf-cost-optimization"
+  },
+  {
+    "id": "cloud-google-cloud-waf-reliability",
+    "name": "cloud-google-cloud-waf-reliability",
+    "category": "architecture-system-design",
+    "repository": "google-skills",
+    "description": "Evaluates, designs, and improves the reliability, resilience, availability, fault tolerance, and disaster recovery (DR) of Google Cloud workloads based on the design principles and recommendations in the Reliability pillar of the Google Cloud Well-Architected Framework. Use when the user asks about reliability-related topics like workload uptime, designing for high availability (HA) or DR, setting and meeting RTO/RPO targets, SRE best practices, backup strategies, multi-region failover, or fault-tolerant architecture on Google Cloud. Don't use for other Well-Architected Framework pillars such as Cost Optimization, Operational Excellence, or Security, or for hands-on resource deployment and live incident troubleshooting.",
+    "path": "category/architecture-system-design/cloud-google-cloud-waf-reliability"
   },
   {
     "id": "cloud-operator",
@@ -1614,6 +1718,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Design and build interactive playgrounds that let developers experience your product without commitment. This skill covers playground architecture, pre-populated examples, embedding strategies, gating decisions, and converting playground users to signups.",
     "path": "category/architecture-system-design/developer-sandbox"
+  },
+  {
+    "id": "developers-migrate-to-rust",
+    "name": "developers-migrate-to-rust",
+    "category": "architecture-system-design",
+    "repository": "google-skills",
+    "description": "Clones, analyzes, plans, and migrates legacy codebases (C++, Fortran, Java, Python, C, Shell) from a GitHub URL or local directory to a modern, high-performance, deterministic, 100% Safe Rust architecture, tracking live telemetry across every task bucket, test failure/fix cycle, and Profile-Guided Optimization (PGO) stage, and producing a first-person AI storytelling report and interactive HTML infographic. Use when migrating a GitHub repository or local codebase to Rust, porting legacy C++, Fortran, Python, or Java workloads to memory-safe Rust, designing Struct-of-Arrays (SoA) or SIMD Rust architectures, or optimizing Rust ports with LLVM PGO. Don't use for unrelated non-Rust refactoring or single-line syntax questions.",
+    "path": "category/architecture-system-design/developers-migrate-to-rust"
   },
   {
     "id": "device-integrity",
@@ -3024,6 +3136,14 @@
     "path": "category/architecture-system-design/medical-fcps-mrcp-note-creation"
   },
   {
+    "id": "meeting-sdk-windows",
+    "name": "meeting-sdk-windows",
+    "category": "architecture-system-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Zoom Meeting SDK for Windows - Native C++ SDK for embedding Zoom meetings into Windows desktop applications. Supports custom UI architecture with raw video/audio data, headless bots, and deep integration with meeting features. Includes SDK architecture patterns and Windows message loop handling.",
+    "path": "category/architecture-system-design/meeting-sdk-windows"
+  },
+  {
     "id": "melonjs-sprites-and-animation",
     "name": "melonjs-sprites-and-animation",
     "category": "architecture-system-design",
@@ -3310,6 +3430,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "Configure and optimize Nx monorepo workspaces. Use when setting up Nx, configuring project boundaries, optimizing build caching, or implementing affected commands.",
     "path": "category/architecture-system-design/nx-workspace-patterns"
+  },
+  {
+    "id": "observe-social-pulse-monitor",
+    "name": "observe-social-pulse-monitor",
+    "category": "architecture-system-design",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"monitor brand mentions\", \"set up social listening\", \"did anything spike about us this week\", or \"watch these accounts for buying triggers\"; runs always-on keyless listening \u2014 a versioned listening-query architecture (brand variants incl. misspellings and \u4e2d\u6587 names, exclusion terms, per-source syntax for HN Algolia / Bluesky / GDELT / Tavily), a mention sweep with six-class triage (crisis / bug / lead / praise / question / spam) each routed with an SLA, a 7-day rolling baseline with spike flags (the crisis trigger input), a B2B trigger watchlist (funding / hiring / launch signals), and an explicit coverage disclosure where X/IG/TikTok/LinkedIn/\u5c0f\u7ea2\u4e66 numbers are proxy-labeled, never Measured. Not for launch-window telemetry (T-0\u2192T+30 rank and review polling) \u2014 use launch-monitor. \u8206\u60c5\u76d1\u542c/\u54c1\u724c\u63d0\u53ca\u76d1\u6d4b/\u57fa\u7ebf\u7a81\u523a/\u89e6\u53d1\u4fe1\u53f7",
+    "path": "category/architecture-system-design/observe-social-pulse-monitor"
   },
   {
     "id": "obsidian-second-brain",
@@ -3768,6 +3896,14 @@
     "path": "category/architecture-system-design/replit-deck"
   },
   {
+    "id": "research-campaign-architect",
+    "name": "research-campaign-architect",
+    "category": "architecture-system-design",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"plan my paid account structure\", \"pick Search vs PMax\", \"lay out ad groups / asset groups\", or \"audit paid-vs-organic cannibalization\"; designs campaign-type selection, ad-group/asset-group layout, targeting + match types, negative/exclusion hygiene, and a paid\u2194organic overlap audit, and scores the ROAS A (Audience) dimension + structure. Not for computing the final RQS \u2014 use ad-account-auditor; not for budget split \u2014 use budget-optimizer; not for organic site architecture \u2014 use site-structure-optimizer. \u4ed8\u8d39\u5e7f\u544a\u8d26\u6237\u7ed3\u6784/\u5e7f\u544a\u7cfb\u5217\u89c4\u5212/\u5426\u5b9a\u5173\u952e\u8bcd",
+    "path": "category/architecture-system-design/research-campaign-architect"
+  },
+  {
     "id": "research-coordinator",
     "name": "research-coordinator",
     "category": "architecture-system-design",
@@ -4038,6 +4174,294 @@
     "repository": "antigravity-awesome-skills",
     "description": "Create and manage Claude Code skills following Anthropic best practices. Use when creating new skills, modifying skill-rules.json, understanding trigger patterns, working with hooks, debugging skil...",
     "path": "category/architecture-system-design/skill-developer"
+  },
+  {
+    "id": "skills-answer-me-with-html",
+    "name": "skills-answer-me-with-html",
+    "category": "architecture-system-design",
+    "repository": "qingyuna-answer-me-with-html",
+    "description": "Turns an answer into a one-page visual HTML explainer: the model writes a short Markdown draft and the bundled CLI builds one page. Use it proactively and liberally in replies to the user, without being asked, whenever a page would help the reader more than plain text, even if plain text would also work: any explanation of how something works or how parts relate (flow, request path, architecture, code or folder structure, state machine, lifecycle, history); any comparison, trade-off or decision with pros and cons; any diagnosis, review or investigation, especially with several causes or findings to rank; any answer with a table, a numbered or ranked list, steps, branches or several sections; or when the user says \"I don't get it / draw it / explain visually / \u8bb2\u8bb2\u539f\u7406 / \u6ca1\u770b\u61c2 / \u753b\u4e2a\u56fe\". When in doubt, use it: a page is quick and cheap to make. Also for explainer videos (\"make a video\", \"\u505a\u4e2a\u89c6\u9891\") and for changing its settings. Skip only for small talk, a trivial one-line answer, or when the user asks for plain text.",
+    "path": "category/architecture-system-design/skills-answer-me-with-html"
+  },
+  {
+    "id": "skills-arch-check",
+    "name": "skills-arch-check",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Architecture conformance check: verifies an existing codebase against its declared architecture (VSA, Clean Architecture, DDD, Modular Monolith) \u2014 dependency direction, layer violations, module boundary leaks, and cycles \u2014 using token-cheap Roslyn MCP analysis. Invoke when: \"check architecture\", \"architecture violations\", \"layer violations\", \"dependency direction\", \"module boundaries\", \"arch check\", \"is my architecture clean\", \"enforce architecture\", \"conformance check\". For CHOOSING an architecture, use architecture-advisor instead.",
+    "path": "category/architecture-system-design/skills-arch-check"
+  },
+  {
+    "id": "skills-architecture",
+    "name": "skills-architecture",
+    "category": "architecture-system-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Create or evaluate an architecture decision record (ADR). Use when choosing between technologies (e.g., Kafka vs SQS), documenting a design decision with trade-offs and consequences, reviewing a system design proposal, or designing a new component from requirements and constraints.",
+    "path": "category/architecture-system-design/skills-architecture"
+  },
+  {
+    "id": "skills-architecture-advisor",
+    "name": "skills-architecture-advisor",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Architecture selection advisor for .NET applications. Asks structured questions about domain complexity, team size, system lifetime, compliance, and integration needs, then recommends the best-fit architecture: Vertical Slice, Clean Architecture, DDD + Clean Architecture, or Modular Monolith. Load this skill when the user asks \"which architecture\", \"choose architecture\", \"set up project\", \"new project\", \"architecture decision\", \"restructure\", or \"how should I organize\". Always load BEFORE any architecture-specific skill.",
+    "path": "category/architecture-system-design/skills-architecture-advisor"
+  },
+  {
+    "id": "skills-azure-resource-visualizer",
+    "name": "skills-azure-resource-visualizer",
+    "category": "architecture-system-design",
+    "repository": "microsoft-azure-skills",
+    "description": "Analyze Azure resource groups and generate detailed Mermaid architecture diagrams showing the relationships between individual resources. WHEN: create architecture diagram, visualize Azure resources, show resource relationships, generate Mermaid diagram, analyze resource group, diagram my resources, architecture visualization, resource topology, map Azure infrastructure.",
+    "path": "category/architecture-system-design/skills-azure-resource-visualizer"
+  },
+  {
+    "id": "skills-build-mcp-server",
+    "name": "skills-build-mcp-server",
+    "category": "architecture-system-design",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "This skill should be used when the user asks to \"build an MCP server\", \"create an MCP\", \"make an MCP integration\", \"wrap an API for Claude\", \"expose tools to Claude\", \"make an MCP app\", or discusses building something with the Model Context Protocol. It is the entry point for MCP server development \u2014 it interrogates the user about their use case, determines the right deployment model (remote HTTP, MCPB, local stdio), picks a tool-design pattern, and hands off to specialized skills.",
+    "path": "category/architecture-system-design/skills-build-mcp-server"
+  },
+  {
+    "id": "skills-choose-zoom-approach",
+    "name": "skills-choose-zoom-approach",
+    "category": "architecture-system-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Choose the right Zoom architecture for a use case. Use when deciding between REST API, Webhooks, WebSockets, Meeting SDK, Video SDK, Zoom Apps SDK, Zoom MCP, Phone, Contact Center, or a hybrid approach.",
+    "path": "category/architecture-system-design/skills-choose-zoom-approach"
+  },
+  {
+    "id": "skills-clean-architecture",
+    "name": "skills-clean-architecture",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Clean Architecture for .NET applications. Covers the 4-project layout (Domain, Application, Infrastructure, Api), dependency inversion, use case handlers, domain entities with behavior, and infrastructure as a plugin. Load this skill when building a project with Clean Architecture, discussing layered architecture, dependency inversion, use cases, or when the architecture-advisor recommends Clean Architecture.",
+    "path": "category/architecture-system-design/skills-clean-architecture"
+  },
+  {
+    "id": "skills-configuration",
+    "name": "skills-configuration",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Configuration patterns for .NET 10 applications. Covers the Options pattern, IOptionsSnapshot vs IOptions, secrets management, and environment-based configuration. Load this skill when setting up application configuration, managing secrets, binding configuration sections, or when the user mentions \"configuration\", \"appsettings\", \"Options pattern\", \"IOptions\", \"IOptionsSnapshot\", \"secrets\", \"user secrets\", \"environment variables\", \"connection string\", or \"config binding\".",
+    "path": "category/architecture-system-design/skills-configuration"
+  },
+  {
+    "id": "skills-dart-use-pattern-matching",
+    "name": "skills-dart-use-pattern-matching",
+    "category": "architecture-system-design",
+    "repository": "dart-lang-skills",
+    "description": "Applies Dart 3 pattern matching, switch expressions, and destructuring idiomatically to validate data schemas, handle algebraic data types, and decompose control flow. Use when refactoring complex if-else chains, parsing polymorphic JSON or API responses, destructuring Lists, URI/path segments, String.split() tokens, Records, or Maps, or enforcing exhaustiveness on sealed classes. Don't use for simple boolean conditions, single-variable type promotion (use `is`), or basic collection filtering.",
+    "path": "category/architecture-system-design/skills-dart-use-pattern-matching"
+  },
+  {
+    "id": "skills-ddd",
+    "name": "skills-ddd",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Domain-Driven Design tactical patterns for .NET applications. Covers aggregates, aggregate roots, value objects, domain events, domain services, strongly-typed IDs, and repository patterns for aggregate persistence. Load this skill when implementing DDD, working with aggregates, value objects, domain events, bounded contexts, or when the architecture-advisor recommends DDD + Clean Architecture. Pair with the clean-architecture skill.",
+    "path": "category/architecture-system-design/skills-ddd"
+  },
+  {
+    "id": "skills-dependency-injection",
+    "name": "skills-dependency-injection",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Dependency injection patterns for .NET 10. Covers service lifetimes, keyed services, the decorator pattern, factory pattern, and common DI pitfalls. Load this skill when registering services, resolving lifetime issues, designing service composition, or when the user mentions \"DI\", \"dependency injection\", \"service registration\", \"AddScoped\", \"AddTransient\", \"AddSingleton\", \"keyed services\", \"decorator\", \"Scrutor\", \"IServiceCollection\", or \"captive dependency\".",
+    "path": "category/architecture-system-design/skills-dependency-injection"
+  },
+  {
+    "id": "skills-docs-canvas",
+    "name": "skills-docs-canvas",
+    "category": "architecture-system-design",
+    "repository": "cursor-plugins",
+    "description": "Render a documentation-style Cursor Canvas that organizes architecture notes, API references, walkthroughs, and how-tos into a navigable layout with sections, tables of contents, and cross-references. Use when the user asks for a docs canvas, documentation overview, architecture walkthrough, API reference page, or wants to render structured documentation as an interactive canvas.",
+    "path": "category/architecture-system-design/skills-docs-canvas"
+  },
+  {
+    "id": "skills-documentation",
+    "name": "skills-documentation",
+    "category": "architecture-system-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Write and maintain technical documentation. Trigger with \"write docs for\", \"document this\", \"create a README\", \"write a runbook\", \"onboarding guide\", or when the user needs help with any form of technical writing \u2014 API docs, architecture docs, or operational runbooks.",
+    "path": "category/architecture-system-design/skills-documentation"
+  },
+  {
+    "id": "skills-error-handling",
+    "name": "skills-error-handling",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Error handling strategy for .NET 10 applications. Covers the Result pattern, ProblemDetails (RFC 9457), global exception handling, FluentValidation, and structured error responses. Load this skill when implementing error handling, validation, or designing API error contracts, or when the user mentions \"error handling\", \"Result pattern\", \"ProblemDetails\", \"exception\", \"validation\", \"FluentValidation\", \"error response\", \"global exception handler\", or \"RFC 9457\".",
+    "path": "category/architecture-system-design/skills-error-handling"
+  },
+  {
+    "id": "skills-flutter-apply-architecture-best-practices",
+    "name": "skills-flutter-apply-architecture-best-practices",
+    "category": "architecture-system-design",
+    "repository": "flutter-agent-plugins",
+    "description": "Architects a Flutter application using the recommended layered approach (UI, Logic, Data). Use when structuring a new project or refactoring for scalability.",
+    "path": "category/architecture-system-design/skills-flutter-apply-architecture-best-practices"
+  },
+  {
+    "id": "skills-how",
+    "name": "skills-how",
+    "category": "architecture-system-design",
+    "repository": "cursor-plugins",
+    "description": "Use for \\\"how does X work\\\", code walkthroughs before changing something, and placement / ownership / layering questions (\\\"where should this live\\\", \\\"which package owns this\\\", \\\"is this the right layer\\\"). Explains subsystem architecture, runtime flow, onboarding mental models. Use why for motivation.",
+    "path": "category/architecture-system-design/skills-how"
+  },
+  {
+    "id": "skills-instinct-system",
+    "name": "skills-instinct-system",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Unified learning-and-memory system: confidence-scored instincts (observe-hypothesize-confirm, stored in .claude/instincts.md), user corrections captured as permanent rules in MEMORY.md, and organic discoveries logged to .claude/learning-log.md. Includes status, export, and import modes. Load this skill when you notice a recurring pattern, a user corrects your output, or you discover something non-obvious. Triggers: \"show instincts\", \"what have you learned\", \"list instincts\", \"export instincts\", \"share instincts\", \"import instincts\", \"load instincts from\", \"learn this\", \"I think they always\", \"notice a pattern\", \"instinct\", \"hypothesis\", \"confidence\", \"learn from mistakes\", \"remember this\", \"don't do that again\", \"log this\", \"document this finding\", \"gotcha\", \"what did we learn\", \"learnings\", \"discoveries\", or at session start (to load existing knowledge).",
+    "path": "category/architecture-system-design/skills-instinct-system"
+  },
+  {
+    "id": "skills-manage-sprite-atlas",
+    "name": "skills-manage-sprite-atlas",
+    "category": "architecture-system-design",
+    "repository": "unity-technologies-skills",
+    "description": "Manages SpriteAtlas assets through a prebuild pipeline, covering master and variant atlases, packing settings, and platform overrides. Use when asked to create or optimize sprite atlases.",
+    "path": "category/architecture-system-design/skills-manage-sprite-atlas"
+  },
+  {
+    "id": "skills-messaging",
+    "name": "skills-messaging",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Asynchronous messaging patterns for .NET applications. Covers Wolverine and MassTransit, outbox pattern, saga and choreography, and broker configuration for RabbitMQ and Azure Service Bus. Load this skill when implementing event-driven communication, background processing, module-to-module messaging, or when the user mentions \"Wolverine\", \"MassTransit\", \"message bus\", \"RabbitMQ\", \"Azure Service Bus\", \"event\", \"publish\", \"consumer\", \"outbox\", \"saga\", \"integration event\", \"queue\", or \"pub/sub\".",
+    "path": "category/architecture-system-design/skills-messaging"
+  },
+  {
+    "id": "skills-modern-csharp",
+    "name": "skills-modern-csharp",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Modern C# language features for .NET 10 and C# 14. Covers primary constructors, collection expressions, the field keyword, extension members, records, pattern matching, spans, and raw string literals. Load this skill when writing any new C# code, reviewing existing code for modernization, using \"modern C#\", \"C# 14\", \"primary constructor\", \"collection expression\", \"records\", \"pattern matching\", \"span\", \"field keyword\", or \"extension members\". Always loaded as the baseline for all agents.",
+    "path": "category/architecture-system-design/skills-modern-csharp"
+  },
+  {
+    "id": "skills-om-auto-sec-report-pr",
+    "name": "skills-om-auto-sec-report-pr",
+    "category": "architecture-system-design",
+    "repository": "open-mercato-skills",
+    "description": "Paranoid OWASP-style security analysis of ONE unit (a PR, spec, or branch diff) \u2014 severity-ranked findings, non-obvious attack vectors, same-pattern hotspots, and \"go deeper\" follow-up runs. Writes a redacted report (live exploitable details withheld), kept local by default or shipped as a docs PR, or a fragment for `om-auto-sec-report`. Use for \"security review of PR 123\".",
+    "path": "category/architecture-system-design/skills-om-auto-sec-report-pr"
+  },
+  {
+    "id": "skills-om-ux-review-pr",
+    "name": "skills-om-ux-review-pr",
+    "category": "architecture-system-design",
+    "repository": "open-mercato-skills",
+    "description": "Evidence-first design review of a PR's UI. Walks the changed screens in a real browser, performs the user's tasks, and posts findings ranked by user impact, each with evidence, a pattern, a trade-off and an acceptance criterion. A --guard mode checks code statically against the design contract, per PR or repository-wide with --health.",
+    "path": "category/architecture-system-design/skills-om-ux-review-pr"
+  },
+  {
+    "id": "skills-plan",
+    "name": "skills-plan",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Enter plan mode for .NET projects with architecture awareness. Analyzes tasks through the lens of supported architectures (VSA, Clean Architecture, DDD, Modular Monolith) and produces structured implementation plans before any code is written. Use when: \"plan\", \"let's plan\", \"think through\", \"design this\", \"how should I implement\", or any non-trivial task requiring 3+ steps.",
+    "path": "category/architecture-system-design/skills-plan"
+  },
+  {
+    "id": "skills-plan-zoom-integration",
+    "name": "skills-plan-zoom-integration",
+    "category": "architecture-system-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Turn a Zoom integration idea into an implementation plan with architecture, auth, and delivery milestones. Use when you need a practical build plan, phased delivery sequence, risk list, and next-step recommendation.",
+    "path": "category/architecture-system-design/skills-plan-zoom-integration"
+  },
+  {
+    "id": "skills-plugin-settings",
+    "name": "skills-plugin-settings",
+    "category": "architecture-system-design",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "This skill should be used when the user asks about \"plugin settings\", \"store plugin configuration\", \"user-configurable plugin\", \".local.md files\", \"plugin state files\", \"read YAML frontmatter\", \"per-project plugin settings\", or wants to make plugin behavior configurable. Documents the .claude/plugin-name.local.md pattern for storing plugin-specific configuration with YAML frontmatter and markdown content.",
+    "path": "category/architecture-system-design/skills-plugin-settings"
+  },
+  {
+    "id": "skills-preservation-verifier",
+    "name": "skills-preservation-verifier",
+    "category": "architecture-system-design",
+    "repository": "conorbronsdon-avoid-ai-writing",
+    "description": "Use when the user provides an original and rewritten version, asks whether a rewrite preserved protected content, or wants a deterministic check for code, frontmatter, quotes, tables, links, paths, numbers, headings, and residual AI-pattern regressions.",
+    "path": "category/architecture-system-design/skills-preservation-verifier"
+  },
+  {
+    "id": "skills-principle-outcome-oriented-execution",
+    "name": "skills-principle-outcome-oriented-execution",
+    "category": "architecture-system-design",
+    "repository": "cursor-plugins",
+    "description": "Apply during planned rewrites and migrations with explicit phase boundaries. Converge on the target architecture; don't preserve smooth intermediate states with throwaway compatibility code.",
+    "path": "category/architecture-system-design/skills-principle-outcome-oriented-execution"
+  },
+  {
+    "id": "skills-scaffold",
+    "name": "skills-scaffold",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Architecture-aware feature scaffolding for .NET 10 projects. Detects the project's architecture (VSA, Clean Architecture, DDD, Modular Monolith) and generates complete feature slices with all required layers: endpoint, handler, validator, DTOs, EF configuration, and integration tests \u2014 with the completeness checklist and per-architecture code templates every generated feature must satisfy. Use when: \"scaffold\", \"create feature\", \"add feature\", \"new endpoint\", \"generate\", \"add entity\", \"scaffold a module\", \"add module\", or when customizing generation templates or defining what a complete feature slice includes.",
+    "path": "category/architecture-system-design/skills-scaffold"
+  },
+  {
+    "id": "skills-setup-zoom-mcp",
+    "name": "skills-setup-zoom-mcp",
+    "category": "architecture-system-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Decide when Zoom MCP is the right fit and produce a safe setup plan for Claude. Use when planning AI workflows over Zoom data, deciding between MCP and REST, or defining a hybrid MCP architecture.",
+    "path": "category/architecture-system-design/skills-setup-zoom-mcp"
+  },
+  {
+    "id": "skills-sprite-segment-3x3grid",
+    "name": "skills-sprite-segment-3x3grid",
+    "category": "architecture-system-design",
+    "repository": "unity-technologies-skills",
+    "description": "Segments a Sprite texture into a 3x3 grid and outputs a pattern of cells matching the center cell's color. Use when the user asks to analyze or document a sprite's structure or color distribution.",
+    "path": "category/architecture-system-design/skills-sprite-segment-3x3grid"
+  },
+  {
+    "id": "skills-sync-guide",
+    "name": "skills-sync-guide",
+    "category": "architecture-system-design",
+    "repository": "makenotion-notion-cookbook",
+    "description": "Comprehensive guide to building Notion Workers syncs \u2014 covers the two-sync architecture (backfill+delta), replace mode, pagination, consistency buffers, pacers, deletion strategies, and common pitfalls. Auto-loads when sync-related work is detected.",
+    "path": "category/architecture-system-design/skills-sync-guide"
+  },
+  {
+    "id": "skills-system-design",
+    "name": "skills-system-design",
+    "category": "architecture-system-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Design systems, services, and architectures. Trigger with \"design a system for\", \"how should we architect\", \"system design for\", \"what's the right architecture for\", or when the user needs help with API design, data modeling, or service boundaries.",
+    "path": "category/architecture-system-design/skills-system-design"
+  },
+  {
+    "id": "skills-testing",
+    "name": "skills-testing",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Testing strategy for .NET 10 applications. Covers xUnit v3, WebApplicationFactory for integration tests, Testcontainers for real database testing, Verify for snapshot testing, and the AAA pattern. Load this skill when writing tests, setting up test infrastructure, reviewing test coverage, or when the user mentions \"test\", \"xUnit\", \"WebApplicationFactory\", \"Testcontainers\", \"integration test\", \"unit test\", \"bUnit\", \"snapshot test\", \"Verify\", \"test coverage\", \"AAA pattern\", \"WireMock\", or \"FakeTimeProvider\".",
+    "path": "category/architecture-system-design/skills-testing"
+  },
+  {
+    "id": "skills-testing-strategy",
+    "name": "skills-testing-strategy",
+    "category": "architecture-system-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Design test strategies and test plans. Trigger with \"how should we test\", \"test strategy for\", \"write tests for\", \"test plan\", \"what tests do we need\", or when the user needs help with testing approaches, coverage, or test architecture.",
+    "path": "category/architecture-system-design/skills-testing-strategy"
+  },
+  {
+    "id": "skills-vertical-slice",
+    "name": "skills-vertical-slice",
+    "category": "architecture-system-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Vertical Slice Architecture (VSA) for .NET applications \u2014 one of several supported architectures in dotnet-claude-kit. Covers feature folders, endpoint grouping, and handler patterns for Mediator, Wolverine, and raw handler classes. Load this skill when the architecture-advisor recommends VSA, when working in an existing VSA codebase, when adding features to a feature-folder project, or when discussing vertical slice patterns, feature folders, or handler patterns.",
+    "path": "category/architecture-system-design/skills-vertical-slice"
   },
   {
     "id": "social-pulse-monitor",
@@ -4472,6 +4896,14 @@
     "path": "category/architecture-system-design/tools-page-seo-optimizer"
   },
   {
+    "id": "trace-category-narrative-mapper",
+    "name": "trace-category-narrative-mapper",
+    "category": "architecture-system-design",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"map the category narrative\", \"tear down how competitors tell their story\", or \"find the language conventions in our market\"; produces a category narrative map \u2014 the dominant stories and points of view in the category, its language conventions and framing clich\u00e9s, and a per-competitor narrative teardown (arc, claimed onlyness, proof pattern) plus how each rival''s messaging has shifted over time (scraped copy vs archived copy). Not for the positioning canvas itself \u2014 use positioning-mapper; not for the beachhead''s beliefs and objections \u2014 use audience-belief-mapper; not for SERP keyword targeting \u2014 use keyword-research; not for claim adjudication \u2014 use offer-claims-registry. \u54c1\u7c7b\u53d9\u4e8b/\u7ade\u4e89\u53d9\u4e8b\u62c6\u89e3/\u8bed\u8a00\u60ef\u4f8b/\u53d9\u4e8b\u6f14\u53d8",
+    "path": "category/architecture-system-design/trace-category-narrative-mapper"
+  },
+  {
     "id": "trader-backtest",
     "name": "trader-backtest",
     "category": "architecture-system-design",
@@ -4502,6 +4934,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Guide to Transformer architectures for NLP and computer vision",
     "path": "category/architecture-system-design/transformer-architecture-guide"
+  },
+  {
+    "id": "tune-site-structure-optimizer",
+    "name": "tune-site-structure-optimizer",
+    "category": "architecture-system-design",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"plan my site structure\", \"design the page hierarchy / navigation / URL taxonomy\", \"fix internal linking\", or \"find orphan pages\"; runs two modes \u2014 architecture (hierarchy, nav, URL patterns, hub/spoke clusters, Mermaid site maps) and linking (link graph, authority flow, anchor text, orphan disposition, source/target/anchor plan) \u2014 and outputs a structure score /100 plus a handoff summary. Not for external backlinks \u2014 use offsite-signal-analyzer; not for XML sitemap or indexation issues \u2014 use technical-seo-checker. \u7f51\u7ad9\u67b6\u6784/\u4fe1\u606f\u67b6\u6784/\u7ad9\u70b9\u5730\u56fe/\u5185\u94fe\u4f18\u5316",
+    "path": "category/architecture-system-design/tune-site-structure-optimizer"
   },
   {
     "id": "ui-pattern",
@@ -4606,6 +5046,14 @@
     "repository": "codewithmukesh-dotnet-claude-kit",
     "description": "Vertical Slice Architecture (VSA) for .NET applications \u2014 one of several supported architectures in dotnet-claude-kit. Covers feature folders, endpoint grouping, and handler patterns for Mediator, Wolverine, and raw handler classes. Load this skill when the architecture-advisor recommends VSA, when working in an existing VSA codebase, when adding features to a feature-folder project, or when discussing vertical slice patterns, feature folders, or handler patterns.",
     "path": "category/architecture-system-design/vertical-slice"
+  },
+  {
+    "id": "video-sdk-flutter",
+    "name": "video-sdk-flutter",
+    "category": "architecture-system-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Zoom Video SDK for Flutter. Use when building custom video session apps in Flutter with flutter_zoom_videosdk, event-driven architecture, session lifecycle handling, and mobile platform integration patterns.",
+    "path": "category/architecture-system-design/video-sdk-flutter"
   },
   {
     "id": "vision-support",

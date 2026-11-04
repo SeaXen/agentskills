@@ -148,5 +148,155 @@
     "path": "library/dart-lang-skills/skills/dart-write-documentation",
     "activation_cmd": "python .agents/library/activate_skill.py activate dart-write-documentation",
     "link_cmd": "python .agents/library/activate_skill.py link dart-write-documentation"
+  },
+  {
+    "id": "skills-dart-add-unit-test",
+    "name": "skills-dart-add-unit-test",
+    "repository": "dart-lang-skills",
+    "category": "general",
+    "description": "Write and organize unit tests for functions, methods, and classes using `package:test`. Use when creating new logic or fixing bugs to ensure code remains correct and regression-free.",
+    "path": "library/dart-lang-skills/skills/skills-dart-add-unit-test",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-dart-add-unit-test",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-dart-add-unit-test"
+  },
+  {
+    "id": "skills-dart-build-cli-app",
+    "name": "skills-dart-build-cli-app",
+    "repository": "dart-lang-skills",
+    "category": "general",
+    "description": ">-",
+    "path": "library/dart-lang-skills/skills/skills-dart-build-cli-app",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-dart-build-cli-app",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-dart-build-cli-app"
+  },
+  {
+    "id": "skills-dart-collect-coverage",
+    "name": "skills-dart-collect-coverage",
+    "repository": "dart-lang-skills",
+    "category": "general",
+    "description": "Collect coverage using the coverage packge and create an LCOV report",
+    "path": "library/dart-lang-skills/skills/skills-dart-collect-coverage",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-dart-collect-coverage",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-dart-collect-coverage"
+  },
+  {
+    "id": "skills-dart-fix-runtime-errors",
+    "name": "skills-dart-fix-runtime-errors",
+    "repository": "dart-lang-skills",
+    "category": "general",
+    "description": "Uses get_runtime_errors and lsp to fetch an active stack trace, locate the failing line, apply a fix, and verify resolution via hot_reload.",
+    "path": "library/dart-lang-skills/skills/skills-dart-fix-runtime-errors",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-dart-fix-runtime-errors",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-dart-fix-runtime-errors"
+  },
+  {
+    "id": "skills-dart-generate-test-mocks",
+    "name": "skills-dart-generate-test-mocks",
+    "repository": "dart-lang-skills",
+    "category": "general",
+    "description": "Define and generate mock objects for external dependencies using `package:mockito` and `build_runner`. Use when unit testing classes that depend on complex external services like APIs or databases.",
+    "path": "library/dart-lang-skills/skills/skills-dart-generate-test-mocks",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-dart-generate-test-mocks",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-dart-generate-test-mocks"
+  },
+  {
+    "id": "skills-dart-migrate-to-checks-package",
+    "name": "skills-dart-migrate-to-checks-package",
+    "repository": "dart-lang-skills",
+    "category": "general",
+    "description": "|-",
+    "path": "library/dart-lang-skills/skills/skills-dart-migrate-to-checks-package",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-dart-migrate-to-checks-package",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-dart-migrate-to-checks-package"
+  },
+  {
+    "id": "skills-dart-resolve-package-conflicts",
+    "name": "skills-dart-resolve-package-conflicts",
+    "repository": "dart-lang-skills",
+    "category": "general",
+    "description": "Workflow for fixing package version conflicts. Use this when `pub get` fails due to incompatible package versions.",
+    "path": "library/dart-lang-skills/skills/skills-dart-resolve-package-conflicts",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-dart-resolve-package-conflicts",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-dart-resolve-package-conflicts"
+  },
+  {
+    "id": "skills-dart-run-static-analysis",
+    "name": "skills-dart-run-static-analysis",
+    "repository": "dart-lang-skills",
+    "category": "general",
+    "description": "Execute `dart analyze` to identify warnings and errors, and use `dart fix --apply` to automatically resolve mechanical lint issues. Use during development to ensure code quality and before committing changes.",
+    "path": "library/dart-lang-skills/skills/skills-dart-run-static-analysis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-dart-run-static-analysis",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-dart-run-static-analysis"
+  },
+  {
+    "id": "skills-dart-setup-ffi-assets",
+    "name": "skills-dart-setup-ffi-assets",
+    "repository": "dart-lang-skills",
+    "category": "general",
+    "description": "\"Guides agents in compiling and packaging C/C++ source code into dynamic or static libraries (Code Assets) using Dart's Native Assets hook system (via hook/build.dart and hook/link.dart utilizing package:hooks and package:native_toolchain_c). Use when a user asks to: 'setup native assets', 'compile C/C++ source code', 'bundle dynamic libraries', 'build native C code', 'link native assets', 'implement build.dart or link.dart hooks', or 'integrate C/C++ interop in Dart/Flutter'. Helps agents avoid manual toolchain orchestration and configures secure hash-validated binary downloads or advanced linker tree-shaking with package:record_use mapping.\"",
+    "path": "library/dart-lang-skills/skills/skills-dart-setup-ffi-assets",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-dart-setup-ffi-assets",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-dart-setup-ffi-assets"
+  },
+  {
+    "id": "skills-dart-use-doc-examples",
+    "name": "skills-dart-use-doc-examples",
+    "repository": "dart-lang-skills",
+    "category": "general",
+    "description": "\"How to inject external code examples into Dartdoc using the {@example} directive, and how to filter those files using #hide, #region, and #endregion tags.\"",
+    "path": "library/dart-lang-skills/skills/skills-dart-use-doc-examples",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-dart-use-doc-examples",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-dart-use-doc-examples"
+  },
+  {
+    "id": "skills-dart-use-ffigen",
+    "name": "skills-dart-use-ffigen",
+    "repository": "dart-lang-skills",
+    "category": "general",
+    "description": "Guide agents to use `package:ffigen` to automatically generate FFI bindings instead of writing them manually. Use this skill when a task involves writing new FFI bindings, extending C/Objective-C/Swift integrations, or replacing hand-crafted `dart:ffi` setups.",
+    "path": "library/dart-lang-skills/skills/skills-dart-use-ffigen",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-dart-use-ffigen",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-dart-use-ffigen"
+  },
+  {
+    "id": "skills-dart-use-path-package",
+    "name": "skills-dart-use-path-package",
+    "repository": "dart-lang-skills",
+    "category": "general",
+    "description": ">-",
+    "path": "library/dart-lang-skills/skills/skills-dart-use-path-package",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-dart-use-path-package",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-dart-use-path-package"
+  },
+  {
+    "id": "skills-dart-use-pattern-matching",
+    "name": "skills-dart-use-pattern-matching",
+    "repository": "dart-lang-skills",
+    "category": "general",
+    "description": ">-",
+    "path": "library/dart-lang-skills/skills/skills-dart-use-pattern-matching",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-dart-use-pattern-matching",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-dart-use-pattern-matching"
+  },
+  {
+    "id": "skills-dart-use-primary-constructors",
+    "name": "skills-dart-use-primary-constructors",
+    "repository": "dart-lang-skills",
+    "category": "general",
+    "description": ">",
+    "path": "library/dart-lang-skills/skills/skills-dart-use-primary-constructors",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-dart-use-primary-constructors",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-dart-use-primary-constructors"
+  },
+  {
+    "id": "skills-dart-write-documentation",
+    "name": "skills-dart-write-documentation",
+    "repository": "dart-lang-skills",
+    "category": "general",
+    "description": "\"Rules and formatting guidelines for writing Dart /// API documentation and doc comments. Use when documenting Dart code, writing doc comments for any Dart declaration (libraries, classes, methods, variables, etc.), or when instructed to follow the Effective Dart documentation guidelines.\"",
+    "path": "library/dart-lang-skills/skills/skills-dart-write-documentation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-dart-write-documentation",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-dart-write-documentation"
   }
 ]

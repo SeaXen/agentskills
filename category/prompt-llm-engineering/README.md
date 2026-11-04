@@ -1,7 +1,7 @@
 # 💬 Prompt Engineering, LLMs & RAG
 
 > **Category**: `prompt-llm-engineering`  
-> **Total Curated Skills**: 495 skills  
+> **Total Curated Skills**: 509 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -116,6 +116,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`clerk-swift`](../../library/clerk-skills/skills/clerk-swift) | ⚪ Reserve | `clerk-skills` | Implement Clerk authentication UI in native Swift apps on iOS and macOS with ClerkKitUI prebuil... |
 | [`cline-session-search`](../../library/cline-skills/skills/cline-session-search) | ⚪ Reserve | `cline-skills` | Search and browse Cline session history. Use when the user asks to find, list, inspect, or expo... |
 | [`clipcat`](../../library/clipcat-ai-clipcat-skill/skills/clipcat) | ⚪ Reserve | `clipcat-ai-clipcat-skill` | All-in-one TikTok Shop selling-video skill for any AI agent (Claude Code, Codex, WorkBuddy, Ope... |
+| [`cloud-agent-platform-inference`](../../library/google-skills/skills/cloud-agent-platform-inference) | ⚪ Reserve | `google-skills` | Connects to and performs inference with Google Cloud Agent Platform GenAI models, including Fir... |
+| [`cloud-agent-platform-prompt-management`](../../library/google-skills/skills/cloud-agent-platform-prompt-management) | ⚪ Reserve | `google-skills` | Manages and orchestrates prompts in Agent Platform. Use when you need to create, list, retrieve... |
+| [`cloud-agent-platform-skill-registry`](../../library/google-skills/skills/cloud-agent-platform-skill-registry) | ⚪ Reserve | `google-skills` | Interact with the Gemini Enterprise Agent Platform Skill Registry to create and search for avai... |
+| [`cloud-google-cloud-solution-agentic-ai-borderless-data-lakehouse`](../../library/google-skills/skills/cloud-google-cloud-solution-agentic-ai-borderless-data-lakehouse) | ⚪ Reserve | `google-skills` | Discovers requirements and designs a borderless open data lakehouse using Lakehouse for Apache ... |
 | [`code-llm-papers-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/code-llm-papers-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Survey and paper collection on LLMs for code generation |
 | [`codeburn-claude-cost-dashboard`](../../library/reason-machines-trending-skills/skills/codeburn-claude-cost-dashboard) | ⚪ Reserve | `reason-machines-trending-skills` | Interactive TUI dashboard for visualizing Claude Code token usage, costs, and task breakdowns b... |
 | [`codex-console-openai-registration`](../../library/reason-machines-trending-skills/skills/codex-console-openai-registration) | ⚪ Reserve | `reason-machines-trending-skills` | name: codex-console-openai-registration |
@@ -179,6 +183,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`eval-harness`](../../library/affaan-m-ecc/skills/eval-harness) | ⚪ Reserve | `affaan-m-ecc` | Eval-driven development (EDD) framework for AI coding sessions — define capability and regressi... |
 | [`eval-harness-first`](../../library/wshobson-agents/skills/eval-harness-first) | ⚪ Reserve | `wshobson-agents` | Build the evaluation harness that gates every fine-tuning run — golden sets, per-failure-mode g... |
 | [`eval-performance`](../../library/dotnet-skills/skills/eval-performance) | ⚪ Reserve | `dotnet-skills` | Guide for diagnosing and improving MSBuild project evaluation performance. USE FOR: builds slow... |
+| [`eval-plan`](../../library/garrytan-gstack/skills/eval-plan) | ⚪ Reserve | `garrytan-gstack` | Preregister a paid eval (bars, arms, decoys, stop rules), dry-run it at zero cost, then run a t... |
 | [`evaluation`](../../library/antigravity-awesome-skills/skills/evaluation) | ⚪ Reserve | `antigravity-awesome-skills` | Build evaluation frameworks for agent systems |
 | [`evm-token-decimals`](../../library/affaan-m-ecc/skills/evm-token-decimals) | ⚪ Reserve | `affaan-m-ecc` | Prevent silent decimal mismatch bugs across EVM chains. Covers runtime decimal lookup, chain-aw... |
 | [`experiment-plan`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/experiment-plan) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Turn a refined research proposal or method idea into a detailed, claim-driven experiment roadma... |
@@ -254,6 +259,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`image-edit`](../../library/gencraft-labs-skills/skills/image-edit) | ⚪ Reserve | `gencraft-labs-skills` | Edit images on RunComfy — this skill is a smart router that matches the user's intent to the ri... |
 | [`image-generator`](../../library/sickn33-agentic-awesome-skills/skills/image-generator) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Generate and edit images using Gemini's Nano Banana Pro model (gemini-3-pro-image-preview). Use... |
 | [`image-prompt`](../../library/davidondrej-skills/skills/image-prompt) | ⚪ Reserve | `davidondrej-skills` | Write four distinct prompts for AI image models. Use for image, thumbnail, banner, logo, or ill... |
+| [`implement-geo-content-optimizer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/implement-geo-content-optimizer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "optimize for AI citations"; improves citation readiness for ChatGPT,... |
 | [`implementing-llm-guardrails-for-security`](../../library/mukul975-anthropic-cybersecurity-skills/skills/implementing-llm-guardrails-for-security) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Implements input/output validation guardrails for LLM applications using |
 | [`improve-retention`](../../library/wondelai-skills/skills/improve-retention) | ⚪ Reserve | `wondelai-skills` | Diagnose and fix retention problems using behavior design (B=MAP). Use when the user mentions "... |
 | [`improve-skill-quality`](../../library/dotnet-skills/skills/improve-skill-quality) | ⚪ Reserve | `dotnet-skills` | Diagnoses and fixes skills in the dotnet/skills repository that lose to their own baseline, fai... |
@@ -454,7 +460,14 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skill-designer`](../../library/tradermonty-claude-trading-skills/skills/skill-designer) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Design new Claude skills from structured idea specifications. Use when the skill auto-generatio... |
 | [`skill-issue`](../../library/sickn33-agentic-awesome-skills/skills/skill-issue) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Find out why a coding-agent skill won't fire — grade each SKILL.md A–F on activation, simulate ... |
 | [`skillclaw-skill-evolution`](../../library/reason-machines-trending-skills/skills/skillclaw-skill-evolution) | ⚪ Reserve | `reason-machines-trending-skills` | Framework for collective skill evolution in multi-user LLM agent ecosystems — automatically dis... |
+| [`skills-clerk-swift`](../../library/clerk-skills/skills/skills-clerk-swift) | ⚪ Reserve | `clerk-skills` | Implement Clerk authentication UI in native Swift apps on iOS and macOS with ClerkKitUI prebuil... |
 | [`skills-codex-gemini-review`](../../library/wanshuiyin-auto-claude-code-research-in-sleep/skills/skills-codex-gemini-review) | ⚪ Reserve | `wanshuiyin-auto-claude-code-research-in-sleep` |  |
+| [`skills-configure`](../../library/anthropics-claude-plugins-official/skills/skills-configure) | ⚪ Reserve | `anthropics-claude-plugins-official` | Set up the Discord channel — save the bot token and review access policy. Use when the user pas... |
+| [`skills-om-evolve-harness`](../../library/open-mercato-skills/skills/skills-om-evolve-harness) | ⚪ Reserve | `open-mercato-skills` | Turn a real agent failure into one reproducible eval-harness case plus the smallest knowledge c... |
+| [`skills-principle-explain-the-number`](../../library/cursor-plugins/skills/skills-principle-explain-the-number) | ⚪ Reserve | `cursor-plugins` | Apply before you measure, and before you trust, report, or act on a number you measured: a spee... |
+| [`skills-sharpen`](../../library/cursor-plugins/skills/skills-sharpen) | ⚪ Reserve | `cursor-plugins` | Make a task deeper, not bigger, then rewrite the prompt. Use for /sharpen. |
+| [`skills-token-report`](../../library/codewithmukesh-dotnet-claude-kit/skills/skills-token-report) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Report how many tokens the Roslyn Navigator MCP server has saved, across one repository or all ... |
+| [`skills-unity-pipeline`](../../library/unity-technologies-skills/skills/skills-unity-pipeline) | ⚪ Reserve | `unity-technologies-skills` | Control a Unity Editor or Player via the unity-pipeline package. Compile, run tests, eval, meth... |
 | [`slides-style-prompt-studio`](../../library/reason-machines-trending-skills/skills/slides-style-prompt-studio) | ⚪ Reserve | `reason-machines-trending-skills` | name: slides-style-prompt-studio |
 | [`smart-explore`](../../library/thedotmack-claude-mem/skills/smart-explore) | ⚪ Reserve | `thedotmack-claude-mem` | Token-optimized structural code search using tree-sitter AST parsing. Use instead of reading fu... |
 | [`snippets`](../../library/launchdarkly-ai-tooling/skills/snippets) | ⚪ Reserve | `launchdarkly-ai-tooling` | Create and manage prompt snippets — reusable text blocks referenced inside config variation pro... |
@@ -498,6 +511,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`transformers`](../../library/davila7-claude-code-templates/skills/transformers) | ⚪ Reserve | `davila7-claude-code-templates` | This skill should be used when working with pre-trained transformer models for natural language... |
 | [`type-juggling`](../../library/yaklang-hack-skills/skills/type-juggling) | ⚪ Reserve | `yaklang-hack-skills` | PHP type juggling and weak comparison (`==`) bypass. Use when authentication, HMAC/signature ch... |
 | [`type4me-macos-voice-input`](../../library/reason-machines-trending-skills/skills/type4me-macos-voice-input) | ⚪ Reserve | `reason-machines-trending-skills` | MacOS voice input tool with local/cloud ASR engines, LLM text optimization, and fully local sto... |
+| [`ubicloud`](../../library/garrytan-gstack/skills/ubicloud) | ⚪ Reserve | `garrytan-gstack` | Run a heavy suite, build or eval on an ephemeral 16-vCPU Ubicloud VM: TTL-named VMs, a reaper, ... |
 | [`unified-ai-gateway`](../../library/sickn33-agentic-awesome-skills/skills/unified-ai-gateway) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Operate and evaluate Unified AI System through fifteen governed MCP tools, including provider-f... |
 | [`unity-pipeline`](../../library/unity-technologies-skills/skills/unity-pipeline) | ⚪ Reserve | `unity-technologies-skills` | Control a Unity Editor or Player via the unity-pipeline package. Compile, run tests, eval, meth... |
 | [`us-market-bubble-detector`](../../library/tradermonty-claude-trading-skills/skills/us-market-bubble-detector) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Evaluates market bubble risk through quantitative data-driven analysis using the revised Minsky... |

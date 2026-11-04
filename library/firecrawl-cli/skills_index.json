@@ -4,7 +4,7 @@
     "name": "firecrawl",
     "repository": "firecrawl-cli",
     "category": "general",
-    "description": "",
+    "description": "|",
     "path": "library/firecrawl-cli/skills/firecrawl",
     "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl",
     "link_cmd": "python .agents/library/activate_skill.py link firecrawl"
@@ -14,7 +14,7 @@
     "name": "firecrawl-agent",
     "repository": "firecrawl-cli",
     "category": "general",
-    "description": "",
+    "description": "Autonomously navigate websites and extract structured data across pages. Use when the task requires navigation or no suitable ready-made workflow or data provider covers it.",
     "path": "library/firecrawl-cli/skills/firecrawl-agent",
     "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-agent",
     "link_cmd": "python .agents/library/activate_skill.py link firecrawl-agent"
@@ -24,7 +24,7 @@
     "name": "firecrawl-alexandria",
     "repository": "firecrawl-cli",
     "category": "general",
-    "description": "",
+    "description": "Find a direct path to structured data through ready-made workflows, data APIs, and indexes. Follow the search skill to discover and inspect tools, then the scrape skill to execute them.",
     "path": "library/firecrawl-cli/skills/firecrawl-alexandria",
     "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-alexandria",
     "link_cmd": "python .agents/library/activate_skill.py link firecrawl-alexandria"
@@ -34,7 +34,7 @@
     "name": "firecrawl-crawl",
     "repository": "firecrawl-cli",
     "category": "general",
-    "description": "",
+    "description": "|",
     "path": "library/firecrawl-cli/skills/firecrawl-crawl",
     "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-crawl",
     "link_cmd": "python .agents/library/activate_skill.py link firecrawl-crawl"
@@ -44,7 +44,7 @@
     "name": "firecrawl-developer-index",
     "repository": "firecrawl-cli",
     "category": "general",
-    "description": "",
+    "description": "Searches current documentation, release notes, API references and public repository issues for libraries, frameworks, SDKs, APIs and CLI tools with `firecrawl developer`. Use before answering when the user names a version, is upgrading, pastes an error from a library or tool, or asks how to use, configure or migrate a specific library or API. Model knowledge stops at a training cutoff and misses new releases, renamed APIs, changed defaults and recent fixes, so when a version, option, error or API is unfamiliar or may have changed, look it up instead of guessing. Also checks whether a bug was fixed and in which release. Not for general programming concepts, code that uses no specific library, or refactoring code the user supplied.",
     "path": "library/firecrawl-cli/skills/firecrawl-developer-index",
     "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-developer-index",
     "link_cmd": "python .agents/library/activate_skill.py link firecrawl-developer-index"
@@ -54,7 +54,7 @@
     "name": "firecrawl-download",
     "repository": "firecrawl-cli",
     "category": "general",
-    "description": "",
+    "description": "|",
     "path": "library/firecrawl-cli/skills/firecrawl-download",
     "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-download",
     "link_cmd": "python .agents/library/activate_skill.py link firecrawl-download"
@@ -64,7 +64,7 @@
     "name": "firecrawl-interact",
     "repository": "firecrawl-cli",
     "category": "general",
-    "description": "",
+    "description": "|",
     "path": "library/firecrawl-cli/skills/firecrawl-interact",
     "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-interact",
     "link_cmd": "python .agents/library/activate_skill.py link firecrawl-interact"
@@ -74,7 +74,7 @@
     "name": "firecrawl-map",
     "repository": "firecrawl-cli",
     "category": "general",
-    "description": "",
+    "description": "|",
     "path": "library/firecrawl-cli/skills/firecrawl-map",
     "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-map",
     "link_cmd": "python .agents/library/activate_skill.py link firecrawl-map"
@@ -84,7 +84,7 @@
     "name": "firecrawl-monitor",
     "repository": "firecrawl-cli",
     "category": "general",
-    "description": "",
+    "description": "|",
     "path": "library/firecrawl-cli/skills/firecrawl-monitor",
     "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-monitor",
     "link_cmd": "python .agents/library/activate_skill.py link firecrawl-monitor"
@@ -94,7 +94,7 @@
     "name": "firecrawl-parse",
     "repository": "firecrawl-cli",
     "category": "general",
-    "description": "",
+    "description": "|",
     "path": "library/firecrawl-cli/skills/firecrawl-parse",
     "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-parse",
     "link_cmd": "python .agents/library/activate_skill.py link firecrawl-parse"
@@ -104,7 +104,7 @@
     "name": "firecrawl-research-index",
     "repository": "firecrawl-cli",
     "category": "general",
-    "description": "",
+    "description": "Find the papers that answer a research query in Firecrawl's research paper index \u2014 a corpus of paper abstracts whose largest share is biomedical and life-science literature (PubMed, bioRxiv, medRxiv), alongside arXiv preprints in CS, physics, and math \u2014 using semantic search, semantic and structural expansion, and in-body verification. Use this skill for literature-finding and paper-retrieval tasks of any kind, including clinical, biomedical, drug, gene, disease, and other life-science questions, whether the answer is a single paper or a full multi-paper set. The index is reached only through the `firecrawl_research_*` MCP tools or the `firecrawl research` CLI subcommands. Calling `firecrawl_search` with its `categories` option set to `[\"research\"]` is a different feature \u2014 it filters ordinary web search to research-affiliated websites (the list includes PubMed, bioRxiv, medRxiv, arXiv, and publisher sites) and returns page results from them, without querying the paper records in this index.",
     "path": "library/firecrawl-cli/skills/firecrawl-research-index",
     "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-research-index",
     "link_cmd": "python .agents/library/activate_skill.py link firecrawl-research-index"
@@ -114,7 +114,7 @@
     "name": "firecrawl-scrape",
     "repository": "firecrawl-cli",
     "category": "general",
-    "description": "",
+    "description": "Read a known webpage or execute a discovered workflow or data-provider capability. Use for page content or structured results once the URL or tool is selected.",
     "path": "library/firecrawl-cli/skills/firecrawl-scrape",
     "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-scrape",
     "link_cmd": "python .agents/library/activate_skill.py link firecrawl-scrape"
@@ -124,9 +124,139 @@
     "name": "firecrawl-search",
     "repository": "firecrawl-cli",
     "category": "general",
-    "description": "",
+    "description": "Find web sources with query-relevant page excerpts and optional full-page content, and discover workflows, data APIs, and indexes. Use for web research or finding structured records, listings, transcripts, and datasets. Supports semantic tool discovery, domain matching, and progressive catalogue browsing.",
     "path": "library/firecrawl-cli/skills/firecrawl-search",
     "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-search",
     "link_cmd": "python .agents/library/activate_skill.py link firecrawl-search"
+  },
+  {
+    "id": "skills-firecrawl",
+    "name": "skills-firecrawl",
+    "repository": "firecrawl-cli",
+    "category": "general",
+    "description": "|",
+    "path": "library/firecrawl-cli/skills/skills-firecrawl",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-firecrawl",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-firecrawl"
+  },
+  {
+    "id": "skills-firecrawl-agent",
+    "name": "skills-firecrawl-agent",
+    "repository": "firecrawl-cli",
+    "category": "general",
+    "description": "Autonomously navigate websites and extract structured data across pages. Use when the task requires navigation or no suitable ready-made workflow or data provider covers it.",
+    "path": "library/firecrawl-cli/skills/skills-firecrawl-agent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-firecrawl-agent",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-firecrawl-agent"
+  },
+  {
+    "id": "skills-firecrawl-alexandria",
+    "name": "skills-firecrawl-alexandria",
+    "repository": "firecrawl-cli",
+    "category": "general",
+    "description": "Find a direct path to structured data through ready-made workflows, data APIs, and indexes. Follow the search skill to discover and inspect tools, then the scrape skill to execute them.",
+    "path": "library/firecrawl-cli/skills/skills-firecrawl-alexandria",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-firecrawl-alexandria",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-firecrawl-alexandria"
+  },
+  {
+    "id": "skills-firecrawl-crawl",
+    "name": "skills-firecrawl-crawl",
+    "repository": "firecrawl-cli",
+    "category": "general",
+    "description": "|",
+    "path": "library/firecrawl-cli/skills/skills-firecrawl-crawl",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-firecrawl-crawl",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-firecrawl-crawl"
+  },
+  {
+    "id": "skills-firecrawl-developer-index",
+    "name": "skills-firecrawl-developer-index",
+    "repository": "firecrawl-cli",
+    "category": "general",
+    "description": "Searches current documentation, release notes, API references and public repository issues for libraries, frameworks, SDKs, APIs and CLI tools with `firecrawl developer`. Use before answering when the user names a version, is upgrading, pastes an error from a library or tool, or asks how to use, configure or migrate a specific library or API. Model knowledge stops at a training cutoff and misses new releases, renamed APIs, changed defaults and recent fixes, so when a version, option, error or API is unfamiliar or may have changed, look it up instead of guessing. Also checks whether a bug was fixed and in which release. Not for general programming concepts, code that uses no specific library, or refactoring code the user supplied.",
+    "path": "library/firecrawl-cli/skills/skills-firecrawl-developer-index",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-firecrawl-developer-index",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-firecrawl-developer-index"
+  },
+  {
+    "id": "skills-firecrawl-download",
+    "name": "skills-firecrawl-download",
+    "repository": "firecrawl-cli",
+    "category": "general",
+    "description": "|",
+    "path": "library/firecrawl-cli/skills/skills-firecrawl-download",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-firecrawl-download",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-firecrawl-download"
+  },
+  {
+    "id": "skills-firecrawl-interact",
+    "name": "skills-firecrawl-interact",
+    "repository": "firecrawl-cli",
+    "category": "general",
+    "description": "|",
+    "path": "library/firecrawl-cli/skills/skills-firecrawl-interact",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-firecrawl-interact",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-firecrawl-interact"
+  },
+  {
+    "id": "skills-firecrawl-map",
+    "name": "skills-firecrawl-map",
+    "repository": "firecrawl-cli",
+    "category": "general",
+    "description": "|",
+    "path": "library/firecrawl-cli/skills/skills-firecrawl-map",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-firecrawl-map",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-firecrawl-map"
+  },
+  {
+    "id": "skills-firecrawl-monitor",
+    "name": "skills-firecrawl-monitor",
+    "repository": "firecrawl-cli",
+    "category": "general",
+    "description": "|",
+    "path": "library/firecrawl-cli/skills/skills-firecrawl-monitor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-firecrawl-monitor",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-firecrawl-monitor"
+  },
+  {
+    "id": "skills-firecrawl-parse",
+    "name": "skills-firecrawl-parse",
+    "repository": "firecrawl-cli",
+    "category": "general",
+    "description": "|",
+    "path": "library/firecrawl-cli/skills/skills-firecrawl-parse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-firecrawl-parse",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-firecrawl-parse"
+  },
+  {
+    "id": "skills-firecrawl-research-index",
+    "name": "skills-firecrawl-research-index",
+    "repository": "firecrawl-cli",
+    "category": "general",
+    "description": "Find the papers that answer a research query in Firecrawl's research paper index \u2014 a corpus of paper abstracts whose largest share is biomedical and life-science literature (PubMed, bioRxiv, medRxiv), alongside arXiv preprints in CS, physics, and math \u2014 using semantic search, semantic and structural expansion, and in-body verification. Use this skill for literature-finding and paper-retrieval tasks of any kind, including clinical, biomedical, drug, gene, disease, and other life-science questions, whether the answer is a single paper or a full multi-paper set. The index is reached only through the `firecrawl_research_*` MCP tools or the `firecrawl research` CLI subcommands. Calling `firecrawl_search` with its `categories` option set to `[\"research\"]` is a different feature \u2014 it filters ordinary web search to research-affiliated websites (the list includes PubMed, bioRxiv, medRxiv, arXiv, and publisher sites) and returns page results from them, without querying the paper records in this index.",
+    "path": "library/firecrawl-cli/skills/skills-firecrawl-research-index",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-firecrawl-research-index",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-firecrawl-research-index"
+  },
+  {
+    "id": "skills-firecrawl-scrape",
+    "name": "skills-firecrawl-scrape",
+    "repository": "firecrawl-cli",
+    "category": "general",
+    "description": "Read a known webpage or execute a discovered workflow or data-provider capability. Use for page content or structured results once the URL or tool is selected.",
+    "path": "library/firecrawl-cli/skills/skills-firecrawl-scrape",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-firecrawl-scrape",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-firecrawl-scrape"
+  },
+  {
+    "id": "skills-firecrawl-search",
+    "name": "skills-firecrawl-search",
+    "repository": "firecrawl-cli",
+    "category": "general",
+    "description": "Find web sources with query-relevant page excerpts and optional full-page content, and discover workflows, data APIs, and indexes. Use for web research or finding structured records, listings, transcripts, and datasets. Supports semantic tool discovery, domain matching, and progressive catalogue browsing.",
+    "path": "library/firecrawl-cli/skills/skills-firecrawl-search",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-firecrawl-search",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-firecrawl-search"
   }
 ]

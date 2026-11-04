@@ -1,5 +1,15 @@
 [
   {
+    "id": ".temp_upstream_clones-conorbronsdon-avoid-ai-writing",
+    "name": ".temp_upstream_clones-conorbronsdon-avoid-ai-writing",
+    "repository": "conorbronsdon-avoid-ai-writing",
+    "category": "general",
+    "description": "Audit and rewrite content to remove AI writing patterns (\"AI-isms\"). Use this skill when asked to \"remove AI-isms,\" \"clean up AI writing,\" \"edit writing for AI patterns,\" \"audit writing for AI tells,\" or \"make this sound less like AI.\" Supports a detect-only mode, an edit-in-place mode for files, an optional voice profile (casual / professional / technical / warm / blunt), and an iterate-to-convergence pass.",
+    "path": "library/conorbronsdon-avoid-ai-writing/skills/.temp_upstream_clones-conorbronsdon-avoid-ai-writing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate .temp_upstream_clones-conorbronsdon-avoid-ai-writing",
+    "link_cmd": "python .agents/library/activate_skill.py link .temp_upstream_clones-conorbronsdon-avoid-ai-writing"
+  },
+  {
     "id": "ai-writing-detector",
     "name": "ai-writing-detector",
     "repository": "conorbronsdon-avoid-ai-writing",
@@ -68,6 +78,76 @@
     "path": "library/conorbronsdon-avoid-ai-writing/skills/preservation-verifier",
     "activation_cmd": "python .agents/library/activate_skill.py activate preservation-verifier",
     "link_cmd": "python .agents/library/activate_skill.py link preservation-verifier"
+  },
+  {
+    "id": "skills-ai-writing-detector",
+    "name": "skills-ai-writing-detector",
+    "repository": "conorbronsdon-avoid-ai-writing",
+    "category": "general",
+    "description": "Use when the user asks to detect, scan, audit, score, or flag AI-writing patterns without rewriting the text, including requests for a deterministic local detector result when the host can execute Node.",
+    "path": "library/conorbronsdon-avoid-ai-writing/skills/skills-ai-writing-detector",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-ai-writing-detector",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-ai-writing-detector"
+  },
+  {
+    "id": "skills-avoid-ai-writing",
+    "name": "skills-avoid-ai-writing",
+    "repository": "conorbronsdon-avoid-ai-writing",
+    "category": "general",
+    "description": "Audit and rewrite content to remove AI writing patterns (\"AI-isms\"). Use this skill when asked to \"remove AI-isms,\" \"clean up AI writing,\" \"edit writing for AI patterns,\" \"audit writing for AI tells,\" or \"make this sound less like AI.\" Supports a detect-only mode, an edit-in-place mode for files, an optional voice profile (casual / professional / technical / warm / blunt), and an iterate-to-convergence pass.",
+    "path": "library/conorbronsdon-avoid-ai-writing/skills/skills-avoid-ai-writing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-avoid-ai-writing",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-avoid-ai-writing"
+  },
+  {
+    "id": "skills-avoid-ai-writing-router",
+    "name": "skills-avoid-ai-writing-router",
+    "repository": "conorbronsdon-avoid-ai-writing",
+    "category": "general",
+    "description": "Use when a request combines AI-writing audit, rewrite, file editing, voice preservation, false-positive interpretation, verification, or when the user invokes Avoid AI Writing without naming a mode.",
+    "path": "library/conorbronsdon-avoid-ai-writing/skills/skills-avoid-ai-writing-router",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-avoid-ai-writing-router",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-avoid-ai-writing-router"
+  },
+  {
+    "id": "skills-false-positive-reviewer",
+    "name": "skills-false-positive-reviewer",
+    "repository": "conorbronsdon-avoid-ai-writing",
+    "category": "general",
+    "description": "Use when a user asks what AI-writing flags mean, whether detector output proves AI authorship, or wants a careful interpretation of possible false positives, especially for academic, hiring, publication, disciplinary, or other consequential decisions.",
+    "path": "library/conorbronsdon-avoid-ai-writing/skills/skills-false-positive-reviewer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-false-positive-reviewer",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-false-positive-reviewer"
+  },
+  {
+    "id": "skills-file-edit-in-place",
+    "name": "skills-file-edit-in-place",
+    "repository": "conorbronsdon-avoid-ai-writing",
+    "category": "general",
+    "description": "Use when the user names a local file and explicitly asks to clean, rewrite, humanize, or remove AI-writing patterns in that file itself, with minimal targeted edits and post-edit verification.",
+    "path": "library/conorbronsdon-avoid-ai-writing/skills/skills-file-edit-in-place",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-file-edit-in-place",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-file-edit-in-place"
+  },
+  {
+    "id": "skills-preservation-verifier",
+    "name": "skills-preservation-verifier",
+    "repository": "conorbronsdon-avoid-ai-writing",
+    "category": "general",
+    "description": "Use when the user provides an original and rewritten version, asks whether a rewrite preserved protected content, or wants a deterministic check for code, frontmatter, quotes, tables, links, paths, numbers, headings, and residual AI-pattern regressions.",
+    "path": "library/conorbronsdon-avoid-ai-writing/skills/skills-preservation-verifier",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-preservation-verifier",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-preservation-verifier"
+  },
+  {
+    "id": "skills-voice-preserving-rewriter",
+    "name": "skills-voice-preserving-rewriter",
+    "repository": "conorbronsdon-avoid-ai-writing",
+    "category": "general",
+    "description": "Use when the user asks to rewrite, humanize, clean up, or remove AI-isms from text while preserving the writer's voice, facts, intent, structure, register, and protected material.",
+    "path": "library/conorbronsdon-avoid-ai-writing/skills/skills-voice-preserving-rewriter",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-voice-preserving-rewriter",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-voice-preserving-rewriter"
   },
   {
     "id": "voice-preserving-rewriter",

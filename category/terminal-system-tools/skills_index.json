@@ -584,6 +584,38 @@
     "path": "category/terminal-system-tools/clickhouse"
   },
   {
+    "id": "cloud-google-agents-cli-onboarding",
+    "name": "cloud-google-agents-cli-onboarding",
+    "category": "terminal-system-tools",
+    "repository": "google-skills",
+    "description": "Onboarding entrypoint for agents-cli in Agent Platform. It should be used when the user wants to \"create a new agent\", \"develop an agent\", \"build an agent using ADK\", \"run the agent locally\", \"debug agent code\", \"test an agent\", \"evaluate an agent\", \"deploy an agent\", \"publish an agent\", \"monitor an agent\", or needs the ADK (Agent Development Kit) development lifecycle.",
+    "path": "category/terminal-system-tools/cloud-google-agents-cli-onboarding"
+  },
+  {
+    "id": "cloud-google-cloud-global-frontend-configuration",
+    "name": "cloud-google-cloud-global-frontend-configuration",
+    "category": "terminal-system-tools",
+    "repository": "google-skills",
+    "description": "Guides agents through a 6-step discovery process to design and deploy Google Cloud global external Application Load Balancers with Cloud CDN, Cloud Armor, and Service Extensions, mapping workload requirements to best-practice configurations. Use when: - Designing, configuring, or deploying a Google Cloud global external Application Load Balancer, Cloud CDN, Cloud Armor WAF, or Service Extensions. - Discovering existing Google Cloud resources (Cloud Storage, MIGs, GKE, Cloud Run) to use as backends. - Generating production-grade Terraform HCL or gcloud CLI scripts for global external Application Load Balancers. - Actuating deployments via Infrastructure Manager or bash scripts, including IAM pre-checks. - Detecting, analyzing, or reconciling configuration drift on deployed global external Application Load Balancers. Don't use for: - Non-Google Cloud load balancing or security configurations. - Purely regional or internal load balancing setups (unless part of a hybrid/failover global design).",
+    "path": "category/terminal-system-tools/cloud-google-cloud-global-frontend-configuration"
+  },
+  {
+    "id": "cloud-google-cloud-scc-query",
+    "name": "cloud-google-cloud-scc-query",
+    "category": "terminal-system-tools",
+    "repository": "google-skills",
+    "description": "Queries and retrieves active security findings, external exposures, toxic combinations, vulnerabilities, threats, and sensitive data risks from Security Command Center on Google Cloud. Use when retrieving details for a security finding by its name, validating finding scope (e.g., verifying findingClass is TOXIC_COMBINATION, VULNERABILITY, EXTERNAL_EXPOSURE, or THREAT), or fetching finding details for triage. Don't use to draft remediations, apply patches, or execute configurations.",
+    "path": "category/terminal-system-tools/cloud-google-cloud-scc-query"
+  },
+  {
+    "id": "cloud-google-cloud-scc-remediation",
+    "name": "cloud-google-cloud-scc-remediation",
+    "category": "terminal-system-tools",
+    "repository": "google-skills",
+    "description": "Remediates Google Cloud Security Command Center findings, including IAM permission fixes, cloud resource misconfigurations, vulnerabilities, and Toxic Combinations. Use when asked to fix, remediate, or mitigate a Security Command Center finding or address attack paths. Don't use for general IAM policy querying without a Security Command Center finding. For runtime threat detections, this skill provides containment and investigation guidance rather than automated configuration fixes.",
+    "path": "category/terminal-system-tools/cloud-google-cloud-scc-remediation"
+  },
+  {
     "id": "clui-cc-claude-overlay",
     "name": "clui-cc-claude-overlay",
     "category": "terminal-system-tools",
@@ -718,6 +750,14 @@
     "repository": "himself65-finance-skills",
     "description": "Estimate a public company's intrinsic value with DCF, relative (peer multiple), and sum-of-the-parts (SOTP) methods, then blend them into an implied share price with upside/downside vs the market price, a WACC and terminal-growth sensitivity grid, and bull/base/bear scenarios. Use this skill whenever the user asks what a company or ticker is worth: fair value, intrinsic value, implied share price, a price target from fundamentals, whether it is overvalued or undervalued, building a DCF (WACC, terminal value, discounted cash flow), EV/EBITDA or P/E based targets, peer comparison valuation, or SOTP and conglomerate discounts. Run the model rather than answering valuation questions from memory.",
     "path": "category/terminal-system-tools/company-valuation"
+  },
+  {
+    "id": "console-cli",
+    "name": "console-cli",
+    "category": "terminal-system-tools",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Console apps and CLI tools on .NET 10: System.CommandLine 2.x (RootCommand, Option<T>, SetAction, InvokeAsync), Generic Host + DI in console apps, exit codes, stdout/stderr discipline, Ctrl+C cancellation, interactive vs piped use, dotnet tool packaging, and `dotnet run app.cs` file-based apps. Load when the user mentions \"console app\", \"CLI\", \"command line\", \"System.CommandLine\", \"dotnet tool\", \"exit code\", \"stdin\", \"args parsing\", or \"file-based app\".",
+    "path": "category/terminal-system-tools/console-cli"
   },
   {
     "id": "control-cli",
@@ -1480,6 +1520,14 @@
     "path": "category/terminal-system-tools/graph-the-network"
   },
   {
+    "id": "guard",
+    "name": "guard",
+    "category": "terminal-system-tools",
+    "repository": "garrytan-gstack",
+    "description": "Full safety mode: destructive command warnings + directory-scoped edits. (gstack)",
+    "path": "category/terminal-system-tools/guard"
+  },
+  {
     "id": "hardening-linux-endpoint-with-cis-benchmark",
     "name": "hardening-linux-endpoint-with-cis-benchmark",
     "category": "terminal-system-tools",
@@ -1782,6 +1830,14 @@
     "repository": "samber-developer-platform-skills",
     "description": "Decides whether a developer platform should ship an official IDE extension (VS Code, JetBrains), and runs it: job versus cheaper surfaces, IDE families and forks, a thin shell over the CLI, shared login, publishing to VS Code Marketplace, Open VSX and JetBrains Marketplace, telemetry obeying the IDE setting, deprecation. Use whenever a vendor mentions building or maintaining a VS Code extension or JetBrains plugin for their product, vsce, ovsx, Open VSX, or \\\"developers want us in the editor\\\" - even without saying \\\"IDE extension\\\". Not for internal or personal extensions, writing extension or language-server code, or choosing extensions to install. Do NOT use for CLI design - use samber/developer-platform-skills@cli-interface-design; nor agent tools - use samber/developer-platform-skills@mcp-server-offering.",
     "path": "category/terminal-system-tools/ide-extension-offering"
+  },
+  {
+    "id": "impeccable",
+    "name": "impeccable",
+    "category": "terminal-system-tools",
+    "repository": "active",
+    "description": "Use when the user wants frontend/UI critique or polish inspired by Impeccable, but using a safe local Hermes adaptation with no upstream script execution or project-local shell tooling.",
+    "path": "category/terminal-system-tools/impeccable"
   },
   {
     "id": "implementing-data-loss-prevention-with-microsoft-purview",
@@ -2126,6 +2182,14 @@
     "repository": "dotnet-skills",
     "description": "Guide for implementing Shell-based navigation in .NET MAUI apps. Covers AppShell setup, visual hierarchy (FlyoutItem, TabBar, Tab, ShellContent), URI-based navigation with GoToAsync, route registration, query parameters, back navigation, flyout and tab configuration, navigation events, and navigation guards. Use when: setting up Shell navigation, adding tabs or flyout menus, navigating between pages with GoToAsync, passing parameters between pages, registering routes, customizing back button behavior, or guarding navigation with confirmation dialogs. Do not use for: deep linking from external URLs (see .NET MAUI deep linking documentation), data binding on pages (use maui-data-binding), dependency injection setup (use maui-dependency-injection), or NavigationPage-only apps that don't use Shell.",
     "path": "category/terminal-system-tools/maui-shell-navigation"
+  },
+  {
+    "id": "meeting-sdk-linux",
+    "name": "meeting-sdk-linux",
+    "category": "terminal-system-tools",
+    "repository": "anthropics-knowledge-work",
+    "description": "Zoom Meeting SDK for Linux - C++ headless meeting bots with raw audio/video access, transcription, recording, and AI integration for server-side automation",
+    "path": "category/terminal-system-tools/meeting-sdk-linux"
   },
   {
     "id": "mesh-gradient-dark-blue-clean",
@@ -2880,6 +2944,142 @@
     "path": "category/terminal-system-tools/skill-suggester"
   },
   {
+    "id": "skills-asset-transformer-toolkit",
+    "name": "skills-asset-transformer-toolkit",
+    "category": "terminal-system-tools",
+    "repository": "unity-technologies-skills",
+    "description": "In the Unity Editor, imports 3D models and point clouds with Asset Transformer Toolkit (formerly Pixyz), and creates, edits, and runs RuleSets, Actions, and LODs. Use for Pixyz imports in a Unity project, not for converting files from the shell.",
+    "path": "category/terminal-system-tools/skills-asset-transformer-toolkit"
+  },
+  {
+    "id": "skills-azure-diagnostics",
+    "name": "skills-azure-diagnostics",
+    "category": "terminal-system-tools",
+    "repository": "microsoft-azure-skills",
+    "description": "Debug Azure production issues using AppLens, Azure Monitor, resource health, and safe triage, including evidence-only diagnosis without live access. WHEN: debug production issues, troubleshoot app service, app service high CPU, app service deployment failure, troubleshoot container apps, container app 503 or target port mismatch, troubleshoot functions, function telemetry missing or stopped after a config/connection-string change, troubleshoot AKS, VM RDP, Linux SSH, VM black screen, can't connect to VM, reset VM password, NSG or firewall blocking, kubectl cannot connect, kube-system/CoreDNS failures, pod pending, crashloop, node not ready, upgrade failures, analyze logs, KQL, insights, image pull failures, cold start issues, health probe failures, resource health, root cause of errors, troubleshoot event hubs, troubleshoot service bus, messaging SDK error, AMQP connection failure, message lock lost, lock renewal during long-running processing, service bus dead letter.",
+    "path": "category/terminal-system-tools/skills-azure-diagnostics"
+  },
+  {
+    "id": "skills-cardputer-buddy",
+    "name": "skills-cardputer-buddy",
+    "category": "terminal-system-tools",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "Iterate on the Cardputer-Adv MicroPython app bundle (Claude Buddy, Snake, Hello) after the device is already provisioned via m5-onboard. Use when the user wants to add a new app, push a single changed .py without re-flashing, watch device serial logs, or run a one-shot REPL command. Trigger on \"add an app\", \"push to the cardputer\", \"tail the device\", \"run on the device\", or follow-up work after /maker-setup.",
+    "path": "category/terminal-system-tools/skills-cardputer-buddy"
+  },
+  {
+    "id": "skills-cli-for-agents",
+    "name": "skills-cli-for-agents",
+    "category": "terminal-system-tools",
+    "repository": "cursor-plugins",
+    "description": "Designs or reviews CLIs so coding agents can run them reliably: non-interactive flags, layered --help with examples, stdin/pipelines, fast actionable errors, idempotency, dry-run, and predictable structure. Use when building a CLI, adding commands, writing --help, or when the user mentions agents, terminals, or automation-friendly CLIs.",
+    "path": "category/terminal-system-tools/skills-cli-for-agents"
+  },
+  {
+    "id": "skills-command-development",
+    "name": "skills-command-development",
+    "category": "terminal-system-tools",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "This skill should be used when the user asks to \"create a slash command\", \"add a command\", \"write a custom command\", \"define command arguments\", \"use command frontmatter\", \"organize commands\", \"create command with file references\", \"interactive command\", \"use AskUserQuestion in command\", or needs guidance on slash command structure, YAML frontmatter fields, dynamic arguments, bash execution in commands, user interaction patterns, or command development best practices for Claude Code.",
+    "path": "category/terminal-system-tools/skills-command-development"
+  },
+  {
+    "id": "skills-control-cli",
+    "name": "skills-control-cli",
+    "category": "terminal-system-tools",
+    "repository": "cursor-plugins",
+    "description": "Build or adapt a local harness to drive, inspect, and profile an interactive CLI or TUI without external services. Use for CLI UX checks, startup regressions, memory leaks, hangs, prompt flows, or terminal demos.",
+    "path": "category/terminal-system-tools/skills-control-cli"
+  },
+  {
+    "id": "skills-dart-build-cli-app",
+    "name": "skills-dart-build-cli-app",
+    "category": "terminal-system-tools",
+    "repository": "dart-lang-skills",
+    "description": "Architectural patterns, entrypoint structure, exit codes, stream routing, and subprocess spawning for Dart command-line interface (CLI) applications. Use when building CLI tools, console utilities, scripts, argument parsing with `package:args` (ArgParser or CommandRunner), handling exit codes, configuring executables in pubspec.yaml, spawning Dart subprocesses, or compiling native CLI binaries. Don't use for Flutter UI widgets, web applications, or standalone HTTP backend servers.",
+    "path": "category/terminal-system-tools/skills-dart-build-cli-app"
+  },
+  {
+    "id": "skills-example-command",
+    "name": "skills-example-command",
+    "category": "terminal-system-tools",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "An example user-invoked skill that demonstrates frontmatter options and the skills/<name>/SKILL.md layout",
+    "path": "category/terminal-system-tools/skills-example-command"
+  },
+  {
+    "id": "skills-mirrord-up",
+    "name": "skills-mirrord-up",
+    "category": "terminal-system-tools",
+    "repository": "metalbear-co-mirrord",
+    "description": "Helps users run multiple concurrent mirrord sessions from a single mirrord-up.yaml (compose-style multi-service local debugging). Use when the user mentions mirrord up, mirrord-up.yaml, mirrord up init, debugging several related microservices together, or managing multiple mirrord sessions' lifecycle in one command.",
+    "path": "category/terminal-system-tools/skills-mirrord-up"
+  },
+  {
+    "id": "skills-month-end-prep",
+    "name": "skills-month-end-prep",
+    "category": "terminal-system-tools",
+    "repository": "anthropics-knowledge-work",
+    "description": "Reconciles the accounting ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books) against PayPal, Shopify, Square, and Stripe settlements, flags transactions that need attention, suspicious duplicates, and missing receipts, then writes a plain-English P&L narrative and exports a close packet (xlsx + one-page PDF). This is the first link of the /close-month command; a request to close the month or the books routes there, and the command runs this skill before refreshing the forecast and distributing the packet. Use this skill directly only when the owner wants the reconciliation alone, with no forecast refresh and no distribution: \"just reconcile, no packet,\" \"what's missing from the books,\" \"flag the duplicates and missing receipts,\" or \"write the P&L narrative for this month.",
+    "path": "category/terminal-system-tools/skills-month-end-prep"
+  },
+  {
+    "id": "skills-parallel-cli-setup",
+    "name": "skills-parallel-cli-setup",
+    "category": "terminal-system-tools",
+    "repository": "parallel-web-parallel-agent-skills",
+    "description": "Set up and maintain the Parallel CLI (install, auth, balance, skills install)",
+    "path": "category/terminal-system-tools/skills-parallel-cli-setup"
+  },
+  {
+    "id": "skills-parallel-search-setup",
+    "name": "skills-parallel-search-setup",
+    "category": "terminal-system-tools",
+    "repository": "parallel-web-parallel-agent-skills",
+    "description": "Set up, authenticate, verify, or troubleshoot Parallel MCP, including the Claude unified plugin and anonymous Search MCP installations. Use when the user installs the plugin, says \"set up Parallel Search\", reports missing tools, authentication failures, or rate limits. For authenticated gateway deployments use parallel-mcp-setup; for CLI-backed skills use parallel-cli-setup.",
+    "path": "category/terminal-system-tools/skills-parallel-search-setup"
+  },
+  {
+    "id": "skills-parallel-web-extract",
+    "name": "skills-parallel-web-extract",
+    "category": "terminal-system-tools",
+    "repository": "parallel-web-parallel-agent-skills",
+    "description": "CLI-backed URL extraction. Use when the user explicitly invokes this skill, needs CLI-only controls or saved JSON output, or no Parallel web_fetch MCP tool is available. When the bundled Parallel Search MCP is available, prefer its web_fetch tool for ordinary webpages, articles, PDFs, and JavaScript-heavy sites.",
+    "path": "category/terminal-system-tools/skills-parallel-web-extract"
+  },
+  {
+    "id": "skills-parallel-web-search",
+    "name": "skills-parallel-web-search",
+    "category": "terminal-system-tools",
+    "repository": "parallel-web-parallel-agent-skills",
+    "description": "CLI-backed web search. Use when the user explicitly invokes this skill, needs CLI-only controls or saved JSON output, or no Parallel web_search MCP tool is available. When the bundled Parallel Search MCP is available, prefer its web_search tool for ordinary lookups and current-information queries. Only use parallel-deep-research if the user explicitly requests deep or exhaustive research.",
+    "path": "category/terminal-system-tools/skills-parallel-web-search"
+  },
+  {
+    "id": "skills-python-appservice-deploy",
+    "name": "skills-python-appservice-deploy",
+    "category": "terminal-system-tools",
+    "repository": "microsoft-azure-skills",
+    "description": "Deploy Python (Flask/Django/FastAPI) code to Azure App Service Linux. WHEN: \\\"Flask App Service\\\", \\\"Django App Service\\\", \\\"FastAPI App Service\\\", \\\"deploy Python to App Service\\\". DO NOT USE FOR: Container Apps, Functions, non-Python, Terraform/Bicep/IaC, full infra \u2014 use azure-prepare.",
+    "path": "category/terminal-system-tools/skills-python-appservice-deploy"
+  },
+  {
+    "id": "skills-smb-router",
+    "name": "skills-smb-router",
+    "category": "terminal-system-tools",
+    "repository": "anthropics-knowledge-work",
+    "description": "The front door to the Small Business plugin. Listens to what the owner needs right now \u2014 vague or specific \u2014 and routes them to the best skill or slash command for the moment. Also serves as a guide: explains what's available, suggests what to try next, and adapts recommendations based on stored business context. Trigger whenever the owner asks \"what can you do,\" \"help me with my business,\" \"what should I focus on,\" \"I don't know where to start,\" or any open-ended business request that doesn't clearly match a single skill.",
+    "path": "category/terminal-system-tools/skills-smb-router"
+  },
+  {
+    "id": "skills-unity-cli",
+    "name": "skills-unity-cli",
+    "category": "terminal-system-tools",
+    "repository": "unity-technologies-skills",
+    "description": "Controls the Unity Editor and projects from the command line, driving a running Editor to edit scenes and assets or run C#. Use when asked to install or manage Editors, licenses, or projects, set up version control, build, test, or run any unity command.",
+    "path": "category/terminal-system-tools/skills-unity-cli"
+  },
+  {
     "id": "smb-router",
     "name": "smb-router",
     "category": "terminal-system-tools",
@@ -3110,6 +3310,14 @@
     "repository": "riekelt-principal-engineer",
     "description": "Use when about to say \\\"done\\\", \\\"fixed\\\", \\\"passing\\\", or \\\"shipped\\\", or when reporting the outcome of any change. Encodes verification as the definition of done: drive the change at its surface, run the verify command, report faithfully, distrust green suites, own failing gates. Use before every completion claim, even when the change was small and obviously correct, which is when this is skipped.",
     "path": "category/terminal-system-tools/verifying-before-done"
+  },
+  {
+    "id": "video-sdk-linux",
+    "name": "video-sdk-linux",
+    "category": "terminal-system-tools",
+    "repository": "anthropics-knowledge-work",
+    "description": "Zoom Video SDK for Linux - C++ headless bots, raw audio/video capture/injection, Qt/GTK integration, Docker support",
+    "path": "category/terminal-system-tools/video-sdk-linux"
   },
   {
     "id": "wallet-integration",

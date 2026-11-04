@@ -368,6 +368,14 @@
     "path": "category/data-engineering-ml/action-network"
   },
   {
+    "id": "activate-content-amplifier",
+    "name": "activate-content-amplifier",
+    "category": "data-engineering-ml",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"amplify influencer content with paid media\", \"set up whitelisting or Spark Ads\", \"decide which posts to boost\", \"repurpose influencer content\", \"turn one video into multiple ads\", or \"build a UGC asset library\"; produces (paid mode) a content-selection scorecard, a paid amplification strategy (whitelisting/boosting/dark posts), audience targeting, and a budget+optimization plan, or (repurpose mode) a rights-tracked content inventory, a 1-video-to-10+-asset repurposing map, per-format transformation specs, and a 30-day distribution plan. Not for gating whether a deliverable is publishable or FTC-compliant \u2014 use creator-content-auditor; not for the always-on brand posting calendar \u2014 use social-calendar-builder; not for drafting a net-new idea into platform-native packages \u2014 use social-creative-builder. \u590d\u7528\u8fbe\u4eba\u5185\u5bb9 / \u5185\u5bb9\u653e\u91cf.",
+    "path": "category/data-engineering-ml/activate-content-amplifier"
+  },
+  {
     "id": "active-trail",
     "name": "active-trail",
     "category": "data-engineering-ml",
@@ -4280,12 +4288,36 @@
     "path": "category/data-engineering-ml/close"
   },
   {
+    "id": "cloud-cloud-trace-querying",
+    "name": "cloud-cloud-trace-querying",
+    "category": "data-engineering-ml",
+    "repository": "google-skills",
+    "description": "Query Cloud Trace spans, filter by latency thresholds or error status, correlate distributed traces with Cloud Logging, and diagnose latency bottlenecks across Google Cloud services. Use when investigating slow requests, analyzing trace hierarchies, or resolving latency regressions. Do NOT use for querying non-GCP telemetry or database query optimization outside Cloud Trace.",
+    "path": "category/data-engineering-ml/cloud-cloud-trace-querying"
+  },
+  {
     "id": "cloud-convert",
     "name": "cloud-convert",
     "category": "data-engineering-ml",
     "repository": "membranedev-application-skills",
     "description": "Cloud Convert integration. Manage Deals, Persons, Organizations, Leads, Projects, Pipelines and more. Use when the user wants to interact with Cloud Convert data.",
     "path": "category/data-engineering-ml/cloud-convert"
+  },
+  {
+    "id": "cloud-datalineage-bigquery-asset-impact-analysis",
+    "name": "cloud-datalineage-bigquery-asset-impact-analysis",
+    "category": "data-engineering-ml",
+    "repository": "google-skills",
+    "description": "Analyzes the downstream impact (blast radius) using data lineage on Google Cloud when a BigQuery table or view is broken, stale, or modified. Identifies all downstream tables, dashboards, and processes that will be affected. Use when: - Performing a blast radius or impact analysis for a BigQuery table or view. - Assessing the consequences of modifying, deleting, or pausing updates to a BigQuery asset. - Identifying downstream dependencies (tables, dashboards, processes) of a BigQuery asset. Don't use for: - General BigQuery querying or data analysis (use BigQuery-related tools instead). - Non-BigQuery assets (e.g., Cloud Storage files) unless they are part of the BigQuery lineage. - Creating or modifying lineage links directly.",
+    "path": "category/data-engineering-ml/cloud-datalineage-bigquery-asset-impact-analysis"
+  },
+  {
+    "id": "cloud-datalineage-summary",
+    "name": "cloud-datalineage-summary",
+    "category": "data-engineering-ml",
+    "repository": "google-skills",
+    "description": "Summarizes data lineage graphs on Google Cloud to help users debug data quality issues and understand data provenance for BigQuery and Cloud Storage. Use when summarizing upstream and downstream data flows, and presenting complex lineage data as an intuitive Markdown report. Don't use for generic BigQuery queries, editing lineage relationships, or downstream deprecation. Don't use for downstream blast-radius impact analysis (use datalineage-bigquery-asset-impact-analysis skill instead).",
+    "path": "category/data-engineering-ml/cloud-datalineage-summary"
   },
   {
     "id": "cloud-elements",
@@ -4302,6 +4334,54 @@
     "repository": "membranedev-application-skills",
     "description": "Cloud Foundry integration. Manage data, records, and automate workflows. Use when the user wants to interact with Cloud Foundry data.",
     "path": "category/data-engineering-ml/cloud-foundry"
+  },
+  {
+    "id": "cloud-gke-backup-dr",
+    "name": "cloud-gke-backup-dr",
+    "category": "data-engineering-ml",
+    "repository": "google-skills",
+    "description": "Configures Backup for GKE: the BackupRestore cluster addon, BackupPlan and RestorePlan resources, restore workflows, and CMEK-encrypted backups. Use for backup policies, disaster recovery, or GKE cluster restores. Don't use for database backups.",
+    "path": "category/data-engineering-ml/cloud-gke-backup-dr"
+  },
+  {
+    "id": "cloud-gke-cost-analysis",
+    "name": "cloud-gke-cost-analysis",
+    "category": "data-engineering-ml",
+    "repository": "google-skills",
+    "description": "Answer natural language questions and perform analysis on GKE cluster and workload costs using BigQuery billing exports, cost allocation data, and live cluster monitoring metrics. Use when querying GKE costs across projects, namespaces, or workloads, analyzing billing reports in BigQuery (`bq`), checking cluster cost budgets (`gcloud billing`), or diagnosing cost drivers like pod requests vs. actual utilization (`kubectl top`). Don't use for applying cost optimization changes, creating rightsizing manifests (VPA/MPA), or selecting ComputeClasses (use gke-cost-optimization instead).",
+    "path": "category/data-engineering-ml/cloud-gke-cost-analysis"
+  },
+  {
+    "id": "cloud-gke-networking",
+    "name": "cloud-gke-networking",
+    "category": "data-engineering-ml",
+    "repository": "google-skills",
+    "description": "Plans, configures, and manages core GKE cluster networking. Covers private clusters, VPC-native configurations, DNS, node egress, Dataplane V2, and IP planning. Use when designing GKE networking layouts, configuring private clusters, setting up Dataplane V2, planning GKE IP ranges, or managing VPC- native cluster modes. Don't use for application ingress, load balancing, or service networking (use gke-service-networking instead).",
+    "path": "category/data-engineering-ml/cloud-gke-networking"
+  },
+  {
+    "id": "cloud-gke-storage",
+    "name": "cloud-gke-storage",
+    "category": "data-engineering-ml",
+    "repository": "google-skills",
+    "description": "Manages GKE storage, including PVCs, PersistentVolumes, and Filestore. Use when configuring GKE storage or creating PVCs. For GCS FUSE mounts, use google-cloud-storage-fuse. For diagnosing storage failures (volume attach/mount errors, disk performance/node storage pressure, or Cloud Storage FUSE OOM), use gke-storage-troubleshooting. Don't use for database administration or replication strategies outside volume provisioning context.",
+    "path": "category/data-engineering-ml/cloud-gke-storage"
+  },
+  {
+    "id": "cloud-google-cloud-filestore-nfs-browser",
+    "name": "cloud-google-cloud-filestore-nfs-browser",
+    "category": "data-engineering-ml",
+    "repository": "google-skills",
+    "description": "Inspects, searches, and reads files and POSIX metadata on Filestore (NFS) instances on Google Cloud without local NFS client packages or root privileges. Use when browsing Filestore shares, searching files, reading remote logs, or inspecting file attributes; don't use for Cloud Storage buckets, Cloud NetApp Volumes, Persistent Disks, or modifying/deleting files.",
+    "path": "category/data-engineering-ml/cloud-google-cloud-filestore-nfs-browser"
+  },
+  {
+    "id": "cloud-google-cloud-solution-agentic-analytics-spark-knowledge-catalog",
+    "name": "cloud-google-cloud-solution-agentic-analytics-spark-knowledge-catalog",
+    "category": "data-engineering-ml",
+    "repository": "google-skills",
+    "description": "Discovers requirements and designs an end-to-end governed agentic analytics solution using Knowledge Catalog and Managed Service for Apache Spark (Lightning Engine). Use when designing data science and analytics workflows across structured and unstructured distributed data (including in S3, Azure Blob, AlloyDB, and Iceberg), establishing metadata governance with Knowledge Catalog aspect types, or grounding agentic IDEs (VS Code, Antigravity) by using the Google Cloud Data Agent Kit. Don't use for provisioning borderless data lakehouse infrastructure (use google-cloud-solution-agentic-ai-borderless-data-lakehouse instead).",
+    "path": "category/data-engineering-ml/cloud-google-cloud-solution-agentic-analytics-spark-knowledge-catalog"
   },
   {
     "id": "cloud-sync",
@@ -7182,6 +7262,22 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "5 ecology & environmental science skills. Trigger: biodiversity surveys, species data, environmental monitoring. Design: field data collection, spatial analysis, and conservation biology workflows.",
     "path": "category/data-engineering-ml/ecology"
+  },
+  {
+    "id": "ecommerce-ecommerce-seller-info",
+    "name": "ecommerce-ecommerce-seller-info",
+    "category": "data-engineering-ml",
+    "repository": "browser-act-skills",
+    "description": "Extract seller or merchant profile data from marketplace platform seller pages. Returns seller name, rating, review count, positive feedback percentage, joined date, and return policy. Works on Amazon seller pages, eBay seller pages, and any e-commerce site with seller profiles. Use when: seller information, merchant profile, seller rating, marketplace seller data, seller details, vendor profile, store information, seller feedback, merchant rating, seller review count, get seller info, ebay seller page, amazon seller profile, marketplace vendor analysis, seller research.",
+    "path": "category/data-engineering-ml/ecommerce-ecommerce-seller-info"
+  },
+  {
+    "id": "ecommerce-goofish-item-detail",
+    "name": "ecommerce-goofish-item-detail",
+    "category": "data-engineering-ml",
+    "repository": "browser-act-skills",
+    "description": "Extracts full detail data from a single Goofish (\u95f2\u9c7c/xianyu, goofish.com) second-hand item page. Input: item URL or item ID. Output: title, price, seller info (name, labels), full description, image gallery, item tags/attributes, want-count. Use when user mentions goofish item detail, \u95f2\u9c7c\u5546\u54c1\u8be6\u60c5, xianyu item page, \u4e8c\u624b\u5546\u54c1\u8be6\u60c5, get goofish product info, \u91c7\u96c6\u95f2\u9c7c\u5355\u54c1\u6570\u636e, \u6293\u53d6\u95f2\u9c7c\u5546\u54c1, scrape goofish item, xianyu product detail, \u83b7\u53d6\u95f2\u9c7c\u5356\u5bb6\u4fe1\u606f, seller info goofish, item description goofish, \u95f2\u9c7c\u8be6\u60c5\u9875, \u60f3\u8981\u4eba\u6570, \u95f2\u9c7c\u56fe\u7247. Also applies to: verifying a specific listing before purchase, extracting seller contact/rating information, bulk item detail enrichment from a list of item IDs.",
+    "path": "category/data-engineering-ml/ecommerce-goofish-item-detail"
   },
   {
     "id": "ecommerce-seller-info",
@@ -11478,14 +11574,6 @@
     "repository": "membranedev-application-skills",
     "description": "Interzoid integration. Manage data, records, and automate workflows. Use when the user wants to interact with Interzoid data.",
     "path": "category/data-engineering-ml/interzoid"
-  },
-  {
-    "id": "investigate",
-    "name": "investigate",
-    "category": "data-engineering-ml",
-    "repository": "launchdarkly-ai-tooling",
-    "description": "Analyzes observability data \u2014 logs, traces, errors, sessions, and metrics \u2014 to find root cause and actionable evidence. Use when the user reports a bug, an unexpected behavior, or asks about patterns across application data.",
-    "path": "category/data-engineering-ml/investigate"
   },
   {
     "id": "invision-community",
@@ -20600,6 +20688,86 @@
     "path": "category/data-engineering-ml/skeleton-first"
   },
   {
+    "id": "skills-account-research",
+    "name": "skills-account-research",
+    "category": "data-engineering-ml",
+    "repository": "anthropics-knowledge-work",
+    "description": "Research a company using Common Room data. Triggers on 'research [company]', 'tell me about [domain]', 'pull up signals for [account]', 'what's going on with [company]', or any account-level question.",
+    "path": "category/data-engineering-ml/skills-account-research"
+  },
+  {
+    "id": "skills-azure-kusto",
+    "name": "skills-azure-kusto",
+    "category": "data-engineering-ml",
+    "repository": "microsoft-azure-skills",
+    "description": "Query and analyze data in Azure Data Explorer (Kusto/ADX) using KQL for log analytics, telemetry, and time series analysis. WHEN: KQL queries, Kusto database queries, Azure Data Explorer, ADX clusters, log analytics, time series data, IoT telemetry, anomaly detection.",
+    "path": "category/data-engineering-ml/skills-azure-kusto"
+  },
+  {
+    "id": "skills-dart-use-path-package",
+    "name": "skills-dart-use-path-package",
+    "category": "data-engineering-ml",
+    "repository": "dart-lang-skills",
+    "description": "Cross-platform file and directory path manipulation, segment splitting, extension extraction, and context conversion using `package:path` and `package:file`. Use when writing, inspecting, joining, splitting, or refactoring file paths, directory names, or extensions, or replacing raw string path operations (`.split('/')`, `'$dir/$file'`, `.endsWith('.ext')`, `.replaceAll('\\\\', '/')`). Don't use for HTTP network URI routing, database query strings, or non-path string processing.",
+    "path": "category/data-engineering-ml/skills-dart-use-path-package"
+  },
+  {
+    "id": "skills-data-context-extractor",
+    "name": "skills-data-context-extractor",
+    "category": "data-engineering-ml",
+    "repository": "anthropics-knowledge-work",
+    "description": "Generate or improve a company-specific data analysis skill by extracting tribal knowledge from analysts.",
+    "path": "category/data-engineering-ml/skills-data-context-extractor"
+  },
+  {
+    "id": "skills-explore-data",
+    "name": "skills-explore-data",
+    "category": "data-engineering-ml",
+    "repository": "anthropics-knowledge-work",
+    "description": "Profile and explore a dataset to understand its shape, quality, and patterns. Use when encountering a new table or file, checking null rates and column distributions, spotting data quality issues like duplicates or suspicious values, or deciding which dimensions and metrics to analyze.",
+    "path": "category/data-engineering-ml/skills-explore-data"
+  },
+  {
+    "id": "skills-firecrawl-scrape",
+    "name": "skills-firecrawl-scrape",
+    "category": "data-engineering-ml",
+    "repository": "firecrawl-cli",
+    "description": "Read a known webpage or execute a discovered workflow or data-provider capability. Use for page content or structured results once the URL or tool is selected.",
+    "path": "category/data-engineering-ml/skills-firecrawl-scrape"
+  },
+  {
+    "id": "skills-nature-data",
+    "name": "skills-nature-data",
+    "category": "data-engineering-ml",
+    "repository": "yuan1z0825-nature-skills",
+    "description": "Draft or audit manuscript Data/Code Availability statements, dataset access routes, repository plans, and FAIR metadata. Use for \u6570\u636e\u53ef\u7528\u6027\u58f0\u660e\u3001\u6570\u636e\u5171\u4eab\u3001\u6570\u636e\u4ed3\u5e93\u9009\u62e9 and dataset citations; not general data cleaning or statistical analysis.",
+    "path": "category/data-engineering-ml/skills-nature-data"
+  },
+  {
+    "id": "skills-parallel-data-enrichment",
+    "name": "skills-parallel-data-enrichment",
+    "category": "data-engineering-ml",
+    "repository": "parallel-web-parallel-agent-skills",
+    "description": "Bulk data enrichment. Adds web-sourced fields (CEO names, funding, contact info) to lists of companies, people, or products. Use for enriching CSV files or inline data. Supports multi-turn: pass --previous-interaction-id from a prior research task to carry context forward.",
+    "path": "category/data-engineering-ml/skills-parallel-data-enrichment"
+  },
+  {
+    "id": "skills-reconciliation",
+    "name": "skills-reconciliation",
+    "category": "data-engineering-ml",
+    "repository": "anthropics-knowledge-work",
+    "description": "Reconcile accounts by comparing GL balances to subledgers, bank statements, or third-party data. Use when performing bank reconciliations, GL-to-subledger recs, intercompany reconciliations, or identifying and categorizing reconciling items.",
+    "path": "category/data-engineering-ml/skills-reconciliation"
+  },
+  {
+    "id": "skills-why",
+    "name": "skills-why",
+    "category": "data-engineering-ml",
+    "repository": "cursor-plugins",
+    "description": "Use for 'why does X work this way', 'why we picked Y', design rationale, regressions, postmortems, or data-backed thresholds. Discovers available MCPs and queries each evidence category (source control, issue tracker, long-form docs, real-time chat, infrastructure observability, error tracking, product analytics warehouse) in parallel, then returns a cited read on decisions and tradeoffs. Use how for runtime behavior.",
+    "path": "category/data-engineering-ml/skills-why"
+  },
+  {
     "id": "skillzrun",
     "name": "skillzrun",
     "category": "data-engineering-ml",
@@ -20990,6 +21158,62 @@
     "repository": "membranedev-application-skills",
     "description": "Social Intents integration. Manage Organizations. Use when the user wants to interact with Social Intents data.",
     "path": "category/data-engineering-ml/social-intents"
+  },
+  {
+    "id": "social-listening-facebook-page-posts",
+    "name": "social-listening-facebook-page-posts",
+    "category": "data-engineering-ml",
+    "repository": "browser-act-skills",
+    "description": "Scrapes posts from any public Facebook Page timeline, returning structured data including post text, author info, engagement metrics (likes/comments/shares), reaction breakdowns (like/love/haha/wow/sad/angry/care), hashtags and external links, and media type. Use when user wants to scrape Facebook posts, extract Facebook page content, get Facebook post data, collect Facebook engagement stats, download Facebook posts, monitor a Facebook page, crawl Facebook timeline, get Facebook reactions, get like count/comment count/share count from Facebook, Facebook post bulk export, Facebook social media analytics. Supports date range filtering (afterTime/beforeTime) and cursor-based pagination for bulk collection.",
+    "path": "category/data-engineering-ml/social-listening-facebook-page-posts"
+  },
+  {
+    "id": "social-listening-threads-profile-search",
+    "name": "social-listening-threads-profile-search",
+    "category": "data-engineering-ml",
+    "repository": "browser-act-skills",
+    "description": "Discovers Threads user accounts by keyword, extracting profile data including username, display name, verification status, biography, and follower count. Use when user asks to find Threads accounts, search Threads profiles, discover Threads users by keyword, look up Threads creators, find influencers on Threads, search for people on Threads, get Threads user details, collect Threads profile information, find accounts related to a topic on Threads, search Threads for accounts by name or keyword, or enumerate Threads users matching a search term.",
+    "path": "category/data-engineering-ml/social-listening-threads-profile-search"
+  },
+  {
+    "id": "social-listening-threads-user-posts",
+    "name": "social-listening-threads-user-posts",
+    "category": "data-engineering-ml",
+    "repository": "browser-act-skills",
+    "description": "Fetches public posts from a Threads user's profile page, extracting post text, engagement metrics, and media info from SSR-embedded JSON. Use when user asks to scrape Threads posts, get someone's Threads feed, pull posts from a Threads account, collect Threads content by username, download Threads user posts, extract Threads profile posts, monitor a Threads user's activity, retrieve recent posts from a Threads handle, gather Threads post data for a creator, or fetch all posts from a specific Threads profile.",
+    "path": "category/data-engineering-ml/social-listening-threads-user-posts"
+  },
+  {
+    "id": "social-listening-xiaohongshu-auto-posting",
+    "name": "social-listening-xiaohongshu-auto-posting",
+    "category": "data-engineering-ml",
+    "repository": "browser-act-skills",
+    "description": "Automates the complete Xiaohongshu (XHS / Little Red Book) content operation workflow: pain-point topic collection \u2192 style case collection \u2192 topic selection \u2192 content writing \u2192 publishing \u2192 performance tracking. Use when user mentions xiaohongshu auto posting, xhs auto post, little red book posting, xiaohongshu post, xiaohongshu auto posting, xiaohongshu content operations, xhs content marketing, post to xiaohongshu, publish on xhs, post on xiaohongshu, xiaohongshu promotion, xiaohongshu operations, xiaohongshu automation, xhs automation, track xhs performance, track xiaohongshu performance, xiaohongshu data tracking, xiaohongshu analytics, switch xhs account, update xhs keywords.",
+    "path": "category/data-engineering-ml/social-listening-xiaohongshu-auto-posting"
+  },
+  {
+    "id": "social-listening-xiaohongshu-note-detail",
+    "name": "social-listening-xiaohongshu-note-detail",
+    "category": "data-engineering-ml",
+    "repository": "browser-act-skills",
+    "description": "Fetch Xiaohongshu (RedNote / xhs) note detail and comments by note ID, returning title, description, author info, engagement stats, tags, and paginated comment list. Use when user mentions note detail xiaohongshu, get rednote post, xhs note content, xiaohongshu comment scrape, fetch post comments, scrape xhs comments, rednote note details, xiaohongshu post engagement, xiaohongshu note content, rednote post data, xhs post detail, get xiaohongshu comments, rednote comment list, xiaohongshu note metadata, xhs note scrape, fetch rednote note.",
+    "path": "category/data-engineering-ml/social-listening-xiaohongshu-note-detail"
+  },
+  {
+    "id": "social-listening-xiaohongshu-search",
+    "name": "social-listening-xiaohongshu-search",
+    "category": "data-engineering-ml",
+    "repository": "browser-act-skills",
+    "description": "Search Xiaohongshu (RedNote / xhs) notes by keyword and return a paginated list with title, author, engagement stats (likes, collects, comments), cover image URL, and xsecToken for detail lookup. Use when user mentions find notes on xiaohongshu, search rednote, search xhs, scrape xiaohongshu search, xiaohongshu keyword search, rednote post search, xhs search results, monitor xiaohongshu topics, KOL content discovery via xiaohongshu, xiaohongshu note list, rednote scrape, xhs data collection, collect xiaohongshu posts, xiaohongshu topic search, xiaohongshu content monitoring, rednote post list, xhs keyword scrape.",
+    "path": "category/data-engineering-ml/social-listening-xiaohongshu-search"
+  },
+  {
+    "id": "social-listening-xiaohongshu-user-profile",
+    "name": "social-listening-xiaohongshu-user-profile",
+    "category": "data-engineering-ml",
+    "repository": "browser-act-skills",
+    "description": "Fetch Xiaohongshu (RedNote / xhs) user profile information and their published notes list by user ID, returning nickname, bio, follower/following counts, engagement totals, tags, and paginated notes with engagement stats. Use when user mentions user profile xiaohongshu, rednote creator profile, xhs influencer data, scrape xiaohongshu user, get blogger notes, xiaohongshu author info, KOL discovery xiaohongshu, rednote user stats, creator profile rednote, xiaohongshu blogger analysis, get xhs user followers, rednote influencer profile, xiaohongshu account info, xhs creator data, user notes list xiaohongshu, rednote account scrape, xiaohongshu KOL research.",
+    "path": "category/data-engineering-ml/social-listening-xiaohongshu-user-profile"
   },
   {
     "id": "socket",
@@ -21830,6 +22054,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Clean, recode, and prepare survey response data for analysis",
     "path": "category/data-engineering-ml/survey-data-processing"
+  },
+  {
+    "id": "survey-keyword-research",
+    "name": "survey-keyword-research",
+    "category": "data-engineering-ml",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"find keywords\", \"\u6316\u8bcd\", or \"\u641c\u4ec0\u4e48\u8bcd\"; prioritizes search volume, keyword difficulty, intent, and topic clusters from provided or connected data. Not for competitor-relative coverage gaps \u2014 use content-gap-analysis. \u5173\u952e\u8bcd\u7814\u7a76/\u5185\u5bb9\u9009\u9898",
+    "path": "category/data-engineering-ml/survey-keyword-research"
   },
   {
     "id": "survey2connect",

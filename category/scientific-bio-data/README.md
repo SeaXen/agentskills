@@ -1,7 +1,7 @@
 # 🔬 Scientific, Bio-Informatics & Astrophysics
 
 > **Category**: `scientific-bio-data`  
-> **Total Curated Skills**: 111 skills  
+> **Total Curated Skills**: 121 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -121,6 +121,16 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`scvi-tools`](../../library/anthropics-knowledge-work/skills/scvi-tools) | ⚪ Reserve | `anthropics-knowledge-work` | Deep learning for single-cell analysis using scvi-tools. This skill should be used when users n... |
 | [`sdf`](../../library/earthtojake-text-to-cad/skills/sdf) | ⚪ Reserve | `earthtojake-text-to-cad` | SDFormat/SDF model and world authoring, validation, and simulator handoff. Use for `.sdf` files... |
 | [`single-cell-rna-qc`](../../library/anthropics-knowledge-work/skills/single-cell-rna-qc) | ⚪ Reserve | `anthropics-knowledge-work` | Performs quality control on single-cell RNA-seq data (.h5ad or .h5 files) using scverse best pr... |
+| [`skills-create-2d-physics`](../../library/unity-technologies-skills/skills/skills-create-2d-physics) | ⚪ Reserve | `unity-technologies-skills` | Creates and fixes Unity 2D physics in both systems, 2D Physics Core and the legacy Rigidbody 2D... |
+| [`skills-create-formal-verification-skill`](../../library/cursor-plugins/skills/skills-create-formal-verification-skill) | ⚪ Reserve | `cursor-plugins` | Generate a project-local skill that formally verifies the code where a bug costs the most and t... |
+| [`skills-nature-figure`](../../library/yuan1z0825-nature-skills/skills/skills-nature-figure) | ⚪ Reserve | `yuan1z0825-nature-skills` | Create, revise, audit, and export manuscript scientific figures in Python or R. Use for 论文配图、科研... |
+| [`skills-nature-reviewer`](../../library/yuan1z0825-nature-skills/skills/skills-nature-reviewer) | ⚪ Reserve | `yuan1z0825-nature-skills` | Provide evidence-grounded mock peer review of scientific manuscripts or excerpts, covering sign... |
+| [`skills-nature-writing`](../../library/yuan1z0825-nature-skills/skills/skills-nature-writing) | ⚪ Reserve | `yuan1z0825-nature-skills` | Draft or restructure scientific manuscript arguments, sections, and initial-submission material... |
+| [`skills-nextflow-development`](../../library/anthropics-knowledge-work/skills/skills-nextflow-development) | ⚪ Reserve | `anthropics-knowledge-work` | Run nf-core bioinformatics pipelines (rnaseq, sarek, atacseq) on sequencing data. Use when anal... |
+| [`skills-physics-3d-collision`](../../library/unity-technologies-skills/skills/skills-physics-3d-collision) | ⚪ Reserve | `unity-technologies-skills` | Diagnoses 3D PhysX collision and trigger problems. Use when OnCollisionEnter or OnTriggerEnter ... |
+| [`skills-scientific-problem-selection`](../../library/anthropics-knowledge-work/skills/skills-scientific-problem-selection) | ⚪ Reserve | `anthropics-knowledge-work` | This skill should be used when scientists need help with research problem selection, project id... |
+| [`skills-scvi-tools`](../../library/anthropics-knowledge-work/skills/skills-scvi-tools) | ⚪ Reserve | `anthropics-knowledge-work` | Deep learning for single-cell analysis using scvi-tools. This skill should be used when users n... |
+| [`skills-single-cell-rna-qc`](../../library/anthropics-knowledge-work/skills/skills-single-cell-rna-qc) | ⚪ Reserve | `anthropics-knowledge-work` | Performs quality control on single-cell RNA-seq data (.h5ad or .h5 files) using scverse best pr... |
 | [`spritekit`](../../library/dpearson2699-swift-ios-skills/skills/spritekit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Build 2D games and animations using SpriteKit. Use when creating game scenes with SKScene and S... |
 | [`sympy`](../../library/davila7-claude-code-templates/skills/sympy) | ⚪ Reserve | `davila7-claude-code-templates` | Use this skill when working with symbolic mathematics in Python. This skill should be used for ... |
 | [`tabletopkit`](../../library/dpearson2699-swift-ios-skills/skills/tabletopkit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Builds multiplayer spatial board games using TabletopKit on visionOS. Use when creating tableto... |

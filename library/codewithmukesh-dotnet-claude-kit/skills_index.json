@@ -50,6 +50,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link authentication"
   },
   {
+    "id": "avalonia",
+    "name": "avalonia",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/avalonia",
+    "activation_cmd": "python .agents/library/activate_skill.py activate avalonia",
+    "link_cmd": "python .agents/library/activate_skill.py link avalonia"
+  },
+  {
     "id": "build-fix",
     "name": "build-fix",
     "repository": "codewithmukesh-dotnet-claude-kit",
@@ -120,6 +130,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link configuration"
   },
   {
+    "id": "console-cli",
+    "name": "console-cli",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/console-cli",
+    "activation_cmd": "python .agents/library/activate_skill.py activate console-cli",
+    "link_cmd": "python .agents/library/activate_skill.py link console-cli"
+  },
+  {
     "id": "container-publish",
     "name": "container-publish",
     "repository": "codewithmukesh-dotnet-claude-kit",
@@ -168,6 +188,16 @@
     "path": "library/codewithmukesh-dotnet-claude-kit/skills/dependency-injection",
     "activation_cmd": "python .agents/library/activate_skill.py activate dependency-injection",
     "link_cmd": "python .agents/library/activate_skill.py link dependency-injection"
+  },
+  {
+    "id": "desktop-mvvm",
+    "name": "desktop-mvvm",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/desktop-mvvm",
+    "activation_cmd": "python .agents/library/activate_skill.py activate desktop-mvvm",
+    "link_cmd": "python .agents/library/activate_skill.py link desktop-mvvm"
   },
   {
     "id": "docker",
@@ -290,6 +320,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link modern-csharp"
   },
   {
+    "id": "native-aot",
+    "name": "native-aot",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/native-aot",
+    "activation_cmd": "python .agents/library/activate_skill.py activate native-aot",
+    "link_cmd": "python .agents/library/activate_skill.py link native-aot"
+  },
+  {
     "id": "openapi",
     "name": "openapi",
     "repository": "codewithmukesh-dotnet-claude-kit",
@@ -398,6 +438,486 @@
     "path": "library/codewithmukesh-dotnet-claude-kit/skills/serilog",
     "activation_cmd": "python .agents/library/activate_skill.py activate serilog",
     "link_cmd": "python .agents/library/activate_skill.py link serilog"
+  },
+  {
+    "id": "skills-api-versioning",
+    "name": "skills-api-versioning",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-api-versioning",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-api-versioning",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-api-versioning"
+  },
+  {
+    "id": "skills-arch-check",
+    "name": "skills-arch-check",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-arch-check",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-arch-check",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-arch-check"
+  },
+  {
+    "id": "skills-architecture-advisor",
+    "name": "skills-architecture-advisor",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-architecture-advisor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-architecture-advisor",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-architecture-advisor"
+  },
+  {
+    "id": "skills-aspire",
+    "name": "skills-aspire",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-aspire",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-aspire",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-aspire"
+  },
+  {
+    "id": "skills-authentication",
+    "name": "skills-authentication",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-authentication",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-authentication",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-authentication"
+  },
+  {
+    "id": "skills-build-fix",
+    "name": "skills-build-fix",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-build-fix",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-build-fix",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-build-fix"
+  },
+  {
+    "id": "skills-caching",
+    "name": "skills-caching",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-caching",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-caching",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-caching"
+  },
+  {
+    "id": "skills-checkpoint",
+    "name": "skills-checkpoint",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-checkpoint",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-checkpoint",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-checkpoint"
+  },
+  {
+    "id": "skills-ci-cd",
+    "name": "skills-ci-cd",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-ci-cd",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-ci-cd",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-ci-cd"
+  },
+  {
+    "id": "skills-clean-architecture",
+    "name": "skills-clean-architecture",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-clean-architecture",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-clean-architecture",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-clean-architecture"
+  },
+  {
+    "id": "skills-code-review",
+    "name": "skills-code-review",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-code-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-code-review",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-code-review"
+  },
+  {
+    "id": "skills-configuration",
+    "name": "skills-configuration",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-configuration",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-configuration",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-configuration"
+  },
+  {
+    "id": "skills-container-publish",
+    "name": "skills-container-publish",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-container-publish",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-container-publish",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-container-publish"
+  },
+  {
+    "id": "skills-convention-learner",
+    "name": "skills-convention-learner",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-convention-learner",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-convention-learner",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-convention-learner"
+  },
+  {
+    "id": "skills-ddd",
+    "name": "skills-ddd",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-ddd",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-ddd",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-ddd"
+  },
+  {
+    "id": "skills-de-sloppify",
+    "name": "skills-de-sloppify",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-de-sloppify",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-de-sloppify",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-de-sloppify"
+  },
+  {
+    "id": "skills-dependency-injection",
+    "name": "skills-dependency-injection",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-dependency-injection",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-dependency-injection",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-dependency-injection"
+  },
+  {
+    "id": "skills-docker",
+    "name": "skills-docker",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-docker",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-docker",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-docker"
+  },
+  {
+    "id": "skills-dotnet-init",
+    "name": "skills-dotnet-init",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-dotnet-init",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-dotnet-init",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-dotnet-init"
+  },
+  {
+    "id": "skills-ef-core",
+    "name": "skills-ef-core",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-ef-core",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-ef-core",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-ef-core"
+  },
+  {
+    "id": "skills-error-handling",
+    "name": "skills-error-handling",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-error-handling",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-error-handling",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-error-handling"
+  },
+  {
+    "id": "skills-health-check",
+    "name": "skills-health-check",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-health-check",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-health-check",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-health-check"
+  },
+  {
+    "id": "skills-httpclient-factory",
+    "name": "skills-httpclient-factory",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-httpclient-factory",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-httpclient-factory",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-httpclient-factory"
+  },
+  {
+    "id": "skills-instinct-system",
+    "name": "skills-instinct-system",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-instinct-system",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-instinct-system",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-instinct-system"
+  },
+  {
+    "id": "skills-logging",
+    "name": "skills-logging",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-logging",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-logging",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-logging"
+  },
+  {
+    "id": "skills-messaging",
+    "name": "skills-messaging",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-messaging",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-messaging",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-messaging"
+  },
+  {
+    "id": "skills-migrate",
+    "name": "skills-migrate",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-migrate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-migrate",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-migrate"
+  },
+  {
+    "id": "skills-minimal-api",
+    "name": "skills-minimal-api",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-minimal-api",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-minimal-api",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-minimal-api"
+  },
+  {
+    "id": "skills-modern-csharp",
+    "name": "skills-modern-csharp",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-modern-csharp",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-modern-csharp",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-modern-csharp"
+  },
+  {
+    "id": "skills-openapi",
+    "name": "skills-openapi",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-openapi",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-openapi",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-openapi"
+  },
+  {
+    "id": "skills-opentelemetry",
+    "name": "skills-opentelemetry",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-opentelemetry",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-opentelemetry",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-opentelemetry"
+  },
+  {
+    "id": "skills-outdated",
+    "name": "skills-outdated",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-outdated",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-outdated",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-outdated"
+  },
+  {
+    "id": "skills-plan",
+    "name": "skills-plan",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-plan",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-plan",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-plan"
+  },
+  {
+    "id": "skills-project-setup",
+    "name": "skills-project-setup",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-project-setup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-project-setup",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-project-setup"
+  },
+  {
+    "id": "skills-project-structure",
+    "name": "skills-project-structure",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-project-structure",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-project-structure",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-project-structure"
+  },
+  {
+    "id": "skills-resilience",
+    "name": "skills-resilience",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-resilience",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-resilience",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-resilience"
+  },
+  {
+    "id": "skills-scaffold",
+    "name": "skills-scaffold",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-scaffold",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-scaffold",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-scaffold"
+  },
+  {
+    "id": "skills-scalar",
+    "name": "skills-scalar",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-scalar",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-scalar",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-scalar"
+  },
+  {
+    "id": "skills-security-scan",
+    "name": "skills-security-scan",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-security-scan",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-security-scan",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-security-scan"
+  },
+  {
+    "id": "skills-serilog",
+    "name": "skills-serilog",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-serilog",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-serilog",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-serilog"
+  },
+  {
+    "id": "skills-spec",
+    "name": "skills-spec",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-spec",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-spec",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-spec"
+  },
+  {
+    "id": "skills-tdd",
+    "name": "skills-tdd",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-tdd",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-tdd",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-tdd"
+  },
+  {
+    "id": "skills-testing",
+    "name": "skills-testing",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-testing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-testing",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-testing"
+  },
+  {
+    "id": "skills-token-report",
+    "name": "skills-token-report",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-token-report",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-token-report",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-token-report"
+  },
+  {
+    "id": "skills-verify",
+    "name": "skills-verify",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-verify",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-verify",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-verify"
+  },
+  {
+    "id": "skills-vertical-slice",
+    "name": "skills-vertical-slice",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-vertical-slice",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-vertical-slice",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-vertical-slice"
+  },
+  {
+    "id": "skills-workflow-mastery",
+    "name": "skills-workflow-mastery",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-workflow-mastery",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-workflow-mastery",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-workflow-mastery"
+  },
+  {
+    "id": "skills-wrap-up",
+    "name": "skills-wrap-up",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "category": "general",
+    "description": ">",
+    "path": "library/codewithmukesh-dotnet-claude-kit/skills/skills-wrap-up",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-wrap-up",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-wrap-up"
   },
   {
     "id": "spec",

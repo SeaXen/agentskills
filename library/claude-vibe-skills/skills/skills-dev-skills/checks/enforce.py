@@ -1,0 +1,2280 @@
+#!/usr/bin/env python3
+"""dev-skills enforcement checks.
+
+Claude Code runs this file at fixed points once the dev-skills skill is loaded
+(the `hooks:` block in SKILL.md registers it). It reads the payload Claude Code
+sends on stdin, the project's gate file, and a compose file a docker command
+names. It answers allow / deny / ask, and never runs a command. The only thing
+it writes is a small status marker in the temp directory, so the session
+banner can say whether enforcement is active.
+
+Modes (argv[1]):
+  pre-tool   PreToolUse: commands Claude runs, files Claude edits   (A1 A2 A4 A5 A6 B5 B6 B7 B8 B9)
+  stop       Stop: the reply Claude is about to end with            (C1 C2 C3 C4 C5 C7)
+  post-ask   PostToolUse on AskUserQuestion: unanswered questions   (D1)
+
+Every check is written out as a plain rule in ENFORCEMENT.md. Declining for a
+session is the `Hook enforcement: declined` row in the gate file, which the user
+confirms in a permission prompt (B5).
+"""
+
+from __future__ import annotations
+
+import base64
+import getpass
+import ipaddress
+import json
+import os
+import re
+import shlex
+import socket
+import stat
+import sys
+import tempfile
+import time
+from collections import Counter
+from typing import NoReturn
+
+STATE_REL = ".dev-skills-gates.md"
+GATE_EMOJI = {
+    "VERSION": "🔢", "BUILD": "🔨", "SECURITY": "🔒",
+    "DOCS": "📄", "RELEASE": "📦", "SHIP": "🚀",
+}
+WORK = ["SECURITY"]
+PR = ["VERSION", "BUILD", "SECURITY", "DOCS"]
+RELEASE = ["VERSION", "BUILD", "SECURITY", "DOCS", "RELEASE"]
+NO_INTENT = re.compile(r"no publishing intent", re.I)
+NO_INTENT_GATES = {"VERSION", "RELEASE", "SHIP"}
+# `⏳ open — 0 Critical, 0 High, 2 Medium`: enough for a work commit, not a release.
+OPEN_BELOW_HIGH = re.compile(r"(^|[^0-9])0\s+Critical\b.*(^|[^0-9])0\s+High\b", re.I)
+MAX_STOP_BLOCKS = 2  # per user prompt, then the reply goes through with a visible warning
+SELF_HOSTED = re.compile(r"^Forge:\s*(gitea|forgejo|gitlab)\b", re.I)
+RETRO_ROW = re.compile(r"^Retro tag:\s*(v?\d[^\s,;—]*)")
+ROLE = re.compile(r"^Role:\s*contributor\b[^;\n]*?\bowns\s+([^;\n]+)", re.I)
+
+
+def role_paths(line: str | None) -> list[str] | None:
+    if not line or not re.match(r"^Role:\s*contributor\b", line, re.I):
+        return None
+    m = ROLE.match(line)
+    # A contributor row that names no folder owns nothing: every edit asks.
+    raw = re.split(r"\s+[—–-]+\s+", m.group(1))[0] if m else ""
+    out = []
+    for p in re.split(r"[,\s]+", raw):
+        p = p.strip("`").replace("\\", "/")
+        p = (p[2:] if p.startswith("./") else p).rstrip("/")
+        if p and p != ".":
+            out.append(p)
+    return out
+
+
+# --- output -------------------------------------------------------------------
+
+def emit(obj: dict) -> NoReturn:
+    # Bytes, not text: on Windows sys.stdout encodes with the ANSI code page
+    # (cp1252), which can't carry the emoji in these messages. Claude Code reads UTF-8.
+    sys.stdout.buffer.write((json.dumps(obj, ensure_ascii=False) + "\n").encode("utf-8"))
+    sys.stdout.flush()
+    sys.exit(0)
+
+
+def pre_decision(kind: str, reason: str) -> NoReturn:
+    emit({"hookSpecificOutput": {
+        "hookEventName": "PreToolUse",
+        "permissionDecision": kind,
+        "permissionDecisionReason": "dev-skills enforcement — " + reason,
+    }})
+
+
+def allow() -> NoReturn:
+    sys.exit(0)
+
+
+# --- status marker ------------------------------------------------------------
+
+def state_dir() -> str:
+    """Per-user folder for the status marker and the reply-fix counter. Refused
+    if it's a symlink or someone else's, so another local user can't redirect
+    these writes by creating it first."""
+    user = re.sub(r"[^A-Za-z0-9_.-]", "", getpass.getuser() or "user")[:64]
+    d = os.path.join(tempfile.gettempdir(), f"dev-skills-enforcement-{user}")
+    os.makedirs(d, mode=0o700, exist_ok=True)
+    st = os.lstat(d)
+    if stat.S_ISLNK(st.st_mode) or (hasattr(os, "getuid") and st.st_uid != os.getuid()):
+        raise OSError(f"refusing {d}: symlink or not owned by this user")
+    return d
+
+
+def mark_active(payload: dict) -> None:
+    sid = re.sub(r"[^A-Za-z0-9_-]", "", str(payload.get("session_id", "")))[:80]
+    if not sid:
+        return
+    try:
+        with open(os.path.join(state_dir(), sid), "w", encoding="utf-8") as fh:
+            fh.write(str(int(time.time())))
+    except OSError:
+        pass
+
+
+# --- repo and gate file -------------------------------------------------------
+
+def repo_root(start: str | None) -> str | None:
+    cur = os.path.abspath(start or ".")
+    while True:
+        if os.path.exists(os.path.join(cur, ".git")):
+            return cur
+        parent = os.path.dirname(cur)
+        if parent == cur:
+            return None
+        cur = parent
+
+
+def read(path: str | None) -> str | None:
+    if not path:
+        return None
+    try:
+        with open(path, encoding="utf-8") as fh:
+            return fh.read()
+    except (OSError, UnicodeDecodeError):
+        return None
+
+
+class Gates:
+    def __init__(self, root: str | None) -> None:
+        self.root = root
+        self.path = os.path.join(root, STATE_REL) if root else None
+        self.text = read(self.path) if self.path else None
+        self.lines = (self.text or "").splitlines()
+
+    @property
+    def exists(self) -> bool:
+        return self.text is not None
+
+    def first(self, prefix: str) -> str | None:
+        for line in self.lines:
+            if line.startswith(prefix):
+                return line
+        return None
+
+    @property
+    def declined(self) -> bool:
+        line = self.first("Hook enforcement:") or self.first("Enforcement:")
+        return bool(line and re.match(r"(Hook )?[Ee]nforcement:\s*declined\b", line))
+
+    @property
+    def mode_ok(self) -> bool:
+        line = self.first("Mode:")
+        return bool(line and re.match(r"Mode:\s*(manual|semi-autonomous)(\s|$)", line))
+
+    def row(self, gate: str) -> str | None:
+        pat = re.compile(r"^\s*" + re.escape(GATE_EMOJI[gate]) + r"️?\s*" + gate + r"\b")
+        for line in self.lines:
+            if pat.match(line):
+                return line
+        return None
+
+    def row_notes(self, gate: str) -> str:
+        """The row's first line plus its indented evidence lines, for text notes
+        (handoff, test artifact, test creds). Pass/fail is never read from here."""
+        first = self.row(gate)
+        if first is None:
+            return ""
+        i = self.lines.index(first)
+        out = [first]
+        for line in self.lines[i + 1:]:
+            if not line.strip() or not line[:1].isspace():
+                break
+            out.append(line)
+        return "\n".join(out)
+
+    @property
+    def work_track(self) -> bool:
+        return bool(re.match(r"Track:\s*work commit", self.first("Track:") or "", re.I))
+
+    def no_intent_rows(self) -> list[str]:
+        return [line.strip() for gate in GATE_EMOJI if (line := self.row(gate))
+                and "➖" in line and NO_INTENT.search(line)]
+
+    def missing(self, required: list[str], work: bool = False) -> list[str]:
+        out = []
+        for gate in required:
+            line = self.row(gate)
+            if line is None:
+                out.append(f"{gate} — no '{GATE_EMOJI[gate]} {gate}' row")
+            elif work and gate == "SECURITY" and "⏳" in line and OPEN_BELOW_HIGH.search(line):
+                # Medium and Low don't stop a work commit (SECURITY_GATE.md, "Finding
+                # lifecycle"); they stop the release track, which still needs ✅ 0 open.
+                continue
+            elif "✅" not in line and "➖" not in line:
+                out.append(line.strip())
+            elif "✅" not in line and NO_INTENT.search(line):
+                # ➖ "no publishing intent" is only for VERSION, RELEASE and SHIP, on the
+                # work-commit track (SKILL.md §2, "A merge ... with no publishing intent").
+                if gate not in NO_INTENT_GATES:
+                    out.append(f"{line.strip()} (➖ no publishing intent covers only VERSION, RELEASE and SHIP)")
+                elif not self.work_track:
+                    out.append(f"{line.strip()} (➖ no publishing intent needs 'Track: work commit')")
+        return out
+
+    def origin(self) -> tuple[str | None, bool]:
+        line = self.first("Origin:") or ""
+        m = re.match(r"Origin:\s*([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)", line)
+        return (m.group(1) if m else None), ("fork of" in line.lower())
+
+    @property
+    def self_hosted(self) -> bool:
+        """`Forge: gitea|forgejo|gitlab @ <host>`: the user's own forge, where Claude runs
+        tags and ref deletions on the user's yes (FORGE_REFERENCE.md). Added only through B5."""
+        return bool(SELF_HOSTED.match(self.first("Forge:") or ""))
+
+    def owned_paths(self) -> list[str] | None:
+        """`Role: contributor — owns a/b, c`: the folders this session may change
+        (SCOPED_REPO.md). None when the row is absent."""
+        return role_paths(self.first("Role:"))
+
+    def retro_tag(self, tag: str | None) -> bool:
+        """`Retro tag: <tag>`: the previous release never got its tag (RELEASE_GATES.md
+        Gate 1, item 7). Its tag push skips this release's gates, but only for a
+        version already in CHANGELOG.md that is not the one being released. Added
+        only through B5."""
+        if not tag:
+            return False
+        ver = tag.lstrip("vV")
+        if not any((m := RETRO_ROW.match(line)) and m.group(1).lstrip("vV") == ver for line in self.lines):
+            return False
+        row = (self.first("Version:") or "Version:").split()[1:2]
+        current = {row[0].lstrip("vV")} if row else set()
+        if self.root:
+            current.add((read(os.path.join(self.root, "VERSION")) or "").strip().lstrip("vV"))
+        if ver in current:
+            return False
+        log = read(os.path.join(self.root, "CHANGELOG.md")) if self.root else None
+        return bool(log and re.search(r"^## \[?v?" + re.escape(ver) + r"\]?(\s|$)", log, re.M))
+
+    def host_network_approved(self, name: str | None) -> bool:
+        if not name:
+            return False
+        for line in self.lines:
+            if line.startswith("Host network:") and "approved" in line \
+                    and re.search(r"(^|[\s:,])" + re.escape(name) + r"([\s,]|$)", line):
+                return True
+        return False
+
+
+def git_head_branch(root: str | None) -> str | None:
+    head = read(os.path.join(root, ".git", "HEAD")) if root else None
+    m = re.match(r"ref: refs/heads/(\S+)", head or "")
+    return m.group(1) if m else None
+
+
+def default_branches(root: str | None) -> set[str]:
+    ref = read(os.path.join(root, ".git", "refs", "remotes", "origin", "HEAD")) if root else None
+    m = re.match(r"ref: refs/remotes/origin/(\S+)", ref or "")
+    return {m.group(1)} if m else {"main", "master"}
+
+
+# --- shell parsing ------------------------------------------------------------
+
+OPS = {"&&", "||", ";", "|", "&", "(", ")", ";;", "|&", "\n"}
+WRAPPERS = {"sudo", "env", "command", "nohup", "time", "exec", "nice", "stdbuf", "timeout", "xargs"}
+
+
+# Programs that run what they read as commands. A heredoc or here-string fed to
+# one of them is checked like any other command text.
+SHELL_READERS = {"bash", "sh", "zsh", "dash", "ksh", "fish", "pwsh", "powershell", "cmd", "eval", "iex",
+                 "invoke-expression", "xargs", "source", "."}
+
+
+def line_tokens(line: str) -> list[str]:
+    """Tokens with their quotes kept, so a quoted `<<` stays inside its string."""
+    lexer = shlex.shlex(line, posix=False, punctuation_chars=";&|()")
+    lexer.whitespace_split = True
+    lexer.commenters = "#"
+    try:
+        return list(lexer)
+    except ValueError:
+        return line.split()
+
+
+def heredoc_marks(tokens: list[str]) -> list[tuple[str, bool, bool]]:
+    """(delimiter, quoted, strip leading tabs) for each `<<` heredoc on a line."""
+    marks = []
+    for i, tok in enumerate(tokens):
+        m = re.match(r"^[^'\"<]*<<(?!<)(-?)(.*)$", tok)
+        if not m:
+            continue
+        dash, word = m.group(1), m.group(2) or (tokens[i + 1] if i + 1 < len(tokens) else "")
+        quoted = word[:1] in ("'", '"', "\\")
+        delim = word.strip("'\"\\")
+        if re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]*", delim):
+            marks.append((delim, quoted, bool(dash)))
+    return marks
+
+
+def split_heredocs(text: str) -> tuple[str, list[str], list[str]]:
+    """Take heredoc bodies out of the command text.
+
+    Returns the command lines, the bodies a shell will run (checked as
+    commands), and the unquoted data bodies (checked only for `$( )`, which bash
+    still expands in them). A quoted data body (`python3 - <<'EOF'`) is inert.
+    """
+    lines = text.split("\n")
+    keep, run, expand = [], [], []
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        keep.append(line)
+        i += 1
+        if "<<" not in line:
+            continue
+        tokens = line_tokens(line)
+        fed = any(program_name(t.strip("'\"")) in SHELL_READERS for t in tokens)
+        for delim, quoted, dash in heredoc_marks(tokens):
+            body = []
+            while i < len(lines):
+                b = lines[i]
+                i += 1
+                if (b.lstrip("\t") if dash else b).rstrip("\r") == delim:
+                    break
+                body.append(b)
+            if fed:
+                run.append("\n".join(body))
+            elif not quoted:
+                expand.append("\n".join(body))
+    return "\n".join(keep), run, expand
+
+
+def simple_commands(text: str, depth: int = 0, ps: bool = False) -> list[list[str]]:
+    """Split a shell string into argv lists, unwrapping env/sudo/bash -c and friends.
+
+    ps: the text is PowerShell, where `\\` is a path separator, not an escape.
+    """
+    if depth > 4 or not text:
+        return []
+    run_bodies, expand_bodies = [], []
+    if not ps and "<<" in text:
+        text, run_bodies, expand_bodies = split_heredocs(text)
+    tokens = []
+    # One line at a time, so a `#` comment ends at its own line and doesn't
+    # swallow the rest of a multi-line block.
+    for line in (text if ps else re.sub(r"\\\r?\n", " ", text)).splitlines():
+        lexer = shlex.shlex(line, posix=True, punctuation_chars=";&|()")
+        lexer.whitespace_split = True
+        lexer.commenters = "#"
+        if ps:
+            lexer.escape = ""
+        try:
+            tokens.extend(list(lexer))
+        except ValueError:
+            tokens.extend(line.split())
+        tokens.append(";")
+    cmds, cur = [], []
+    for tok in tokens:
+        if tok in OPS or set(tok) <= set(";&|()"):
+            if cur:
+                cmds.append(cur)
+            cur = []
+        else:
+            cur.append(tok)
+    if cur:
+        cmds.append(cur)
+    out = []
+    for argv in cmds:
+        out.extend(unwrap(argv, depth, ps))
+    # Command substitutions: $(git push), and `git push` outside PowerShell
+    # (where the backtick is the escape character).
+    subst = r"\$\(([^()]*)\)()" if ps else r"\$\(([^()]*)\)|`([^`]*)`"
+    for inner in re.findall(subst, "\n".join([text] + expand_bodies)):
+        out.extend(simple_commands(inner[0] or inner[1], depth + 1, ps))
+    for body in run_bodies:
+        out.extend(simple_commands(body, depth + 1))
+    return out
+
+
+# Compared case-insensitively and without `.exe`, so Windows spellings
+# (`git.exe`, `C:\Program Files\Git\cmd\git.exe`, `Git`) classify like `git`.
+KNOWN_PROGRAMS = {"git", "gh", "glab", "tea", "curl", "wget", "docker", "podman", "bash", "sh", "zsh", "dash", "ksh", "fish", "pwsh",
+                  "powershell", "cmd", "eval", "iex", "invoke-expression", "xargs", "source",
+                  "start-process", "saps", "start"}
+
+# Start-Process switches that take no value; every other named parameter does.
+PS_SWITCHES = {"wait", "nonewwindow", "passthru", "usenewenvironment", "loaduserprofile"}
+
+
+def start_process(argv: list[str], depth: int) -> list[list[str]]:
+    """`Start-Process git -ArgumentList 'push'` runs `git push`, in -WorkingDirectory if given."""
+    named: dict[str, str] = {}
+    positional: list[str] = []
+    j = 1
+    while j < len(argv):
+        a = argv[j]
+        if a[:1] == "-" and len(a) > 1:
+            name = a[1:].lower().rstrip(":")
+            if not any(s.startswith(name) for s in PS_SWITCHES):
+                named[name] = argv[j + 1] if j + 1 < len(argv) else ""
+                j += 1
+        else:
+            positional.append(a)
+        j += 1
+    pick = lambda full, pos: next((v for k, v in named.items() if full.startswith(k)), None) or \
+        (positional[pos] if len(positional) > pos else "")  # noqa: E731
+    exe, args = pick("filepath", 0), pick("argumentlist", 1)
+    if not exe:
+        return [argv]
+    out = simple_commands(exe + " " + args.replace(",", " "), depth + 1, ps=True)
+    # -WorkingDirectory applies to the started process only, so it becomes
+    # `git -C <dir>` there, never a cd that would carry on to later commands.
+    wd = pick("workingdirectory", len(argv))
+    if wd:
+        out = [["git", "-C", wd] + a[1:] if a[:1] == ["git"] else a for a in out]
+    return out
+
+
+def program_name(tok: str) -> str:
+    base = re.split(r"[/\\]", tok)[-1]
+    low = re.sub(r"\.exe$", "", base.lower())
+    return low if low in KNOWN_PROGRAMS else base
+
+
+def ps_param(arg: str, full: str, shortest: int) -> bool:
+    """PowerShell accepts any unambiguous prefix of a parameter: -c, -Com, -Command."""
+    name = arg[1:].lower()
+    return arg[:1] in "-/" and len(name) >= shortest and full.startswith(name)
+
+
+def ps_encoded(arg: str) -> str:
+    try:
+        return base64.b64decode(arg, validate=True).decode("utf-16-le")
+    except (ValueError, UnicodeDecodeError):
+        return ""
+
+
+def unwrap(argv: list[str], depth: int, ps: bool = False) -> list[list[str]]:
+    i = 0
+    while i < len(argv):
+        tok = argv[i]
+        if re.match(r"^[A-Za-z_][A-Za-z0-9_]*=", tok):
+            i += 1
+            continue
+        if tok in WRAPPERS:
+            i += 1
+            while i < len(argv) and (argv[i].startswith("-") or re.match(r"^[A-Za-z_][A-Za-z0-9_]*=", argv[i])
+                                     or (tok == "timeout" and re.match(r"^\d", argv[i]))):
+                i += 1
+            continue
+        break
+    argv = argv[i:]
+    if not argv:
+        return []
+    base = program_name(argv[0])
+    argv = [base] + argv[1:]
+    if base in SHELL_READERS:
+        # Here-string: `bash <<< "git push"` runs the string.
+        for j, a in enumerate(argv[1:], 1):
+            if a.startswith("<<<"):
+                inner = a[3:] or (argv[j + 1] if j + 1 < len(argv) else "")
+                return [argv] + simple_commands(inner, depth + 1, base in ("pwsh", "powershell"))
+    if base in ("start-process", "saps", "start"):
+        return start_process(argv, depth)
+    if base in ("bash", "sh", "zsh", "dash") and "-c" in argv:
+        j = argv.index("-c")
+        return simple_commands(argv[j + 1], depth + 1) if j + 1 < len(argv) else []
+    if base in ("pwsh", "powershell"):
+        for j, a in enumerate(argv[1:], 1):
+            if ps_param(a, "command", 1):
+                return simple_commands(" ".join(argv[j + 1:]), depth + 1, ps=True)
+            if ps_param(a, "encodedcommand", 1) or a.lower() in ("-ec", "/ec"):
+                return simple_commands(ps_encoded(argv[j + 1]) if j + 1 < len(argv) else "", depth + 1, ps=True)
+        return [argv]
+    if base == "cmd":
+        j = next((j for j, a in enumerate(argv) if a.lower() in ("/c", "/k")), None)
+        return simple_commands(" ".join(argv[j + 1:]), depth + 1) if j is not None else [argv]
+    if base in ("eval", "iex", "invoke-expression"):
+        return simple_commands(" ".join(argv[1:]), depth + 1, ps or base != "eval")
+    return [argv]
+
+
+def resolve_cd(argv: list[str], cur: str | None) -> str | None:
+    """Where a `cd` leaves the shell, or None when it can't be known statically."""
+    target = next((a for a in argv[1:] if not a.startswith("-")), "~")
+    if cur is None or re.search(r"[$`*?]", target) or target == "-":
+        return None
+    path = os.path.expanduser(target)
+    return os.path.normpath(path if os.path.isabs(path) else os.path.join(cur, path))
+
+
+def git_dash_c(argv: list[str], cur: str | None) -> str | None:
+    """The directory a git command acts on: `git -C <dir>` overrides the shell's."""
+    if not argv or os.path.basename(argv[0]) != "git":
+        return cur
+    for i, a in enumerate(argv[1:-1], 1):
+        if a == "-C":
+            return resolve_cd(["cd", argv[i + 1]], cur)
+        if not a.startswith("-") and argv[i - 1] not in ("-c", "-C"):
+            break
+    return cur
+
+
+def git_argv(argv: list[str]) -> list[str] | None:
+    """Strip git's global options: git -C dir -c k=v --no-pager push ... -> [push, ...]."""
+    if not argv or os.path.basename(argv[0]) != "git":
+        return None
+    i = 1
+    while i < len(argv):
+        a = argv[i]
+        if a in ("-C", "-c", "--git-dir", "--work-tree", "--namespace"):
+            i += 2
+        elif a.startswith("-"):
+            i += 1
+        else:
+            break
+    return argv[i:]
+
+
+TAG_READ_FLAGS = re.compile(r"^(-l|--list|-d|--delete|-v|--verify|--contains|--no-contains|--points-at|--merged|"
+                            r"--no-merged|-n\d*|--column|--no-column|-i|--ignore-case|--sort(=.*)?|--format(=.*)?)$")
+VERSIONISH = re.compile(r"^v?\d+\.\d+(\.\d+)?([-.+].*)?$")
+
+
+class Op:
+    def __init__(self, kind: str, label: str, reason: str = "") -> None:
+        self.kind = kind      # work | pr | release | user_only
+        self.label = label
+        self.reason = reason
+        self.targets_default = False
+        self.remote = None
+        self.gh_repos = []
+        self.is_gh = False
+        self.publishes = False  # a tag or a GitHub release: never on the work-commit track
+        self.tag = None         # the tag name, when this creates or pushes one
+        self.forced = False     # -f / --force / a + refspec: it can move a published tag
+
+
+# Commands that write a commit without `git commit`. A flag in NO_COMMIT means this
+# invocation writes none (it stops, aborts, or fast-forwards). `git merge -n` is
+# --no-stat, not --no-commit, so it doesn't count there.
+COMMITTING = {"merge", "cherry-pick", "revert", "am"}
+NO_COMMIT = {"--no-commit", "-n", "--abort", "--quit", "--skip", "--ff-only", "--squash", "--show-current-patch"}
+
+
+# Subcommands git runs itself. Git ignores an alias with one of these names, so
+# only another name is looked up as an alias.
+GIT_BUILTINS = {"commit", "push", "tag", "pull", "fetch", "status", "log", "diff", "show", "add", "rm", "mv",
+                "checkout", "switch", "branch", "reset", "restore", "stash", "config", "remote", "ls-remote",
+                "rev-parse", "update-ref", "hash-object", "mktree", "commit-tree", "symbolic-ref", "ls-files",
+                "rebase", "init", "clone", "worktree", "gc", "notes", "describe", "blame", "grep", "bisect",
+                "clean", "submodule", "archive", "apply", "format-patch", "shortlog", "reflog", "cat-file",
+                *COMMITTING}
+ALIAS_HEADER = re.compile(r'^\s*\[\s*alias\s*\]\s*$', re.I)
+SECTION = re.compile(r"^\s*\[")
+ALIAS_ENTRY = re.compile(r"^\s*([A-Za-z0-9-]+)\s*=\s*(.*?)\s*$")
+
+
+def config_aliases(path: str | None) -> dict[str, str]:
+    """[alias] entries from one git config file. Includes aren't followed."""
+    out: dict[str, str] = {}
+    on = False
+    for line in (read(path) or "").splitlines():
+        if SECTION.match(line):
+            on = bool(ALIAS_HEADER.match(line))
+        elif on and (m := ALIAS_ENTRY.match(line)) and not line.lstrip().startswith(("#", ";")):
+            value = m.group(2)
+            if len(value) > 1 and value[0] == value[-1] == '"':
+                value = value[1:-1].replace('\\"', '"')
+            out[m.group(1).lower()] = value
+    return out
+
+
+def git_aliases(argv: list[str], root: str | None) -> dict[str, str]:
+    """Aliases in effect for this git invocation: user config, then the repo's, then `-c`."""
+    home = os.path.expanduser("~")
+    xdg = os.environ.get("XDG_CONFIG_HOME") or os.path.join(home, ".config")
+    out: dict[str, str] = {}
+    for path in (os.path.join(xdg, "git", "config"), os.path.join(home, ".gitconfig"),
+                 os.path.join(root, ".git", "config") if root else None):
+        out.update(config_aliases(path))
+    for i, a in enumerate(argv[:-1]):
+        if a == "-c" and argv[i + 1].lower().startswith("alias."):
+            name, _, value = argv[i + 1][6:].partition("=")
+            out[name.lower()] = value
+    return out
+
+
+def expand_alias(argv: list[str], root: str | None, depth: int) -> list["Op"] | None:
+    """Classify what a git alias runs, or None when this is no alias."""
+    g = git_argv(argv)
+    if not g or g[0] in GIT_BUILTINS or depth > 4:
+        return None
+    value = git_aliases(argv, root).get(g[0].lower())
+    if value is None:
+        return None
+    rest = " ".join(shlex.quote(a) for a in g[1:])
+    if value.startswith("!"):
+        # A shell alias: its text runs in a shell with the arguments appended.
+        cmds = simple_commands(f"{value[1:]} {rest}")
+    else:
+        try:
+            cmds = [["git", *shlex.split(value), *g[1:]]]
+        except ValueError:
+            # Unreadable text could run anything, so it needs everything a merge needs.
+            op = Op("release", f"git alias '{g[0]}', whose text can't be parsed")
+            op.targets_default = True
+            return [op]
+    return [op for c in cmds for op in classify(c, root, depth + 1)]
+
+
+def pull_merges(args: list[str], root: str | None) -> bool:
+    """True when `git pull` merges a branch other than the one checked out, which
+    writes a merge commit. Pulling your own branch, --ff-only and --rebase don't."""
+    if any(a in ("--ff-only", "--rebase", "-r") or a.startswith("--rebase=") for a in args):
+        return False
+    pos = [a for a in args if not a.startswith("-")]
+    if len(pos) < 2:
+        return False
+    here = git_head_branch(root)
+    for spec in pos[1:]:
+        src = spec.lstrip("+").partition(":")[0].replace("refs/heads/", "")
+        if src != here:
+            return True
+    return False
+
+
+def classify(argv: list[str], root: str | None, depth: int = 0) -> list["Op"]:
+    aliased = expand_alias(argv, root, depth)
+    if aliased is not None:
+        return aliased
+    ops = []
+    g = git_argv(argv)
+    if g is not None and g:
+        sub, args = g[0], g[1:]
+        if sub == "commit":
+            ops.append(Op("work", "git commit"))
+        elif sub in COMMITTING and not any(a in NO_COMMIT and not (sub == "merge" and a == "-n") for a in args):
+            # These write commits without `git commit`, so they carry its gate.
+            ops.append(Op("work", f"git {sub}"))
+        elif sub == "tag":
+            flags = [a for a in args if a.startswith("-")]
+            names = [a for a in args if not a.startswith("-")]
+            if any(f in ("-d", "--delete") for f in flags):
+                pass  # local tag deletion, not a ref on the remote
+            elif names and not any(TAG_READ_FLAGS.match(f) for f in flags):
+                ops.append(Op("user_only", "creating a tag", "tag creation"))
+                ops[-1].publishes = True
+                ops[-1].tag = names[0]
+                ops[-1].forced = any(f in ("-f", "--force") for f in flags)
+        elif sub == "push":
+            ops.extend(classify_push(args, root))
+        elif sub == "pull" and pull_merges(args, root):
+            ops.append(Op("work", "git pull of another branch (a merge)"))
+    base = os.path.basename(argv[0]) if argv else ""
+    if base == "gh" and len(argv) > 1:
+        ops.extend(classify_gh(argv[1:]))
+    elif base == "glab" and len(argv) > 1:
+        ops.extend(classify_glab(argv[1:]))
+    elif base == "tea" and len(argv) > 1:
+        ops.extend(classify_tea(argv[1:]))
+    elif base in ("curl", "wget"):
+        res = classify_http(base, argv[1:])
+        if res:
+            ops.extend(with_branch_deletion(res[0], res[1], base))
+    return ops
+
+
+def classify_push(args: list[str], root: str | None) -> list["Op"]:
+    if any(a in ("-n", "--dry-run") for a in args):
+        return []
+    flags = [a for a in args if a.startswith("-")]
+    pos = [a for a in args if not a.startswith("-")]
+    if any(f in ("--tags", "--follow-tags", "--mirror", "--delete", "-d", "--prune") for f in flags):
+        pushes_tags = any(f in ("--tags", "--follow-tags", "--mirror") for f in flags)
+        op = Op("user_only", "pushing tags or deleting a ref", "tag push / ref deletion" if pushes_tags else "ref deletion")
+        op.publishes = pushes_tags
+        return [op]
+    remote = pos[0] if pos else None
+    refspecs = pos[1:]
+    branch = git_head_branch(root)
+    defaults = default_branches(root)
+    op = Op("work", "git push")
+    op.remote = remote
+    if not refspecs:
+        refspecs = [branch or "HEAD"]
+    for spec in refspecs:
+        spec = spec.lstrip("+")
+        if spec.startswith(":"):
+            return [Op("user_only", "deleting a remote ref", "ref deletion")]
+        src, _, dst = spec.partition(":")
+        dst = dst or src
+        if "refs/tags/" in spec or VERSIONISH.match(dst):
+            forced = any(f in ("-f", "--force") or f.startswith("--force-") for f in flags)
+            op = Op("user_only", "pushing a tag", "tag push")
+            op.publishes = True
+            op.tag = dst.replace("refs/tags/", "")
+            op.forced = forced or any(s.startswith("+") for s in refspecs)
+            return [op]
+        dst = dst.replace("refs/heads/", "")
+        if dst == "HEAD":
+            dst = branch or "HEAD"
+        if dst in defaults:
+            op.kind, op.label, op.targets_default = "release", f"a push to the default branch ({dst})", True
+    return [op]
+
+
+def gh_repo_flags(args: list[str]) -> list[str]:
+    repos = []
+    for i, a in enumerate(args):
+        if a in ("--repo", "-R") and i + 1 < len(args):
+            repos.append(args[i + 1])
+        elif a.startswith("--repo=") or (a.startswith("-R") and len(a) > 2):
+            repos.append(a.split("=", 1)[1] if "=" in a else a[2:])
+    return [re.sub(r"^https?://github\.com/|\.git$", "", r) for r in repos]
+
+
+def gh_positionals(args: list[str], valued: set[str]) -> list[str]:
+    """Arguments that aren't flags or the values of the flags in `valued`."""
+    out, skip = [], False
+    for a in args:
+        if skip:
+            skip = False
+        elif a in valued:
+            skip = True
+        elif not a.startswith("-"):
+            out.append(a)
+    return out
+
+
+def api_method(args: list[str]) -> str | None:
+    """The HTTP method of a `gh api` / `glab api` call."""
+    method = None
+    for i, a in enumerate(args):
+        if a in ("-X", "--method") and i + 1 < len(args):
+            method = args[i + 1].upper()
+        elif a.startswith("--method=") or (a.startswith("-X") and len(a) > 2):
+            method = a.split("=", 1)[1].upper() if "=" in a else a[2:].upper()
+    if method is None and any(a in ("-f", "-F", "--field", "--raw-field", "--input") for a in args):
+        method = "POST"
+    return method
+
+
+def classify_api(method: str | None, endpoint: str, args: list[str], via: str) -> "Op | None":
+    """Forge API writes that merge, publish, open a PR, commit, or touch a ref. One
+    table for GitHub, Gitea/Forgejo (/api/v1, GitHub-shaped) and GitLab (/api/v4)."""
+    if method not in ("POST", "PATCH", "PUT", "DELETE"):
+        return None
+    endpoint = endpoint.split("?")[0]
+    op = None
+    if re.search(r"/releases(/|$)", endpoint):
+        op = Op("user_only" if method == "DELETE" else "release", f"a release through {via}",
+                "release deletion" if method == "DELETE" else "")
+        op.publishes = method != "DELETE"
+    elif re.search(r"git/refs|/git/tags|/repository/tags|/tags(/|$)", endpoint) or \
+            (method == "DELETE" and re.search(r"/branches/", endpoint)):
+        tag = bool(re.search(r"tags", endpoint)) and method == "POST"
+        op = Op("user_only", f"creating or deleting a ref through {via}",
+                "tag creation" if tag else "ref operation")
+        op.publishes = tag
+    elif re.search(r"/pulls/\d+/merge|/merge_requests/\d+/merge$", endpoint):
+        op = Op("release", f"merging a pull request through {via}")
+        op.targets_default = True
+    elif re.search(r"/merges$|/pulls/\d+/update-branch$|/merge_requests/\d+/rebase$", endpoint):
+        merges = endpoint.endswith("/merges")
+        op = Op("release" if merges else "work",
+                f"a branch merge through {via}" if merges else f"updating a PR branch through {via}")
+        op.targets_default = merges
+    elif re.search(r"/pulls$|/merge_requests$", endpoint) and method == "POST":
+        op = Op("pr", f"opening a pull request through {via}")
+    elif re.search(r"/contents/|/repository/files/|/repository/commits$", endpoint):
+        # A contents write is a commit. With no branch field it lands on the default branch.
+        on_branch = any(re.search(r"(^|[\"'{,&\s])branch[\"']?\s*[=:]", a) for a in args)
+        op = Op("work" if on_branch else "release", f"a file commit through {via}")
+        op.targets_default = not on_branch
+    return op
+
+
+def classify_gh_api(args: list[str], words: list[str], via: str = "gh api") -> "Op | None":
+    """`gh api` / `glab api` writes."""
+    endpoint = next((w for w in words[1:] if "/" in w), "")
+    return classify_api(api_method(args), endpoint, args, via)
+
+
+# Matched anywhere in the URL, so `"$GITEA_URL/api/v1/repos/…"` counts too.
+FORGE_API = re.compile(r"(^|[/@])api\.github\.com/|/api/v[134]/(repos|projects)/")
+CURL_VALUED = {"-X", "--request", "-H", "--header", "-d", "--data", "--data-raw", "--data-binary",
+               "--data-urlencode", "--json", "-F", "--form", "-T", "--upload-file", "-o", "--output",
+               "-u", "--user", "-A", "--user-agent", "-e", "--referer", "--cacert", "--cert", "-K", "--config",
+               "-m", "--max-time", "--connect-timeout", "-w", "--write-out", "--retry"}
+
+
+# A merge call whose body also deletes the source branch: that half is a ref deletion.
+BODY_DELETES_BRANCH = re.compile(r"(delete_branch_after_merge|should_remove_source_branch|remove_source_branch)[\"']?\s*[:=]\s*true", re.I)
+
+
+def with_branch_deletion(op: "Op | None", args: list[str], via: str) -> list["Op"]:
+    if op is None:
+        return []
+    if any(BODY_DELETES_BRANCH.search(a) for a in args):
+        return [op, Op("user_only", f"a merge through {via} that deletes the branch", "branch deletion")]
+    return [op]
+
+
+def classify_http(prog: str, args: list[str]) -> "tuple[Op | None, list[str]] | None":
+    """`curl` / `wget` writes to a forge's REST API (GitHub, Gitea/Forgejo, GitLab)."""
+    method, data, url, skip = None, [], None, False
+    for i, a in enumerate(args):
+        if skip:
+            skip = False
+            continue
+        nxt = args[i + 1] if i + 1 < len(args) else ""
+        if a in ("-X", "--request"):
+            method, skip = nxt.upper(), True
+        elif a.startswith("-X") and len(a) > 2 and not a.startswith("--"):
+            method = a[2:].upper()
+        elif a.startswith(("--request=", "--method=")):
+            method = a.split("=", 1)[1].upper()
+        elif a in ("-d", "--data", "--data-raw", "--data-binary", "--data-urlencode", "--json", "-F", "--form"):
+            data.append(nxt)
+            method, skip = method or "POST", True
+        elif a in ("-T", "--upload-file"):
+            method, skip = method or "PUT", True
+        elif re.match(r"^-[dF].", a):  # curl's attached form: -d'{...}', -Fkey=value
+            data.append(a[2:])
+            method = method or "POST"
+        elif re.match(r"^-T.", a):
+            method = method or "PUT"
+        elif a.startswith(("--post-data=", "--post-file=", "--body-data=", "--body-file=")):
+            data.append(a.split("=", 1)[1])
+            method = method or "POST"
+        elif a in CURL_VALUED:
+            skip = True
+        elif not a.startswith("-") and url is None:
+            url = a
+    if not url or not FORGE_API.search(url):
+        return None
+    return classify_api(method, re.sub(r"^https?://[^/]+", "", url), data, prog), data
+
+
+def classify_glab(args: list[str]) -> list["Op"]:
+    words = [a for a in args if not a.startswith("-")]
+    head = words[:2]
+    ops = []
+    if head == ["mr", "create"]:
+        ops.append(Op("pr", "opening a merge request"))
+        if "--remove-source-branch" in args:
+            ops.append(Op("user_only", "glab mr create --remove-source-branch", "branch deletion"))
+    elif head == ["mr", "merge"]:
+        op = Op("release", "merging a merge request")
+        op.targets_default = True
+        ops.append(op)
+        if any(a in ("--remove-source-branch", "-d") for a in args):
+            ops.append(Op("user_only", "glab mr merge --remove-source-branch", "branch deletion"))
+    elif head in (["release", "create"], ["release", "upload"]):
+        op = Op("release", f"glab release {head[1]}")
+        op.publishes = True
+        ops.append(op)
+    elif head == ["release", "delete"]:
+        ops.append(Op("user_only", "deleting a release", "release deletion"))
+    elif head == ["mr", "rebase"]:
+        ops.append(Op("work", "glab mr rebase"))
+    elif words[:1] == ["api"]:
+        ops.extend(with_branch_deletion(classify_gh_api(args, words, "glab api"), args, "glab api"))
+    return ops
+
+
+def classify_tea(args: list[str]) -> list["Op"]:
+    words = [a for a in args if not a.startswith("-")]
+    noun, verb = (words + ["", ""])[:2]
+    ops = []
+    if noun in ("pulls", "pull", "pr"):
+        if verb in ("create", "c"):
+            ops.append(Op("pr", "opening a pull request"))
+        elif verb in ("merge", "m"):
+            op = Op("release", "merging a pull request")
+            op.targets_default = True
+            ops.append(op)
+        elif verb == "clean":
+            ops.append(Op("user_only", "tea pulls clean (deletes the remote branch)", "branch deletion"))
+    elif noun in ("releases", "release", "r"):
+        if verb in ("create", "c", "edit", "e"):
+            op = Op("release", f"tea releases {verb}")
+            op.publishes = True
+            ops.append(op)
+        elif verb in ("delete", "rm"):
+            ops.append(Op("user_only", "deleting a release", "release deletion"))
+    return ops
+
+
+def classify_gh(args: list[str]) -> list["Op"]:
+    words = [a for a in args if not a.startswith("-")]
+    head = words[:2]
+    op = None
+    extra = []
+    if head == ["pr", "create"]:
+        op = Op("pr", "opening a pull request")
+    elif head == ["pr", "merge"]:
+        # Checked as both halves: the deletion is the user's, the merge needs its gates.
+        op = Op("release", "merging a pull request")
+        op.targets_default = True
+        if any(a in ("--delete-branch", "-d") for a in args):
+            extra.append(Op("user_only", "gh pr merge --delete-branch", "branch deletion"))
+    elif head == ["release", "create"]:
+        op = Op("release", "creating a release")
+        op.publishes = True
+    elif head == ["release", "delete"]:
+        op = Op("user_only", "deleting a release", "release deletion")
+    elif head in (["release", "edit"], ["release", "upload"]):
+        op = Op("release", f"gh release {head[1]}")
+        op.publishes = True
+    elif head == ["repo", "sync"] and gh_positionals(args, {"--source", "-s", "--branch", "-b"})[2:]:
+        # `gh repo sync <owner/repo>` updates that remote repo's default branch.
+        op = Op("release", "gh repo sync to a remote repo's default branch")
+        op.targets_default = True
+    elif head == ["pr", "update-branch"]:
+        op = Op("work", "gh pr update-branch")
+    elif words[:1] == ["api"]:
+        op = classify_gh_api(args, words)
+    if op:
+        for o in [op, *extra]:
+            o.is_gh = True
+            o.gh_repos = gh_repo_flags(args)
+        return [op, *extra]
+    return []
+
+
+REQUIRED ={"work": WORK, "pr": PR, "release": RELEASE}
+SKIP_DIRS = {".git", "node_modules", ".venv", "venv", "build", "dist"}
+
+
+def find_names(root: str | None, names: set[str], depth: int = 4) -> bool:
+    if not root:
+        return False
+    base = root.rstrip(os.sep).count(os.sep)
+    for cur, dirs, files in os.walk(root):
+        dirs[:] = [d for d in dirs if d not in SKIP_DIRS] if cur.count(os.sep) - base < depth else []
+        low = {f.lower() for f in files}
+        if low & names or any(f.endswith((".csproj", ".sln")) for f in low) and ".csproj" in names:
+            return True
+    return False
+
+
+def artifact_repo(root: str | None) -> bool:
+    return find_names(root, {"dockerfile", "androidmanifest.xml", "build.gradle", "build.gradle.kts", ".csproj"})
+
+
+def docker_repo(root: str | None) -> bool:
+    return find_names(root, {"dockerfile", "compose.yaml", "compose.yml", "docker-compose.yml", "docker-compose.yaml"})
+
+
+# A dev build's version (WORKFLOW_DEVRELEASE.md) belongs on its feature branch:
+# the default branch only ever carries versions that get a full release.
+# Semver pre-releases (1.2.0-dev.1, 2026.10.19-2-rc.1, -SNAPSHOT) and PEP 440 (1.2.0.dev1, 1.2.0rc1).
+PRERELEASE = re.compile(r"\b\d+\.\d+\.\d+(-\d+)?(-(dev|alpha|beta|rc|pre|preview|snapshot)\b[0-9A-Za-z.-]*|\.?dev\d*\b|(a|b|rc)\d+\b)",
+                        re.I)
+VERSION_SOURCES = [
+    ("VERSION", re.compile(r"\A\s*v?(\S+)")),
+    ("package.json", re.compile(r'"version"\s*:\s*"([^"]+)"')),
+    ("pyproject.toml", re.compile(r'^version\s*=\s*["\']([^"\']+)', re.M)),
+    ("Cargo.toml", re.compile(r'^version\s*=\s*"([^"]+)"', re.M)),
+    ("app/build.gradle", re.compile(r'versionName\s*=?\s*["\']([^"\']+)')),
+    ("app/build.gradle.kts", re.compile(r'versionName\s*=\s*"([^"]+)"')),
+    ("CHANGELOG.md", re.compile(r"^##\s*\[?v?(\d+\.\d+\.\d+\S*?)\]?(\s|$)", re.M)),
+]
+
+
+def prerelease_versions(root: str | None) -> list[str]:
+    """`file: version` for every version file in the working tree that declares a
+    pre-release. The working tree is what a push from it, or a merge of the
+    checked-out PR, sends to the default branch."""
+    if not root:
+        return []
+    found = []
+    sources = list(VERSION_SOURCES)
+    cc = os.path.join(root, "custom_components")
+    if os.path.isdir(cc):  # Home Assistant integrations declare it in manifest.json
+        sources += [(os.path.join("custom_components", d, "manifest.json"), VERSION_SOURCES[1][1])
+                    for d in sorted(os.listdir(cc))]
+    for rel, pat in sources:
+        m = pat.search(read(os.path.join(root, rel)) or "")
+        if m and PRERELEASE.search(m.group(1)):
+            found.append(f"{rel}: {m.group(1)}")
+    return found
+
+
+def gate_problems(ops: list[Op], gates: Gates, presented: bool, text_for_fork: str = "") -> list[str]:
+    """Problems for these operations against the gate file. Empty list = allowed."""
+    if not ops:
+        return []
+    if not gates.exists:
+        return [f"no gate file at {STATE_REL}. Write it (SESSION_START.md) and run the gates first."]
+    if not gates.mode_ok:
+        return ["the operating mode is not chosen (Mode: row). Ask the mode question first."]
+    problems = []
+    slug, is_fork = gates.origin()
+    owned = gates.owned_paths()
+    for op in ops:
+        if owned is not None and (op.kind == "release" or op.publishes):
+            problems.append(f"{op.label}: the gate file's Role: row says contributor, so merges, default-branch "
+                            "writes, tags and releases belong to the repo's maintainers (SCOPED_REPO.md). "
+                            "The open PR is this session's finish line.")
+            continue
+        # The previous release's missing tag (Gate 1, item 7): the user still runs it,
+        # but this release's gates can't pass until it exists, so they don't apply.
+        # A forced tag can move one already published, which is not a missing tag.
+        retro = op.kind == "user_only" and "tag" in op.reason and not op.forced and gates.retro_tag(op.tag)
+        if op.publishes and not retro and (gates.work_track or gates.no_intent_rows()):
+            problems.append(f"{op.label} publishes, but the gate file is on the work-commit track "
+                            "(Track: work commit, or a ➖ no publishing intent row). A release runs all six gates.")
+            continue
+        if op.kind == "user_only":
+            # On a self-hosted forge Claude may run it, and pre_tool asks the user each time.
+            if not presented and not gates.self_hosted:
+                problems.append(f"{op.label} is the user's to run in both modes (SKILL.md §5.8). "
+                                "Present it as a ▶️ RUN THIS block instead.")
+                continue
+            if "tag" in op.reason and not retro:
+                miss = gates.missing(RELEASE)
+                if miss:
+                    problems.append(f"{op.label} before the merge is confirmed. Not ✅: " + "; ".join(miss))
+                if op.tag and PRERELEASE.search(op.tag.lstrip("vV")) and "banner" not in gates.row_notes("VERSION").lower():
+                    problems.append(f"{op.tag} is a pre-release, and the VERSION row has no 'banner' note. The README "
+                                    "dev banner comes first (RELEASE_GATES.md, Gate 1): note 'banner ✅ dev-banner.yml "
+                                    "on <default branch>', or the user's 'banner ➖ declined <date>'.")
+            continue
+        required = REQUIRED[op.kind]
+        miss = gates.missing(required, work=op.kind == "work")
+        if miss:
+            extra = " (a work commit also passes with SECURITY ⏳ at 0 Critical, 0 High)" if op.kind == "work" else ""
+            problems.append(f"{op.label} needs {', '.join(required)}. Not ✅ or ➖{extra}: " + "; ".join(miss))
+        build = gates.row("BUILD") or ""
+        notes = gates.row_notes("BUILD").lower()
+        # A work-commit merge that changes no app code needs no test artifact
+        # (GATE_REFERENCE.md Gate 2). The line asks the user when it's added (B5).
+        no_app = bool(NO_APP_CHANGE.search(notes))
+        if no_app and not gates.work_track and op.targets_default:
+            problems.append("'test artifact: n/a — no app code changed' is only for a merge on the work-commit "
+                            "track (Track: work commit). A release needs a real test artifact.")
+        exempt = no_app and gates.work_track
+        if "BUILD" in required and "✅" in build and "handoff" not in notes and artifact_repo(gates.root) and not exempt:
+            problems.append("BUILD is ✅ with no 'handoff' note, but this repo builds a Docker image, .exe or .apk. "
+                            "Offer the user the test artifact (GATE_REFERENCE.md Gate 2) and note it on the BUILD row.")
+        if op.targets_default and artifact_repo(gates.root) and not exempt:
+            if "test artifact:" not in notes:
+                problems.append("no 'test artifact: <path or link> @ <sha>' on the BUILD row. Nothing merges "
+                                "without a test artifact built from the merged commit (Gate 2).")
+            if docker_repo(gates.root) and "test creds" not in notes:
+                problems.append("no 'test creds: …' note on the BUILD row. Docker test runs get "
+                                "throwaway credentials, one login per session, shown to the user (Gate 2).")
+        if op.targets_default and (dev := prerelease_versions(gates.root)):
+            problems.append(f"{op.label} would put a dev version on the default branch ({'; '.join(dev)}). "
+                            "Dev builds stay on their branch: set the final version first (WORKFLOW_DEVRELEASE.md).")
+        if op.kind == "release":
+            sec = gates.row("SECURITY") or ""
+            if "✅" in sec and not re.search(r"(^|[^0-9])0\s+open", sec):
+                problems.append("SECURITY is ✅ but its row does not say '0 open'. Nothing releases with an open finding.")
+        if slug:
+            if op.is_gh:
+                for r in op.gh_repos:
+                    if r != slug:
+                        problems.append(f"{op.label} targets {r}, not {slug}.")
+                if is_fork and not op.gh_repos and "GH_REPO=" not in text_for_fork:
+                    problems.append(f"{op.label} has no --repo in a fork, so it would target the parent repo. Pass --repo {slug}.")
+            if is_fork and op.label.startswith("git push") and op.remote not in (None, "origin"):
+                problems.append("git push must go to origin (the fork).")
+            if is_fork and op.label == "git push" and op.remote is None:
+                problems.append("git push must name origin (the fork) explicitly.")
+    return problems
+
+
+# --- A1 / A2: docker ----------------------------------------------------------
+
+def lan_ip() -> str | None:
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        try:
+            s.connect(("1.1.1.1", 80))  # UDP connect sends nothing; it only picks the route
+            return s.getsockname()[0]
+        finally:
+            s.close()
+    except OSError:
+        return None
+
+
+# The documented ways to read the host's LAN IP from its default route: `ip` on
+# Linux, Find-NetRoute on Windows (from PowerShell, or through powershell.exe in Git Bash).
+ROUTE_RECIPE = re.compile(r"HOST_IP=\"?\$\(\s*ip\s+-4\s+route\s+get\s+1\.1\.1\.1"
+                          r"|HOST_IP\s*=\s*\"?\$?\(\s*(powershell(\.exe)?\s+(-NoProfile\s+)?-Command\s+[\"']?\(?)?"
+                          r"\(?\s*Find-NetRoute\s+-RemoteIPAddress\s+1\.1\.1\.1", re.I)
+
+
+def port_problem(spec: str, env: dict[str, str], recipe_ok: bool) -> str | None:
+    """Problem with one published-port spec, or None."""
+    spec = spec.strip().strip("'\"")
+    spec = re.sub(r"\$\(\$(\w+)\)", r"${\1}", spec)  # PowerShell "$($HOST_IP):8080:80"
+    for var in re.findall(r"\$\{?([A-Za-z_][A-Za-z0-9_]*)\}?", spec):
+        if var in env:
+            spec = re.sub(r"\$\{?" + var + r"\}?", env[var], spec)
+        elif var == "HOST_IP" and recipe_ok:
+            spec = re.sub(r"\$\{?HOST_IP\}?", "__ROUTE__", spec)
+        else:
+            return f"'{spec}' uses ${var}, which can't be checked. Use the LAN IP or the documented HOST_IP recipe."
+    if spec.startswith("["):
+        ip, _, rest = spec[1:].partition("]")
+        return f"'{spec}' publishes on {ip}, not the LAN IP." if ip else None
+    parts = spec.split("/")[0].split(":")
+    if len(parts) < 3:
+        return f"'{spec}' publishes on every interface. Bind it to the LAN IP: -p <LAN IP>:{parts[-1]}:{parts[-1]}"
+    ip = parts[0]
+    if ip == "__ROUTE__":
+        return None
+    if ip in ("localhost", "0.0.0.0", "127.0.0.1") or ip.startswith("127."):
+        return f"'{spec}' publishes on {ip}. The user tests from other machines: use the LAN IP."
+    try:
+        addr = ipaddress.ip_address(ip)
+    except ValueError:
+        return f"'{spec}': '{ip}' is not an IP address."
+    if not addr.is_private or addr.is_loopback:
+        return f"'{spec}': {ip} is not a private LAN address. Stop and ask the user before publishing."
+    lan = lan_ip()
+    if lan is None:
+        return f"'{spec}': can't confirm {ip} is the host's LAN IP (no route to check against)."
+    if ip != lan:
+        return f"'{spec}': {ip} is not the host's LAN IP ({lan}). Docker bridge addresses can't be reached from other machines."
+    return None
+
+
+def temp_roots() -> list[str]:
+    roots = {"/tmp", "/var/tmp", tempfile.gettempdir(), os.environ.get("TMPDIR", "")}
+    return [os.path.realpath(r) for r in roots if r]
+
+
+def in_temp(path: str, base: str) -> bool:
+    """A bind-mount source under a temp folder, which a reboot wipes."""
+    if not path or not (path.startswith(("/", ".", "~", "$")) or "/" in path):
+        return False  # a named volume, not a host path
+    path = os.path.expanduser(re.sub(r"\$\{?(TMPDIR|TMP|TEMP)\}?", tempfile.gettempdir(), path))
+    full = os.path.realpath(path if os.path.isabs(path) else os.path.join(base, path))
+    return any(full == r or full.startswith(r + os.sep) for r in temp_roots())
+
+
+RESTARTS = ("always", "unless-stopped", "on-failure")
+TEST_LABEL = "dev-skills.test"
+TEST_PROJECT = "dev-skills-test"
+PERMANENT_LABEL = "dev-skills.permanent"
+PERMANENT_DIR = re.compile(r"^/opt/docker/(?![^/]*-test/)[^/]+/")  # <name>-test/ is a test stack's mount
+
+
+def mkdir_targets(text: str, base: str) -> set[str]:
+    """Folders an earlier `mkdir -p` in the same command creates (as the user)."""
+    out = set()
+    for argv in simple_commands(text):
+        if argv and argv[0] == "mkdir":
+            for a in argv[1:]:
+                if not a.startswith("-"):
+                    a = os.path.expanduser(a)
+                    out.add(os.path.realpath(a if os.path.isabs(a) else os.path.join(base, a)))
+    return out
+
+
+def temp_mount_problems(who: str, sources: list[str], as_user: bool, text: str, base: str) -> list[str]:
+    """A10: a bind mount under a temp folder must never end up owned by root."""
+    problems = []
+    if os.name == "nt":
+        return problems  # Docker Desktop creates missing mount folders as the Windows user, not root
+    for src in sources:
+        if not in_temp(src, base):
+            continue
+        if re.search(r"\$(?!\{?(TMPDIR|TMP|TEMP)\b)", src):
+            problems.append(f"{who}: the temp mount {src} uses a variable that can't be checked. Use a literal path.")
+            continue
+        full = os.path.realpath(os.path.expanduser(re.sub(r"\$\{?(TMPDIR|TMP|TEMP)\}?", tempfile.gettempdir(), src)))
+        if not as_user:
+            problems.append(f"{who} bind-mounts {src} from a temp folder but doesn't run as the user, so it writes "
+                            "root-owned files there. Add --user \"$(id -u):$(id -g)\" (or PUID/PGID for images that use "
+                            "them). If it has to run as root, mount from outside temp, e.g. /opt/docker/<name>-test/.")
+        if os.path.exists(full):
+            if hasattr(os, "getuid") and os.stat(full).st_uid != os.getuid():
+                problems.append(f"{who}: {src} already exists and isn't owned by the user (root-created?). "
+                                "Don't reuse it: pick a fresh folder created with mkdir -p.")
+        elif not any(full == m or full.startswith(m + os.sep) for m in mkdir_targets(text, base)):
+            problems.append(f"{who}: {src} doesn't exist yet, so Docker would create it as root. "
+                            f"Run mkdir -p {src} first in the same command.")
+    return problems
+
+
+def restart_mount_problem(who: str, restart: str | None, sources: list[str], base: str) -> str | None:
+    if os.name == "nt":
+        return None  # A9 is about a Linux reboot wiping /tmp; Windows doesn't clear %TEMP% on boot
+    restart = (restart or "").strip("'\" ").split(":")[0]
+    temp = [src for src in sources if in_temp(src, base)]
+    if restart in RESTARTS and temp:
+        return (f"{who} has restart policy '{restart}' and bind-mounts {temp[0]} from a temp folder. "
+                "After a reboot wipes it, Docker restarts the container and recreates the folder as root. "
+                "Use --rm and no restart policy for test containers, or mount from outside the temp folder.")
+    return None
+
+
+def compose_file(argv: list[str], cwd: str) -> str | None:
+    for i, a in enumerate(argv):
+        if a in ("-f", "--file") and i + 1 < len(argv):
+            p = argv[i + 1]
+            return p if os.path.isabs(p) else os.path.join(cwd, p)
+        if a.startswith("--file="):
+            p = a.split("=", 1)[1]
+            return p if os.path.isabs(p) else os.path.join(cwd, p)
+    for name in ("compose.yaml", "compose.yml", "docker-compose.yml", "docker-compose.yaml"):
+        p = os.path.join(cwd, name)
+        if os.path.isfile(p):
+            return p
+    return None
+
+
+def compose_scan(text: str) -> dict[str, dict]:
+    """Minimal compose reader: (service, port specs, host_ip-less long ports, network_mode host)."""
+    services, cur, cur_name = {}, None, None
+    in_services, svc_indent = False, None
+    lines = text.splitlines()
+    i = 0
+    while i < len(lines):
+        raw = lines[i]
+        line = raw.split(" #")[0].rstrip()
+        i += 1
+        if not line.strip() or line.lstrip().startswith("#"):
+            continue
+        indent = len(line) - len(line.lstrip())
+        if indent == 0:
+            in_services = line.startswith("services:")
+            continue
+        if not in_services:
+            continue
+        if svc_indent is None or indent <= svc_indent:
+            m = re.match(r"\s*([A-Za-z0-9_.-]+):\s*$", line)
+            if m:
+                svc_indent = indent
+                cur_name = m.group(1)
+                cur = services.setdefault(cur_name, {"ports": [], "host": False, "name": cur_name,
+                                                     "restart": None, "volumes": [], "as_user": False,
+                                                     "puid": False, "pgid": False})
+            continue
+        if cur is None:
+            continue
+        s = line.strip()
+        m = re.match(r"network_mode:\s*[\"']?host[\"']?\s*$", s)
+        if m:
+            cur["host"] = True
+        if re.match(r"user:\s*\S", s):
+            cur["as_user"] = True
+        if re.search(r"\bPUID\b", s):
+            cur["puid"] = True
+        if re.search(r"\bPGID\b", s):
+            cur["pgid"] = True
+        if cur["puid"] and cur["pgid"]:
+            cur["as_user"] = True
+        m = re.match(r"restart:\s*[\"']?([^\"'\s]+)", s)
+        if m:
+            cur["restart"] = m.group(1)
+        if re.match(r"volumes:\s*$", s):
+            vindent = indent
+            while i < len(lines):
+                nxt = lines[i].split(" #")[0].rstrip()
+                if not nxt.strip():
+                    i += 1
+                    continue
+                if len(nxt) - len(nxt.lstrip()) <= vindent:
+                    break
+                ns = nxt.strip()
+                km = re.match(r"-?\s*source:\s*[\"']?([^\"'\s]+)", ns)
+                if km:
+                    cur["volumes"].append(km.group(1))
+                elif ns.startswith("- ") and not re.match(r"-\s+[a-z_]+:", ns):
+                    cur["volumes"].append(ns[2:].strip().strip("'\"").split(":")[0])
+                i += 1
+            continue
+        m = re.match(r"container_name:\s*[\"']?([^\"'\s]+)", s)
+        if m:
+            cur["name"] = m.group(1)
+        if re.match(r"ports:\s*$", s):
+            pindent = indent
+            while i < len(lines):
+                nxt = lines[i].split(" #")[0].rstrip()
+                if not nxt.strip():
+                    i += 1
+                    continue
+                nind = len(nxt) - len(nxt.lstrip())
+                if nind <= pindent:
+                    break
+                ns = nxt.strip()
+                if ns.startswith("- ") and not re.match(r"-\s+[a-z_]+:", ns):
+                    cur["ports"].append(ns[2:].strip())
+                elif ns.startswith("- ") or ":" in ns:
+                    # long syntax: collect one mapping's keys
+                    entry = {}
+                    km = re.match(r"-?\s*([a-z_]+):\s*(.*)", ns)
+                    if km:
+                        entry[km.group(1)] = km.group(2).strip("'\" ")
+                    i += 1
+                    while i < len(lines):
+                        n2 = lines[i].split(" #")[0].rstrip()
+                        n2s = n2.strip()
+                        n2ind = len(n2) - len(n2.lstrip())
+                        if not n2s:
+                            i += 1
+                            continue
+                        if n2ind <= nind or n2s.startswith("- "):
+                            break
+                        km = re.match(r"([a-z_]+):\s*(.*)", n2s)
+                        if km:
+                            entry[km.group(1)] = km.group(2).strip("'\" ")
+                        i += 1
+                    if "published" in entry:
+                        hip = entry.get("host_ip", "")
+                        cur["ports"].append(f"{hip}:{entry['published']}:{entry.get('target', '')}" if hip
+                                            else f"{entry['published']}:{entry.get('target', '')}")
+                    continue
+                i += 1
+    return services
+
+
+DOCKER_VALUE_FLAGS = {"--context", "-c", "-H", "--host", "--config", "--log-level", "-l",
+                      "-p", "--project-name", "-f", "--file", "--env-file", "--profile",
+                      "--project-directory", "--ansi", "--parallel", "--progress"}
+
+
+def docker_words(args: list[str]) -> list[str]:
+    """The subcommand words (compose, up, run, ...) with global flags and their values skipped."""
+    words, i = [], 0
+    while i < len(args):
+        a = args[i]
+        if a in DOCKER_VALUE_FLAGS:
+            i += 2
+            continue
+        if not a.startswith("-"):
+            words.append(a)
+            if a not in ("compose", "container"):
+                break
+        i += 1
+    return words
+
+
+def docker_checks(argv: list[str], text: str, cwd: str, gates: Gates) -> list[str]:
+    if not argv or os.path.basename(argv[0]) not in ("docker", "podman"):
+        return []
+    args = argv[1:]
+    words = docker_words(args)
+    env = dict(re.findall(r"(?:^|\s)([A-Za-z_][A-Za-z0-9_]*)=([0-9.]+)(?=\s)", " " + text + " "))
+    recipe_ok = bool(ROUTE_RECIPE.search(text))
+    problems = []
+    is_run = words[:1] in (["run"], ["create"]) or words[:2] in (["container", "run"], ["container", "create"])
+    is_up = words[:1] == ["compose"] and words[1:2] in (["up"], ["create"], ["run"], ["start"])
+    if is_run:
+        name = None
+        restart = None
+        mounts: list[str] = []
+        as_user = any(a in ("-u", "--user") or a.startswith(("--user=", "-u=")) for a in args) \
+            or (re.search(r"(-e|--env)[= ]PUID=", " ".join(args)) and re.search(r"(-e|--env)[= ]PGID=", " ".join(args)))
+        labeled = any(TEST_LABEL in a for a in args)
+        i = 0
+        while i < len(args):
+            a = args[i]
+            val = None
+            if a in ("-p", "--publish") and i + 1 < len(args):
+                val = args[i + 1]
+                i += 1
+            elif a.startswith("--publish="):
+                val = a.split("=", 1)[1]
+            elif a.startswith("-p") and len(a) > 2 and not a.startswith("--"):
+                val = a[2:]
+            elif a in ("-P", "--publish-all"):
+                problems.append("-P publishes every exposed port on every interface. Publish each on the LAN IP.")
+            elif a in ("--network", "--net") and i + 1 < len(args):
+                if args[i + 1] == "host":
+                    problems.append("__HOST__")
+                i += 1
+            elif a in ("--network=host", "--net=host"):
+                problems.append("__HOST__")
+            elif a == "--restart" and i + 1 < len(args):
+                restart = args[i + 1]
+                i += 1
+            elif a.startswith("--restart="):
+                restart = a.split("=", 1)[1]
+            elif a in ("-v", "--volume") and i + 1 < len(args):
+                mounts.append(args[i + 1].split(":")[0])
+                i += 1
+            elif a.startswith("--volume="):
+                mounts.append(a.split("=", 1)[1].split(":")[0])
+            elif a == "--mount" and i + 1 < len(args):
+                mm = re.search(r"(?:^|,)(?:source|src)=([^,]+)", args[i + 1])
+                if mm and "type=bind" in args[i + 1]:
+                    mounts.append("--mount:" + mm.group(1))
+                i += 1
+            elif a == "--name" and i + 1 < len(args):
+                name = args[i + 1]
+                i += 1
+            elif a.startswith("--name="):
+                name = a.split("=", 1)[1]
+            if val is not None:
+                p = port_problem(val, env, recipe_ok)
+                if p:
+                    problems.append(p)
+            i += 1
+        who = f"container '{name or '(no --name)'}'"
+        # --mount refuses a missing source instead of creating it, so only -v needs the mkdir check.
+        plain = [m for m in mounts if not m.startswith("--mount:")]
+        srcs = [m.replace("--mount:", "", 1) for m in mounts]
+        p = restart_mount_problem(who, restart, srcs, cwd)
+        if p:
+            problems.append(p)
+        problems.extend(temp_mount_problems(who, plain, bool(as_user), text, cwd))
+        problems.extend(q for q in temp_mount_problems(who, [m for m in srcs if m not in plain], bool(as_user), text, cwd)
+                        if "doesn't exist yet" not in q)
+        if not labeled:
+            problems.append(f"{who} has no --label {TEST_LABEL}=\"$CLAUDE_CODE_SESSION_ID\". Write it on each "
+                            "command exactly like that, $CLAUDE_CODE_SESSION_ID included, and not behind another "
+                            "variable such as $L, which the check can't read: test containers are "
+                            "labeled so the next session start can find any that were left behind.")
+        if "__HOST__" in problems:
+            problems.remove("__HOST__")
+            if not gates.host_network_approved(name):
+                problems.append(f"host networking for container '{name or '(no --name)'}' has no "
+                                "'Host network: <name> approved <date> — <reason>' row in the gate file. "
+                                "It needs the user's explicit permission first.")
+    elif is_up:
+        pdir = next((args[i + 1] for i, a in enumerate(args[:-1]) if a == "--project-directory"), None)
+        cdir = os.path.join(cwd, os.path.expanduser(pdir)) if pdir else cwd
+        path = compose_file(args, cdir)
+        if path is None:
+            return ["docker compose: no compose file found to check. A file written earlier in this same "
+                    "command doesn't exist yet when the check runs: write it first (Write tool or its own "
+                    "call), then run compose in the next call."]
+        text_c = read(path)
+        if text_c is None:
+            return [f"docker compose: can't read {path} to check it."]
+        for svc in compose_scan(text_c).values():
+            for spec in svc["ports"]:
+                p = port_problem(spec, env, recipe_ok)
+                if p:
+                    problems.append(f"service {svc['name']}: {p}")
+            base = os.path.dirname(path)
+            p = restart_mount_problem(f"service {svc['name']}", svc["restart"], svc["volumes"], base)
+            if p:
+                problems.append(p)
+            problems.extend(temp_mount_problems(f"service {svc['name']}", svc["volumes"], svc["as_user"], text, base))
+            if svc["host"] and not gates.host_network_approved(svc["name"]):
+                problems.append(f"service {svc['name']} uses network_mode: host without a "
+                                "'Host network: <name> approved' row. It needs the user's explicit permission.")
+        project = next((args[i + 1] for i, a in enumerate(args[:-1]) if a in ("-p", "--project-name")), "")
+        project = project or next((a.split("=", 1)[1] for a in args if a.startswith("--project-name=")), "")
+        # A real service the user asked for (SKILL.md §10: bind mounts under /opt/docker/<name>/)
+        # is not a test stack, so the next session's leftover sweep must not find it.
+        permanent = PERMANENT_DIR.match(os.path.realpath(path)) or PERMANENT_LABEL in text_c
+        if not permanent and not project.startswith(TEST_PROJECT) and TEST_LABEL not in text_c:
+            problems.append(f"docker compose: run test stacks as -p {TEST_PROJECT}-<name> (or label the services "
+                            f"{TEST_LABEL}), so the next session start can find any that were left behind. A "
+                            f"permanent service lives under /opt/docker/<name>/ or labels its services {PERMANENT_LABEL}.")
+    return problems
+
+
+# --- B5: protected files ------------------------------------------------------
+
+# Gate rows and the Mode: line pass without a prompt in both modes: the mode is
+# the user's answer to the session-start question, and a gate passing is shown
+# on the tracker and backed by the commit approval. What asks is the short list
+# of lines that switch a check off or grant an exception, which only the user
+# can decide.
+SENSITIVE = [
+    (re.compile(r"^(Hook )?[Ee]nforcement:\s*declined"), "declining hook enforcement"),
+    (re.compile(r"^Host network:.*approved"), "a host-network approval"),
+    (re.compile(r"test artifact:\s*n/a", re.I), "skipping the test artifact"),
+    (re.compile(r"banner\s*➖", re.I), "skipping the README dev banner"),
+    # Lets Claude run tags and ref deletions (each one still asks): FORGE_REFERENCE.md.
+    (SELF_HOSTED, "a self-hosted forge"),
+    # Lets the previous release's missing tag through without this release's gates.
+    (RETRO_ROW, "tagging a previous release that never shipped"),
+]
+NO_APP_CHANGE = re.compile(r"test artifact:\s*n/a\s*[—–-]+\s*no app code changed", re.I)
+# A waiver is keyed by the clause that carries it (from "waive" to the next `;`,
+# `·`, `|`, `)` or line end), not by the whole line: a SECURITY row or Standards
+# row that mentions a waiver changes every time its other evidence does, and
+# keying on the line re-asked the user for a waiver they had already approved.
+WAIVER = re.compile(r"waive[^;·|)]*", re.I)
+
+
+def sensitive_lines(text: str | None) -> Counter[str]:
+    out: Counter[str] = Counter()
+    for line in (text or "").splitlines():
+        if any(pat.search(line) for pat, _ in SENSITIVE):
+            out[line.strip()] += 1
+        out.update(m.group(0).strip() for m in WAIVER.finditer(line))
+    return out
+
+
+def protected_path(path: str | None, root: str | None) -> str | None:
+    if not path:
+        return None
+    p = os.path.abspath(path)
+    if p.endswith(os.sep + STATE_REL) or p.endswith("/" + STATE_REL.replace(os.sep, "/")):
+        return "gate"
+    plugin = os.environ.get("CLAUDE_PLUGIN_ROOT")
+    if plugin and os.path.abspath(p).startswith(os.path.abspath(plugin) + os.sep):
+        return "checks"
+    if re.search(r"(^|[/\\])\.claude[^/\\]*[/\\]settings(\.local)?\.json$", p):
+        return "settings"
+    return None
+
+
+def new_content(tool: str, inp: dict, current: str | None) -> str:
+    if tool == "Write":
+        return inp.get("content", "")
+    text = current or ""
+    edits = inp.get("edits") if tool == "MultiEdit" else [inp]
+    for e in edits or []:
+        old, new = e.get("old_string", ""), e.get("new_string", "")
+        if e.get("replace_all"):
+            text = text.replace(old, new)
+        else:
+            text = text.replace(old, new, 1)
+    return text
+
+
+def file_edit_check(tool: str, inp: dict, root: str | None) -> tuple[str, str] | None:
+    path = inp.get("file_path") or inp.get("notebook_path")
+    kind = protected_path(path, root)
+    if kind is None:
+        return None
+    if kind in ("checks", "settings"):
+        return ("ask", f"this edits {path}, which is where enforcement lives. The user decides.")
+    current = read(path)
+    new = new_content(tool, inp, current)
+    added = sensitive_lines(new) - sensitive_lines(current)
+    # Dropping or widening the contributor role lifts its limits (SCOPED_REPO.md).
+    old_role = role_paths(next((l for l in (current or "").splitlines() if l.startswith("Role:")), None))
+    new_role = role_paths(next((l for l in new.splitlines() if l.startswith("Role:")), None))
+    if old_role is not None and (new_role is None or set(new_role) - set(old_role)):
+        added[f"Role: {'removed' if new_role is None else 'now owns ' + ', '.join(new_role)}"] += 1
+    if not added:
+        # Answer allow, not silence: silence hands the edit to Claude Code's own
+        # permission prompt, which asked the user to approve every row update.
+        # Only for the session's own gate file (the repo the command runs in, or
+        # the one the session opened in), and never through a symlink.
+        for r in (root, repo_root(os.environ.get("CLAUDE_PROJECT_DIR") or None) if os.environ.get("CLAUDE_PROJECT_DIR") else None):
+            own = os.path.join(r, STATE_REL) if r else None
+            if own and os.path.realpath(path) == os.path.realpath(own) and not os.path.islink(own):
+                return ("allow", "a routine gate-file update: no waiver, decline or approval added.")
+        return None
+    return ("ask", "the gate file change needs the user's OK:\n" + "\n".join(f"  + {line}" for line in sorted(added)))
+
+
+# --- B8: workflow files -------------------------------------------------------
+
+# The mechanical half of the workflow review checklist (WORKFLOW_REFERENCE.md):
+# what a line-level read of the YAML can prove. Only problems an edit *adds* are
+# raised, so fixing one thing in an old, unhardened workflow isn't held hostage
+# to everything else wrong with it.
+# Gitea and Forgejo Actions use the same syntax from their own folders (FORGE_GITEA.md).
+WORKFLOW_PATH = re.compile(r"(^|[/\\])\.(github|gitea|forgejo)[/\\]workflows[/\\][^/\\]+\.ya?ml$")
+SHA_PIN = re.compile(r"^[0-9a-f]{40}$")
+# HACS's own guidance is to run hacs/action at @main (WORKFLOW_REFERENCE.md,
+# Security) — the one documented exception to SHA pinning.
+UNPINNED_OK = {"hacs/action"}
+USES_LINE = re.compile(r"^(\s*)(-\s+)?uses:\s*['\"]?([^\s'\"#]+)")
+RUN_LINE = re.compile(r"^(\s*)(-\s+)?run:\s*(.*)$")
+
+
+def indent_of(line: str) -> int:
+    return len(line) - len(line.lstrip(" "))
+
+
+def step_lines(lines: list[str], at: int) -> list[str]:
+    """The lines of the list item (step) holding line `at`."""
+    start = at
+    while start > 0 and not lines[start].lstrip().startswith("- "):
+        start -= 1
+    dash = indent_of(lines[start])
+    out = []
+    for n in range(start, len(lines)):
+        s = lines[n].strip()
+        if n > start and s and not s.startswith("#") and indent_of(lines[n]) <= dash:
+            break
+        out.append(lines[n])
+    return out
+
+
+def step_has(lines: list[str], at: int, key: str) -> bool:
+    """Whether the list item (step) holding line `at` sets `key`."""
+    return any(x.strip().lstrip("- ").startswith(key + ":") for x in step_lines(lines, at))
+
+
+def workflow_problems(text: str) -> tuple[list[str], list[str]]:
+    """(deny, ask) problems in one workflow file."""
+    found = workflow_findings(text)
+    return [t for _, d, t in found if d], [t for _, d, t in found if not d]
+
+
+def pin_severity(action: str, version: str) -> str:
+    """A non-SHA pin on the workflow audit scale: a first-party action on a
+    version tag is Low, on a branch High; any other action is Critical."""
+    if action.split("/")[0] not in ("actions", "github"):
+        return "Critical"
+    return "Low" if re.match(r"v\d", version) else "High"
+
+
+def workflow_findings(text: str) -> list[tuple[str, bool, str]]:
+    """(severity, deny?, problem) for one workflow file. Severity is the workflow
+    audit scale (WORKFLOW_REFERENCE.md, audit step 3) that the weekly audit
+    issue reports; deny or ask is only what B8 does with an edit."""
+    out: list[tuple[str, bool, str]] = []
+    lines = text.splitlines()
+    run_col: int | None = None  # column of `run:` while inside its block scalar
+    for n, line in enumerate(lines):
+        s = line.strip()
+        if run_col is not None:
+            if not s or indent_of(line) > run_col:
+                if "${{" in line:
+                    out.append(("Critical", True, f"`${{{{ }}}}` inside a run: script (pass it through env:): {s}"))
+                continue
+            run_col = None
+        if s.startswith("#"):
+            continue
+        m = RUN_LINE.match(line)
+        if m:
+            body = m.group(3)
+            if body[:1] in ("|", ">"):
+                run_col = len(m.group(1)) + len(m.group(2) or "")
+            elif "${{" in body:
+                out.append(("Critical", True, f"`${{{{ }}}}` inside a run: script (pass it through env:): {s}"))
+            continue
+        m = USES_LINE.match(line)
+        if not m:
+            continue
+        ref = m.group(3)
+        if ref.startswith(("./", "docker://")):
+            continue
+        action, _, version = ref.partition("@")
+        if not SHA_PIN.match(version) and "/".join(action.split("/")[:2]) not in UNPINNED_OK:
+            out.append((pin_severity(action, version), True, f"`{ref}` is not pinned to a 40-character commit SHA"))
+        if action == "actions/checkout" and not step_has(lines, n, "persist-credentials"):
+            # Keyed without the ref, so re-pinning a legacy checkout isn't "new".
+            out.append(("High", True, "a checkout without `persist-credentials: false`"))
+    if not re.search(r"^\s*permissions:", text, re.M):
+        out.append(("High", False, "no `permissions:` block, so every job gets the repo's default token scope"))
+    out.extend(("High", False, f"job `{name}` has no `timeout-minutes`") for name in jobs_without_timeout(text))
+    out.extend(("Medium", False, f"job `{name}` runs ./gradlew without validating the wrapper jar first "
+                "(add gradle/actions/wrapper-validation, or setup-gradle without `validate-wrappers: false`)")
+               for name in jobs_running_unvalidated_gradlew(text))
+    return out
+
+
+def job_bodies(text: str) -> tuple[int, dict[str, list[str]]]:
+    """(job-name column, {job name: its non-blank, non-comment lines}) under `jobs:`."""
+    jobs = re.search(r"^jobs:[ \t]*\n", text, re.M)
+    if not jobs:
+        return 0, {}
+    body = [x for x in text[jobs.end():].splitlines() if x.strip() and not x.strip().startswith("#")]
+    if not body:
+        return 0, {}
+    col = indent_of(body[0])
+    found: dict[str, list[str]] = {}
+    name = None
+    for line in body:
+        depth = indent_of(line)
+        if depth < col:
+            break
+        if depth == col:
+            name = line.strip().rstrip(":")
+            found[name] = []
+        elif name:
+            found[name].append(line)
+    return col, found
+
+
+def jobs_without_timeout(text: str) -> list[str]:
+    """Jobs under `jobs:` with no timeout-minutes. A job that calls a reusable
+    workflow (`uses:` at job level) can't set one, so it isn't listed."""
+    col, jobs = job_bodies(text)
+    return [name for name, lines in jobs.items()
+            if not any(indent_of(x) == col + 2 and x.strip().startswith(("timeout-minutes:", "uses:")) for x in lines)]
+
+
+GRADLEW = re.compile(r"(^|[\s;&|(])(\S*/)?gradlew(\.bat)?(?=[\s;&|)]|$)")
+WRAPPER_CHECK = re.compile(r"uses:\s*['\"]?(gradle/actions/(setup-gradle|wrapper-validation)|gradle/wrapper-validation-action)@")
+
+
+def scripts_by_line(lines: list[str]) -> list[str | None]:
+    """For each line, the shell text it contributes to a `run:` script, or None."""
+    out: list[str | None] = []
+    run_col: int | None = None  # column of `run:` while inside its block scalar
+    for line in lines:
+        if run_col is not None and indent_of(line) > run_col:
+            out.append(line)
+            continue
+        run_col = None
+        m = RUN_LINE.match(line)
+        if m and m.group(3)[:1] in ("|", ">"):
+            run_col = len(m.group(1)) + len(m.group(2) or "")
+        out.append(m.group(3) if m and run_col is None else None)
+    return out
+
+
+def jobs_running_unvalidated_gradlew(text: str) -> list[str]:
+    """Jobs that run ./gradlew before any step validates the wrapper jar. Each
+    job is a fresh runner, and parallel jobs don't wait on each other, so a
+    check in one job protects no other (WORKFLOW_REFERENCE.md, checklist).
+    setup-gradle validates by default; `validate-wrappers: false` turns it off."""
+    out = []
+    for name, lines in job_bodies(text)[1].items():
+        validated = False
+        for n, script in enumerate(scripts_by_line(lines)):
+            if script is None and WRAPPER_CHECK.search(lines[n]):
+                validated = "setup-gradle" not in lines[n] or not any(
+                    re.match(r"\s*validate-wrappers:\s*['\"]?false", x) for x in step_lines(lines, n))
+            elif script is not None and not validated and GRADLEW.search(script.split("#", 1)[0]):
+                out.append(name)
+                break
+    return out
+
+
+def workflow_edit_check(tool: str, inp: dict) -> tuple[str, str] | None:
+    path = inp.get("file_path")
+    if not path or not WORKFLOW_PATH.search(path):
+        return None
+    current = read(path)
+    # A new file starts from nothing wrong, not from an empty file's problems.
+    old_deny, old_ask = workflow_problems(current) if current is not None else ([], [])
+    new_deny, new_ask = workflow_problems(new_content(tool, inp, current))
+
+    def added(new: list[str], old: list[str]) -> list[str]:
+        left = list(old)
+        out = []
+        for p in new:
+            if p in left:
+                left.remove(p)
+            else:
+                out.append(p)
+        return out
+
+    deny, ask = added(new_deny, old_deny), added(new_ask, old_ask)
+    where = os.path.basename(path)
+    if deny:
+        return ("deny", f"this edit to {where} adds what the workflow checklist rates Critical "
+                        "(WORKFLOW_REFERENCE.md, Template best practices):\n- " + "\n- ".join(deny + ask))
+    if ask:
+        return ("ask", f"this edit to {where} adds what the workflow checklist rates High:\n- " + "\n- ".join(ask))
+    return None
+
+
+WRITE_HINT = re.compile(r"(>|\btee\b|\bsed\s+-i|\bperl\s+-[a-z]*i|\bcp\b|\bmv\b|\brm\b|\bpython3?\b|\bnode\b|"
+                        r"\btruncate\b|\bdd\b|\binstall\b|\bln\b|\bchmod\b|"
+                        # PowerShell and cmd: cmdlets, their aliases, and .NET file writes.
+                        r"\b(set|add|clear)-content\b|\bout-file\b|\b(copy|move|remove|rename|new)-item\b|"
+                        r"\btee-object\b|\b(sc|ac|clc|cpi|mi|ri|rni|ni|copy|move|del|erase|ren|xcopy|robocopy)\b|"
+                        r"\[(system\.)?io\.file\]::)", re.I)
+
+
+def bash_protected_check(cmd: str) -> tuple[str, str] | None:
+    home = os.path.expanduser("~")
+    cmd = re.sub(r"(?<![\w/])~(?=/|\s|$)", home, cmd).replace("${HOME}", home).replace("$HOME", home)
+    # `git rm --cached` only untracks the file (SESSION_START.md); it never writes it.
+    cmd = re.sub(r"\bgit\s+(-C\s+\S+\s+)?rm\s+(-r\s+)?--cached\s+(-r\s+)?(--\s+)?[^\s;&|<>`$()]*dev-skills-gates\.md(?=\s|$|[;&|])",
+                 "", cmd)
+    plugin = os.environ.get("CLAUDE_PLUGIN_ROOT")
+    enforcement = bool(re.search(r"\.claude[^/\\\s]*[/\\]settings(\.local)?\.json", cmd)) or bool(plugin and plugin in cmd)
+    gate = "dev-skills-gates.md" in cmd
+    hint = WRITE_HINT.search(cmd.replace("2>&1", "").replace(">/dev/null", "").replace("2>/dev/null", ""))
+    if enforcement and hint:
+        return ("ask", "this shell command may write a settings file or the enforcement checks. The user decides.")
+    if not gate:
+        return None
+    # The gate file follows the same rule as an Edit to it: routine row and
+    # evidence updates pass, and only what B5 shows the user asks. A command
+    # that merely named the file (the session-start probe, `git add`, an ignore
+    # entry) used to ask too, on nearly every session.
+    segments = [s for s in re.split(r"&&|\|\||[;\n|]", cmd) if "dev-skills-gates.md" in s]
+    if any((GATE_DELETE.match(s) or GATE_FIND_DELETE.search(s)) and "--cached" not in s for s in segments) \
+            or GATE_EMPTY.search(cmd):
+        return ("ask", "this shell command deletes or empties the gate file, and every gate's record with it. "
+                       "The user decides.")
+    # Content the command doesn't show (copied, restored or decoded from
+    # elsewhere) can't be checked for waivers here, so it asks.
+    if any(GATE_COPY_CMD.match(s) for s in segments) or GATE_RESTORE.search(cmd) \
+            or (GATE_WRITE_TARGET.search(cmd) and OPAQUE_SOURCE.search(cmd)):
+        return ("ask", "this shell command writes the gate file from content it doesn't show (a copy, a restore "
+                       "or decoded text), so its waiver lines can't be checked. Use Edit/Write.")
+    writes = GATE_WRITE_TARGET.search(cmd) or any(GATE_WRITE_CMD.search(s) for s in segments) \
+        or (INTERPRETER.search(cmd) and SCRIPT_WRITE.search(cmd))
+    if not writes:
+        return None
+    # Unanchored: in a command the line sits inside a sed, printf or heredoc.
+    added = [ln.strip() for ln in cmd.splitlines() if any(re.search(p.pattern.lstrip("^"), ln) for p, _ in SENSITIVE)]
+    added += [m.group(0).strip() for m in WAIVER.finditer(cmd)]
+    if added:
+        return ("ask", "this shell command may write a waiver, an enforcement decline or a host-network approval "
+                       "into the gate file. Make that change with Edit/Write so the user sees it:\n"
+                       + "\n".join(f"  + {a}" for a in added[:5]))
+    # A routine shell write would pass here and then stop at Claude Code's own
+    # Bash prompt, which is the prompt B5 exists to spare the user. Edit/Write
+    # are allowed outright (file_edit_check), so send the change there.
+    if GATE_WRITE_TARGET.search(cmd) or any(GATE_INPLACE.match(s) for s in segments) \
+            or (INTERPRETER.search(cmd) and SCRIPT_WRITE.search(cmd)):
+        return ("deny", "write the gate file with the Edit or Write tool, not the shell. Those go through "
+                        "without a prompt; a shell write stops for the user's approval. Nothing in this "
+                        "command ran: re-run the rest without the gate write, and redo any call sent "
+                        "alongside it that relied on it.")
+    return None
+
+
+GATE_PATH = r"['\"]?[^\s'\";&|()]*dev-skills-gates\.md"
+GATE_DELETE = re.compile(r"\s*(sudo\s+)?(git\s+(-C\s+\S+\s+)?)?(rm|del|erase|remove-item|ri)\b", re.I)
+GATE_WRITE_TARGET = re.compile(r"(>>?|\btee(\s+-a)?|\b(set|add)-content(\s+-path)?|\bout-file(\s+-filepath)?|"
+                               r"\b(write|append)all(text|lines|bytes)\(|\btee-object(\s+-filepath)?)\s*" + GATE_PATH, re.I)
+GATE_WRITE_CMD = re.compile(r"^\s*(sudo\s+)?(sed\s+-i|perl\s+-[a-z]*i|cp|mv|install|ln|truncate|dd|copy|move|"
+                            r"copy-item|move-item|cpi|mi)\b", re.I)
+# An in-place edit whose target (last argument) is the gate file.
+GATE_INPLACE = re.compile(r"^\s*(sudo\s+)?(sed\s+-i|perl\s+-[a-z]*i)\b.*dev-skills-gates\.md['\"]?\s*$", re.I)
+GATE_FIND_DELETE = re.compile(r"\bfind\b.*(-delete\b|-exec\s+rm\b)", re.I)
+GATE_EMPTY = re.compile(r"(^|[;&|\n(]\s*)(:|true)?\s*>\s*" + GATE_PATH + r"['\"]?\s*($|[;&|)\n])|"
+                        r"\b(truncate|clear-content|clc)\b[^;&|\n]*dev-skills-gates\.md", re.I)
+# The gate file as the destination (last argument) of a copy, move or link.
+GATE_COPY_CMD = re.compile(r"\s*(sudo\s+)?(cp|mv|ln|install|dd|rsync|copy|move|xcopy|robocopy|copy-item|move-item|"
+                           r"cpi|mi)\b.*(dev-skills-gates\.md['\"]?\s*$|of=" + GATE_PATH + ")", re.I)
+GATE_RESTORE = re.compile(r"\bgit\s+(-C\s+\S+\s+)?(checkout|restore)\b[^;&|\n]*dev-skills-gates\.md", re.I)
+# A redirect into the gate file whose text comes from a file, a download or an
+# encoding. A heredoc (`cat > f <<'EOF'`) shows its text, so `cat` there is fine.
+OPAQUE_SOURCE = re.compile(r"\bcat\b(?![^\n]*<<)|\b(base64|xxd|openssl|gzip|gunzip|zcat|curl|wget|iconv|rev|"
+                           r"get-content|gc|type)\b|\bgit\s+show\b|\\[0-7]{3}|\\x[0-9a-f]{2}|\$'|(?<!<)<(?!<)\s*[^\s<(]",
+                           re.I)
+INTERPRETER = re.compile(r"\b(python3?|py|node|perl|ruby)\b", re.I)
+SCRIPT_WRITE = re.compile(r"dev-skills-gates\.md[\s\S]*(open\([^)]*['\"][wa]|write_text|writeFile|appendFile|"
+                          r"\.write\()|(open\([^)]*['\"][wa]|write_text|writeFile|appendFile)[\s\S]*dev-skills-gates\.md")
+
+
+GATE_FILE_SPEC = re.compile(r"(^|[/\\])\.?dev-skills-gates\.md$")
+CLAUDE_DIR_SPEC = re.compile(r"^(\.|\./|:/|\.claude[/\\]?(\*)?|\./\.claude[/\\]?(\*)?)$")
+
+
+def gate_file_add_check(argv: list[str]) -> str | None:
+    """B6: on a local session the gate file is never staged (every session rewrites
+    it, so a tracked copy blocks git checkout). Remote containers commit it."""
+    g = git_argv(argv)
+    if not g or g[0] != "add" or os.environ.get("CLAUDE_CODE_REMOTE", "").lower() in ("1", "true", "yes"):
+        return None
+    args = g[1:]
+    short = "".join(a[1:] for a in args if re.match(r"^-[a-zA-Z]+$", a))
+    force = "f" in short or "--force" in args
+    every = "A" in short or "--all" in args
+    specs = [a for a in args if not a.startswith("-")]
+    if any(GATE_FILE_SPEC.search(s) for s in specs) or (force and any(CLAUDE_DIR_SPEC.match(s) for s in specs)) \
+            or (force and every and not specs):
+        return ("this stages the gate file (.dev-skills-gates.md) on a local session. The gate file stays untracked "
+                "locally: every session rewrites it, so a committed copy blocks git checkout (SKILL.md §2).")
+    return None
+
+
+HANDOFF_SPEC = re.compile(r"(^|[/\\])(\.dev-skills-handoff\.md$|\.dev-skills-handoffs([/\\]|$)|\.claude[/\\]handoffs([/\\]|$))")
+HANDOFF_REF = re.compile(r"refs/dev-skills/")
+
+
+def handoff_add_check(argv: list[str]) -> str | None:
+    """Handoffs stay local unless the session is a remote container, where they'd
+    die with it. The user can still say yes to committing one, so this asks."""
+    g = git_argv(argv)
+    if not g or os.environ.get("CLAUDE_CODE_REMOTE", "").lower() in ("1", "true", "yes"):
+        return None
+    specs = [a for a in g[1:] if not a.startswith("-")]
+    if g[0] == "add" and any(HANDOFF_SPEC.search(sp) for sp in specs):
+        return ("this stages the handoff on a branch on a local session. Locally it's committed to the "
+                "local-only ref refs/dev-skills/handoff, never to a branch that gets pushed (SKILL.md §5.6). "
+                "Approve only if the user asked for this.")
+    if g[0] == "push" and any(HANDOFF_REF.search(sp) for sp in specs):
+        return ("this pushes the local handoff ref. Handoffs stay local unless the user asks (SKILL.md §5.6). "
+                "Approve only if the user asked for this.")
+    return None
+
+
+# --- pre-tool -----------------------------------------------------------------
+
+# --- forge MCP tools, self-hosted asks, owned folders --------------------------
+
+FORGE_MCP = re.compile(r"github|gitlab|gitea|forgejo", re.I)
+MCP_KINDS = [
+    (re.compile(r"^(create_tag|delete_tag|delete_branch|delete_ref|delete_release)$"), "user_only"),
+    # A merge, or auto-merge: a merge that happens later, with no check at that point.
+    (re.compile(r"^(merge_pull_request|merge_merge_request|accept_merge_request|enable_.*auto_merge)$"), "release"),
+    (re.compile(r"^(create|update|edit)_release$"), "release"),
+    (re.compile(r"^create_(pull_request|merge_request)$"), "pr"),
+    (re.compile(r"^(push_files|create_or_update_file|create_file|update_file|delete_file|create_commit|"
+                r"update_pull_request_branch|rebase_merge_request)$"), "work"),
+]
+
+
+def mcp_kind(name: str) -> str | None:
+    """What a GitHub, Gitea/Forgejo or GitLab MCP tool does, by name."""
+    return next((kind for pat, kind in MCP_KINDS if pat.match(name)), None)
+
+
+def self_hosted_ask(labels: list[str]) -> str:
+    return ("the gate file's Forge: row is a self-hosted forge, so Claude runs this tag or ref operation "
+            "only on your yes, each time (FORGE_REFERENCE.md): " + ", ".join(dict.fromkeys(labels)))
+
+
+SESSION_FILES = re.compile(r"^(\.dev-skills-gates\.md|\.dev-skills-handoff\.md)$")
+
+
+def owned_path_check(inp: dict, root: str | None, gates: Gates) -> tuple[str, str] | None:
+    """B9: in a repo where the session owns only some folders, an edit elsewhere asks."""
+    owned = gates.owned_paths()
+    path = inp.get("file_path") or inp.get("notebook_path")
+    if owned is None or not path or not root:
+        return None
+    # Real paths, so a symlink inside an owned folder can't point the edit elsewhere.
+    rel = os.path.relpath(os.path.realpath(path), os.path.realpath(root)).replace("\\", "/")
+    if rel.startswith("../") or rel == ".." or SESSION_FILES.match(rel):
+        return None
+    if any(rel == p or rel.startswith(p + "/") for p in owned):
+        return None
+    where = ", ".join(owned) or "no folder named"
+    return ("ask", f"{rel} is outside the folder this session owns ({where}; the gate file's Role: row, "
+                   "SCOPED_REPO.md). Changes elsewhere belong to the repo's other owners.")
+
+
+def pre_tool(payload: dict) -> NoReturn:
+    tool = payload.get("tool_name", "")
+    inp = payload.get("tool_input") or {}
+    cwd = payload.get("cwd") or os.getcwd()
+    root = repo_root(cwd) or os.environ.get("CLAUDE_PROJECT_DIR")
+    gates = Gates(root)
+
+    if tool in ("Write", "Edit", "MultiEdit", "NotebookEdit"):
+        res = file_edit_check(tool, inp, root)
+        if res:
+            pre_decision(*res)
+        if not gates.declined:
+            res = workflow_edit_check(tool, inp)
+            if res:
+                pre_decision(*res)
+            res = owned_path_check(inp, root, gates)
+            if res:
+                pre_decision(*res)
+        allow()
+
+    if gates.declined:
+        allow()
+
+    if tool in ("Bash", "PowerShell"):
+        cmd = inp.get("command") or ""
+        res = bash_protected_check(cmd)
+        problems = []
+        user_ops = []  # tag / ref operations a self-hosted forge lets Claude run, on the user's yes
+        cur: str | None = cwd
+        for argv in simple_commands(cmd, ps=tool == "PowerShell"):
+            if argv and argv[0].lower() in ("cd", "pushd", "set-location", "sl", "chdir", "push-location"):
+                cur = resolve_cd(argv, cur)
+                continue
+            here = git_dash_c(argv, cur)
+            here_root = repo_root(here) if here else None
+            here_gates = Gates(here_root) if here else gates
+            ops = classify(argv, here_root)
+            if ops and here is None:
+                problems.append("a git write runs after a cd whose target can't be resolved "
+                                "(a variable or command substitution), so there's no telling "
+                                "which repo's gates apply. Use a literal path.")
+            elif ops:
+                problems.extend(gate_problems(ops, here_gates, presented=False, text_for_fork=cmd))
+                user_ops.extend(o.label for o in ops if o.kind == "user_only")
+            staged = gate_file_add_check(argv)
+            if staged:
+                problems.append(staged)
+            problems.extend(docker_checks(argv, cmd, here or cwd, here_gates))
+        if problems:
+            pre_decision("deny", "blocked:\n- " + "\n- ".join(problems))
+        if user_ops and not (res and res[0] == "deny"):
+            pre_decision("ask", self_hosted_ask(user_ops) + (f"\nAlso: {res[1]}" if res else ""))
+        if res:
+            pre_decision(*res)
+        for argv in simple_commands(cmd, ps=tool == "PowerShell"):
+            handoff = handoff_add_check(argv)
+            if handoff:
+                pre_decision("ask", handoff)
+        allow()
+
+    m = re.match(r"^mcp__(.+)__([a-z_]+)$", tool)
+    if m and FORGE_MCP.search(m.group(1)):
+        name = m.group(2)
+        kind, label = mcp_kind(name), name
+        if kind == "user_only" and not gates.self_hosted:
+            pre_decision("deny", f"{name} is the user's to run (SKILL.md §5.8). Present the git command instead.")
+        if kind:
+            op = Op(kind, label, "tag creation" if name == "create_tag" else "ref operation")
+            op.is_gh = True
+            op.publishes = name in ("create_release", "create_tag")
+            op.targets_default = bool(re.match(r"^(merge_|enable_.*auto_merge|accept_merge)", name))
+            owner, repo = inp.get("owner"), inp.get("repo")
+            if owner and repo:
+                op.gh_repos = [f"{owner}/{repo}"]
+            problems = gate_problems([op], gates, presented=False, text_for_fork="GH_REPO=" if op.gh_repos else "")
+            if problems:
+                pre_decision("deny", "blocked:\n- " + "\n- ".join(problems))
+            if kind == "user_only":
+                pre_decision("ask", self_hosted_ask([name]))
+    allow()
+
+
+# --- stop: the reply ----------------------------------------------------------
+
+FENCE = re.compile(r"^(\s*)(```|~~~)")
+BAD_URL = re.compile(r"https?://(localhost|127(?:\.\d{1,3}){3}|0\.0\.0\.0|\[::1\]|172\.1[7-9](?:\.\d{1,3}){2})(?=[:/\s)`'\"\]]|$)", re.I)
+GIT_CMD = re.compile(r"(^|&&|\|\||[;|(])\s*(sudo\s+|env\s+)?(git\s+(-C\s+\S+\s+)?(add|commit|push|pull|checkout|switch|"
+                     r"branch|merge|rebase|tag|reset|clone|remote|stash|cherry-pick|revert)"
+                     r"|gh\s+(pr|release|api|repo|run|issue|auth|workflow)|glab\s+(mr|release|api)|tea\s+(pr|pulls?|releases?))\b", re.M)
+# A block of reads only (git status/log/diff/fetch, ls-remote) is not policed as a run block
+# unless it is labeled one: a bounce costs a whole model request.
+NO_REPLY = re.compile(r"no need to reply|(don'?t|do not) need to (reply|tell me|answer)|nothing (you need )?to reply", re.I)
+ASKS = re.compile(r"\?\s*(\*\*)?\s*$|^\s*(\*\*)?(tell me|reply with|answer|let me know|say )", re.I | re.M)
+SKELETON = """
+Run-block shape (ENFORCEMENT.md C3-C7):
+`<one-line tracker>`
+
+### ▶️ RUN THIS — <what it does> · in <repo>
+```bash
+# ════════ ▶️ START: <what>
+<commands chained with &&>
+# ════════ ⏹️ END
+```
+### ⏹️ END — nothing else to run
+No need to reply."""
+TRACKER = re.compile(r"🔢.*🔒|🔒️?\s*SECURITY")
+
+
+def blocks(text: str) -> tuple[list[str], list[tuple[int, int, list[str]]]]:
+    # A block inside a `>` quote is just as copyable, so quotes are unwrapped first.
+    lines = [re.sub(r"^\s*(>\s?)+", "", line) for line in text.splitlines()]
+    out, i = [], 0
+    while i < len(lines):
+        m = FENCE.match(lines[i])
+        if m:
+            fence = m.group(2)
+            start = i
+            i += 1
+            while i < len(lines) and not lines[i].strip().startswith(fence):
+                i += 1
+            out.append((start, min(i, len(lines) - 1), lines[start + 1:i]))
+        i += 1
+    return lines, out
+
+
+def unbang(body: list[str]) -> list[str]:
+    """Drop a leading `!` (Claude Code's run-in-session prefix) before checking, so a
+    pasteable `! git push` block is still read as a git write and gated (C2, C3)."""
+    for k, line in enumerate(body):
+        if line.strip():
+            if line.lstrip().startswith("!"):
+                body = body[:k] + [line.lstrip()[1:].lstrip()] + body[k + 1:]
+            break
+    return body
+
+
+def near(lines: list[str], idx: int, step: int) -> str:
+    j = idx + step
+    while 0 <= j < len(lines):
+        if lines[j].strip():
+            return lines[j].strip()
+        j += step
+    return ""
+
+
+def stop_check(payload: dict) -> NoReturn:
+    msg = payload.get("last_assistant_message")
+    if msg is None:
+        msg = last_message_from_transcript(payload.get("transcript_path"))
+    if not msg:
+        allow()
+    cwd = payload.get("cwd") or os.getcwd()
+    root = repo_root(cwd) or os.environ.get("CLAUDE_PROJECT_DIR")
+    gates = Gates(root)
+    if gates.declined:
+        allow()
+    lines, blks = blocks(msg)
+    reading = set()
+    run = []
+    for start, end, body in blks:
+        body = unbang(body)
+        label = near(lines, start, -1)
+        if "📄 FOR READING" in label:
+            reading.update(range(start, end + 1))
+            continue
+        code = "\n".join(l for l in body if not l.strip().startswith("#"))
+        if "▶️ RUN THIS" in label or GIT_CMD.search(code):
+            run.append((start, end, body, label))
+
+    problems = []
+    for n, line in enumerate(lines):
+        if n in reading:
+            continue
+        for m in BAD_URL.finditer(line):
+            problems.append(f"C1: '{m.group(0)}' is a loopback or Docker-bridge URL. Hand over the LAN URL that curl reached.")
+
+    if run:
+        first = run[0][0]
+        if not any(TRACKER.search(l) for l in lines[:first]):
+            problems.append("C5: no gate tracker line above the first ▶️ RUN THIS block.")
+        after_last = "\n".join(lines[run[-1][1] + 1:])
+        # A reply that asks the user something after the block needs their answer, so
+        # "No need to reply" would be false there.
+        if not NO_REPLY.search(after_last) and not ASKS.search(after_last):
+            problems.append("C7: say 'No need to reply' under the last ▶️ RUN THIS block.")
+        for k, (start, end, body, label) in enumerate(run, 1):
+            tag = f"block {k}"
+            if "▶️ RUN THIS" not in label:
+                problems.append(f"C3: {tag} has no '### ▶️ RUN THIS — <what it does>' label directly above it.")
+            if len(run) > 1 and not re.search(r"block\s+\d+\s+of\s+\d+", label):
+                problems.append(f"C3: {tag}: with several run blocks, each label says 'block N of M'.")
+            nonblank = [l.strip() for l in body if l.strip()]
+            if not nonblank or not nonblank[0].startswith("# ════════ ▶️ START"):
+                problems.append(f"C3: {tag} must start with '# ════════ ▶️ START: <what>'.")
+            if not nonblank or not nonblank[-1].startswith("# ════════ ⏹️ END"):
+                problems.append(f"C3: {tag} must end with '# ════════ ⏹️ END'.")
+            if "⏹️ END" not in near(lines, end, 1):
+                problems.append(f"C3: {tag} needs a '### ⏹️ END' line directly below it.")
+            body_text = "\n".join(body)
+            fence_lang = lines[start].strip().lstrip("`~").strip().lower()
+            cmds = simple_commands(body_text, ps=fence_lang in ("powershell", "pwsh", "ps1", "ps"))
+            if any(argv and argv[0].lower() in ("cd", "set-location", "sl", "chdir", "pushd", "push-location")
+                   for argv in cmds):
+                problems.append(f"C4: {tag} contains a cd. Blocks assume the terminal is already in the repo.")
+            ops = []
+            for argv in cmds:
+                ops.extend(classify(argv, root))
+            for p in gate_problems(ops, gates, presented=True, text_for_fork=body_text):
+                problems.append(f"C2: {tag}: {p}")
+
+    if not problems:
+        allow()
+    counter = stop_counter(payload)
+    if counter > MAX_STOP_BLOCKS:
+        emit({"systemMessage": "dev-skills enforcement: this reply still breaks these rules after "
+                               f"{MAX_STOP_BLOCKS} fixes and was let through so the session isn't stuck:\n- "
+                               + "\n- ".join(problems)})
+    shape = SKELETON if any(p.startswith(("C3", "C5", "C7")) for p in problems) else ""
+    emit({"decision": "block",
+          "reason": "dev-skills enforcement — fix the reply before ending it (see ENFORCEMENT.md):\n- "
+                    + "\n- ".join(problems) + shape})
+
+
+def stop_key(payload: dict) -> str:
+    return "stop-" + re.sub(r"[^A-Za-z0-9_-]", "", f"{payload.get('session_id', '')}-{payload.get('prompt_id', '')}")[:160]
+
+
+def stop_counter(payload: dict) -> int:
+    """Blocks so far for this reply. `stop_hook_active` is false on a reply's first stop
+    and true only while Claude continues because a Stop hook blocked, so a false one
+    starts the count over. That keeps the limit per user message even on Claude Code
+    versions that send no `prompt_id`."""
+    try:
+        path = os.path.join(state_dir(), stop_key(payload))
+        n = (int(read(path) or "0") if payload.get("stop_hook_active") else 0) + 1
+        with open(path, "w", encoding="utf-8") as fh:
+            fh.write(str(n))
+        return n
+    except (OSError, ValueError):
+        return 1
+
+
+def last_message_from_transcript(path: str | None) -> str | None:
+    text = None
+    try:
+        with open(path, encoding="utf-8") as fh:
+            for line in fh:
+                try:
+                    rec = json.loads(line)
+                except ValueError:
+                    continue
+                msg = rec.get("message") or {}
+                if msg.get("role") == "assistant":
+                    parts = msg.get("content")
+                    if isinstance(parts, list):
+                        t = "\n".join(p.get("text", "") for p in parts if isinstance(p, dict) and p.get("type") == "text")
+                        if t:
+                            text = t
+    except (OSError, TypeError):
+        return None
+    return text
+
+
+# --- post-ask: D1 -------------------------------------------------------------
+
+def post_ask(payload: dict) -> NoReturn:
+    inp = payload.get("tool_input") or {}
+    questions = [q.get("question", "") for q in inp.get("questions", []) if isinstance(q, dict)]
+    options = {q.get("question", ""): {o.get("label", "") for o in q.get("options", []) if isinstance(o, dict)}
+               for q in inp.get("questions", []) if isinstance(q, dict)}
+    multi = {q.get("question", ""): bool(q.get("multiSelect")) for q in inp.get("questions", []) if isinstance(q, dict)}
+    resp = payload.get("tool_response")
+    answers = None
+    if isinstance(resp, dict) and isinstance(resp.get("answers"), dict):
+        answers = resp["answers"]
+    elif isinstance(inp.get("answers"), dict):
+        answers = inp["answers"]
+    notes = []
+    if answers is not None:
+        for q in questions:
+            a = answers.get(q)
+            if a is None or not str(a).strip():
+                notes.append(f"'{q}' was NOT answered. Re-ask it and wait. Do not pick a default.")
+            elif options.get(q) and str(a).strip() not in options[q] \
+                    and not (multi.get(q) and all(part.strip() in options[q] for part in str(a).split(","))):
+                notes.append(f"'{q}' was answered in the user's own words: \"{a}\". Respond to that before acting.")
+    else:
+        blob = json.dumps(resp, ensure_ascii=False) if not isinstance(resp, str) else resp
+        for q in questions:
+            if q and (q not in blob or re.search(re.escape(q) + r'"?\s*\(No answer provided\)', blob)):
+                notes.append(f"'{q}' was NOT answered. Re-ask it and wait. Do not pick a default.")
+    if notes:
+        emit({"hookSpecificOutput": {"hookEventName": "PostToolUse",
+                                     "additionalContext": "dev-skills enforcement (D1):\n- " + "\n- ".join(notes)}})
+    allow()
+
+
+# --- main ---------------------------------------------------------------------
+
+RAW = {"text": ""}
+
+
+def main() -> None:
+    mode = sys.argv[1] if len(sys.argv) > 1 else ""
+    # Claude Code sends UTF-8. Decode it as such: Windows' default stdin encoding
+    # (cp1252) garbles emoji and raises on some bytes (▶️ contains 0x8F).
+    RAW["text"] = sys.stdin.buffer.read().decode("utf-8", errors="replace")
+    try:
+        payload = json.loads(RAW["text"] or "{}")
+    except ValueError:
+        payload = {}
+    mark_active(payload)
+    if mode == "pre-tool":
+        pre_tool(payload)
+    elif mode == "stop":
+        if payload.get("stop_hook_active") and stop_counter_peek(payload) > MAX_STOP_BLOCKS:
+            allow()
+        stop_check(payload)
+    elif mode == "post-ask":
+        post_ask(payload)
+    allow()
+
+
+def stop_counter_peek(payload: dict) -> int:
+    try:
+        return int(read(os.path.join(state_dir(), stop_key(payload))) or "0")
+    except (OSError, ValueError):
+        return 0
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except SystemExit:
+        raise
+    except Exception as exc:
+        # Fail closed where it matters: a git, gh, glab, tea or docker command, a
+        # forge API call, or a forge MCP write. Everything else goes through, so a
+        # bug here can't stop the user editing the gate file to decline enforcement.
+        risky = re.search(r'(^|[^A-Za-z])(git|gh|glab|tea|docker)\s|(curl|wget)\s[^"]*(/api/v[134]/|api\.github\.com)'
+                          r'|"tool_name":\s*"mcp__[^"]*(github|gitlab|gitea|forgejo)', RAW["text"], re.I)
+        if len(sys.argv) > 1 and sys.argv[1] == "pre-tool" and risky:
+            pre_decision("deny", f"the enforcement check itself failed ({type(exc).__name__}: {exc}). "
+                                 "Blocked rather than allowed. Report it, or decline enforcement for this session.")
+        sys.exit(0)

@@ -432,6 +432,38 @@
     "path": "category/frontend-visual-taste/designlang-design-extract"
   },
   {
+    "id": "ecommerce-amazon-product-api-skill",
+    "name": "ecommerce-amazon-product-api-skill",
+    "category": "frontend-visual-taste",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users extract structured product listings from Amazon, including titles, ASINs, prices, ratings, and specifications. Use this skill when users want to search for products on Amazon, find the best selling brand products, track price changes for items, get a list of categories with high ratings, compare different brand products on Amazon, extract Amazon product data for market research, look for products in a specific language or marketplace, analyze competitor pricing for keywords, find featured products for search terms, get technical specifications like material or color for product lists.",
+    "path": "category/frontend-visual-taste/ecommerce-amazon-product-api-skill"
+  },
+  {
+    "id": "ecommerce-amazon-product-detail",
+    "name": "ecommerce-amazon-product-detail",
+    "category": "frontend-visual-taste",
+    "repository": "browser-act-skills",
+    "description": "Amazon product detail page scraper: extract full product data from any open Amazon product detail URL (any /dp/{asin} or /gp/product/{asin} page across all Amazon regional TLDs) \u2014 returns asin, url, title, brand, price, listPrice, stars, reviewsCount, starsBreakdown (5/4/3/2/1 star percentages), answeredQuestions, inStock, inStockText, delivery, fastestDelivery, returnPolicy, breadCrumbs, features (bullet points), description, bookDescription, thumbnailImage, highResolutionImages, galleryThumbnails, productOverview (Brand/Model/etc.), attributes (tech spec table), attributesMapped (flat key-value), bestsellerRanks (rank + category + url), variantAttributes (currently selected color/size/style), variantAsins, seller (name + id + url), isAmazonChoice, amazonChoiceText, monthlyPurchaseVolume, hasAPlusContent, hasBrandStory, aiReviewsSummary, reviewsLink, productPageReviews (sample), videosCount, locationText, loadedCountryCode. Works on amazon.com, amazon.co.uk, amazon.de, amazon.co.jp, amazon.fr, amazon.it, amazon.es, amazon.ca, amazon.com.au, amazon.in, amazon.com.mx, amazon.com.br, amazon.nl, amazon.se, amazon.sg, amazon.ae, amazon.sa, amazon.pl, amazon.tr, amazon.eg. Use when user mentions Amazon product page, Amazon /dp/, Amazon dp URL, Amazon ASIN scraper, Amazon product detail, Amazon PDP, Amazon product data, Amazon product info, Amazon product fields, Amazon product attributes, Amazon full field extraction, Amazon per-ASIN enrichment, Amazon rating breakdown, Amazon stars breakdown, Amazon bestseller rank, Amazon BSR, Amazon variants, Amazon variant ASINs, Amazon color size options, Amazon feature bullets, Amazon A+ content, Amazon brand story, Amazon AI review summary, Amazon bought in past month, Amazon monthly sales volume, Amazon Amazon's Choice badge, Amazon seller info, scrape Amazon product, enrich Amazon ASIN, Amazon ASIN details, Amazon product review data. Also applies to bulk ASIN enrichment from a list of URLs, competitive product research, brand catalog audits, price and stock monitoring per ASIN, and building a normalized product dataset from a list of Amazon URLs.",
+    "path": "category/frontend-visual-taste/ecommerce-amazon-product-detail"
+  },
+  {
+    "id": "ecommerce-walmart-product-detail",
+    "name": "ecommerce-walmart-product-detail",
+    "category": "frontend-visual-taste",
+    "repository": "browser-act-skills",
+    "description": "Walmart product detail page extractor: given a walmart.com product URL (walmart.com/ip/...), extract full product data including itemId, title, brand, model, UPC, price, wasPrice, currency, availability, category path, seller info, all images, shortDescription, longDescription, product highlights, full specifications as key-value map, color/size variants with item IDs, fulfillment options (shipping/pickup/delivery with dates), return policy, and review summary with rating breakdown. Use when user mentions walmart product detail, walmart item page, walmart product page, scrape walmart product, extract walmart item, walmart product data, walmart item details, walmart product info, walmart product scraper, walmart item scraper, walmart product URL, walmart ip URL, walmart.com/ip, walmart specifications, walmart product specs, walmart product images, walmart variants, walmart color options, walmart size options, walmart seller info, walmart return policy, walmart fulfillment options, walmart shipping info, walmart availability, walmart product enrichment. Also applies to enriching a list of walmart product URLs with full details, monitoring walmart product price and availability changes, building a walmart product catalog, competitive product research on walmart, and batch collection of full product data from walmart item IDs.",
+    "path": "category/frontend-visual-taste/ecommerce-walmart-product-detail"
+  },
+  {
+    "id": "ecommerce-walmart-product-reviews",
+    "name": "ecommerce-walmart-product-reviews",
+    "category": "frontend-visual-taste",
+    "repository": "browser-act-skills",
+    "description": "Walmart product reviews scraper: given a walmart.com product item ID, navigate to the reviews page and extract paginated customer reviews including reviewId, rating, title, review text, author nickname, submission date, verified purchase status, helpful votes, variant selected (color/size), badges, fulfilled by, seller name, and photo count. Use when user mentions walmart reviews, walmart product reviews, walmart customer reviews, scrape walmart reviews, extract walmart reviews, walmart review scraper, walmart ratings and reviews, walmart review data, walmart review text, walmart review pagination, get reviews from walmart, walmart review collector, walmart verified purchase reviews, walmart review analysis, walmart sentiment analysis, walmart review export, walmart buyer feedback. Also applies to bulk collection of walmart product reviews across multiple items, sentiment analysis on walmart reviews for market research, competitor product review benchmarking on walmart, and monitoring new walmart reviews over time.",
+    "path": "category/frontend-visual-taste/ecommerce-walmart-product-reviews"
+  },
+  {
     "id": "editorial",
     "name": "editorial",
     "category": "frontend-visual-taste",
@@ -974,6 +1006,54 @@
     "repository": "cline-skills",
     "description": "Extract comprehensive site specifications from simple descriptions. Use when analyzing a user's theme request to determine site type, audience, tone, layout requirements, and typography.",
     "path": "category/frontend-visual-taste/site-specification"
+  },
+  {
+    "id": "skills-accessibility-review",
+    "name": "skills-accessibility-review",
+    "category": "frontend-visual-taste",
+    "repository": "anthropics-knowledge-work",
+    "description": "Run a WCAG 2.1 AA accessibility audit on a design or page. Trigger with \"audit accessibility\", \"check a11y\", \"is this accessible?\", or when reviewing a design for color contrast, keyboard navigation, touch target size, or screen reader behavior before handoff.",
+    "path": "category/frontend-visual-taste/skills-accessibility-review"
+  },
+  {
+    "id": "skills-brand-style",
+    "name": "skills-brand-style",
+    "category": "frontend-visual-taste",
+    "repository": "anthropics-knowledge-work",
+    "description": "Sets and updates the owner's brand look and output preferences, which every page and document the plugin produces then follows automatically. Captures the brand from a pasted website link or a plain-words description \u2014 never a hex code, color picker, or upload \u2014 previews it on a sample page, asks how they want their outputs delivered (visual artifacts, Word docs, markdown, Notion pages, Canva Docs, or best-for-the-skill), and saves both to the business profile. Runs inside smb-onboard on first setup and stands alone forever after. Use when the owner says \"update my brand,\" \"we rebranded,\" \"change my colors,\" \"make the reports match our new look,\" \"change how you give me reports,\" \"I want Word docs instead,\" or anything about the look or format of what the plugin hands them.",
+    "path": "category/frontend-visual-taste/skills-brand-style"
+  },
+  {
+    "id": "skills-data-visualization",
+    "name": "skills-data-visualization",
+    "category": "frontend-visual-taste",
+    "repository": "anthropics-knowledge-work",
+    "description": "Create effective data visualizations with Python (matplotlib, seaborn, plotly). Use when building charts, choosing the right chart type for a dataset, creating publication-quality figures, or applying design principles like accessibility and color theory.",
+    "path": "category/frontend-visual-taste/skills-data-visualization"
+  },
+  {
+    "id": "skills-frontend-design",
+    "name": "skills-frontend-design",
+    "category": "frontend-visual-taste",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.",
+    "path": "category/frontend-visual-taste/skills-frontend-design"
+  },
+  {
+    "id": "skills-optimize-text-mesh-pro",
+    "name": "skills-optimize-text-mesh-pro",
+    "category": "frontend-visual-taste",
+    "repository": "unity-technologies-skills",
+    "description": "Optimizes TextMeshPro rendering, memory, and font setup, including font asset stacks, fallback atlases, SDF quality, and worldspace text. Use when the user asks about TMP fonts, CJK or multilingual text, or text performance.",
+    "path": "category/frontend-visual-taste/skills-optimize-text-mesh-pro"
+  },
+  {
+    "id": "skills-urp-postprocessing",
+    "name": "skills-urp-postprocessing",
+    "category": "frontend-visual-taste",
+    "repository": "unity-technologies-skills",
+    "description": "Sets up, configures, and debugs URP post-processing with the Volume framework. Use for bloom, tonemapping, color adjustments, depth of field, vignette, or other Volume overrides.",
+    "path": "category/frontend-visual-taste/skills-urp-postprocessing"
   },
   {
     "id": "sleek",

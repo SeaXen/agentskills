@@ -32,6 +32,14 @@
     "path": "category/business-finance-accounting/accounting-audit-system-builder"
   },
   {
+    "id": "activate-conversion-value-mapper",
+    "name": "activate-conversion-value-mapper",
+    "category": "business-finance-accounting",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"set up conversion values so tROAS optimizes profit not orders\", \"map margin onto my purchase value\", \"build value rules for lead / phone / signup conversions\", or \"stop bidding to revenue when I care about profit\"; defines and QAs the conversion VALUE model \u2014 per-conversion values, margin/net-value adjustment, static-vs-dynamic value rules, proxy values for non-revenue actions, and a value-vs-count sanity check \u2014 as a value-model spec plus a pre-launch value QA sheet. Not for whether the tag fires or UTMs are clean \u2014 use conversion-signal-qa; not for cross-platform double-count de-dup \u2014 use attribution-reconciler; not for scoring R1/R2 \u2014 that is a scored veto in ad-account-auditor. \u4ed8\u8d39\u5e7f\u544a\u8f6c\u5316\u4ef7\u503c\u5efa\u6a21/\u5229\u6da6\u51fa\u4ef7/\u4ef7\u503c\u89c4\u5219QA",
+    "path": "category/business-finance-accounting/activate-conversion-value-mapper"
+  },
+  {
     "id": "ad-attribution-gap",
     "name": "ad-attribution-gap",
     "category": "business-finance-accounting",
@@ -776,6 +784,14 @@
     "path": "category/business-finance-accounting/hackathon-cash-prize"
   },
   {
+    "id": "host-crisis-response-planner",
+    "name": "host-crisis-response-planner",
+    "category": "business-finance-accounting",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"build our social crisis protocol\", \"mentions are exploding \u2014 what do we do first\", or \"when do we pause the posting queue\"; produces a 1-5 severity ladder with tunable Estimated trigger thresholds (mention-velocity multiples vs the 7-day listening baseline, sentiment flip, journalist/regulator contact, employee-conduct class), the first-mechanical-action rule \u2014 pause ALL scheduled posts AND paid amplification, with dated state markers dropped to the channels proposal protocol and reconciled post-incident \u2014 a pre-approved holding-statement library with committed update cadences, when-NOT-to-post rules, a spokesperson/approval matrix, and a post-crisis retro template; re-runs the social-quality-auditor pre-publish gate before un-pausing the queue. Not for email deliverability incidents (blocklist, spam-rate spikes) \u2014 use deliverability-qa; inside a launch window launch-day-conductor owns incident handling. \u793e\u5a92\u5371\u673a\u9884\u6848/\u6682\u505c\u961f\u5217/\u58f0\u660e\u5e93/\u53d1\u8a00\u4eba\u77e9\u9635",
+    "path": "category/business-finance-accounting/host-crisis-response-planner"
+  },
+  {
     "id": "hps-y2k-chrome",
     "name": "hps-y2k-chrome",
     "category": "business-finance-accounting",
@@ -1384,6 +1400,14 @@
     "path": "category/business-finance-accounting/report-builder"
   },
   {
+    "id": "report-roi-calculator",
+    "name": "report-roi-calculator",
+    "category": "business-finance-accounting",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"calculate influencer ROI\", \"prove campaign value\", or \"what was our ROAS\"; produces direct ROI/ROAS, earned media value, attribution-modeled revenue, LTV-based ROI, and a stakeholder-ready summary. Not for building the full slide/written report \u2014 use report-generator. \u8fbe\u4eba\u8425\u9500ROI\u8ba1\u7b97/\u6295\u8d44\u56de\u62a5\u6d4b\u7b97",
+    "path": "category/business-finance-accounting/report-roi-calculator"
+  },
+  {
     "id": "report-writing",
     "name": "report-writing",
     "category": "business-finance-accounting",
@@ -1558,6 +1582,142 @@
     "repository": "opensensenova-sensenova-skills",
     "description": "A library of modular AI skills for office automation, featuring advanced Excel data cleaning, Parquet-based analysis, and productivity workflow components.",
     "path": "category/business-finance-accounting/sensenova"
+  },
+  {
+    "id": "skills-ap-processor",
+    "name": "skills-ap-processor",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Works the bill pile end to end: reads bills and vendor statements out of the AP inbox or from uploaded PDFs and phone photos, pulls out vendor, amount, due date, and line detail, codes each one to the right account and job, matches it against the purchase order and the receiving ticket, then stages the entries and a proposed payment run in QuickBooks, Xero, or NetSuite for the owner to approve in one pass. Nothing is entered and nothing is paid without an explicit yes. Reach for this whenever bills, vendor invoices, or paying people comes up \u2014 including \"what do I owe,\" \"the bills are piling up,\" \"pull the invoices out of my email and into QuickBooks,\" \"code these for me,\" \"who needs to get paid this week,\" \"did we get billed twice,\" or when the owner forwards a supplier invoice with no message at all. Use it before cash-flow-snapshot or month-end-prep so those run on real payables instead of a guess.",
+    "path": "category/business-finance-accounting/skills-ap-processor"
+  },
+  {
+    "id": "skills-cash-flow-snapshot",
+    "name": "skills-cash-flow-snapshot",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Reads AR/AP, historical cash timing, and known fixed costs from the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books) or from PayPal, Square, or Stripe \u2014 or a CSV upload \u2014 and produces a 30/60/90-day cash flow forecast with percentage-variance confidence bands and named risk flags. Delivers a chat summary and a downloadable XLSX. Use when the user asks \"forecast my cash flow,\" \"will I make payroll,\" mentions \"runway,\" or says \"cash crunch.\" Falls back to CSV upload when no connector is live.",
+    "path": "category/business-finance-accounting/skills-cash-flow-snapshot"
+  },
+  {
+    "id": "skills-close-month",
+    "name": "skills-close-month",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Closes the books and turns them into a decision as a three-link chain \u2014 month-end-prep reconciles the ledger against every connected payment processor and writes the P&L narrative, cash-flow-snapshot then refreshes the 30/60/90-day forecast off the newly closed numbers rather than raw ones, and report-builder publishes and distributes the close packet. Requires a ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books) and uses Gusto, PayPal, Ramp, Shopify, Square, and Stripe when connected, falling back to statement or CSV uploads. Trigger on \"close the month,\" \"month-end,\" \"close the books,\" \"reconcile,\" \"send the close packet to my accountant,\" or when the owner asks why revenue or margin moved last month. An owner who wants only the reconciliation and its flags, with no forecast refresh and no packet distribution, routes to month-end-prep directly.",
+    "path": "category/business-finance-accounting/skills-close-month"
+  },
+  {
+    "id": "skills-connect-recommend",
+    "name": "skills-connect-recommend",
+    "category": "business-finance-accounting",
+    "repository": "stripe-ai",
+    "description": "Use this skill when the user asks about Stripe Connect configuration, charge patterns, Dashboard access, or how to get started with Connect, is building a marketplace, platform, multi-vendor store, gig platform, or subscription platform, needs to pay out sellers, vendors, or providers, mentions split payments, revenue sharing, multi-party payments, or similar payment distribution concepts, provides a company URL or business description for a recommendation, builds SaaS that routes money between parties (for example, POS, booking, invoicing \u2014 not operational SaaS without payment routing), asks about onboarding or KYC for merchants, sellers, and vendors, mentions connected account Dashboard or responsibility configurations, or asks about payment flows, white-label payments, or embedded payments.",
+    "path": "category/business-finance-accounting/skills-connect-recommend"
+  },
+  {
+    "id": "skills-financial-statements",
+    "name": "skills-financial-statements",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Generate financial statements (income statement, balance sheet, cash flow) with period-over-period comparison and variance analysis. Use when preparing a monthly or quarterly P&L, closing the books and need to flag material variances, comparing actuals to budget, building a financial summary for leadership review, or looking up GAAP presentation requirements and period-end adjustments.",
+    "path": "category/business-finance-accounting/skills-financial-statements"
+  },
+  {
+    "id": "skills-growth-pulse",
+    "name": "skills-growth-pulse",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Answers one question for an SMB owner \u2014 is the growth engine actually working? Pulls sales trend by channel, funnel conversion, campaign return, best and worst performing products, and customer sentiment from whatever is connected, then ends with the three growth actions worth taking this week. The growth-side twin of business-pulse, which covers the finance side. Use this whenever the owner asks how marketing or sales is performing, whether a campaign paid off, where leads are coming from, why the pipeline is stalling, which products are moving, or says anything like \"is my marketing working,\" \"growth check,\" \"how's the funnel,\" or \"where should I put my money next month.\" Reach for it even when the owner names a single channel rather than growth overall.",
+    "path": "category/business-finance-accounting/skills-growth-pulse"
+  },
+  {
+    "id": "skills-instrument-data-to-allotrope",
+    "name": "skills-instrument-data-to-allotrope",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Convert laboratory instrument output files (PDF, CSV, Excel, TXT) to Allotrope Simple Model (ASM) JSON format or flattened 2D CSV. Use this skill when scientists need to standardize instrument data for LIMS systems, data lakes, or downstream analysis. Supports auto-detection of instrument types. Outputs include full ASM JSON, flattened CSV for easy import, and exportable Python code for data engineers. Common triggers include converting instrument files, standardizing lab data, preparing data for upload to LIMS/ELN systems, or generating parser code for production pipelines.",
+    "path": "category/business-finance-accounting/skills-instrument-data-to-allotrope"
+  },
+  {
+    "id": "skills-invoice-chase",
+    "name": "skills-invoice-chase",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Drafts overdue-invoice reminder emails from the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books) plus PayPal, Stripe, and Airwallex data, matched to each customer's payment history and tone (gentle for good customers, firm for repeat late payers). Sends via PayPal with owner approval; everything else queues as a mail draft, with the Airwallex hosted pay link included where one exists. Use when the user asks \"who owes me money,\" mentions overdue invoices, or wants to follow up on unpaid invoices.",
+    "path": "category/business-finance-accounting/skills-invoice-chase"
+  },
+  {
+    "id": "skills-journal-entry",
+    "name": "skills-journal-entry",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Prepare journal entries with proper debits, credits, and supporting detail. Use when booking month-end accruals (AP, payroll, prepaid), recording depreciation or amortization, posting revenue recognition or deferred revenue adjustments, or documenting an entry for audit review.",
+    "path": "category/business-finance-accounting/skills-journal-entry"
+  },
+  {
+    "id": "skills-journal-entry-prep",
+    "name": "skills-journal-entry-prep",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Prepare journal entries with proper debits, credits, and supporting documentation for month-end close. Use when booking accruals, prepaid amortization, fixed asset depreciation, payroll entries, revenue recognition, or any manual journal entry.",
+    "path": "category/business-finance-accounting/skills-journal-entry-prep"
+  },
+  {
+    "id": "skills-payroll-prep",
+    "name": "skills-payroll-prep",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Gets payroll ready to run without anyone getting shorted: pulls timesheets from Gusto, QuickBooks Payroll, or an uploaded spreadsheet, totals regular, overtime, and PTO hours by person, flags every anomaly it finds \u2014 missed punches, overtime spikes, rate changes, mid-period hires and terminations, hours off the schedule \u2014 and stages the run for the owner to approve line by line before a dollar moves. Anomalies are always raised, never quietly corrected. Once the owner runs it, the journal posts to the ledger or goes to the bookkeeper. Reach for this whenever payroll comes up at all \u2014 \"run payroll,\" \"payroll is due,\" \"check the timecards,\" \"did everyone clock out,\" \"how many hours did the crew put in,\" \"why is payroll so high this week,\" \"I need to pay the guys Friday\" \u2014 and use it after cash-flow-snapshot when the owner is worried about whether payroll clears.",
+    "path": "category/business-finance-accounting/skills-payroll-prep"
+  },
+  {
+    "id": "skills-plan-payroll",
+    "name": "skills-plan-payroll",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Runs the payroll-confidence chain end to end \u2014 forecasts cash across the payroll window with cash-flow-snapshot, ranks and drafts overdue-invoice reminders with invoice-chase to close any gap, then assembles timesheets, flags every anomaly, and stages the run with payroll-prep. On Gusto the run is staged for the owner to submit; on QuickBooks Payroll, or with no payroll system, the last step is a validated run sheet the owner keys in. This chain never presses the payroll button. Builds on the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books), with Gmail or M365, PayPal, Square, Stripe, and either Gusto or QuickBooks Payroll adding detail, and falls back to CSV and timesheet uploads. Use it whenever payroll is the worry, including \"can I make payroll,\" \"payroll is due Friday,\" \"plan payroll,\" \"will I have enough to pay the crew,\" or \"I need to run payroll but money is tight.\" Accepts optional horizon and payroll-date arguments.",
+    "path": "category/business-finance-accounting/skills-plan-payroll"
+  },
+  {
+    "id": "skills-report-builder",
+    "name": "skills-report-builder",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Turns a plain-English description of a recurring report into a real, repeatable report \u2014 defines the metrics, pulls them from whatever data sources are connected, delivers a chat summary plus an XLSX workbook, and saves the definition so the same report reruns on demand or on a schedule. Handles anything from \"sales by location versus last year\" to AR aging to labor as a percentage of revenue. Works fully from an uploaded CSV or XLSX when no connector is available. Use this whenever the owner asks for a report, dashboard, KPI pack, metrics summary, or recurring numbers \u2014 including phrasings like \"can you track this every week,\" \"I need to see these numbers monthly,\" \"build me a report on,\" \"same report as last time,\" or \"put together a KPI dashboard.\" Reach for it even when the owner names the metrics without using the word report.",
+    "path": "category/business-finance-accounting/skills-report-builder"
+  },
+  {
+    "id": "skills-sprint-planning",
+    "name": "skills-sprint-planning",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Plan a sprint \u2014 scope work, estimate capacity, set goals, and draft a sprint plan. Use when kicking off a new sprint, sizing a backlog against team availability (accounting for PTO and meetings), deciding what's P0 vs. stretch, or handling carryover from the last sprint.",
+    "path": "category/business-finance-accounting/skills-sprint-planning"
+  },
+  {
+    "id": "skills-tax-season-organizer",
+    "name": "skills-tax-season-organizer",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Prepares tax-season materials for the owner's accountant, not tax advice. US federal tax; a non-US business gets its closed-books packet instead. Two modes: (1) quarterly estimated tax from YTD net income in the ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books); (2) year-end 1099 prep, scanning the ledger, PayPal, and Stripe for contractors paid over USD 600 into a 1099-NEC list with missing W-9 flags.",
+    "path": "category/business-finance-accounting/skills-tax-season-organizer"
+  },
+  {
+    "id": "skills-variance-analysis",
+    "name": "skills-variance-analysis",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Decompose financial variances into drivers with narrative explanations and waterfall analysis. Use when analyzing budget vs. actual, period-over-period changes, revenue or expense variances, or preparing variance commentary for leadership.",
+    "path": "category/business-finance-accounting/skills-variance-analysis"
+  },
+  {
+    "id": "skills-write-spec",
+    "name": "skills-write-spec",
+    "category": "business-finance-accounting",
+    "repository": "anthropics-knowledge-work",
+    "description": "Write a feature spec or PRD from a problem statement or feature idea. Use when turning a vague idea or user request into a structured document, scoping a feature with goals and non-goals, defining success metrics and acceptance criteria, or breaking a big ask into a phased spec.",
+    "path": "category/business-finance-accounting/skills-write-spec"
   },
   {
     "id": "social-media",

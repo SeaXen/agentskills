@@ -3,8 +3,8 @@
     "id": "dev",
     "name": "dev",
     "repository": "microsoft-playwright-cli",
-    "category": "general",
-    "description": "",
+    "category": "testing-playwright-e2e",
+    "description": "Development workflows for the playwright-cli repository. Use when the user asks about rolling dependencies, releasing, or other repo maintenance tasks.",
     "path": "library/microsoft-playwright-cli/skills/dev",
     "activation_cmd": "python .agents/library/activate_skill.py activate dev",
     "link_cmd": "python .agents/library/activate_skill.py link dev"
@@ -13,8 +13,8 @@
     "id": "playwright",
     "name": "playwright",
     "repository": "microsoft-playwright-cli",
-    "category": "general",
-    "description": "",
+    "category": "terminal-system-tools",
+    "description": "\"Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.\"",
     "path": "library/microsoft-playwright-cli/skills/playwright",
     "activation_cmd": "python .agents/library/activate_skill.py activate playwright",
     "link_cmd": "python .agents/library/activate_skill.py link playwright"
@@ -24,7 +24,7 @@
     "name": "playwright-cli",
     "repository": "microsoft-playwright-cli",
     "category": "general",
-    "description": "",
+    "description": "Automate browser interactions, test web pages and work with Playwright tests.",
     "path": "library/microsoft-playwright-cli/skills/playwright-cli",
     "activation_cmd": "python .agents/library/activate_skill.py activate playwright-cli",
     "link_cmd": "python .agents/library/activate_skill.py link playwright-cli"
@@ -33,8 +33,8 @@
     "id": "playwright-interactive",
     "name": "playwright-interactive",
     "repository": "microsoft-playwright-cli",
-    "category": "general",
-    "description": "",
+    "category": "testing-playwright-e2e",
+    "description": "\"Persistent browser and Electron interaction through `js_repl` for fast iterative UI debugging.\"",
     "path": "library/microsoft-playwright-cli/skills/playwright-interactive",
     "activation_cmd": "python .agents/library/activate_skill.py activate playwright-interactive",
     "link_cmd": "python .agents/library/activate_skill.py link playwright-interactive"
@@ -44,7 +44,7 @@
     "name": "playwright-triage",
     "repository": "microsoft-playwright-cli",
     "category": "general",
-    "description": "",
+    "description": "Triage and fix one microsoft/playwright-cli issue, or do a maintainer's task, unattended inside the Issue triage GitHub Actions workflow (.github/workflows/triage.yml), which a needs-triage, needs-triage-mac or needs-triage-win label starts, or a maintainer starts by hand with an issue, a task or both. Reproduces the issue on the runner, then leaves a verified fix proposal for the workflow to open as a draft PR, in this repo or in microsoft/playwright where the source of the CLI is, or an investigation note for it to post on the issue. Only for that workflow.",
     "path": "library/microsoft-playwright-cli/skills/playwright-triage",
     "activation_cmd": "python .agents/library/activate_skill.py activate playwright-triage",
     "link_cmd": "python .agents/library/activate_skill.py link playwright-triage"
@@ -53,8 +53,8 @@
     "id": "screenshot",
     "name": "screenshot",
     "repository": "microsoft-playwright-cli",
-    "category": "general",
-    "description": "",
+    "category": "code-quality-refactoring",
+    "description": "\"Use when the user explicitly asks for a desktop or system screenshot (full screen, specific app or window, or a pixel region), or when tool-specific capture capabilities are unavailable and an OS-level capture is needed.\"",
     "path": "library/microsoft-playwright-cli/skills/screenshot",
     "activation_cmd": "python .agents/library/activate_skill.py activate screenshot",
     "link_cmd": "python .agents/library/activate_skill.py link screenshot"
@@ -63,10 +63,20 @@
     "id": "screenshots",
     "name": "screenshots",
     "repository": "microsoft-playwright-cli",
-    "category": "general",
-    "description": "",
+    "category": "testing-playwright-e2e",
+    "description": "\"Generate marketing screenshots of your app using Playwright. Use when the user wants to create screenshots for Product Hunt, social media, landing pages, or documentation.\"",
     "path": "library/microsoft-playwright-cli/skills/screenshots",
     "activation_cmd": "python .agents/library/activate_skill.py activate screenshots",
     "link_cmd": "python .agents/library/activate_skill.py link screenshots"
+  },
+  {
+    "id": "skills-playwright-cli",
+    "name": "skills-playwright-cli",
+    "repository": "microsoft-playwright-cli",
+    "category": "general",
+    "description": "Automate browser interactions, test web pages and work with Playwright tests.",
+    "path": "library/microsoft-playwright-cli/skills/skills-playwright-cli",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-playwright-cli",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-playwright-cli"
   }
 ]

@@ -24,6 +24,14 @@
     "path": "category/algorithms-logic/ads-budget"
   },
   {
+    "id": "ads-data-manager-api-setup",
+    "name": "ads-data-manager-api-setup",
+    "category": "algorithms-logic",
+    "repository": "google-skills",
+    "description": "Guides developers through client library installation and authentication setup steps for the Data Manager API. Use this skill when a user is getting started with the Data Manager API and needs to setup their local environment, install the client library, or setup access to the API. Don't use for implementing audience or event ingestion logic (use the data-manager-api-audience-ingestion or data-manager-api-event-ingestion skills instead).",
+    "path": "category/algorithms-logic/ads-data-manager-api-setup"
+  },
+  {
     "id": "ads-math",
     "name": "ads-math",
     "category": "algorithms-logic",
@@ -336,6 +344,22 @@
     "path": "category/algorithms-logic/chief-customer-officer-advisor"
   },
   {
+    "id": "cloud-bigquery-observability",
+    "name": "cloud-bigquery-observability",
+    "category": "algorithms-logic",
+    "repository": "google-skills",
+    "description": "Provides data-retrieval best practices, tool selection guidance, and performant SQL query syntax for BigQuery telemetry across INFORMATION_SCHEMA, Cloud Monitoring, and the REST API. Use when the telemetry to fetch is already known, selecting telemetry tools, writing performant INFORMATION_SCHEMA queries, retrieving telemetry for diagnosing single-job performance bottlenecks, investigating slot contention, job concurrency and queue latency, analyzing reservation capacity, utilization and autoscaling saturation, or auditing capacity-based and on-demand compute and storage resource billable usage. Don't use for root-cause diagnosis or symptom troubleshooting when the cause is unknown (use bigquery-troubleshooting first), or for writing or optimizing business logic SQL (use bigquery-optimization).",
+    "path": "category/algorithms-logic/cloud-bigquery-observability"
+  },
+  {
+    "id": "cloud-secops-detection-engineering",
+    "name": "cloud-secops-detection-engineering",
+    "category": "algorithms-logic",
+    "repository": "google-skills",
+    "description": "Author, validate, test, and deploy YARA-L 2.0 detection rules and evaluate end-to-end detection coverage gaps in Google SecOps. Use when writing new detection rules, tuning existing rules, validating syntax, testing logic against historical telemetry, or evaluating detection coverage against threat intelligence blogs, CVE disclosures, and Threat Detection Opportunities (TDOs) using synthetic UDM events and long-running coverage analysis. Don't use for alert triage (use secops-triage), deep forensic event reconstruction on infected hosts (use secops-investigate), or case management operations (use secops-cases).",
+    "path": "category/algorithms-logic/cloud-secops-detection-engineering"
+  },
+  {
     "id": "code-polish",
     "name": "code-polish",
     "category": "algorithms-logic",
@@ -550,6 +574,14 @@
     "repository": "mukul975-anthropic-cybersecurity-skills",
     "description": "Exploits JWT algorithm confusion where the server's verification library trusts the alg named in the token header, by switching RS256 to HS256 (signing with the RSA public key as HMAC secret), setting alg to none, or injecting kid/jku/x5u headers to supply an attacker-controlled key. Use when testing RS256 JWT auth for algorithm downgrade, alg:none bypass, or key-confusion signature forgery.",
     "path": "category/algorithms-logic/exploiting-jwt-algorithm-confusion-attack"
+  },
+  {
+    "id": "explore-platform-norm-profiler",
+    "name": "explore-platform-norm-profiler",
+    "category": "algorithms-logic",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"build the norm card for this platform\", \"what are the char limits and visible-fold cutoffs here\", \"is the LinkedIn link-in-first-comment thing documented or folklore\", or \"which of our platform cards are stale\"; maintains the dated, versioned per-platform norm cards in the references/platforms/ pack \u2014 char limits, visible-fold cutoffs, hashtag norms, format/aspect specs, link and first-comment placement, disclosure-label mechanics, algorithm emphases (e.g. \u5c0f\u7ea2\u4e66 search+saves weighting) \u2014 every row labeled platform-documented (official doc, Measured) or Estimated-folklore (named source) with last-verified and review-by dates, and any card past its review date flagged stale rather than trusted. Extends the single pack in place; never forks a second one. Not for picking which channels to run \u2014 use channel-portfolio-planner. \u5e73\u53f0\u89c4\u8303\u5361/\u5b57\u7b26\u9650\u5236/\u6298\u53e0\u7ebf/\u8bdd\u9898\u6807\u7b7e/\u7b97\u6cd5\u4fa7\u91cd/\u8fc7\u671f\u6807\u8bb0",
+    "path": "category/algorithms-logic/explore-platform-norm-profiler"
   },
   {
     "id": "firebase-ai-logic-basics",
@@ -920,12 +952,28 @@
     "path": "category/algorithms-logic/nosql-injection"
   },
   {
+    "id": "nurture-newsletter-monetization-planner",
+    "name": "nurture-newsletter-monetization-planner",
+    "category": "algorithms-logic",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"monetize my newsletter\", \"build a sponsorship rate card\", or \"model paid-subscription revenue\"; produces a revenue model (paid tiers, ad/sponsorship inventory + CPM/flat rate card, referral/boost loops), a list-growth \u2194 revenue projection, and honest-offer / disclosure checks for the SEND-D lever. Not for scoring the whole program or running D1 \u2014 use email-quality-auditor; not for the return math \u2014 use roi-calculator; not for the post-click page \u2014 use landing-optimizer. \u90ae\u4ef6newsletter\u53d8\u73b0/\u8d5e\u52a9\u520a\u4f8b/\u4ed8\u8d39\u8ba2\u9605\u6d4b\u7b97",
+    "path": "category/algorithms-logic/nurture-newsletter-monetization-planner"
+  },
+  {
     "id": "nwb-conversion",
     "name": "nwb-conversion",
     "category": "algorithms-logic",
     "repository": "k-dense-ai-scientific-agent-skills",
     "description": "Converts neuroscience acquisition data to Neurodata Without Borders files with NeuroConv and PyNWB, preserves metadata and timebases, checks evidence-based clock alignment, and produces schema validation, NWB Inspector findings and round-trip checks. Use for NWB conversion and synchronization of planar single-channel two-photon TIFF imaging plus timestamped behavioral position CSV; this skill does not perform spike sorting or claim tested support for arbitrary acquisition formats.",
     "path": "category/algorithms-logic/nwb-conversion"
+  },
+  {
+    "id": "observe-social-measurement-loop",
+    "name": "observe-social-measurement-loop",
+    "category": "algorithms-logic",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"run the weekly social readout\", \"which denominator does our engagement rate use\", or \"which posts won this week and what changes next cycle\"; produces the organic-social metric dictionary (every rate names its denominator \u2014 ERR engagement-by-reach vs ERI by-impressions vs ER-by-follower \u2014 locked across periods), median-not-mean per-post rollups with organic and boosted separated, EMV as labeled exec-translation only (never inside any score), an attributed CHAOSS/Orbit-style community-health readout with employees excluded, and the best/worst-performer write-back the next calendar cycle consumes. Not for dollar-ROI math or the ECHO profile result gate verdict \u2014 use roi-calculator and social-quality-auditor. \u793e\u5a92\u5468\u62a5/\u4e92\u52a8\u7387\u5206\u6bcd/\u6307\u6807\u5b57\u5178/\u590d\u76d8\u56de\u5199",
+    "path": "category/algorithms-logic/observe-social-measurement-loop"
   },
   {
     "id": "omnistudio-datapacks-deploy",
@@ -958,6 +1006,14 @@
     "repository": "tradermonty-claude-trading-skills",
     "description": "Options trading strategy analysis and simulation tool. Provides theoretical pricing using Black-Scholes model, Greeks calculation, strategy P/L simulation, and risk management guidance. Use when user requests options strategy analysis, covered calls, protective puts, spreads, iron condors, earnings plays, or options risk management. Includes volatility analysis, position sizing, and earnings-based strategy recommendations. Educational focus with practical trade simulation.",
     "path": "category/algorithms-logic/options-strategy-advisor"
+  },
+  {
+    "id": "orchestrate-bid-strategy-planner",
+    "name": "orchestrate-bid-strategy-planner",
+    "category": "algorithms-logic",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"pick a bid strategy\", \"set a tCPA/tROAS target\", or \"plan the learning-phase entry\"; produces a bid-strategy choice (tCPA / tROAS / max-conversions / manual CPC), the starting target math, a portfolio grouping map, and a learning-phase entry plan. Not for splitting the budget across campaigns \u2014 use budget-optimizer; not for in-flight pacing/scale moves \u2014 use budget-pacing-monitor; not for scoring the account \u2014 use ad-account-auditor. \u51fa\u4ef7\u7b56\u7565/tCPA\u76ee\u6807/tROAS/\u5b66\u4e60\u671f",
+    "path": "category/algorithms-logic/orchestrate-bid-strategy-planner"
   },
   {
     "id": "paid-measurement-loop",
@@ -1152,6 +1208,14 @@
     "path": "category/algorithms-logic/programmatic-seo-builder"
   },
   {
+    "id": "prove-launch-retro-analyzer",
+    "name": "prove-launch-retro-analyzer",
+    "category": "algorithms-logic",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"run a launch retro / post-mortem\", \"compare launch results vs targets by channel\", or \"decide what to keep or kill for the next launch\"; produces a structured D1/W1/M1 retrospective \u2014 a per-channel actual-vs-target table (UTM-attributed own analytics as the truth column, platform self-reported numbers as reference, every figure labeled Measured / User-provided / Estimated), a 5-Whys chain on the single largest miss, keep / kill / change decisions per channel, 3-5 actionable learnings for the next launch, and an outcome snapshot submitted to the launch registry. Not for return math (CPA / ROI) \u2014 use roi-calculator; not for the stakeholder-facing report writeup \u2014 use report-generator; not for a metric deep-dive \u2014 use performance-analyzer. \u53d1\u5e03\u590d\u76d8/\u6e20\u9053\u5f52\u56e0/5-Whys/keep-kill",
+    "path": "category/algorithms-logic/prove-launch-retro-analyzer"
+  },
+  {
     "id": "pybamm",
     "name": "pybamm",
     "category": "algorithms-logic",
@@ -1214,6 +1278,14 @@
     "repository": "ericosiu-ai-marketing-skills",
     "description": "Use when someone asks to find the \"stupid human steps\" in how work gets done, where a person is the bottleneck for a team of agents, how to redesign a process from zero, or to run the weekly \"Elon algorithm\" pass (question, delete, simplify, speed up, automate) over an agent fleet. Also use as a routine: weekly full pass with an outside reviewer, plus weekday incremental runs that propose at most one new change or stay silent. Also use when work arrives \"one drop at a time\" (batch waits, daily-only runs, per-item human review) and should become a continuous stream, or when deciding how much autonomy an ask type has earned, what threshold makes an input worth acting on, or which lanes cost too much per real outcome. It proposes and builds only internal, reversible checks. It never sends, posts, spends, enrolls, deletes, merges or changes a routine.",
     "path": "category/algorithms-logic/reimagine-work"
+  },
+  {
+    "id": "report-performance-analyzer",
+    "name": "report-performance-analyzer",
+    "category": "algorithms-logic",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"analyze influencer campaign performance\", \"compare influencers\", or \"find what content worked\"; produces metric scorecards vs target and benchmark, platform/influencer/content rankings, engagement-quality and sentiment reads, conversion-attribution breakdowns, and ranked learnings. Not for dollar-level return math \u2014 use roi-calculator. \u8fbe\u4eba\u8425\u9500\u6548\u679c\u5206\u6790/\u6295\u653e\u590d\u76d8",
+    "path": "category/algorithms-logic/report-performance-analyzer"
   },
   {
     "id": "resilience",
@@ -1280,6 +1352,22 @@
     "path": "category/algorithms-logic/sales-quota-setting"
   },
   {
+    "id": "scale-attribution-reconciler",
+    "name": "scale-attribution-reconciler",
+    "category": "algorithms-logic",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when platform-reported conversions disagree with GA4/ecommerce, when you suspect Meta and Google are double-counting the same sales, or for a standing (monthly) reconciliation workbook that de-dups stacked credit against an order-ID truth set, normalizes attribution windows and currency, compares attribution models, and reads incrementality from a geo/holdout test. Not for the point-in-time R2 veto or RQS gate \u2014 use ad-account-auditor; not for the ROI/ROAS ratio math itself \u2014 use roi-calculator; not for organic dark-social share attribution or GA4 direct-traffic decomposition \u2014 use dark-social-attributor. \u4ed8\u8d39\u5e7f\u544a\u5f52\u56e0\u5bf9\u8d26/\u53bb\u91cd/\u589e\u91cf",
+    "path": "category/algorithms-logic/scale-attribution-reconciler"
+  },
+  {
+    "id": "scale-paid-measurement-loop",
+    "name": "scale-paid-measurement-loop",
+    "category": "algorithms-logic",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"read back\" a paid campaign change, \"did this ad change work\", or \"compare ROAS/CPA before and after\"; reads ROAS/CPA against a control over a fixed readback window and returns a Promote / Keep-testing / Rollback / Unproven readback decision with the math delegated to roi-calculator. Not for RQS scoring or veto adjudication \u2014 use ad-account-auditor; not for the ROI ratio math \u2014 use roi-calculator; not for cross-channel rollups \u2014 use performance-analyzer. \u4ed8\u8d39\u5e7f\u544a\u590d\u76d8/ROAS\u56de\u770b/\u6295\u653e\u6548\u679c\u5f52\u56e0",
+    "path": "category/algorithms-logic/scale-paid-measurement-loop"
+  },
+  {
     "id": "secops-detection-engineering",
     "name": "secops-detection-engineering",
     "category": "algorithms-logic",
@@ -1304,6 +1392,134 @@
     "path": "category/algorithms-logic/siege"
   },
   {
+    "id": "skills-build-live-game",
+    "name": "skills-build-live-game",
+    "category": "algorithms-logic",
+    "repository": "unity-technologies-skills",
+    "description": "Builds and operates a live game's backend with Unity Gaming Services. Make sure to use this skill when the user wants trusted server-side game logic, player progress, remote configuration, sign-in, achievements, battle passes or leaderboards.",
+    "path": "category/algorithms-logic/skills-build-live-game"
+  },
+  {
+    "id": "skills-dart-add-unit-test",
+    "name": "skills-dart-add-unit-test",
+    "category": "algorithms-logic",
+    "repository": "dart-lang-skills",
+    "description": "Write and organize unit tests for functions, methods, and classes using `package:test`. Use when creating new logic or fixing bugs to ensure code remains correct and regression-free.",
+    "path": "category/algorithms-logic/skills-dart-add-unit-test"
+  },
+  {
+    "id": "skills-dyl-mode",
+    "name": "skills-dyl-mode",
+    "category": "algorithms-logic",
+    "repository": "cursor-plugins",
+    "description": "Dylan's agent style on top of pstack: concise verified delivery, root causes over symptom patches, The Algorithm before design, plain /bro replies, live UI proof, reuse/simplify, and hard merge gates. Use for Dylan, /dyl-mode, or his style. \"Get PR green\" \u2192 /dyl-ready-pr. \"Review this PR like me\" \u2192 /dyl-review. Figma URL \u2192 /build-figma.",
+    "path": "category/algorithms-logic/skills-dyl-mode"
+  },
+  {
+    "id": "skills-email-sequence",
+    "name": "skills-email-sequence",
+    "category": "algorithms-logic",
+    "repository": "anthropics-knowledge-work",
+    "description": "Design and draft multi-email sequences with full copy, timing, branching logic, exit conditions, and performance benchmarks. Use when building onboarding, lead nurture, re-engagement, win-back, or product launch flows, when you need a complete drip campaign with A/B test suggestions, or when mapping a sequence end-to-end with a flow diagram.",
+    "path": "category/algorithms-logic/skills-email-sequence"
+  },
+  {
+    "id": "skills-firebase-ai-logic-basics",
+    "name": "skills-firebase-ai-logic-basics",
+    "category": "algorithms-logic",
+    "repository": "firebase-agent-skills",
+    "description": "Integrates Firebase AI Logic (formerly Vertex AI for Firebase) into mobile and web apps (Android, iOS, Web, and Flutter) to call Gemini models from client code. Use when provisioning or initializing Firebase AI Logic, or adding Gemini features to an app: text generation, multimodal input, chat, streaming, structured output, hybrid on-device inference, App Check protection, or switching models with Remote Config.",
+    "path": "category/algorithms-logic/skills-firebase-ai-logic-basics"
+  },
+  {
+    "id": "skills-firecrawl-research-index",
+    "name": "skills-firecrawl-research-index",
+    "category": "algorithms-logic",
+    "repository": "firecrawl-cli",
+    "description": "Find the papers that answer a research query in Firecrawl's research paper index \u2014 a corpus of paper abstracts whose largest share is biomedical and life-science literature (PubMed, bioRxiv, medRxiv), alongside arXiv preprints in CS, physics, and math \u2014 using semantic search, semantic and structural expansion, and in-body verification. Use this skill for literature-finding and paper-retrieval tasks of any kind, including clinical, biomedical, drug, gene, disease, and other life-science questions, whether the answer is a single paper or a full multi-paper set. The index is reached only through the `firecrawl_research_*` MCP tools or the `firecrawl research` CLI subcommands. Calling `firecrawl_search` with its `categories` option set to `[\"research\"]` is a different feature \u2014 it filters ordinary web search to research-affiliated websites (the list includes PubMed, bioRxiv, medRxiv, arXiv, and publisher sites) and returns page results from them, without querying the paper records in this index.",
+    "path": "category/algorithms-logic/skills-firecrawl-research-index"
+  },
+  {
+    "id": "skills-math-olympiad",
+    "name": "skills-math-olympiad",
+    "category": "algorithms-logic",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "Solve competition math problems (IMO, Putnam, USAMO, AIME) with adversarial",
+    "path": "category/algorithms-logic/skills-math-olympiad"
+  },
+  {
+    "id": "skills-principle-boundary-discipline",
+    "name": "skills-principle-boundary-discipline",
+    "category": "algorithms-logic",
+    "repository": "cursor-plugins",
+    "description": "Apply when wiring validation, error handling, or framework adapters. Concentrate guards at system boundaries (CLI, config, network, external APIs); trust internal types and keep business logic in pure functions.",
+    "path": "category/algorithms-logic/skills-principle-boundary-discipline"
+  },
+  {
+    "id": "skills-principle-foundational-thinking",
+    "name": "skills-principle-foundational-thinking",
+    "category": "algorithms-logic",
+    "repository": "cursor-plugins",
+    "description": "Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-feature work, asking what concurrent actors share. Get the data structures right so downstream code becomes obvious.",
+    "path": "category/algorithms-logic/skills-principle-foundational-thinking"
+  },
+  {
+    "id": "skills-principle-model-the-domain",
+    "name": "skills-principle-model-the-domain",
+    "category": "algorithms-logic",
+    "repository": "cursor-plugins",
+    "description": "Apply when writing stateful logic, or when code branches a lot or repeats a shape assumption across files.",
+    "path": "category/algorithms-logic/skills-principle-model-the-domain"
+  },
+  {
+    "id": "skills-principle-the-algorithm",
+    "name": "skills-principle-the-algorithm",
+    "category": "algorithms-logic",
+    "repository": "cursor-plugins",
+    "description": "Apply to any non-trivial change before designing it. Make the requirement less dumb, delete, optimize, accelerate, automate, in that order, then run it again on the result. The reply names the requirement you questioned and what you deleted.",
+    "path": "category/algorithms-logic/skills-principle-the-algorithm"
+  },
+  {
+    "id": "skills-resilience",
+    "name": "skills-resilience",
+    "category": "algorithms-logic",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Resilience patterns for .NET 10 applications using Polly v8. Covers retry, circuit breaker, timeout, fallback, rate limiter, hedging, and composing resilience pipelines. Load this skill when implementing retry logic, circuit breakers, handling transient failures, or when the user mentions \"Polly\", \"resilience\", \"retry\", \"circuit breaker\", \"timeout\", \"fallback\", \"rate limit\", \"hedging\", \"transient fault\", \"HttpClient resilience\", or \"resilience pipeline\".",
+    "path": "category/algorithms-logic/skills-resilience"
+  },
+  {
+    "id": "skills-siege",
+    "name": "skills-siege",
+    "category": "algorithms-logic",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "Work on one hard mathematics problem in rounds: each round a judge writes a few self-contained questions, independent workers answer them, and the judge keeps a ledger of what is proved, refuted and open, until the judge concludes or the rounds run out, and then a proof.md says plainly what is and is not proved. A run takes hours and dozens of worker runs. Usage: /math-proof:siege [NAME=value settings] <the problem, stated in full, or the path of a file holding it>.",
+    "path": "category/algorithms-logic/skills-siege"
+  },
+  {
+    "id": "skills-solo",
+    "name": "skills-solo",
+    "category": "algorithms-logic",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "Work on one hard mathematics problem in this session yourself, with no sub-agents: reason in stages, record each settled step in a notes file so that nothing written is lost if a response is cut off, and end with a self-contained proof.md. Usage: /math-proof:solo <the problem, stated in full, or the path of a file holding it>.",
+    "path": "category/algorithms-logic/skills-solo"
+  },
+  {
+    "id": "skills-tax-prep",
+    "name": "skills-tax-prep",
+    "category": "algorithms-logic",
+    "repository": "anthropics-knowledge-work",
+    "description": "Prepares tax materials as a two-link chain \u2014 month-end-prep confirms the books are closed and reconciled first, then tax-season-organizer calculates the quarterly estimated payment or builds the year-end 1099-NEC list and accountant packet from those closed numbers. Requires a ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books); uses Gusto, PayPal, and Stripe when connected, else CSV upload. US federal tax math; a non-US business gets the closed-books packet. Prep material for a CPA, never tax advice, nothing filed. Trigger on \"quarterly taxes,\" \"estimated tax payment,\" \"how much should I set aside,\" \"1099s,\" \"1099-NEC,\" \"W-9s,\" \"year-end tax prep,\" \"get my books ready for my accountant,\" any phrasing that suggests a tax deadline is coming, or a question about net profit or YTD income that sounds like worry about a tax bill. An owner who says the period's books are already closed routes to tax-season-organizer directly.",
+    "path": "category/algorithms-logic/skills-tax-prep"
+  },
+  {
+    "id": "skills-validate-data",
+    "name": "skills-validate-data",
+    "category": "algorithms-logic",
+    "repository": "anthropics-knowledge-work",
+    "description": "QA an analysis before sharing -- methodology, accuracy, and bias checks. Use when reviewing an analysis before a stakeholder presentation, spot-checking calculations and aggregation logic, verifying a SQL query's results look right, or assessing whether conclusions are actually supported by the data.",
+    "path": "category/algorithms-logic/skills-validate-data"
+  },
+  {
     "id": "slo-architect",
     "name": "slo-architect",
     "category": "algorithms-logic",
@@ -1318,6 +1534,14 @@
     "repository": "reason-machines-trending-skills",
     "description": "Reference HLSL shader implementations for the Slug font rendering algorithm, enabling high-quality GPU-accelerated vector font and glyph rendering.",
     "path": "category/algorithms-logic/slug-font-rendering"
+  },
+  {
+    "id": "social-listening-reddit-competitor-analysis-api-skill",
+    "name": "social-listening-reddit-competitor-analysis-api-skill",
+    "category": "algorithms-logic",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users extract structured data from Reddit posts and comments via BrowserAct API. Agent should proactively apply this skill when users express needs like analyzing competitor mentions on Reddit, tracking brand sentiment in Reddit comments, extracting Reddit discussions for market research, finding popular Reddit posts by keywords, monitoring community feedback on specific topics, gathering user reviews from Reddit threads, searching for Reddit posts within a specific date range, sorting Reddit discussions by relevance or hotness, compiling nested Reddit comments for deep analysis, building a structured dataset of Reddit conversations, discovering trending topics in specific subreddits, or monitoring social media activity for specific brands on Reddit.",
+    "path": "category/algorithms-logic/social-listening-reddit-competitor-analysis-api-skill"
   },
   {
     "id": "social-measurement-loop",
@@ -1542,6 +1766,14 @@
     "repository": "trailofbits-skills",
     "description": "Mutation-driven test vector generation. Finds implementations of a cryptographic algorithm or protocol, runs mutation testing to identify escaped mutants, then generates new test vectors that deliberately exercise the uncovered code paths. Compares before/after mutation kill rates to prove vector effectiveness. Use when generating cryptographic test vectors, measuring Wycheproof coverage gaps, finding escaped mutants via mutation testing, creating cross-implementation test suites, or improving test vector coverage for crypto primitives.",
     "path": "category/algorithms-logic/vector-forge"
+  },
+  {
+    "id": "video-platforms-douyin-video-search",
+    "name": "video-platforms-douyin-video-search",
+    "category": "algorithms-logic",
+    "repository": "browser-act-skills",
+    "description": "Searches Douyin (douyin.com) for videos by keyword and returns structured video data including author info, stats, cover, description, hashtags, and download URL. Supports date range filtering and sorting by relevance, likes, or recency. Use when user mentions Douyin search, scrape Douyin videos, collect TikTok China videos, extract douyin video data, grab douyin results, fetch douyin keyword videos, douyin video list, douyin content mining, search douyin by keyword, douyin likes filter, douyin date filter, douyin video download links, douyin creator info, douyin hashtag extraction, douyin video scraper, douyin KOL research, douyin content analysis.",
+    "path": "category/algorithms-logic/video-platforms-douyin-video-search"
   },
   {
     "id": "web-app-penetration-testing",

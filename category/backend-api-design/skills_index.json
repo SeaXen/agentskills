@@ -96,6 +96,46 @@
     "path": "category/backend-api-design/ads"
   },
   {
+    "id": "ads-data-manager-api-audience-ingestion",
+    "name": "ads-data-manager-api-audience-ingestion",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Guides developers through managing (adding, removing, and clearing) audience members for Google products using the Data Manager API and its associated client libraries. Use this skill when the user wants to upload audience members, remove specific users, or clear/replace an entire audience for Customer Match, mobile device ID audiences, or any other audience use case supported by the Data Manager API. Don't use for uploading events or conversions (use the data-manager-api-event-ingestion skill).",
+    "path": "category/backend-api-design/ads-data-manager-api-audience-ingestion"
+  },
+  {
+    "id": "ads-data-manager-api-event-ingestion",
+    "name": "ads-data-manager-api-event-ingestion",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Guides developers through implementing event and conversion ingestion to Google products using the Data Manager API /v1/events/ingest endpoint and its associated client libraries. Use this skill when the user wants to upload offline conversions, enhanced conversions for leads, click conversions, Google Analytics web or app events, or any other event ingestion use case supported by the Data Manager API. Don't use for uploading audience members (use the data-manager-api-audience-ingestion skill).",
+    "path": "category/backend-api-design/ads-data-manager-api-event-ingestion"
+  },
+  {
+    "id": "ads-google-ads-api-account-diagnostics",
+    "name": "ads-google-ads-api-account-diagnostics",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Diagnoses Google Ads account performance issues such as conversion loss (value or volume), low lead flow/volume, and lost impression share (opportunities) due to ad rank, bids, or budgets. Use when troubleshooting sudden performance drops, analyzing campaign impression share metrics, investigating low lead flow, or searching for bidding and budget constraints. Don't use for setting up new campaigns, uploading conversion events directly, or general Google Mobile Ads SDK integration issues (use gma-android-integrate instead).",
+    "path": "category/backend-api-design/ads-google-ads-api-account-diagnostics"
+  },
+  {
+    "id": "ads-google-ads-api-mcp-setup",
+    "name": "ads-google-ads-api-mcp-setup",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Guides developers through downloading, configuring, and installing the official open-source Google Ads MCP Server. Use this skill when a user wants to connect their AI assistant (such as Gemini, Claude Code, or Cursor) to their Google Ads account to query campaigns or retrieve reporting metrics using natural language.",
+    "path": "category/backend-api-design/ads-google-ads-api-mcp-setup"
+  },
+  {
+    "id": "ads-google-ads-api-quickstart",
+    "name": "ads-google-ads-api-quickstart",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Guides developers through Google Ads API quickstart: credential setup, choosing from 6 client libraries/REST, configuring environments, and running a \"retrieve campaigns\" script. Troubleshoots common setup errors: USER_PERMISSION_DENIED, login_customer_id issues, and DEVELOPER_TOKEN_NOT_APPROVED.",
+    "path": "category/backend-api-design/ads-google-ads-api-quickstart"
+  },
+  {
     "id": "ads-pinterest",
     "name": "ads-pinterest",
     "category": "backend-api-design",
@@ -574,6 +614,22 @@
     "repository": "nvidia-skills",
     "description": "Calibrates pre-recorded `cam_*.mp4` datasets through the AutoMagicCalib REST API. Use for user-supplied local MP4s; route live RTSP streams to `amc-run-rtsp-calibration`.",
     "path": "category/backend-api-design/amc-run-video-calibration"
+  },
+  {
+    "id": "analytics-google-analytics-admin-api-basics",
+    "name": "analytics-google-analytics-admin-api-basics",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Manages Google Analytics account and property settings, enables the Analytics Admin API via the Cloud CLI, lists accounts and properties, and manages data streams, custom dimensions, conversion events, and integrations. Use when you need to programmatically configure Google Analytics accounts, provision properties, manage data retention, configure Measurement Protocol secrets, or manage Firebase and Google Ads links.",
+    "path": "category/backend-api-design/analytics-google-analytics-admin-api-basics"
+  },
+  {
+    "id": "analytics-google-analytics-data-api-basics",
+    "name": "analytics-google-analytics-data-api-basics",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Manages Google Analytics reporting data, enables the Analytics Data API via the Cloud CLI, and creates reports using the Google Analytics Data API (v1beta). Use when you need to interact with Google Analytics properties, run customized analytics reports, query metrics (like activeUsers, screenPageViews) and dimensions (like city, date), check metrics and dimensions compatibility, or verify API enablement. Don't use for Google Analytics Admin API operations (e.g., creating properties, managing users) or for front-end tracking installation.",
+    "path": "category/backend-api-design/analytics-google-analytics-data-api-basics"
   },
   {
     "id": "analyzing-api-gateway-access-logs",
@@ -1736,6 +1792,14 @@
     "path": "category/backend-api-design/azure-kubernetes-app-deploy"
   },
   {
+    "id": "azure-kubernetes-azure-kubernetes-app-deploy",
+    "name": "azure-kubernetes-azure-kubernetes-app-deploy",
+    "category": "backend-api-design",
+    "repository": "microsoft-azure-skills",
+    "description": "Use when deploying an existing web application or API to an already-running Azure Kubernetes Service cluster. Detects the framework, generates a Dockerfile and Kubernetes manifests, validates against AKS Deployment Safeguards, and deploys with verification. WHEN: deploy app to AKS, deploy to existing AKS cluster, containerize app for Kubernetes, generate K8s manifests for Azure, set up CI/CD for AKS, my AKS deployment is failing safeguard checks, I have a Django/Express/Spring Boot app to run on AKS. DO NOT USE FOR: creating or provisioning an AKS cluster (use azure-kubernetes), assessing migration to AKS Automatic (use azure-kubernetes-automatic-readiness), or deploying to non-AKS targets like Web Apps, Container Apps, or Functions.",
+    "path": "category/backend-api-design/azure-kubernetes-azure-kubernetes-app-deploy"
+  },
+  {
     "id": "azure-mgmt-apicenter-dotnet",
     "name": "azure-mgmt-apicenter-dotnet",
     "category": "backend-api-design",
@@ -2488,6 +2552,94 @@
     "path": "category/backend-api-design/clinvar-database"
   },
   {
+    "id": "cloud-agent-platform-deploy",
+    "name": "cloud-agent-platform-deploy",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Deploy open models or custom weights from Model Garden to Agent Platform endpoints, check the status of an in-progress deployment operation, or clean up resources by undeploying models and deleting endpoints. Use when asked to actively deploy a model, list the Model Garden CATALOG of available models, check if a specific model is deployable (`gcloud ai model-garden models list-deployment-config`), query deployment cost, troubleshoot deployment errors (like quota limits), or undeploy/clean up endpoints. Also use when copying and deploying a 1P Tuned Model. Don't use for pure listing/discovery questions of the form \"is X deployed?\", \"list my endpoints\", or \"which regions have models running?\" \u2014 for those use `agent-platform-endpoint-management`. Don't use for running model evaluations (use `agent-platform-eval-flywheel` skill).",
+    "path": "category/backend-api-design/cloud-agent-platform-deploy"
+  },
+  {
+    "id": "cloud-agent-platform-endpoint-management",
+    "name": "cloud-agent-platform-endpoint-management",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Manages Agent Platform serving endpoints. Use when you need to create, list, describe, update, or delete serving endpoints for model deployment on Agent Platform. Also use when troubleshooting endpoint permission, quota, or resource busy errors. Don't use for deploying models to endpoints or for running model evaluations.",
+    "path": "category/backend-api-design/cloud-agent-platform-endpoint-management"
+  },
+  {
+    "id": "cloud-agent-platform-migrate-from-ai-studio",
+    "name": "cloud-agent-platform-migrate-from-ai-studio",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Guides agents and users through migrating from Gemini API in Google AI Studio to Gemini Enterprise Agent Platform (formerly Vertex AI). Use this skill when moving applications to Google Cloud, to leverage Cloud credits, or to unify inferencing with other Cloud infrastructure (IAM, billing, telemetry).",
+    "path": "category/backend-api-design/cloud-agent-platform-migrate-from-ai-studio"
+  },
+  {
+    "id": "cloud-agent-platform-tuning",
+    "name": "cloud-agent-platform-tuning",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Agent Platform Model Tuning. Use when you need to fine-tune open models or Gemini models using Agent Platform infrastructure. Don't use for model training outside Agent Platform, model deployment to endpoints (use `agent-platform-deploy`), or managing serving endpoints (use `agent-platform-endpoint-management`).",
+    "path": "category/backend-api-design/cloud-agent-platform-tuning"
+  },
+  {
+    "id": "cloud-agent-platform-tuning-management",
+    "name": "cloud-agent-platform-tuning-management",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Manages GenAI tuning jobs in Agent Platform. Use this to list, get, or cancel ongoing model tuning jobs. Don't use for fine-tuning models (use `agent-platform-tuning`), deploying models to endpoints (use `agent-platform-deploy`), or managing serving endpoints (use `agent-platform-endpoint-management`).",
+    "path": "category/backend-api-design/cloud-agent-platform-tuning-management"
+  },
+  {
+    "id": "cloud-api-gateway-backend-security-and-rate-limiting",
+    "name": "cloud-api-gateway-backend-security-and-rate-limiting",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Secures and rate limits backend services behind Google Cloud API Gateway across OpenAPI 2.0 and OpenAPI 3.0.x API configurations, including MCP-enabled gateways. Use when configuring API key or JWT authentication, locking down Cloud Run or Cloud Run functions backends with a gateway service account, reading authenticated claims from X-Apigateway-Api-Userinfo, setting per-project request quotas, or diagnosing HTTP 429 and HTTP 500 Service Control Quota errors. Do not use for Apigee, GKE Gateway API, Cloud Load Balancing custom domain setup, or LLM model routing.",
+    "path": "category/backend-api-design/cloud-api-gateway-backend-security-and-rate-limiting"
+  },
+  {
+    "id": "cloud-api-gateway-mcp-server",
+    "name": "cloud-api-gateway-mcp-server",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Configures Google Cloud API Gateway to act as a remote Model Context Protocol (MCP) server (Public Preview) that exposes REST APIs as agent tools over HTTP (POST /mcp). Use when migrating OpenAPI 2.0 specs to OpenAPI 3.x for MCP, annotating specs with x-google-api-management.mcp and x-google-mcp-tool, securing tools/list with JWTs or API keys, connecting Google ADK (McpToolset) or Apigee API hub and Agent Registry, or troubleshooting MCP JSON-RPC errors (-32601, -32602, -32000). Do not use for Apigee X proxy bundles, outbound LLM model routing, or GKE Gateway API.",
+    "path": "category/backend-api-design/cloud-api-gateway-mcp-server"
+  },
+  {
+    "id": "cloud-apigee-agent-gateway-governance",
+    "name": "cloud-apigee-agent-gateway-governance",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Stands up an Apigee API proxy that a Google Cloud Agent Gateway calls as an ext-proc (Service Extension) callout on an agent's LLM traffic, to meter token usage per model, extract caller identity, and apply Model Armor prompt screening or a semantic cache. Use when wiring Apigee in as an AI gateway behind an Agent Gateway, when an agent's model egress needs governing, or when a callout proxy returns no verdict and you need to find out why. The distinguishing question is whether Apigee forwards the traffic or only inspects it: this skill is inspect-only, and builds the proxy itself. Don't use it when Apigee is meant to receive a request and route it onward to a backend \u2014 including hosting an MCP server behind Apigee \u2014 which needs a proxy with a target instead. Don't use for governing the agent's calls to tools or MCP servers. Don't use for choosing or switching which model a request goes to. Don't use for creating the Agent Gateway itself, nor for Apigee hybrid.",
+    "path": "category/backend-api-design/cloud-apigee-agent-gateway-governance"
+  },
+  {
+    "id": "cloud-application-integration-authoring",
+    "name": "cloud-application-integration-authoring",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Builds, versions, publishes, tests, and executes Google Cloud Application Integration workflows through the REST API and Python discovery client, and promotes versions across environments. Use when listing integrations, downloading or uploading integration versions as JSON, configuring API triggers or config variables, publishing drafts, invoking integrations, or automating CI/CD promotion. Do not use for initial region provisioning and IAM setup (use application-integration-basics) or diagnosing failed runs and logs (use application-integration-troubleshooting).",
+    "path": "category/backend-api-design/cloud-application-integration-authoring"
+  },
+  {
+    "id": "cloud-application-integration-basics",
+    "name": "cloud-application-integration-basics",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Explains Google Cloud Application Integration concepts, region provisioning, IAM roles, run-as service accounts, interface choices (REST, Python discovery client, Terraform, ADK), and platform limits. Use when setting up Application Integration in a Google Cloud project, enabling required APIs, provisioning a region, configuring IAM or run-as service accounts, choosing between Application Integration and custom code, or checking quotas and timeouts. Do not use for building, publishing, or invoking integrations (use application-integration-authoring) or diagnosing failed or stuck runs and logs (use application-integration-troubleshooting).",
+    "path": "category/backend-api-design/cloud-application-integration-basics"
+  },
+  {
+    "id": "cloud-application-integration-troubleshooting",
+    "name": "cloud-application-integration-troubleshooting",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Diagnoses failed, stuck, or silent Google Cloud Application Integration runs and Integration Connectors tasks using the REST API, Cloud Logging, and Cloud Monitoring. Use when an integration fails, returns HTTP 200 without doing the expected work, hangs in a suspended or retry state, or hits IAM, run-as service account, connector health, or quota errors. Do not use for initial region provisioning (use application-integration-basics) or building and deploying versions (use application-integration-authoring).",
+    "path": "category/backend-api-design/cloud-application-integration-troubleshooting"
+  },
+  {
     "id": "cloud-build-basics",
     "name": "cloud-build-basics",
     "category": "backend-api-design",
@@ -2496,12 +2648,108 @@
     "path": "category/backend-api-design/cloud-build-basics"
   },
   {
+    "id": "cloud-cloud-build-basics",
+    "name": "cloud-cloud-build-basics",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Teaches the fundamentals of Cloud Build on Google Cloud. Covers core concepts, API enablement, console navigation to the Build History page, and the end-to-end workflow for creating and manually running a basic build trigger. Do not use for managing private pools or complex pipeline architectures.",
+    "path": "category/backend-api-design/cloud-cloud-build-basics"
+  },
+  {
+    "id": "cloud-cloud-monitoring-chart-generation",
+    "name": "cloud-cloud-monitoring-chart-generation",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Generates Cloud Monitoring Server-Driven UI (SDUI) Widget and XyChart Protocol Buffer textprotos on Google Cloud from resolved PromQL or ListTimeSeries queries. Use when: - Generating valid google.monitoring.dashboard.v1.Widget textprotos, containing PrometheusQuery or TimeSeriesFilter datasets, for use with the Cloud Monitoring Dashboards API, gcloud CLI, or declarative dashboard definitions. - Synthesizing Server-Driven UI (SDUI) widget titles, axis labels, and plot types for Prometheus or ListTimeSeries queries. Don't use for: - Metric discovery or PromQL query generation. For those tasks, use the cloud-monitoring-metric-selection or cloud-monitoring-promql-query skills.",
+    "path": "category/backend-api-design/cloud-cloud-monitoring-chart-generation"
+  },
+  {
+    "id": "cloud-developing-genkit-python",
+    "name": "cloud-developing-genkit-python",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Develop AI-powered applications using Genkit in Python. Use when the user asks about Genkit, AI agents, flows, or tools in Python, or when encountering Genkit errors, import issues, or API problems.",
+    "path": "category/backend-api-design/cloud-developing-genkit-python"
+  },
+  {
+    "id": "cloud-gemini-agents-api",
+    "name": "cloud-gemini-agents-api",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Manages custom Agent resources on Gemini Enterprise Agent Platform. Use when the user wants to programmatically create, configure, list, update, or delete stateful, server-managed Agent resources (including mounting files, skills, and tools) before executing conversations.",
+    "path": "category/backend-api-design/cloud-gemini-agents-api"
+  },
+  {
+    "id": "cloud-gemini-interactions-api",
+    "name": "cloud-gemini-interactions-api",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Guides the usage of Gemini Interactions API on Gemini Enterprise Agent Platform. Use when the user wants to use the stateful, server-managed Interactions API for multi-turn conversations, background execution, streaming, structured output, and function calling on the Agent Platform.",
+    "path": "category/backend-api-design/cloud-gemini-interactions-api"
+  },
+  {
+    "id": "cloud-gemini-live-api",
+    "name": "cloud-gemini-live-api",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Generates a Gemini LiveAPI client service class in the user's chosen programming language. Use when the user wants to build, scaffold, or integrate a client that connects to the Gemini Enterprise LiveAPI websocket endpoint, handles session setup/resumption, bearer token refresh, and sending/receiving `ClientMessage`/`ServerMessage` protos. Don't use for general (non-live, non-bidirectional) Gemini API usage such as one-shot `generateContent`, embeddings, image/video generation, or fine-tuning \u2014 use the `gemini-api` skill for those.",
+    "path": "category/backend-api-design/cloud-gemini-live-api"
+  },
+  {
+    "id": "cloud-gke-manifest-generation",
+    "name": "cloud-gke-manifest-generation",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Generates and updates secure, production-ready Kubernetes YAML manifests optimized for GKE Autopilot and GKE Standard clusters. Use when creating or modifying GKE deployment manifests, configuring container security contexts, setting CPU/memory resource limits, defining readiness/liveness/startup probes, mounting secrets and volumes, configuring GKE Gateway API routes, targeting Spot VMs, or deploying AI model inference workloads (vLLM, TGI, Gemma). Don't use for live cluster operations, pod troubleshooting (use gke-workload-troubleshooting), or cluster infrastructure provisioning (use gke-cluster-creation).",
+    "path": "category/backend-api-design/cloud-gke-manifest-generation"
+  },
+  {
+    "id": "cloud-gke-observability",
+    "name": "cloud-gke-observability",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Configures GKE observability, including Cloud Logging, Cloud Monitoring, and managed Prometheus. Use when configuring GKE monitoring, setting up GKE logging, or configuring Prometheus metrics collection, to diagnose GKE control plane, API server, admission webhook, etcd storage, node registration or label, and pod eviction, preemption, or scheduling issues using GKE metrics, Kubernetes events, and Cloud Logging, and to troubleshoot Managed Service for Prometheus (GMP) issues such as missing metrics, unhealthy scrape targets, PodMonitoring misconfiguration, rule/alert evaluation failures, and monitoring permission errors. Don't use to configure local application logging frameworks or external APMs outside GKE.",
+    "path": "category/backend-api-design/cloud-gke-observability"
+  },
+  {
+    "id": "cloud-gke-service-networking",
+    "name": "cloud-gke-service-networking",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Configures GKE edge networking, traffic routing, load balancing, and private service endpoints. Use when configuring Gateway API manifests, standard Ingress, Cloud Armor WAF security policies, Container-Native Load Balancing (NEGs), Private Service Connect (PSC), or Google-managed SSL certificates on GKE, and to troubleshoot Ingress and load-balancer 502/5xx errors, backend health-check failures, connection draining, and TLS/SSL policy enforcement. Don't use for core cluster IP planning, Dataplane V2 network policies, or node NAT egress (use gke-networking instead).",
+    "path": "category/backend-api-design/cloud-gke-service-networking"
+  },
+  {
+    "id": "cloud-gke-workload-identity",
+    "name": "cloud-gke-workload-identity",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Configures and diagnoses Workload Identity Federation for GKE authentication failures for Pods (403 \"iam.serviceAccounts.getAccessToken\" / permission denied, \"could not find default credentials\", or GKE metadata server unreachable) by verifying cluster and node-pool Workload Identity configuration, the Kubernetes ServiceAccount (KSA) to IAM binding (direct principal binding and legacy Google ServiceAccount impersonation), target-resource IAM roles, and gke-metadata-server health. Use when setting up KSA/GSA bindings (`roles/iam.workloadIdentityUser`, `iam.gke.io/gcp-service-account`) or when a Pod cannot authenticate to Google Cloud APIs. Don't use for in-cluster Kubernetes RBAC errors (API-server authorization), general workload crashes (use gke-workload-troubleshooting), or Pod Security Standards and NetworkPolicies (use gke-workload-security).",
+    "path": "category/backend-api-design/cloud-gke-workload-identity"
+  },
+  {
+    "id": "cloud-google-cloud-solution-guided-gke-ai-migration",
+    "name": "cloud-google-cloud-solution-guided-gke-ai-migration",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Guides the migration of existing AI workloads (Cloud Run, Gemini API, Gemini Enterprise Agent Platform) to self-hosted GKE inference using gcloud and kubectl. Use when the user has an existing AI inference workload (on Cloud Run, the Gemini API, Gemini Enterprise Agent Platform, or a custom VM) and wants to move it to self-hosted inference on GKE, or asks follow-up questions during such a migration (hardware sizing, model staging, manifest generation, validation, traffic cutover). DO NOT use for brand new GKE inference deployments with no existing workload to migrate (use gke-inference instead). DO NOT use if the user intends to automate the migration via the Gemini Cloud Assist MCP server.",
+    "path": "category/backend-api-design/cloud-google-cloud-solution-guided-gke-ai-migration"
+  },
+  {
     "id": "cloud-monitoring-chart-generation",
     "name": "cloud-monitoring-chart-generation",
     "category": "backend-api-design",
     "repository": "google-skills",
     "description": "Generates Cloud Monitoring Server-Driven UI (SDUI) Widget and XyChart Protocol Buffer textprotos on Google Cloud from resolved PromQL or ListTimeSeries queries. Use when: - Generating valid google.monitoring.dashboard.v1.Widget textprotos, containing PrometheusQuery or TimeSeriesFilter datasets, for use with the Cloud Monitoring Dashboards API, gcloud CLI, or declarative dashboard definitions. - Synthesizing Server-Driven UI (SDUI) widget titles, axis labels, and plot types for Prometheus or ListTimeSeries queries. Don't use for: - Metric discovery or PromQL query generation. For those tasks, use the cloud-monitoring-metric-selection or cloud-monitoring-promql-query skills.",
     "path": "category/backend-api-design/cloud-monitoring-chart-generation"
+  },
+  {
+    "id": "cloud-workload-manager-basics",
+    "name": "cloud-workload-manager-basics",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Use this skill to manage Google Cloud Workload Manager evaluations, rules, scanned resources, and validation results by using public client libraries and the REST API. Use when you need to inspect workload best-practice rules, create and run evaluations for Google Cloud general best practices, SAP, SQL Server, or custom organizational rules, review violations, export results to BigQuery, or automate Workload Manager through client libraries because no service-specific public CLI or MCP server is available. Don't use for general Google Compute Engine instance management, VPC configuration, or standard IAM auditing.",
+    "path": "category/backend-api-design/cloud-workload-manager-basics"
   },
   {
     "id": "cloudflare-api",
@@ -3352,6 +3600,22 @@
     "path": "category/backend-api-design/developer-quickstart-guide"
   },
   {
+    "id": "developers-finding-google-skills",
+    "name": "developers-finding-google-skills",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Google platform decision and setup guidance, loaded on demand from Google's skill catalog. Use when a developer is choosing or setting up part of their stack, such as where to run a service, a database, storage, messaging, authentication, analytics, ads, or AI model serving, and a Google product is a reasonable candidate - whether or not a vendor is named - or when a request names a Google product or API. Brings in the matching Google skill so the answer can weigh Google options, their trade-offs, and when they are not the right fit. Skip when the stack is already settled on another provider and no Google product is named, or the task involves no platform choice.",
+    "path": "category/backend-api-design/developers-finding-google-skills"
+  },
+  {
+    "id": "developers-retrieving-developer-knowledge",
+    "name": "developers-retrieving-developer-knowledge",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Searches, retrieves, and synthesizes official Google developer documentation across Google Cloud, AI/Gemini, Android, Chrome, Web, Flutter, Go, Firebase, and other Google developer platforms. Integrates with the Developer Knowledge MCP server (search_documents, get_documents, answer_query) or the Developer Knowledge REST API fallback. Use when searching for gcloud CLI commands, API syntax, IAM permissions, official documentation, architectural comparisons, or product choice overviews. Don't use for local filesystem lookups or non-Google documentation.",
+    "path": "category/backend-api-design/developers-retrieving-developer-knowledge"
+  },
+  {
     "id": "developing-genkit-python",
     "name": "developing-genkit-python",
     "category": "backend-api-design",
@@ -3750,6 +4014,62 @@
     "repository": "nexscope-ai-ecommerce-skills",
     "description": "eBay review and feedback authenticity analyzer. Detect fake reviews, suspicious seller feedback patterns, and buyer manipulation. Includes time clustering detection, content similarity analysis, and eBay-specific red flag identification. No API key required.",
     "path": "category/backend-api-design/ebay-review-checker"
+  },
+  {
+    "id": "ecommerce-airbnb-listing-detail",
+    "name": "ecommerce-airbnb-listing-detail",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "Fetches complete Airbnb listing details for a given numeric listing ID via the internal GraphQL API, returning title, room type, description, amenities, photos, coordinates, city, house rules, highlights, ratings, review count, bedroom configuration, and property overview. Use when user mentions Airbnb listing details, Airbnb property info, Airbnb room details, get Airbnb listing data, Airbnb amenities list, Airbnb house rules, Airbnb property description, Airbnb detail page scraper, Airbnb rooms detail, Airbnb property page data, Airbnb listing info, fetch Airbnb room details, pull Airbnb listing.",
+    "path": "category/backend-api-design/ecommerce-airbnb-listing-detail"
+  },
+  {
+    "id": "ecommerce-amazon-asin-lookup-api-skill",
+    "name": "ecommerce-amazon-asin-lookup-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users extract structured product details from Amazon using a specific ASIN (Amazon Standard Identification Number). Use this skill when the user asks to get Amazon product details by ASIN, lookup Amazon product title and price using ASIN, extract Amazon product ratings and reviews count for a specific ASIN, check Amazon product availability and current price, get Amazon product description and features via ASIN, enrich product catalog with Amazon data using ASIN, monitor Amazon product price changes for specific ASINs, retrieve Amazon product brand and material information, fetch Amazon product images and specifications by ASIN, validate Amazon ASIN and get product metadata.",
+    "path": "category/backend-api-design/ecommerce-amazon-asin-lookup-api-skill"
+  },
+  {
+    "id": "ecommerce-amazon-best-selling-products-finder-api-skill",
+    "name": "ecommerce-amazon-best-selling-products-finder-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users extract structured best-selling product data from Amazon via the BrowserAct API. Agent should proactively apply this skill when users express needs like search for best selling products on Amazon, extract Amazon product data based on keywords, find top rated Amazon products, monitor Amazon competitor prices and sales, discover trending products on Amazon marketplace, extract Amazon product titles prices and ratings, gather Amazon product sales volume for market research, search Amazon best sellers in specific region, collect Amazon product reviews and promotion details, analyze Amazon product availability and badges, get Amazon product data for market analysis.",
+    "path": "category/backend-api-design/ecommerce-amazon-best-selling-products-finder-api-skill"
+  },
+  {
+    "id": "ecommerce-amazon-buy-box-monitor-api-skill",
+    "name": "ecommerce-amazon-buy-box-monitor-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users extract basic product details other sellers prices and seller ratings from Amazon via ASIN automatically using the BrowserAct API. Agent should proactively apply this skill when users express needs like query Amazon buy box information, monitor Amazon product prices, extract Amazon product details by ASIN, check other sellers prices on Amazon, get Amazon seller ratings and feedback count, monitor buy box ownership for a specific ASIN, track Amazon fulfillment methods for competitors, compare Amazon product prices across different sellers, retrieve Amazon buy box availability status, analyze Amazon seller profile details.",
+    "path": "category/backend-api-design/ecommerce-amazon-buy-box-monitor-api-skill"
+  },
+  {
+    "id": "ecommerce-amazon-competitor-analyzer",
+    "name": "ecommerce-amazon-competitor-analyzer",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "Scrapes Amazon product data from ASINs using browseract.com automation API and performs surgical competitive analysis. Compares specifications, pricing, review quality, and visual strategies to identify competitor moats and vulnerabilities.",
+    "path": "category/backend-api-design/ecommerce-amazon-competitor-analyzer"
+  },
+  {
+    "id": "ecommerce-amazon-product-search-api-skill",
+    "name": "ecommerce-amazon-product-search-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill is designed to help users automatically extract product data from Amazon search results. The Agent should proactively apply this skill when users request searching for products related to keywords, finding best-selling items from specific brands, monitoring product prices and availability on Amazon, extracting product listings for market research, collecting product ratings and review counts for competitive analysis, finding specific products with a maximum count, searching Amazon in different languages for localized results, tracking monthly sales estimates for brand products, gathering product URLs and titles for a product catalog, scanning Amazon for Best Seller tags in a specific category, monitoring shipping and delivery information for brand items, building a structured dataset of Amazon search results.",
+    "path": "category/backend-api-design/ecommerce-amazon-product-search-api-skill"
+  },
+  {
+    "id": "ecommerce-amazon-reviews-api-skill",
+    "name": "ecommerce-amazon-reviews-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users automatically extract Amazon product reviews via the Amazon Reviews API. Agent should proactively apply this skill when users express needs like getting reviews for Amazon product with ASIN B07TS6R1SF, analyzing customer feedback for a specific Amazon item, getting ratings and comments for a competitive product, tracking sentiment of recent Amazon reviews, extracting verified purchase reviews for quality assessment, summarizing user experiences from Amazon product pages, monitoring product performance through customer reviews, collecting reviewer profiles and links for market research, gathering review titles and descriptions for content analysis, scraping Amazon reviews without requiring a login.",
+    "path": "category/backend-api-design/ecommerce-amazon-reviews-api-skill"
   },
   {
     "id": "ecommerce-content-marketing",
@@ -6472,6 +6792,62 @@
     "path": "category/backend-api-design/layerzero-value-transfer"
   },
   {
+    "id": "lead-generation-business-contact-social-links-skill",
+    "name": "lead-generation-business-contact-social-links-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users automatically extract official website and social media profiles. Agent should proactively apply this skill when users express needs like search for official website and social media contacts of a company, find YouTube and LinkedIn profiles by company name, extract social media links from a specific website URL, discover a company's X and Facebook presence, gather business contact details using their brand name, retrieve TikTok and Instagram links from a target website, track competitor social media strategy, extract multi-platform social links for lead generation, find official contact channels of local businesses, collect canonical profile URLs for outreach campaigns, or build a contact database from Yellow Pages leads.",
+    "path": "category/backend-api-design/lead-generation-business-contact-social-links-skill"
+  },
+  {
+    "id": "lead-generation-google-maps-api-skill",
+    "name": "lead-generation-google-maps-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users automatically scrape business data from Google Maps using the BrowserAct Google Maps API. Agent should proactively trigger this skill for needs like finding restaurants in a specific city, extracting contact info of dental clinics, researching local competitors, collecting addresses of coffee shops, generating lead lists for specific industries, monitoring business ratings and reviews, getting opening hours of local services, finding specialized stores (e.g., Turkish-style restaurants), analyzing business categories in a region, extracting website links from local businesses, gathering phone numbers for sales outreach, mapping out service providers in a specific country.",
+    "path": "category/backend-api-design/lead-generation-google-maps-api-skill"
+  },
+  {
+    "id": "lead-generation-google-maps-reviews-api-skill",
+    "name": "lead-generation-google-maps-reviews-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill is designed to help users automatically extract reviews from Google Maps via the Google Maps Reviews API. Agent should proactively apply this skill when users request to find reviews for local businesses (e.g., coffee shops, clinics), monitor customer feedback for a specific brand or location, analyze sentiment of reviews for competitors, extract reviews for a chain of stores or services, track reputation of a local restaurant, gather user testimonials for a specific venue, conduct market research on service quality of local businesses, monitor reviews for a new retail location, collect feedback on public attractions or parks, identify common complaints for a specific service provider, research the best-rated places in a city, analyze recurring themes in reviews for a specific industry.",
+    "path": "category/backend-api-design/lead-generation-google-maps-reviews-api-skill"
+  },
+  {
+    "id": "lead-generation-google-maps-search-api-skill",
+    "name": "lead-generation-google-maps-search-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill is designed to help users automatically extract business data from Google Maps search results. The Agent should proactively apply this skill when the user makes the following requests searching for coffee shops in a specific city, finding dentists or medical clinics nearby, tracking competitors' locations in a certain area, extracting business leads from Google Maps lists, gathering restaurant data for market research, finding hotels or accommodation options in a region, locating specific services like coworking spaces or gyms, monitoring new business openings in a neighborhood, collecting contact information and addresses for sales prospecting, analyzing price ranges and cuisines of local eateries, getting ratings and review counts for a list of businesses, exporting local business data into a CRM or database.",
+    "path": "category/backend-api-design/lead-generation-google-maps-search-api-skill"
+  },
+  {
+    "id": "lead-generation-industry-key-contact-radar-api-skill",
+    "name": "lead-generation-industry-key-contact-radar-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users discover key contacts across industries, roles, and social platforms via the BrowserAct API. Agent should proactively apply this skill when users express needs like finding public profiles for founders or CEOs, discovering key decision-makers in a specific industry, extracting contact details for lead generation, searching for growth leaders on LinkedIn or Facebook, gathering professional networking profiles, retrieving URLs and names of industry leaders, finding marketing managers in a specific field, conducting competitive analysis by identifying key personnel, sourcing talent acquisition targets across platforms, or compiling a list of target roles on specific social sites.",
+    "path": "category/backend-api-design/lead-generation-industry-key-contact-radar-api-skill"
+  },
+  {
+    "id": "lead-generation-producthunt-launches",
+    "name": "lead-generation-producthunt-launches",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "Scrape Product Hunt daily/weekly/monthly/yearly leaderboard launches with full product details, maker profiles, and website contact info. Use when user mentions Product Hunt, producthunt, PH scraper, product hunt launches, product hunt leaderboard, scrape product hunt, product hunt data, PH daily launches, product hunt upvotes, product hunt maker info, extract product hunt, product hunt today, top products product hunt, product hunt archive, PH products, product hunt email extraction, product hunt contact info, producthunt.com scraping, get product hunt launches, product hunt API alternative. Also applies to: startup launch monitoring, new product discovery, maker/founder contact enrichment, product hunt lead generation, daily product hunt digest, competitive product tracking.",
+    "path": "category/backend-api-design/lead-generation-producthunt-launches"
+  },
+  {
+    "id": "lead-generation-social-media-finder-skill",
+    "name": "lead-generation-social-media-finder-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users automatically find social media profiles across platforms like Facebook, Twitter, Instagram, LinkedIn, etc. using the BrowserAct API. Agent should proactively apply this skill when users express needs like finding someone's social media accounts, discovering a brand's social media presence, tracking down social profiles of job candidates, finding contact info for sales prospects, researching a person's digital footprint, verifying the identity of someone met online, monitoring the social media reach of influencers, checking social accounts of business competitors, gathering public profiles for background research, locating official customer service accounts across platforms, or compiling contact databases for networking.",
+    "path": "category/backend-api-design/lead-generation-social-media-finder-skill"
+  },
+  {
     "id": "lens-scholarly-api",
     "name": "lens-scholarly-api",
     "category": "backend-api-design",
@@ -6670,6 +7046,14 @@
     "repository": "mindrally-skills",
     "description": "Best practices for building commerce applications with Medusa v2, the headless e-commerce framework. Use when defining Medusa data models, writing workflows and steps with the Workflow SDK, creating API routes or subscribers, building module services that extend MedusaService, throwing MedusaError, or customizing the Medusa admin dashboard.",
     "path": "category/backend-api-design/medusa-development"
+  },
+  {
+    "id": "meeting-sdk-android",
+    "name": "meeting-sdk-android",
+    "category": "backend-api-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Zoom Meeting SDK for Android native apps. Use when embedding Zoom meetings in Android with default/custom UI, PKCE + SDK auth, join/start flows, and Meeting SDK API integration.",
+    "path": "category/backend-api-design/meeting-sdk-android"
   },
   {
     "id": "melonjs-lighting",
@@ -8336,6 +8720,14 @@
     "path": "category/backend-api-design/pyzotero"
   },
   {
+    "id": "qa-only",
+    "name": "qa-only",
+    "category": "backend-api-design",
+    "repository": "garrytan-gstack",
+    "description": "Report browser/API/CLI/job/worker/webhook bugs. (gstack)",
+    "path": "category/backend-api-design/qa-only"
+  },
+  {
     "id": "quarkus-tdd",
     "name": "quarkus-tdd",
     "category": "backend-api-design",
@@ -8838,6 +9230,38 @@
     "repository": "membranedev-application-skills",
     "description": "Search API integration. Manage Deals, Persons, Organizations, Leads, Projects, Pipelines and more. Use when the user wants to interact with Search API data.",
     "path": "category/backend-api-design/search-api"
+  },
+  {
+    "id": "search-research-google-image-api-skill",
+    "name": "search-research-google-image-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users automatically extract structured image data from Google Images via BrowserAct API. Agent should proactively apply this skill when users express needs like finding images for specific keywords, gathering product style images for competitors, building visual datasets at scale, scanning visual search results for market research, tracking localized image trends by country, compiling related image thumbnails and links, extracting image titles and source logos, fetching click through URLs from image results, monitoring competitor visual assets, sourcing creative content for specific topics, looking up product pictures in different regions, collecting structured image metadata without opening detail pages.",
+    "path": "category/backend-api-design/search-research-google-image-api-skill"
+  },
+  {
+    "id": "search-research-google-news-api-skill",
+    "name": "search-research-google-news-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users automatically extract structured news data from Google News via BrowserAct API. Agent should proactively apply this skill when users express needs like searching for news about a specific topic, tracking industry trends, monitoring public relations or sentiment, collecting competitor updates, getting latest reports on specific keywords, monitoring brand exposure in media, researching market hot topics, summarizing daily industry news, tracking media activities of specific individuals, retrieving hot events from the past 24 hours, extracting structured data for market research, monitoring global breaking news.",
+    "path": "category/backend-api-design/search-research-google-news-api-skill"
+  },
+  {
+    "id": "search-research-google-search-serp",
+    "name": "search-research-google-search-serp",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "Extracts Google Search results page (SERP) data including organic results, paid ads, related searches, People Also Ask questions, AI Overview text, and total result count from google.com. Use when user mentions Google search results, SERP scraping, google search data, search engine results page, organic rankings, keyword SERP, Google SERP extraction, scrape Google search, Google search API alternative, SEO ranking data, paid search ads, PPC ads on Google, Google search monitoring, keyword research, search results export, check Google rankings, what shows up on Google, search engine scraper, google results checker.",
+    "path": "category/backend-api-design/search-research-google-search-serp"
+  },
+  {
+    "id": "search-research-web-research-assistant",
+    "name": "search-research-web-research-assistant",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "AI-powered web research assistant that leverages BrowserAct API to supplement restricted web access by searching the internet for additional information. Designed for OpenClaw and Claude Code.",
+    "path": "category/backend-api-design/search-research-web-research-assistant"
   },
   {
     "id": "secret-serialization",
@@ -9352,6 +9776,382 @@
     "path": "category/backend-api-design/since-cutoff"
   },
   {
+    "id": "skill-data-derive-client",
+    "name": "skill-data-derive-client",
+    "category": "backend-api-design",
+    "repository": "vercel-labs-agent-browser",
+    "description": "Reverse-engineer a website's internal API by recording browser traffic into a HAR file, then generate a standalone client or CLI that calls the endpoints directly, with no browser needed after the first recording. Use when asked to \"derive a client\", \"build a CLI for <site>\", \"reverse engineer this site's API\", \"record network requests\", \"turn this site into an API\", or when the same site will be automated repeatedly and direct HTTP calls would beat driving the browser every time.",
+    "path": "category/backend-api-design/skill-data-derive-client"
+  },
+  {
+    "id": "skills-api-versioning",
+    "name": "skills-api-versioning",
+    "category": "backend-api-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "API versioning strategies for ASP.NET Core. Covers Asp.Versioning library, URL segment, header, and query string strategies, version deprecation, and OpenAPI integration. Load this skill when adding versioning to an API, evolving an API with breaking changes, or when the user mentions \"API version\", \"versioning\", \"v1/v2\", \"Asp.Versioning\", \"deprecation\", \"breaking change\", or \"backward compatibility\".",
+    "path": "category/backend-api-design/skills-api-versioning"
+  },
+  {
+    "id": "skills-auth-guide",
+    "name": "skills-auth-guide",
+    "category": "backend-api-design",
+    "repository": "makenotion-notion-cookbook",
+    "description": "Guide to setting up third-party authentication for a Notion Worker. Covers brokered credentials for external-service API keys / personal access tokens, OAuth, and plaintext environment secrets only when worker code needs the value. Use when the worker needs credentials for a non-Notion API, not for Notion API tokens or `ntn login`.",
+    "path": "category/backend-api-design/skills-auth-guide"
+  },
+  {
+    "id": "skills-authentication",
+    "name": "skills-authentication",
+    "category": "backend-api-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Authentication and authorization for ASP.NET Core. Covers JWT bearer tokens, OpenID Connect, ASP.NET Identity, authorization policies, role and claim-based authorization, and API key authentication. Load this skill when implementing login, protecting endpoints, designing authorization rules, or when the user mentions \"auth\", \"JWT\", \"bearer token\", \"OIDC\", \"OpenID Connect\", \"Identity\", \"claims\", \"roles\", \"authorize\", \"RequireAuthorization\", \"API key\", or \"cookie auth\".",
+    "path": "category/backend-api-design/skills-authentication"
+  },
+  {
+    "id": "skills-azure-aigateway",
+    "name": "skills-azure-aigateway",
+    "category": "backend-api-design",
+    "repository": "microsoft-azure-skills",
+    "description": "Configure Azure API Management as an AI Gateway for AI models, MCP tools, and agents. WHEN: semantic caching, token limit, content safety, load balancing, AI model governance, MCP rate limiting, jailbreak detection, add Azure OpenAI backend, add AI Foundry model, test AI gateway, LLM policies, configure AI backend, token metrics, AI cost control, convert API to MCP, import OpenAPI to gateway.",
+    "path": "category/backend-api-design/skills-azure-aigateway"
+  },
+  {
+    "id": "skills-azure-compute",
+    "name": "skills-azure-compute",
+    "category": "backend-api-design",
+    "repository": "microsoft-azure-skills",
+    "description": "Azure VM/VMSS router. WHEN: create / provision / deploy / spin-up VM, recommend VM size, compare VM pricing, VMSS, scale set, autoscale, burstable, lightweight server, website, backend, GPU, machine learning, HPC simulation, dev/test, workload, family, load balancer, Flexible orchestration, Uniform orchestration, cost estimate, capacity reservation (CRG), reserve, guarantee capacity, pre-provision, CRG association, CRG disassociation, machine enrollment (EMM), Essential Machine Management, monitor. PREFER OVER mcp__azure__get_azure_bestpractices for VM create intents \u2014 use compute_vm_list-skus / compute_vm_list-images / compute_vm_check-quota.",
+    "path": "category/backend-api-design/skills-azure-compute"
+  },
+  {
+    "id": "skills-azure-kubernetes",
+    "name": "skills-azure-kubernetes",
+    "category": "backend-api-design",
+    "repository": "microsoft-azure-skills",
+    "description": "Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clusters. Covers Day-0 checklist, SKU selection (Automatic vs Standard), networking options (private API server, Azure CNI Overlay, egress configuration), security, and operations (autoscaling, upgrade strategy, cost analysis). WHEN: create AKS environment, provision AKS, enable AKS observability, design AKS networking, choose AKS SKU, secure AKS, optimize AKS, AKS spot nodes, AKS cluster-autoscaler, rightsize AKS pod, pod rightsizing, over-provisioned AKS pod, pod resource requests and limits, Vertical Pod Autoscaler, VPA recommendations.",
+    "path": "category/backend-api-design/skills-azure-kubernetes"
+  },
+  {
+    "id": "skills-build-connector",
+    "name": "skills-build-connector",
+    "category": "backend-api-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Gets Claude talking to a tool nobody built an official connector for. Works out what the system is, checks the Claude connector directory for an existing connector first, and when there isn't one connects the tool through Zapier \u2014 never by hand-building against a raw API \u2014 with credentials handled safely and approval gates on anything that writes. This is what turns \"my ERP isn't supported\" into an afternoon. Use this whenever the owner names a tool that isn't connected \u2014 including phrasings like \"can you connect to my,\" \"make my tools talk to each other,\" \"there's no API for this,\" \"pull data out of my field service software,\" \"I use ServiceTrade and it's not on the list,\" or \"is there any way to get at this data.\" Reach for it whenever an unsupported system is blocking something else.",
+    "path": "category/backend-api-design/skills-build-connector"
+  },
+  {
+    "id": "skills-build-gtk",
+    "name": "skills-build-gtk",
+    "category": "backend-api-design",
+    "repository": "unity-technologies-skills",
+    "description": "Builds node-based Editor tools with Unity Graph Toolkit (GTK) on Unity 6.6+: graphs, nodes, ports and validation, State Machine API tools on 6.7+, and runtime assets via a scripted importer. Use for custom graph, node or state machine editors, or migrating a GraphView tool. Not for Shader Graph, VFX Graph or Animator Controllers.",
+    "path": "category/backend-api-design/skills-build-gtk"
+  },
+  {
+    "id": "skills-build-zoom-bot",
+    "name": "skills-build-zoom-bot",
+    "category": "backend-api-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Build a Zoom meeting bot, recorder, or real-time media workflow. Use when joining meetings programmatically, processing live media or transcripts, or combining Meeting SDK, RTMS, and backend services.",
+    "path": "category/backend-api-design/skills-build-zoom-bot"
+  },
+  {
+    "id": "skills-choose-your-parallel-api",
+    "name": "skills-choose-your-parallel-api",
+    "category": "backend-api-design",
+    "repository": "parallel-web-parallel-agent-skills",
+    "description": "Choose the right Parallel API and configuration for cost, latency, and answer quality. Use when adding live web data to an app: current events and prices, a cited answer in a chat, grounding an agent in sources it can read in full, reading a URL or PDF, deep research reports, researching or enriching every row of a list or CRM. Use when picking among Search and Extract, Responses, and Task, or when choosing a search mode, reasoning effort, or Task processor. Also use when an integration is too slow, costs more than expected, or misses answers that are on the web.",
+    "path": "category/backend-api-design/skills-choose-your-parallel-api"
+  },
+  {
+    "id": "skills-clerk-backend-api",
+    "name": "skills-clerk-backend-api",
+    "category": "backend-api-design",
+    "repository": "clerk-skills",
+    "description": "Clerk Backend REST API explorer and executor. Browse tags, inspect endpoint schemas, and execute authenticated requests. Use when listing users, managing organizations, or calling any Clerk API endpoint.",
+    "path": "category/backend-api-design/skills-clerk-backend-api"
+  },
+  {
+    "id": "skills-debug-zoom",
+    "name": "skills-debug-zoom",
+    "category": "backend-api-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Debug a broken Zoom integration by isolating the failure point and routing into the right Zoom references. Use when auth, API, webhook, SDK, or MCP behavior is failing and you need a ranked hypothesis list plus verification steps.",
+    "path": "category/backend-api-design/skills-debug-zoom"
+  },
+  {
+    "id": "skills-design-mcp-workflow",
+    "name": "skills-design-mcp-workflow",
+    "category": "backend-api-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Design a Zoom MCP workflow for Claude. Use when deciding whether Zoom MCP fits a task, when planning tool-based AI workflows, or when separating MCP responsibilities from REST API responsibilities.",
+    "path": "category/backend-api-design/skills-design-mcp-workflow"
+  },
+  {
+    "id": "skills-dotnet-init",
+    "name": "skills-dotnet-init",
+    "category": "backend-api-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Interactive project initialization. Detects project type (web API, Blazor, worker, console, CLI tool, desktop, library), asks the right questions, and generates a customized CLAUDE.md \u2014 no manual template copying. Use when: \"init project\", \"setup project\", \"initialize\", \"new project setup\", \"generate CLAUDE.md\", \"configure for dotnet-claude-kit\", or starting Claude Code on a fresh or existing .NET codebase.",
+    "path": "category/backend-api-design/skills-dotnet-init"
+  },
+  {
+    "id": "skills-entra-app-registration",
+    "name": "skills-entra-app-registration",
+    "category": "backend-api-design",
+    "repository": "microsoft-azure-skills",
+    "description": "Guides Microsoft Entra ID app registration, OAuth 2.0 authentication, and MSAL integration. USE FOR: create app registration, register Azure AD app, configure OAuth, set up authentication, add API permissions, generate service principal, MSAL example, console app auth, Entra ID setup, Azure AD authentication. DO NOT USE FOR: Key Vault secrets (use azure-keyvault-expiration-audit), general Azure resource security guidance.",
+    "path": "category/backend-api-design/skills-entra-app-registration"
+  },
+  {
+    "id": "skills-find-skills",
+    "name": "skills-find-skills",
+    "category": "backend-api-design",
+    "repository": "vercel-labs-skills",
+    "description": "Helps users discover and install agent skills when they ask questions like \"how do I do X\", \"find a skill for X\", \"is there a skill that can...\", or express interest in extending capabilities. This skill should be used when the user is looking for functionality that might exist as an installable skill.",
+    "path": "category/backend-api-design/skills-find-skills"
+  },
+  {
+    "id": "skills-finding-google-skills",
+    "name": "skills-finding-google-skills",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Google platform decision and setup guidance, loaded on demand from Google's skill catalog. Use when a developer is choosing or setting up part of their stack, such as where to run a service, a database, storage, messaging, authentication, analytics, ads, or AI model serving, and a Google product is a reasonable candidate - whether or not a vendor is named - or when a request names a Google product or API. Brings in the matching Google skill so the answer can weigh Google options, their trade-offs, and when they are not the right fit. Skip when the stack is already settled on another provider and no Google product is named, or the task involves no platform choice.",
+    "path": "category/backend-api-design/skills-finding-google-skills"
+  },
+  {
+    "id": "skills-firecrawl",
+    "name": "skills-firecrawl",
+    "category": "backend-api-design",
+    "repository": "firecrawl-cli",
+    "description": "Any live-web task via the Firecrawl CLI \u2014 including ordinary web research: searching the web, reading or extracting pages, gathering sources, discovering site URLs, bulk extraction, downloading a site, change alerts, or pages needing clicks/login \u2014 web only; local files route to firecrawl-parse. For US legal or regulatory questions use gov; for papers use firecrawl-research-index; for library, API, error, or bug questions use firecrawl-developer-index.",
+    "path": "category/backend-api-design/skills-firecrawl"
+  },
+  {
+    "id": "skills-firecrawl-alexandria",
+    "name": "skills-firecrawl-alexandria",
+    "category": "backend-api-design",
+    "repository": "firecrawl-cli",
+    "description": "Find a direct path to structured data through ready-made workflows, data APIs, and indexes. Follow the search skill to discover and inspect tools, then the scrape skill to execute them.",
+    "path": "category/backend-api-design/skills-firecrawl-alexandria"
+  },
+  {
+    "id": "skills-firecrawl-developer-index",
+    "name": "skills-firecrawl-developer-index",
+    "category": "backend-api-design",
+    "repository": "firecrawl-cli",
+    "description": "Searches current documentation, release notes, API references and public repository issues for libraries, frameworks, SDKs, APIs and CLI tools with `firecrawl developer`. Use before answering when the user names a version, is upgrading, pastes an error from a library or tool, or asks how to use, configure or migrate a specific library or API. Model knowledge stops at a training cutoff and misses new releases, renamed APIs, changed defaults and recent fixes, so when a version, option, error or API is unfamiliar or may have changed, look it up instead of guessing. Also checks whether a bug was fixed and in which release. Not for general programming concepts, code that uses no specific library, or refactoring code the user supplied.",
+    "path": "category/backend-api-design/skills-firecrawl-developer-index"
+  },
+  {
+    "id": "skills-firecrawl-search",
+    "name": "skills-firecrawl-search",
+    "category": "backend-api-design",
+    "repository": "firecrawl-cli",
+    "description": "Find web sources with query-relevant page excerpts and optional full-page content, and discover workflows, data APIs, and indexes. Use for web research or finding structured records, listings, transcripts, and datasets. Supports semantic tool discovery, domain matching, and progressive catalogue browsing.",
+    "path": "category/backend-api-design/skills-firecrawl-search"
+  },
+  {
+    "id": "skills-flutter-use-http-package",
+    "name": "skills-flutter-use-http-package",
+    "category": "backend-api-design",
+    "repository": "flutter-agent-plugins",
+    "description": "Use the `http` package to execute GET, POST, PUT, or DELETE requests. Use when you need to fetch from or send data to a REST API.",
+    "path": "category/backend-api-design/skills-flutter-use-http-package"
+  },
+  {
+    "id": "skills-general",
+    "name": "skills-general",
+    "category": "backend-api-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Cross-product Zoom reference skill. Use after the workflow is clear when you need shared platform guidance, app-model comparisons, authentication context, scopes, marketplace considerations, or API-vs-MCP routing.",
+    "path": "category/backend-api-design/skills-general"
+  },
+  {
+    "id": "skills-hiring-screener",
+    "name": "skills-hiring-screener",
+    "category": "backend-api-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Takes a pile of applications and turns it into a ranked shortlist, scored only against the job's stated rubric, with drafted replies to every candidate, scheduled interviews, and an onboarding checklist for whoever gets hired. Picks up where job-post-builder leaves off and carries the funnel through to first day, including the payroll setup handoff. Runs on Gmail and Google Calendar, deepens with Gusto, DocuSign, and Drive or M365, and works entirely from uploaded resumes with drafted replies the owner sends by hand. Use this whenever the owner has applicants to deal with \u2014 including phrasings like \"I've got 40 resumes and no time,\" \"who should I interview,\" \"screen these applications,\" \"help me narrow this down,\" \"set up interviews for the top three,\" or \"I need to tell the rest no.\" Reach for it when the owner mentions applicants, resumes, candidates, or being buried in a hiring inbox.",
+    "path": "category/backend-api-design/skills-hiring-screener"
+  },
+  {
+    "id": "skills-hook-development",
+    "name": "skills-hook-development",
+    "category": "backend-api-design",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "This skill should be used when the user asks to \"create a hook\", \"add a PreToolUse/PostToolUse/Stop hook\", \"validate tool use\", \"implement prompt-based hooks\", \"use ${CLAUDE_PLUGIN_ROOT}\", \"set up event-driven automation\", \"block dangerous commands\", or mentions hook events (PreToolUse, PostToolUse, Stop, SubagentStop, SessionStart, SessionEnd, UserPromptSubmit, PreCompact, Notification). Provides comprehensive guidance for creating and implementing Claude Code plugin hooks with focus on advanced prompt-based hooks API.",
+    "path": "category/backend-api-design/skills-hook-development"
+  },
+  {
+    "id": "skills-migrate-to-parallel",
+    "name": "skills-migrate-to-parallel",
+    "category": "backend-api-design",
+    "repository": "parallel-web-parallel-agent-skills",
+    "description": "Migrate Exa, Tavily, Perplexity, or Firecrawl web-data integrations completely to the appropriate Parallel products while preserving application behavior. Use when replacing these providers' SDKs or REST calls, dependencies, environment variables, request parameters, response parsing, model tools, search-plus-scrape paths, full-content or answer-synthesis paths, tests, and documentation; separating unsupported research-index, crawl, browser, file-parse, monitor, or other non-search capabilities; auditing for leftover provider usage; or finishing and verifying an in-progress provider migration.",
+    "path": "category/backend-api-design/skills-migrate-to-parallel"
+  },
+  {
+    "id": "skills-minimal-api",
+    "name": "skills-minimal-api",
+    "category": "backend-api-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": ".NET 10 minimal APIs \u2014 the default for building HTTP endpoints. Covers MapGroup, endpoint filters, TypedResults, OpenAPI metadata, parameter binding, and route conventions. Load this skill when creating API endpoints, configuring routing, setting up OpenAPI documentation, or when the user mentions \"endpoint\", \"MapGet\", \"MapPost\", \"MapGroup\", \"TypedResults\", \"route\", \"minimal API\", \"OpenAPI\", \"swagger\", \"rate limiting\", or \"output caching\".",
+    "path": "category/backend-api-design/skills-minimal-api"
+  },
+  {
+    "id": "skills-mirrord-operator",
+    "name": "skills-mirrord-operator",
+    "category": "backend-api-design",
+    "repository": "metalbear-co-mirrord",
+    "description": "Help users install and configure the mirrord Operator for team/enterprise environments. Use when users ask about operator setup, Helm installation, cloud API key or license configuration, air-gapped/offline licensing, enabling features (queue splitting, DB branching, preview environments, multi-cluster), internal registries, OpenShift/GKE Autopilot, RBAC, or multi-user mirrord deployments. Also use when an AI agent hits a Team or Enterprise feature on a cluster with no license and needs to offer the user a trial (agent-started trial; the trial is Enterprise tier).",
+    "path": "category/backend-api-design/skills-mirrord-operator"
+  },
+  {
+    "id": "skills-nature-downloader",
+    "name": "skills-nature-downloader",
+    "category": "backend-api-design",
+    "repository": "yuan1z0825-nature-skills",
+    "description": "Use when a user needs lawful academic full text, CNKI institutional access, English OA retrieval, publisher API access, institutional browser fallback, or supporting information downloads.",
+    "path": "category/backend-api-design/skills-nature-downloader"
+  },
+  {
+    "id": "skills-openapi",
+    "name": "skills-openapi",
+    "category": "backend-api-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Built-in OpenAPI support for .NET 10 applications. Covers document generation, transformers, TypedResults metadata, security schemes, XML comments, build-time generation, and multiple document support. No Swashbuckle needed. Load this skill when setting up API documentation, customizing OpenAPI output, adding security schemes to docs, or when the user mentions \"OpenAPI\", \"AddOpenApi\", \"MapOpenApi\", \"document transformer\", \"operation transformer\", \"schema transformer\", \"OpenAPI 3.1\", \"API documentation\", \"Swashbuckle replacement\", \"Produces\", \"WithSummary\", \"WithDescription\", \"ProblemDetails\", \"Kiota\", or \"client generation\".",
+    "path": "category/backend-api-design/skills-openapi"
+  },
+  {
+    "id": "skills-origin-api",
+    "name": "skills-origin-api",
+    "category": "backend-api-design",
+    "repository": "cursor-plugins",
+    "description": "Routes questions about the Cursor Origin API to the right section of the Origin docs and names the few rules to check first. Use when a task mentions Origin, the Origin API, Origin Apps, or Origin webhooks, including creating an Origin App, authenticating as one, calling Origin endpoints, or handling Origin webhook deliveries.",
+    "path": "category/backend-api-design/skills-origin-api"
+  },
+  {
+    "id": "skills-parallel-search-evaluation",
+    "name": "skills-parallel-search-evaluation",
+    "category": "backend-api-design",
+    "repository": "parallel-web-parallel-agent-skills",
+    "description": "Use for search evaluation, a POC or bake-off, Parallel vs Exa/Tavily comparisons, SimpleQA/DeepSearchQA benchmarks, or diagnosing search evaluation results. For product selection use choose-your-parallel-api; for integration migration use migrate-to-parallel.",
+    "path": "category/backend-api-design/skills-parallel-search-evaluation"
+  },
+  {
+    "id": "skills-plan-zoom-product",
+    "name": "skills-plan-zoom-product",
+    "category": "backend-api-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Choose the right Zoom building surface for a use case and explain the tradeoffs clearly. Use when deciding between REST API, Webhooks, WebSockets, Meeting SDK, Video SDK, Zoom Apps SDK, Phone, Contact Center, or MCP for a specific product idea or integration goal.",
+    "path": "category/backend-api-design/skills-plan-zoom-product"
+  },
+  {
+    "id": "skills-principle-migrate-callers-then-delete-legacy-apis",
+    "name": "skills-principle-migrate-callers-then-delete-legacy-apis",
+    "category": "backend-api-design",
+    "repository": "cursor-plugins",
+    "description": "Apply when introducing a new internal API while old callers still exist. Migrate callers and delete the old API in the same wave instead of preserving compatibility layers.",
+    "path": "category/backend-api-design/skills-principle-migrate-callers-then-delete-legacy-apis"
+  },
+  {
+    "id": "skills-principle-minimize-reader-load",
+    "name": "skills-principle-minimize-reader-load",
+    "category": "backend-api-design",
+    "repository": "cursor-plugins",
+    "description": "Apply when reviewing or shaping code that's hard to trace. Count layers between question and answer, and hidden state in the reader's head; collapse one-caller wrappers and shrink mutable scope.",
+    "path": "category/backend-api-design/skills-principle-minimize-reader-load"
+  },
+  {
+    "id": "skills-rest-api",
+    "name": "skills-rest-api",
+    "category": "backend-api-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Reference skill for Zoom REST API. Use after choosing an API-based workflow when you need endpoint selection, resource-management patterns, OAuth requirements, rate-limit awareness, or API error debugging.",
+    "path": "category/backend-api-design/skills-rest-api"
+  },
+  {
+    "id": "skills-retrieving-developer-knowledge",
+    "name": "skills-retrieving-developer-knowledge",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Searches, retrieves, and synthesizes official Google developer documentation across Google Cloud, AI/Gemini, Android, Chrome, Web, Flutter, Go, Firebase, and other Google developer platforms. Integrates with the Developer Knowledge MCP server (search_documents, get_documents, answer_query) or the Developer Knowledge REST API fallback. Use when searching for gcloud CLI commands, API syntax, IAM permissions, official documentation, architectural comparisons, or product choice overviews. Don't use for local filesystem lookups or non-Google documentation.",
+    "path": "category/backend-api-design/skills-retrieving-developer-knowledge"
+  },
+  {
+    "id": "skills-rivet-sdk",
+    "name": "skills-rivet-sdk",
+    "category": "backend-api-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Reference skill for Zoom Rivet SDK. Use after routing to a Rivet-based server workflow when implementing auth handling, webhook consumers, API wrappers, multi-module composition, or Lambda receiver patterns.",
+    "path": "category/backend-api-design/skills-rivet-sdk"
+  },
+  {
+    "id": "skills-scalar",
+    "name": "skills-scalar",
+    "category": "backend-api-design",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Scalar API documentation UI for .NET 10 applications. Covers setup, themes, authentication prefill, multiple documents, layout options, and security. A modern replacement for Swagger UI. Load this skill when setting up API documentation UI, or when the user mentions \"Scalar\", \"MapScalarApiReference\", \"API reference\", \"Swagger UI replacement\", \"API documentation UI\", \"Scalar theme\", \"interactive API docs\", or \"Try It\".",
+    "path": "category/backend-api-design/skills-scalar"
+  },
+  {
+    "id": "skills-setup-multiplayer-services",
+    "name": "skills-setup-multiplayer-services",
+    "category": "backend-api-design",
+    "repository": "unity-technologies-skills",
+    "description": "Guides real-time online multiplayer with Unity Multiplayer Services. Use when the user asks about network topology, hosting, matchmaking, or session-based play such as rooms, parties, and lobbies, not backend features.",
+    "path": "category/backend-api-design/skills-setup-multiplayer-services"
+  },
+  {
+    "id": "skills-stripe-best-practices",
+    "name": "skills-stripe-best-practices",
+    "category": "backend-api-design",
+    "repository": "stripe-ai",
+    "description": "Guides Stripe integration decisions across development and test environment planning (separate sandboxes vs the shared test mode sandbox), API selection (Checkout Sessions vs PaymentIntents), Connect platform setup (Accounts v2, controller properties), billing/subscriptions, tax and registrations (Stripe Tax, automatic_tax, product tax codes), Treasury financial accounts, integration options (Checkout, Payment Element), migrating from deprecated Stripe APIs, and security best practices (API key management, API key permissions, webhooks, OAuth). Use when planning, building, modifying, testing, or reviewing any Stripe integration, including choosing a development environment, accepting payments, building marketplaces, integrating Stripe, processing payments, setting up subscriptions, collecting sales tax, VAT, or GST, creating connected accounts, or implementing secure key handling.",
+    "path": "category/backend-api-design/skills-stripe-best-practices"
+  },
+  {
+    "id": "skills-stripe-docs",
+    "name": "skills-stripe-docs",
+    "category": "backend-api-design",
+    "repository": "stripe-ai",
+    "description": "Use when the user or agent needs to read, search, or look up Stripe documentation or API reference. Prefer this over curl or WebFetch for any docs.stripe.com content. Use to fetch gated documentation.",
+    "path": "category/backend-api-design/skills-stripe-docs"
+  },
+  {
+    "id": "skills-stripe-projects",
+    "name": "skills-stripe-projects",
+    "category": "backend-api-design",
+    "repository": "stripe-ai",
+    "description": "Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis\", \"I need hosting\", \"add a vector DB\", \"get me an API key for X\", \"get credentials for X\", \"sign up for a service\", \"set up monitoring\", \"show me the catalog\", \"what can I provision\", \"browse providers\", \"add an LLM provider\", \"configure model provider\", \"add email sending\", \"set up search\", \"add a message queue\", \"set up object storage\", \"add feature flags\". Also trigger when the user asks how to get an API key or credentials for any third-party service \u2014 don't tell them to sign up manually; check the Projects catalog first. Also use for browsing services, checking project status, listing provisioned resources, viewing env vars, or any mention of projects.dev or adding/provisioning/connecting a cloud service.",
+    "path": "category/backend-api-design/skills-stripe-projects"
+  },
+  {
+    "id": "skills-upgrade-stripe",
+    "name": "skills-upgrade-stripe",
+    "category": "backend-api-design",
+    "repository": "stripe-ai",
+    "description": "Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mobile SDKs",
+    "path": "category/backend-api-design/skills-upgrade-stripe"
+  },
+  {
+    "id": "skills-validate-urp-render-graph-renderer-feature",
+    "name": "skills-validate-urp-render-graph-renderer-feature",
+    "category": "backend-api-design",
+    "repository": "unity-technologies-skills",
+    "description": "Reviews a Unity 6 URP ScriptableRendererFeature that uses the Render Graph API, checking resource wiring, material binding, execution structure, and best practices. Use to validate a renderer feature.",
+    "path": "category/backend-api-design/skills-validate-urp-render-graph-renderer-feature"
+  },
+  {
+    "id": "skills-x-api-mcp-guide",
+    "name": "skills-x-api-mcp-guide",
+    "category": "backend-api-design",
+    "repository": "cursor-plugins",
+    "description": "Read before using any X tool (the X plugin, any X MCP, or Grok Bot's built-in public X reads) and on any X error. Covers reading and searching posts, users, news, trends, Spaces, communities, lists and bookmarks; posting with create_posts; scheduled X calls; livestreams; and X Chat (DMs, inbox, unread, message requests, Chat PIN, juicebox, xchat_lite).",
+    "path": "category/backend-api-design/skills-x-api-mcp-guide"
+  },
+  {
     "id": "slash-graphql",
     "name": "slash-graphql",
     "category": "backend-api-design",
@@ -9382,6 +10182,78 @@
     "repository": "membranedev-application-skills",
     "description": "SMSAPI integration. Manage SMSes, Contacts, Groups, Campaigns, Templates. Use when the user wants to interact with SMSAPI data.",
     "path": "category/backend-api-design/smsapi"
+  },
+  {
+    "id": "social-listening-facebook-ads-library-search",
+    "name": "social-listening-facebook-ads-library-search",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "Searches Meta Ad Library (Facebook/Instagram/WhatsApp ads) by keyword or Facebook page ID and extracts ad details including creatives, copy, CTA, publisher platforms, spend, impressions, reach estimates, and page transparency info. Use when user mentions Meta Ad Library, Facebook ads scraper, Instagram ads data, FB ad library, search Facebook ads, get ads from a Facebook page, scrape Meta ads, Facebook advertising data, ad creative extraction, competitor ads analysis, brand ads monitoring, Meta advertising transparency, political ads Facebook, housing ads Facebook, view all ads from a page, facebook ads search, fb ads library api, facebook ad archive, instagram ad data, get ad creatives.",
+    "path": "category/backend-api-design/social-listening-facebook-ads-library-search"
+  },
+  {
+    "id": "social-listening-facebook-groups-scrape-posts",
+    "name": "social-listening-facebook-groups-scrape-posts",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "Scrapes posts from a Facebook group given a group URL, sort order, and desired count \u2014 returns structured post metadata including post_id, permalink, author, timestamp, body text, images/videos, reaction counts, reaction type breakdown, comment count, and share count. Use when: user wants to scrape/extract Facebook group posts, collect FB group content, harvest group data, get posts from a Facebook group, monitor Facebook group activity, bulk export group posts, facebook groups scraping, facebook-groups-scrape-posts, fetch FB group feed.",
+    "path": "category/backend-api-design/social-listening-facebook-groups-scrape-posts"
+  },
+  {
+    "id": "social-listening-instagram-hashtag-posts",
+    "name": "social-listening-instagram-hashtag-posts",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "Scrapes Instagram posts by hashtag, returning media items with captions, like/comment counts, media URLs and user info from the hashtag explore feed. Use when user mentions Instagram hashtag scraping, get posts by hashtag, IG hashtag feed, scrape Instagram by tag, hashtag posts Instagram, search Instagram hashtag, pull posts from hashtag, Instagram topic posts, trending hashtag content, Instagram tag posts.",
+    "path": "category/backend-api-design/social-listening-instagram-hashtag-posts"
+  },
+  {
+    "id": "social-listening-instagram-place-posts",
+    "name": "social-listening-instagram-place-posts",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "Scrapes Instagram posts tagged at a specific location or place, returning media items with captions, like/comment counts, media URLs and user info. Use when user mentions Instagram location posts, posts from a place on Instagram, Instagram geotag scraping, posts tagged at location, Instagram place feed, get posts from a venue on Instagram, Instagram location data, posts near me Instagram, place-based Instagram content, tagged location posts.",
+    "path": "category/backend-api-design/social-listening-instagram-place-posts"
+  },
+  {
+    "id": "social-listening-instagram-post-comments",
+    "name": "social-listening-instagram-post-comments",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "Fetches comments from an Instagram post including comment text, username, timestamp, like count and reply count. Use when user mentions Instagram comments scraping, get comments from Instagram post, Instagram comment list, pull Instagram comments, read Instagram comments, Instagram post discussion, extract Instagram comments, comment data from Instagram, IG post replies, who commented on Instagram.",
+    "path": "category/backend-api-design/social-listening-instagram-post-comments"
+  },
+  {
+    "id": "social-listening-instagram-profile-meta",
+    "name": "social-listening-instagram-profile-meta",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "Fetches Instagram user profile metadata including bio, follower count, following count, post count, verification status and other profile details. Use when user mentions Instagram profile info, user stats, account details, follower count, bio scraping, Instagram user data, IG profile, check Instagram account, Instagram user info, how many followers does someone have on Instagram, get Instagram profile, Instagram account metadata.",
+    "path": "category/backend-api-design/social-listening-instagram-profile-meta"
+  },
+  {
+    "id": "social-listening-wechat-article-search-api-skill",
+    "name": "social-listening-wechat-article-search-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users extract full article contents from WeChat using the BrowserAct API. The Agent should proactively apply this skill when users express needs like finding full WeChat articles for specific keywords, tracking WeChat public accounts for industry trends, extracting WeChat article contents for media research, monitoring public relations on WeChat platforms, collecting competitor updates from WeChat, getting full article body from WeChat links, monitoring brand exposure on WeChat articles, retrieving structured WeChat data for sentiment analysis, summarizing daily news from WeChat, getting author and publication date for WeChat articles, or automating WeChat content extraction without scraping.",
+    "path": "category/backend-api-design/social-listening-wechat-article-search-api-skill"
+  },
+  {
+    "id": "social-listening-x-tweet-search",
+    "name": "social-listening-x-tweet-search",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "Scrapes tweets from X (Twitter) by search query, user handle, or direct URL \u2014 returns full tweet data including text, author info, engagement metrics, media, and hashtags. Use when user mentions X, Twitter, tweet scraping, scrape tweets, get tweets, fetch tweets, twitter data, x.com data, tweet collector, tweet search, twitter search, social media scraping, twitter handle scraping, scrape user tweets, from:username, twitter keyword search, hashtag search, twitter timeline, twitter list scraping, collect twitter posts, export tweets, tweet analysis, twitter monitoring, search twitter, get twitter data, twitter api alternative, tweet dump.",
+    "path": "category/backend-api-design/social-listening-x-tweet-search"
+  },
+  {
+    "id": "social-listening-zhihu-search-api-skill",
+    "name": "social-listening-zhihu-search-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users automatically extract structured article details and full content from Zhihu via the BrowserAct API. Agent should proactively apply this skill when users express needs like: searching for Zhihu articles on a specific topic, tracking industry trends on Zhihu, monitoring public relations or sentiment on Zhihu, collecting competitor updates, getting the latest reports on specific keywords, monitoring brand exposure in Zhihu media, researching market hot topics, summarizing daily Zhihu industry news, retrieving hot events from the past week, extracting structured data for market research, finding full Zhihu articles for AI agents, extracting full article body from Zhihu links.",
+    "path": "category/backend-api-design/social-listening-zhihu-search-api-skill"
   },
   {
     "id": "social-media-finder-skill",
@@ -10208,6 +11080,86 @@
     "path": "category/backend-api-design/vibe-code-auditor"
   },
   {
+    "id": "video-platforms-youtube-api-skill",
+    "name": "video-platforms-youtube-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users automatically extract detailed video metrics and channel information from YouTube based on keyword searches using the BrowserAct API. The Agent should proactively apply this skill when users express needs such as extract specific keyword YouTube video detailed data, monitor the latest video performance of competitor channels, collect comment and like counts for videos on a specific topic, find AI agent tutorials published this week and extract metrics, evaluate total views and subscriber info for specific videos, scrape detailed metrics of marketing campaign videos, track video trends for a tech topic periodically, get high quality video list data for specified keywords on YouTube, mine detailed information of the latest YouTube videos, collect video duration and engagement data for specific industries, or monitor YouTube content creator performance metrics.",
+    "path": "category/backend-api-design/video-platforms-youtube-api-skill"
+  },
+  {
+    "id": "video-platforms-youtube-batch-transcript-extractor-api-skill",
+    "name": "video-platforms-youtube-batch-transcript-extractor-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users automatically extract YouTube video transcripts and metadata in batch via the BrowserAct API. The Agent should proactively apply this skill when users express needs like batch extract full transcripts from YouTube videos for specific keywords, scrape YouTube subtitles for a list of videos, get batch video metadata and likes counts for analysis, automate YouTube search and subtitle extraction, collect multiple video transcripts published this week, download bulk YouTube video subtitles without writing crawler scripts, build a dataset of transcripts from top YouTube videos, extract YouTube video URLs and publisher info in batch, gather full video content for AI summarization pipelines, monitor recent YouTube videos and extract their transcripts, batch retrieve structured subtitle data for media research, extract transcripts from trending YouTube content automatically.",
+    "path": "category/backend-api-design/video-platforms-youtube-batch-transcript-extractor-api-skill"
+  },
+  {
+    "id": "video-platforms-youtube-channel-api-skill",
+    "name": "video-platforms-youtube-channel-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users automatically extract structured channel data from YouTube search results via BrowserAct API. Agent should proactively apply this skill when users express needs like finding YouTube channels about specific topics, collecting data on YouTube content creators, tracking YouTube influencers in specific industries, getting YouTube channel information for competitor analysis, searching for YouTube channels related to keywords, monitoring YouTube channel updates for specific keywords, finding YouTube channels that recently published videos, extracting YouTube channel subscriber counts, discovering YouTube vloggers in specific niches, building a YouTube channel database for market research, batch extracting YouTube channel links and descriptions, or monitoring competitor channel growth.",
+    "path": "category/backend-api-design/video-platforms-youtube-channel-api-skill"
+  },
+  {
+    "id": "video-platforms-youtube-comments-api-skill",
+    "name": "video-platforms-youtube-comments-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users extract structured video list data and comment data from YouTube using the BrowserAct API. The Agent should proactively apply this skill when users request searching for YouTube videos and their comments, analyzing viewer sentiment for a specific video topic, gathering audience feedback on AI or automation, extracting a list of top videos and their viewer reactions, compiling YouTube video data along with user opinions, retrieving competitor video titles and related audience discussions, monitoring public response to specific YouTube search keywords, summarizing comments from search results for market research, tracking viewer engagement metrics and replies for trending topics, collecting YouTube video URLs and author details alongside community discussions, or automating the extraction of YouTube comments without manual scraping.",
+    "path": "category/backend-api-design/video-platforms-youtube-comments-api-skill"
+  },
+  {
+    "id": "video-platforms-youtube-influencer-finder-api-skill",
+    "name": "video-platforms-youtube-influencer-finder-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users extract YouTube influencer profiles including social links, subscriber counts, and channel stats via the BrowserAct API. Agent should proactively apply this skill when users express needs like finding YouTube creators for specific keywords, discovering influencers for a marketing campaign, extracting YouTube channel contact emails, scraping YouTube influencer social media links, gathering subscriber counts for YouTube creators, researching top YouTube channels in a specific niche, compiling a list of YouTube content creators with recent uploads, collecting YouTube creator profiles for outreach, extracting total views and video counts for specific YouTube influencers, building a database of YouTube partners for market research, finding YouTube influencers who uploaded videos this month, or monitoring competitor influencer activities on YouTube.",
+    "path": "category/backend-api-design/video-platforms-youtube-influencer-finder-api-skill"
+  },
+  {
+    "id": "video-platforms-youtube-search-api-skill",
+    "name": "video-platforms-youtube-search-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users automatically extract structured data from YouTube search results using the BrowserAct API. The Agent should proactively apply this skill when users express needs like searching for YouTube videos by keywords, finding the latest YouTube Shorts for a specific topic, gathering YouTube channel data for competitor analysis, monitoring trending YouTube playlists, extracting YouTube search results for market research, tracking view counts for specific YouTube keywords, compiling a list of YouTube videos on a subject, discovering new YouTube content creators in a niche, searching YouTube for tutorial videos automatically, and retrieving structured YouTube search data without opening video pages.",
+    "path": "category/backend-api-design/video-platforms-youtube-search-api-skill"
+  },
+  {
+    "id": "video-platforms-youtube-transcript-analysis-api-skill",
+    "name": "video-platforms-youtube-transcript-analysis-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users extract YouTube video transcripts and perform deep competitive analysis on the content. Agent should proactively apply this skill when users express needs like analyze YouTube video content strategy, perform competitive video content analysis, extract and analyze YouTube subtitles for marketing insights, understand competitor value propositions from their videos, identify target audience from YouTube video content, analyze pain points and needs mentioned in YouTube videos, evaluate competitor CTA strategies in video content, find content gaps in competitor YouTube videos, analyze video narrative structure and hooks, extract key messaging and positioning from YouTube content, benchmark competitor video content quality, research competitor marketing angles through video analysis, identify audience signals and terminology level in videos, analyze emotional tone and persuasion techniques in YouTube content.",
+    "path": "category/backend-api-design/video-platforms-youtube-transcript-analysis-api-skill"
+  },
+  {
+    "id": "video-platforms-youtube-transcript-extractor-api-skill",
+    "name": "video-platforms-youtube-transcript-extractor-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users automatically extract YouTube video transcripts and metadata via the BrowserAct API. The Agent should proactively apply this skill when users express needs like extracting full transcript from a specific YouTube video, getting subtitles and metadata for video content analysis, gathering video titles and likes counts, summarizing YouTube videos without watching them, collecting channel details from a video URL, tracking transcript automation for specific videos, scraping YouTube subtitles for internal knowledge bases, fetching full video content for AI summarization pipelines, downloading structured transcripts from YouTube links, analyzing video text content for media research, monitoring video publisher information and channel links, or building datasets from YouTube video transcripts.",
+    "path": "category/backend-api-design/video-platforms-youtube-transcript-extractor-api-skill"
+  },
+  {
+    "id": "video-platforms-youtube-video-api-skill",
+    "name": "video-platforms-youtube-video-api-skill",
+    "category": "backend-api-design",
+    "repository": "browser-act-skills",
+    "description": "This skill helps users automatically extract channel-level and video detail data from a specific YouTube channel via BrowserAct API. Agent should proactively apply this skill when users express needs like extracting channel video data, getting latest or popular videos from a YouTube channel, tracking competitor channel content, extracting video metrics such as views likes comments, retrieving subscriber count and channel info, monitoring posting cadence of a YouTube channel, gathering video data for content strategy analysis, getting earliest videos of a YouTube creator, analyzing engagement signals across a full channel, and downloading structured YouTube video details without manual scraping.",
+    "path": "category/backend-api-design/video-platforms-youtube-video-api-skill"
+  },
+  {
+    "id": "video-sdk-react-native",
+    "name": "video-sdk-react-native",
+    "category": "backend-api-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Zoom Video SDK for React Native. Use when building custom mobile video session experiences with @zoom/react-native-videosdk, event listeners, helper-based APIs, and backend JWT token flows.",
+    "path": "category/backend-api-design/video-sdk-react-native"
+  },
+  {
     "id": "vies-api",
     "name": "vies-api",
     "category": "backend-api-design",
@@ -10326,6 +11278,14 @@
     "repository": "reason-machines-data-skills",
     "description": "SEO automation and traffic diagnosis using Google Search Console, GA4, and Bing Webmaster APIs",
     "path": "category/backend-api-design/web-analytics-agent-skill"
+  },
+  {
+    "id": "web-client-view",
+    "name": "web-client-view",
+    "category": "backend-api-design",
+    "repository": "anthropics-knowledge-work",
+    "description": "Zoom Meeting SDK Web - Client View. Full-page Zoom meeting experience with the familiar Zoom interface. Uses ZoomMtg global singleton with callback-based API. Ideal for quick integration with minimal customization. Provides the same UI as Zoom Web Client.",
+    "path": "category/backend-api-design/web-client-view"
   },
   {
     "id": "web-endpoint-reverse-sweep",

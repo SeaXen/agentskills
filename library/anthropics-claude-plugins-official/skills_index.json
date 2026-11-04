@@ -4,7 +4,7 @@
     "name": "access",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "Manage Discord channel access \u2014 approve pairings, edit allowlists, set DM/group policy. Use when the user asks to pair, approve someone, check who's allowed, or change policy for the Discord channel.",
     "path": "library/anthropics-claude-plugins-official/skills/access",
     "activation_cmd": "python .agents/library/activate_skill.py activate access",
     "link_cmd": "python .agents/library/activate_skill.py link access"
@@ -14,7 +14,7 @@
     "name": "agent-development",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "This skill should be used when the user asks to \"create an agent\", \"add an agent\", \"write a subagent\", \"agent frontmatter\", \"when to use description\", \"agent examples\", \"agent tools\", \"agent colors\", \"autonomous agent\", or needs guidance on agent structure, system prompts, triggering conditions, or agent development best practices for Claude Code plugins.",
     "path": "library/anthropics-claude-plugins-official/skills/agent-development",
     "activation_cmd": "python .agents/library/activate_skill.py activate agent-development",
     "link_cmd": "python .agents/library/activate_skill.py link agent-development"
@@ -24,7 +24,7 @@
     "name": "build-mcp-app",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "This skill should be used when the user wants to build an \"MCP app\", add \"interactive UI\" or \"widgets\" to an MCP server, \"render components in chat\", build \"MCP UI resources\", make a tool that shows a \"form\", \"picker\", \"dashboard\" or \"confirmation dialog\" inline in the conversation, or mentions \"apps SDK\" in the context of MCP. Use AFTER the build-mcp-server skill has settled the deployment model, or when the user already knows they want UI widgets.",
     "path": "library/anthropics-claude-plugins-official/skills/build-mcp-app",
     "activation_cmd": "python .agents/library/activate_skill.py activate build-mcp-app",
     "link_cmd": "python .agents/library/activate_skill.py link build-mcp-app"
@@ -34,7 +34,7 @@
     "name": "build-mcp-server",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "This skill should be used when the user asks to \"build an MCP server\", \"create an MCP\", \"make an MCP integration\", \"wrap an API for Claude\", \"expose tools to Claude\", \"make an MCP app\", or discusses building something with the Model Context Protocol. It is the entry point for MCP server development \u2014 it interrogates the user about their use case, determines the right deployment model (remote HTTP, MCPB, local stdio), picks a tool-design pattern, and hands off to specialized skills.",
     "path": "library/anthropics-claude-plugins-official/skills/build-mcp-server",
     "activation_cmd": "python .agents/library/activate_skill.py activate build-mcp-server",
     "link_cmd": "python .agents/library/activate_skill.py link build-mcp-server"
@@ -44,7 +44,7 @@
     "name": "build-mcpb",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "This skill should be used when the user wants to \"package an MCP server\", \"bundle an MCP\", \"make an MCPB\", \"ship a local MCP server\", \"distribute a local MCP\", discusses \".mcpb files\", mentions bundling a Node or Python runtime with their MCP server, or needs an MCP server that interacts with the local filesystem, desktop apps, or OS and must be installable without the user having Node/Python set up.",
     "path": "library/anthropics-claude-plugins-official/skills/build-mcpb",
     "activation_cmd": "python .agents/library/activate_skill.py activate build-mcpb",
     "link_cmd": "python .agents/library/activate_skill.py link build-mcpb"
@@ -54,7 +54,7 @@
     "name": "cardputer-buddy",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "Iterate on the Cardputer-Adv MicroPython app bundle (Claude Buddy, Snake, Hello) after the device is already provisioned via m5-onboard. Use when the user wants to add a new app, push a single changed .py without re-flashing, watch device serial logs, or run a one-shot REPL command. Trigger on \"add an app\", \"push to the cardputer\", \"tail the device\", \"run on the device\", or follow-up work after /maker-setup.",
     "path": "library/anthropics-claude-plugins-official/skills/cardputer-buddy",
     "activation_cmd": "python .agents/library/activate_skill.py activate cardputer-buddy",
     "link_cmd": "python .agents/library/activate_skill.py link cardputer-buddy"
@@ -64,7 +64,7 @@
     "name": "claude-automation-recommender",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "Analyze a codebase and recommend Claude Code automations (hooks, subagents, skills, plugins, MCP servers). Use when user asks for automation recommendations, wants to optimize their Claude Code setup, mentions improving Claude Code workflows, asks how to first set up Claude Code for a project, or wants to know what Claude Code features they should use.",
     "path": "library/anthropics-claude-plugins-official/skills/claude-automation-recommender",
     "activation_cmd": "python .agents/library/activate_skill.py activate claude-automation-recommender",
     "link_cmd": "python .agents/library/activate_skill.py link claude-automation-recommender"
@@ -74,7 +74,7 @@
     "name": "claude-md-improver",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "Audit and improve CLAUDE.md files in repositories. Use when user asks to check, audit, update, improve, or fix CLAUDE.md files. Scans for all CLAUDE.md files, evaluates quality against templates, outputs quality report, then makes targeted updates. Also use when the user mentions \"CLAUDE.md maintenance\" or \"project memory optimization\".",
     "path": "library/anthropics-claude-plugins-official/skills/claude-md-improver",
     "activation_cmd": "python .agents/library/activate_skill.py activate claude-md-improver",
     "link_cmd": "python .agents/library/activate_skill.py link claude-md-improver"
@@ -84,7 +84,7 @@
     "name": "claude-security",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "\"Claude Security: scan the codebase (the whole repository or a scoped part of it), scan changes (this branch's or a pull request's diff, or one commit), or suggest patches (findings turned into targeted patch files, each verified by a panel of agents, that you apply when you choose). Use when the user asks to scan, audit or check code with Claude Security, to scan their changes with Claude Security, or to fix or patch Claude Security findings.\"",
     "path": "library/anthropics-claude-plugins-official/skills/claude-security",
     "activation_cmd": "python .agents/library/activate_skill.py activate claude-security",
     "link_cmd": "python .agents/library/activate_skill.py link claude-security"
@@ -94,7 +94,7 @@
     "name": "command-development",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "This skill should be used when the user asks to \"create a slash command\", \"add a command\", \"write a custom command\", \"define command arguments\", \"use command frontmatter\", \"organize commands\", \"create command with file references\", \"interactive command\", \"use AskUserQuestion in command\", or needs guidance on slash command structure, YAML frontmatter fields, dynamic arguments, bash execution in commands, user interaction patterns, or command development best practices for Claude Code.",
     "path": "library/anthropics-claude-plugins-official/skills/command-development",
     "activation_cmd": "python .agents/library/activate_skill.py activate command-development",
     "link_cmd": "python .agents/library/activate_skill.py link command-development"
@@ -104,7 +104,7 @@
     "name": "configure",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "Set up the Discord channel \u2014 save the bot token and review access policy. Use when the user pastes a Discord bot token, asks to configure Discord, asks \"how do I set this up\" or \"who can reach me,\" or wants to check channel status.",
     "path": "library/anthropics-claude-plugins-official/skills/configure",
     "activation_cmd": "python .agents/library/activate_skill.py activate configure",
     "link_cmd": "python .agents/library/activate_skill.py link configure"
@@ -114,7 +114,7 @@
     "name": "example-command",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "An example user-invoked skill that demonstrates frontmatter options and the skills/<name>/SKILL.md layout",
     "path": "library/anthropics-claude-plugins-official/skills/example-command",
     "activation_cmd": "python .agents/library/activate_skill.py activate example-command",
     "link_cmd": "python .agents/library/activate_skill.py link example-command"
@@ -124,7 +124,7 @@
     "name": "example-skill",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "This skill should be used when the user asks to \"demonstrate skills\", \"show skill format\", \"create a skill template\", or discusses skill development patterns. Provides a reference template for creating Claude Code plugin skills.",
     "path": "library/anthropics-claude-plugins-official/skills/example-skill",
     "activation_cmd": "python .agents/library/activate_skill.py activate example-skill",
     "link_cmd": "python .agents/library/activate_skill.py link example-skill"
@@ -134,7 +134,7 @@
     "name": "frontend-design",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.",
     "path": "library/anthropics-claude-plugins-official/skills/frontend-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate frontend-design",
     "link_cmd": "python .agents/library/activate_skill.py link frontend-design"
@@ -144,7 +144,7 @@
     "name": "hook-development",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "This skill should be used when the user asks to \"create a hook\", \"add a PreToolUse/PostToolUse/Stop hook\", \"validate tool use\", \"implement prompt-based hooks\", \"use ${CLAUDE_PLUGIN_ROOT}\", \"set up event-driven automation\", \"block dangerous commands\", or mentions hook events (PreToolUse, PostToolUse, Stop, SubagentStop, SessionStart, SessionEnd, UserPromptSubmit, PreCompact, Notification). Provides comprehensive guidance for creating and implementing Claude Code plugin hooks with focus on advanced prompt-based hooks API.",
     "path": "library/anthropics-claude-plugins-official/skills/hook-development",
     "activation_cmd": "python .agents/library/activate_skill.py activate hook-development",
     "link_cmd": "python .agents/library/activate_skill.py link hook-development"
@@ -154,7 +154,7 @@
     "name": "m5-onboard",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "End-to-end onboarding for a freshly-plugged-in M5Stack ESP32 device (Cardputer, Cardputer-Adv, Core, CoreS3, Stick) \u2014 detect on USB, flash UIFlow 2.0 firmware, and install the Claude Buddy MicroPython app bundle. Use whenever the user plugs in or wants to flash/provision/reset an M5Stack or ESP32 board, or says \"m5-onboard go\".",
     "path": "library/anthropics-claude-plugins-official/skills/m5-onboard",
     "activation_cmd": "python .agents/library/activate_skill.py activate m5-onboard",
     "link_cmd": "python .agents/library/activate_skill.py link m5-onboard"
@@ -164,7 +164,7 @@
     "name": "math-olympiad",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "\"Solve competition math problems (IMO, Putnam, USAMO, AIME) with adversarial",
     "path": "library/anthropics-claude-plugins-official/skills/math-olympiad",
     "activation_cmd": "python .agents/library/activate_skill.py activate math-olympiad",
     "link_cmd": "python .agents/library/activate_skill.py link math-olympiad"
@@ -174,7 +174,7 @@
     "name": "mcp-integration",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "This skill should be used when the user asks to \"add MCP server\", \"integrate MCP\", \"configure MCP in plugin\", \"use .mcp.json\", \"set up Model Context Protocol\", \"connect external service\", mentions \"${CLAUDE_PLUGIN_ROOT} with MCP\", or discusses MCP server types (SSE, stdio, HTTP, WebSocket). Provides comprehensive guidance for integrating Model Context Protocol servers into Claude Code plugins for external tool and service integration.",
     "path": "library/anthropics-claude-plugins-official/skills/mcp-integration",
     "activation_cmd": "python .agents/library/activate_skill.py activate mcp-integration",
     "link_cmd": "python .agents/library/activate_skill.py link mcp-integration"
@@ -184,7 +184,7 @@
     "name": "playground",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "Creates interactive HTML playgrounds \u2014 self-contained single-file explorers that let users configure something visually through controls, see a live preview, and copy out a prompt. Use when the user asks to make a playground, explorer, or interactive tool for a topic.",
     "path": "library/anthropics-claude-plugins-official/skills/playground",
     "activation_cmd": "python .agents/library/activate_skill.py activate playground",
     "link_cmd": "python .agents/library/activate_skill.py link playground"
@@ -194,7 +194,7 @@
     "name": "plugin-settings",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "This skill should be used when the user asks about \"plugin settings\", \"store plugin configuration\", \"user-configurable plugin\", \".local.md files\", \"plugin state files\", \"read YAML frontmatter\", \"per-project plugin settings\", or wants to make plugin behavior configurable. Documents the .claude/plugin-name.local.md pattern for storing plugin-specific configuration with YAML frontmatter and markdown content.",
     "path": "library/anthropics-claude-plugins-official/skills/plugin-settings",
     "activation_cmd": "python .agents/library/activate_skill.py activate plugin-settings",
     "link_cmd": "python .agents/library/activate_skill.py link plugin-settings"
@@ -204,7 +204,7 @@
     "name": "plugin-structure",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "This skill should be used when the user asks to \"create a plugin\", \"scaffold a plugin\", \"understand plugin structure\", \"organize plugin components\", \"set up plugin.json\", \"use ${CLAUDE_PLUGIN_ROOT}\", \"add commands/agents/skills/hooks\", \"configure auto-discovery\", or needs guidance on plugin directory layout, manifest configuration, component organization, file naming conventions, or Claude Code plugin architecture best practices.",
     "path": "library/anthropics-claude-plugins-official/skills/plugin-structure",
     "activation_cmd": "python .agents/library/activate_skill.py activate plugin-structure",
     "link_cmd": "python .agents/library/activate_skill.py link plugin-structure"
@@ -214,7 +214,7 @@
     "name": "project-artifact",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "Generate and publish a project status artifact \u2014 an opinionated, tabbed status page for a project too big for one update (overview & success criteria, the workstream sequence, next steps, plus background, plan, risks & open questions, and decisions/FAQ when they earn a tab) \u2014 published with the built-in Artifact tool to a default-private claude.ai page the user can share with teammates. Use when a piece of work spans several workstreams and you want a shareable overview kept current. Each artifact is backed by a small per-project config in the plugin data dir, so refreshing it re-gathers live state, redeploys the same URL, and reports only the delta. For software projects whose workstreams are PRs, also read swe.md (the X.Y PR-numbering convention; pulling PR state with gh/git; a per-PR detail block). Needs the built-in Artifact tool (claude.ai login). Not for single-PR changes or public docs.",
     "path": "library/anthropics-claude-plugins-official/skills/project-artifact",
     "activation_cmd": "python .agents/library/activate_skill.py activate project-artifact",
     "link_cmd": "python .agents/library/activate_skill.py link project-artifact"
@@ -224,7 +224,7 @@
     "name": "receipts",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "Generate a personal Claude Code usage & impact report (\"receipts\") from this machine's local session transcripts \u2014 for justifying Claude Code usage/spend to a manager, self-review, or \"what have I been using this for\" check-ins. Mines ~/.claude/projects locally (no extra API calls beyond one final write-up), cross-references local git history, and writes a markdown report plus a self-contained HTML receipt to your home directory. Use when the user asks for \"receipts\", an \"impact report\", \"usage report\", wants to \"show my Claude Code activity\", \"prove the value of Claude Code\", or runs `/receipts`.",
     "path": "library/anthropics-claude-plugins-official/skills/receipts",
     "activation_cmd": "python .agents/library/activate_skill.py activate receipts",
     "link_cmd": "python .agents/library/activate_skill.py link receipts"
@@ -234,7 +234,7 @@
     "name": "session-report",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "Generate an explorable HTML report of Claude Code session usage (tokens, cache, subagents, skills, expensive prompts) from ~/.claude/projects transcripts.",
     "path": "library/anthropics-claude-plugins-official/skills/session-report",
     "activation_cmd": "python .agents/library/activate_skill.py activate session-report",
     "link_cmd": "python .agents/library/activate_skill.py link session-report"
@@ -244,7 +244,7 @@
     "name": "siege",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "\"Work on one hard mathematics problem in rounds: each round a judge writes a few self-contained questions, independent workers answer them, and the judge keeps a ledger of what is proved, refuted and open, until the judge concludes or the rounds run out, and then a proof.md says plainly what is and is not proved. A run takes hours and dozens of worker runs. Usage: /math-proof:siege [NAME=value settings] <the problem, stated in full, or the path of a file holding it>.\"",
     "path": "library/anthropics-claude-plugins-official/skills/siege",
     "activation_cmd": "python .agents/library/activate_skill.py activate siege",
     "link_cmd": "python .agents/library/activate_skill.py link siege"
@@ -254,7 +254,7 @@
     "name": "skill-creator",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.",
     "path": "library/anthropics-claude-plugins-official/skills/skill-creator",
     "activation_cmd": "python .agents/library/activate_skill.py activate skill-creator",
     "link_cmd": "python .agents/library/activate_skill.py link skill-creator"
@@ -264,17 +264,307 @@
     "name": "skill-development",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "This skill should be used when the user wants to \"create a skill\", \"add a skill to plugin\", \"write a new skill\", \"improve skill description\", \"organize skill content\", or needs guidance on skill structure, progressive disclosure, or skill development best practices for Claude Code plugins.",
     "path": "library/anthropics-claude-plugins-official/skills/skill-development",
     "activation_cmd": "python .agents/library/activate_skill.py activate skill-development",
     "link_cmd": "python .agents/library/activate_skill.py link skill-development"
+  },
+  {
+    "id": "skills-access",
+    "name": "skills-access",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "Manage Discord channel access \u2014 approve pairings, edit allowlists, set DM/group policy. Use when the user asks to pair, approve someone, check who's allowed, or change policy for the Discord channel.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-access",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-access",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-access"
+  },
+  {
+    "id": "skills-agent-development",
+    "name": "skills-agent-development",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "This skill should be used when the user asks to \"create an agent\", \"add an agent\", \"write a subagent\", \"agent frontmatter\", \"when to use description\", \"agent examples\", \"agent tools\", \"agent colors\", \"autonomous agent\", or needs guidance on agent structure, system prompts, triggering conditions, or agent development best practices for Claude Code plugins.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-agent-development",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-agent-development",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-agent-development"
+  },
+  {
+    "id": "skills-build-mcp-app",
+    "name": "skills-build-mcp-app",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "This skill should be used when the user wants to build an \"MCP app\", add \"interactive UI\" or \"widgets\" to an MCP server, \"render components in chat\", build \"MCP UI resources\", make a tool that shows a \"form\", \"picker\", \"dashboard\" or \"confirmation dialog\" inline in the conversation, or mentions \"apps SDK\" in the context of MCP. Use AFTER the build-mcp-server skill has settled the deployment model, or when the user already knows they want UI widgets.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-build-mcp-app",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-build-mcp-app",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-build-mcp-app"
+  },
+  {
+    "id": "skills-build-mcp-server",
+    "name": "skills-build-mcp-server",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "This skill should be used when the user asks to \"build an MCP server\", \"create an MCP\", \"make an MCP integration\", \"wrap an API for Claude\", \"expose tools to Claude\", \"make an MCP app\", or discusses building something with the Model Context Protocol. It is the entry point for MCP server development \u2014 it interrogates the user about their use case, determines the right deployment model (remote HTTP, MCPB, local stdio), picks a tool-design pattern, and hands off to specialized skills.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-build-mcp-server",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-build-mcp-server",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-build-mcp-server"
+  },
+  {
+    "id": "skills-build-mcpb",
+    "name": "skills-build-mcpb",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "This skill should be used when the user wants to \"package an MCP server\", \"bundle an MCP\", \"make an MCPB\", \"ship a local MCP server\", \"distribute a local MCP\", discusses \".mcpb files\", mentions bundling a Node or Python runtime with their MCP server, or needs an MCP server that interacts with the local filesystem, desktop apps, or OS and must be installable without the user having Node/Python set up.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-build-mcpb",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-build-mcpb",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-build-mcpb"
+  },
+  {
+    "id": "skills-cardputer-buddy",
+    "name": "skills-cardputer-buddy",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "Iterate on the Cardputer-Adv MicroPython app bundle (Claude Buddy, Snake, Hello) after the device is already provisioned via m5-onboard. Use when the user wants to add a new app, push a single changed .py without re-flashing, watch device serial logs, or run a one-shot REPL command. Trigger on \"add an app\", \"push to the cardputer\", \"tail the device\", \"run on the device\", or follow-up work after /maker-setup.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-cardputer-buddy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-cardputer-buddy",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-cardputer-buddy"
+  },
+  {
+    "id": "skills-claude-automation-recommender",
+    "name": "skills-claude-automation-recommender",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "Analyze a codebase and recommend Claude Code automations (hooks, subagents, skills, plugins, MCP servers). Use when user asks for automation recommendations, wants to optimize their Claude Code setup, mentions improving Claude Code workflows, asks how to first set up Claude Code for a project, or wants to know what Claude Code features they should use.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-claude-automation-recommender",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-claude-automation-recommender",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-claude-automation-recommender"
+  },
+  {
+    "id": "skills-claude-md-improver",
+    "name": "skills-claude-md-improver",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "Audit and improve CLAUDE.md files in repositories. Use when user asks to check, audit, update, improve, or fix CLAUDE.md files. Scans for all CLAUDE.md files, evaluates quality against templates, outputs quality report, then makes targeted updates. Also use when the user mentions \"CLAUDE.md maintenance\" or \"project memory optimization\".",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-claude-md-improver",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-claude-md-improver",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-claude-md-improver"
+  },
+  {
+    "id": "skills-claude-security",
+    "name": "skills-claude-security",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "\"Claude Security: scan the codebase (the whole repository or a scoped part of it), scan changes (this branch's or a pull request's diff, or one commit), or suggest patches (findings turned into targeted patch files, each verified by a panel of agents, that you apply when you choose). Use when the user asks to scan, audit or check code with Claude Security, to scan their changes with Claude Security, or to fix or patch Claude Security findings.\"",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-claude-security",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-claude-security",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-claude-security"
+  },
+  {
+    "id": "skills-command-development",
+    "name": "skills-command-development",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "This skill should be used when the user asks to \"create a slash command\", \"add a command\", \"write a custom command\", \"define command arguments\", \"use command frontmatter\", \"organize commands\", \"create command with file references\", \"interactive command\", \"use AskUserQuestion in command\", or needs guidance on slash command structure, YAML frontmatter fields, dynamic arguments, bash execution in commands, user interaction patterns, or command development best practices for Claude Code.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-command-development",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-command-development",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-command-development"
+  },
+  {
+    "id": "skills-configure",
+    "name": "skills-configure",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "Set up the Discord channel \u2014 save the bot token and review access policy. Use when the user pastes a Discord bot token, asks to configure Discord, asks \"how do I set this up\" or \"who can reach me,\" or wants to check channel status.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-configure",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-configure",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-configure"
+  },
+  {
+    "id": "skills-example-command",
+    "name": "skills-example-command",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "An example user-invoked skill that demonstrates frontmatter options and the skills/<name>/SKILL.md layout",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-example-command",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-example-command",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-example-command"
+  },
+  {
+    "id": "skills-example-skill",
+    "name": "skills-example-skill",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "This skill should be used when the user asks to \"demonstrate skills\", \"show skill format\", \"create a skill template\", or discusses skill development patterns. Provides a reference template for creating Claude Code plugin skills.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-example-skill",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-example-skill",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-example-skill"
+  },
+  {
+    "id": "skills-frontend-design",
+    "name": "skills-frontend-design",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-frontend-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-frontend-design",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-frontend-design"
+  },
+  {
+    "id": "skills-hook-development",
+    "name": "skills-hook-development",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "This skill should be used when the user asks to \"create a hook\", \"add a PreToolUse/PostToolUse/Stop hook\", \"validate tool use\", \"implement prompt-based hooks\", \"use ${CLAUDE_PLUGIN_ROOT}\", \"set up event-driven automation\", \"block dangerous commands\", or mentions hook events (PreToolUse, PostToolUse, Stop, SubagentStop, SessionStart, SessionEnd, UserPromptSubmit, PreCompact, Notification). Provides comprehensive guidance for creating and implementing Claude Code plugin hooks with focus on advanced prompt-based hooks API.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-hook-development",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-hook-development",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-hook-development"
+  },
+  {
+    "id": "skills-m5-onboard",
+    "name": "skills-m5-onboard",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "End-to-end onboarding for a freshly-plugged-in M5Stack ESP32 device (Cardputer, Cardputer-Adv, Core, CoreS3, Stick) \u2014 detect on USB, flash UIFlow 2.0 firmware, and install the Claude Buddy MicroPython app bundle. Use whenever the user plugs in or wants to flash/provision/reset an M5Stack or ESP32 board, or says \"m5-onboard go\".",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-m5-onboard",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-m5-onboard",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-m5-onboard"
+  },
+  {
+    "id": "skills-math-olympiad",
+    "name": "skills-math-olympiad",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "\"Solve competition math problems (IMO, Putnam, USAMO, AIME) with adversarial",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-math-olympiad",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-math-olympiad",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-math-olympiad"
+  },
+  {
+    "id": "skills-mcp-integration",
+    "name": "skills-mcp-integration",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "This skill should be used when the user asks to \"add MCP server\", \"integrate MCP\", \"configure MCP in plugin\", \"use .mcp.json\", \"set up Model Context Protocol\", \"connect external service\", mentions \"${CLAUDE_PLUGIN_ROOT} with MCP\", or discusses MCP server types (SSE, stdio, HTTP, WebSocket). Provides comprehensive guidance for integrating Model Context Protocol servers into Claude Code plugins for external tool and service integration.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-mcp-integration",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-mcp-integration",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-mcp-integration"
+  },
+  {
+    "id": "skills-playground",
+    "name": "skills-playground",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "Creates interactive HTML playgrounds \u2014 self-contained single-file explorers that let users configure something visually through controls, see a live preview, and copy out a prompt. Use when the user asks to make a playground, explorer, or interactive tool for a topic.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-playground",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-playground",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-playground"
+  },
+  {
+    "id": "skills-plugin-settings",
+    "name": "skills-plugin-settings",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "This skill should be used when the user asks about \"plugin settings\", \"store plugin configuration\", \"user-configurable plugin\", \".local.md files\", \"plugin state files\", \"read YAML frontmatter\", \"per-project plugin settings\", or wants to make plugin behavior configurable. Documents the .claude/plugin-name.local.md pattern for storing plugin-specific configuration with YAML frontmatter and markdown content.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-plugin-settings",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-plugin-settings",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-plugin-settings"
+  },
+  {
+    "id": "skills-plugin-structure",
+    "name": "skills-plugin-structure",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "This skill should be used when the user asks to \"create a plugin\", \"scaffold a plugin\", \"understand plugin structure\", \"organize plugin components\", \"set up plugin.json\", \"use ${CLAUDE_PLUGIN_ROOT}\", \"add commands/agents/skills/hooks\", \"configure auto-discovery\", or needs guidance on plugin directory layout, manifest configuration, component organization, file naming conventions, or Claude Code plugin architecture best practices.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-plugin-structure",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-plugin-structure",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-plugin-structure"
+  },
+  {
+    "id": "skills-project-artifact",
+    "name": "skills-project-artifact",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "Generate and publish a project status artifact \u2014 an opinionated, tabbed status page for a project too big for one update (overview & success criteria, the workstream sequence, next steps, plus background, plan, risks & open questions, and decisions/FAQ when they earn a tab) \u2014 published with the built-in Artifact tool to a default-private claude.ai page the user can share with teammates. Use when a piece of work spans several workstreams and you want a shareable overview kept current. Each artifact is backed by a small per-project config in the plugin data dir, so refreshing it re-gathers live state, redeploys the same URL, and reports only the delta. For software projects whose workstreams are PRs, also read swe.md (the X.Y PR-numbering convention; pulling PR state with gh/git; a per-PR detail block). Needs the built-in Artifact tool (claude.ai login). Not for single-PR changes or public docs.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-project-artifact",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-project-artifact",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-project-artifact"
+  },
+  {
+    "id": "skills-receipts",
+    "name": "skills-receipts",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "Generate a personal Claude Code usage & impact report (\"receipts\") from this machine's local session transcripts \u2014 for justifying Claude Code usage/spend to a manager, self-review, or \"what have I been using this for\" check-ins. Mines ~/.claude/projects locally (no extra API calls beyond one final write-up), cross-references local git history, and writes a markdown report plus a self-contained HTML receipt to your home directory. Use when the user asks for \"receipts\", an \"impact report\", \"usage report\", wants to \"show my Claude Code activity\", \"prove the value of Claude Code\", or runs `/receipts`.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-receipts",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-receipts",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-receipts"
+  },
+  {
+    "id": "skills-session-report",
+    "name": "skills-session-report",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "Generate an explorable HTML report of Claude Code session usage (tokens, cache, subagents, skills, expensive prompts) from ~/.claude/projects transcripts.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-session-report",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-session-report",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-session-report"
+  },
+  {
+    "id": "skills-siege",
+    "name": "skills-siege",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "\"Work on one hard mathematics problem in rounds: each round a judge writes a few self-contained questions, independent workers answer them, and the judge keeps a ledger of what is proved, refuted and open, until the judge concludes or the rounds run out, and then a proof.md says plainly what is and is not proved. A run takes hours and dozens of worker runs. Usage: /math-proof:siege [NAME=value settings] <the problem, stated in full, or the path of a file holding it>.\"",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-siege",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-siege",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-siege"
+  },
+  {
+    "id": "skills-skill-creator",
+    "name": "skills-skill-creator",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, edit, or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-skill-creator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-skill-creator",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-skill-creator"
+  },
+  {
+    "id": "skills-skill-development",
+    "name": "skills-skill-development",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "This skill should be used when the user wants to \"create a skill\", \"add a skill to plugin\", \"write a new skill\", \"improve skill description\", \"organize skill content\", or needs guidance on skill structure, progressive disclosure, or skill development best practices for Claude Code plugins.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-skill-development",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-skill-development",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-skill-development"
+  },
+  {
+    "id": "skills-solo",
+    "name": "skills-solo",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "\"Work on one hard mathematics problem in this session yourself, with no sub-agents: reason in stages, record each settled step in a notes file so that nothing written is lost if a response is cut off, and end with a self-contained proof.md. Usage: /math-proof:solo <the problem, stated in full, or the path of a file holding it>.\"",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-solo",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-solo",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-solo"
+  },
+  {
+    "id": "skills-writing-rules",
+    "name": "skills-writing-rules",
+    "repository": "anthropics-claude-plugins-official",
+    "category": "general",
+    "description": "This skill should be used when the user asks to \"create a hookify rule\", \"write a hook rule\", \"configure hookify\", \"add a hookify rule\", or needs guidance on hookify rule syntax and patterns.",
+    "path": "library/anthropics-claude-plugins-official/skills/skills-writing-rules",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-writing-rules",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-writing-rules"
   },
   {
     "id": "solo",
     "name": "solo",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "\"Work on one hard mathematics problem in this session yourself, with no sub-agents: reason in stages, record each settled step in a notes file so that nothing written is lost if a response is cut off, and end with a self-contained proof.md. Usage: /math-proof:solo <the problem, stated in full, or the path of a file holding it>.\"",
     "path": "library/anthropics-claude-plugins-official/skills/solo",
     "activation_cmd": "python .agents/library/activate_skill.py activate solo",
     "link_cmd": "python .agents/library/activate_skill.py link solo"
@@ -284,7 +574,7 @@
     "name": "writing-rules",
     "repository": "anthropics-claude-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "This skill should be used when the user asks to \"create a hookify rule\", \"write a hook rule\", \"configure hookify\", \"add a hookify rule\", or needs guidance on hookify rule syntax and patterns.",
     "path": "library/anthropics-claude-plugins-official/skills/writing-rules",
     "activation_cmd": "python .agents/library/activate_skill.py activate writing-rules",
     "link_cmd": "python .agents/library/activate_skill.py link writing-rules"

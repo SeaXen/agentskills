@@ -4,7 +4,7 @@
     "name": "cargo",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Router for the Cargo CLI skill bundle \u2014 load first for anything Cargo, and whenever a task spans two Cargo domains. Explains what each skill owns, declarative GTM as Code projects (cargo-project) vs the imperative CLI, the UUID and slug flow between skills, async polling of runs and batches, end-to-end use cases, and the gotchas that fail silently (inputs in a top-level action's `config` stripped without an error, run vs batch, model-uuid vs segment-uuid). Triggers: \\\"set up Cargo\\\", \\\"what can Cargo do\\\", \\\"which Cargo skill\\\", \\\"bootstrap my workspace\\\", \\\"I have a Cargo account\\\", \\\"cargo-ai \u2026\\\", or any `cargo-ai` command whose domain you are unsure of. Skip when: the task obviously belongs to one skill \u2014 load that skill directly.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo",
     "link_cmd": "python .agents/library/activate_skill.py link cargo"
@@ -14,7 +14,7 @@
     "name": "cargo-ai",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Build and configure AI agents inside Cargo \u2014 create an agent, choose its model and temperature, write its prompt, attach knowledge for retrieval (RAG), connect MCP tool servers, manage memories, and deploy releases. Triggers: \\\"create an agent\\\", \\\"make an agent that\\\", \\\"give the agent our docs\\\", \\\"attach this knowledge base\\\", \\\"attach this library to the agent\\\", \\\"add resources to the agent release\\\", \\\"connect an MCP server\\\", \\\"expose our tools as an MCP server\\\", \\\"use Cargo from Claude Desktop or ChatGPT\\\", \\\"change the agent model\\\", \\\"what does the agent remember\\\", \\\"deploy the agent\\\", \\\"the agent is answering wrong\\\". Skip when: uploading the knowledge files themselves \u2014 use cargo-content; sending the agent a message or running it over records \u2014 use cargo-orchestration.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-ai",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-ai",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-ai"
@@ -24,7 +24,7 @@
     "name": "cargo-analytics",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Get data out of Cargo and measure what ran \u2014 download a run output, export a segment or model to CSV or JSON, and pull run and batch success and error counts. Triggers: \\\"download the results\\\", \\\"export this to CSV\\\", \\\"give me the file\\\", \\\"how many succeeded\\\", \\\"what is my error rate\\\", \\\"send me the enriched list\\\", \\\"get the output of that run\\\", \\\"how many records did it write\\\". Skip when: asking why something failed or where credits went \u2014 use cargo-diagnostics; asking about credits, plans, or invoices \u2014 use cargo-billing.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-analytics",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-analytics",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-analytics"
@@ -34,7 +34,7 @@
     "name": "cargo-billing",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Understand what Cargo is costing \u2014 remaining credits, usage broken down by workflow, connector, or agent, subscription state, and invoice history. Triggers: \\\"how many credits do I have left\\\", \\\"what did that cost\\\", \\\"why is my bill so high\\\", \\\"am I about to run out\\\", \\\"will this fit in our budget\\\", \\\"show me my invoices\\\", \\\"how much have I spent this month\\\", \\\"what plan am I on\\\", \\\"what do I get for free\\\", \\\"how many free credits\\\", \\\"can I afford this run\\\", \\\"add a card\\\", \\\"update my payment method\\\", \\\"why was my card declined\\\". Needs a token with admin access. Skip when: attributing spend to specific nodes or cutting a play cost \u2014 use cargo-diagnostics.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-billing",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-billing",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-billing"
@@ -44,7 +44,7 @@
     "name": "cargo-cdk",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Renamed to cargo-project. This entry exists only so installs from before the rename are replaced by a pointer. Skip when: always \u2014 load cargo-project.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-cdk",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-cdk",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-cdk"
@@ -54,7 +54,7 @@
     "name": "cargo-connection",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Connect Cargo to an external system and find out what it can do \u2014 authenticate connectors, browse the integration catalog, and resolve the `connectorUuid` and `actionSlug` a workflow node needs. Triggers: \\\"connect my HubSpot\\\", \\\"is Salesforce connected\\\", \\\"what integrations do you support\\\", \\\"can Cargo talk to <tool>\\\", \\\"what actions does <provider> have\\\", \\\"I need the connector UUID\\\", \\\"set up the API key for\\\", \\\"it is asking for credentials again\\\", \\\"why is this connector failing auth\\\", \\\"list my connectors\\\". Integrations: amplemarket, amplitude, attio, bigQuery, calendly, cargoSignals, closecom, contrast, csv, customerio, dbt, emailBison, expandi, googleAds, googleCalendar, googleSheets, heyReach, http, hubspot, hubspotMcp, instantly, instantlyV2, intercom, jira, kitt, lemlist, lgm, linkedinAds, linkedinMatchedAudience, livestorm, manus, marketo, metaAds, metabase, microsoftTeams, mixpanel, monaco, netsuite, netsuiteSoap, nooks, notionMcp, octave, onesignal, outreach, pipedrive, postgresql, redshift, resend, rift, salesforce, salesforceMcp, salesloft, Sendgrid, sillage, slack, smartlead, snowflake, sql, stripe, xAds, and 87 more. Skip when: choosing between enrichment providers for a GTM job \u2014 use cargo-gtm and its provider playbooks.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-connection",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-connection",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-connection"
@@ -64,7 +64,7 @@
     "name": "cargo-content",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Manage the files a Cargo workspace holds \u2014 upload knowledge (PDF, CSV, text) and build native or connector-backed libraries agents retrieve from (RAG), and use files as plain storage: write and read by path, list a folder, hand out a signed or public link. Triggers: \\\"upload this PDF\\\", \\\"add these docs as knowledge\\\", \\\"build a knowledge base\\\", \\\"sync our help center into Cargo\\\", \\\"what files are in the workspace\\\", \\\"index this folder\\\", \\\"attach our pricing sheet\\\", \\\"store this file\\\", \\\"save the report somewhere\\\", \\\"give me a link to the file\\\", \\\"make this file public\\\". Skip when: wiring the file or library into an agent \u2014 use cargo-ai; uploading a CSV that drives a batch run \u2014 that is a workspace-management file upload.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-content",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-content",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-content"
@@ -74,7 +74,7 @@
     "name": "cargo-context",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Read and write the workspace GTM knowledge base \u2014 the git-backed repository of markdown describing ICPs, personas, plays, proof points, objections, competitors, and signals \u2014 plus its runtime sandbox and typed knowledge graph. Triggers: \\\"document our ICP\\\", \\\"write up this persona\\\", \\\"what is our positioning\\\", \\\"add a battlecard\\\", \\\"capture this objection\\\", \\\"what do we know about <segment>\\\", \\\"update our context\\\", \\\"what is in the context repo\\\", \\\"who do we sell to\\\". Skip when: discovering who actually buys from you by analyzing won/lost data \u2014 that is cargo-gtm (this skill writes the conclusion down, it does not derive it); storing structured records rather than prose \u2014 use cargo-storage; attaching documents to an agent for RAG \u2014 use cargo-content.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-context",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-context",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-context"
@@ -84,7 +84,7 @@
     "name": "cargo-diagnostics",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Explain what a Cargo run or batch actually did, after the fact \u2014 trace one run node by node, draw the graph it executed with the failing step marked, sweep a batch or play for errors grouped by root cause, and attribute credit spend down to the node and the provider. Triggers: \\\"why did this fail\\\", \\\"it succeeded but the output is wrong\\\", \\\"half my rows are empty\\\", \\\"why is this column blank\\\", \\\"what broke in this batch\\\", \\\"why did that cost so much\\\", \\\"which node is burning credits\\\", \\\"it worked yesterday\\\", \\\"these results look wrong\\\", \\\"it went down the wrong path\\\", \\\"this step never ran\\\", \\\"show me what the run did\\\". Skip when: setting up an alert for next time \u2014 use cargo-observability; just downloading the data \u2014 use cargo-analytics.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-diagnostics",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-diagnostics",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-diagnostics"
@@ -94,7 +94,7 @@
     "name": "cargo-gtm",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Do business-to-business go-to-market work on Cargo \u2014 research accounts and buying committees, enrich and verify B2B contact records from licensed data providers, score and qualify leads, draft permission-based outreach for the user's own sequencer, sync to CRM, and monitor buying signals. Consent basis, suppression lists, and volume limits gate every step that touches a person (`references/acceptable-use.md`); bulk unsolicited messaging, purchased or scraped lists, and consumer targeting are refused. Triggers: \\\"build me a list of\\\", \\\"find 50 <title> at <segment>\\\", \\\"who works at\\\", \\\"find work emails for these accounts\\\", \\\"enrich this CSV\\\", \\\"verify these emails\\\", \\\"build a TAM\\\", \\\"who fits our ICP\\\", \\\"who actually buys from us\\\", \\\"what data points should we collect on accounts\\\", \\\"our outbound is reaching the wrong people\\\", \\\"score these leads\\\", \\\"write a first-touch email\\\", \\\"push these to my CRM\\\", \\\"who changed jobs\\\", \\\"who just raised funding\\\", \\\"companies using <tech>\\\", \\\"who is hiring <role>\\\", \\\"find the buying committee\\\", \\\"portfolio companies of <investor>\\\", \\\"upload this audience to Google/Meta/LinkedIn ads\\\". Providers: aiArk, anthropic, apolloio, bounceban, bouncer, brightData, builtwith, cargoSignals, cleon1, companyEnrich, contactOut, datagma, dropcontact, enrichCrm, enrichley, enrowio, exa, explorium, findyMail, firecrawl, forager, FullEnrich, g2, gemini, hunter, icypeas, kitt, leadMagic, linkedin, linkup, mixrank, neverBounce, oceanio, openAi, parallel, peopleDataLabs, perplexity, piloterr, pipecorn, prospeo, proxycurl, reverseContact, rocketreach, salesNavigator, serper, sillage, snitcher, societeInfo, storeleads, theirStack, theSwarm, typesafe, waterfall, x, zeroBounce. Reads phase guides, recipes, and per-provider playbooks before any paid call. Skip when: a run already happened and misbehaved \u2014 use cargo-diagnostics.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-gtm",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-gtm",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-gtm"
@@ -104,7 +104,7 @@
     "name": "cargo-hosting",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Put something on the internet from Cargo \u2014 hosted web apps (Vite by default, other static frameworks detected) and serverless edge workers that answer HTTP requests, plus the deployments that build and promote them, the env vars and secrets a worker reads, running a worker locally, and custom domains and search indexing for public sites. Triggers: \\\"build me a dashboard for this\\\", \\\"host this app\\\", \\\"give me a URL to share\\\", \\\"deploy this\\\", \\\"I need a webhook endpoint\\\", \\\"make it live\\\", \\\"promote to production\\\", \\\"ship a UI for my team\\\", \\\"give my worker an API token\\\", \\\"set a secret on the worker\\\", \\\"Missing CARGO_API_TOKEN\\\", \\\"my app cannot call my worker\\\", \\\"run the worker locally\\\", \\\"put it on my own domain\\\", \\\"make the site indexable by Google\\\". Skip when: the app or worker should be declared as committed workspace code \u2014 use cargo-project.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-hosting",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-hosting",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-hosting"
@@ -114,7 +114,7 @@
     "name": "cargo-mailbox-management",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Send mail from inboxes Cargo owns \u2014 provision mailboxes on a sending domain, run provider warm-up and the 5\u219240/day send ramp, deliver with the `sendEmail` action, and read back threads, replies, delivery events, and the workspace suppression list. Triggers: \\\"set up a sending mailbox\\\", \\\"provision inboxes for outbound\\\", \\\"warm up this mailbox\\\", \\\"how many sends do I have left today\\\", \\\"send this from Cargo\\\", \\\"did they reply\\\", \\\"who unsubscribed\\\", \\\"suppress this recipient\\\", \\\"take me off your list\\\", \\\"never email them again\\\", \\\"what do mailboxes cost\\\", \\\"my mailbox is stuck pending\\\". A mailbox is a recurring monthly credit charge, and every send is gated on basis, suppression, and relevance. Skip when: writing the copy or building the audience \u2014 use cargo-gtm; the mailbox belongs in git \u2014 use cargo-project.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-mailbox-management",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-mailbox-management",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-mailbox-management"
@@ -124,7 +124,7 @@
     "name": "cargo-mcp",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Drive Cargo from its hosted MCP server at https://mcp.getcargo.io/mcp \u2014 connect a client, discover and price an action, run it over one record or a batch, poll it, and read workspace models, with no CLI install. Also when to call an MCP tool instead of shelling out to `cargo-ai`. Triggers: \\\"connect Cargo to Claude Desktop\\\", \\\"add Cargo to ChatGPT\\\", \\\"Cargo MCP server\\\", \\\"mcp.getcargo.io\\\", \\\"use Cargo without installing anything\\\", \\\"which Cargo tool do I call\\\", \\\"search_actions\\\", \\\"execute_action_batch\\\", \\\"MCP server is showing the wrong workspace\\\". Tools: whoami, search_actions, get_action_schema, execute_action, execute_action_batch, get_run, query_models. Skip when: you have a shell and the job is a workflow, a project deploy, warehouse SQL, or a mailbox \u2014 use the CLI skills; when publishing an MCP server out of your own workspace or attaching one to a Cargo agent \u2014 use cargo-ai.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-mcp",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-mcp",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-mcp"
@@ -134,7 +134,7 @@
     "name": "cargo-observability",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Watch a Cargo workspace and get told when something breaks \u2014 scheduled threshold alerts over workflow telemetry (spans, runs, records), a storage model freshness or row count, or any SQL query, firing a connector, tool, or agent when a metric breaches. Triggers: \\\"alert me when\\\", \\\"notify me if\\\", \\\"let me know when the error rate\\\", \\\"monitor this workflow\\\", \\\"tell me if the sync stops\\\", \\\"warn me before I run out of credits\\\", \\\"dead man\u2019s switch\\\", \\\"is this still running\\\", \\\"set up monitoring\\\", plus listing, previewing, editing, and reviewing an alert firing history. Skip when: diagnosing something that already went wrong \u2014 use cargo-diagnostics.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-observability",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-observability",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-observability"
@@ -144,7 +144,7 @@
     "name": "cargo-orchestration",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Make Cargo actually run something, or show what it would run \u2014 execute one connector action, run a multi-step workflow, trigger a batch across a whole segment or model, message an AI agent, build or edit a node graph, draw a workflow, tool or play as a diagram, and query the runtime tables (runs, batches, spans, records) with SQL. Triggers: \\\"run this on all my contacts\\\", \\\"execute the action\\\", \\\"kick off a batch\\\", \\\"build a workflow\\\", \\\"schedule a play\\\", \\\"make it run every morning\\\", \\\"ask the agent\\\", \\\"show me the workflow\\\", \\\"what does this tool do\\\", \\\"visualize this play\\\", \\\"draw the graph\\\", \\\"explain this workflow\\\", \\\"how many runs failed today\\\", \\\"what is the output schema for this action\\\", \\\"add a step that\\\". Skip when: explaining why a run misbehaved \u2014 use cargo-diagnostics; downloading result files \u2014 use cargo-analytics; committing the workflow as code \u2014 use cargo-project.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-orchestration",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-orchestration",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-orchestration"
@@ -154,7 +154,7 @@
     "name": "cargo-project",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Declare a whole Cargo workspace in a project, GTM as Code \u2014 connectors, models, plays, tools, agents, MCP servers, segments, context, folders, files, workers, and apps in TypeScript, reconciled with `cargo-ai project` (init \u2192 types \u2192 plan \u2192 deploy), the way you would run Pulumi or Terraform. Triggers: \\\"as code\\\", \\\"in git\\\", \\\"version-controlled\\\", \\\"reproducible\\\", \\\"Terraform for Cargo\\\", \\\"set up a whole workspace\\\", \\\"staging and production\\\", \\\"deploy the workspace from CI\\\", \\\"review this in a PR\\\", \\\"cargo.json\\\", \\\"cargo.state.json\\\", \\\"scaffold from a template\\\", \\\"is there a cookbook for this\\\", \\\"start from a cookbook\\\". Skills with a worked project example (TAM building, account scoring, call capture, inbound qualification, CRM enrichment, standup) live in gtm-skills; menu in references/cookbooks.md. Skip when: it is a one-off operation, a read, or an ad-hoc query \u2014 use the matching capability skill.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-project",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-project",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-project"
@@ -164,7 +164,7 @@
     "name": "cargo-quickstart",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Guided first-run demo for Cargo \u2014 one persona question to 25 real leads with a cost receipt in under two minutes, ending by saving the pull as a recurring play. Triggers: \\\"show me what Cargo can do\\\", \\\"give me a demo\\\", \\\"take me on a tour\\\", \\\"quickstart\\\", \\\"getting started with Cargo\\\", \\\"I just installed Cargo\\\", \\\"my workspace is empty\\\", \\\"does this actually work\\\". Skip when: the user has a real job to run (build a list, enrich a CSV, find emails) \u2014 use cargo-gtm; when they want CLI reference or routing \u2014 use the cargo router skill.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-quickstart",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-quickstart",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-quickstart"
@@ -174,7 +174,7 @@
     "name": "cargo-segmentation",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Define and use segments \u2014 named, saved filters over a Cargo model that become the audience for a batch run, a play trigger, or an export. Triggers: \\\"build a segment of\\\", \\\"filter my contacts where\\\", \\\"who matches this criteria\\\", \\\"save this as a list\\\", \\\"how many companies match\\\", \\\"the Closed-Won segment\\\", \\\"everyone who has not been emailed\\\", \\\"target only accounts that\\\", \\\"what is in this segment\\\", \\\"narrow this down to\\\". Filter JSON uses `conjonction` (not `conjunction`); misspelling it gets the call rejected with a 400. Skip when: running something over the segment \u2014 use cargo-orchestration; exporting its rows \u2014 use cargo-analytics; ad-hoc SQL over the model \u2014 use cargo-storage.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-segmentation",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-segmentation",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-segmentation"
@@ -184,7 +184,7 @@
     "name": "cargo-storage",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Work with the data inside a Cargo workspace \u2014 models (Companies, Contacts, Deals\u2026), datasets, columns, relationships, records, and SQL over workspace storage. Triggers: \\\"what models do I have\\\", \\\"show me the schema\\\", \\\"add a column for\\\", \\\"how many contacts do I have\\\", \\\"SELECT \u2026 FROM\\\", \\\"query my companies table\\\", \\\"join contacts to companies\\\", \\\"what is the DDL\\\", \\\"set up a webhook-fed model\\\", \\\"where does this field live\\\", \\\"import this into a model\\\", \\\"unify these models\\\", \\\"merge duplicate accounts\\\", \\\"link contacts to companies\\\", \\\"set up a relationship between\\\". Skip when: querying run or batch telemetry rather than business data \u2014 use cargo-orchestration; naming a reusable filtered audience \u2014 use cargo-segmentation.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-storage",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-storage",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-storage"
@@ -194,7 +194,7 @@
     "name": "cargo-workspace-management",
     "repository": "getcargohq-cargo-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Administer a Cargo workspace and talk back to the Cargo team \u2014 invite and manage members, mint and rotate API tokens, organize plays, tools, and agents into folders, inspect roles, upload batch input files, and file reports. Triggers: \\\"invite my teammate\\\", \\\"create an API token for CI\\\", \\\"who has access\\\", \\\"organize these into folders\\\", \\\"rotate that token\\\", \\\"upload this CSV for a batch\\\" \u2014 and for feedback: \\\"report this bug to Cargo\\\", \\\"send feedback to the Cargo team\\\", \\\"this CLI command is broken\\\", \\\"share this session with Cargo\\\", \\\"request a feature\\\". Most commands need a token with admin access. Skip when: the question is about credits, plans, or invoices \u2014 use cargo-billing.\"",
     "path": "library/getcargohq-cargo-skills/skills/cargo-workspace-management",
     "activation_cmd": "python .agents/library/activate_skill.py activate cargo-workspace-management",
     "link_cmd": "python .agents/library/activate_skill.py link cargo-workspace-management"

@@ -1,7 +1,7 @@
 # 👁️ Visual Taste, Critique & Typography
 
 > **Category**: `frontend-visual-taste`  
-> **Total Curated Skills**: 151 skills  
+> **Total Curated Skills**: 161 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -73,6 +73,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`design-theme-guide`](../../library/sickn33-agentic-awesome-skills/skills/design-theme-guide) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Design-token register: colour, typography, spacing and radius tokens with light and dark values... |
 | [`design-token-contrast`](../../library/sickn33-agentic-awesome-skills/skills/design-token-contrast) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Checks WCAG 2.2 contrast between the color tokens of a project (light and dark theme) and sugge... |
 | [`designlang-design-extract`](../../library/reason-machines-trending-skills/skills/designlang-design-extract) | ⚪ Reserve | `reason-machines-trending-skills` | Extract complete design systems from any website — colors, typography, spacing, shadows, and mo... |
+| [`ecommerce-amazon-product-api-skill`](../../library/browser-act-skills/skills/ecommerce-amazon-product-api-skill) | ⚪ Reserve | `browser-act-skills` | This skill helps users extract structured product listings from Amazon, including titles, ASINs... |
+| [`ecommerce-amazon-product-detail`](../../library/browser-act-skills/skills/ecommerce-amazon-product-detail) | ⚪ Reserve | `browser-act-skills` | Amazon product detail page scraper: extract full product data from any open Amazon product deta... |
+| [`ecommerce-walmart-product-detail`](../../library/browser-act-skills/skills/ecommerce-walmart-product-detail) | ⚪ Reserve | `browser-act-skills` | Walmart product detail page extractor: given a walmart.com product URL (walmart.com/ip/...), ex... |
+| [`ecommerce-walmart-product-reviews`](../../library/browser-act-skills/skills/ecommerce-walmart-product-reviews) | ⚪ Reserve | `browser-act-skills` | Walmart product reviews scraper: given a walmart.com product item ID, navigate to the reviews p... |
 | [`editorial`](../../library/bergside-awesome-design-skills/skills/editorial) | ⚪ Reserve | `bergside-awesome-design-skills` | Magazine-inspired editorial layout with refined serif typography, structured grids, and elegant... |
 | [`editorial-portfolio-chapters`](../../library/mengto-skills/skills/editorial-portfolio-chapters) | ⚪ Reserve | `mengto-skills` | Create or redesign creative-studio, agency, photographer, artist, and portfolio websites where ... |
 | [`editorial-tech`](../../library/mengto-skills/skills/editorial-tech) | ⚪ Reserve | `mengto-skills` | Blend editorial magazine composition with precision product-tech detailing using asymmetrical g... |
@@ -141,6 +145,12 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`s1dashu-ip-as-logo-skill`](../../library/s1dashu-ip-as-logo-skill/skills/s1dashu-ip-as-logo-skill) | ⚪ Reserve | `s1dashu-ip-as-logo-skill` | Generate extremely simple, cute, personified square character images with rounded heavy forms, ... |
 | [`saas-landing`](../../library/feimacode-open-design-agent-kit/skills/saas-landing) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Single-page SaaS landing with hero, features, social proof, pricing, and CTA. Respects the acti... |
 | [`site-specification`](../../library/cline-skills/skills/site-specification) | ⚪ Reserve | `cline-skills` | Extract comprehensive site specifications from simple descriptions. Use when analyzing a user's... |
+| [`skills-accessibility-review`](../../library/anthropics-knowledge-work/skills/skills-accessibility-review) | ⚪ Reserve | `anthropics-knowledge-work` | Run a WCAG 2.1 AA accessibility audit on a design or page. Trigger with "audit accessibility", ... |
+| [`skills-brand-style`](../../library/anthropics-knowledge-work/skills/skills-brand-style) | ⚪ Reserve | `anthropics-knowledge-work` | Sets and updates the owner's brand look and output preferences, which every page and document t... |
+| [`skills-data-visualization`](../../library/anthropics-knowledge-work/skills/skills-data-visualization) | ⚪ Reserve | `anthropics-knowledge-work` | Create effective data visualizations with Python (matplotlib, seaborn, plotly). Use when buildi... |
+| [`skills-frontend-design`](../../library/anthropics-claude-plugins-official/skills/skills-frontend-design) | ⚪ Reserve | `anthropics-claude-plugins-official` | Guidance for distinctive, intentional visual design when building new UI or reshaping an existi... |
+| [`skills-optimize-text-mesh-pro`](../../library/unity-technologies-skills/skills/skills-optimize-text-mesh-pro) | ⚪ Reserve | `unity-technologies-skills` | Optimizes TextMeshPro rendering, memory, and font setup, including font asset stacks, fallback ... |
+| [`skills-urp-postprocessing`](../../library/unity-technologies-skills/skills/skills-urp-postprocessing) | ⚪ Reserve | `unity-technologies-skills` | Sets up, configures, and debugs URP post-processing with the Volume framework. Use for bloom, t... |
 | [`sleek`](../../library/bergside-awesome-design-skills/skills/sleek) | ⚪ Reserve | `bergside-awesome-design-skills` | Modern minimalist aesthetic with clean lines, intentional color palette, subtle interactions, a... |
 | [`split-layout-technical`](../../library/mengto-skills/skills/split-layout-technical) | ⚪ Reserve | `mengto-skills` | Create a technical split-screen design system with dual panels, fine frame lines, mono metadata... |
 | [`square`](../../library/bergside-awesome-design-skills/skills/square) | ⚪ Reserve | `bergside-awesome-design-skills` | Graceful, refined aesthetic with delicate typography, minimal palettes, and polished layouts th... |

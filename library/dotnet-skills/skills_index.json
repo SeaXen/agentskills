@@ -4,7 +4,7 @@
     "name": "agentic-workflows",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "Route gh-aw workflow design/create/debug/upgrade requests to the right prompts.",
     "path": "library/dotnet-skills/skills/agentic-workflows",
     "activation_cmd": "python .agents/library/activate_skill.py activate agentic-workflows",
     "link_cmd": "python .agents/library/activate_skill.py link agentic-workflows"
@@ -14,7 +14,7 @@
     "name": "analyzing-dotnet-performance",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/analyzing-dotnet-performance",
     "activation_cmd": "python .agents/library/activate_skill.py activate analyzing-dotnet-performance",
     "link_cmd": "python .agents/library/activate_skill.py link analyzing-dotnet-performance"
@@ -24,7 +24,7 @@
     "name": "android-tombstone-symbolication",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "Symbolicate the .NET runtime frames in an Android tombstone file. Extracts BuildIds and PC offsets from the native backtrace, downloads debug symbols from the Microsoft symbol server, and runs llvm-symbolizer to produce function names with source file and line numbers. USE FOR triaging a .NET MAUI or Mono Android app crash from a tombstone, resolving native backtrace frames in libmonosgen-2.0.so or libcoreclr.so to .NET runtime source code, or investigating SIGABRT, SIGSEGV, or other native signals originating from the .NET runtime on Android. DO NOT USE FOR pure Java/Kotlin crashes, managed .NET exceptions that are already captured in logcat, or iOS crash logs. INVOKES Symbolicate-Tombstone.ps1 script, llvm-symbolizer, Microsoft symbol server.",
     "path": "library/dotnet-skills/skills/android-tombstone-symbolication",
     "activation_cmd": "python .agents/library/activate_skill.py activate android-tombstone-symbolication",
     "link_cmd": "python .agents/library/activate_skill.py link android-tombstone-symbolication"
@@ -34,7 +34,7 @@
     "name": "apple-crash-symbolication",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "Symbolicate .NET runtime frames in Apple platform .ips crash logs (iOS, tvOS, Mac Catalyst, macOS). Extracts UUIDs and addresses from the native backtrace, locates dSYM debug symbols, and runs atos to produce function names with source file and line numbers. Automatically downloads .dwarf symbols from the Microsoft symbol server using Mach-O UUIDs. USE FOR triaging a .NET MAUI or Mono app crash from an .ips file on any Apple platform, resolving native backtrace frames in libcoreclr or libmonosgen-2.0 to .NET runtime source code, retrieving .ips crash logs from a connected iOS device or iPhone, or investigating EXC_CRASH, EXC_BAD_ACCESS, SIGABRT, or SIGSEGV originating from the .NET runtime. DO NOT USE FOR pure Swift/Objective-C crashes with no .NET components, or Android tombstone files. INVOKES Symbolicate-Crash.ps1 script, atos, dwarfdump, idevicecrashreport.",
     "path": "library/dotnet-skills/skills/apple-crash-symbolication",
     "activation_cmd": "python .agents/library/activate_skill.py activate apple-crash-symbolication",
     "link_cmd": "python .agents/library/activate_skill.py link apple-crash-symbolication"
@@ -44,7 +44,7 @@
     "name": "assertion-quality",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Analyze assertion quality, depth, variety, and false confidence in existing tests. ALWAYS USE when asked about weak, shallow, trivial, always-true, self-referential, assertion-free, presence/truthiness-only, or insufficiently diverse assertions, including MSTest, Jest, pytest, and Go. DO NOT USE for direct fixes: writing-mstest-tests owns supplied MSTest assertions; code-testing owns new cases. Use test-gap-analysis when asked whether tests would catch a production change, and test-anti-patterns for general severity-ranked audits.\"",
     "path": "library/dotnet-skills/skills/assertion-quality",
     "activation_cmd": "python .agents/library/activate_skill.py activate assertion-quality",
     "link_cmd": "python .agents/library/activate_skill.py link assertion-quality"
@@ -54,7 +54,7 @@
     "name": "author-component",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/author-component",
     "activation_cmd": "python .agents/library/activate_skill.py activate author-component",
     "link_cmd": "python .agents/library/activate_skill.py link author-component"
@@ -64,7 +64,7 @@
     "name": "authoring-github-workflows",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Author and review GitHub Actions workflow YAML safely so syntactically-valid YAML can't ship a workflow that GitHub Actions refuses to run. USE FOR: editing, adding, or reviewing any file under .github/workflows/, writing run-name/name/if/env/run values that contain ${{ }} expressions, diagnosing a run that fails with 'This run likely failed because of a workflow file issue' and no jobs starting, deciding when a workflow scalar must be quoted, validating workflows with actionlint. DO NOT USE FOR: authoring application YAML unrelated to GitHub Actions, Azure Pipelines, GitLab CI, or non-workflow YAML. SCOPE: this skill covers *syntactic/structural* correctness of workflow YAML (quoting, parsing, actionlint); for *semantic and functional* workflow design (what a workflow should do, agentic-workflow behavior), see .github/agents/agentic-workflows.agent.md \u2014 the two are complementary. INVOKES: actionlint (downloaded pinned binary) plus git/grep for inspection.\"",
     "path": "library/dotnet-skills/skills/authoring-github-workflows",
     "activation_cmd": "python .agents/library/activate_skill.py activate authoring-github-workflows",
     "link_cmd": "python .agents/library/activate_skill.py link authoring-github-workflows"
@@ -74,7 +74,7 @@
     "name": "binlog-failure-analysis",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Analyze MSBuild binary logs to diagnose build failures. USE FOR: build errors that are unclear from console output, diagnosing cascading failures across multi-project builds, tracing MSBuild target execution order, and generally any MSBuild build issues. Requires an existing .binlog file. DO NOT USE FOR: generating binlogs (use binlog-generation), binlog MCP startup or connection failures (use troubleshoot-binlog-mcp), non-MSBuild build systems.\"",
     "path": "library/dotnet-skills/skills/binlog-failure-analysis",
     "activation_cmd": "python .agents/library/activate_skill.py activate binlog-failure-analysis",
     "link_cmd": "python .agents/library/activate_skill.py link binlog-failure-analysis"
@@ -84,7 +84,7 @@
     "name": "binlog-generation",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Generate MSBuild binary logs (binlogs) for build diagnostics and analysis. USE FOR: adding /bl:{} to any dotnet build, test, pack, publish, or restore command to capture a full build execution trace, prerequisite for binlog-failure-analysis and build-perf-diagnostics skills, enabling post-build investigation of errors or performance. Requires MSBuild 17.8+ / .NET 8 SDK+ for {} placeholder; PowerShell must quote the complete switch as '-bl:{}'. DO NOT USE FOR: non-MSBuild build systems (npm, Maven, CMake), analyzing an existing binlog (use binlog-failure-analysis instead), binlog MCP startup failures (use troubleshoot-binlog-mcp).\"",
     "path": "library/dotnet-skills/skills/binlog-generation",
     "activation_cmd": "python .agents/library/activate_skill.py activate binlog-generation",
     "link_cmd": "python .agents/library/activate_skill.py link binlog-generation"
@@ -94,7 +94,7 @@
     "name": "build-parallelism",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Analyze an MSBuild solution, solution filter, or Build.proj that schedules multiple project files. USE FOR: measured idle worker nodes, `-m` that does not scale, a serial ProjectReference critical path, graph builds, or an MSBuild task that builds a Projects list. Requires at least two distinct project files whose scheduling or throughput must be analyzed. DO NOT USE for non-MSBuild build systems.\"",
     "path": "library/dotnet-skills/skills/build-parallelism",
     "activation_cmd": "python .agents/library/activate_skill.py activate build-parallelism",
     "link_cmd": "python .agents/library/activate_skill.py link build-parallelism"
@@ -104,7 +104,7 @@
     "name": "build-perf-baseline",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Establish MSBuild/.NET build performance baselines before optimizing. USE FOR: unranked slow builds; cold, warm, incremental or no-op measurements; before/after comparisons; CI output caching; static graph, artifacts output and dependency graph trimming. Start here before build-perf-diagnostics, incremental-build or build-parallelism. DO NOT USE FOR: known repeated-restore fixes (use eliminate-redundant-restores), non-MSBuild builds. For measured target/task/analyzer bottlenecks, use build-perf-diagnostics.\"",
     "path": "library/dotnet-skills/skills/build-perf-baseline",
     "activation_cmd": "python .agents/library/activate_skill.py activate build-perf-baseline",
     "link_cmd": "python .agents/library/activate_skill.py link build-perf-baseline"
@@ -114,7 +114,7 @@
     "name": "build-perf-diagnostics",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Diagnose MSBuild bottlenecks from binlog timelines and Target/Task Performance Summaries after build-perf-baseline establishes measurements. USE FOR: unknown build slowness, RAR >5s, analyzers >30% of Csc, one target >50% of build time, node utilization <80%, excessive Copy tasks, finding restore overhead. DO NOT USE FOR: known repeated-restore fixes (use eliminate-redundant-restores), initial baselines (use build-perf-baseline), incremental rebuilds (use incremental-build), parallelism tuning (use build-parallelism), non-MSBuild builds.\"",
     "path": "library/dotnet-skills/skills/build-perf-diagnostics",
     "activation_cmd": "python .agents/library/activate_skill.py activate build-perf-diagnostics",
     "link_cmd": "python .agents/library/activate_skill.py link build-perf-diagnostics"
@@ -124,7 +124,7 @@
     "name": "check-bin-obj-clash",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Detects MSBuild projects with conflicting OutputPath or IntermediateOutputPath. USE FOR: builds failing with 'Cannot create a file when that file already exists', 'The process cannot access the file because it is being used by another process', intermittent build failures that succeed on retry, or missing/overwritten outputs in multi-project or multi-targeting builds where bin/obj (or project.assets.json) collide. Common causes: shared OutputPath, missing AppendTargetFrameworkToOutputPath, extra global properties (e.g. PublishReadyToRun), or SetTargetFramework on a ProjectReference to a single-targeting project. DO NOT USE FOR: file access errors unrelated to MSBuild (OS-level locking), single-project single-TFM builds, non-MSBuild build systems.\"",
     "path": "library/dotnet-skills/skills/check-bin-obj-clash",
     "activation_cmd": "python .agents/library/activate_skill.py activate check-bin-obj-clash",
     "link_cmd": "python .agents/library/activate_skill.py link check-bin-obj-clash"
@@ -134,7 +134,7 @@
     "name": "clr-activation-debugging",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/clr-activation-debugging",
     "activation_cmd": "python .agents/library/activate_skill.py activate clr-activation-debugging",
     "link_cmd": "python .agents/library/activate_skill.py link clr-activation-debugging"
@@ -144,7 +144,7 @@
     "name": "code-testing",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/code-testing",
     "activation_cmd": "python .agents/library/activate_skill.py activate code-testing",
     "link_cmd": "python .agents/library/activate_skill.py link code-testing"
@@ -154,7 +154,7 @@
     "name": "code-testing-agent",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/code-testing-agent",
     "activation_cmd": "python .agents/library/activate_skill.py activate code-testing-agent",
     "link_cmd": "python .agents/library/activate_skill.py link code-testing-agent"
@@ -164,7 +164,7 @@
     "name": "code-testing-extensions",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/code-testing-extensions",
     "activation_cmd": "python .agents/library/activate_skill.py activate code-testing-extensions",
     "link_cmd": "python .agents/library/activate_skill.py link code-testing-extensions"
@@ -174,7 +174,7 @@
     "name": "collect-user-input",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "Build forms, validate data, and react to user input in Blazor. USE FOR adding forms, search boxes, filter panels, inline editing, data-entry UI, file uploads, validation (annotations or custom), handling form submissions, and binding input controls. Covers EditForm, built-in input components, DataAnnotationsValidator, custom validation, SSR form patterns (SupplyParameterFromForm, FormName, AntiforgeryToken, Enhance), and @bind for simple interactive controls. DO NOT USE for project scaffolding (see create-blazor-project) or prerendering issues (see support-prerendering).",
     "path": "library/dotnet-skills/skills/collect-user-input",
     "activation_cmd": "python .agents/library/activate_skill.py activate collect-user-input",
     "link_cmd": "python .agents/library/activate_skill.py link collect-user-input"
@@ -184,7 +184,7 @@
     "name": "configure-auth",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/configure-auth",
     "activation_cmd": "python .agents/library/activate_skill.py activate configure-auth",
     "link_cmd": "python .agents/library/activate_skill.py link configure-auth"
@@ -194,7 +194,7 @@
     "name": "convert-blazor-server-to-webapp",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/convert-blazor-server-to-webapp",
     "activation_cmd": "python .agents/library/activate_skill.py activate convert-blazor-server-to-webapp",
     "link_cmd": "python .agents/library/activate_skill.py link convert-blazor-server-to-webapp"
@@ -204,7 +204,7 @@
     "name": "convert-to-cpm",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/convert-to-cpm",
     "activation_cmd": "python .agents/library/activate_skill.py activate convert-to-cpm",
     "link_cmd": "python .agents/library/activate_skill.py link convert-to-cpm"
@@ -214,7 +214,7 @@
     "name": "coordinate-components",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/coordinate-components",
     "activation_cmd": "python .agents/library/activate_skill.py activate coordinate-components",
     "link_cmd": "python .agents/library/activate_skill.py link coordinate-components"
@@ -224,7 +224,7 @@
     "name": "copy-to-output-directory",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Choosing an MSBuild CopyToOutputDirectory / CopyToPublishDirectory mode: Never, PreserveNewest, Always, and IfDifferent (MSBuild 17.13+), plus $(SkipUnchangedFilesOnCopyAlways). USE FOR: removing the per-build Always copy perf hit; resetting output files mutated between builds. DO NOT USE FOR: general incremental-build diagnosis (use incremental-build); non-MSBuild build systems.\"",
     "path": "library/dotnet-skills/skills/copy-to-output-directory",
     "activation_cmd": "python .agents/library/activate_skill.py activate copy-to-output-directory",
     "link_cmd": "python .agents/library/activate_skill.py link copy-to-output-directory"
@@ -234,7 +234,7 @@
     "name": "coverage-analysis",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/coverage-analysis",
     "activation_cmd": "python .agents/library/activate_skill.py activate coverage-analysis",
     "link_cmd": "python .agents/library/activate_skill.py link coverage-analysis"
@@ -244,7 +244,7 @@
     "name": "crap-score",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/crap-score",
     "activation_cmd": "python .agents/library/activate_skill.py activate crap-score",
     "link_cmd": "python .agents/library/activate_skill.py link crap-score"
@@ -254,7 +254,7 @@
     "name": "create-blazor-project",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/create-blazor-project",
     "activation_cmd": "python .agents/library/activate_skill.py activate create-blazor-project",
     "link_cmd": "python .agents/library/activate_skill.py link create-blazor-project"
@@ -264,7 +264,7 @@
     "name": "create-custom-agent",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "Creates VS Code custom agent files (.agent.md) for specialized AI personas with tools, instructions, and handoffs. Use when scaffolding new custom agents, configuring agent workflows, or setting up agent-to-agent handoffs.",
     "path": "library/dotnet-skills/skills/create-custom-agent",
     "activation_cmd": "python .agents/library/activate_skill.py activate create-custom-agent",
     "link_cmd": "python .agents/library/activate_skill.py link create-custom-agent"
@@ -274,7 +274,7 @@
     "name": "create-datadriven-aspnetcore",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "Generate or scaffold ASP.NET Core code \u2014 Razor Pages, Blazor components, MVC controllers, views, and Minimal API endpoints \u2014 without using ASP.NET Core CLI scaffolding/code-generation tools. Use when (1) adding CRUD pages, views, or API endpoints backed by Entity Framework (EF Core) and a database, (2) generating code to create, read, update, and delete data using a DbContext, (3) scaffolding UI components that match the project's existing CSS framework and coding patterns, or (4) creating data-driven forms, tables, and navigation for a model class. Do not use for non-ASP.NET projects or when CLI-based scaffolding is preferred.",
     "path": "library/dotnet-skills/skills/create-datadriven-aspnetcore",
     "activation_cmd": "python .agents/library/activate_skill.py activate create-datadriven-aspnetcore",
     "link_cmd": "python .agents/library/activate_skill.py link create-datadriven-aspnetcore"
@@ -284,7 +284,7 @@
     "name": "create-skill",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "Scaffolds new agent skills for the dotnet/skills repository. Use when creating a new skill, generating SKILL.md files, writing a skill description that the runtime will actually route to, or setting up skill directory structures. Handles frontmatter generation, section templates, and validation guidance. Do not use for fixing a skill that already fails its evaluation (use improve-skill-quality) or for writing eval.yaml (use create-skill-test).",
     "path": "library/dotnet-skills/skills/create-skill",
     "activation_cmd": "python .agents/library/activate_skill.py activate create-skill",
     "link_cmd": "python .agents/library/activate_skill.py link create-skill"
@@ -294,7 +294,7 @@
     "name": "create-skill-test",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "Scaffolds eval.yaml evaluation specs for skills, custom agents, and redistributable gh-aw workflow packages in the dotnet/skills repository. Use when creating skill or workflow-package tests, writing evaluation stimuli, defining graders and rubrics, sizing an eval for statistical power, or setting up test fixture files. Handles the Vally eval.yaml schema, fixture organization, and overfitting avoidance. Do not use for running or debugging existing evals (use improve-skill-quality) nor for skills authoring (use create-skill).",
     "path": "library/dotnet-skills/skills/create-skill-test",
     "activation_cmd": "python .agents/library/activate_skill.py activate create-skill-test",
     "link_cmd": "python .agents/library/activate_skill.py link create-skill-test"
@@ -304,7 +304,7 @@
     "name": "csharp-expert",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/csharp-expert",
     "activation_cmd": "python .agents/library/activate_skill.py activate csharp-expert",
     "link_cmd": "python .agents/library/activate_skill.py link csharp-expert"
@@ -314,7 +314,7 @@
     "name": "csharp-refactoring",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Safely refactors C#/.NET code without changing behavior. USE FOR any request to refactor, rename, move, extract, inline, merge, consolidate, deduplicate, split, or modernize C# code, including partial/generated declarations, wrappers, public APIs, serialization/reflection/configuration names, friend assemblies, conditional compilation, and multi-targeted projects. Also use when a request calls a feature, bug fix, package/framework upgrade, or public nullability change a refactor and the behavior-changing part must be separated or declined. DO NOT USE FOR ordinary feature or bug fixes not presented as refactoring; standalone upgrades after reclassification (use dotnet-upgrade); adding tests; or formatting-only work.\"",
     "path": "library/dotnet-skills/skills/csharp-refactoring",
     "activation_cmd": "python .agents/library/activate_skill.py activate csharp-refactoring",
     "link_cmd": "python .agents/library/activate_skill.py link csharp-refactoring"
@@ -324,7 +324,7 @@
     "name": "csharp-scripts",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Run file-based C# apps with the .NET CLI when the user explicitly wants C#/.NET code without creating a project. Use for C# language/API experiments, one-file C# apps, small multi-file C# apps composed with `#:include`/`#:exclude`, or C# file-based apps linked with `#:ref`. Do not use for language-agnostic throwaway scripts, generic computations, Python/PowerShell-style automation, full projects, or existing app integration.\"",
     "path": "library/dotnet-skills/skills/csharp-scripts",
     "activation_cmd": "python .agents/library/activate_skill.py activate csharp-scripts",
     "link_cmd": "python .agents/library/activate_skill.py link csharp-scripts"
@@ -334,7 +334,7 @@
     "name": "detect-static-dependencies",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/detect-static-dependencies",
     "activation_cmd": "python .agents/library/activate_skill.py activate detect-static-dependencies",
     "link_cmd": "python .agents/library/activate_skill.py link detect-static-dependencies"
@@ -344,7 +344,7 @@
     "name": "directory-build-organization",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"USE ONLY for (1) two or more projects with repeated MSBuild policy, targets, or package versions, or (2) an existing Directory.Build.props/targets/rsp hierarchy with an import, placement, or layering defect. A one-project repo without an existing Directory.Build file is outside scope; do not load this skill. Covers centralizing shared policy and targets, Directory.Packages.props across projects, parent hierarchy/import structure, props-versus-targets placement, and folder/project exceptions. An existing hierarchy defect remains in scope when only one project is affected. For property value or condition semantics use property-patterns. Exclude legacy-to-SDK migration and non-MSBuild systems.\"",
     "path": "library/dotnet-skills/skills/directory-build-organization",
     "activation_cmd": "python .agents/library/activate_skill.py activate directory-build-organization",
     "link_cmd": "python .agents/library/activate_skill.py link directory-build-organization"
@@ -354,7 +354,7 @@
     "name": "dotnet-aot-compat",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/dotnet-aot-compat",
     "activation_cmd": "python .agents/library/activate_skill.py activate dotnet-aot-compat",
     "link_cmd": "python .agents/library/activate_skill.py link dotnet-aot-compat"
@@ -364,7 +364,7 @@
     "name": "dotnet-maui-doctor",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/dotnet-maui-doctor",
     "activation_cmd": "python .agents/library/activate_skill.py activate dotnet-maui-doctor",
     "link_cmd": "python .agents/library/activate_skill.py link dotnet-maui-doctor"
@@ -374,7 +374,7 @@
     "name": "dotnet-pinvoke",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/dotnet-pinvoke",
     "activation_cmd": "python .agents/library/activate_skill.py activate dotnet-pinvoke",
     "link_cmd": "python .agents/library/activate_skill.py link dotnet-pinvoke"
@@ -384,7 +384,7 @@
     "name": "dotnet-trace-collect",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "Guide developers through capturing diagnostic artifacts to diagnose production .NET performance issues. Use when the user needs help choosing diagnostic tools, collecting performance data, or understanding tool trade-offs across different environments (Windows/Linux, .NET Framework/modern .NET, container/non-container).",
     "path": "library/dotnet-skills/skills/dotnet-trace-collect",
     "activation_cmd": "python .agents/library/activate_skill.py activate dotnet-trace-collect",
     "link_cmd": "python .agents/library/activate_skill.py link dotnet-trace-collect"
@@ -394,7 +394,7 @@
     "name": "dotnet-webapi",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/dotnet-webapi",
     "activation_cmd": "python .agents/library/activate_skill.py activate dotnet-webapi",
     "link_cmd": "python .agents/library/activate_skill.py link dotnet-webapi"
@@ -404,7 +404,7 @@
     "name": "dump-collect",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Configure and collect crash dumps for modern .NET applications. USE FOR: enabling automatic crash dumps for CoreCLR or NativeAOT, capturing dumps from running .NET processes, setting up dump collection in Docker or Kubernetes, using dotnet-dump collect or createdump. DO NOT USE FOR: analyzing or debugging dumps, post-mortem investigation with lldb/windbg/dotnet-dump analyze, profiling or tracing, or for .NET Framework processes.\"",
     "path": "library/dotnet-skills/skills/dump-collect",
     "activation_cmd": "python .agents/library/activate_skill.py activate dump-collect",
     "link_cmd": "python .agents/library/activate_skill.py link dump-collect"
@@ -414,7 +414,7 @@
     "name": "eliminate-redundant-restores",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Remove repeated NuGet restores from multi-step .NET builds safely. USE FOR: build/test/publish steps that each restore, Directory.Build.rsp with -restore, safe restore suppression, NETSDK1004/NETSDK1047 after --no-restore. DO NOT USE FOR: slow first restore, only one restore, version or lock errors, unranked build slowness (use build-perf-baseline).\"",
     "path": "library/dotnet-skills/skills/eliminate-redundant-restores",
     "activation_cmd": "python .agents/library/activate_skill.py activate eliminate-redundant-restores",
     "link_cmd": "python .agents/library/activate_skill.py link eliminate-redundant-restores"
@@ -424,7 +424,7 @@
     "name": "eval-performance",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Guide for diagnosing and improving MSBuild project evaluation performance. USE FOR: builds slow before any compilation starts, high evaluation time in binlog analysis, expensive glob patterns walking large directories (node_modules, .git, bin/obj), deep import chains (>20 levels), preprocessed output >10K lines indicating heavy evaluation, property functions with file I/O ($([System.IO.File]::ReadAllText(...))), multiple evaluations per project. Covers the 5 MSBuild evaluation phases, glob optimization via DefaultItemExcludes, import chain analysis with /pp preprocessing. DO NOT USE FOR: compilation-time slowness (use build-perf-diagnostics), incremental build issues (use incremental-build), non-MSBuild build systems.\"",
     "path": "library/dotnet-skills/skills/eval-performance",
     "activation_cmd": "python .agents/library/activate_skill.py activate eval-performance",
     "link_cmd": "python .agents/library/activate_skill.py link eval-performance"
@@ -434,7 +434,7 @@
     "name": "exp-mock-usage-analysis",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Audits .NET test mock usage by tracing each mock setup through the production code's execution path to find dead, unreachable, redundant, or replaceable mocks. Use when the user asks to audit mock usage, find unused or unnecessary mock setups, check if mocks are needed, reduce mock duplication or over-mocking, simplify test setup, or review whether mock configurations like ILogger/IOptions should use real implementations instead. Supports Moq, NSubstitute, and FakeItEasy.\"",
     "path": "library/dotnet-skills/skills/exp-mock-usage-analysis",
     "activation_cmd": "python .agents/library/activate_skill.py activate exp-mock-usage-analysis",
     "link_cmd": "python .agents/library/activate_skill.py link exp-mock-usage-analysis"
@@ -444,7 +444,7 @@
     "name": "exp-test-maintainability",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Detects duplicate boilerplate, copy-paste tests, and structural maintainability issues across .NET test suites. Use when the user asks to reduce repetition, consolidate similar test methods, convert copy-paste tests to data-driven parameterized tests, suggest a better test structure, or identify refactoring opportunities. Identifies repeated construction, assertion patterns, copy-paste methods convertible to DataRow/Theory/TestCase, redundant setup/teardown, and shared infrastructure. Produces an analysis report with concrete before/after suggestions. Works with MSTest, xUnit, NUnit, and TUnit. DO NOT USE FOR: writing new tests (use writing-mstest-tests), reviewing test quality or anti-patterns (use test-anti-patterns), or deep mock auditing (use exp-mock-usage-analysis).\"",
     "path": "library/dotnet-skills/skills/exp-test-maintainability",
     "activation_cmd": "python .agents/library/activate_skill.py activate exp-test-maintainability",
     "link_cmd": "python .agents/library/activate_skill.py link exp-test-maintainability"
@@ -454,7 +454,7 @@
     "name": "extension-points",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Own MSBuild import and hook discovery. USE FOR: CustomBefore/CustomAfter hooks, ordered wildcard and NuGet auto-imports, control properties, build/buildTransitive packed layout, package ID and file-name matching, per-TFM forwarders, and tracing why assets or hooks are missing, broken, or replaced. An import guard remains in scope when it is one defect in a broader hook/import flow. DO NOT USE for a focused safety verdict on whether one specific Import needs Exists or is an intentionally unguarded package contract; use msbuild-antipatterns. NEVER INVOKE when imports and hook placement already work and the request is only target Inputs/Outputs, incremental skipping, or FileWrites clean tracking; use incremental-build or target-authoring. Exclude props-versus-targets placement and non-MSBuild systems.\"",
     "path": "library/dotnet-skills/skills/extension-points",
     "activation_cmd": "python .agents/library/activate_skill.py activate extension-points",
     "link_cmd": "python .agents/library/activate_skill.py link extension-points"
@@ -464,7 +464,7 @@
     "name": "fetch-and-send-data",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "Call APIs, load data into components, and handle the async lifecycle in Blazor. USE FOR fetching data from a backend, submitting data to an API, displaying loading/error states, registering HttpClient, building service abstractions for Auto/WebAssembly render modes. DO NOT USE for form validation (see collect-user-input), prerendering persistence (see support-prerendering), or project scaffolding (see create-blazor-project).",
     "path": "library/dotnet-skills/skills/fetch-and-send-data",
     "activation_cmd": "python .agents/library/activate_skill.py activate fetch-and-send-data",
     "link_cmd": "python .agents/library/activate_skill.py link fetch-and-send-data"
@@ -474,7 +474,7 @@
     "name": "filter-syntax",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Reference-only filter syntax for VSTest and MTP with MSTest, NUnit, xUnit v3, and TUnit. Load only after the platform/framework is known and a consumer needs to create or translate a filter. Do not load for unfiltered runs or platform detection. Used by run-tests and mtp-hot-reload; never invoke directly.\"",
     "path": "library/dotnet-skills/skills/filter-syntax",
     "activation_cmd": "python .agents/library/activate_skill.py activate filter-syntax",
     "link_cmd": "python .agents/library/activate_skill.py link filter-syntax"
@@ -484,7 +484,7 @@
     "name": "find-untested-sources",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/find-untested-sources",
     "activation_cmd": "python .agents/library/activate_skill.py activate find-untested-sources",
     "link_cmd": "python .agents/library/activate_skill.py link find-untested-sources"
@@ -494,7 +494,7 @@
     "name": "generate-testability-wrappers",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/generate-testability-wrappers",
     "activation_cmd": "python .agents/library/activate_skill.py activate generate-testability-wrappers",
     "link_cmd": "python .agents/library/activate_skill.py link generate-testability-wrappers"
@@ -504,7 +504,7 @@
     "name": "grade-tests",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/grade-tests",
     "activation_cmd": "python .agents/library/activate_skill.py activate grade-tests",
     "link_cmd": "python .agents/library/activate_skill.py link grade-tests"
@@ -514,7 +514,7 @@
     "name": "improve-skill-quality",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "Diagnoses and fixes skills in the dotnet/skills repository that lose to their own baseline, fail to activate, time out, or return \"no credible improvement\". Use when an evaluation verdict is a regression or underpowered, when a skill regressed after a change, when /evaluate reports no results, or when deciding whether a weak skill should be strengthened or retired. Do not use for scaffolding a brand-new skill (use create-skill) or a brand-new eval (use create-skill-test).",
     "path": "library/dotnet-skills/skills/improve-skill-quality",
     "activation_cmd": "python .agents/library/activate_skill.py activate improve-skill-quality",
     "link_cmd": "python .agents/library/activate_skill.py link improve-skill-quality"
@@ -524,7 +524,7 @@
     "name": "including-generated-files",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Own MSBuild generated-artifact integration. USE FOR: a target that creates or should create source, Content, None, or another physical file but the artifact is missing from compilation or output; target timing; evaluation-time glob misses; $(IntermediateOutputPath) placement; and FileWrites clean tracking. The prompt may describe the generated artifact without naming the producing task. DO NOT USE when the primary defect is general Include/Remove/Update semantics, item metadata or batching, duplicate/overlapping declarations, or a generated-item identity relationship; use item-management. Exclude Roslyn source-generator internals and non-MSBuild systems.\"",
     "path": "library/dotnet-skills/skills/including-generated-files",
     "activation_cmd": "python .agents/library/activate_skill.py activate including-generated-files",
     "link_cmd": "python .agents/library/activate_skill.py link including-generated-files"
@@ -534,7 +534,7 @@
     "name": "incremental-build",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Guide for optimizing MSBuild incremental builds. USE FOR: builds slower than expected on subsequent runs, 'nothing changed but it rebuilds anyway', diagnosing why targets re-execute unnecessarily, fixing broken no-op builds. Covers 8 common causes: missing Inputs/Outputs on custom targets, volatile properties in output paths (timestamps/GUIDs), file writes outside tracked Outputs, missing FileWrites registration, glob changes, Visual Studio Fast Up-to-Date Check (FUTDC) issues. Key diagnostic: look for 'Building target completely' vs 'Skipping target' in binlog. DO NOT USE FOR: first-time build slowness (use build-perf-baseline), parallelism issues (use build-parallelism), evaluation-phase slowness (use eval-performance), non-MSBuild build systems.\"",
     "path": "library/dotnet-skills/skills/incremental-build",
     "activation_cmd": "python .agents/library/activate_skill.py activate incremental-build",
     "link_cmd": "python .agents/library/activate_skill.py link incremental-build"
@@ -544,7 +544,7 @@
     "name": "item-management",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Own concrete MSBuild ItemGroup and item-expression questions. USE FOR: Include, Remove, Update, item identity and metadata, transforms, filtering, batching, duplicate or overlapping items, and reviews that verify whether those operations are correct. Generated items stay in scope when the central defect is item identity, metadata, batching, duplicate declarations, or glob/Remove/Update semantics. For a generated artifact missing from compilation or output, wrong target timing/path, or FileWrites clean tracking without a broader item-semantics defect, use including-generated-files. The item operation may be broken, suspected, or already correct. Exclude property-only issues, general incrementality with no item question, broad reviews with no concrete item concern, and non-MSBuild systems.\"",
     "path": "library/dotnet-skills/skills/item-management",
     "activation_cmd": "python .agents/library/activate_skill.py activate item-management",
     "link_cmd": "python .agents/library/activate_skill.py link item-management"
@@ -554,7 +554,7 @@
     "name": "maui-app-lifecycle",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/maui-app-lifecycle",
     "activation_cmd": "python .agents/library/activate_skill.py activate maui-app-lifecycle",
     "link_cmd": "python .agents/library/activate_skill.py link maui-app-lifecycle"
@@ -564,7 +564,7 @@
     "name": "maui-collectionview",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/maui-collectionview",
     "activation_cmd": "python .agents/library/activate_skill.py activate maui-collectionview",
     "link_cmd": "python .agents/library/activate_skill.py link maui-collectionview"
@@ -574,7 +574,7 @@
     "name": "maui-data-binding",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/maui-data-binding",
     "activation_cmd": "python .agents/library/activate_skill.py activate maui-data-binding",
     "link_cmd": "python .agents/library/activate_skill.py link maui-data-binding"
@@ -584,7 +584,7 @@
     "name": "maui-dependency-injection",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/maui-dependency-injection",
     "activation_cmd": "python .agents/library/activate_skill.py activate maui-dependency-injection",
     "link_cmd": "python .agents/library/activate_skill.py link maui-dependency-injection"
@@ -594,7 +594,7 @@
     "name": "maui-safe-area",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/maui-safe-area",
     "activation_cmd": "python .agents/library/activate_skill.py activate maui-safe-area",
     "link_cmd": "python .agents/library/activate_skill.py link maui-safe-area"
@@ -604,7 +604,7 @@
     "name": "maui-shell-navigation",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/maui-shell-navigation",
     "activation_cmd": "python .agents/library/activate_skill.py activate maui-shell-navigation",
     "link_cmd": "python .agents/library/activate_skill.py link maui-shell-navigation"
@@ -614,7 +614,7 @@
     "name": "maui-theming",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/maui-theming",
     "activation_cmd": "python .agents/library/activate_skill.py activate maui-theming",
     "link_cmd": "python .agents/library/activate_skill.py link maui-theming"
@@ -624,7 +624,7 @@
     "name": "microbenchmarking",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/microbenchmarking",
     "activation_cmd": "python .agents/library/activate_skill.py activate microbenchmarking",
     "link_cmd": "python .agents/library/activate_skill.py link microbenchmarking"
@@ -634,7 +634,7 @@
     "name": "migrate-dotnet10-to-dotnet11",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/migrate-dotnet10-to-dotnet11",
     "activation_cmd": "python .agents/library/activate_skill.py activate migrate-dotnet10-to-dotnet11",
     "link_cmd": "python .agents/library/activate_skill.py link migrate-dotnet10-to-dotnet11"
@@ -644,7 +644,7 @@
     "name": "migrate-dotnet8-to-dotnet9",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/migrate-dotnet8-to-dotnet9",
     "activation_cmd": "python .agents/library/activate_skill.py activate migrate-dotnet8-to-dotnet9",
     "link_cmd": "python .agents/library/activate_skill.py link migrate-dotnet8-to-dotnet9"
@@ -654,7 +654,7 @@
     "name": "migrate-dotnet9-to-dotnet10",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/migrate-dotnet9-to-dotnet10",
     "activation_cmd": "python .agents/library/activate_skill.py activate migrate-dotnet9-to-dotnet10",
     "link_cmd": "python .agents/library/activate_skill.py link migrate-dotnet9-to-dotnet10"
@@ -664,7 +664,7 @@
     "name": "migrate-mstest-v1v2-to-v3",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/migrate-mstest-v1v2-to-v3",
     "activation_cmd": "python .agents/library/activate_skill.py activate migrate-mstest-v1v2-to-v3",
     "link_cmd": "python .agents/library/activate_skill.py link migrate-mstest-v1v2-to-v3"
@@ -674,7 +674,7 @@
     "name": "migrate-mstest-v3-to-v4",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/migrate-mstest-v3-to-v4",
     "activation_cmd": "python .agents/library/activate_skill.py activate migrate-mstest-v3-to-v4",
     "link_cmd": "python .agents/library/activate_skill.py link migrate-mstest-v3-to-v4"
@@ -684,7 +684,7 @@
     "name": "migrate-nullable-references",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/migrate-nullable-references",
     "activation_cmd": "python .agents/library/activate_skill.py activate migrate-nullable-references",
     "link_cmd": "python .agents/library/activate_skill.py link migrate-nullable-references"
@@ -694,7 +694,7 @@
     "name": "migrate-nunit-to-mstest",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/migrate-nunit-to-mstest",
     "activation_cmd": "python .agents/library/activate_skill.py activate migrate-nunit-to-mstest",
     "link_cmd": "python .agents/library/activate_skill.py link migrate-nunit-to-mstest"
@@ -704,7 +704,7 @@
     "name": "migrate-static-to-wrapper",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/migrate-static-to-wrapper",
     "activation_cmd": "python .agents/library/activate_skill.py activate migrate-static-to-wrapper",
     "link_cmd": "python .agents/library/activate_skill.py link migrate-static-to-wrapper"
@@ -714,7 +714,7 @@
     "name": "migrate-vstest-to-mtp",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/migrate-vstest-to-mtp",
     "activation_cmd": "python .agents/library/activate_skill.py activate migrate-vstest-to-mtp",
     "link_cmd": "python .agents/library/activate_skill.py link migrate-vstest-to-mtp"
@@ -724,7 +724,7 @@
     "name": "migrate-xunit-to-mstest",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/migrate-xunit-to-mstest",
     "activation_cmd": "python .agents/library/activate_skill.py activate migrate-xunit-to-mstest",
     "link_cmd": "python .agents/library/activate_skill.py link migrate-xunit-to-mstest"
@@ -734,7 +734,7 @@
     "name": "migrate-xunit-to-xunit-v3",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/migrate-xunit-to-xunit-v3",
     "activation_cmd": "python .agents/library/activate_skill.py activate migrate-xunit-to-xunit-v3",
     "link_cmd": "python .agents/library/activate_skill.py link migrate-xunit-to-xunit-v3"
@@ -744,7 +744,7 @@
     "name": "msbuild",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Use only for MSBuild failure investigation, build-performance analysis, or review of existing build XML/extension contracts. A plan to convert a working legacy/non-SDK project to SDK style or migrate packages.config is a project-system migration, NOT a build-file review: do not activate, even to check scope. Framework/API upgrades are also excluded. Activate for advisory Import/Exists hook and NuGet packed-import questions even without a checkout or failed build; .csproj/.fsproj/.vbproj/.props/.targets conditions; custom-target inputs/outputs; .binlog capture/replay; failing dotnet build/restore/pack/publish or MSBuild-based test builds; slow evaluation, compilation, copying, or no-change builds; and controlled timing comparisons. Exclude SDK installation alone, C# refactoring, runtime profiling, assertions after successful builds, and non-MSBuild builds.\"",
     "path": "library/dotnet-skills/skills/msbuild",
     "activation_cmd": "python .agents/library/activate_skill.py activate msbuild",
     "link_cmd": "python .agents/library/activate_skill.py link msbuild"
@@ -754,7 +754,7 @@
     "name": "msbuild-antipatterns",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"DO NOT INVOKE when the primary request explicitly asks to convert, migrate, modernize, or rewrite a legacy/old-style project to SDK style; use msbuild-modernization. Migration prompts often mention ToolsVersion, explicit Compile/Reference entries, packages.config, or Microsoft.CSharp.targets, but merely reviewing or auditing a file that contains those patterns remains in scope here. USE FOR broad review, audit, lint, or maintainability/correctness checks of project/build files, including custom targets; prioritized cross-cutting findings; discrete anti-patterns; F# ordering/FS0039; cross-platform paths; and focused Import safety verdicts. Review/audit is analysis-only unless fixes are requested. For concrete property/item defects use property-patterns/item-management; use target-authoring for implementation and extension-points for NuGet auto-import/layout discovery. Exclude non-MSBuild systems.\"",
     "path": "library/dotnet-skills/skills/msbuild-antipatterns",
     "activation_cmd": "python .agents/library/activate_skill.py activate msbuild-antipatterns",
     "link_cmd": "python .agents/library/activate_skill.py link msbuild-antipatterns"
@@ -764,7 +764,7 @@
     "name": "msbuild-modernization",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Guide for modernizing and migrating MSBuild project files to SDK-style format. USE FOR: converting legacy .csproj/.vbproj with verbose XML to SDK-style, migrating packages.config to PackageReference, removing Properties/AssemblyInfo.cs in favor of auto-generation, eliminating explicit Compile Include lists via implicit globbing, consolidating shared settings into Directory.Build.props. Indicators of legacy projects: ToolsVersion attribute, an Import of Microsoft.CSharp.targets via $(MSBuildToolsPath), .csproj files over 50 lines for simple projects. DO NOT USE FOR: projects already in SDK-style format, non-.NET build systems (npm, Maven, CMake), .NET Framework projects that cannot move to SDK-style.\"",
     "path": "library/dotnet-skills/skills/msbuild-modernization",
     "activation_cmd": "python .agents/library/activate_skill.py activate msbuild-modernization",
     "link_cmd": "python .agents/library/activate_skill.py link msbuild-modernization"
@@ -774,7 +774,7 @@
     "name": "mtp-hot-reload",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/mtp-hot-reload",
     "activation_cmd": "python .agents/library/activate_skill.py activate mtp-hot-reload",
     "link_cmd": "python .agents/library/activate_skill.py link mtp-hot-reload"
@@ -784,7 +784,7 @@
     "name": "no-eval-skill",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "A skill with no eval.yaml for testing discovery behavior.",
     "path": "library/dotnet-skills/skills/no-eval-skill",
     "activation_cmd": "python .agents/library/activate_skill.py activate no-eval-skill",
     "link_cmd": "python .agents/library/activate_skill.py link no-eval-skill"
@@ -794,7 +794,7 @@
     "name": "nuget-trusted-publishing",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/nuget-trusted-publishing",
     "activation_cmd": "python .agents/library/activate_skill.py activate nuget-trusted-publishing",
     "link_cmd": "python .agents/library/activate_skill.py link nuget-trusted-publishing"
@@ -804,7 +804,7 @@
     "name": "optimizing-ef-core-queries",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Review and optimize application data access that uses Entity Framework Core (EF Core). Use for EF Core performance and correctness reviews of services, repositories, imports, and background jobs: slow or memory-heavy queries, excessive round-trips, hidden SaveChanges, premature materialization, dynamic query construction, result-graph tracking, bulk writes, DbContext lifetime or overlapping operations, search semantics, paging, raw SQL, and model/index coverage. Use whether or not EF Core owns the schema. For EF Core, not Dapper or raw ADO.NET.\"",
     "path": "library/dotnet-skills/skills/optimizing-ef-core-queries",
     "activation_cmd": "python .agents/library/activate_skill.py activate optimizing-ef-core-queries",
     "link_cmd": "python .agents/library/activate_skill.py link optimizing-ef-core-queries"
@@ -814,7 +814,7 @@
     "name": "plan-ui-change",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/plan-ui-change",
     "activation_cmd": "python .agents/library/activate_skill.py activate plan-ui-change",
     "link_cmd": "python .agents/library/activate_skill.py link plan-ui-change"
@@ -824,7 +824,7 @@
     "name": "platform-detection",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/platform-detection",
     "activation_cmd": "python .agents/library/activate_skill.py activate platform-detection",
     "link_cmd": "python .agents/library/activate_skill.py link platform-detection"
@@ -834,7 +834,7 @@
     "name": "process-api-net11",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/process-api-net11",
     "activation_cmd": "python .agents/library/activate_skill.py activate process-api-net11",
     "link_cmd": "python .agents/library/activate_skill.py link process-api-net11"
@@ -844,7 +844,7 @@
     "name": "property-patterns",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Diagnose and fix concrete MSBuild property defects in projects and existing shared-file hierarchies. USE FOR: conditions, defaults, append versus overwrite, last-write-wins values, OS/TFM checks, portable paths, normalization, and reviews centered on those property defects. Property defects in Directory.Build.* remain in scope, including overwritten values across parent/child imports and conditions that run before TargetFramework is set, even when the fix changes import order or moves a property group to .targets. DO NOT USE FOR: placement-only or import-only requests with no concrete property defect, such as discovering shared files or choosing which file owns a target or customization (use directory-build-organization); item operations; target structure; broad reviews without a concrete property defect; non-MSBuild work.\"",
     "path": "library/dotnet-skills/skills/property-patterns",
     "activation_cmd": "python .agents/library/activate_skill.py activate property-patterns",
     "link_cmd": "python .agents/library/activate_skill.py link property-patterns"
@@ -854,7 +854,7 @@
     "name": "resolve-project-references",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Guide for interpreting ResolveProjectReferences time in MSBuild performance summaries. Activate when ResolveProjectReferences appears as the most expensive target and developers are trying to optimize it directly. Explains that the reported time includes wait time for dependent project builds and is misleading. Guides users to focus on task self-time instead. Do not activate for general build performance -- use build-perf-diagnostics instead.\"",
     "path": "library/dotnet-skills/skills/resolve-project-references",
     "activation_cmd": "python .agents/library/activate_skill.py activate resolve-project-references",
     "link_cmd": "python .agents/library/activate_skill.py link resolve-project-references"
@@ -864,7 +864,7 @@
     "name": "run-tests",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/run-tests",
     "activation_cmd": "python .agents/library/activate_skill.py activate run-tests",
     "link_cmd": "python .agents/library/activate_skill.py link run-tests"
@@ -874,7 +874,7 @@
     "name": "sample-skill",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "A sample skill for testing the validator. Helps with greeting generation.",
     "path": "library/dotnet-skills/skills/sample-skill",
     "activation_cmd": "python .agents/library/activate_skill.py activate sample-skill",
     "link_cmd": "python .agents/library/activate_skill.py link sample-skill"
@@ -884,7 +884,7 @@
     "name": "scaffold-dotnet-test-project",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/scaffold-dotnet-test-project",
     "activation_cmd": "python .agents/library/activate_skill.py activate scaffold-dotnet-test-project",
     "link_cmd": "python .agents/library/activate_skill.py link scaffold-dotnet-test-project"
@@ -894,7 +894,7 @@
     "name": "setup-local-sdk",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/setup-local-sdk",
     "activation_cmd": "python .agents/library/activate_skill.py activate setup-local-sdk",
     "link_cmd": "python .agents/library/activate_skill.py link setup-local-sdk"
@@ -904,7 +904,7 @@
     "name": "support-prerendering",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "Make interactive Blazor components work correctly with prerendering. USE FOR fixing duplicate data loads, UI flicker during prerender-to-interactive handoff, null references during prerender, persisting state across prerender, disabling prerendering, excluding pages from interactive routing, or detecting whether a component is currently prerendering. DO NOT USE for choosing which render mode to use (see create-blazor-project) or general component authoring (see author-component).",
     "path": "library/dotnet-skills/skills/support-prerendering",
     "activation_cmd": "python .agents/library/activate_skill.py activate support-prerendering",
     "link_cmd": "python .agents/library/activate_skill.py link support-prerendering"
@@ -914,7 +914,7 @@
     "name": "system-text-json-net11",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/system-text-json-net11",
     "activation_cmd": "python .agents/library/activate_skill.py activate system-text-json-net11",
     "link_cmd": "python .agents/library/activate_skill.py link system-text-json-net11"
@@ -924,7 +924,7 @@
     "name": "target-authoring",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Canonical patterns for writing custom MSBuild targets. USE FOR: diagnosing and fixing custom target authoring anti-patterns; broken SDK target chains across files (e.g., Directory.Build.targets silently redefining SDK targets); targets that replace CompileDependsOn instead of extending it with $(CompileDependsOn); query targets returning stale results from Outputs vs Returns misuse; missing Inputs/Outputs causing unnecessary rebuilds; missing FileWrites registration. Covers DependsOnTargets vs BeforeTargets vs AfterTargets, the Build\u2192CoreBuild three-level pattern, and the $(XxxDependsOn) chain-extension pattern. DO NOT USE FOR: incremental build tuning (use incremental-build), parallelization (use build-parallelism), general anti-patterns (use msbuild-antipatterns), non-MSBuild build systems.\"",
     "path": "library/dotnet-skills/skills/target-authoring",
     "activation_cmd": "python .agents/library/activate_skill.py activate target-authoring",
     "link_cmd": "python .agents/library/activate_skill.py link target-authoring"
@@ -934,7 +934,7 @@
     "name": "technology-selection",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Guides technology selection and implementation of AI and ML features in .NET 8+ applications using ML.NET, Microsoft.Extensions.AI (MEAI), Microsoft Agent Framework (MAF), GitHub Copilot SDK, ONNX Runtime, and OllamaSharp. Covers the full spectrum from classic ML through modern LLM orchestration to local inference. Use when adding classification, regression, clustering, anomaly detection, recommendation, LLM integration (text generation, summarization, reasoning), RAG pipelines with vector search, agentic workflows with tool calling, Copilot extensions, or custom model inference via ONNX Runtime to a .NET project. DO NOT USE FOR projects targeting .NET Framework (requires .NET 8+), the task is pure data engineering or ETL with no ML/AI component, or the project needs a custom deep learning training loop (use Python with PyTorch/TensorFlow, then export to ONNX for .NET inference).\"",
     "path": "library/dotnet-skills/skills/technology-selection",
     "activation_cmd": "python .agents/library/activate_skill.py activate technology-selection",
     "link_cmd": "python .agents/library/activate_skill.py link technology-selection"
@@ -944,7 +944,7 @@
     "name": "template-authoring",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/template-authoring",
     "activation_cmd": "python .agents/library/activate_skill.py activate template-authoring",
     "link_cmd": "python .agents/library/activate_skill.py link template-authoring"
@@ -954,7 +954,7 @@
     "name": "template-comparison",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/template-comparison",
     "activation_cmd": "python .agents/library/activate_skill.py activate template-comparison",
     "link_cmd": "python .agents/library/activate_skill.py link template-comparison"
@@ -964,7 +964,7 @@
     "name": "template-discovery",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/template-discovery",
     "activation_cmd": "python .agents/library/activate_skill.py activate template-discovery",
     "link_cmd": "python .agents/library/activate_skill.py link template-discovery"
@@ -974,7 +974,7 @@
     "name": "template-instantiation",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/template-instantiation",
     "activation_cmd": "python .agents/library/activate_skill.py activate template-instantiation",
     "link_cmd": "python .agents/library/activate_skill.py link template-instantiation"
@@ -984,7 +984,7 @@
     "name": "template-smart-defaults",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/template-smart-defaults",
     "activation_cmd": "python .agents/library/activate_skill.py activate template-smart-defaults",
     "link_cmd": "python .agents/library/activate_skill.py link template-smart-defaults"
@@ -994,7 +994,7 @@
     "name": "template-validation",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/template-validation",
     "activation_cmd": "python .agents/library/activate_skill.py activate template-validation",
     "link_cmd": "python .agents/library/activate_skill.py link template-validation"
@@ -1004,7 +1004,7 @@
     "name": "test-analysis-extensions",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/test-analysis-extensions",
     "activation_cmd": "python .agents/library/activate_skill.py activate test-analysis-extensions",
     "link_cmd": "python .agents/library/activate_skill.py link test-analysis-extensions"
@@ -1014,7 +1014,7 @@
     "name": "test-anti-patterns",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/test-anti-patterns",
     "activation_cmd": "python .agents/library/activate_skill.py activate test-anti-patterns",
     "link_cmd": "python .agents/library/activate_skill.py link test-anti-patterns"
@@ -1024,7 +1024,7 @@
     "name": "test-gap-analysis",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/test-gap-analysis",
     "activation_cmd": "python .agents/library/activate_skill.py activate test-gap-analysis",
     "link_cmd": "python .agents/library/activate_skill.py link test-gap-analysis"
@@ -1034,7 +1034,7 @@
     "name": "test-smell-detection",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/test-smell-detection",
     "activation_cmd": "python .agents/library/activate_skill.py activate test-smell-detection",
     "link_cmd": "python .agents/library/activate_skill.py link test-smell-detection"
@@ -1044,7 +1044,7 @@
     "name": "test-tagging",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/test-tagging",
     "activation_cmd": "python .agents/library/activate_skill.py activate test-tagging",
     "link_cmd": "python .agents/library/activate_skill.py link test-tagging"
@@ -1054,7 +1054,7 @@
     "name": "test-value-evidence",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/test-value-evidence",
     "activation_cmd": "python .agents/library/activate_skill.py activate test-value-evidence",
     "link_cmd": "python .agents/library/activate_skill.py link test-value-evidence"
@@ -1064,7 +1064,7 @@
     "name": "testability-obstacle",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/testability-obstacle",
     "activation_cmd": "python .agents/library/activate_skill.py activate testability-obstacle",
     "link_cmd": "python .agents/library/activate_skill.py link testability-obstacle"
@@ -1074,7 +1074,7 @@
     "name": "thread-abort-migration",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/thread-abort-migration",
     "activation_cmd": "python .agents/library/activate_skill.py activate thread-abort-migration",
     "link_cmd": "python .agents/library/activate_skill.py link thread-abort-migration"
@@ -1084,7 +1084,7 @@
     "name": "troubleshoot-binlog-mcp",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Diagnose dotnet-msbuild binlog MCP startup failures. USE FOR: CONNECTION_CLOSED, binlog server won't connect, missing binlog tools, Microsoft.AITools.BinlogMcp not found, dnx launch errors. Checks workspace SDK, feeds, and source mapping without bypassing policy. DO NOT USE FOR: errors inside a binlog (use binlog-failure-analysis), capturing binlogs (use binlog-generation), unrelated MCP servers.\"",
     "path": "library/dotnet-skills/skills/troubleshoot-binlog-mcp",
     "activation_cmd": "python .agents/library/activate_skill.py activate troubleshoot-binlog-mcp",
     "link_cmd": "python .agents/library/activate_skill.py link troubleshoot-binlog-mcp"
@@ -1094,7 +1094,7 @@
     "name": "use-igniteui-blazor",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/use-igniteui-blazor",
     "activation_cmd": "python .agents/library/activate_skill.py activate use-igniteui-blazor",
     "link_cmd": "python .agents/library/activate_skill.py link use-igniteui-blazor"
@@ -1104,7 +1104,7 @@
     "name": "use-js-interop",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/use-js-interop",
     "activation_cmd": "python .agents/library/activate_skill.py activate use-js-interop",
     "link_cmd": "python .agents/library/activate_skill.py link use-js-interop"
@@ -1114,7 +1114,7 @@
     "name": "vectorization",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/vectorization",
     "activation_cmd": "python .agents/library/activate_skill.py activate vectorization",
     "link_cmd": "python .agents/library/activate_skill.py link vectorization"
@@ -1124,7 +1124,7 @@
     "name": "winforms-expert",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/dotnet-skills/skills/winforms-expert",
     "activation_cmd": "python .agents/library/activate_skill.py activate winforms-expert",
     "link_cmd": "python .agents/library/activate_skill.py link winforms-expert"
@@ -1134,7 +1134,7 @@
     "name": "writing-mstest-tests",
     "repository": "dotnet-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/dotnet-skills/skills/writing-mstest-tests",
     "activation_cmd": "python .agents/library/activate_skill.py activate writing-mstest-tests",
     "link_cmd": "python .agents/library/activate_skill.py link writing-mstest-tests"

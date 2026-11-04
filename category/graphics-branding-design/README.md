@@ -1,7 +1,7 @@
 # 🎨 Visual Design, Branding & Graphics
 
 > **Category**: `graphics-branding-design`  
-> **Total Curated Skills**: 105 skills  
+> **Total Curated Skills**: 117 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -26,6 +26,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ai-logo-maker`](../../library/sickn33-agentic-awesome-skills/skills/ai-logo-maker) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Install and use the official AI Logo Maker package, pinned by digest, for paid hosted work on t... |
 | [`ai-social-media-content`](../../library/101-skills-superpowers/skills/ai-social-media-content) | ⚪ Reserve | `101-skills-superpowers` | Create AI-powered social media content for TikTok, Instagram, YouTube, Twitter/X. Generate: ima... |
 | [`amazon-private-label`](../../library/nexscope-ai-amazon-skills/skills/amazon-private-label) | ⚪ Reserve | `nexscope-ai-amazon-skills` | Private label launch playbook — product selection, branding, supplier management, differentiati... |
+| [`assemble-launch-asset-packager`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/assemble-launch-asset-packager) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "package the launch assets", "build a press kit", or "prep the store ... |
 | [`audience-belief-mapper`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/audience-belief-mapper) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "map what our buyers believe", "capture the objections we keep hearin... |
 | [`axton-obsidian-visual`](../../library/axtonliu-axton-obsidian-visual-skills/skills/axton-obsidian-visual) | ⚪ Reserve | `axtonliu-axton-obsidian-visual-skills` | Generates Excalidraw, Mermaid, and Obsidian Canvas diagrams from text, supporting animations, m... |
 | [`blue-ocean-strategy`](../../library/wondelai-skills/skills/blue-ocean-strategy) | ⚪ Reserve | `wondelai-skills` | Create uncontested market space using value innovation instead of competing head-to-head. Use w... |
@@ -112,9 +113,18 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`qa-test-planner`](../../library/davila7-claude-code-templates/skills/qa-test-planner) | ⚪ Reserve | `davila7-claude-code-templates` | Generate comprehensive test plans, manual test cases, regression test suites, and bug reports f... |
 | [`recommendation-canvas`](../../library/deanpeters-product-manager-skills/skills/recommendation-canvas) | ⚪ Reserve | `deanpeters-product-manager-skills` | Evaluate an AI product idea across outcomes, hypotheses, risks, and positioning. Use when decid... |
 | [`replica-brand`](../../library/jakeschincariol-replica-skill/skills/replica-brand) | ⚪ Reserve | `jakeschincariol-replica-skill` | Names and rebrands an app clone so it is the user's own: name candidates with the trademark, do... |
+| [`research-positioning-mapper`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/research-positioning-mapper) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "map our positioning", "name our competitive alternatives", or "pick ... |
 | [`service-concierge-portal-generate`](../../library/forcedotcom-sf-skills/skills/service-concierge-portal-generate) | ⚪ Reserve | `forcedotcom-sf-skills` | Deploys an Agentforce Concierge portal on an LWR Experience Cloud site: provisions the site, co... |
 | [`shop-pack`](../../library/feimacode-open-design-agent-kit/skills/shop-pack) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Everything a small online shop needs from one product list and the seller's own photos: square ... |
+| [`skills-ad-manager`](../../library/anthropics-knowledge-work/skills/skills-ad-manager) | ⚪ Reserve | `anthropics-knowledge-work` | The ads consultant that becomes an ads agent. Reads paid-ad performance natively through the Ti... |
+| [`skills-canva-creator`](../../library/anthropics-knowledge-work/skills/skills-canva-creator) | ⚪ Reserve | `anthropics-knowledge-work` | Takes an approved content brief and executes a campaign end-to-end: builds the posting calendar... |
+| [`skills-design-critique`](../../library/anthropics-knowledge-work/skills/skills-design-critique) | ⚪ Reserve | `anthropics-knowledge-work` | Get structured design feedback on usability, hierarchy, and consistency. Trigger with "review t... |
+| [`skills-discover-brand`](../../library/anthropics-knowledge-work/skills/skills-discover-brand) | ⚪ Reserve | `anthropics-knowledge-work` | This skill orchestrates autonomous discovery of brand materials across enterprise platforms (No... |
+| [`skills-om-figma-design-with-ds`](../../library/open-mercato-skills/skills/skills-om-figma-design-with-ds) | ⚪ Reserve | `open-mercato-skills` | Design in a design tool (Figma or similar) on the repository's design system — write a brief fo... |
+| [`skills-social-content-engine`](../../library/anthropics-knowledge-work/skills/skills-social-content-engine) | ⚪ Reserve | `anthropics-knowledge-work` | Runs the owner's content operation as a standing thing rather than a one-off: keeps a rolling p... |
+| [`skills-ui-ugui`](../../library/unity-technologies-skills/skills/skills-ui-ugui) | ⚪ Reserve | `unity-technologies-skills` | Understands, edits, and generates Unity uGUI Canvas hierarchies, RectTransforms, Layout Groups,... |
 | [`social-content-engine`](../../library/anthropics-knowledge-work/skills/social-content-engine) | ⚪ Reserve | `anthropics-knowledge-work` | Runs the owner's content operation as a standing thing rather than a one-off: keeps a rolling p... |
+| [`social-listening-facebook-page-profile-posts`](../../library/browser-act-skills/skills/social-listening-facebook-page-profile-posts) | ⚪ Reserve | `browser-act-skills` | Scrapes posts from any public Facebook Page or personal Profile timeline, returning structured ... |
 | [`social-youtube-thumbnail`](../../library/feimacode-open-design-agent-kit/skills/social-youtube-thumbnail) | ⚪ Reserve | `feimacode-open-design-agent-kit` | YouTube Thumbnail (Open Design) — use only when explicitly invoked, not for general design requ... |
 | [`startup-canvas`](../../library/phuryn-pm-skills/skills/startup-canvas) | ⚪ Reserve | `phuryn-pm-skills` | Generate a Startup Canvas combining Product Strategy (9 sections) and Business Model (costs + r... |
 | [`student-developer-programs`](../../library/samber-developer-relations-skills/skills/student-developer-programs) | ⚪ Reserve | `samber-developer-relations-skills` | Designs a company's student and university developer program: the one job it serves (adoption a... |
@@ -122,5 +132,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`tech-employer-branding`](../../library/samber-developer-relations-skills/skills/tech-employer-branding) | ⚪ Reserve | `samber-developer-relations-skills` | Designs an employer-brand strategy for attracting software engineers - the engineering EVP, the... |
 | [`tiktok-shop-branding`](../../library/nexscope-ai-ecommerce-skills/skills/tiktok-shop-branding) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Brand building and positioning on TikTok Shop. Brand identity development, content pillars, com... |
 | [`tldraw-whiteboard-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/tldraw-whiteboard-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Guide to tldraw for infinite canvas whiteboarding and diagram creation |
+| [`trace-audience-belief-mapper`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/trace-audience-belief-mapper) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "map what our buyers believe", "capture the objections we keep hearin... |
+| [`trace-positioning-truth-tracer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/trace-positioning-truth-tracer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "check our positioning against what we can actually ship", "trace whi... |
 | [`ui-ugui`](../../library/unity-technologies-skills/skills/ui-ugui) | ⚪ Reserve | `unity-technologies-skills` | Understands, edits, and generates Unity uGUI Canvas hierarchies, RectTransforms, Layout Groups,... |
 | [`vmware-vcenter-attack`](../../library/elementalsouls-claude-bughunter/skills/vmware-vcenter-attack) | ⚪ Reserve | `elementalsouls-claude-bughunter` | VMware vSphere / vCenter Server external attack matrix — version fingerprinting, the high-impac... |

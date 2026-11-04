@@ -776,6 +776,38 @@
     "path": "category/prompt-llm-engineering/clipcat"
   },
   {
+    "id": "cloud-agent-platform-inference",
+    "name": "cloud-agent-platform-inference",
+    "category": "prompt-llm-engineering",
+    "repository": "google-skills",
+    "description": "Connects to and performs inference with Google Cloud Agent Platform GenAI models, including First-Party Gemini models and Third-Party OpenMaaS models (Llama, DeepSeek, Qwen, etc.). Use when asked to perform inference, ask a model a question, run a test prompt, execute chat completions, or generate code for calling Gemini or OpenMaaS models, authenticate with GenAI SDK, OpenAI SDK, or legacy Agent Platform SDK, configure base URLs and global/regional endpoints, or troubleshoot 429 Resource Exhausted (DSQ), 400 User Validation, or 404 Not Found errors. Don't use for deploying models to endpoints or for running model evaluations.",
+    "path": "category/prompt-llm-engineering/cloud-agent-platform-inference"
+  },
+  {
+    "id": "cloud-agent-platform-prompt-management",
+    "name": "cloud-agent-platform-prompt-management",
+    "category": "prompt-llm-engineering",
+    "repository": "google-skills",
+    "description": "Manages and orchestrates prompts in Agent Platform. Use when you need to create, list, retrieve, version, or delete managed prompts in Agent Platform. Don't use for model training, model deployment to endpoints, or managing non-Agent Platform prompts.",
+    "path": "category/prompt-llm-engineering/cloud-agent-platform-prompt-management"
+  },
+  {
+    "id": "cloud-agent-platform-skill-registry",
+    "name": "cloud-agent-platform-skill-registry",
+    "category": "prompt-llm-engineering",
+    "repository": "google-skills",
+    "description": "Interact with the Gemini Enterprise Agent Platform Skill Registry to create and search for available skills. Use this skill to enable agents to register functionality or discover new capabilities.",
+    "path": "category/prompt-llm-engineering/cloud-agent-platform-skill-registry"
+  },
+  {
+    "id": "cloud-google-cloud-solution-agentic-ai-borderless-data-lakehouse",
+    "name": "cloud-google-cloud-solution-agentic-ai-borderless-data-lakehouse",
+    "category": "prompt-llm-engineering",
+    "repository": "google-skills",
+    "description": "Discovers requirements and designs a borderless open data lakehouse using Lakehouse for Apache Iceberg and BigQuery data agents. Use when architecting multi-cloud storage infrastructure (Cloud Storage, AWS S3, Azure Blob), establishing ingestion and AI serving subsystems, configuring Cross-Cloud Interconnect, or deploying Gemini Enterprise Agent Platform and BigQuery data agents. Don't use for single-cloud data warehouses, or when the focus is on Knowledge Catalog metadata governance and Spark-driven IDE analytics workflows (use google-cloud-solution-agentic-analytics-spark-knowledge-catalog instead).",
+    "path": "category/prompt-llm-engineering/cloud-google-cloud-solution-agentic-ai-borderless-data-lakehouse"
+  },
+  {
     "id": "code-llm-papers-guide",
     "name": "code-llm-papers-guide",
     "category": "prompt-llm-engineering",
@@ -1278,6 +1310,14 @@
     "repository": "dotnet-skills",
     "description": "Guide for diagnosing and improving MSBuild project evaluation performance. USE FOR: builds slow before any compilation starts, high evaluation time in binlog analysis, expensive glob patterns walking large directories (node_modules, .git, bin/obj), deep import chains (>20 levels), preprocessed output >10K lines indicating heavy evaluation, property functions with file I/O ($([System.IO.File]::ReadAllText(...))), multiple evaluations per project. Covers the 5 MSBuild evaluation phases, glob optimization via DefaultItemExcludes, import chain analysis with /pp preprocessing. DO NOT USE FOR: compilation-time slowness (use build-perf-diagnostics), incremental build issues (use incremental-build), non-MSBuild build systems.",
     "path": "category/prompt-llm-engineering/eval-performance"
+  },
+  {
+    "id": "eval-plan",
+    "name": "eval-plan",
+    "category": "prompt-llm-engineering",
+    "repository": "garrytan-gstack",
+    "description": "Preregister a paid eval (bars, arms, decoys, stop rules), dry-run it at zero cost, then run a three-item priced pilot whose spend table gates approval. (gstack)",
+    "path": "category/prompt-llm-engineering/eval-plan"
   },
   {
     "id": "evaluation",
@@ -1878,6 +1918,14 @@
     "repository": "davidondrej-skills",
     "description": "Write four distinct prompts for AI image models. Use for image, thumbnail, banner, logo, or illustration prompts. Produces prompt text only.",
     "path": "category/prompt-llm-engineering/image-prompt"
+  },
+  {
+    "id": "implement-geo-content-optimizer",
+    "name": "implement-geo-content-optimizer",
+    "category": "prompt-llm-engineering",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"optimize for AI citations\"; improves citation readiness for ChatGPT, Perplexity, AI Overviews, Gemini, and Claude. Not for structural on-page SEO \u2014 use on-page-seo-checker; not for net-new drafting \u2014 use content-writer. AI\u5f15\u7528\u4f18\u5316/GEO\u4f18\u5316/AI\u641c\u7d22",
+    "path": "category/prompt-llm-engineering/implement-geo-content-optimizer"
   },
   {
     "id": "implementing-llm-guardrails-for-security",
@@ -3480,12 +3528,68 @@
     "path": "category/prompt-llm-engineering/skillclaw-skill-evolution"
   },
   {
+    "id": "skills-clerk-swift",
+    "name": "skills-clerk-swift",
+    "category": "prompt-llm-engineering",
+    "repository": "clerk-skills",
+    "description": "Implement Clerk authentication UI in native Swift apps on iOS and macOS with ClerkKitUI prebuilt views or custom ClerkKit flows. Set up Clerk first with the iOS setup prompt, which uses the Clerk CLI. Do not use for Expo or React Native projects.",
+    "path": "category/prompt-llm-engineering/skills-clerk-swift"
+  },
+  {
     "id": "skills-codex-gemini-review",
     "name": "skills-codex-gemini-review",
     "category": "prompt-llm-engineering",
     "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
     "description": "",
     "path": "category/prompt-llm-engineering/skills-codex-gemini-review"
+  },
+  {
+    "id": "skills-configure",
+    "name": "skills-configure",
+    "category": "prompt-llm-engineering",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "Set up the Discord channel \u2014 save the bot token and review access policy. Use when the user pastes a Discord bot token, asks to configure Discord, asks \"how do I set this up\" or \"who can reach me,\" or wants to check channel status.",
+    "path": "category/prompt-llm-engineering/skills-configure"
+  },
+  {
+    "id": "skills-om-evolve-harness",
+    "name": "skills-om-evolve-harness",
+    "category": "prompt-llm-engineering",
+    "repository": "open-mercato-skills",
+    "description": "Turn a real agent failure into one reproducible eval-harness case plus the smallest knowledge change \u2014 failing case first, one knowledge owner, semantic assertions, before/after evidence through the repo's configured harness commands. Use for \"add harness case\", \"agent got this wrong\", \"extend the harness\", \"rozszerz harness\".",
+    "path": "category/prompt-llm-engineering/skills-om-evolve-harness"
+  },
+  {
+    "id": "skills-principle-explain-the-number",
+    "name": "skills-principle-explain-the-number",
+    "category": "prompt-llm-engineering",
+    "repository": "cursor-plugins",
+    "description": "Apply before you measure, and before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result. Find what limits it, and rule out that it measured something other than the work you think.",
+    "path": "category/prompt-llm-engineering/skills-principle-explain-the-number"
+  },
+  {
+    "id": "skills-sharpen",
+    "name": "skills-sharpen",
+    "category": "prompt-llm-engineering",
+    "repository": "cursor-plugins",
+    "description": "Make a task deeper, not bigger, then rewrite the prompt. Use for /sharpen.",
+    "path": "category/prompt-llm-engineering/skills-sharpen"
+  },
+  {
+    "id": "skills-token-report",
+    "name": "skills-token-report",
+    "category": "prompt-llm-engineering",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Report how many tokens the Roslyn Navigator MCP server has saved, across one repository or all of them, with a per-tool leaderboard, adoption rate, and the methodology behind the number. Use when: \"token report\", \"token savings\", \"how many tokens saved\", \"is the MCP worth it\", \"MCP usage\", \"tool leaderboard\", \"adoption rate\", \"which MCP tools are used\", \"prove the savings\".",
+    "path": "category/prompt-llm-engineering/skills-token-report"
+  },
+  {
+    "id": "skills-unity-pipeline",
+    "name": "skills-unity-pipeline",
+    "category": "prompt-llm-engineering",
+    "repository": "unity-technologies-skills",
+    "description": "Control a Unity Editor or Player via the unity-pipeline package. Compile, run tests, eval, method-reload code, enter Play Mode, capture screenshots.",
+    "path": "category/prompt-llm-engineering/skills-unity-pipeline"
   },
   {
     "id": "slides-style-prompt-studio",
@@ -3830,6 +3934,14 @@
     "repository": "reason-machines-trending-skills",
     "description": "MacOS voice input tool with local/cloud ASR engines, LLM text optimization, and fully local storage built in Swift",
     "path": "category/prompt-llm-engineering/type4me-macos-voice-input"
+  },
+  {
+    "id": "ubicloud",
+    "name": "ubicloud",
+    "category": "prompt-llm-engineering",
+    "repository": "garrytan-gstack",
+    "description": "Run a heavy suite, build or eval on an ephemeral 16-vCPU Ubicloud VM: TTL-named VMs, a reaper, quota preflight and a hang watchdog. (gstack)",
+    "path": "category/prompt-llm-engineering/ubicloud"
   },
   {
     "id": "unified-ai-gateway",

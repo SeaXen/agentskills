@@ -384,6 +384,14 @@
     "path": "category/database-sql-relational/azure-kubernetes-automatic-readiness"
   },
   {
+    "id": "azure-kubernetes-azure-kubernetes-automatic-readiness",
+    "name": "azure-kubernetes-azure-kubernetes-automatic-readiness",
+    "category": "database-sql-relational",
+    "repository": "microsoft-azure-skills",
+    "description": "Assess Kubernetes workloads and cluster configuration for AKS Automatic compatibility. Identifies incompatibilities, generates fixes, and guides migration from AKS Standard to AKS Automatic. WHEN: migrate to AKS Automatic, check AKS Automatic readiness, validate manifests for Automatic, assess cluster for Automatic compatibility, fix deployment for Automatic compatibility, identify AKS Automatic migration blockers, is my cluster ready for AKS Automatic.",
+    "path": "category/database-sql-relational/azure-kubernetes-azure-kubernetes-automatic-readiness"
+  },
+  {
     "id": "azure-prepare",
     "name": "azure-prepare",
     "category": "database-sql-relational",
@@ -624,12 +632,172 @@
     "path": "category/database-sql-relational/clickup-automation"
   },
   {
+    "id": "cloud-agent-platform-eval-flywheel",
+    "name": "cloud-agent-platform-eval-flywheel",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Measures and improves the quality of AI models and agents on Google Cloud using the Eval Quality Flywheel methodology. Use when generating synthetic user scenarios, evaluating an agent or model, building an eval dataset, picking or writing evaluation metrics, analyzing failures, comparing results before and after a fix, or when guidance is needed on Agent Platform eval methodology \u2014 including dataset schema, LLM-as-judge scoring, and common failure causes. For fine-tuning, use agent-platform-tuning. For general production deployment, use agent-platform-deploy.",
+    "path": "category/database-sql-relational/cloud-agent-platform-eval-flywheel"
+  },
+  {
+    "id": "cloud-agent-platform-rag-engine-management",
+    "name": "cloud-agent-platform-rag-engine-management",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Manage and query Agent Platform RAG Engine Corpora and retrieve grounded contexts using the Google GenAI SDK. Use when listing RAG corpora or files, inspecting a corpus, retrieving contexts, or generating content grounded in a RAG corpus. Do not use for standard database queries (use SQL/Spanner skills), Google Workspace RAG, or other RAG products like gRAG.",
+    "path": "category/database-sql-relational/cloud-agent-platform-rag-engine-management"
+  },
+  {
+    "id": "cloud-alloydb-basics",
+    "name": "cloud-alloydb-basics",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Manages clusters, instances, and backups for AlloyDB for PostgreSQL, and integrates with AlloyDB Model Context Protocol (MCP) tools for automated database operations. Use when creating, configuring, or administering AlloyDB databases. Do NOT use for general PostgreSQL instances (e.g. Cloud SQL) or other GCP databases.",
+    "path": "category/database-sql-relational/cloud-alloydb-basics"
+  },
+  {
+    "id": "cloud-bigquery-ai-ml",
+    "name": "cloud-bigquery-ai-ml",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Leverages BigQuery's built-in machine learning and GenAI capabilities for advanced data analytics. Use when you need to write SQL queries that perform time-series forecasting, predict values, detect outliers or anomalies, find key drivers, perform semantic search or vector search, classify text, calculate similarity, summarize content, translate language, evaluate models, filter by semantic conditions, measure the causal effect of an intervention, compute correlations between columns, detect change points or structural breaks, extract trend or seasonality components, or leverage generative AI capabilities in BigQuery. Do not use for general BigQuery dataset, table, or job management requests.",
+    "path": "category/database-sql-relational/cloud-bigquery-ai-ml"
+  },
+  {
+    "id": "cloud-bigquery-basics",
+    "name": "cloud-bigquery-basics",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Manages datasets, tables, and jobs in BigQuery. Use when you need to interact with BigQuery, run SQL queries, manage BigQuery resources (datasets, tables, views), or perform basic data ingestion and analysis.",
+    "path": "category/database-sql-relational/cloud-bigquery-basics"
+  },
+  {
+    "id": "cloud-bigquery-bigframes",
+    "name": "cloud-bigquery-bigframes",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Generates Python code using BigQuery DataFrames (BigFrames). Use by default for any Python data task involving BigQuery, including data processing, analysis, and machine learning. Don't use for SQL-first workflows or the google-cloud-bigquery client library \u2014 use bigquery-basics.",
+    "path": "category/database-sql-relational/cloud-bigquery-bigframes"
+  },
+  {
+    "id": "cloud-bigquery-migration-sql-translator",
+    "name": "cloud-bigquery-migration-sql-translator",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Translates SQL queries, DDL schemas, and stored procedures from legacy database dialects (Teradata, Oracle, Redshift, Snowflake, SparkSQL, HiveQL) to BigQuery GoogleSQL using the BigQuery Migration Service (BQMS) MCP server. Use when translating legacy SQL queries, migrating schemas or metadata zip archives, or configuring BigQuery Migration Service (BQMS) YAML translation settings. Don't use for executing BigQuery queries or managing datasets and tables (use bigquery-basics), diagnosing runtime job errors (use bigquery-troubleshooting), or tuning slot reservations (use bigquery-optimization).",
+    "path": "category/database-sql-relational/cloud-bigquery-migration-sql-translator"
+  },
+  {
+    "id": "cloud-bigquery-optimization",
+    "name": "cloud-bigquery-optimization",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Provides workflows to optimize BigQuery environments (capacity planning, editions), storage assets (partitioning, clustering, storage lifecycles, billing models), and SQL queries. Use when optimizing cost, modeling Edition migrations, rightsizing reservations, evaluating logical vs. physical storage, designing table partitioning/clustering, generating table DDL, migrating unpartitioned tables, managing partition expiration, optimizing individual SQL queries, or evaluating acceleration structures (search indexes, materialized views, BI Engine).",
+    "path": "category/database-sql-relational/cloud-bigquery-optimization"
+  },
+  {
+    "id": "cloud-bigquery-troubleshooting",
+    "name": "cloud-bigquery-troubleshooting",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Provides diagnostic workflows and step-by-step root-cause analysis procedures for actively broken, failing, or slow BigQuery jobs, execution graph and query plan stage bottlenecks, system performance issues, or unexpectedly expensive workloads. Use when interpreting symptoms, isolating bottlenecks, diagnosing cost spikes (on-demand query spend, capacity slot autoscaling, storage growth), execution graph stages or substep variables, identifying root causes, and determining remediation steps. Don't use for writing or optimizing SQL, proactive capacity planning, or storage layout design (use bigquery-optimization), or when the user already knows which telemetry they want and just needs the query (use bigquery-observability).",
+    "path": "category/database-sql-relational/cloud-bigquery-troubleshooting"
+  },
+  {
+    "id": "cloud-bigquery-udfs",
+    "name": "cloud-bigquery-udfs",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Creates, deploys, and troubleshoots BigQuery User-Defined Functions (UDFs) and Remote Functions across SQL, JavaScript, Python, and Cloud Run endpoints. Use when writing custom scalar or aggregate functions in BigQuery, installing PyPI packages or Cloud Storage libraries in a Python or JavaScript UDF, or calling Google Cloud and external APIs from a Python UDF (WITH CONNECTION) or Remote Function. Don't use for standard BigQuery table/dataset CRUD (use bigquery-basics), DataFrames client workflows (use bigquery-bigframes), or BigQuery ML models (use bigquery-ai-ml).",
+    "path": "category/database-sql-relational/cloud-bigquery-udfs"
+  },
+  {
+    "id": "cloud-cloud-logging-query-generation",
+    "name": "cloud-cloud-logging-query-generation",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Generates Logging Query Language (LQL) queries for Cloud Logging on Google Cloud from natural language. Use this skill when you need to query log data or when you are debugging issues. You can filter log data by Google Cloud service. Don't use this skill to query other databases, such as SQL or Cloud Spanner.",
+    "path": "category/database-sql-relational/cloud-cloud-logging-query-generation"
+  },
+  {
+    "id": "cloud-cloud-monitoring-metric-selection",
+    "name": "cloud-cloud-monitoring-metric-selection",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Retrieve, query, and identify relevant Cloud Monitoring metric descriptors on Google Cloud for a service or resource (such as Compute Engine, Spanner, BigQuery, Cloud Run, Cloud SQL, Pub/Sub, Cloud Storage, etc.). Use when asked to find, list, search, or discover GCP metric types, names, kind/value schemas, or descriptors.",
+    "path": "category/database-sql-relational/cloud-cloud-monitoring-metric-selection"
+  },
+  {
+    "id": "cloud-cloud-sql-basics",
+    "name": "cloud-cloud-sql-basics",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "This file generates or explains Cloud SQL resources. Use this file when the user asks to create a Cloud SQL instance or database for MySQL, PostgreSQL, or SQL Server.",
+    "path": "category/database-sql-relational/cloud-cloud-sql-basics"
+  },
+  {
+    "id": "cloud-dbt-sf-to-bq-translator",
+    "name": "cloud-dbt-sf-to-bq-translator",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Translates Snowflake dbt SQL models to Standardized BigQuery SQL. Handles SQL compilation, Jinja macro placeholder masking, BigQuery Translation Service migration workflows, AST-based config transformations, explicit type casting, JSON extraction standardization, and deduplication. Use when migrating Snowflake dbt pipelines or models to BigQuery on Google Cloud. Don't use for generic BigQuery queries or non-Snowflake SQL migrations.",
+    "path": "category/database-sql-relational/cloud-dbt-sf-to-bq-translator"
+  },
+  {
+    "id": "cloud-gke-app-onboarding",
+    "name": "cloud-gke-app-onboarding",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Manages GKE application onboarding, covering containerization, deployment manifests, and migration. Use when onboarding or deploying an application to GKE for the first time, or containerizing an app for GKE. Don't use for general GKE cluster administration or upgrades (use gke-basics or gke-upgrades instead).",
+    "path": "category/database-sql-relational/cloud-gke-app-onboarding"
+  },
+  {
+    "id": "cloud-gke-inference",
+    "name": "cloud-gke-inference",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Deploys and optimizes AI/ML inference workloads on GKE, using GPUs, TPUs, and model servers. Use when deploying GKE inference servers, configuring GKE GPU resources for inference, or deploying LLMs on GKE. Don't use for migrating existing AI workloads to GKE (use google-cloud-solution-guided-gke-ai-migration), GKE RAG with Cloud SQL/AlloyDB (use google-cloud-solution-rag-enterprise-search-gke-sqldb), or batch/HPC (use gke-batch-hpc).",
+    "path": "category/database-sql-relational/cloud-gke-inference"
+  },
+  {
+    "id": "cloud-google-cloud-solution-hybrid-search-alloydb",
+    "name": "cloud-google-cloud-solution-hybrid-search-alloydb",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Discovers requirements and generates architectural, design, and deployment guidance for dynamic hybrid search systems by combining semantic search and keyword search. Optimized for AlloyDB hybrid search use cases in Google Cloud. Use when users need vector search combined with structured SQL filtering, faceted attributes, semantic reranking, in-database AI validation, or serverless hosting across transactional relational databases, analytical data warehouses, or managed database engines. DON'T use this skill for simple keyword-only search, or when a standalone non-relational vector database is required.",
+    "path": "category/database-sql-relational/cloud-google-cloud-solution-hybrid-search-alloydb"
+  },
+  {
+    "id": "cloud-google-cloud-solution-rag-enterprise-search-gke-sqldb",
+    "name": "cloud-google-cloud-solution-rag-enterprise-search-gke-sqldb",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Discovers requirements, and generates architectural, design, and deployment guidance for a retrieval-augmented generation (RAG)-capable enterprise search system in Google Cloud. Use when users need a vector-enabled SQL database as the store and index for the embedding vectors, an open model and open-source inferencing framework, and Kubernetes containers to host all the application components. DON'T use this skill for fully-managed RAG, or SaaS search services, or when a non-SQL vector database is required.",
+    "path": "category/database-sql-relational/cloud-google-cloud-solution-rag-enterprise-search-gke-sqldb"
+  },
+  {
+    "id": "cloud-google-cloud-storage-basics",
+    "name": "cloud-google-cloud-storage-basics",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Stores, retrieves, and manages data as objects in Cloud Storage on Google Cloud (also known colloquially as GCS) buckets. Use when you need to interact with Cloud Storage \u2014 set up a Storage MCP server (remote or local Toolbox), create or configure buckets, upload, download, stream, or transfer data, organize objects with folders, generate signed URLs, control access (IAM, ACLs, public access prevention), set storage classes (Standard, Nearline, Coldline, Archive), manage lifecycle and cost, protect data (versioning, CMEK, retention, Bucket Lock, holds, soft delete), host static websites, trigger Pub/Sub notifications, mount buckets (gcsfuse), or optimize performance. Covers gcloud storage / gsutil, JSON/XML APIs, client libraries, Terraform, and Cloud Storage MCP servers. Don't use for generic MCP setup that doesn't mention Cloud Storage, other MCP servers, block storage (Persistent Disk), BigQuery, or databases (Cloud SQL, Spanner, Bigtable, Firestore).",
+    "path": "category/database-sql-relational/cloud-google-cloud-storage-basics"
+  },
+  {
     "id": "cloud-logging-query-generation",
     "name": "cloud-logging-query-generation",
     "category": "database-sql-relational",
     "repository": "google-skills",
     "description": "Generates Logging Query Language (LQL) queries for Cloud Logging on Google Cloud from natural language. Use this skill when you need to query log data or when you are debugging issues. You can filter log data by Google Cloud service. Don't use this skill to query other databases, such as SQL or Cloud Spanner.",
     "path": "category/database-sql-relational/cloud-logging-query-generation"
+  },
+  {
+    "id": "cloud-managed-airflow-migrations",
+    "name": "cloud-managed-airflow-migrations",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Provides guidance for migrating Apache Airflow DAGs in Managed Service for Apache Airflow (MSAA; formerly Cloud Composer). Covers migration to Airflow 2.11.1 (MSAA Gen 2 and 3) and Airflow 3 (MSAA Gen 3), including environment inspection, GCS download/upload and scanning patterns for breaking changes. Use when migrating the DAG code to newer Airflow version. Don't use when checking DAG run failures unrelated to code migration.",
+    "path": "category/database-sql-relational/cloud-managed-airflow-migrations"
   },
   {
     "id": "cloud-migration-planning",
@@ -646,6 +814,14 @@
     "repository": "google-skills",
     "description": "Retrieve, query, and identify relevant Cloud Monitoring metric descriptors on Google Cloud for a service or resource (such as Compute Engine, Spanner, BigQuery, Cloud Run, Cloud SQL, Pub/Sub, Cloud Storage, etc.). Use when asked to find, list, search, or discover GCP metric types, names, kind/value schemas, or descriptors.",
     "path": "category/database-sql-relational/cloud-monitoring-metric-selection"
+  },
+  {
+    "id": "cloud-spanner-basics",
+    "name": "cloud-spanner-basics",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Assists in provisioning instances and databases, designing performant schemas, and querying data in Cloud Spanner on Google Cloud. Use when designing primary keys, writing SQL queries or client library code, or diagnosing performance issues.",
+    "path": "category/database-sql-relational/cloud-spanner-basics"
   },
   {
     "id": "cloud-sql-basics",
@@ -1616,6 +1792,14 @@
     "path": "category/database-sql-relational/imaging-data-commons"
   },
   {
+    "id": "implement-serp-markup-builder",
+    "name": "implement-serp-markup-builder",
+    "category": "database-sql-relational",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"optimize meta tags\", \"write title tags / meta descriptions\", \"add Open Graph or Twitter cards\", or \"generate schema / JSON-LD\" for FAQ, HowTo, Article, Product, or LocalBusiness rich-result candidates. Produces title/description options, an OG+Twitter block, and validated JSON-LD for the document head. Not for body copy \u2014 use content-writer; not for crawl/index technical issues \u2014 use technical-seo-checker. \u6807\u9898\u4f18\u5316/\u5143\u63cf\u8ff0/Schema\u6807\u8bb0/\u7ed3\u6784\u5316\u6570\u636e",
+    "path": "category/database-sql-relational/implement-serp-markup-builder"
+  },
+  {
     "id": "implementing-kubernetes-pod-security-standards",
     "name": "implementing-kubernetes-pod-security-standards",
     "category": "database-sql-relational",
@@ -2456,6 +2640,14 @@
     "path": "category/database-sql-relational/prompt-library-for-startups"
   },
   {
+    "id": "protocol-entity-registry",
+    "name": "protocol-entity-registry",
+    "category": "database-sql-relational",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"optimize entity presence\", reconcile an entity identity, or update canonical Knowledge Graph facts; audits and maintains machine-facing identity, sameAs, schema, disambiguation, and AI-recognition evidence through the entities registry. Not for page-level AI-citation readiness - use geo-content-optimizer; not for human-facing brand canon - use narrative-registry. \u5b9e\u4f53\u6ce8\u518c/\u77e5\u8bc6\u56fe\u8c31",
+    "path": "category/database-sql-relational/protocol-entity-registry"
+  },
+  {
     "id": "pw",
     "name": "pw",
     "category": "database-sql-relational",
@@ -2798,6 +2990,118 @@
     "repository": "nowork-studio-notfair-plugin",
     "description": "XML sitemap audit \u2014 find and fix the sitemap problems that quietly waste crawl budget and slow indexing. Discovers the sitemap (robots.txt, /sitemap.xml, sitemap index), validates structure and size limits, and cross-checks the URLs it lists against reality: non-200 / redirected / noindex / canonicalized-away URLs that shouldn't be in a sitemap, plus indexable pages that are missing from it. Reviews lastmod accuracy, sitemap-index organization, and robots.txt reference. Use this skill whenever the user asks about sitemaps, sitemap errors in Search Console, \"sitemap couldn't fetch / has errors\", crawl budget, pages not getting indexed, or whether their sitemap is clean. Trigger on: \"sitemap\", \"sitemap.xml\", \"XML sitemap\", \"sitemap errors\", \"sitemap audit\", \"couldn't fetch sitemap\", \"crawl budget\", \"pages not indexed sitemap\", \"sitemap index\", \"lastmod\", \"robots.txt sitemap\", or any sitemap/crawl-coverage question. For a full-site SEO audit use /seo-analysis; for broken links use /broken-link-checker.",
     "path": "category/database-sql-relational/sitemap-audit"
+  },
+  {
+    "id": "skills-azure-cloud-migrate",
+    "name": "skills-azure-cloud-migrate",
+    "category": "database-sql-relational",
+    "repository": "microsoft-azure-skills",
+    "description": "Assess and migrate cross-cloud workloads to Azure with reports and code conversion. Supports Lambda\u2192Functions, Beanstalk/Heroku/App Engine\u2192App Service, Fargate/Kubernetes/Cloud Run/Spring Boot\u2192Container Apps. WHEN: migrate Lambda to Functions, AWS to Azure, migrate Beanstalk, migrate Heroku, migrate App Engine, Cloud Run migration, Fargate to ACA, ECS/Kubernetes/GKE/EKS to Container Apps, Spring Boot to Container Apps, cross-cloud migration.",
+    "path": "category/database-sql-relational/skills-azure-cloud-migrate"
+  },
+  {
+    "id": "skills-azure-prepare",
+    "name": "skills-azure-prepare",
+    "category": "database-sql-relational",
+    "repository": "microsoft-azure-skills",
+    "description": "Prepare azd-based Azure projects for deployment: generates azure.yaml, infrastructure (Bicep/Terraform), and Dockerfiles for the Azure Developer CLI (azd) workflow. USE ONLY when the user explicitly wants to use azd as the deployment tool, or the project already has an azure.yaml file. DO NOT USE FOR: non-azd deployments, Python App Service code-only deploys (use python-appservice-deploy), or cross-cloud migration (use azure-cloud-migrate). WHEN: prepare app for azd, create azure.yaml, set up azd infrastructure, modernize app for Azure with azd, deploy with azd, function app, timer trigger, service bus trigger, event-driven function, managed identity, generate Bicep, generate Terraform, create and deploy to Azure.",
+    "path": "category/database-sql-relational/skills-azure-prepare"
+  },
+  {
+    "id": "skills-azure-storage",
+    "name": "skills-azure-storage",
+    "category": "database-sql-relational",
+    "repository": "microsoft-azure-skills",
+    "description": "Azure Storage Services including Blob Storage, File Shares, Queue Storage, Table Storage, and Data Lake. Answers questions about storage access tiers (hot, cool, cold, archive), when to use each tier, and tier comparison. Provides object storage, SMB file shares, async messaging, NoSQL key-value, and big data analytics. Includes lifecycle management. USE FOR: blob storage, file shares, queue storage, table storage, data lake, upload files, download blobs, storage accounts, access tiers, storage tiers, hot cool cold archive, storage tier comparison, when to use storage tiers, lifecycle management, Azure Storage concepts. DO NOT USE FOR: SQL databases, Cosmos DB (use azure-prepare), messaging with Event Hubs or Service Bus (use azure-messaging).",
+    "path": "category/database-sql-relational/skills-azure-storage"
+  },
+  {
+    "id": "skills-ef-core",
+    "name": "skills-ef-core",
+    "category": "database-sql-relational",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Entity Framework Core patterns for .NET 10. Covers DbContext configuration, migrations workflow, interceptors, compiled queries, ExecuteUpdateAsync, ExecuteDeleteAsync, value converters, and query optimization. Load this skill when working with databases, writing queries, managing schema changes, or when the user mentions \"EF Core\", \"Entity Framework\", \"DbContext\", \"migration\", \"LINQ query\", \"database\", \"SQL\", \"N+1\", \"Include\", \"split query\", \"value converter\", \"interceptor\", or \"compiled query\".",
+    "path": "category/database-sql-relational/skills-ef-core"
+  },
+  {
+    "id": "skills-figure-it-out",
+    "name": "skills-figure-it-out",
+    "category": "database-sql-relational",
+    "repository": "cursor-plugins",
+    "description": "Design an auditable playbook when no narrower one fits: a large migration, an ambitious multi-part change, or work a human reviews after stepping away. Scales rigor to the task, runs a hypothesis loop, and logs decisions. Use for /figure-it-out or 'figure it out'.",
+    "path": "category/database-sql-relational/skills-figure-it-out"
+  },
+  {
+    "id": "skills-firebase-data-connect-basics",
+    "name": "skills-firebase-data-connect-basics",
+    "category": "database-sql-relational",
+    "repository": "firebase-agent-skills",
+    "description": "Builds and deploys Firebase SQL Connect (aka Firebase Data Connect) backends with PostgreSQL securely. Use when designing schemas with tables and relations, writing authorized queries and mutations, configuring real-time data updates, or generating type-safe SDKs. Use when you need a relational database with Firebase, or when the user mentions SQL Connect or Data Connect.",
+    "path": "category/database-sql-relational/skills-firebase-data-connect-basics"
+  },
+  {
+    "id": "skills-migrate",
+    "name": "skills-migrate",
+    "category": "database-sql-relational",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Guided, safe migration workflow covering EF Core schema migrations, .NET version upgrades, and NuGet dependency updates \u2014 each with rollback strategies and verification steps. Invoke when: \"add migration\", \"update database\", \"create migration\", \"schema change\", \"new table\", \"rename column\", \"upgrade nuget\", \"update packages\", \"dependency update\", \"version upgrade\", \".NET upgrade\".",
+    "path": "category/database-sql-relational/skills-migrate"
+  },
+  {
+    "id": "skills-migrate-birp-to-urp",
+    "name": "skills-migrate-birp-to-urp",
+    "category": "database-sql-relational",
+    "repository": "unity-technologies-skills",
+    "description": "Plans, executes, and troubleshoots migration from the Built-in Render Pipeline to URP. Use when asked to convert a project, scene, material, or shader to URP, or to fix visuals broken by the change.",
+    "path": "category/database-sql-relational/skills-migrate-birp-to-urp"
+  },
+  {
+    "id": "skills-mirrord-config",
+    "name": "skills-mirrord-config",
+    "category": "database-sql-relational",
+    "repository": "metalbear-co-mirrord",
+    "description": "Helps users generate, edit, and validate mirrord.json configuration files for mirrord (MetalBear). Use when the user wants to connect their local process to a Kubernetes environment, configure features (env/fs/network), or needs feedback on an existing mirrord.json. Always ensures output JSON is valid and schema-conformant.",
+    "path": "category/database-sql-relational/skills-mirrord-config"
+  },
+  {
+    "id": "skills-mirrord-db-branching",
+    "name": "skills-mirrord-db-branching",
+    "category": "database-sql-relational",
+    "repository": "metalbear-co-mirrord",
+    "description": "Helps users configure mirrord.json for database branching, enabling isolated database copies for safe development and testing. Use when the user wants to set up MySQL, MariaDB, PostgreSQL, MSSQL, MongoDB, Redis, DynamoDB, ClickHouse, Google Spanner, Amazon S3, turbopuffer, or generic branches, configure copy modes, connection sources, schema migrations, IAM authentication, or manage database branches.",
+    "path": "category/database-sql-relational/skills-mirrord-db-branching"
+  },
+  {
+    "id": "skills-project-setup",
+    "name": "skills-project-setup",
+    "category": "database-sql-relational",
+    "repository": "codewithmukesh-dotnet-claude-kit",
+    "description": "Tech-stack selection advisor for .NET projects: recommended defaults for database, auth, caching, messaging, observability, and resilience, with the rationale behind each default. Load when choosing or reviewing a project's tech stack, or when the user says \"tech stack\", \"which database\", \"pick a stack\", \"recommended defaults\", or \"what should I use for\". For project initialization use dotnet-init, for codebase assessment use health-check, for upgrades and schema changes use migrate.",
+    "path": "category/database-sql-relational/skills-project-setup"
+  },
+  {
+    "id": "skills-seo-ai-visibility",
+    "name": "skills-seo-ai-visibility",
+    "category": "database-sql-relational",
+    "repository": "anthropics-knowledge-work",
+    "description": "Audits and fixes both halves of being found \u2014 classic search and AI answers. Search side: rankings, site structure, page speed, titles and descriptions, and content that answers what customers search for. AI side: whether assistant crawlers can reach the site, pages render without JavaScript, an llms.txt file, schema.org data, and presence in the directories assistants read. For online stores it also runs a bulk catalog cleanup, rewriting product titles, descriptions, alt text, and SEO fields in approved batches. Works on any public website with no connector. Use this whenever the owner talks about being found online, including \"nobody finds us on Google,\" \"how do I show up in ChatGPT,\" \"make my website AI friendly,\" \"SEO audit,\" \"GEO,\" \"AEO,\" \"AI search visibility,\" \"my competitor ranks above me,\" \"fix my product listings,\" or \"I asked an AI about my industry and we weren't in the answer.",
+    "path": "category/database-sql-relational/skills-seo-ai-visibility"
+  },
+  {
+    "id": "skills-sql-queries",
+    "name": "skills-sql-queries",
+    "category": "database-sql-relational",
+    "repository": "anthropics-knowledge-work",
+    "description": "Write correct, performant SQL across all major data warehouse dialects (Snowflake, BigQuery, Databricks, PostgreSQL, etc.). Use when writing queries, optimizing slow SQL, translating between dialects, or building complex analytical queries with CTEs, window functions, or aggregations.",
+    "path": "category/database-sql-relational/skills-sql-queries"
+  },
+  {
+    "id": "skills-write-query",
+    "name": "skills-write-query",
+    "category": "database-sql-relational",
+    "repository": "anthropics-knowledge-work",
+    "description": "Write optimized SQL for your dialect with best practices. Use when translating a natural-language data need into SQL, building a multi-CTE query with joins and aggregations, optimizing a query against a large partitioned table, or getting dialect-specific syntax for Snowflake, BigQuery, Postgres, etc.",
+    "path": "category/database-sql-relational/skills-write-query"
   },
   {
     "id": "smart-contract-upgrade-governance",
@@ -3206,6 +3510,22 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Analyze a Monte Carlo monitor and recommend config changes to reduce alert noise. Supports metric, custom SQL, validation, and table monitors. Fetches the report, identifies patterns, and suggests tuning.",
     "path": "category/database-sql-relational/tune-monitor"
+  },
+  {
+    "id": "tune-on-page-seo-checker",
+    "name": "tune-on-page-seo-checker",
+    "category": "database-sql-relational",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"audit on-page SEO\" or \"diagnose why a single page dropped\"; scores titles, meta, header structure, keyword placement, links, and images with prioritized fixes. Not for E-E-A-T / publish-readiness scoring \u2014 use content-quality-auditor; not for crawl / CWV / indexing \u2014 use technical-seo-checker. \u9875\u9762SEO\u5ba1\u8ba1/\u6392\u540d\u8bca\u65ad",
+    "path": "category/database-sql-relational/tune-on-page-seo-checker"
+  },
+  {
+    "id": "tune-technical-seo-checker",
+    "name": "tune-technical-seo-checker",
+    "category": "database-sql-relational",
+    "repository": "aaron-he-zhu-aaron-marketing-skills",
+    "description": "Use when the user asks to \"check technical SEO\"; audits crawlability, indexing, Core Web Vitals, robots.txt, sitemaps, canonicals, redirects, and migrations. Not for on-page tags or content \u2014 use on-page-seo-checker. \u6280\u672fSEO/\u7f51\u7ad9\u901f\u5ea6",
+    "path": "category/database-sql-relational/tune-technical-seo-checker"
   },
   {
     "id": "using-neon",

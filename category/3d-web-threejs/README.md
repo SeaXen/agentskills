@@ -1,7 +1,7 @@
 # 🧊 3D Web Experiences & Three.js
 
 > **Category**: `3d-web-threejs`  
-> **Total Curated Skills**: 42 skills  
+> **Total Curated Skills**: 44 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -45,6 +45,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`premium-3d-website`](../../library/sickn33-agentic-awesome-skills/skills/premium-3d-website) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Guidelines for building premium 3D websites, focusing on custom WebGL shaders, post-processing,... |
 | [`shader-graph-create-custom-node`](../../library/unity-technologies-skills/skills/shader-graph-create-custom-node) | ⚪ Reserve | `unity-technologies-skills` | Generates custom Shader Graph nodes from HLSL code. Use when the user wants a new Shader Graph ... |
 | [`shader-programming-glsl`](../../library/sickn33-agentic-awesome-skills/skills/shader-programming-glsl) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Expert guide for writing efficient GLSL shaders (Vertex/Fragment) for web and game engines, cov... |
+| [`skills-optimize-web`](../../library/unity-technologies-skills/skills/skills-optimize-web) | ⚪ Reserve | `unity-technologies-skills` | Optimizes Unity WebGL and WebGPU builds for smaller downloads, faster loading, and smoother bro... |
+| [`skills-shader-graph-create-custom-node`](../../library/unity-technologies-skills/skills/skills-shader-graph-create-custom-node) | ⚪ Reserve | `unity-technologies-skills` | Generates custom Shader Graph nodes from HLSL code. Use when the user wants a new Shader Graph ... |
 | [`threejs`](../../library/feimacode-open-design-agent-kit/skills/threejs) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Three.js skills for creating 3D elements and interactive experiences in the browser — scenes, m... |
 | [`threejs-asset-pipeline`](../../library/cloudai-x-threejs-skills/skills/threejs-asset-pipeline) | ⚪ Reserve | `cloudai-x-threejs-skills` | Shrinking glTF assets for three.js with gltf-transform: inspect, validate and optimize commands... |
 | [`threejs-geometry`](../../library/cloudai-x-threejs-skills/skills/threejs-geometry) | ⚪ Reserve | `cloudai-x-threejs-skills` | Creating and shaping three.js geometry: built-in shapes, 3D text, vertex buffers and attributes... |

@@ -1,7 +1,7 @@
 # 🎬 Video Creation & Generative Motion
 
 > **Category**: `video-motion-production`  
-> **Total Curated Skills**: 185 skills  
+> **Total Curated Skills**: 198 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -28,6 +28,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ad-hook-analyzer`](../../library/mbfinotti-advertising-skills/skills/ad-hook-analyzer) | ⚪ Reserve | `mbfinotti-advertising-skills` | Score and force-rank the openings of candidate video ads - from a script, transcript, storyboar... |
 | [`ad-platform-selection`](../../library/mbfinotti-advertising-skills/skills/ad-platform-selection) | ⚪ Reserve | `mbfinotti-advertising-skills` | Decide which paid channel families fit a business's economics, audience, funnel stage, and budg... |
 | [`ads-creative`](../../library/agricidaniel-claude-ads/skills/ads-creative) | ⚪ Reserve | `agricidaniel-claude-ads` | Audit paid-ad copy, images, video, hooks, concepts, format coverage, platform-native fit, messa... |
+| [`ads-ima-sdk-client-side`](../../library/google-skills/skills/ads-ima-sdk-client-side) | ⚪ Reserve | `google-skills` | Supports Interactive Media Ads (IMA) SDK. Use this skill for client-side ad insertion when you ... |
 | [`ai-content-pipeline`](../../library/101-skills-superpowers/skills/ai-content-pipeline) | ⚪ Reserve | `101-skills-superpowers` | Build multi-step AI content creation pipelines combining image, video, audio, and text. Workflo... |
 | [`ai-marketing-videos`](../../library/101-skills-superpowers/skills/ai-marketing-videos) | ⚪ Reserve | `101-skills-superpowers` | Create AI marketing videos for ads, promos, product launches, and brand content. Models: Veo, S... |
 | [`alayarenderer-generative-world`](../../library/reason-machines-trending-skills/skills/alayarenderer-generative-world) | ⚪ Reserve | `reason-machines-trending-skills` | AI coding agent skill for AlayaRenderer — a generative world rendering framework with inverse r... |
@@ -45,8 +46,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`claude-animated-shorts`](../../library/mromidev-claude-animated-shorts/skills/claude-animated-shorts) | ⚪ Reserve | `mromidev-claude-animated-shorts` | Make a ~55-70 s vertical cartoon story short in the "2D characters in a colourful 3D world" sty... |
 | [`code-slice-hero`](../../library/heygen-hyperframes/skills/code-slice-hero) | ⚪ Reserve | `heygen-hyperframes` | A tiled headline surface flips cell by cell under a sweeping depth field to reveal the rear hea... |
 | [`computer-vision-opencv`](../../library/mindrally-skills/skills/computer-vision-opencv) | ⚪ Reserve | `mindrally-skills` | Expert guidance for computer vision development using OpenCV, PyTorch, and modern deep learning... |
+| [`contact-center-web`](../../library/anthropics-knowledge-work/skills/contact-center-web) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Contact Center SDK for Web. Use for web chat/video/campaign embeds, engagement event handl... |
 | [`content-repurposer`](../../library/irinabuht12-oss-marketing-skills/skills/content-repurposer) | ⚪ Reserve | `irinabuht12-oss-marketing-skills` | Transform one long-form piece into multiple platform-specific content derivatives including Lin... |
 | [`content-repurposing`](../../library/101-skills-superpowers/skills/content-repurposing) | ⚪ Reserve | `101-skills-superpowers` | Content atomization — turn one piece of content into many formats. Covers blog-to-thread, blog-... |
+| [`craft-short-video-scripter`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/craft-short-video-scripter) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "script this short video", "write a TikTok / Reels / Shorts script", ... |
 | [`cuboid-carousel`](../../library/heygen-hyperframes/skills/cuboid-carousel) | ⚪ Reserve | `heygen-hyperframes` | A chain of bevelled cuboids rides a travelling wave as a content carousel. HyperFrames block, 1... |
 | [`cut-the-curve`](../../library/heygen-hyperframes/skills/cut-the-curve) | ⚪ Reserve | `heygen-hyperframes` | The technique catalog: five velocity-matched SEAMS (zoom-through, INVERSE zoom-through, cut-the... |
 | [`daily-gift`](../../library/sickn33-agentic-awesome-skills/skills/daily-gift) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Relationship-aware daily gift engine with five-stage creative pipeline — editorial judgment, sy... |
@@ -154,8 +157,14 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`short-video-scripter`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/short-video-scripter) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "script this short video", "write a TikTok / Reels / Shorts script", ... |
 | [`shortform-idea-grill`](../../library/ericosiu-ai-marketing-skills/skills/shortform-idea-grill) | ⚪ Reserve | `ericosiu-ai-marketing-skills` | Interview a founder or senior marketer one question at a time, mine current work and owned proo... |
 | [`show-and-tell-video-slate`](../../library/ericosiu-ai-marketing-skills/skills/show-and-tell-video-slate) | ⚪ Reserve | `ericosiu-ai-marketing-skills` | Turn authorized current builds, workflows, dashboards, analytics, and completed work into proof... |
+| [`skills-ketchup-video`](../../library/cursor-plugins/skills/skills-ketchup-video) | ⚪ Reserve | `cursor-plugins` | Catch the user up like /ketchup, with a short subtitled video of slides for what happened and t... |
+| [`skills-probe-sdk`](../../library/anthropics-knowledge-work/skills/skills-probe-sdk) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom Probe SDK. Use after routing to a preflight workflow when testing brow... |
+| [`skills-rtms`](../../library/anthropics-knowledge-work/skills/skills-rtms) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom RTMS. Use after routing to a live-media workflow when processing real-... |
+| [`skills-ui-toolkit`](../../library/anthropics-knowledge-work/skills/skills-ui-toolkit) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom Video SDK UI Toolkit. Use after routing to a web video workflow when y... |
+| [`skills-video-sdk`](../../library/anthropics-knowledge-work/skills/skills-video-sdk) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom Video SDK. Use after routing to a custom-session workflow when the use... |
 | [`slideshow`](../../library/heygen-hyperframes/skills/slideshow) | ⚪ Reserve | `heygen-hyperframes` | Build a HyperFrames slideshow to present live - slides, fragment reveals, branching hotspots an... |
 | [`social`](../../library/coreyhaines31-marketingskills/skills/social) | ⚪ Reserve | `coreyhaines31-marketingskills` | When the user wants help creating, scheduling, or optimizing social media content for LinkedIn,... |
+| [`social-listening-xiaohongshu-search-full`](../../library/browser-act-skills/skills/social-listening-xiaohongshu-search-full) | ⚪ Reserve | `browser-act-skills` | Search Xiaohongshu (XHS / RedNote) notes by keyword with full field extraction including body t... |
 | [`swedish-mentor`](../../library/alirezarezvani-claude-skills/skills/swedish-mentor) | ⚪ Reserve | `alirezarezvani-claude-skills` | Mentor Swedish language learners by selecting YouTube video clips and podcast episodes by CEFR ... |
 | [`taisly-social-media-posting`](../../library/sickn33-agentic-awesome-skills/skills/taisly-social-media-posting) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use Taisly Agent Kit to prepare and publish approved short-form video posts across TikTok, Inst... |
 | [`tao-train-action-recognition`](../../library/nvidia-skills/skills/tao-train-action-recognition) | ⚪ Reserve | `nvidia-skills` | Action recognition from video sequences. Supports RGB, optical flow, and joint (multi-stream) i... |
@@ -182,8 +191,12 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`video-editing`](../../library/affaan-m-ecc/skills/video-editing) | ⚪ Reserve | `affaan-m-ecc` | AI-assisted video editing workflows for cutting, structuring, and augmenting real footage. Cove... |
 | [`video-hyperframes`](../../library/feimacode-open-design-agent-kit/skills/video-hyperframes) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Hyperframes Video (Open Design) — use only when explicitly invoked, not for general design requ... |
 | [`video-interaction-mapper`](../../library/figma-mcp-server-guide/skills/video-interaction-mapper) | ⚪ Reserve | `figma-mcp-server-guide` | This skill should be used when the user asks to analyze a UI screen recording and map interacti... |
+| [`video-platforms-youtube-transcript`](../../library/browser-act-skills/skills/video-platforms-youtube-transcript) | ⚪ Reserve | `browser-act-skills` | YouTube transcript extraction and content reformatting: given a YouTube video URL, opens the vi... |
 | [`video-router`](../../library/sickn33-agentic-awesome-skills/skills/video-router) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Route a video-production brief to generation, deterministic composition, supplied-footage editi... |
 | [`video-sdk`](../../library/anthropics-knowledge-work/skills/video-sdk) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom Video SDK. Use after routing to a custom-session workflow when the use... |
+| [`video-sdk-macos`](../../library/anthropics-knowledge-work/skills/video-sdk-macos) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Video SDK for macOS native desktop apps. Use when building custom macOS video sessions wit... |
+| [`video-sdk-unity`](../../library/anthropics-knowledge-work/skills/video-sdk-unity) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Video SDK for Unity wrapper integrations. Use when building custom Unity-based video sessi... |
+| [`video-sdk-windows`](../../library/anthropics-knowledge-work/skills/video-sdk-windows) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Video SDK for Windows - C++ integration for video sessions, raw audio/video capture, scree... |
 | [`video-use-editor`](../../library/reason-machines-trending-skills/skills/video-use-editor) | ⚪ Reserve | `reason-machines-trending-skills` | name: video-use-editor |
 | [`videodb`](../../library/affaan-m-ecc/skills/videodb) | ⚪ Reserve | `affaan-m-ecc` | Ingest, index, search, edit, and monitor video and audio with the VideoDB Python SDK — upload f... |
 | [`videodb-skills`](../../library/sickn33-agentic-awesome-skills/skills/videodb-skills) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Upload, stream, search, edit, transcribe, and generate AI video and audio using the VideoDB SDK... |
