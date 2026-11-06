@@ -110,6 +110,36 @@
     "link_cmd": "python .agents/library/activate_skill.py link context-engineering"
   },
   {
+    "id": "core-openrig-architect",
+    "name": "core-openrig-architect",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": "Use when designing multi-agent topologies that run ON OpenRig \u2014 authoring RigSpec and AgentSpec files for new rigs, creating agent startup content (guidance / skills / culture), or diagnosing why a launched rig's agents aren't behaving as intended. NOT for changing OpenRig itself (use developing-openrig); NOT for ordinary CLI operation of an existing rig (use openrig-user). Covers the full authoring lifecycle from user intent to validated, launchable rig.",
+    "path": "library/mvschwarz-openrig/skills/core-openrig-architect",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-openrig-architect",
+    "link_cmd": "python .agents/library/activate_skill.py link core-openrig-architect"
+  },
+  {
+    "id": "core-openrig-upgrade",
+    "name": "core-openrig-upgrade",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": "Use when an agent is preparing or performing an OpenRig CLI/daemon upgrade and must preserve live seats, verify each mutation, or reconcile managed plugin and skill files without overwriting local work.",
+    "path": "library/mvschwarz-openrig/skills/core-openrig-upgrade",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-openrig-upgrade",
+    "link_cmd": "python .agents/library/activate_skill.py link core-openrig-upgrade"
+  },
+  {
+    "id": "core-rig-lifecycle",
+    "name": "core-rig-lifecycle",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": "Use when reasoning about the rig lifecycle operations family (create / start / stop / resume / restore / snapshot / release / unclaim / destroy), reading or trusting `rig ps` / lifecycle projections after recovery, or designing proof for a lifecycle scenario. Covers the 4 failure modes (auto-restore creates partial rig; projections report healthier than reality; provider auth treated as impl work; resume succeeds for one runtime fails another) plus the restore-honesty rule (failed resume is FAILED loudly \u2014 no auto fresh fallback).",
+    "path": "library/mvschwarz-openrig/skills/core-rig-lifecycle",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-rig-lifecycle",
+    "link_cmd": "python .agents/library/activate_skill.py link core-rig-lifecycle"
+  },
+  {
     "id": "cross-host-rig-commands",
     "name": "cross-host-rig-commands",
     "repository": "mvschwarz-openrig",
@@ -468,6 +498,16 @@
     "path": "library/mvschwarz-openrig/skills/session-source-fork",
     "activation_cmd": "python .agents/library/activate_skill.py activate session-source-fork",
     "link_cmd": "python .agents/library/activate_skill.py link session-source-fork"
+  },
+  {
+    "id": "skills-seat-continuity-and-handover",
+    "name": "skills-seat-continuity-and-handover",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": "Use when replacing a seat's occupant (rebuild/handover/swap), reasoning about stable-seat-identity vs fluid-occupant-identity, choosing an old-occupant disposition (retire/advise/shadow), or recording provenance for an occupant change. Two independent outcomes (continuityOutcome + seatBindingOutcome) and the 5 failure modes that prevent silent dishonesty.",
+    "path": "library/mvschwarz-openrig/skills/skills-seat-continuity-and-handover",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-seat-continuity-and-handover",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-seat-continuity-and-handover"
   },
   {
     "id": "software-for-agents",

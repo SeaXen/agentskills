@@ -1,7 +1,7 @@
 # 🏛️ Complete Repository Provenance & Upstream Registry
 
 > **Active Reserve Libraries**: 484 repositories  
-> **Total Skills in Reserve**: 26,852 skills  
+> **Total Skills in Reserve**: 27,032 skills  
 > **Source Registry**: [`library/upstreams.json`](library/upstreams.json)  
 > **Format Standard**: Pure isolated repositories (`['skills', 'README.md', 'skills_index.json']`), 0 `.git` directories.
 
@@ -244,7 +244,7 @@
 | `kaomei-stickman-video-director` | [kaomei/stickman-video-director](https://github.com/kaomei/stickman-video-director) | **1** | `python .agents/library/activate_skill.py activate directing-stickman-videos` |
 | `kepano-obsidian-skills` | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) | **6** | `python .agents/library/activate_skill.py activate defuddle` |
 | `kesslerio-attio-mcp-server` | [kesslerio-attio-mcp-server](https://github.com/kesslerio-attio-mcp-server) | **2** | `python .agents/library/activate_skill.py activate attio-mcp-usage` |
-| `kostja94-marketing-skills` | [kostja94/marketing-skills](https://github.com/kostja94/marketing-skills) | **9** | `python .agents/library/activate_skill.py activate analytics` |
+| `kostja94-marketing-skills` | [kostja94/marketing-skills](https://github.com/kostja94/marketing-skills) | **185** | `python .agents/library/activate_skill.py activate 404` |
 | `langchain-ai-langchain-skills` | [langchain-ai/langchain-skills](https://github.com/langchain-ai/langchain-skills) | **22** | `python .agents/library/activate_skill.py activate deep-agents-core` |
 | `larksuite-cli` | [larksuite/cli](https://github.com/larksuite/cli) | **37** | `python .agents/library/activate_skill.py activate bad-skill` |
 | `latent-spaces-brag` | [latent-spaces/brag](https://github.com/latent-spaces/brag) | **2** | `python .agents/library/activate_skill.py activate brag` |
@@ -312,7 +312,7 @@
 | `muratcankoylan-agent-skills-for-context-engineering` | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering) | **25** | `python .agents/library/activate_skill.py activate advanced-evaluation` |
 | `muxuuu-serenity-skill` | [muxuuu/serenity-skill](https://github.com/muxuuu/serenity-skill) | **3** | `python .agents/library/activate_skill.py activate muxuuu-serenity` |
 | `mvanhorn-last30days-skill` | [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill) | **1** | `python .agents/library/activate_skill.py activate last30days` |
-| `mvschwarz-openrig` | [mvschwarz/openrig](https://github.com/mvschwarz/openrig) | **56** | `python .agents/library/activate_skill.py activate agent-browser` |
+| `mvschwarz-openrig` | [mvschwarz/openrig](https://github.com/mvschwarz/openrig) | **60** | `python .agents/library/activate_skill.py activate agent-browser` |
 | `nanako0129-sepia` | [Nanako0129/sepia](https://github.com/Nanako0129/sepia) | **6** | `python .agents/library/activate_skill.py activate sepia` |
 | `nano-muse-nanomuse` | [nano-muse/nanoMuse](https://github.com/nano-muse/nanoMuse) | **12** | `python .agents/library/activate_skill.py activate amap` |
 | `nateherkai-herk-edit-kit` | [nateherkai/herk-edit-kit](https://github.com/nateherkai/herk-edit-kit) | **15** | `python .agents/library/activate_skill.py activate cut-mistakes` |

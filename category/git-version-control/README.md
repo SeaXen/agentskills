@@ -1,7 +1,7 @@
 # 🐙 Git, Worktrees & PR Workflows
 
 > **Category**: `git-version-control`  
-> **Total Curated Skills**: 559 skills  
+> **Total Curated Skills**: 561 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -183,6 +183,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`forecast`](../../library/anthropics-knowledge-work/skills/forecast) | ⚪ Reserve | `anthropics-knowledge-work` | Generate the commit / best-case / pipeline narrative for a forecast call or a 1:1 with your man... |
 | [`fulfill-git-escrow`](../../library/internet-court-internet-court-skill/skills/fulfill-git-escrow) | ⚪ Reserve | `internet-court-internet-court-skill` | Fulfill a git escrow bounty by writing a solution or submitting an existing one. Use when the u... |
 | [`game-research-websearch`](../../library/rehan-remade-universal-modder/skills/game-research-websearch) | ⚪ Reserve | `rehan-remade-universal-modder` | Research a game, engine or modding technique on the open web with archive-aware, rate-limit-saf... |
+| [`geo`](../../library/kostja94-marketing-skills/skills/geo) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to optimize for AI search visibility (ChatGPT, Claude, Perplexity, AI Overv... |
 | [`get-pr-comments`](../../library/cursor-plugins/skills/get-pr-comments) | ⚪ Reserve | `cursor-plugins` | Fetch and summarize review comments from the active pull request |
 | [`gh-address-comments`](../../library/composio-community-awesome-codex-skills/skills/gh-address-comments) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Help address review/issue comments on the open GitHub PR for the current branch using gh CLI; v... |
 | [`gh-attach`](../../library/sickn33-agentic-awesome-skills/skills/gh-attach) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Upload and download GitHub user-attachments (screenshots, PDFs, zips, videos) from the terminal... |
@@ -386,6 +387,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`oss-sponsors-fundraising`](../../library/samber-developer-relations-skills/skills/oss-sponsors-fundraising) | ⚪ Reserve | `samber-developer-relations-skills` | Designs a maintainer-side open-source sponsorship program - the tier ladder and its pricing for... |
 | [`page-play-builder`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/page-play-builder) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "build programmatic SEO pages", "generate pages at scale", "rank on a... |
 | [`parallel-execution-optimizer`](../../library/affaan-m-ecc/skills/parallel-execution-optimizer) | ⚪ Reserve | `affaan-m-ecc` | Speed up a task by turning it into a dependency graph of parallel lanes with a lane matrix, bat... |
+| [`parasite-seo`](../../library/kostja94-marketing-skills/skills/parasite-seo) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to choose or execute third-party platform SEO (high-authority sites for ran... |
 | [`patching-bugs`](../../library/trailofbits-skills/skills/patching-bugs) | ⚪ Reserve | `trailofbits-skills` | Use when a known bug or falsifiable bug hypothesis in a local codebase needs a patch commit and... |
 | [`performing-paste-site-monitoring-for-credentials`](../../library/mukul975-anthropic-cybersecurity-skills/skills/performing-paste-site-monitoring-for-credentials) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Monitor paste sites like Pastebin and GitHub Gists for leaked credentials, |
 | [`phylogenetics`](../../library/k-dense-ai-scientific-agent-skills/skills/phylogenetics) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Builds and analyzes phylogenetic trees using MAFFT multiple sequence alignment, IQ-TREE maximum... |

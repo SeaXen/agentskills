@@ -1,7 +1,7 @@
 # 🧪 Unit Testing, TDD & Verification
 
 > **Category**: `testing-unit-tdd`  
-> **Total Curated Skills**: 661 skills  
+> **Total Curated Skills**: 666 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -150,9 +150,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`connector-certification-program`](../../library/samber-developer-platform-skills/skills/connector-certification-program) | ⚪ Reserve | `samber-developer-platform-skills` | Design the certification program a platform operator runs for connectors partners build on it -... |
 | [`constant-time-testing`](../../library/trailofbits-skills/skills/constant-time-testing) | ⚪ Reserve | `trailofbits-skills` | Measures timing side channels in cryptographic implementations by running them, using dudect fo... |
 | [`consumer-goods-sync-management-configure`](../../library/forcedotcom-sf-skills/skills/consumer-goods-sync-management-configure) | ⚪ Reserve | `forcedotcom-sf-skills` | Use this skill to set up Salesforce Consumer Goods (CG) Cloud Mobile Sync end-to-end for the Sy... |
+| [`contest`](../../library/kostja94-marketing-skills/skills/contest) | ⚪ Reserve | `kostja94-marketing-skills` | Deprecated compatibility entry for Contest Page construction. This page is now maintained in Pa... |
 | [`convex-test`](../../library/convex-agent-skills/skills/convex-test) | ⚪ Reserve | `convex-agent-skills` | Generate convex-test tests for the app's Convex functions. |
 | [`convex-verify`](../../library/convex-agent-skills/skills/convex-verify) | ⚪ Reserve | `convex-agent-skills` | Prove a Convex feature works — seed, drive as multiple mocked users via convex-test, assert beh... |
 | [`copywriting-cta`](../../library/samber-cc-skills/skills/copywriting-cta) | ⚪ Reserve | `samber-cc-skills` | Designs end-of-article CTAs — copy, layout, placement, A/B test plan, accessibility — for blog ... |
+| [`core-openrig-upgrade`](../../library/mvschwarz-openrig/skills/core-openrig-upgrade) | ⚪ Reserve | `mvschwarz-openrig` | Use when an agent is preparing or performing an OpenRig CLI/daemon upgrade and must preserve li... |
 | [`correlation-analysis`](../../library/aj-geddes-useful-ai-prompts/skills/correlation-analysis) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Measure relationships between variables using correlation coefficients, correlation matrices, a... |
 | [`cors-cross-origin-misconfiguration`](../../library/yaklang-hack-skills/skills/cors-cross-origin-misconfiguration) | ⚪ Reserve | `yaklang-hack-skills` | CORS misconfiguration testing playbook. Use when analyzing cross-origin trust, credentialed bro... |
 | [`cost-benchmark`](../../library/ruvnet-ruflo/skills/cost-benchmark) | ⚪ Reserve | `ruvnet-ruflo` | Run the corpus benchmark — booster locally, optional Gemini/Sonnet/Opus baselines — and persist... |
@@ -268,6 +270,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`genotoxic`](../../library/trailofbits-skills/skills/genotoxic) | ⚪ Reserve | `trailofbits-skills` | Graph-informed mutation testing triage. Parses codebases with Trailmark, runs mutation testing ... |
 | [`go-in-depth`](../../library/sickn33-agentic-awesome-skills/skills/go-in-depth) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Go in depth harness — fan-out web searches, fetch sources, adversarially verify claims, synthes... |
 | [`good-strategy-bad-strategy`](../../library/wondelai-skills/skills/good-strategy-bad-strategy) | ⚪ Reserve | `wondelai-skills` | Formulate and audit real strategy using Richard Rumelt''s "Good Strategy Bad Strategy": an hone... |
+| [`google-ads`](../../library/kostja94-marketing-skills/skills/google-ads) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to set up, optimize, or manage Google Ads campaigns. Also use when the user... |
 | [`google-ads-copy`](../../library/nowork-studio-notfair-plugin/skills/google-ads-copy) | ⚪ Reserve | `nowork-studio-notfair-plugin` | Generate and A/B test Google Ads copy. Use when asked to write ad copy, headlines, descriptions... |
 | [`google-cloud-recipe-onboarding`](../../library/google-skills/skills/google-cloud-recipe-onboarding) | ⚪ Reserve | `google-skills` | Guides a developer's first steps on Google Cloud, covering account creation, billing setup, pro... |
 | [`grade-tests`](../../library/dotnet-skills/skills/grade-tests) | ⚪ Reserve | `dotnet-skills` | Grade curated individual tests for readiness, A-F quality and improvements. ALWAYS USE FOR: gra... |
@@ -322,6 +325,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`jetson-memory-audit`](../../library/nvidia-skills/skills/jetson-memory-audit) | ⚪ Reserve | `nvidia-skills` | Measure Jetson DRAM/NvMap usage and verify before/after memory reclamation with live audit data... |
 | [`jetson-validate-image`](../../library/nvidia-skills/skills/jetson-validate-image) | ⚪ Reserve | `nvidia-skills` | Use after jetson-flash-image to run static BSP checks, on-target smoke/regression tests on a fl... |
 | [`kanban`](../../library/starchild-ai-agent-official-skills/skills/kanban) | ⚪ Reserve | `starchild-ai-agent-official-skills` | Stand up a personal Kanban board and wire this agent to it, end to end. Serve the board, publis... |
+| [`keyword-clustering`](../../library/kostja94-marketing-skills/skills/keyword-clustering) | ⚪ Reserve | `kostja94-marketing-skills` | Groups candidate keywords by user task and tests whether one page can satisfy them. Use for sam... |
 | [`kicad`](../../library/aklofas-kicad-happy/skills/kicad) | ⚪ Reserve | `aklofas-kicad-happy` | Analyze KiCad projects and PDF schematics: schematics, PCB layouts, Gerbers, footprints, symbol... |
 | [`kotlin-testing`](../../library/affaan-m-ecc/skills/kotlin-testing) | ⚪ Reserve | `affaan-m-ecc` | Kotlin testing patterns with Kotest, MockK, coroutine testing, property-based testing, and Kove... |
 | [`kubeshop`](../../library/membranedev-application-skills/skills/kubeshop) | ⚪ Reserve | `membranedev-application-skills` | Kubeshop (Testkube) integration. Manage data, records, and automate workflows. Use when the use... |
@@ -436,6 +440,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`playtest-report`](../../library/donchitos-claude-code-game-studios/skills/playtest-report) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Structured playtest report template, or turn existing playtest notes into structured feedback. |
 | [`plugin-creator`](../../library/openai-skills/skills/plugin-creator) | ⚪ Reserve | `openai-skills` | Create and scaffold plugin directories for Codex with a required `.codex-plugin/plugin.json`, o... |
 | [`pm-skills`](../../library/alirezarezvani-claude-skills/skills/pm-skills) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when coordinating project-delivery work across the 8 project-management sub-skills — sprint... |
+| [`pmf`](../../library/kostja94-marketing-skills/skills/pmf) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to validate product-market fit, measure PMF, or plan before scaling. Also u... |
 | [`pol-probe`](../../library/deanpeters-product-manager-skills/skills/pol-probe) | ⚪ Reserve | `deanpeters-product-manager-skills` | Define a Proof of Life probe to test a risky hypothesis cheaply. Use when you need harsh truth ... |
 | [`port-a-mod`](../../library/rehan-remade-universal-modder/skills/port-a-mod) | ⚪ Reserve | `rehan-remade-universal-modder` | Port an existing mod to a newer game version or another mod loader while keeping its behaviour,... |
 | [`portfolio-optimization`](../../library/nvidia-skills/skills/portfolio-optimization) | ⚪ Reserve | `nvidia-skills` | Use when a user asks to build, optimize, backtest, rebalance, or analyze a stock portfolio with... |

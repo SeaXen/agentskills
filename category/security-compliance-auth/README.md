@@ -1,7 +1,7 @@
 # 🔒 Auth, Hardening & Compliance
 
 > **Category**: `security-compliance-auth`  
-> **Total Curated Skills**: 409 skills  
+> **Total Curated Skills**: 411 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -117,6 +117,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`convex-auth`](../../library/convex-agent-skills/skills/convex-auth) | ⚪ Reserve | `convex-agent-skills` | Add authentication (passkeys/OAuth) to the current Convex app, including the auth.config.ts wir... |
 | [`convex-domains`](../../library/convex-agent-skills/skills/convex-domains) | ⚪ Reserve | `convex-agent-skills` | Point a domain you already own at your Convex app (DNS records, custom-domain attach, auth-orig... |
 | [`core-bluetooth`](../../library/dpearson2699-swift-ios-skills/skills/core-bluetooth) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Build direct Bluetooth Low Energy workflows with Core Bluetooth. Use when implementing BLE cent... |
+| [`core-rig-lifecycle`](../../library/mvschwarz-openrig/skills/core-rig-lifecycle) | ⚪ Reserve | `mvschwarz-openrig` | Use when reasoning about the rig lifecycle operations family (create / start / stop / resume / ... |
 | [`creating-secrets-using-best-practices`](../../library/aws-agent-toolkit-for-aws/skills/creating-secrets-using-best-practices) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Creates and manages secrets in AWS Secrets Manager following security best practices. Always us... |
 | [`creator-registry`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/creator-registry) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks "what did we pay this creator last time" or to "update the creator roste... |
 | [`critique-brand-consistency`](../../library/owl-listener-designer-skills/skills/critique-brand-consistency) | ⚪ Reserve | `owl-listener-designer-skills` | Critique a rendered screen against mood.md, voice.md, and tokens.md. Use when those brand files... |
@@ -303,6 +304,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`policy-compliance`](../../library/genspark-ai-genoffice/skills/policy-compliance) | ⚪ Reserve | `genspark-ai-genoffice` | Draft an internal compliance policy or privacy policy for a business scenario plus a tick-box c... |
 | [`policy-library`](../../library/sickn33-agentic-awesome-skills/skills/policy-library) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Policy register: name, version, category, owner and approver, applies to, compliance framework,... |
 | [`portfolio-monitoring`](../../library/anthropics-financial-services/skills/portfolio-monitoring) | ⚪ Reserve | `anthropics-financial-services` | Track and analyze portfolio company performance against plan. Ingests monthly/quarterly financi... |
+| [`privacy`](../../library/kostja94-marketing-skills/skills/privacy) | ⚪ Reserve | `kostja94-marketing-skills` | Deprecated compatibility entry for Privacy Policy Page construction. This page is now maintaine... |
 | [`privacy-by-design`](../../library/sickn33-agentic-awesome-skills/skills/privacy-by-design) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use when building apps that collect user data. Ensures privacy protections are built in from th... |
 | [`privacy-dynamics`](../../library/membranedev-application-skills/skills/privacy-dynamics) | ⚪ Reserve | `membranedev-application-skills` | Privacy Dynamics integration. Manage data, records, and automate workflows. Use when the user w... |
 | [`privacy-parser-pii-extraction`](../../library/reason-machines-trending-skills/skills/privacy-parser-pii-extraction) | ⚪ Reserve | `reason-machines-trending-skills` | Extract structured PII spans from text using the OpenAI Privacy Filter 1.5B model reversed — re... |

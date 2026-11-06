@@ -1,7 +1,7 @@
 # 🎬 Video Creation & Generative Motion
 
 > **Category**: `video-motion-production`  
-> **Total Curated Skills**: 231 skills  
+> **Total Curated Skills**: 234 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -201,6 +201,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`taisly-social-media-posting`](../../library/sickn33-agentic-awesome-skills/skills/taisly-social-media-posting) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use Taisly Agent Kit to prepare and publish approved short-form video posts across TikTok, Inst... |
 | [`tao-train-action-recognition`](../../library/nvidia-skills/skills/tao-train-action-recognition) | ⚪ Reserve | `nvidia-skills` | Action recognition from video sequences. Supports RGB, optical flow, and joint (multi-stream) i... |
 | [`tech-podcast-youtube-channel`](../../library/samber-dev-event-organizer-skills/skills/tech-podcast-youtube-channel) | ⚪ Reserve | `samber-dev-event-organizer-skills` | Run an organizer's own standing podcast or video channel as a cross-edition media property - wh... |
+| [`tiktok`](../../library/kostja94-marketing-skills/skills/tiktok) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to create TikTok video captions, scripts, or optimize for TikTok. Also use ... |
 | [`tiktok-marketing`](../../library/claude-office-skills-skills/skills/tiktok-marketing) | ⚪ Reserve | `claude-office-skills-skills` | TikTok content strategy, video creation workflows, posting optimization, and analytics. Based o... |
 | [`tiktok-shop-ads`](../../library/nexscope-ai-ecommerce-skills/skills/tiktok-shop-ads) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | TikTok Shop advertising strategy and campaign management. Product Shopping Ads, Video Shopping ... |
 | [`tiktok-shop-analytics`](../../library/nexscope-ai-ecommerce-skills/skills/tiktok-shop-analytics) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | TikTok Shop analytics and performance tracking. Video metrics, live selling data, affiliate per... |
@@ -239,6 +240,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`windows`](../../library/anthropics-knowledge-work/skills/windows) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Video SDK for Windows - C++ integration for video sessions, raw audio/video capture, scree... |
 | [`wireframe-portal-title`](../../library/heygen-hyperframes/skills/wireframe-portal-title) | ⚪ Reserve | `heygen-hyperframes` | A wireframe portal bursts open, the title comes through, then its letters swap into a second ph... |
 | [`xiaohongshu-search-full`](../../library/browser-act-skills/skills/xiaohongshu-search-full) | ⚪ Reserve | `browser-act-skills` | Search Xiaohongshu (XHS / RedNote) notes by keyword with full field extraction including body t... |
+| [`youtube`](../../library/kostja94-marketing-skills/skills/youtube) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to optimize YouTube videos for search, create video descriptions, or improv... |
+| [`youtube-ads`](../../library/kostja94-marketing-skills/skills/youtube-ads) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to run YouTube ads, set up TrueView or Bumper campaigns, or optimize video ... |
 | [`youtube-clipper`](../../library/feimacode-open-design-agent-kit/skills/youtube-clipper) | ⚪ Reserve | `feimacode-open-design-agent-kit` | YouTube clip generation and editing with automated workflows — pull source video, slice highlig... |
 | [`youtube-full`](../../library/alirezarezvani-claude-skills/skills/youtube-full) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when the user needs YouTube transcripts, video search, channel browsing, playlist extractio... |
 | [`youtube-notetaker`](../../library/sickn33-agentic-awesome-skills/skills/youtube-notetaker) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Turn YouTube talks into local study notes with slides, transcripts, editable annotations, and a... |

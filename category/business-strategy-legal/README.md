@@ -1,7 +1,7 @@
 # 📋 Business Strategy, Legal & HR
 
 > **Category**: `business-strategy-legal`  
-> **Total Curated Skills**: 340 skills  
+> **Total Curated Skills**: 345 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -88,6 +88,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`competitive-teardown-war-room-grid`](../../library/feimacode-open-design-agent-kit/skills/competitive-teardown-war-room-grid) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Positioning map, feature matrix, pricing comparison and opportunity windows: turns competitor r... |
 | [`competitor-price-analysis`](../../library/nexscope-ai-ecommerce-skills/skills/competitor-price-analysis) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Competitor pricing strategy analysis and market positioning. Price mapping, pricing gaps identi... |
 | [`competitor-price-tracker`](../../library/nexscope-ai-ecommerce-skills/skills/competitor-price-tracker) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Set up competitor price tracking and monitoring workflows. Track price changes, detect promotio... |
+| [`competitor-research`](../../library/kostja94-marketing-skills/skills/competitor-research) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to find competitors for a product or website, assess substitutes, or analyz... |
 | [`connect-required-verification-information`](../../library/stripe-ai/skills/connect-required-verification-information) | ⚪ Reserve | `stripe-ai` | Use this skill when the user asks what information a Stripe Connect connected account must prov... |
 | [`constraint-driven-development`](../../library/addyosmani-agent-skills/skills/constraint-driven-development) | ⚪ Reserve | `addyosmani-agent-skills` | Establishes a project's quality bar as a written contract and stops agents quietly lowering it.... |
 | [`content-planner`](../../library/nowork-studio-notfair-plugin/skills/content-planner) | ⚪ Reserve | `nowork-studio-notfair-plugin` | GSC-driven content calendar. Pulls real Search Console data, finds the highest click-potential ... |
@@ -95,6 +96,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`contract-drafter`](../../library/genspark-ai-genoffice/skills/contract-drafter) | ⚪ Reserve | `genspark-ai-genoffice` | Draft a complete contract or agreement with a pre-signing risk checklist, not legal advice, del... |
 | [`contract-review`](../../library/anthropics-knowledge-work/skills/contract-review) | ⚪ Reserve | `anthropics-knowledge-work` | Lightweight NDA, MSA, and vendor contract review for SMBs without legal on staff. Reads contrac... |
 | [`contract-template`](../../library/claude-office-skills-skills/skills/contract-template) | ⚪ Reserve | `claude-office-skills-skills` | name: contract-template |
+| [`conversion`](../../library/kostja94-marketing-skills/skills/conversion) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to improve conversion rates, run A/B tests, optimize funnels, or reduce fri... |
 | [`conversion-optimization`](../../library/wondelai-skills/skills/conversion-optimization) | ⚪ Reserve | `wondelai-skills` | Guided journey from a leaking conversion flow - landing page, signup, checkout, or in-app onboa... |
 | [`copywriting`](../../library/alirezarezvani-claude-skills/skills/copywriting) | ⚪ Reserve | `alirezarezvani-claude-skills` | When the user wants to write, rewrite, or improve marketing copy for any page — including homep... |
 | [`corporate-registration-consulting`](../../library/nomadamas-k-skill/skills/corporate-registration-consulting) | ⚪ Reserve | `nomadamas-k-skill` | 법인등기소/인터넷등기소 상업등기 신청을 처음 하는 사용자를 위해 일반 영리 주식회사 발기설립 절차, 정관·첨부서류 실제 HWP 양식 작성, 등록면허세·과밀억제권역 중과 체... |
@@ -129,6 +131,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ecommerce-business-plan`](../../library/nexscope-ai-ecommerce-skills/skills/ecommerce-business-plan) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Create a comprehensive e-commerce business plan. Market analysis, financial projections, market... |
 | [`ecommerce-competitor-analyzer`](../../library/buluslan-ecommerce-competitor-analyzer/skills/ecommerce-competitor-analyzer) | ⚪ Reserve | `buluslan-ecommerce-competitor-analyzer` | ecommerce-competitor-analyzer是由buluslan（公众号：新西楼.AI）研发的电商竞品分析Skill，他会帮你拆解竞对的定价、评论、流量结构和差异化空间，把"对... |
 | [`ecommerce-subscription-model`](../../library/nexscope-ai-ecommerce-skills/skills/ecommerce-subscription-model) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Design and launch subscription-based e-commerce businesses. Subscribe-and-save, membership boxe... |
+| [`education-program`](../../library/kostja94-marketing-skills/skills/education-program) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan, implement, or optimize student and education discount programs. Al... |
 | [`email-sequence`](../../library/alirezarezvani-claude-skills/skills/email-sequence) | ⚪ Reserve | `alirezarezvani-claude-skills` | When the user wants to create or optimize an email sequence, drip campaign, automated email flo... |
 | [`employment-contract-templates`](../../library/antigravity-awesome-skills/skills/employment-contract-templates) | ⚪ Reserve | `antigravity-awesome-skills` | Create employment contracts, offer letters, and HR policy documents following legal best practi... |
 | [`epic-hypothesis`](../../library/deanpeters-product-manager-skills/skills/epic-hypothesis) | ⚪ Reserve | `deanpeters-product-manager-skills` | Frame an epic as a testable hypothesis with target user, expected outcome, and validation metho... |
@@ -208,6 +211,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`lark-event`](../../library/larksuite-cli/skills/lark-event) | ⚪ Reserve | `larksuite-cli` | Lark/Feishu real-time event listening / subscribing / consuming: stream events as NDJSON via `l... |
 | [`launch-checklist`](../../library/donchitos-claude-code-game-studios/skills/launch-checklist) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Launch readiness across every department: code, content, store, marketing, community, infrastru... |
 | [`launchdarkly-experiment-hypothesis-builder`](../../library/launchdarkly-ai-tooling/skills/launchdarkly-experiment-hypothesis-builder) | ⚪ Reserve | `launchdarkly-ai-tooling` | Help a user turn a rough idea into a strong, testable experiment hypothesis, or grade one they ... |
+| [`legal`](../../library/kostja94-marketing-skills/skills/legal) | ⚪ Reserve | `kostja94-marketing-skills` | Deprecated compatibility entry for Legal Page construction. This page is now maintained in Pagi... |
 | [`legal-agent-skills-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/legal-agent-skills-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Agent skills collection for legal research and automation |
 | [`legal-nlp-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/legal-nlp-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | NLP techniques for legal text analysis, case law mining, and contracts |
 | [`legal-response`](../../library/anthropics-knowledge-work/skills/legal-response) | ⚪ Reserve | `anthropics-knowledge-work` | Generate a response to a common legal inquiry using configured templates, with built-in escalat... |
@@ -334,6 +338,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`spec-driven-loop`](../../library/sickn33-agentic-awesome-skills/skills/spec-driven-loop) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Freeze PRD, technical design, and acceptance criteria before medium-to-large Codex work; coordi... |
 | [`stellar-escrow-timelock`](../../library/sickn33-agentic-awesome-skills/skills/stellar-escrow-timelock) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Decentralized conditional escrow and timelock contract register: multi-signature release condit... |
 | [`stockbee-momentum-burst-screener`](../../library/tradermonty-claude-trading-skills/skills/stockbee-momentum-burst-screener) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Screen US stocks for Stockbee-style short-term Momentum Burst setups using 4% breakout, dollar ... |
+| [`structure-seo`](../../library/kostja94-marketing-skills/skills/structure-seo) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan SEO strategy, prioritize SEO work, or understand the SEO workflow. ... |
 | [`subscription-lifecycle`](../../library/appeeky-aso-skills/skills/subscription-lifecycle) | ⚪ Reserve | `appeeky-aso-skills` | When the user wants to optimize their subscription business end-to-end — from trial start throu... |
 | [`swap-curve-strategy`](../../library/anthropics-financial-services/skills/swap-curve-strategy) | ⚪ Reserve | `anthropics-financial-services` | Analyze the interest rate swap curve by pricing swaps at multiple tenors, overlaying government... |
 | [`swap-integration`](../../library/starchild-ai-agent-official-skills/skills/swap-integration) | ⚪ Reserve | `starchild-ai-agent-official-skills` | Integrate PancakeSwap swaps into applications. Use when user says "integrate swaps", "pancakesw... |

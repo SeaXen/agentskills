@@ -1,7 +1,7 @@
 # ✨ UI Motion, Animations & Polish
 
 > **Category**: `frontend-motion-animation`  
-> **Total Curated Skills**: 271 skills  
+> **Total Curated Skills**: 275 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -51,6 +51,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`bids`](../../library/k-dense-ai-scientific-agent-skills/skills/bids) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Organizes, queries, validates, and converts Brain Imaging Data Structure (BIDS) datasets. Suppo... |
 | [`blender-motion-state-inspection`](../../library/affaan-m-ecc/skills/blender-motion-state-inspection) | ⚪ Reserve | `affaan-m-ecc` | Use this skill when inspecting Blender characters, rigs, poses, animation retargeting, ground c... |
 | [`brag-slim`](../../library/latent-spaces-brag/skills/brag-slim) | ⚪ Reserve | `latent-spaces-brag` | Turn a project directory or a website URL into a short, shareable launch video with music, moti... |
+| [`brand-visual`](../../library/kostja94-marketing-skills/skills/brand-visual) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to define, audit, or apply visual identity (typography, colors, spacing, de... |
 | [`break-ui`](../../library/emilkowalski-skills/skills/break-ui) | ⚪ Reserve | `emilkowalski-skills` | Try to break a piece of UI by feeding it worst-case data — long names, unbreakable emails, one-... |
 | [`build-awwwards-quality-sites`](../../library/mengto-skills/skills/build-awwwards-quality-sites) | ⚪ Reserve | `mengto-skills` | Art-direct and implement distinctive, motion-rich marketing, editorial, portfolio, and landing ... |
 | [`build-rigged-game-assets`](../../library/mengto-skills/skills/build-rigged-game-assets) | ⚪ Reserve | `mengto-skills` | Create, integrate, or audit production-ready rigged 3D characters and monsters with a main mode... |
@@ -71,9 +72,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cmux-cua`](../../library/manaflow-ai-cmux/skills/cmux-cua) | ⚪ Reserve | `manaflow-ai-cmux` | Use only after the user explicitly asks for cmux Computer Use through the cmux-cua skill: drive... |
 | [`code-film`](../../library/majiayu000-spellbook/skills/code-film) | ⚪ Reserve | `majiayu000-spellbook` | 用纯代码（three.js 离线渲染 + 合成音频）做有故事、有电影质感的动画短片并导出 MP4。当用户想做短片、动画片、宣传片、角色动画、循环视频、片头、产品故事片，或者说“用代码做个视频... |
 | [`codeart2d`](../../library/0x0funky-agent-sprite-forge/skills/codeart2d) | ⚪ Reserve | `0x0funky-agent-sprite-forge` | Explicit-only last resort. Draws game art from code, with no image model - pixel sprites from a... |
+| [`cold-start`](../../library/kostja94-marketing-skills/skills/cold-start) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan cold start, get first users, or launch a new product with zero trac... |
 | [`commercial-skills`](../../library/alirezarezvani-claude-skills/skills/commercial-skills) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when reviewing, approving, or designing commercial motion — pricing models, deal review, di... |
 | [`controlnet-pose`](../../library/gencraft-labs-skills/skills/controlnet-pose) | ⚪ Reserve | `gencraft-labs-skills` | Pose-conditioned generation on RunComfy via the `runcomfy` CLI. Routes across Kling 2-6 Motion ... |
 | [`core-motion`](../../library/dpearson2699-swift-ios-skills/skills/core-motion) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Access Core Motion accelerometer, gyroscope, magnetometer, device-motion, pedometer, activity-r... |
+| [`crawlability`](../../library/kostja94-marketing-skills/skills/crawlability) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to improve crawlability, fix orphan pages, or optimize site structure for s... |
 | [`create-game-vfx`](../../library/mengto-skills/skills/create-game-vfx) | ⚪ Reserve | `mengto-skills` | Create readable, performance-safe Three.js game visual effects. Use for attacks, impacts, damag... |
 | [`creature-artist`](../../library/arjun988-blender-skills/skills/creature-artist) | ⚪ Reserve | `arjun988-blender-skills` | AAA creature modeling for fantasy, aliens, monsters, and organic creature design with believabl... |
 | [`cut-mistakes`](../../library/nateherkai-herk-edit-kit/skills/cut-mistakes) | ⚪ Reserve | `nateherkai-herk-edit-kit` | Agent 2 of the video editing pipeline. Finds and removes spoken mistakes — stutters, repeated w... |
@@ -128,6 +131,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`gsap-scrolltrigger-storytelling`](../../library/mengto-skills/skills/gsap-scrolltrigger-storytelling) | ⚪ Reserve | `mengto-skills` | Build cinematic sticky product storytelling with GSAP ScrollTrigger, progressive UI reveals, sc... |
 | [`gsap-timeline`](../../library/feimacode-open-design-agent-kit/skills/gsap-timeline) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Official GSAP skill for timelines — gsap.timeline(), position parameter, nesting, playback. Use... |
 | [`gsap-utils`](../../library/feimacode-open-design-agent-kit/skills/gsap-utils) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Official GSAP skill for gsap.utils — clamp, mapRange, normalize, interpolate, random, snap, toA... |
+| [`gtm`](../../library/kostja94-marketing-skills/skills/gtm) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan go-to-market strategy, GTM framework, or market entry. Also use whe... |
 | [`gtm-motions`](../../library/phuryn-pm-skills/skills/gtm-motions) | ⚪ Reserve | `phuryn-pm-skills` | Identify the best GTM motions and tools across 7 motion types: Inbound, Outbound, Paid Digital,... |
 | [`guizang-social-card`](../../library/op7418-guizang-social-card-skill/skills/guizang-social-card) | ⚪ Reserve | `op7418-guizang-social-card-skill` | Generate Guizang-style social card image sets, Live Photo motion cards, material-first Live Pho... |
 | [`hand-painted-style`](../../library/arjun988-blender-skills/skills/hand-painted-style) | ⚪ Reserve | `arjun988-blender-skills` | Hand-painted texture art direction for Blender with brushwork albedo, soft value transitions, a... |

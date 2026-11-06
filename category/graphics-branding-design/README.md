@@ -1,7 +1,7 @@
 # 🎨 Visual Design, Branding & Graphics
 
 > **Category**: `graphics-branding-design`  
-> **Total Curated Skills**: 122 skills  
+> **Total Curated Skills**: 125 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -41,12 +41,15 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`canvas-design`](../../library/anthropics-official-skills/skills/canvas-design) | ⚪ Reserve | `anthropics-official-skills` | Create beautiful visual art in .png and .pdf documents using design philosophy. You should use ... |
 | [`cobejs`](../../library/mengto-skills/skills/cobejs) | ⚪ Reserve | `mengto-skills` | Use when adding a lightweight interactive globe with cobe (canvas setup, markers, interaction, ... |
 | [`collaborator-ai-canvas`](../../library/reason-machines-trending-skills/skills/collaborator-ai-canvas) | ⚪ Reserve | `reason-machines-trending-skills` | name: collaborator-ai-canvas |
+| [`commercial-paid-ads`](../../library/kostja94-marketing-skills/skills/commercial-paid-ads) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan paid ads strategy, allocate ad budget, or choose paid channels. Als... |
 | [`create-canvas`](../../library/ibelick-ui-skills/skills/create-canvas) | ⚪ Reserve | `ibelick-ui-skills` | Build a freeform canvas to explore, compare, and iterate on anything. |
 | [`create-canvas-extension`](../../library/github-awesome-copilot/skills/create-canvas-extension) | ⚪ Reserve | `github-awesome-copilot` | Create or register a canvas extension in the awesome-copilot repository. Use when asked to scaf... |
 | [`cv-generator`](../../library/sickn33-agentic-awesome-skills/skills/cv-generator) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Generate professional, ATS-optimized CVs for FlowCV, Canva, Google Docs, or Word. Handles multi... |
 | [`deck-open-slide-canvas`](../../library/feimacode-open-design-agent-kit/skills/deck-open-slide-canvas) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Open-Slide 1920 Canvas Deck (Open Design) — use only when explicitly invoked, not for general d... |
 | [`design-critique`](../../library/anthropics-knowledge-work/skills/design-critique) | ⚪ Reserve | `anthropics-knowledge-work` | Get structured design feedback on usability, hierarchy, and consistency. Trigger with "review t... |
 | [`discover-brand`](../../library/anthropics-knowledge-work/skills/discover-brand) | ⚪ Reserve | `anthropics-knowledge-work` | This skill orchestrates autonomous discovery of brand materials across enterprise platforms (No... |
+| [`display-ads`](../../library/kostja94-marketing-skills/skills/display-ads) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to run display, banner, or ad network campaigns. Also use when the user men... |
+| [`distribution-channels`](../../library/kostja94-marketing-skills/skills/distribution-channels) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan product distribution via marketplaces, app stores, or third-party p... |
 | [`django-celery`](../../library/affaan-m-ecc/skills/django-celery) | ⚪ Reserve | `affaan-m-ecc` | Django + Celery async task patterns — configuration, task design, beat scheduling, retries, can... |
 | [`ecommerce-branding`](../../library/nexscope-ai-ecommerce-skills/skills/ecommerce-branding) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Build and strengthen your e-commerce brand identity. Brand positioning, messaging, visual ident... |
 | [`etsy-shop-branding`](../../library/nexscope-ai-ecommerce-skills/skills/etsy-shop-branding) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Shop branding — banner design, logo, brand story, cohesive listing photography, packaging |

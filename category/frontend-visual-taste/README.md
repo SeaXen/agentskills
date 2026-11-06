@@ -1,7 +1,7 @@
 # 👁️ Visual Taste, Critique & Typography
 
 > **Category**: `frontend-visual-taste`  
-> **Total Curated Skills**: 169 skills  
+> **Total Curated Skills**: 171 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -46,6 +46,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`brand-guidelines-anthropic`](../../library/antigravity-awesome-skills/skills/brand-guidelines-anthropic) | ⚪ Reserve | `antigravity-awesome-skills` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benef... |
 | [`brand-guidelines-community`](../../library/antigravity-awesome-skills/skills/brand-guidelines-community) | ⚪ Reserve | `antigravity-awesome-skills` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benef... |
 | [`brand-style`](../../library/anthropics-knowledge-work/skills/brand-style) | ⚪ Reserve | `anthropics-knowledge-work` | Sets and updates the owner's brand look and output preferences, which every page and document t... |
+| [`branding`](../../library/kostja94-marketing-skills/skills/branding) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to define, audit, or apply brand strategy—purpose, values, positioning, sto... |
 | [`brandkit`](../../library/feimacode-open-design-agent-kit/skills/brandkit) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Premium brand-kit image generation skill for creating high-end brand-guidelines boards, logo sy... |
 | [`cafe`](../../library/bergside-awesome-design-skills/skills/cafe) | ⚪ Reserve | `bergside-awesome-design-skills` | Cozy cafe-inspired interface with warm tones, soft typography, and clean layouts for a relaxed ... |
 | [`chinese-quote-converter`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/chinese-quote-converter) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Convert English straight quotation marks ("...") to Chinese curved quotation marks ("..." U+201... |
@@ -116,6 +117,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`maui-theming`](../../library/dotnet-skills/skills/maui-theming) | ⚪ Reserve | `dotnet-skills` | Guide for theming .NET MAUI apps — light/dark mode via AppThemeBinding, ResourceDictionary them... |
 | [`minimal`](../../library/bergside-awesome-design-skills/skills/minimal) | ⚪ Reserve | `bergside-awesome-design-skills` | Stripped-back design emphasizing whitespace, clean typography, and restrained color for maximum... |
 | [`minimax-music-playlist`](../../library/minimax-ai-skills/skills/minimax-music-playlist) | ⚪ Reserve | `minimax-ai-skills` | Generate personalized music playlists by analyzing the user's music taste and generation feedba... |
+| [`mobile-friendly`](../../library/kostja94-marketing-skills/skills/mobile-friendly) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to optimize for mobile-first indexing or fix mobile usability. Also use whe... |
 | [`modern`](../../library/bergside-awesome-design-skills/skills/modern) | ⚪ Reserve | `bergside-awesome-design-skills` | Contemporary editorial style with serif typography, minimal palettes, and clean layouts for pol... |
 | [`mono`](../../library/bergside-awesome-design-skills/skills/mono) | ⚪ Reserve | `bergside-awesome-design-skills` | Monospace-driven, matrix-inspired design with high-contrast elements, compact density, and a ha... |
 | [`no-ai-design-slop`](../../library/mengto-skills/skills/no-ai-design-slop) | ⚪ Reserve | `mengto-skills` | Prevent and remove generic AI-generated design defaults, incoherent visual choices, and establi... |

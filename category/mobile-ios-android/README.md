@@ -1,7 +1,7 @@
 # 📱 Mobile Development (iOS, Android, React Native)
 
 > **Category**: `mobile-ios-android`  
-> **Total Curated Skills**: 262 skills  
+> **Total Curated Skills**: 263 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -47,6 +47,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`anti-ui-slop`](../../library/sickn33-agentic-awesome-skills/skills/anti-ui-slop) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Stop coding agents from shipping generic UI. Extend the product's design system, use UIZZE evid... |
 | [`antislop-layoutmobile`](../../library/miqdadbadjuber-anti-slop/skills/antislop-layoutmobile) | ⚪ Reserve | `miqdadbadjuber-anti-slop` | Mobile layout skill for antislop. Use for layouts that reflow across screen sizes, phone to des... |
 | [`anubis-android-app-manager`](../../library/reason-machines-trending-skills/skills/anubis-android-app-manager) | ⚪ Reserve | `reason-machines-trending-skills` | Android app manager with VPN integration that freezes/unfreezes app groups based on VPN connect... |
+| [`app-ads`](../../library/kostja94-marketing-skills/skills/app-ads) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to run app install ads, user acquisition (UA), or promote mobile apps. Also... |
 | [`app-store-changelog`](../../library/dimillian-skills/skills/app-store-changelog) | ⚪ Reserve | `dimillian-skills` | Create user-facing App Store release notes by collecting and summarizing all user-impacting cha... |
 | [`app-store-featured`](../../library/appeeky-aso-skills/skills/app-store-featured) | ⚪ Reserve | `appeeky-aso-skills` | When the user wants to get featured on the App Store or understand the editorial process. Also ... |
 | [`app-store-optimization`](../../library/alirezarezvani-claude-skills/skills/app-store-optimization) | ⚪ Reserve | `alirezarezvani-claude-skills` | App Store Optimization (ASO) toolkit for researching keywords, analyzing competitor rankings, g... |

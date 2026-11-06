@@ -1,7 +1,7 @@
 # 📈 Sales Outreach, Leads & CRM
 
 > **Category**: `business-sales-crm`  
-> **Total Curated Skills**: 584 skills  
+> **Total Curated Skills**: 590 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -135,6 +135,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`customer-journey-mapping-workshop`](../../library/deanpeters-product-manager-skills/skills/customer-journey-mapping-workshop) | ⚪ Reserve | `deanpeters-product-manager-skills` | Run a customer journey mapping workshop with adaptive questions and outputs. Use when you need ... |
 | [`customer-psychographic-profiler`](../../library/sickn33-agentic-awesome-skills/skills/customer-psychographic-profiler) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Build an evidence-grounded customer profile of motivations, fears, identity, and trust barriers... |
 | [`customer-research`](../../library/anthropics-knowledge-work/skills/customer-research) | ⚪ Reserve | `anthropics-knowledge-work` | Multi-source research on a customer question or topic with source attribution. Use when a custo... |
+| [`customer-stories`](../../library/kostja94-marketing-skills/skills/customer-stories) | ⚪ Reserve | `kostja94-marketing-skills` | Deprecated compatibility entry for Customer Story Page construction. This page is now maintaine... |
 | [`customer-success`](../../library/claude-office-skills-skills/skills/customer-success) | ⚪ Reserve | `claude-office-skills-skills` | Customer success management - onboarding, health scoring, QBRs, expansion playbooks, and retent... |
 | [`customer-support`](../../library/antigravity-awesome-skills/skills/customer-support) | ⚪ Reserve | `antigravity-awesome-skills` | Elite AI-powered customer support specialist mastering |
 | [`customerguru`](../../library/membranedev-application-skills/skills/customerguru) | ⚪ Reserve | `membranedev-application-skills` | Customer.guru integration. Manage Persons, Organizations, Deals, Leads, Projects, Pipelines and... |
@@ -173,6 +174,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`devrel-team-structure`](../../library/samber-developer-relations-skills/skills/devrel-team-structure) | ⚪ Reserve | `samber-developer-relations-skills` | Designs the developer relations org - which function DevRel reports to (marketing, product, eng... |
 | [`devrel-webinar-program`](../../library/samber-developer-relations-skills/skills/devrel-webinar-program) | ⚪ Reserve | `samber-developer-relations-skills` | Designs a recurring technical webinar series for a developer audience and ships its charter, se... |
 | [`digital-eguide`](../../library/feimacode-open-design-agent-kit/skills/digital-eguide) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A two-spread digital e-guide preview — page 1 is a cover (display title, author, "What's inside... |
+| [`discount-marketing`](../../library/kostja94-marketing-skills/skills/discount-marketing) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan, implement, or optimize discount and promotional pricing strategy. ... |
 | [`discover-opportunities`](../../library/amplitude-mcp-marketplace/skills/discover-opportunities) | ⚪ Reserve | `amplitude-mcp-marketplace` | Discovers product opportunities by analyzing Amplitude analytics, experiments, session replays,... |
 | [`discovery-interview-prep`](../../library/deanpeters-product-manager-skills/skills/discovery-interview-prep) | ⚪ Reserve | `deanpeters-product-manager-skills` | Plan customer discovery interviews with the right goal, segment, constraints, and method. Use w... |
 | [`distributed-training-deepspeed`](../../library/davila7-claude-code-templates/skills/distributed-training-deepspeed) | ⚪ Reserve | `davila7-claude-code-templates` | Expert guidance for distributed training with DeepSpeed - ZeRO optimization stages, pipeline pa... |
@@ -250,6 +252,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`gmail`](../../library/career-ops-hq-career-ops/skills/gmail) | ⚪ Reserve | `career-ops-hq-career-ops` | How to pull job leads from a Gmail label into the career-ops pipeline. |
 | [`gmail-outreach`](../../library/buzzbysolcex-buzz-bd-agent/skills/gmail-outreach) | ⚪ Reserve | `buzzbysolcex-buzz-bd-agent` | category: business-sales-crm |
 | [`gorgias-automation`](../../library/composio-community-awesome-codex-skills/skills/gorgias-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate e-commerce customer support workflows in Gorgias -- manage tickets, customers, tags, a... |
+| [`growth-funnel`](../../library/kostja94-marketing-skills/skills/growth-funnel) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan growth using the AARRR framework, diagnose growth bottlenecks, or m... |
 | [`guest-posting-opportunity-finder`](../../library/sickn33-agentic-awesome-skills/skills/guest-posting-opportunity-finder) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Guest Posting Opportunity Finder. Use when working with topic, audience and optional prospect l... |
 | [`gumroad-automation`](../../library/composio-community-awesome-codex-skills/skills/gumroad-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Gumroad product management, sales tracking, license verification, and webhook subscrip... |
 | [`host-social-selling-planner`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/host-social-selling-planner) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "set up my founder social-selling routine", "build a daily engagement... |
@@ -297,6 +300,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`jobs-to-be-done-analyst`](../../library/sickn33-agentic-awesome-skills/skills/jobs-to-be-done-analyst) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Uncover the functional, emotional and social jobs a customer hires a product to do: progress st... |
 | [`keap`](../../library/membranedev-application-skills/skills/keap) | ⚪ Reserve | `membranedev-application-skills` | Keap integration. Manage crm and marketing automation and sales data, records, and workflows. U... |
 | [`kedro-pipeline-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/kedro-pipeline-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Build reproducible data science pipelines with Kedro for research projects |
+| [`keyword-discovery`](../../library/kostja94-marketing-skills/skills/keyword-discovery) | ⚪ Reserve | `kostja94-marketing-skills` | Finds long-tail search expressions from a seed, competitor sites, search suggestions and custom... |
 | [`kommo-automation`](../../library/composio-community-awesome-codex-skills/skills/kommo-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Kommo CRM operations -- manage leads, pipelines, pipeline stages, tasks, and custom fi... |
 | [`land-narrative-cascade-planner`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/land-narrative-cascade-planner) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "plan how our narrative lands on every surface", "write per-surface m... |
 | [`land-pitch-narrative-builder`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/land-pitch-narrative-builder) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "build our pitch deck narrative", "write a fundraising story", or "st... |
@@ -318,6 +322,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`life-sciences-kam-coordinate`](../../library/forcedotcom-sf-skills/skills/life-sciences-kam-coordinate) | ⚪ Reserve | `forcedotcom-sf-skills` | Use this skill to run the full end-to-end Life Sciences Cloud setup workflow for a key account ... |
 | [`lime-crm`](../../library/membranedev-application-skills/skills/lime-crm) | ⚪ Reserve | `membranedev-application-skills` | Lime CRM integration. Manage data, records, and automate workflows. Use when the user wants to ... |
 | [`link-building`](../../library/coreyhaines31-marketingskills/skills/link-building) | ⚪ Reserve | `coreyhaines31-marketingskills` | When the user wants to earn backlinks or third-party mentions that lift rankings and AI citatio... |
+| [`linkedin-ads`](../../library/kostja94-marketing-skills/skills/linkedin-ads) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to set up, optimize, or manage LinkedIn Ads. Also use when the user mention... |
 | [`linkedin-ads-audit`](../../library/irinabuht12-oss-marketing-skills/skills/linkedin-ads-audit) | ⚪ Reserve | `irinabuht12-oss-marketing-skills` | LinkedIn Ads campaign analysis for B2B marketers detecting CTR issues, audience quality problem... |
 | [`linkedin-cli`](../../library/sickn33-agentic-awesome-skills/skills/linkedin-cli) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use when automating LinkedIn via CLI: fetch profiles, search people/companies, send messages, m... |
 | [`linkedin-engagement`](../../library/alirezarezvani-claude-skills/skills/linkedin-engagement) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when someone wants to grow reach through comments, replies, groups, or outreach on LinkedIn... |
@@ -431,6 +436,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`research-refine-pipeline`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/research-refine-pipeline) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Run an end-to-end workflow that chains `research-refine` and `experiment-plan`. Use when the us... |
 | [`restock`](../../library/anthropics-knowledge-work/skills/restock) | ⚪ Reserve | `anthropics-knowledge-work` | Turns what is actually selling into a reorder decision and gets it all the way into the books —... |
 | [`resubmit-pipeline`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/resubmit-pipeline) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Workflow 5: orchestrate a text-only resubmit of a polished paper to a different venue under har... |
+| [`retention`](../../library/kostja94-marketing-skills/skills/retention) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to reduce churn, improve customer retention, or plan lifecycle marketing. A... |
 | [`returns-analysis`](../../library/anthropics-financial-services/skills/returns-analysis) | ⚪ Reserve | `anthropics-financial-services` | Build quick IRR/MOIC sensitivity tables for PE deal evaluation. Models returns across entry mul... |
 | [`revamp-crm`](../../library/membranedev-application-skills/skills/revamp-crm) | ⚪ Reserve | `membranedev-application-skills` | Revamp CRM integration. Manage Organizations, Projects, Pipelines, Users, Goals, Filters. Use w... |
 | [`review-contract`](../../library/anthropics-knowledge-work/skills/review-contract) | ⚪ Reserve | `anthropics-knowledge-work` | Review a contract against your organization's negotiation playbook — flag deviations, generate ... |

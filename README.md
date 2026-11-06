@@ -7,14 +7,14 @@
 [![Workflows](https://img.shields.io/badge/Autonomous_Workflows-18-059669?style=for-the-badge)](./workflows)
 [![Categories](https://img.shields.io/badge/Categories-38_Domains-10B981?style=for-the-badge)](./category)
 [![Repositories](https://img.shields.io/badge/Upstream_Origins-484_Repositories-D97706?style=for-the-badge)](./SKILLS_PROVENANCE.md)
-[![Master Reserve Library](https://img.shields.io/badge/Master_Library-26,797_Skills-DC2626?style=for-the-badge)](./library)
+[![Master Reserve Library](https://img.shields.io/badge/Master_Library-26,977_Skills-DC2626?style=for-the-badge)](./library)
 [![Live Web App](https://img.shields.io/badge/Live_App-skill.drsea.top-0f6e56?style=for-the-badge&logo=cloudflare)](https://skill.drsea.top)
 [![Web Dashboard](https://img.shields.io/badge/Skill.Sea-Local_Dashboard-0EA5E9?style=for-the-badge)](./Skill.Sea)
 
 **The premier, production-grade intelligence suite and modular skill repository for autonomous AI agents.**  
 Compatible with **Antigravity IDE**, **Claude Code**, **Cursor**, **Windsurf**, and **Cline**.
 
-*130 active hot-set skills, 38 functional domain categories (21,515 unique categorized skills), 20 specialist personas, 18 autonomous workflows, and 26,797 master reserve skills across 484 repositories.*
+*130 active hot-set skills, 38 functional domain categories (21,655 unique categorized skills), 20 specialist personas, 18 autonomous workflows, and 26,977 master reserve skills across 484 repositories.*
 
 [Quick Start](#-the-3-command-cheat-sheet) • [Skill.Sea Web App](#-skillsea--interactive-web-dashboard) • [38-Domain Categories](#-38-domain-functional-categories-taxonomy) • [Automated Updater](#-unified-automated-updater-updatepy) • [Agents](#-specialist-agents-20-personas) • [Workflows](#-autonomous-workflows-18-slash-commands) • [Provenance](./SKILLS_PROVENANCE.md)
 
@@ -29,7 +29,7 @@ AgentSkills Vault solves the single greatest limitation of modern AI coding assi
 Instead of dumping thousands of skills into an AI session—which exhausts token budgets, causes hallucination, and degrades model performance—AgentSkills implements a **Decoupled 2-Tier Architecture**:
 
 1. **⚡ Active Hot-Set (`.agents/skills/`)**: A lean, razor-sharp active tier of **90 battle-tested core skills** loaded into your active session.
-2. **🏛️ Master Reserve Warehouse (`.agents/library/`)**: An offline, zero-token reserve of **26,797 modular skills across 484 repositories**, organized into **38 human-navigable domain categories** in [`.agents/category/`](./category).
+2. **🏛️ Master Reserve Warehouse (`.agents/library/`)**: An offline, zero-token reserve of **26,977 modular skills across 484 repositories**, organized into **38 human-navigable domain categories** in [`.agents/category/`](./category).
 3. **🌊 Skill.Sea Visual Dashboard (`.agents/Skill.Sea/`)**: An ultra-fast web catalog running live at **[https://skill.drsea.top](https://skill.drsea.top)** (Cloudflare Pages mirror: [https://skill-sea.pages.dev](https://skill-sea.pages.dev), and local dev server at `http://localhost:8080`) to search, filter, preview, and 1-click activate skills on demand.
 4. **🔄 Unified Automated Multi-Repo Updater (`.agents/update.py`)**: A parallel-threaded update engine that checks all 484 GitHub remotes in ~25 seconds, downloads new skills, rebuilds taxonomy indexes, and pushes updates to GitHub.
 
@@ -40,7 +40,7 @@ Instead of dumping thousands of skills into an AI session—which exhausts token
 Everything in AgentSkills can be operated with just **3 essential commands**:
 
 ### 1️⃣ Search & Find Any Skill
-Search across all 26,797 skills by name, description, or keyword:
+Search across all 26,977 skills by name, description, or keyword:
 ```powershell
 python .agents/library/activate_skill.py search animation
 python .agents/library/activate_skill.py search "smart contract"
@@ -74,9 +74,9 @@ Skill.Sea is the standalone, high-performance web directory and leaderboard for 
 ```text
        ┌─────────────────────────────────────────────────────────────┐
        │  🌊 Skill.Sea — Autonomous Agent Skills Vault & Leaderboard  │
-       │  [ 🔍 Search 21,514+ skills... ]    [ 🏷️ 38 Categories ▾ ]   │
+       │  [ 🔍 Search 21,654+ skills... ]    [ 🏷️ 38 Categories ▾ ]   │
        ├─────────────────────────────────────────────────────────────┤
-       │  🟢 Active (90)  │  📦 All Skills (26,797)  │  🏆 Leaderboard │
+       │  🟢 Active (90)  │  📦 All Skills (26,977)  │  🏆 Leaderboard │
        ├─────────────────────────────────────────────────────────────┤
        │  radix-ui-design-system    • 🟢 Active  • Frontend (Radix)  │
        │  emil-design-eng           • 🟢 Active  • UI Motion & Craft  │
@@ -94,7 +94,7 @@ Skill.Sea is the standalone, high-performance web directory and leaderboard for 
   npm start
   # Open browser at http://localhost:8080
   ```
-- **Instant Search**: Sub-millisecond client-side filtering across 26,797 skills.
+- **Instant Search**: Sub-millisecond client-side filtering across 26,977 skills.
 - **Category Matrix**: Browse and filter through all 38 functional domains.
 - **One-Click Activation**: Toggle skills between Active Hot-Set and Offline Reserve.
 - **Live Leaderboard**: Discover the highest-rated community skills (inspired by SkillLeaderboard).
@@ -103,7 +103,7 @@ Skill.Sea is the standalone, high-performance web directory and leaderboard for 
 
 ## 🗂️ 38-Domain Functional Categories Taxonomy
 
-All **21,515 unique skills** are cataloged into **38 granular functional domains** in [`.agents/category/`](./category). Every directory contains real standalone skill folders, an individual `README.md` catalog, and a machine-readable `skills_index.json`:
+All **21,655 unique skills** are cataloged into **38 granular functional domains** in [`.agents/category/`](./category). Every directory contains real standalone skill folders, an individual `README.md` catalog, and a machine-readable `skills_index.json`:
 
 | Category Directory | Domain Title | Skills Count | Individual Catalog |
 | :--- | :--- | :---: | :--- |
@@ -295,14 +295,14 @@ The vault aggregates high-signal skills from **484 curated GitHub upstream repos
 │   ├── emil-design-eng/        # Emil Kowalski UI polish and animation craft
 │   ├── vercel-react-best-practices/ # Vercel React & Next.js production patterns
 │   └── ... (90 total skills)
-├── category/                   # 38 Granular Domain Categories (21,515 unique skills)
+├── category/                   # 38 Granular Domain Categories (21,655 unique skills)
 │   ├── frontend-ui-components/ # Radix, Shadcn, Tailwind v4, Tailwind CSS
 │   ├── security-vulnerability-audit/ # Penetration testing, OWASP, hardeners
 │   ├── database-sql-relational/# Postgres, Drizzle, SQLite, index tuning
 │   └── ... (38 category directories)
-├── library/                    # Master Reserve Warehouse (26,797 skills across 484 repos)
+├── library/                    # Master Reserve Warehouse (26,977 skills across 484 repos)
 │   ├── activate_skill.py       # Instant 1-command hot-set activation & search CLI
-│   ├── skills_index.json       # Master index tracking all 26,797 reserve skills
+│   ├── skills_index.json       # Master index tracking all 26,977 reserve skills
 │   ├── upstreams.json          # Live tracking registry for all 484 upstream git URLs
 │   └── ... (484 repository folders)
 ├── Skill.Sea/                  # Interactive Web Dashboard & Leaderboard (localhost:8080)

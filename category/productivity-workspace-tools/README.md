@@ -1,7 +1,7 @@
 # 🚀 Productivity, Slack, Notion & Linear
 
 > **Category**: `productivity-workspace-tools`  
-> **Total Curated Skills**: 303 skills  
+> **Total Curated Skills**: 304 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -54,6 +54,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`conference-cfp-submission`](../../library/samber-developer-relations-skills/skills/conference-cfp-submission) | ⚪ Reserve | `samber-developer-relations-skills` | Turns a talk idea into a submission-ready conference proposal for one specific event, or helps ... |
 | [`connections`](../../library/makenotion-notion-cookbook/skills/connections) | ⚪ Reserve | `makenotion-notion-cookbook` | Configure and use typed provider connections and connection-bound triggers in Notion App workfl... |
 | [`content-gap-analysis`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/content-gap-analysis) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "find content gaps", "竞品写了什么", or "还应该写什么"; builds a competitor-relat... |
+| [`content-marketing`](../../library/kostja94-marketing-skills/skills/content-marketing) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan content marketing across channels, define content types and formats... |
 | [`context-agent`](../../library/sickn33-agentic-awesome-skills/skills/context-agent) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Agente de contexto para continuidade entre sessoes. Salva resumos, decisoes, tarefas pendentes ... |
 | [`convex-backup`](../../library/convex-agent-skills/skills/convex-backup) | ⚪ Reserve | `convex-agent-skills` | Set up Convex backups and run a restore DRILL that proves recovery — snapshot, restore into a t... |
 | [`corridorkey-green-screen`](../../library/reason-machines-trending-skills/skills/corridorkey-green-screen) | ⚪ Reserve | `reason-machines-trending-skills` | AI-powered green screen keyer that unmixes foreground colors and generates clean linear alpha c... |

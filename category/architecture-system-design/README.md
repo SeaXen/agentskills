@@ -1,7 +1,7 @@
 # 🏛️ Architecture, System Design & Patterns
 
 > **Category**: `architecture-system-design`  
-> **Total Curated Skills**: 682 skills  
+> **Total Curated Skills**: 686 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -268,6 +268,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`documentation`](../../library/anthropics-knowledge-work/skills/documentation) | ⚪ Reserve | `anthropics-knowledge-work` | Write and maintain technical documentation. Trigger with "write docs for", "document this", "cr... |
 | [`documentation-and-adrs`](../../library/addyosmani-agent-skills/skills/documentation-and-adrs) | ⚪ Reserve | `addyosmani-agent-skills` | Records decisions and documentation. Use when you need to document an architecture decision (AD... |
 | [`documentation-generation-doc-generate`](../../library/antigravity-awesome-skills/skills/documentation-generation-doc-generate) | ⚪ Reserve | `antigravity-awesome-skills` | You are a documentation expert specializing in creating comprehensive, maintainable documentati... |
+| [`domain-architecture`](../../library/kostja94-marketing-skills/skills/domain-architecture) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to decide domain structure for multiple products or brands—subfolder vs sub... |
 | [`domain-cloud-native`](../../library/actionbook-rust-skills/skills/domain-cloud-native) | ⚪ Reserve | `actionbook-rust-skills` | Use when building cloud-native apps. Keywords: kubernetes, k8s, docker, container, grpc, tonic,... |
 | [`domain-driven-design`](../../library/antigravity-awesome-skills/skills/domain-driven-design) | ⚪ Reserve | `antigravity-awesome-skills` | Plan and route Domain-Driven Design work from strategic modeling to tactical implementation and... |
 | [`domain-modeling`](../../skills/domain-modeling) | 🟢 Active | `active` | Build and sharpen a project's domain model. Use when the user wants to pin down domain terminol... |
@@ -450,6 +451,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`monorepo-architect`](../../library/antigravity-awesome-skills/skills/monorepo-architect) | ⚪ Reserve | `antigravity-awesome-skills` | Expert in monorepo architecture, build systems, and dependency management at scale. Masters Nx,... |
 | [`multi-agent-patterns`](../../library/antigravity-awesome-skills/skills/multi-agent-patterns) | ⚪ Reserve | `antigravity-awesome-skills` | Master orchestrator, peer-to-peer, and hierarchical multi-agent architectures |
 | [`multi-cloud-architecture`](../../library/antigravity-awesome-skills/skills/multi-cloud-architecture) | ⚪ Reserve | `antigravity-awesome-skills` | Design multi-cloud architectures using a decision framework to select and integrate services ac... |
+| [`multi-domain-brand-seo`](../../library/kostja94-marketing-skills/skills/multi-domain-brand-seo) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to optimize brand search for a company with multiple domains (e.g. parent c... |
 | [`multi-platform-apps-multi-platform`](../../library/antigravity-awesome-skills/skills/multi-platform-apps-multi-platform) | ⚪ Reserve | `antigravity-awesome-skills` | Build and deploy the same feature consistently across web, mobile, and desktop platforms using ... |
 | [`multiplayer`](../../library/davila7-claude-code-templates/skills/multiplayer) | ⚪ Reserve | `davila7-claude-code-templates` | Multiplayer game development principles. Architecture, networking, synchronization. |
 | [`n8n-workflow-patterns`](../../library/davila7-claude-code-templates/skills/n8n-workflow-patterns) | ⚪ Reserve | `davila7-claude-code-templates` | Proven workflow architectural patterns from real n8n workflows. Use when building new workflows... |
@@ -661,6 +663,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`trader-explain`](../../library/ruvnet-ruflo/skills/trader-explain) | ⚪ Reserve | `ruvnet-ruflo` | Regulator-grade feature attribution for any LSTM/Transformer signal — single-entry PageRank ran... |
 | [`trader-portfolio-cg`](../../library/ruvnet-ruflo/skills/trader-portfolio-cg) | ⚪ Reserve | `ruvnet-ruflo` | Mean-variance portfolio optimization via Conjugate Gradient — 40-60× faster than the legacy Neu... |
 | [`transformer-architecture-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/transformer-architecture-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Guide to Transformer architectures for NLP and computer vision |
+| [`translation`](../../library/kostja94-marketing-skills/skills/translation) | ⚪ Reserve | `kostja94-marketing-skills` | Translate, transcreate, review, or maintain multilingual product and marketing content, includi... |
 | [`tune-site-structure-optimizer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/tune-site-structure-optimizer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "plan my site structure", "design the page hierarchy / navigation / U... |
 | [`typescript-project`](../../library/majiayu000-spellbook/skills/typescript-project) | ⚪ Reserve | `majiayu000-spellbook` | Modern TypeScript project architecture guide for 2025. Use when creating new TS projects, setti... |
 | [`ui-pattern`](../../library/sickn33-agentic-awesome-skills/skills/ui-pattern) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Generate a composed UI pattern (card layout, list, form section, grid, etc.) using design syste... |
@@ -688,6 +691,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`wcag-audit-patterns`](../../library/antigravity-awesome-skills/skills/wcag-audit-patterns) | ⚪ Reserve | `antigravity-awesome-skills` | Conduct WCAG 2.2 accessibility audits with automated testing, manual verification, and remediat... |
 | [`web-component-design`](../../library/wshobson-agents/skills/web-component-design) | ⚪ Reserve | `wshobson-agents` | Master React, Vue, and Svelte component patterns including CSS-in-JS, composition strategies, a... |
 | [`web-project-brainstorming`](../../library/sickn33-agentic-awesome-skills/skills/web-project-brainstorming) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Masterclass framework for brainstorming web development projects and page designs. Outlines str... |
+| [`website-structure`](../../library/kostja94-marketing-skills/skills/website-structure) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan website structure, decide which pages to build, or prioritize pages... |
 | [`wechat-official-account-strategist`](../../library/sickn33-agentic-awesome-skills/skills/wechat-official-account-strategist) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Grow WeChat Official Accounts (微信公众号) with high-conversion content strategy, title formulas, ar... |
 | [`weekly-performance-digest`](../../library/tradermonty-claude-trading-skills/skills/weekly-performance-digest) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Generate a weekly performance summary from closed trader-memory-core theses — win rate, expecta... |
 | [`wordpress-plugin-development`](../../library/sickn33-agentic-awesome-skills/skills/wordpress-plugin-development) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | WordPress plugin development workflow covering plugin architecture, hooks, admin interfaces, RE... |

@@ -839,12 +839,15 @@ def sync_frontend_doc_numbers():
             (r'\([\d.]+ MB, [\d,]+ validated items\)', f'({mb} MB, {s} validated items)'),
             (r'stats\.json` \([\d,]+ skills, \d+ categories, [\d,]+ repos, \d+ hot-set\)',
              f'stats.json` ({s} skills, {C} categories, {r} repos, {H} hot-set)'),
+             (r'\d+ Categories, [\d,]+ Git Repositories', f'{C} Categories, {r} Git Repositories'),
+             (r'(repositories\.json`?) \([\d.]+ MB, [\d,]+ indexed repositories\)', r'\g<1> ' + f'({rmb} MB, {r} indexed repositories)'),
         ],
         'Skill.Sea/AGENTS.md': [
             (r'[\d,]+ Antigravity Agent Skills\*\* indexed across [\d,]+ open-source repositories',
              f'{s} Antigravity Agent Skills** indexed across {r} open-source repositories'),
             (r'catalog\.json(\s+#) [\d.]+ MB master catalog \([\d,]+ items\)',
              f'catalog.json\\1 {mb} MB master catalog ({s} items)'),
+             (r'(repositories\.json\s+# )[\d,]+ repository cards', r'\g<1>' + r + ' repository cards'),
         ],
         'Skill.Sea/package.json': [
             (r'[\d,]+\+ curated skills across \d+ categories from [\d,]+ repositories',

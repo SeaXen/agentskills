@@ -1,7 +1,7 @@
 # 📚 Academic Writing, Research & Literature
 
 > **Category**: `academic-writing-publishing`  
-> **Total Curated Skills**: 255 skills  
+> **Total Curated Skills**: 256 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -114,6 +114,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`goal-setting-okrs`](../../library/refoundai-lenny-skills/skills/goal-setting-okrs) | ⚪ Reserve | `refoundai-lenny-skills` | Help users establish high-impact goals that bridge the gap between abstract company vision and ... |
 | [`google-scholar-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/google-scholar-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Advanced Google Scholar search techniques for comprehensive literature discovery |
 | [`grant-proposal`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/grant-proposal) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Draft a structured grant proposal from research ideas and literature. Supports KAKENHI (Japan),... |
+| [`grokipedia`](../../library/kostja94-marketing-skills/skills/grokipedia) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to add recommendations, links, or content to Grokipedia. Also use when the ... |
 | [`h-index-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/h-index-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Understanding and calculating research impact metrics |
 | [`hps-academic-paper`](../../library/feimacode-open-design-agent-kit/skills/hps-academic-paper) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A review deck on compositional generalization in large language models — the field map, the gap... |
 | [`hugging-face-paper-publisher`](../../library/sickn33-agentic-awesome-skills/skills/hugging-face-paper-publisher) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Publish and manage research papers on Hugging Face Hub. Supports creating paper pages, linking ... |

@@ -1,7 +1,7 @@
 # ⚡ Backend Systems, REST & Microservices
 
 > **Category**: `backend-api-design`  
-> **Total Curated Skills**: 1514 skills  
+> **Total Curated Skills**: 1516 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -107,7 +107,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`anthropic_administrator-automation`](../../library/composio-community-awesome-codex-skills/skills/anthropic_administrator-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Anthropic Admin tasks via Rube MCP (Composio): API keys, usage, workspaces, and organi... |
 | [`anystyle-api`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/anystyle-api) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Citation reference parser using machine learning |
 | [`anywrite`](../../library/sickn33-agentic-awesome-skills/skills/anywrite) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Compiled CLI covering all 52 endpoints of the Anytype local API — objects, properties, tags, se... |
-| [`api`](../../library/snailsploit-claude-red/skills/api) | ⚪ Reserve | `snailsploit-claude-red` |  |
+| [`api`](../../library/kostja94-marketing-skills/skills/api) | ⚪ Reserve | `kostja94-marketing-skills` | Deprecated compatibility entry for API Page construction. This page is now maintained in Pagina... |
 | [`api-analyzer`](../../library/sickn33-agentic-awesome-skills/skills/api-analyzer) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Validates whether an API request is correct based on provided inputs (method, URL, headers, bod... |
 | [`api-and-interface-design`](../../library/addyosmani-agent-skills/skills/api-and-interface-design) | ⚪ Reserve | `addyosmani-agent-skills` | Guides stable API and interface design. Use when designing APIs, module boundaries, or any publ... |
 | [`api-auth-and-jwt-abuse`](../../library/yaklang-hack-skills/skills/api-auth-and-jwt-abuse) | ⚪ Reserve | `yaklang-hack-skills` | API authentication and JWT abuse playbook. Use when testing bearer tokens, API keys, claim trus... |
@@ -288,7 +288,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`bmad-qa-generate-e2e-tests`](../../library/bmad-code-org-bmad-method/skills/bmad-qa-generate-e2e-tests) | ⚪ Reserve | `bmad-code-org-bmad-method` | Add end-to-end and API tests for features that already work, following the project''s existing ... |
 | [`boat`](../../library/davidondrej-skills/skills/boat) | ⚪ Reserve | `davidondrej-skills` | Manage Boat (boat.dev, formerly Box by Ascii) cloud sandboxes via API, CLI, and SSH. Use for pr... |
 | [`bok-ecos-stats`](../../library/nomadamas-k-skill/skills/bok-ecos-stats) | ⚪ Reserve | `nomadamas-k-skill` | 한국은행 ECOS Open API로 기준금리, 환율, 소비자물가지수, 통화량 등 중앙은행 경제통계 시계열과 100대 핵심지표를 조회한다. Use when the user ... |
-| [`brand-monitoring`](../../library/nexscope-ai-ecommerce-skills/skills/brand-monitoring) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Brand monitoring tool for tracking mentions across social media platforms. Monitor Reddit, Goog... |
 | [`brand-protection-amazon`](../../library/nexscope-ai-ecommerce-skills/skills/brand-protection-amazon) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Amazon brand protection toolkit. Detect hijackers, counterfeits, and unauthorized sellers. Incl... |
 | [`brand-protection-ebay`](../../library/nexscope-ai-ecommerce-skills/skills/brand-protection-ebay) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | eBay brand protection toolkit. Detect unauthorized sellers, counterfeits, and VeRO violations. ... |
 | [`brand-protection-shopify`](../../library/nexscope-ai-ecommerce-skills/skills/brand-protection-shopify) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Shopify/DTC brand protection toolkit. Detect counterfeit stores, unauthorized resellers, and tr... |
@@ -833,6 +832,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`implisense-api`](../../library/membranedev-application-skills/skills/implisense-api) | ⚪ Reserve | `membranedev-application-skills` | Implisense API integration. Manage Organizations. Use when the user wants to interact with Impl... |
 | [`inaturalist-api`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/inaturalist-api) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Citizen science platform API for biodiversity observations |
 | [`incident-responder`](../../library/antigravity-awesome-skills/skills/incident-responder) | ⚪ Reserve | `antigravity-awesome-skills` | Expert SRE incident responder specializing in rapid problem |
+| [`indexing`](../../library/kostja94-marketing-skills/skills/indexing) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to fix indexing issues from Search Console, use noindex, or implement Googl... |
+| [`indexnow`](../../library/kostja94-marketing-skills/skills/indexnow) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to implement IndexNow, notify search engines of new/updated URLs, or speed ... |
 | [`industry-key-contact-radar-api-skill`](../../library/browser-act-skills/skills/industry-key-contact-radar-api-skill) | ⚪ Reserve | `browser-act-skills` | This skill helps users discover key contacts across industries, roles, and social platforms via... |
 | [`infrastructure-modal`](../../library/davila7-claude-code-templates/skills/infrastructure-modal) | ⚪ Reserve | `davila7-claude-code-templates` | Serverless GPU cloud platform for running ML workloads. Use when you need on-demand GPU access ... |
 | [`infsh-cli`](../../library/101-skills-superpowers/skills/infsh-cli) | ⚪ Reserve | `101-skills-superpowers` | Run AI apps via inference.sh CLI - image generation, video creation, LLMs, search, 3D, Twitter ... |
@@ -934,6 +935,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`melonjs-tilemaps`](../../library/melonjs-melonjs/skills/melonjs-tilemaps) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for Tiled maps in melonJS — loading TMX/TSX levels, spawning entities from Tiled... |
 | [`meme-trench-scanner`](../../library/okx-plugin-store/skills/meme-trench-scanner) | ⚪ Reserve | `okx-plugin-store` | Meme Trench Scanner v1.0 — Agentic Wallet TEE signing automated trading bot. onchainos CLI driv... |
 | [`mendeley-api`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/mendeley-api) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Manage references and search Mendeley's catalog via REST API |
+| [`meta-ads`](../../library/kostja94-marketing-skills/skills/meta-ads) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to set up, optimize, or manage Meta (Facebook/Instagram) Ads. Also use when... |
 | [`metabolomics-workbench-database`](../../library/davila7-claude-code-templates/skills/metabolomics-workbench-database) | ⚪ Reserve | `davila7-claude-code-templates` | Access NIH Metabolomics Workbench via REST API (4,200+ studies). Query metabolites, RefMet nome... |
 | [`metatextai-inference-api`](../../library/membranedev-application-skills/skills/metatextai-inference-api) | ⚪ Reserve | `membranedev-application-skills` | Metatext.AI Inference API integration. Manage data, records, and automate workflows. Use when t... |
 | [`metengine`](../../library/internet-court-internet-court-skill/skills/metengine) | ⚪ Reserve | `internet-court-internet-court-skill` | Real-time smart money analytics API for Polymarket prediction markets, Hyperliquid perpetual fu... |
@@ -1167,7 +1169,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`reapit`](../../library/membranedev-application-skills/skills/reapit) | ⚪ Reserve | `membranedev-application-skills` | Reapit integration. Manage data, records, and automate workflows. Use when the user wants to in... |
 | [`recon-for-sec`](../../library/yaklang-hack-skills/skills/recon-for-sec) | ⚪ Reserve | `yaklang-hack-skills` | Entry P1 category router for reconnaissance and methodology. Use when mapping scope, drawing an... |
 | [`redcircle-api`](../../library/membranedev-application-skills/skills/redcircle-api) | ⚪ Reserve | `membranedev-application-skills` | RedCircle API integration. Manage Organizations, Users, Activities, Notes, Files. Use when the ... |
-| [`reddit`](../../library/resciencelab-opc-skills/skills/reddit) | ⚪ Reserve | `resciencelab-opc-skills` | Search and retrieve content from Reddit. Get posts, comments, subreddit info, and user profiles... |
 | [`redshift-guide`](../../library/aws-agent-toolkit-for-aws/skills/redshift-guide) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Amazon Redshift is NOT PostgreSQL; corrects LLM mistakes; covers SQL, metadata, connectivity/au... |
 | [`reference-builder`](../../library/antigravity-awesome-skills/skills/reference-builder) | ⚪ Reserve | `antigravity-awesome-skills` | Creates exhaustive technical references and API documentation. |
 | [`release-engineering`](../../library/majiayu000-spellbook/skills/release-engineering) | ⚪ Reserve | `majiayu000-spellbook` | Plan and verify software releases with versioning, changelogs, release branches, feature flags,... |
@@ -1404,6 +1405,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`testing-websocket-api-security`](../../library/mukul975-anthropic-cybersecurity-skills/skills/testing-websocket-api-security) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Tests WebSocket API implementations for missing upgrade-handshake authentication, |
 | [`the-odds-api`](../../library/membranedev-application-skills/skills/the-odds-api) | ⚪ Reserve | `membranedev-application-skills` | The Odds API integration. Manage data, records, and automate workflows. Use when the user wants... |
 | [`the-odds-api-automation`](../../library/composio-community-awesome-codex-skills/skills/the-odds-api-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate The Odds API tasks via Rube MCP (Composio). Always search tools first for current sche... |
+| [`tiktok-ads`](../../library/kostja94-marketing-skills/skills/tiktok-ads) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to set up, optimize, or manage TikTok Ads. Also use when the user mentions ... |
 | [`tilegym-adding-cutile-kernel`](../../library/nvidia-skills/skills/tilegym-adding-cutile-kernel) | ⚪ Reserve | `nvidia-skills` | Add a new cuTile GPU kernel operator to TileGym. Covers dispatch registration in ops.py, cuTile... |
 | [`tilegym-converting-cutile-to-julia`](../../library/nvidia-skills/skills/tilegym-converting-cutile-to-julia) | ⚪ Reserve | `nvidia-skills` | Converts cuTile Python GPU kernels (@ct.kernel) to cuTile.jl Julia equivalents. Handles kernel ... |
 | [`timesfm-forecasting`](../../library/k-dense-ai-scientific-agent-skills/skills/timesfm-forecasting) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Performs zero-shot time-series forecasting with Google's TimesFM, including regular-grid CSV pr... |
