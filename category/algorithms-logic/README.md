@@ -1,7 +1,7 @@
 # 🧮 Algorithms, Logic & Math
 
 > **Category**: `algorithms-logic`  
-> **Total Curated Skills**: 239 skills  
+> **Total Curated Skills**: 241 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -101,6 +101,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`firecrawl-research-index`](../../library/firecrawl-cli/skills/firecrawl-research-index) | ⚪ Reserve | `firecrawl-cli` | Find the papers that answer a research query in Firecrawl's research paper index — a corpus of ... |
 | [`firecrawl-research-papers`](../../library/firecrawl-firecrawl-workflows/skills/firecrawl-research-papers) | ⚪ Reserve | `firecrawl-firecrawl-workflows` | Find and synthesize research papers, whitepapers, PDFs, technical reports, and academic sources... |
 | [`five-questions`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/five-questions) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Deeply analyze any empirical economics PDF using the five-question framework (五问框架): research q... |
+| [`fix-tests`](../../library/neolabhq-context-engineering-kit/skills/fix-tests) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Systematically fix all failing tests after business logic changes or refactoring |
 | [`futures-position-sizer`](../../library/tradermonty-claude-trading-skills/skills/futures-position-sizer) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Calculate contract-based futures position sizes from a direction, entry, and stop-loss, using v... |
 | [`gmgn-wallet-style`](../../library/gmgnai-gmgn-skills/skills/gmgn-wallet-style) | ⚪ Reserve | `gmgnai-gmgn-skills` | Tag any wallet's trading style — one main title from a 20-cell frequency×P&L grid (印钞机, 磨损户, P小... |
 | [`gpt-agreement-payment-replay`](../../library/reason-machines-trending-skills/skills/gpt-agreement-payment-replay) | ⚪ Reserve | `reason-machines-trending-skills` | End-to-end protocol replay toolkit for ChatGPT Plus/Team/Pro subscription with hCaptcha visual ... |
@@ -238,6 +239,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`testing-for-json-web-token-vulnerabilities`](../../library/mukul975-anthropic-cybersecurity-skills/skills/testing-for-json-web-token-vulnerabilities) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Tests JWT implementations for algorithm confusion, "none" algorithm bypass, |
 | [`tex-render-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/tex-render-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Render LaTeX math expressions to images in PNG, JPEG, and SVG |
 | [`third-party-integration`](../../library/aj-geddes-useful-ai-prompts/skills/third-party-integration) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Integrate external APIs and services with error handling, retry logic, and data transformation.... |
+| [`thought-based-reasoning`](../../library/neolabhq-context-engineering-kit/skills/thought-based-reasoning) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Use when tackling complex reasoning tasks requiring step-by-step logic, multi-step arithmetic, ... |
 | [`threejs-fundamentals`](../../library/cloudai-x-threejs-skills/skills/threejs-fundamentals) | ⚪ Reserve | `cloudai-x-threejs-skills` | Three.js scene setup: scenes and fog, cameras, the renderer and tone mapping, the animation loo... |
 | [`twitter-algorithm-optimizer`](../../library/composiohq-awesome-claude-skills/skills/twitter-algorithm-optimizer) | ⚪ Reserve | `composiohq-awesome-claude-skills` | Analyze and optimize tweets for maximum reach using Twitter's open-source algorithm insights. R... |
 | [`typst-paper`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/typst-paper) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Typst academic paper assistant for existing `.typ` paper projects in English or Chinese. Use th... |

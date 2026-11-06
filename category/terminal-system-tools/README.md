@@ -1,7 +1,7 @@
 # 💻 Terminal, Shell & System Automation
 
 > **Category**: `terminal-system-tools`  
-> **Total Curated Skills**: 445 skills  
+> **Total Curated Skills**: 448 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -127,7 +127,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cost-health`](../../library/ruvnet-ruflo/skills/cost-health) | ⚪ Reserve | `ruvnet-ruflo` | Composite CI gate — runs cost-budget-check + cost-burn + cost-anomaly + cost-projection in para... |
 | [`cowork-to-code-bridge`](../../library/sickn33-agentic-awesome-skills/skills/cowork-to-code-bridge) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use an already-installed, independently verified cowork-to-code bridge to run narrowly approved... |
 | [`cqrs-implementation`](../../library/antigravity-awesome-skills/skills/cqrs-implementation) | ⚪ Reserve | `antigravity-awesome-skills` | Implement Command Query Responsibility Segregation for scalable architectures. Use when separat... |
+| [`create-command`](../../library/neolabhq-context-engineering-kit/skills/create-command) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Interactive assistant for creating new Claude commands with proper structure, patterns, and MCP... |
 | [`create-datadriven-aspnetcore`](../../library/dotnet-skills/skills/create-datadriven-aspnetcore) | ⚪ Reserve | `dotnet-skills` | Generate or scaffold ASP.NET Core code — Razor Pages, Blazor components, MVC controllers, views... |
+| [`create-workflow-command`](../../library/neolabhq-context-engineering-kit/skills/create-workflow-command) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Create a workflow command that orchestrates multi-step execution through sub-agents with file-b... |
 | [`cross-platform-builds`](../../library/martinholovsky-claude-skills-generator/skills/cross-platform-builds) | ⚪ Reserve | `martinholovsky-claude-skills-generator` | Expert in building desktop applications for Windows, macOS, and Linux with focus on platform-sp... |
 | [`cross-platform-compatibility`](../../library/aj-geddes-useful-ai-prompts/skills/cross-platform-compatibility) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Handle cross-platform compatibility including file paths, environment detection, platform-speci... |
 | [`csharp-scripts`](../../library/dotnet-skills/skills/csharp-scripts) | ⚪ Reserve | `dotnet-skills` | Run file-based C# apps with the .NET CLI when the user explicitly wants C#/.NET code without cr... |
@@ -320,6 +322,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`network-interface-health`](../../library/affaan-m-ecc/skills/network-interface-health) | ⚪ Reserve | `affaan-m-ecc` | Diagnose interface errors, drops, CRCs, duplex mismatches, flapping, speed negotiation issues, ... |
 | [`network-troubleshooting`](../../library/mindrally-skills/skills/network-troubleshooting) | ⚪ Reserve | `mindrally-skills` | Systematic, safety-first diagnosis of developer network failures such as connection refused, DN... |
 | [`nv-reason-cxr`](../../library/nvidia-skills/skills/nv-reason-cxr) | ⚪ Reserve | `nvidia-skills` | Used for command-shape or live NV-Reason-CXR chest X-ray reasoning smoke tests. Not for diagnos... |
+| [`nx-workspace`](../../library/nrwl-nx-ai-agents-config/skills/nx-workspace) | ⚪ Reserve | `nrwl-nx-ai-agents-config` | Explore and understand Nx workspaces. USE WHEN answering questions about the workspace, project... |
 | [`obsidian-cli`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/obsidian-cli) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Interact with Obsidian vaults using the Obsidian CLI to read, create, search, and manage notes,... |
 | [`onboard`](../../library/alirezarezvani-claude-skills/skills/onboard) | ⚪ Reserve | `alirezarezvani-claude-skills` | /cs-onboard — Founder interview that populates ~/.claude/company-context.md using the canonical... |
 | [`openai-playwright`](../../library/trailofbits-skills-curated/skills/openai-playwright) | ⚪ Reserve | `trailofbits-skills-curated` | Use when the task requires automating a real browser from the terminal (navigation, form |

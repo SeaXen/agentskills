@@ -1,7 +1,7 @@
 # 🤖 Multi-Agent Systems & Swarms
 
 > **Category**: `multi-agent-orchestration`  
-> **Total Curated Skills**: 35 skills  
+> **Total Curated Skills**: 36 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -19,6 +19,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 
 | Skill Name | Status | Origin Repository | Description |
 | :--- | :---: | :--- | :--- |
+| [`.temp_upstream_clones-rebelytics-one-skill-to-rule-them-all`](../../library/rebelytics-one-skill-to-rule-them-all/skills/.temp_upstream_clones-rebelytics-one-skill-to-rule-them-all) | ⚪ Reserve | `rebelytics-one-skill-to-rule-them-all` | Monitors task execution for skill improvement opportunities: logs patterns, user corrections an... |
 | [`agent-development`](../../library/anthropics-claude-plugins-official/skills/agent-development) | ⚪ Reserve | `anthropics-claude-plugins-official` | This skill should be used when the user asks to "create an agent", "add an agent", "write a sub... |
 | [`agentcore`](../../library/vercel-labs-agent-browser/skills/agentcore) | ⚪ Reserve | `vercel-labs-agent-browser` | Run agent-browser on AWS Bedrock AgentCore cloud browsers. Use when the user wants to use Agent... |
 | [`brand-extract`](../../library/feimacode-open-design-agent-kit/skills/brand-extract) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Extract a complete Brand Kit from a live website by driving the in-app browser. Use when a bran... |

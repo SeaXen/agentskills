@@ -1,7 +1,7 @@
 # 🏛️ Architecture, System Design & Patterns
 
 > **Category**: `architecture-system-design`  
-> **Total Curated Skills**: 680 skills  
+> **Total Curated Skills**: 681 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -488,6 +488,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`performing-threat-hunting-with-yara-rules`](../../library/mukul975-anthropic-cybersecurity-skills/skills/performing-threat-hunting-with-yara-rules) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Use YARA pattern-matching rules to hunt for malware, suspicious files, |
 | [`performing-threat-modeling-with-owasp-threat-dragon`](../../library/mukul975-anthropic-cybersecurity-skills/skills/performing-threat-modeling-with-owasp-threat-dragon) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Uses OWASP Threat Dragon (web or desktop) to build data flow diagrams, identify threats with ST... |
 | [`pixijs-scene-text`](../../library/pixijs-pixijs-skills/skills/pixijs-scene-text) | ⚪ Reserve | `pixijs-pixijs-skills` | Use this skill when rendering text in PixiJS v8. Covers Text for canvas-quality styled labels, ... |
+| [`plan-task`](../../library/neolabhq-context-engineering-kit/skills/plan-task) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Refine a draft task specification into a fully planned, implementation-ready task with acceptan... |
 | [`plan-zoom-integration`](../../library/anthropics-knowledge-work/skills/plan-zoom-integration) | ⚪ Reserve | `anthropics-knowledge-work` | Turn a Zoom integration idea into an implementation plan with architecture, auth, and delivery ... |
 | [`plantuml-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/plantuml-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Create UML diagrams and architecture visualizations with PlantUML |
 | [`platform-architecture-analyze`](../../library/forcedotcom-sf-skills/skills/platform-architecture-analyze) | ⚪ Reserve | `forcedotcom-sf-skills` | Use when the developer asks to \"review the architecture\", \"run a Well-Architected check\", \... |

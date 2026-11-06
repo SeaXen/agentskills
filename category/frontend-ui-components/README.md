@@ -1,7 +1,7 @@
 # 🎨 Frontend Components & Design Systems
 
 > **Category**: `frontend-ui-components`  
-> **Total Curated Skills**: 1897 skills  
+> **Total Curated Skills**: 1902 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -141,6 +141,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`appinsights-instrumentation`](../../library/microsoft-azure-skills/skills/appinsights-instrumentation) | ⚪ Reserve | `microsoft-azure-skills` | Guidance for instrumenting webapps with Azure Application Insights. Provides telemetry patterns... |
 | [`applicant-screening`](../../library/claude-office-skills-skills/skills/applicant-screening) | ⚪ Reserve | `claude-office-skills-skills` | Screen job applications against requirements and score candidates |
 | [`apply-aesthetic`](../../library/plugin87-ux-ui-agent-skills/skills/apply-aesthetic) | ⚪ Reserve | `plugin87-ux-ui-agent-skills` | Apply a visual direction, an archetype (high-end agency, editorial minimal, brutalist, soft-Saa... |
+| [`apply-anthropic-skill-best-practices`](../../library/neolabhq-context-engineering-kit/skills/apply-anthropic-skill-best-practices) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Comprehensive guide for skill development based on Anthropic's official best practices - use fo... |
 | [`artifacts-builder`](../../library/composiohq-awesome-claude-skills/skills/artifacts-builder) | ⚪ Reserve | `composiohq-awesome-claude-skills` | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern fr... |
 | [`asc-notarization`](../../library/rorkai-app-store-connect-cli-skills/skills/asc-notarization) | ⚪ Reserve | `rorkai-app-store-connect-cli-skills` | Archive, export, and notarize macOS apps using xcodebuild and asc. Use when you need to prepare... |
 | [`asc-release-flow`](../../library/rorkai-app-store-connect-cli-skills/skills/asc-release-flow) | ⚪ Reserve | `rorkai-app-store-connect-cli-skills` | Orchestrate App Store releases with asc, including staging a version, uploading or building an ... |
@@ -398,6 +399,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`craft-social-creative-builder`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/craft-social-creative-builder) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "turn this idea into posts for every platform", "write the X thread /... |
 | [`crafting-effective-readmes`](../../library/davila7-claude-code-templates/skills/crafting-effective-readmes) | ⚪ Reserve | `davila7-claude-code-templates` | Use when writing or improving README files. Not all READMEs are the same — provides templates a... |
 | [`create-adaptable-composable`](../../library/vuejs-ai-skills/skills/create-adaptable-composable) | ⚪ Reserve | `vuejs-ai-skills` | Create a library-grade Vue composable that accepts maybe-reactive inputs (MaybeRef / MaybeRefOr... |
+| [`create-agent`](../../library/neolabhq-context-engineering-kit/skills/create-agent) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Comprehensive guide for creating Claude Code agents with proper structure, triggering condition... |
 | [`create-blazor-project`](../../library/dotnet-skills/skills/create-blazor-project) | ⚪ Reserve | `dotnet-skills` | Create a new ASP.NET Core web application or web site using Blazor. USE FOR: creating a new Bla... |
 | [`create-cowork-plugin`](../../library/anthropics-knowledge-work/skills/create-cowork-plugin) | ⚪ Reserve | `anthropics-knowledge-work` | Guide users through creating a new plugin from scratch in a cowork session. Use when users want... |
 | [`create-dashboard`](../../library/amplitude-mcp-marketplace/skills/create-dashboard) | ⚪ Reserve | `amplitude-mcp-marketplace` | Builds comprehensive Amplitude dashboards from requirements or goals, organizing charts into lo... |
@@ -1520,7 +1522,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`session-report`](../../library/anthropics-claude-plugins-official/skills/session-report) | ⚪ Reserve | `anthropics-claude-plugins-official` | Generate an explorable HTML report of Claude Code session usage (tokens, cache, subagents, skil... |
 | [`session-search`](../../library/ar9av-obsidian-wiki/skills/session-search) | ⚪ Reserve | `ar9av-obsidian-wiki` | Search the session-brain graph for a past agent session by topic and load the winning transcrip... |
 | [`setup-cairo-contracts`](../../library/openzeppelin-openzeppelin-skills/skills/setup-cairo-contracts) | ⚪ Reserve | `openzeppelin-openzeppelin-skills` | Set up a Cairo smart contract project with OpenZeppelin Contracts for Cairo on Starknet. Use wh... |
+| [`setup-codemap-cli`](../../library/neolabhq-context-engineering-kit/skills/setup-codemap-cli) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Guide for setup Codemap CLI for intelligent codebase visualization and navigation |
+| [`setup-context7-mcp`](../../library/neolabhq-context-engineering-kit/skills/setup-context7-mcp) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Guide for setup Context7 MCP server to load documentation for specific technologies. |
 | [`setup-help`](../../library/davidondrej-skills/skills/setup-help) | ⚪ Reserve | `davidondrej-skills` | Guide setup one step at a time and show what remains. Use only when the user explicitly asks fo... |
+| [`setup-serena-mcp`](../../library/neolabhq-context-engineering-kit/skills/setup-serena-mcp) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Guide for setup Serena MCP server for semantic code retrieval and editing capabilities |
 | [`shadcn`](../../skills/shadcn) | 🟢 Active | `active` | Manages shadcn/ui components and projects, providing context, documentation, and usage patterns... |
 | [`shadcn-svelte`](../../library/vercel-labs-json-render/skills/shadcn-svelte) | ⚪ Reserve | `vercel-labs-json-render` | Pre-built shadcn-svelte components for json-render Svelte apps. Use when working with @json-ren... |
 | [`shadcn-ui`](../../library/feimacode-open-design-agent-kit/skills/shadcn-ui) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Build UI components with shadcn/ui. Pairs with the Stitch design loop to ship structured, acces... |

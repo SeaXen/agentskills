@@ -120,6 +120,14 @@
     "path": "category/git-version-control/ai-release-hunter"
   },
   {
+    "id": "analyze-issue",
+    "name": "analyze-issue",
+    "category": "git-version-control",
+    "repository": "neolabhq-context-engineering-kit",
+    "description": "Analyze a GitHub issue and create a detailed technical specification",
+    "path": "category/git-version-control/analyze-issue"
+  },
+  {
     "id": "analyzing-release-readiness",
     "name": "analyzing-release-readiness",
     "category": "git-version-control",
@@ -222,6 +230,14 @@
     "repository": "aaron-he-zhu-aaron-marketing-skills",
     "description": "Use when the user asks to \"build battle cards\", \"prep the sales team for launch\", or \"write the internal launch FAQ\"; produces the internal enablement kit for a sales-led launch \u2014 battle cards vs each named alternative (where we win / where they win / trap questions, every fact traceable), a sales talk track derived from the PR-FAQ spine, an objection-handling table (objection \u2192 response \u2192 evidence), internal FAQ + CS macros, and an internal launch announcement with embargo discipline. Not for the external message house \u2014 use message-house-builder; not for competitor tracking itself \u2014 use competitor-tracker or competitor-analysis; not for outbound sequences \u2014 use cold-outbound-sequencer. \u9500\u552e\u8d4b\u80fd/battle card/\u9500\u552e\u53d9\u4e8b/\u5f02\u8bae\u5904\u7406/\u5185\u90e8FAQ",
     "path": "category/git-version-control/assemble-sales-enablement-kit"
+  },
+  {
+    "id": "attach-review-to-pr",
+    "name": "attach-review-to-pr",
+    "category": "git-version-control",
+    "repository": "neolabhq-context-engineering-kit",
+    "description": "Add line-specific review comments to pull requests using GitHub CLI API",
+    "path": "category/git-version-control/attach-review-to-pr"
   },
   {
     "id": "attribution-setup",
@@ -1512,6 +1528,14 @@
     "path": "category/git-version-control/git-worktree-manager"
   },
   {
+    "id": "git-worktrees",
+    "name": "git-worktrees",
+    "category": "git-version-control",
+    "repository": "neolabhq-context-engineering-kit",
+    "description": "Use when working on multiple branches simultaneously, context switching without stashing, reviewing PRs while developing, testing in isolation, or comparing implementations across branches - provides git worktree commands and workflow patterns for parallel development with multiple working directories.",
+    "path": "category/git-version-control/git-worktrees"
+  },
+  {
     "id": "gitbackup-github-desktop",
     "name": "gitbackup-github-desktop",
     "category": "git-version-control",
@@ -2240,6 +2264,22 @@
     "path": "category/git-version-control/llm-to-bedrock"
   },
   {
+    "id": "load-issues",
+    "name": "load-issues",
+    "category": "git-version-control",
+    "repository": "neolabhq-context-engineering-kit",
+    "description": "Load all open issues from GitHub and save them as markdown files",
+    "path": "category/git-version-control/load-issues"
+  },
+  {
+    "id": "load-pr-comments",
+    "name": "load-pr-comments",
+    "category": "git-version-control",
+    "repository": "neolabhq-context-engineering-kit",
+    "description": "Use to load open/unresolved PR review comments then aggregate them as tasks in .specs/comments/*.md for parallel agents to fix.",
+    "path": "category/git-version-control/load-pr-comments"
+  },
+  {
     "id": "local-seo",
     "name": "local-seo",
     "category": "git-version-control",
@@ -2382,6 +2422,14 @@
     "repository": "garrytan-gstack",
     "description": "Bring an aging pull request onto its current base and decide whether it should still exist: MODERNIZE, REWORK or CLOSE, with range-diff proof before any push. (gstack)",
     "path": "category/git-version-control/modernize"
+  },
+  {
+    "id": "monitor-ci",
+    "name": "monitor-ci",
+    "category": "git-version-control",
+    "repository": "nrwl-nx-ai-agents-config",
+    "description": "Monitor Nx Cloud CI pipeline and handle self-healing fixes. USE WHEN user says \"monitor ci\", \"watch ci\", \"ci monitor\", \"watch ci for this branch\", \"track ci\", \"check ci status\", wants to track CI status, or needs help with self-healing CI fixes. Prefer this skill over native CI provider tools (gh, glab, etc.) for CI monitoring \u2014 it integrates with Nx Cloud self-healing which those tools cannot access.",
+    "path": "category/git-version-control/monitor-ci"
   },
   {
     "id": "multi-account-scraping",
@@ -3264,6 +3312,14 @@
     "path": "category/git-version-control/resolve-agent-reviews"
   },
   {
+    "id": "resolve-fixed-pr-comments",
+    "name": "resolve-fixed-pr-comments",
+    "category": "git-version-control",
+    "repository": "neolabhq-context-engineering-kit",
+    "description": "Verify what PR review comments have been addressed (committed/pushed OR uncommitted local changes) and resolve the threads that are genuinely fixed or no longer relevant.",
+    "path": "category/git-version-control/resolve-fixed-pr-comments"
+  },
+  {
     "id": "respond-to-pr-comments-in-blocklist",
     "name": "respond-to-pr-comments-in-blocklist",
     "category": "git-version-control",
@@ -3315,8 +3371,8 @@
     "id": "review-pr",
     "name": "review-pr",
     "category": "git-version-control",
-    "repository": "trailofbits-skills",
-    "description": "Reviews the current branch's changes against its base branch as a pull request: correctness of new and modified code, test coverage for it, and documentation accuracy. Use when asked to review a branch, a diff, or a pull request.",
+    "repository": "neolabhq-context-engineering-kit",
+    "description": "Review an existing GitHub pull request and post inline review comments on its diff. Use when the changes are on an opened PR rather than your local working tree.",
     "path": "category/git-version-control/review-pr"
   },
   {
@@ -3654,6 +3710,14 @@
     "repository": "metalbear-co-mirrord",
     "description": "Help users create and manage mirrord preview environments \u2014 running a modified service as an isolated pod in a shared Kubernetes cluster, scoped by an environment key and HTTP/queue traffic filtering, so teams can validate and review changes against real traffic without affecting live services. Use when a developer wants to run \"mirrord preview\" ad hoc, share a preview via a link (mirrord-share-ingress), or wire preview environments into CI with the metalbear-co/mirrord-preview GitHub Action (e.g. per-PR previews, least-privilege cluster access).",
     "path": "category/git-version-control/skills-mirrord-prev-env"
+  },
+  {
+    "id": "skills-neon-ai-gateway",
+    "name": "skills-neon-ai-gateway",
+    "category": "git-version-control",
+    "repository": "neondatabase-agent-skills",
+    "description": "One API and one credential for frontier and open-source LLMs and embedding models, built into your Neon branch and powered by Databricks. Use when a user wants to call an LLM, generate embeddings, add AI/chat/an agent to their app, route between model providers (OpenAI, Anthropic, Google/Gemini, Meta, Alibaba, and more), or avoid juggling separate provider API keys and accounts \u2014 especially when they already use Neon and want AI requests to branch with their project. Works with the OpenAI SDK, Anthropic SDK, google-genai, the Vercel AI SDK, and Mastra by changing only the base URL. Triggers include \"call an LLM\", \"add AI to my app\", \"chat completion\", \"model routing\", \"LLM proxy/gateway\", \"one API for all models\", \"use Claude/GPT/Gemini\", \"AI SDK\", \"Mastra agent\", \"Neon AI Gateway\", \"generate embeddings\", \"generate images\", and \"log/rate-limit AI calls\".",
+    "path": "category/git-version-control/skills-neon-ai-gateway"
   },
   {
     "id": "skills-new-branch-and-pr",
@@ -4358,6 +4422,14 @@
     "repository": "canner-wrenai",
     "description": "Wren CLI for AI agents \u2014 a semantic SQL layer over 22+ databases (Postgres, MySQL, BigQuery, Snowflake, Spark, \u2026). The actual workflow guides live inside the `wren` CLI itself; this is just a discovery stub. Use whenever the user asks a data question (how many, show me, top N, compare, trend, breakdown, metric, revenue, customers, orders), wants to install / set up Wren Engine, connect a new database, connect SaaS data via dlt (HubSpot, Stripe, Salesforce, GitHub, Slack), generate or regenerate an MDL project from a database schema, enrich a project with business context (enum meanings, units, cubes like ARR / DAU / churn), or turn a project's context layer into a shareable GenBI web app / dashboard and deploy it to Vercel or Cloudflare. Triggers: 'install wren', 'set up wren engine', 'connect database to wren', 'connect SaaS to wren', 'load hubspot / stripe / salesforce data', 'generate mdl', 'scaffold wren project', 'enrich wren context', 'augment my project', 'add cubes', 'build a dashboard', 'make a shareable analytics app', 'deploy my context layer as a web app', 'genbi app', 'wren onboarding', 'wren usage', 'wren generate mdl', 'wren dlt connector', 'wren enrich context', 'wren genbi'.",
     "path": "category/git-version-control/wren"
+  },
+  {
+    "id": "write-tests",
+    "name": "write-tests",
+    "category": "git-version-control",
+    "repository": "neolabhq-context-engineering-kit",
+    "description": "Add missing test coverage for your local code changes by generating new test files (covers uncommitted and untracked changes, or the latest commit if everything is committed). Use when you want write tests for new logic or increase test coverage.",
+    "path": "category/git-version-control/write-tests"
   },
   {
     "id": "writing-clearly-and-concisely",

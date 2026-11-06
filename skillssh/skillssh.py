@@ -178,12 +178,24 @@ def fetch_skills_sh_dataset(refresh=False):
             with urllib.request.urlopen(req, timeout=12) as resp:
                 html = resp.read().decode('utf-8', errors='ignore')
                 installs_str = None
-                inst_m = re.search(r'([0-9]+(?:\.[0-9]+)?[KMkm])\s*(?:installs|active installs)', html, re.IGNORECASE)
+                # PRIMARY: repo-specific badge, e.g. "31.9M<!-- --> total installs".
+                # Anchored to the words "total installs" (unique to the repo badge) so site
+                # chrome / JSON blobs can never match; HTML comments between the number
+                # and the words are allowed.
+                inst_m = re.search(r'([0-9]+(?:\.[0-9]+)?[KMkm])(?:\s*<!--.*?-->)*\s*total\s+installs', html, re.IGNORECASE)
                 if not inst_m:
-                    inst_m = re.search(r'([0-9]+(?:\.[0-9]+)?(?:[KMkm]))', html)
-                if inst_m:
+                    # FALLBACK: sum the per-skill leaderboard rows on the repo page
+                    # (h3 skill name ... <span>1.5M</span>). Repo-specific by construction.
+                    row_vals = re.findall(
+                        r'<h3[^>]*>[^<]+</h3></div><div[^>]*>(?:<[^>]+>)*([0-9]+(?:\.[0-9]+)?[KMkm])<',
+                        html, re.IGNORECASE)
+                    if row_vals:
+                        total = sum(parse_install_str(v.upper()) for v in row_vals)
+                        if total > 0:
+                            installs_str = format_installs(total)
+                else:
                     installs_str = inst_m.group(1).upper()
-                    
+
                 installs_val = parse_install_str(installs_str)
                 skills_count = 1
                 sk_m = re.search(r'([0-9]+)\s+agent skills from', html, re.IGNORECASE)

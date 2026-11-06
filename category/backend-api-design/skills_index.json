@@ -7832,6 +7832,30 @@
     "path": "category/backend-api-design/nvshmem-docs"
   },
   {
+    "id": "nx-cloud-api",
+    "name": "nx-cloud-api",
+    "category": "backend-api-design",
+    "repository": "nrwl-nx-ai-agents-config",
+    "description": "Query the read-only Nx Cloud Public API for workspace data with `npx nx-cloud api`. Use this skill when a user asks to inspect or retrieve CIPEs, pipelines, run groups, runs, tasks, workflows, agents, task statistics, flaky tasks, cache data, or API endpoint details. Use this skill before any Nx Cloud API call. It covers endpoint discovery, link navigation, pagination, asset downloads, and error recovery. Do not use it for live CI monitoring.",
+    "path": "category/backend-api-design/nx-cloud-api"
+  },
+  {
+    "id": "nx-cloud-cache-investigator",
+    "name": "nx-cloud-cache-investigator",
+    "category": "backend-api-design",
+    "repository": "nrwl-nx-ai-agents-config",
+    "description": "Investigate a specific Nx cache miss, artifact download or extraction failure, same-hash non-replay, or suspected unsafe cache replay. Use this skill whenever a user asks why an Nx task did not use the cache, why cache artifact restoration failed, why a cache hit restored stale or wrong output, or to compare two cached task executions. Use the nx-cloud-api skill for every Nx Cloud read. This skill supports API-only investigations, preserves strict hash-evidence limits, and requests local configuration only when the question requires it.",
+    "path": "category/backend-api-design/nx-cloud-cache-investigator"
+  },
+  {
+    "id": "nx-cloud-ci-failure-review",
+    "name": "nx-cloud-ci-failure-review",
+    "category": "backend-api-design",
+    "repository": "nrwl-nx-ai-agents-config",
+    "description": "Review failed Nx Cloud CI pipeline executions and group recurring, evidence-based failure patterns. Use this skill whenever a user asks about failed CI pipelines, recurring task failures, failed CIPEs, a CI failure review, or a last-24-hours CI report. Use the nx-cloud-api skill for every Nx Cloud read. This read-only skill separates task, workflow, agent, timeout, cancellation, and unknown cases. It suggests diagnostic next steps without changing systems.",
+    "path": "category/backend-api-design/nx-cloud-ci-failure-review"
+  },
+  {
     "id": "oauth2-provider-design",
     "name": "oauth2-provider-design",
     "category": "backend-api-design",
@@ -10968,6 +10992,14 @@
     "path": "category/backend-api-design/terraform-provider-offering"
   },
   {
+    "id": "test-coverage",
+    "name": "test-coverage",
+    "category": "backend-api-design",
+    "repository": "neolabhq-context-engineering-kit",
+    "description": "Use after writing tests to assess coverage quality across structural, mutation, requirements, and API/integration dimensions; organized knowledge for choosing and interpreting coverage analyses.",
+    "path": "category/backend-api-design/test-coverage"
+  },
+  {
     "id": "testability-obstacle",
     "name": "testability-obstacle",
     "category": "backend-api-design",
@@ -11254,6 +11286,14 @@
     "repository": "starchild-ai-agent-official-skills",
     "description": "Use upbit CLI for Upbit REST API \u2014 spot orders, market data, withdrawals, deposits, travel rule, account management. \uc5c5\ube44\ud2b8 CLI\ub85c \uc2dc\uc138 \uc870\ud68c, \uc8fc\ubb38, \uc794\uace0 \ud655\uc778, \uc785\ucd9c\uae08\uc744 \ucc98\ub9ac\ud569\ub2c8\ub2e4.",
     "path": "category/backend-api-design/upbit"
+  },
+  {
+    "id": "update-docs",
+    "name": "update-docs",
+    "category": "backend-api-design",
+    "repository": "neolabhq-context-engineering-kit",
+    "description": "Update and maintain project documentation for local code changes using multi-agent workflow with tech-writer agents. Covers docs/, READMEs, JSDoc, and API documentation.",
+    "path": "category/backend-api-design/update-docs"
   },
   {
     "id": "update-swiftui-apis",

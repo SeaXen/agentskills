@@ -1,7 +1,7 @@
 # 🐙 Git, Worktrees & PR Workflows
 
 > **Category**: `git-version-control`  
-> **Total Curated Skills**: 549 skills  
+> **Total Curated Skills**: 558 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -34,6 +34,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`agents`](../../library/elevenlabs-skills/skills/agents) | ⚪ Reserve | `elevenlabs-skills` | Build voice AI agents with ElevenLabs. Use when creating voice assistants, customer service bot... |
 | [`ai-listening`](../../library/zhuyansen-new-term-radar/skills/ai-listening) | ⚪ Reserve | `zhuyansen-new-term-radar` | Collect what is new in AI in the last 24 hours across X, Hugging Face, GitHub and sitemaps, ded... |
 | [`ai-release-hunter`](../../library/davila7-claude-code-templates/skills/ai-release-hunter) | ⚪ Reserve | `davila7-claude-code-templates` | Daily digest of AI releases from Anthropic, Meta, Vercel Labs, OpenAI and Google GitHub repos, ... |
+| [`analyze-issue`](../../library/neolabhq-context-engineering-kit/skills/analyze-issue) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Analyze a GitHub issue and create a detailed technical specification |
 | [`analyzing-release-readiness`](../../library/aws-agent-toolkit-for-aws/skills/analyzing-release-readiness) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Trigger a pre-merge release readiness review on a GitHub PR, GitLab MR, or local branch. Use wh... |
 | [`android-cicd`](../../library/davila7-claude-code-templates/skills/android-cicd) | ⚪ Reserve | `davila7-claude-code-templates` | Automated Android CI/CD pipeline to Google Play — supports TWA, React Native, Flutter, and nati... |
 | [`animated-github-profile`](../../library/sickn33-agentic-awesome-skills/skills/animated-github-profile) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Build high-impact, animated GitHub profile READMEs that play like mini-movies using pure SVG, C... |
@@ -47,6 +48,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`aspire-orchestration`](../../library/microsoft-aspire-skills/skills/aspire-orchestration) | ⚪ Reserve | `microsoft-aspire-skills` | **WORKFLOW SKILL** — Manage Aspire lifecycle in VS Code or the CLI. WHEN: "start or stop my Asp... |
 | [`assemble-message-house-builder`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/assemble-message-house-builder) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "build a message house", "write a PR-FAQ for our launch", or "define ... |
 | [`assemble-sales-enablement-kit`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/assemble-sales-enablement-kit) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "build battle cards", "prep the sales team for launch", or "write the... |
+| [`attach-review-to-pr`](../../library/neolabhq-context-engineering-kit/skills/attach-review-to-pr) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Add line-specific review comments to pull requests using GitHub CLI API |
 | [`attribution-setup`](../../library/appeeky-aso-skills/skills/attribution-setup) | ⚪ Reserve | `appeeky-aso-skills` | When the user wants to set up, debug, or interpret app install attribution — including SKAdNetw... |
 | [`authoring-github-workflows`](../../library/dotnet-skills/skills/authoring-github-workflows) | ⚪ Reserve | `dotnet-skills` | Author and review GitHub Actions workflow YAML safely so syntactically-valid YAML can't ship a ... |
 | [`autoresearch-agent`](../../library/alirezarezvani-claude-skills/skills/autoresearch-agent) | ⚪ Reserve | `alirezarezvani-claude-skills` | Autonomous experiment loop that optimizes any file by a measurable metric. Inspired by Karpathy... |
@@ -208,6 +210,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`git-workflow-strategy`](../../library/aj-geddes-useful-ai-prompts/skills/git-workflow-strategy) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Master Git workflows including GitFlow, GitHub Flow, Trunk-Based Development. Configure branche... |
 | [`git-worktree`](../../library/davidondrej-skills/skills/git-worktree) | ⚪ Reserve | `davidondrej-skills` | Use Git worktrees to isolate parallel coding tasks. Use when setting up a task checkout, workin... |
 | [`git-worktree-manager`](../../library/alirezarezvani-claude-skills/skills/git-worktree-manager) | ⚪ Reserve | `alirezarezvani-claude-skills` | Run parallel feature work safely with Git worktrees. Standardizes branch isolation, port alloca... |
+| [`git-worktrees`](../../library/neolabhq-context-engineering-kit/skills/git-worktrees) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Use when working on multiple branches simultaneously, context switching without stashing, revie... |
 | [`gitbackup-github-desktop`](../../library/reason-machines-trending-skills/skills/gitbackup-github-desktop) | ⚪ Reserve | `reason-machines-trending-skills` | Desktop application to back up all GitHub repositories locally and optionally to AWS S3 or Clou... |
 | [`github`](../../library/dimillian-skills/skills/github) | ⚪ Reserve | `dimillian-skills` | Interact with GitHub using the `gh` CLI. Use `gh issue`, `gh pr`, `gh run`, and `gh api` for is... |
 | [`github-action-offering`](../../library/samber-developer-platform-skills/skills/github-action-offering) | ⚪ Reserve | `samber-developer-platform-skills` | Ships a vendor's official GitHub Action customers run in CI to call its product - setup vs task... |
@@ -299,6 +302,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`leaving-pr-comments`](../../library/t3dotgg-tstack/skills/leaving-pr-comments) | ⚪ Reserve | `t3dotgg-tstack` | Use whenever leaving comments on GitHub. |
 | [`ljg-push`](../../library/lijigang-ljg-skills/skills/ljg-push) | ⚪ Reserve | `lijigang-ljg-skills` | 把 ~/.agents/skills/ljg-* 里所有更新过的 skills 同步到 github repo (ljg-skills)，先推 master 分支（org-mode 输出风格... |
 | [`llm-to-bedrock`](../../library/aws-agent-toolkit-for-aws/skills/llm-to-bedrock) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Use when the user wants to migrate code that calls OpenAI, Gemini/Google AI, or the Anthropic A... |
+| [`load-issues`](../../library/neolabhq-context-engineering-kit/skills/load-issues) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Load all open issues from GitHub and save them as markdown files |
+| [`load-pr-comments`](../../library/neolabhq-context-engineering-kit/skills/load-pr-comments) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Use to load open/unresolved PR review comments then aggregate them as tasks in .specs/comments/... |
 | [`local-seo`](../../library/nowork-studio-notfair-plugin/skills/local-seo) | ⚪ Reserve | `nowork-studio-notfair-plugin` | Local SEO and Google Business Profile audit: diagnose why a business isn't ranking in the local... |
 | [`loop-on-ci`](../../library/cursor-plugins/skills/loop-on-ci) | ⚪ Reserve | `cursor-plugins` | Monitor PR checks and fix failures until green. Uses gh pr checks as the source of truth for PR... |
 | [`make-git-escrow`](../../library/internet-court-internet-court-skill/skills/make-git-escrow) | ⚪ Reserve | `internet-court-internet-court-skill` | Create a new git escrow bounty for a test suite. Use when the user wants to submit a challenge ... |
@@ -317,6 +322,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`migrate-to-msk`](../../library/aws-agent-toolkit-for-aws/skills/migrate-to-msk) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Helps migrate self-managed Apache Kafka workloads to Amazon MSK Express. Inventories the source... |
 | [`mirrord-prev-env`](../../library/metalbear-co-mirrord/skills/mirrord-prev-env) | ⚪ Reserve | `metalbear-co-mirrord` | Help users create and manage mirrord preview environments — running a modified service as an is... |
 | [`modernize`](../../library/garrytan-gstack/skills/modernize) | ⚪ Reserve | `garrytan-gstack` | Bring an aging pull request onto its current base and decide whether it should still exist: MOD... |
+| [`monitor-ci`](../../library/nrwl-nx-ai-agents-config/skills/monitor-ci) | ⚪ Reserve | `nrwl-nx-ai-agents-config` | Monitor Nx Cloud CI pipeline and handle self-healing fixes. USE WHEN user says "monitor ci", "w... |
 | [`multi-account-scraping`](../../library/antibrow-anti-detect-browser-skills/skills/multi-account-scraping) | ⚪ Reserve | `antibrow-anti-detect-browser-skills` | Run the same scrape or task across many accounts at once - each in its own browser profile with... |
 | [`nagent`](../../library/davidondrej-skills/skills/nagent) | ⚪ Reserve | `davidondrej-skills` | Launch a new bb worker thread with the right project, model, worktree, and task brief. Use for ... |
 | [`neon`](../../skills/neon) | 🟢 Active | `active` | Overview of Neon, a complete set of cloud backend primitives around Lakebase Postgres: Auth, Ob... |
@@ -427,13 +433,14 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`reproduce-and-fix-issues`](../../library/backnotprop-pstack/skills/reproduce-and-fix-issues) | ⚪ Reserve | `backnotprop-pstack` | Reproduce triaged Slack bugs through a configured app-control adapter, verify existing fixes, a... |
 | [`requesthunt`](../../library/resciencelab-opc-skills/skills/requesthunt) | ⚪ Reserve | `resciencelab-opc-skills` | Generate user demand research reports from real user feedback. Scrape and analyze feature reque... |
 | [`resolve-agent-reviews`](../../library/pbakaus-agent-reviews/skills/resolve-agent-reviews) | ⚪ Reserve | `pbakaus-agent-reviews` | Resolve PR review bot findings on current PR. Fetches unanswered bot comments, evaluates each f... |
+| [`resolve-fixed-pr-comments`](../../library/neolabhq-context-engineering-kit/skills/resolve-fixed-pr-comments) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Verify what PR review comments have been addressed (committed/pushed OR uncommitted local chang... |
 | [`respond-to-pr-comments-in-blocklist`](../../library/warpdotdev-common-skills/skills/respond-to-pr-comments-in-blocklist) | ⚪ Reserve | `warpdotdev-common-skills` | Interactively walk a user through PR review comments one at a time, collect a per-comment decis... |
 | [`resume-tailor`](../../library/chezou-productivity-skills/skills/resume-tailor) | ⚪ Reserve | `chezou-productivity-skills` | Tailor an existing resume to a specific job description, using an optional episode bank (past p... |
 | [`revenue-kpi-framework`](../../library/mbfinotti-revops-skills/skills/revenue-kpi-framework) | ⚪ Reserve | `mbfinotti-revops-skills` | Design the org-wide revenue KPI framework at the macro level - which metrics matter at each org... |
 | [`review-and-ship`](../../library/cursor-plugins/skills/review-and-ship) | ⚪ Reserve | `cursor-plugins` | Review the current branch for bugs, intent fit, and test coverage; run or write tests; commit f... |
 | [`review-gate`](../../library/majiayu000-spellbook/skills/review-gate) | ⚪ Reserve | `majiayu000-spellbook` | Use before an agent-produced diff is committed, pushed, opened as a PR, merged, landed, or appl... |
 | [`review-multi-agent-orchestration`](../../library/sickn33-agentic-awesome-skills/skills/review-multi-agent-orchestration) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use when a supervisor, swarm, graph, planner-worker system, or parallel agent workflow needs re... |
-| [`review-pr`](../../library/trailofbits-skills/skills/review-pr) | ⚪ Reserve | `trailofbits-skills` | Reviews the current branch's changes against its base branch as a pull request: correctness of ... |
+| [`review-pr`](../../library/neolabhq-context-engineering-kit/skills/review-pr) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Review an existing GitHub pull request and post inline review comments on its diff. Use when th... |
 | [`run-qa`](../../library/momentic-ai-skills/skills/run-qa) | ⚪ Reserve | `momentic-ai-skills` | Bug bash a deployed web app or GitHub PR with Mo. Follow sessions, answer questions, review and... |
 | [`runpod-build-template`](../../library/runpod-runpod-plugins-official/skills/runpod-build-template) | ⚪ Reserve | `runpod-runpod-plugins-official` | Create or improve a complete Runpod template project from an application request, local code, o... |
 | [`runpod-companion-clis`](../../library/runpod-runpod-plugins-official/skills/runpod-companion-clis) | ⚪ Reserve | `runpod-runpod-plugins-official` | Companion CLIs for Runpod workflows — HuggingFace, GitHub, Docker, and AWS. Use runpod-build-te... |
@@ -476,6 +483,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-make-pr-easy-to-review`](../../library/cursor-plugins/skills/skills-make-pr-easy-to-review) | ⚪ Reserve | `cursor-plugins` | Prepare PRs for review by cleaning noisy history, improving PR descriptions, and adding reviewe... |
 | [`skills-metronome`](../../library/stripe-ai/skills/skills-metronome) | ⚪ Reserve | `stripe-ai` | Guides Metronome usage-based billing integration decisions — event ingestion (single and batch,... |
 | [`skills-mirrord-prev-env`](../../library/metalbear-co-mirrord/skills/skills-mirrord-prev-env) | ⚪ Reserve | `metalbear-co-mirrord` | Help users create and manage mirrord preview environments — running a modified service as an is... |
+| [`skills-neon-ai-gateway`](../../library/neondatabase-agent-skills/skills/skills-neon-ai-gateway) | ⚪ Reserve | `neondatabase-agent-skills` | One API and one credential for frontier and open-source LLMs and embedding models, built into y... |
 | [`skills-new-branch-and-pr`](../../library/cursor-plugins/skills/skills-new-branch-and-pr) | ⚪ Reserve | `cursor-plugins` | Create a fresh branch, complete work, and open a pull request |
 | [`skills-om-auto-continue-pr`](../../library/open-mercato-skills/skills/skills-om-auto-continue-pr) | ⚪ Reserve | `open-mercato-skills` | Resume any open PR — started by `om-auto-create-pr` or opened outside the pipeline. Claims it, ... |
 | [`skills-om-auto-continue-pr-loop`](../../library/open-mercato-skills/skills/skills-om-auto-continue-pr-loop) | ⚪ Reserve | `open-mercato-skills` | Advanced om-auto-continue-pr for PRs started by om-auto-create-pr-loop — claims the PR, resumes... |
@@ -564,6 +572,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`worktree-cleaner`](../../library/davila7-claude-code-templates/skills/worktree-cleaner) | ⚪ Reserve | `davila7-claude-code-templates` | Inventory the git worktrees of the current repository, classify each one with evidence (merged,... |
 | [`worktree-guide`](../../library/davila7-claude-code-templates/skills/worktree-guide) | ⚪ Reserve | `davila7-claude-code-templates` | Interactive guide for parallel development with Ghostty, git worktrees, and Lazygit. Use when s... |
 | [`wren`](../../library/canner-wrenai/skills/wren) | ⚪ Reserve | `canner-wrenai` | Wren CLI for AI agents — a semantic SQL layer over 22+ databases (Postgres, MySQL, BigQuery, Sn... |
+| [`write-tests`](../../library/neolabhq-context-engineering-kit/skills/write-tests) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Add missing test coverage for your local code changes by generating new test files (covers unco... |
 | [`writing-clearly-and-concisely`](../../library/davila7-claude-code-templates/skills/writing-clearly-and-concisely) | ⚪ Reserve | `davila7-claude-code-templates` | Use when writing prose humans will read—documentation, commit messages, error messages, explana... |
 | [`writing-commits`](../../library/bfollington-terma/skills/writing-commits) | ⚪ Reserve | `bfollington-terma` | Use when writing a commit message. Concerns writing for the reader who finds the commit months ... |
 | [`writing-prose`](../../library/bfollington-terma/skills/writing-prose) | ⚪ Reserve | `bfollington-terma` | Use when writing prose that someone else will read — a reply, a report, a review, a proposal, d... |

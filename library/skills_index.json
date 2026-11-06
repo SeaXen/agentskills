@@ -54310,6 +54310,46 @@
     "link_cmd": "python .agents/library/activate_skill.py link writing-motoko"
   },
   {
+    "id": "core",
+    "name": "core",
+    "repository": "calesthio-openmontage",
+    "category": "general",
+    "description": "",
+    "path": "library/calesthio-openmontage/skills/core",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core",
+    "link_cmd": "python .agents/library/activate_skill.py link core"
+  },
+  {
+    "id": "creative",
+    "name": "creative",
+    "repository": "calesthio-openmontage",
+    "category": "general",
+    "description": "",
+    "path": "library/calesthio-openmontage/skills/creative",
+    "activation_cmd": "python .agents/library/activate_skill.py activate creative",
+    "link_cmd": "python .agents/library/activate_skill.py link creative"
+  },
+  {
+    "id": "meta",
+    "name": "meta",
+    "repository": "calesthio-openmontage",
+    "category": "general",
+    "description": "",
+    "path": "library/calesthio-openmontage/skills/meta",
+    "activation_cmd": "python .agents/library/activate_skill.py activate meta",
+    "link_cmd": "python .agents/library/activate_skill.py link meta"
+  },
+  {
+    "id": "pipelines",
+    "name": "pipelines",
+    "repository": "calesthio-openmontage",
+    "category": "general",
+    "description": "",
+    "path": "library/calesthio-openmontage/skills/pipelines",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pipelines",
+    "link_cmd": "python .agents/library/activate_skill.py link pipelines"
+  },
+  {
     "id": "agent-react-devtools",
     "name": "agent-react-devtools",
     "repository": "callstackincubator-agent-react-devtools",
@@ -184210,6 +184250,686 @@
     "link_cmd": "python .agents/library/activate_skill.py link neo4j-skills"
   },
   {
+    "id": "actualize",
+    "name": "actualize",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "\"Reconcile the project's FPF state with recent repository changes\"",
+    "path": "library/neolabhq-context-engineering-kit/skills/actualize",
+    "activation_cmd": "python .agents/library/activate_skill.py activate actualize",
+    "link_cmd": "python .agents/library/activate_skill.py link actualize"
+  },
+  {
+    "id": "add-task",
+    "name": "add-task",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "creates draft task file in .specs/tasks/draft/ with original user intent",
+    "path": "library/neolabhq-context-engineering-kit/skills/add-task",
+    "activation_cmd": "python .agents/library/activate_skill.py activate add-task",
+    "link_cmd": "python .agents/library/activate_skill.py link add-task"
+  },
+  {
+    "id": "agent-evaluation",
+    "name": "agent-evaluation",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Evaluate and improve Claude Code commands, skills, and agents. Use when testing prompt effectiveness, validating context engineering choices, or measuring improvement quality.",
+    "path": "library/neolabhq-context-engineering-kit/skills/agent-evaluation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agent-evaluation",
+    "link_cmd": "python .agents/library/activate_skill.py link agent-evaluation"
+  },
+  {
+    "id": "analyse",
+    "name": "analyse",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Auto-selects best Kaizen method (Gemba Walk, Value Stream, or Muda) for target",
+    "path": "library/neolabhq-context-engineering-kit/skills/analyse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate analyse",
+    "link_cmd": "python .agents/library/activate_skill.py link analyse"
+  },
+  {
+    "id": "analyse-problem",
+    "name": "analyse-problem",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Comprehensive A3 one-page problem analysis with root cause and action plan",
+    "path": "library/neolabhq-context-engineering-kit/skills/analyse-problem",
+    "activation_cmd": "python .agents/library/activate_skill.py activate analyse-problem",
+    "link_cmd": "python .agents/library/activate_skill.py link analyse-problem"
+  },
+  {
+    "id": "analyze-issue",
+    "name": "analyze-issue",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Analyze a GitHub issue and create a detailed technical specification",
+    "path": "library/neolabhq-context-engineering-kit/skills/analyze-issue",
+    "activation_cmd": "python .agents/library/activate_skill.py activate analyze-issue",
+    "link_cmd": "python .agents/library/activate_skill.py link analyze-issue"
+  },
+  {
+    "id": "apply-anthropic-skill-best-practices",
+    "name": "apply-anthropic-skill-best-practices",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Comprehensive guide for skill development based on Anthropic's official best practices - use for complex skills requiring detailed structure",
+    "path": "library/neolabhq-context-engineering-kit/skills/apply-anthropic-skill-best-practices",
+    "activation_cmd": "python .agents/library/activate_skill.py activate apply-anthropic-skill-best-practices",
+    "link_cmd": "python .agents/library/activate_skill.py link apply-anthropic-skill-best-practices"
+  },
+  {
+    "id": "attach-review-to-pr",
+    "name": "attach-review-to-pr",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Add line-specific review comments to pull requests using GitHub CLI API",
+    "path": "library/neolabhq-context-engineering-kit/skills/attach-review-to-pr",
+    "activation_cmd": "python .agents/library/activate_skill.py activate attach-review-to-pr",
+    "link_cmd": "python .agents/library/activate_skill.py link attach-review-to-pr"
+  },
+  {
+    "id": "brainstorm",
+    "name": "brainstorm",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Use when creating or developing, before writing code or implementation plans - refines rough ideas into fully-formed designs through collaborative questioning, alternative exploration, and incremental validation. Don't use during clear 'mechanical' processes",
+    "path": "library/neolabhq-context-engineering-kit/skills/brainstorm",
+    "activation_cmd": "python .agents/library/activate_skill.py activate brainstorm",
+    "link_cmd": "python .agents/library/activate_skill.py link brainstorm"
+  },
+  {
+    "id": "build-mcp",
+    "name": "build-mcp",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK).",
+    "path": "library/neolabhq-context-engineering-kit/skills/build-mcp",
+    "activation_cmd": "python .agents/library/activate_skill.py activate build-mcp",
+    "link_cmd": "python .agents/library/activate_skill.py link build-mcp"
+  },
+  {
+    "id": "cause-and-effect",
+    "name": "cause-and-effect",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Systematic Fishbone analysis exploring problem causes across six categories",
+    "path": "library/neolabhq-context-engineering-kit/skills/cause-and-effect",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cause-and-effect",
+    "link_cmd": "python .agents/library/activate_skill.py link cause-and-effect"
+  },
+  {
+    "id": "commit",
+    "name": "commit",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Create well-formatted commits with conventional commit messages and emoji",
+    "path": "library/neolabhq-context-engineering-kit/skills/commit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate commit",
+    "link_cmd": "python .agents/library/activate_skill.py link commit"
+  },
+  {
+    "id": "context-engineering",
+    "name": "context-engineering",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Understand the components, mechanics, and constraints of context in agent systems. Use when writing, editing, or optimizing commands, skills, or sub-agents prompts.",
+    "path": "library/neolabhq-context-engineering-kit/skills/context-engineering",
+    "activation_cmd": "python .agents/library/activate_skill.py activate context-engineering",
+    "link_cmd": "python .agents/library/activate_skill.py link context-engineering"
+  },
+  {
+    "id": "create-agent",
+    "name": "create-agent",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Comprehensive guide for creating Claude Code agents with proper structure, triggering conditions, system prompts, and validation - combines official Anthropic best practices with proven patterns",
+    "path": "library/neolabhq-context-engineering-kit/skills/create-agent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-agent",
+    "link_cmd": "python .agents/library/activate_skill.py link create-agent"
+  },
+  {
+    "id": "create-command",
+    "name": "create-command",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Interactive assistant for creating new Claude commands with proper structure, patterns, and MCP tool integration",
+    "path": "library/neolabhq-context-engineering-kit/skills/create-command",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-command",
+    "link_cmd": "python .agents/library/activate_skill.py link create-command"
+  },
+  {
+    "id": "create-hook",
+    "name": "create-hook",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Create and configure git hooks with intelligent project analysis, suggestions, and automated testing",
+    "path": "library/neolabhq-context-engineering-kit/skills/create-hook",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-hook",
+    "link_cmd": "python .agents/library/activate_skill.py link create-hook"
+  },
+  {
+    "id": "create-ideas",
+    "name": "create-ideas",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Generate ideas in one shot using creative sampling",
+    "path": "library/neolabhq-context-engineering-kit/skills/create-ideas",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-ideas",
+    "link_cmd": "python .agents/library/activate_skill.py link create-ideas"
+  },
+  {
+    "id": "create-pr",
+    "name": "create-pr",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Create pull requests using GitHub CLI with proper templates and formatting",
+    "path": "library/neolabhq-context-engineering-kit/skills/create-pr",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-pr",
+    "link_cmd": "python .agents/library/activate_skill.py link create-pr"
+  },
+  {
+    "id": "create-rule",
+    "name": "create-rule",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Use when found gap or repetative issue, that produced by you or implemenataion agent. Esentially use it each time when you say \"You absolutly right, I should have done it differently.\" -> need create rule for this issue so it not appears again.",
+    "path": "library/neolabhq-context-engineering-kit/skills/create-rule",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-rule",
+    "link_cmd": "python .agents/library/activate_skill.py link create-rule"
+  },
+  {
+    "id": "create-skill",
+    "name": "create-skill",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Guide for creating effective skills. This command should be used when users want to create a new skill (or update an existing skill) that extends Claude's capabilities with specialized knowledge, workflows, or tool integrations. Use when creating new skills, editing existing skills, or verifying skills work before deployment - applies TDD to process documentation by testing with subagents before writing, iterating until bulletproof against rationalization",
+    "path": "library/neolabhq-context-engineering-kit/skills/create-skill",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-skill",
+    "link_cmd": "python .agents/library/activate_skill.py link create-skill"
+  },
+  {
+    "id": "create-workflow-command",
+    "name": "create-workflow-command",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Create a workflow command that orchestrates multi-step execution through sub-agents with file-based task prompts",
+    "path": "library/neolabhq-context-engineering-kit/skills/create-workflow-command",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-workflow-command",
+    "link_cmd": "python .agents/library/activate_skill.py link create-workflow-command"
+  },
+  {
+    "id": "critique",
+    "name": "critique",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Comprehensive multi-perspective review using specialized judges with debate and consensus building",
+    "path": "library/neolabhq-context-engineering-kit/skills/critique",
+    "activation_cmd": "python .agents/library/activate_skill.py activate critique",
+    "link_cmd": "python .agents/library/activate_skill.py link critique"
+  },
+  {
+    "id": "decay",
+    "name": "decay",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "\"Manage evidence freshness by identifying stale decisions and providing governance actions\"",
+    "path": "library/neolabhq-context-engineering-kit/skills/decay",
+    "activation_cmd": "python .agents/library/activate_skill.py activate decay",
+    "link_cmd": "python .agents/library/activate_skill.py link decay"
+  },
+  {
+    "id": "design-testing-strategy",
+    "name": "design-testing-strategy",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Use before writing any type of tests. Distills 14 industry sources into deterministic decision gates, schemas, and worked test examples.",
+    "path": "library/neolabhq-context-engineering-kit/skills/design-testing-strategy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-testing-strategy",
+    "link_cmd": "python .agents/library/activate_skill.py link design-testing-strategy"
+  },
+  {
+    "id": "do-and-judge",
+    "name": "do-and-judge",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Execute a task with sub-agent implementation and LLM-as-a-judge verification with automatic retry loop",
+    "path": "library/neolabhq-context-engineering-kit/skills/do-and-judge",
+    "activation_cmd": "python .agents/library/activate_skill.py activate do-and-judge",
+    "link_cmd": "python .agents/library/activate_skill.py link do-and-judge"
+  },
+  {
+    "id": "do-competitively",
+    "name": "do-competitively",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Execute tasks through competitive multi-agent generation, meta-judge evaluation specification, multi-judge evaluation, and evidence-based synthesis",
+    "path": "library/neolabhq-context-engineering-kit/skills/do-competitively",
+    "activation_cmd": "python .agents/library/activate_skill.py activate do-competitively",
+    "link_cmd": "python .agents/library/activate_skill.py link do-competitively"
+  },
+  {
+    "id": "do-in-parallel",
+    "name": "do-in-parallel",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Run independent tasks concurrently across multiple files or targets using parallel sub-agents, with per-task model selection and LLM-as-a-judge verification. Use when tasks do not depend on each other and can run side by side.",
+    "path": "library/neolabhq-context-engineering-kit/skills/do-in-parallel",
+    "activation_cmd": "python .agents/library/activate_skill.py activate do-in-parallel",
+    "link_cmd": "python .agents/library/activate_skill.py link do-in-parallel"
+  },
+  {
+    "id": "do-in-steps",
+    "name": "do-in-steps",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Execute one complex task as ordered, dependent steps run sequentially, passing context from each step to the next, with per-step LLM-as-a-judge verification. Use when later steps depend on the results of earlier ones.",
+    "path": "library/neolabhq-context-engineering-kit/skills/do-in-steps",
+    "activation_cmd": "python .agents/library/activate_skill.py activate do-in-steps",
+    "link_cmd": "python .agents/library/activate_skill.py link do-in-steps"
+  },
+  {
+    "id": "fix-tests",
+    "name": "fix-tests",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Systematically fix all failing tests after business logic changes or refactoring",
+    "path": "library/neolabhq-context-engineering-kit/skills/fix-tests",
+    "activation_cmd": "python .agents/library/activate_skill.py activate fix-tests",
+    "link_cmd": "python .agents/library/activate_skill.py link fix-tests"
+  },
+  {
+    "id": "git-notes",
+    "name": "git-notes",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Use when adding metadata to commits without changing history, tracking review status, test results, code quality annotations, or supplementing commit messages post-hoc - provides git notes commands and patterns for attaching non-invasive metadata to Git objects.",
+    "path": "library/neolabhq-context-engineering-kit/skills/git-notes",
+    "activation_cmd": "python .agents/library/activate_skill.py activate git-notes",
+    "link_cmd": "python .agents/library/activate_skill.py link git-notes"
+  },
+  {
+    "id": "git-worktrees",
+    "name": "git-worktrees",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Use when working on multiple branches simultaneously, context switching without stashing, reviewing PRs while developing, testing in isolation, or comparing implementations across branches - provides git worktree commands and workflow patterns for parallel development with multiple working directories.",
+    "path": "library/neolabhq-context-engineering-kit/skills/git-worktrees",
+    "activation_cmd": "python .agents/library/activate_skill.py activate git-worktrees",
+    "link_cmd": "python .agents/library/activate_skill.py link git-worktrees"
+  },
+  {
+    "id": "implement-task",
+    "name": "implement-task",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Implement a task step by step with automated LLM-as-Judge verification at the end of each phase",
+    "path": "library/neolabhq-context-engineering-kit/skills/implement-task",
+    "activation_cmd": "python .agents/library/activate_skill.py activate implement-task",
+    "link_cmd": "python .agents/library/activate_skill.py link implement-task"
+  },
+  {
+    "id": "judge",
+    "name": "judge",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Launch a meta-judge then a judge sub-agent to evaluate results produced in the current conversation",
+    "path": "library/neolabhq-context-engineering-kit/skills/judge",
+    "activation_cmd": "python .agents/library/activate_skill.py activate judge",
+    "link_cmd": "python .agents/library/activate_skill.py link judge"
+  },
+  {
+    "id": "judge-with-debate",
+    "name": "judge-with-debate",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Evaluate solutions through multi-round debate between independent judges until consensus",
+    "path": "library/neolabhq-context-engineering-kit/skills/judge-with-debate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate judge-with-debate",
+    "link_cmd": "python .agents/library/activate_skill.py link judge-with-debate"
+  },
+  {
+    "id": "kaizen",
+    "name": "kaizen",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Use when Code implementation and refactoring, architecturing or designing systems, process and workflow improvements, error handling and validation. Provide tehniquest to avoid over-engineering and apply iterative improvements.",
+    "path": "library/neolabhq-context-engineering-kit/skills/kaizen",
+    "activation_cmd": "python .agents/library/activate_skill.py activate kaizen",
+    "link_cmd": "python .agents/library/activate_skill.py link kaizen"
+  },
+  {
+    "id": "launch-sub-agent",
+    "name": "launch-sub-agent",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Launch an intelligent sub-agent with automatic model selection based on task complexity, specialized agent matching, Zero-shot CoT reasoning, and mandatory self-critique verification",
+    "path": "library/neolabhq-context-engineering-kit/skills/launch-sub-agent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate launch-sub-agent",
+    "link_cmd": "python .agents/library/activate_skill.py link launch-sub-agent"
+  },
+  {
+    "id": "load-issues",
+    "name": "load-issues",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Load all open issues from GitHub and save them as markdown files",
+    "path": "library/neolabhq-context-engineering-kit/skills/load-issues",
+    "activation_cmd": "python .agents/library/activate_skill.py activate load-issues",
+    "link_cmd": "python .agents/library/activate_skill.py link load-issues"
+  },
+  {
+    "id": "load-pr-comments",
+    "name": "load-pr-comments",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Use to load open/unresolved PR review comments then aggregate them as tasks in .specs/comments/*.md for parallel agents to fix.",
+    "path": "library/neolabhq-context-engineering-kit/skills/load-pr-comments",
+    "activation_cmd": "python .agents/library/activate_skill.py activate load-pr-comments",
+    "link_cmd": "python .agents/library/activate_skill.py link load-pr-comments"
+  },
+  {
+    "id": "memorize",
+    "name": "memorize",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Curates insights from reflections and critiques into CLAUDE.md using Agentic Context Engineering",
+    "path": "library/neolabhq-context-engineering-kit/skills/memorize",
+    "activation_cmd": "python .agents/library/activate_skill.py activate memorize",
+    "link_cmd": "python .agents/library/activate_skill.py link memorize"
+  },
+  {
+    "id": "multi-agent-patterns",
+    "name": "multi-agent-patterns",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Design multi-agent architectures for complex tasks. Use when single-agent context limits are exceeded, when tasks decompose naturally into subtasks, or when specializing agents improves quality.",
+    "path": "library/neolabhq-context-engineering-kit/skills/multi-agent-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate multi-agent-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link multi-agent-patterns"
+  },
+  {
+    "id": "plan-do-check-act",
+    "name": "plan-do-check-act",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Iterative PDCA cycle for systematic experimentation and continuous improvement",
+    "path": "library/neolabhq-context-engineering-kit/skills/plan-do-check-act",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plan-do-check-act",
+    "link_cmd": "python .agents/library/activate_skill.py link plan-do-check-act"
+  },
+  {
+    "id": "plan-task",
+    "name": "plan-task",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Refine a draft task specification into a fully planned, implementation-ready task with acceptance criteria, architecture, per-step sub-task files and verifiable phases",
+    "path": "library/neolabhq-context-engineering-kit/skills/plan-task",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plan-task",
+    "link_cmd": "python .agents/library/activate_skill.py link plan-task"
+  },
+  {
+    "id": "prompt-engineering",
+    "name": "prompt-engineering",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Use this skill when you writing commands, hooks, skills for Agent, or prompts for sub agents or any other LLM interaction, including optimizing prompts, improving LLM outputs, or designing production prompt templates.",
+    "path": "library/neolabhq-context-engineering-kit/skills/prompt-engineering",
+    "activation_cmd": "python .agents/library/activate_skill.py activate prompt-engineering",
+    "link_cmd": "python .agents/library/activate_skill.py link prompt-engineering"
+  },
+  {
+    "id": "propose-hypotheses",
+    "name": "propose-hypotheses",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Execute complete FPF cycle from hypothesis generation to decision",
+    "path": "library/neolabhq-context-engineering-kit/skills/propose-hypotheses",
+    "activation_cmd": "python .agents/library/activate_skill.py activate propose-hypotheses",
+    "link_cmd": "python .agents/library/activate_skill.py link propose-hypotheses"
+  },
+  {
+    "id": "query",
+    "name": "query",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "\"Search the FPF knowledge base and display hypothesis details with assurance information\"",
+    "path": "library/neolabhq-context-engineering-kit/skills/query",
+    "activation_cmd": "python .agents/library/activate_skill.py activate query",
+    "link_cmd": "python .agents/library/activate_skill.py link query"
+  },
+  {
+    "id": "reflect",
+    "name": "reflect",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Reflect on previus response and output, based on Self-refinement framework for iterative improvement with complexity triage and verification",
+    "path": "library/neolabhq-context-engineering-kit/skills/reflect",
+    "activation_cmd": "python .agents/library/activate_skill.py activate reflect",
+    "link_cmd": "python .agents/library/activate_skill.py link reflect"
+  },
+  {
+    "id": "reset",
+    "name": "reset",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "\"Reset the FPF reasoning cycle to start fresh\"",
+    "path": "library/neolabhq-context-engineering-kit/skills/reset",
+    "activation_cmd": "python .agents/library/activate_skill.py activate reset",
+    "link_cmd": "python .agents/library/activate_skill.py link reset"
+  },
+  {
+    "id": "resolve-fixed-pr-comments",
+    "name": "resolve-fixed-pr-comments",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Verify what PR review comments have been addressed (committed/pushed OR uncommitted local changes) and resolve the threads that are genuinely fixed or no longer relevant.",
+    "path": "library/neolabhq-context-engineering-kit/skills/resolve-fixed-pr-comments",
+    "activation_cmd": "python .agents/library/activate_skill.py activate resolve-fixed-pr-comments",
+    "link_cmd": "python .agents/library/activate_skill.py link resolve-fixed-pr-comments"
+  },
+  {
+    "id": "review-local-changes",
+    "name": "review-local-changes",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Review your local uncommitted working-tree changes (git diff plus untracked files) and return actionable improvement suggestions. Use before committing, when nothing has been pushed yet.",
+    "path": "library/neolabhq-context-engineering-kit/skills/review-local-changes",
+    "activation_cmd": "python .agents/library/activate_skill.py activate review-local-changes",
+    "link_cmd": "python .agents/library/activate_skill.py link review-local-changes"
+  },
+  {
+    "id": "review-pr",
+    "name": "review-pr",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Review an existing GitHub pull request and post inline review comments on its diff. Use when the changes are on an opened PR rather than your local working tree.",
+    "path": "library/neolabhq-context-engineering-kit/skills/review-pr",
+    "activation_cmd": "python .agents/library/activate_skill.py activate review-pr",
+    "link_cmd": "python .agents/library/activate_skill.py link review-pr"
+  },
+  {
+    "id": "root-cause-tracing",
+    "name": "root-cause-tracing",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Use when errors occur deep in execution and you need to trace back to find the original trigger - systematically traces bugs backward through call stack, adding instrumentation when needed, to identify source of invalid data or incorrect behavior",
+    "path": "library/neolabhq-context-engineering-kit/skills/root-cause-tracing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate root-cause-tracing",
+    "link_cmd": "python .agents/library/activate_skill.py link root-cause-tracing"
+  },
+  {
+    "id": "setup-arxiv-mcp",
+    "name": "setup-arxiv-mcp",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Guide for setup arXiv paper search MCP server using Docker MCP",
+    "path": "library/neolabhq-context-engineering-kit/skills/setup-arxiv-mcp",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setup-arxiv-mcp",
+    "link_cmd": "python .agents/library/activate_skill.py link setup-arxiv-mcp"
+  },
+  {
+    "id": "setup-codemap-cli",
+    "name": "setup-codemap-cli",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Guide for setup Codemap CLI for intelligent codebase visualization and navigation",
+    "path": "library/neolabhq-context-engineering-kit/skills/setup-codemap-cli",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setup-codemap-cli",
+    "link_cmd": "python .agents/library/activate_skill.py link setup-codemap-cli"
+  },
+  {
+    "id": "setup-context7-mcp",
+    "name": "setup-context7-mcp",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Guide for setup Context7 MCP server to load documentation for specific technologies.",
+    "path": "library/neolabhq-context-engineering-kit/skills/setup-context7-mcp",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setup-context7-mcp",
+    "link_cmd": "python .agents/library/activate_skill.py link setup-context7-mcp"
+  },
+  {
+    "id": "setup-serena-mcp",
+    "name": "setup-serena-mcp",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Guide for setup Serena MCP server for semantic code retrieval and editing capabilities",
+    "path": "library/neolabhq-context-engineering-kit/skills/setup-serena-mcp",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setup-serena-mcp",
+    "link_cmd": "python .agents/library/activate_skill.py link setup-serena-mcp"
+  },
+  {
+    "id": "status",
+    "name": "status",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "\"Display the current state of the FPF knowledge base\"",
+    "path": "library/neolabhq-context-engineering-kit/skills/status",
+    "activation_cmd": "python .agents/library/activate_skill.py activate status",
+    "link_cmd": "python .agents/library/activate_skill.py link status"
+  },
+  {
+    "id": "subagent-driven-development",
+    "name": "subagent-driven-development",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Use when executing implementation plans with independent tasks in the current session or facing 3+ independent issues that can be investigated without shared state or dependencies - dispatches fresh subagent for each task with code review between tasks, enabling fast iteration with quality gates",
+    "path": "library/neolabhq-context-engineering-kit/skills/subagent-driven-development",
+    "activation_cmd": "python .agents/library/activate_skill.py activate subagent-driven-development",
+    "link_cmd": "python .agents/library/activate_skill.py link subagent-driven-development"
+  },
+  {
+    "id": "test-coverage",
+    "name": "test-coverage",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Use after writing tests to assess coverage quality across structural, mutation, requirements, and API/integration dimensions; organized knowledge for choosing and interpreting coverage analyses.",
+    "path": "library/neolabhq-context-engineering-kit/skills/test-coverage",
+    "activation_cmd": "python .agents/library/activate_skill.py activate test-coverage",
+    "link_cmd": "python .agents/library/activate_skill.py link test-coverage"
+  },
+  {
+    "id": "test-driven-development",
+    "name": "test-driven-development",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Use when implementing any feature or bugfix, before writing implementation code - write the test first, watch it fail, write minimal code to pass; ensures tests actually verify behavior by requiring failure first",
+    "path": "library/neolabhq-context-engineering-kit/skills/test-driven-development",
+    "activation_cmd": "python .agents/library/activate_skill.py activate test-driven-development",
+    "link_cmd": "python .agents/library/activate_skill.py link test-driven-development"
+  },
+  {
+    "id": "test-prompt",
+    "name": "test-prompt",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Use when creating or editing any prompt (commands, hooks, skills, subagent instructions) to verify it produces desired behavior - applies RED-GREEN-REFACTOR cycle to prompt engineering using subagents for isolated testing",
+    "path": "library/neolabhq-context-engineering-kit/skills/test-prompt",
+    "activation_cmd": "python .agents/library/activate_skill.py activate test-prompt",
+    "link_cmd": "python .agents/library/activate_skill.py link test-prompt"
+  },
+  {
+    "id": "test-skill",
+    "name": "test-skill",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Use when creating or editing skills, before deployment, to verify they work under pressure and resist rationalization - applies RED-GREEN-REFACTOR cycle to process documentation by running baseline without skill, writing to address failures, iterating to close loopholes",
+    "path": "library/neolabhq-context-engineering-kit/skills/test-skill",
+    "activation_cmd": "python .agents/library/activate_skill.py activate test-skill",
+    "link_cmd": "python .agents/library/activate_skill.py link test-skill"
+  },
+  {
+    "id": "thought-based-reasoning",
+    "name": "thought-based-reasoning",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Use when tackling complex reasoning tasks requiring step-by-step logic, multi-step arithmetic, commonsense reasoning, symbolic manipulation, or problems where simple prompting fails - provides comprehensive guide to Chain-of-Thought and related prompting techniques (Zero-shot CoT, Self-Consistency, Tree of Thoughts, Least-to-Most, ReAct, PAL, Reflexion) with templates, decision matrices, and research-backed patterns",
+    "path": "library/neolabhq-context-engineering-kit/skills/thought-based-reasoning",
+    "activation_cmd": "python .agents/library/activate_skill.py activate thought-based-reasoning",
+    "link_cmd": "python .agents/library/activate_skill.py link thought-based-reasoning"
+  },
+  {
+    "id": "traiage-review",
+    "name": "traiage-review",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "This skill should be used when need prioritize what changed code in repository human must review.",
+    "path": "library/neolabhq-context-engineering-kit/skills/traiage-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate traiage-review",
+    "link_cmd": "python .agents/library/activate_skill.py link traiage-review"
+  },
+  {
+    "id": "tree-of-thoughts",
+    "name": "tree-of-thoughts",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Execute tasks through systematic exploration, pruning, and expansion using Tree of Thoughts methodology with meta-judge evaluation specifications and multi-agent evaluation",
+    "path": "library/neolabhq-context-engineering-kit/skills/tree-of-thoughts",
+    "activation_cmd": "python .agents/library/activate_skill.py activate tree-of-thoughts",
+    "link_cmd": "python .agents/library/activate_skill.py link tree-of-thoughts"
+  },
+  {
+    "id": "update-docs",
+    "name": "update-docs",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Update and maintain project documentation for local code changes using multi-agent workflow with tech-writer agents. Covers docs/, READMEs, JSDoc, and API documentation.",
+    "path": "library/neolabhq-context-engineering-kit/skills/update-docs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate update-docs",
+    "link_cmd": "python .agents/library/activate_skill.py link update-docs"
+  },
+  {
+    "id": "why",
+    "name": "why",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Iterative Five Whys root cause analysis drilling from symptoms to fundamentals",
+    "path": "library/neolabhq-context-engineering-kit/skills/why",
+    "activation_cmd": "python .agents/library/activate_skill.py activate why",
+    "link_cmd": "python .agents/library/activate_skill.py link why"
+  },
+  {
+    "id": "write-concisely",
+    "name": "write-concisely",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Apply writing rules to any documentation that humans will read. Makes your writing clearer, stronger, and more professional.",
+    "path": "library/neolabhq-context-engineering-kit/skills/write-concisely",
+    "activation_cmd": "python .agents/library/activate_skill.py activate write-concisely",
+    "link_cmd": "python .agents/library/activate_skill.py link write-concisely"
+  },
+  {
+    "id": "write-tests",
+    "name": "write-tests",
+    "repository": "neolabhq-context-engineering-kit",
+    "category": "general",
+    "description": "Add missing test coverage for your local code changes by generating new test files (covers uncommitted and untracked changes, or the latest commit if everything is committed). Use when you want write tests for new logic or increase test coverage.",
+    "path": "library/neolabhq-context-engineering-kit/skills/write-tests",
+    "activation_cmd": "python .agents/library/activate_skill.py activate write-tests",
+    "link_cmd": "python .agents/library/activate_skill.py link write-tests"
+  },
+  {
     "id": "neon",
     "name": "neon",
     "repository": "neondatabase-agent-skills",
@@ -184308,6 +185028,26 @@
     "path": "library/neondatabase-agent-skills/skills/score-eval",
     "activation_cmd": "python .agents/library/activate_skill.py activate score-eval",
     "link_cmd": "python .agents/library/activate_skill.py link score-eval"
+  },
+  {
+    "id": "skills-neon-ai-gateway",
+    "name": "skills-neon-ai-gateway",
+    "repository": "neondatabase-agent-skills",
+    "category": "general",
+    "description": ">-",
+    "path": "library/neondatabase-agent-skills/skills/skills-neon-ai-gateway",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-neon-ai-gateway",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-neon-ai-gateway"
+  },
+  {
+    "id": "skills-neon-realtime",
+    "name": "skills-neon-realtime",
+    "repository": "neondatabase-agent-skills",
+    "category": "general",
+    "description": ">-",
+    "path": "library/neondatabase-agent-skills/skills/skills-neon-realtime",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-neon-realtime",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-neon-realtime"
   },
   {
     "id": "amazon-a-plus-content",
@@ -192138,6 +192878,106 @@
     "path": "library/nowork-studio-notfair-plugin/skills/wordpress",
     "activation_cmd": "python .agents/library/activate_skill.py activate wordpress",
     "link_cmd": "python .agents/library/activate_skill.py link wordpress"
+  },
+  {
+    "id": "link-workspace-packages",
+    "name": "link-workspace-packages",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "'Link workspace packages in monorepos (npm, yarn, pnpm, bun). USE WHEN: (1) you just created or generated new packages and need to wire up their dependencies, (2) user imports from a sibling package and needs to add it as a dependency, (3) you get resolution errors for workspace packages (@org/*) like \"cannot find module\", \"failed to resolve import\", \"TS2307\", or \"cannot resolve\". DO NOT patch around with tsconfig paths or manual package.json edits - use the package manager''s workspace commands to fix actual linking.'",
+    "path": "library/nrwl-nx-ai-agents-config/skills/link-workspace-packages",
+    "activation_cmd": "python .agents/library/activate_skill.py activate link-workspace-packages",
+    "link_cmd": "python .agents/library/activate_skill.py link link-workspace-packages"
+  },
+  {
+    "id": "monitor-ci",
+    "name": "monitor-ci",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "Monitor Nx Cloud CI pipeline and handle self-healing fixes. USE WHEN user says \"monitor ci\", \"watch ci\", \"ci monitor\", \"watch ci for this branch\", \"track ci\", \"check ci status\", wants to track CI status, or needs help with self-healing CI fixes. Prefer this skill over native CI provider tools (gh, glab, etc.) for CI monitoring \u2014 it integrates with Nx Cloud self-healing which those tools cannot access.",
+    "path": "library/nrwl-nx-ai-agents-config/skills/monitor-ci",
+    "activation_cmd": "python .agents/library/activate_skill.py activate monitor-ci",
+    "link_cmd": "python .agents/library/activate_skill.py link monitor-ci"
+  },
+  {
+    "id": "nx-cloud-api",
+    "name": "nx-cloud-api",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "Query the read-only Nx Cloud Public API for workspace data with `npx nx-cloud api`. Use this skill when a user asks to inspect or retrieve CIPEs, pipelines, run groups, runs, tasks, workflows, agents, task statistics, flaky tasks, cache data, or API endpoint details. Use this skill before any Nx Cloud API call. It covers endpoint discovery, link navigation, pagination, asset downloads, and error recovery. Do not use it for live CI monitoring.",
+    "path": "library/nrwl-nx-ai-agents-config/skills/nx-cloud-api",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nx-cloud-api",
+    "link_cmd": "python .agents/library/activate_skill.py link nx-cloud-api"
+  },
+  {
+    "id": "nx-cloud-cache-investigator",
+    "name": "nx-cloud-cache-investigator",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "Investigate a specific Nx cache miss, artifact download or extraction failure, same-hash non-replay, or suspected unsafe cache replay. Use this skill whenever a user asks why an Nx task did not use the cache, why cache artifact restoration failed, why a cache hit restored stale or wrong output, or to compare two cached task executions. Use the nx-cloud-api skill for every Nx Cloud read. This skill supports API-only investigations, preserves strict hash-evidence limits, and requests local configuration only when the question requires it.",
+    "path": "library/nrwl-nx-ai-agents-config/skills/nx-cloud-cache-investigator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nx-cloud-cache-investigator",
+    "link_cmd": "python .agents/library/activate_skill.py link nx-cloud-cache-investigator"
+  },
+  {
+    "id": "nx-cloud-ci-failure-review",
+    "name": "nx-cloud-ci-failure-review",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "Review failed Nx Cloud CI pipeline executions and group recurring, evidence-based failure patterns. Use this skill whenever a user asks about failed CI pipelines, recurring task failures, failed CIPEs, a CI failure review, or a last-24-hours CI report. Use the nx-cloud-api skill for every Nx Cloud read. This read-only skill separates task, workflow, agent, timeout, cancellation, and unknown cases. It suggests diagnostic next steps without changing systems.",
+    "path": "library/nrwl-nx-ai-agents-config/skills/nx-cloud-ci-failure-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nx-cloud-ci-failure-review",
+    "link_cmd": "python .agents/library/activate_skill.py link nx-cloud-ci-failure-review"
+  },
+  {
+    "id": "nx-generate",
+    "name": "nx-generate",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "Generate code using nx generators. INVOKE IMMEDIATELY when user mentions scaffolding, setup, structure, creating apps/libs, or setting up project structure. Trigger words - scaffold, setup, create a new app, create a new lib, project structure, generate, add a new project. ALWAYS use this BEFORE calling nx_docs or exploring - this skill handles discovery internally.",
+    "path": "library/nrwl-nx-ai-agents-config/skills/nx-generate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nx-generate",
+    "link_cmd": "python .agents/library/activate_skill.py link nx-generate"
+  },
+  {
+    "id": "nx-import",
+    "name": "nx-import",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "Import, merge, or combine repositories into an Nx workspace using nx import. USE WHEN the user asks to adopt Nx across repos, move projects into a monorepo, or bring code/history from another repository.",
+    "path": "library/nrwl-nx-ai-agents-config/skills/nx-import",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nx-import",
+    "link_cmd": "python .agents/library/activate_skill.py link nx-import"
+  },
+  {
+    "id": "nx-plugins",
+    "name": "nx-plugins",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "Find and add Nx plugins. USE WHEN user wants to discover available plugins, install a new plugin, or add support for a specific framework or technology to the workspace.",
+    "path": "library/nrwl-nx-ai-agents-config/skills/nx-plugins",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nx-plugins",
+    "link_cmd": "python .agents/library/activate_skill.py link nx-plugins"
+  },
+  {
+    "id": "nx-run-tasks",
+    "name": "nx-run-tasks",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "Helps with running tasks in an Nx workspace. USE WHEN the user wants to execute build, test, lint, serve, or run any other tasks defined in the workspace.",
+    "path": "library/nrwl-nx-ai-agents-config/skills/nx-run-tasks",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nx-run-tasks",
+    "link_cmd": "python .agents/library/activate_skill.py link nx-run-tasks"
+  },
+  {
+    "id": "nx-workspace",
+    "name": "nx-workspace",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "\"Explore and understand Nx workspaces. USE WHEN answering questions about the workspace, projects, or tasks. ALSO USE WHEN an nx command fails or you need to check available targets/configuration before running a task. EXAMPLES: 'What projects are in this workspace?', 'How is project X configured?', 'What depends on library Y?', 'What targets can I run?', 'Cannot find configuration for task', 'debug nx task failure'.\"",
+    "path": "library/nrwl-nx-ai-agents-config/skills/nx-workspace",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nx-workspace",
+    "link_cmd": "python .agents/library/activate_skill.py link nx-workspace"
   },
   {
     "id": "hallmark",
@@ -211278,6 +212118,16 @@
     "path": "library/reason-machines-trending-skills/skills/zhangxuefeng-skill",
     "activation_cmd": "python .agents/library/activate_skill.py activate zhangxuefeng-skill",
     "link_cmd": "python .agents/library/activate_skill.py link zhangxuefeng-skill"
+  },
+  {
+    "id": ".temp_upstream_clones-rebelytics-one-skill-to-rule-them-all",
+    "name": ".temp_upstream_clones-rebelytics-one-skill-to-rule-them-all",
+    "repository": "rebelytics-one-skill-to-rule-them-all",
+    "category": "general",
+    "description": "\"Monitors task execution for skill improvement opportunities: logs patterns, user corrections and methodology worth preserving to the workspace, turns them into skill updates in a weekly review, and flags repeating work as new skills. Use during ANY multi-step task, agentic workflow, or work session. Also triggers in post-task feedback discussions and when the user mentions skill observations, the observation log, or skill taxonomy. Also known as \\\"One Skill to Rule Them All\\\" \u2014 trigger on this phrase too. IMPORTANT: invoke this skill before the FIRST tool call of any session and before writing or proposing a plan \u2014 any turn that will involve a tool call counts. This sentence is the session-start trigger and the only activation layer that survives an unreachable config file; pair it with a CLAUDE.md instruction or a session-start hook (references/environments.md). A subagent dispatched by a session already running it does not run it: it writes nothing and puts its findings in its report.\"",
+    "path": "library/rebelytics-one-skill-to-rule-them-all/skills/.temp_upstream_clones-rebelytics-one-skill-to-rule-them-all",
+    "activation_cmd": "python .agents/library/activate_skill.py activate .temp_upstream_clones-rebelytics-one-skill-to-rule-them-all",
+    "link_cmd": "python .agents/library/activate_skill.py link .temp_upstream_clones-rebelytics-one-skill-to-rule-them-all"
   },
   {
     "id": "one-skill-to-rule-them-all",

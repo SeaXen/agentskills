@@ -1,7 +1,7 @@
 # 📊 Data Pipelines, BigQuery & Machine Learning
 
 > **Category**: `data-engineering-ml`  
-> **Total Curated Skills**: 3278 skills  
+> **Total Curated Skills**: 3279 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -2447,6 +2447,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`roll`](../../library/membranedev-application-skills/skills/roll) | ⚪ Reserve | `membranedev-application-skills` | Roll integration. Manage Organizations. Use when the user wants to interact with Roll data. |
 | [`rollbar`](../../library/membranedev-application-skills/skills/rollbar) | ⚪ Reserve | `membranedev-application-skills` | Rollbar integration. Manage Projects, Persons, Users, Teams. Use when the user wants to interac... |
 | [`roompricegenie`](../../library/membranedev-application-skills/skills/roompricegenie) | ⚪ Reserve | `membranedev-application-skills` | RoomPriceGenie integration. Manage data, records, and automate workflows. Use when the user wan... |
+| [`root-cause-tracing`](../../library/neolabhq-context-engineering-kit/skills/root-cause-tracing) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Use when errors occur deep in execution and you need to trace back to find the original trigger... |
 | [`rootfi`](../../library/membranedev-application-skills/skills/rootfi) | ⚪ Reserve | `membranedev-application-skills` | RootFi integration. Manage data, records, and automate workflows. Use when the user wants to in... |
 | [`rosette-text-analytics`](../../library/membranedev-application-skills/skills/rosette-text-analytics) | ⚪ Reserve | `membranedev-application-skills` | Rosette Text Analytics integration. Manage Organizations. Use when the user wants to interact w... |
 | [`routable`](../../library/membranedev-application-skills/skills/routable) | ⚪ Reserve | `membranedev-application-skills` | Routable integration. Manage data, records, and automate workflows. Use when the user wants to ... |

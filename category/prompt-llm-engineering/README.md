@@ -1,7 +1,7 @@
 # 💬 Prompt Engineering, LLMs & RAG
 
 > **Category**: `prompt-llm-engineering`  
-> **Total Curated Skills**: 557 skills  
+> **Total Curated Skills**: 561 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -174,6 +174,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`digital-health-clinical-asr-finetune`](../../library/nvidia-skills/skills/digital-health-clinical-asr-finetune) | ⚪ Reserve | `nvidia-skills` | Stage 4 of the Clinical ASR Flywheel. Use when priority KER is above 0.3 to run stock NeMo SFT ... |
 | [`dimensional-analysis`](../../library/trailofbits-skills/skills/dimensional-analysis) | ⚪ Reserve | `trailofbits-skills` | Audits code for unit and decimal-scaling bugs and annotates it with dimensional comments record... |
 | [`dl-transformer-finetune`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/dl-transformer-finetune) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Build transformer fine-tuning plans for classification and generation |
+| [`do-and-judge`](../../library/neolabhq-context-engineering-kit/skills/do-and-judge) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Execute a task with sub-agent implementation and LLM-as-a-judge verification with automatic ret... |
+| [`do-in-parallel`](../../library/neolabhq-context-engineering-kit/skills/do-in-parallel) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Run independent tasks concurrently across multiple files or targets using parallel sub-agents, ... |
+| [`do-in-steps`](../../library/neolabhq-context-engineering-kit/skills/do-in-steps) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Execute one complex task as ordered, dependent steps run sequentially, passing context from eac... |
 | [`dual-axis-skill-reviewer`](../../library/tradermonty-claude-trading-skills/skills/dual-axis-skill-reviewer) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Review skills in any project using a dual-axis method: (1) deterministic code-based checks (str... |
 | [`dynamic-workflow-mode`](../../library/affaan-m-ecc/skills/dynamic-workflow-mode) | ⚪ Reserve | `affaan-m-ecc` | Design task-local harnesses, eval gates, and reusable skill extraction for Claude dynamic workf... |
 | [`earllm-build`](../../library/sickn33-agentic-awesome-skills/skills/earllm-build) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Build, maintain, and extend the EarLLM One Android project — a Kotlin/Compose app that connects... |
@@ -268,6 +271,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`image-generator`](../../library/sickn33-agentic-awesome-skills/skills/image-generator) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Generate and edit images using Gemini's Nano Banana Pro model (gemini-3-pro-image-preview). Use... |
 | [`image-prompt`](../../library/davidondrej-skills/skills/image-prompt) | ⚪ Reserve | `davidondrej-skills` | Write four distinct prompts for AI image models. Use for image, thumbnail, banner, logo, or ill... |
 | [`implement-geo-content-optimizer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/implement-geo-content-optimizer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "optimize for AI citations"; improves citation readiness for ChatGPT,... |
+| [`implement-task`](../../library/neolabhq-context-engineering-kit/skills/implement-task) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Implement a task step by step with automated LLM-as-Judge verification at the end of each phase |
 | [`implementing-llm-guardrails-for-security`](../../library/mukul975-anthropic-cybersecurity-skills/skills/implementing-llm-guardrails-for-security) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Implements input/output validation guardrails for LLM applications using |
 | [`improve-retention`](../../library/wondelai-skills/skills/improve-retention) | ⚪ Reserve | `wondelai-skills` | Diagnose and fix retention problems using behavior design (B=MAP). Use when the user mentions "... |
 | [`improve-skill-quality`](../../library/dotnet-skills/skills/improve-skill-quality) | ⚪ Reserve | `dotnet-skills` | Diagnoses and fixes skills in the dotnet/skills repository that lose to their own baseline, fai... |

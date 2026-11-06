@@ -1,0 +1,102 @@
+[
+  {
+    "id": "link-workspace-packages",
+    "name": "link-workspace-packages",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "'Link workspace packages in monorepos (npm, yarn, pnpm, bun). USE WHEN: (1) you just created or generated new packages and need to wire up their dependencies, (2) user imports from a sibling package and needs to add it as a dependency, (3) you get resolution errors for workspace packages (@org/*) like \"cannot find module\", \"failed to resolve import\", \"TS2307\", or \"cannot resolve\". DO NOT patch around with tsconfig paths or manual package.json edits - use the package manager''s workspace commands to fix actual linking.'",
+    "path": "library/nrwl-nx-ai-agents-config/skills/link-workspace-packages",
+    "activation_cmd": "python .agents/library/activate_skill.py activate link-workspace-packages",
+    "link_cmd": "python .agents/library/activate_skill.py link link-workspace-packages"
+  },
+  {
+    "id": "monitor-ci",
+    "name": "monitor-ci",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "Monitor Nx Cloud CI pipeline and handle self-healing fixes. USE WHEN user says \"monitor ci\", \"watch ci\", \"ci monitor\", \"watch ci for this branch\", \"track ci\", \"check ci status\", wants to track CI status, or needs help with self-healing CI fixes. Prefer this skill over native CI provider tools (gh, glab, etc.) for CI monitoring \u2014 it integrates with Nx Cloud self-healing which those tools cannot access.",
+    "path": "library/nrwl-nx-ai-agents-config/skills/monitor-ci",
+    "activation_cmd": "python .agents/library/activate_skill.py activate monitor-ci",
+    "link_cmd": "python .agents/library/activate_skill.py link monitor-ci"
+  },
+  {
+    "id": "nx-cloud-api",
+    "name": "nx-cloud-api",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "Query the read-only Nx Cloud Public API for workspace data with `npx nx-cloud api`. Use this skill when a user asks to inspect or retrieve CIPEs, pipelines, run groups, runs, tasks, workflows, agents, task statistics, flaky tasks, cache data, or API endpoint details. Use this skill before any Nx Cloud API call. It covers endpoint discovery, link navigation, pagination, asset downloads, and error recovery. Do not use it for live CI monitoring.",
+    "path": "library/nrwl-nx-ai-agents-config/skills/nx-cloud-api",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nx-cloud-api",
+    "link_cmd": "python .agents/library/activate_skill.py link nx-cloud-api"
+  },
+  {
+    "id": "nx-cloud-cache-investigator",
+    "name": "nx-cloud-cache-investigator",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "Investigate a specific Nx cache miss, artifact download or extraction failure, same-hash non-replay, or suspected unsafe cache replay. Use this skill whenever a user asks why an Nx task did not use the cache, why cache artifact restoration failed, why a cache hit restored stale or wrong output, or to compare two cached task executions. Use the nx-cloud-api skill for every Nx Cloud read. This skill supports API-only investigations, preserves strict hash-evidence limits, and requests local configuration only when the question requires it.",
+    "path": "library/nrwl-nx-ai-agents-config/skills/nx-cloud-cache-investigator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nx-cloud-cache-investigator",
+    "link_cmd": "python .agents/library/activate_skill.py link nx-cloud-cache-investigator"
+  },
+  {
+    "id": "nx-cloud-ci-failure-review",
+    "name": "nx-cloud-ci-failure-review",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "Review failed Nx Cloud CI pipeline executions and group recurring, evidence-based failure patterns. Use this skill whenever a user asks about failed CI pipelines, recurring task failures, failed CIPEs, a CI failure review, or a last-24-hours CI report. Use the nx-cloud-api skill for every Nx Cloud read. This read-only skill separates task, workflow, agent, timeout, cancellation, and unknown cases. It suggests diagnostic next steps without changing systems.",
+    "path": "library/nrwl-nx-ai-agents-config/skills/nx-cloud-ci-failure-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nx-cloud-ci-failure-review",
+    "link_cmd": "python .agents/library/activate_skill.py link nx-cloud-ci-failure-review"
+  },
+  {
+    "id": "nx-generate",
+    "name": "nx-generate",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "Generate code using nx generators. INVOKE IMMEDIATELY when user mentions scaffolding, setup, structure, creating apps/libs, or setting up project structure. Trigger words - scaffold, setup, create a new app, create a new lib, project structure, generate, add a new project. ALWAYS use this BEFORE calling nx_docs or exploring - this skill handles discovery internally.",
+    "path": "library/nrwl-nx-ai-agents-config/skills/nx-generate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nx-generate",
+    "link_cmd": "python .agents/library/activate_skill.py link nx-generate"
+  },
+  {
+    "id": "nx-import",
+    "name": "nx-import",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "Import, merge, or combine repositories into an Nx workspace using nx import. USE WHEN the user asks to adopt Nx across repos, move projects into a monorepo, or bring code/history from another repository.",
+    "path": "library/nrwl-nx-ai-agents-config/skills/nx-import",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nx-import",
+    "link_cmd": "python .agents/library/activate_skill.py link nx-import"
+  },
+  {
+    "id": "nx-plugins",
+    "name": "nx-plugins",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "Find and add Nx plugins. USE WHEN user wants to discover available plugins, install a new plugin, or add support for a specific framework or technology to the workspace.",
+    "path": "library/nrwl-nx-ai-agents-config/skills/nx-plugins",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nx-plugins",
+    "link_cmd": "python .agents/library/activate_skill.py link nx-plugins"
+  },
+  {
+    "id": "nx-run-tasks",
+    "name": "nx-run-tasks",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "Helps with running tasks in an Nx workspace. USE WHEN the user wants to execute build, test, lint, serve, or run any other tasks defined in the workspace.",
+    "path": "library/nrwl-nx-ai-agents-config/skills/nx-run-tasks",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nx-run-tasks",
+    "link_cmd": "python .agents/library/activate_skill.py link nx-run-tasks"
+  },
+  {
+    "id": "nx-workspace",
+    "name": "nx-workspace",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "\"Explore and understand Nx workspaces. USE WHEN answering questions about the workspace, projects, or tasks. ALSO USE WHEN an nx command fails or you need to check available targets/configuration before running a task. EXAMPLES: 'What projects are in this workspace?', 'How is project X configured?', 'What depends on library Y?', 'What targets can I run?', 'Cannot find configuration for task', 'debug nx task failure'.\"",
+    "path": "library/nrwl-nx-ai-agents-config/skills/nx-workspace",
+    "activation_cmd": "python .agents/library/activate_skill.py activate nx-workspace",
+    "link_cmd": "python .agents/library/activate_skill.py link nx-workspace"
+  }
+]

@@ -1,7 +1,7 @@
 # 🏛️ Complete Repository Provenance & Upstream Registry
 
-> **Active Reserve Libraries**: 481 repositories  
-> **Total Skills in Reserve**: 26,741 skills  
+> **Active Reserve Libraries**: 484 repositories  
+> **Total Skills in Reserve**: 26,826 skills  
 > **Source Registry**: [`library/upstreams.json`](library/upstreams.json)  
 > **Format Standard**: Pure isolated repositories (`['skills', 'README.md', 'skills_index.json']`), 0 `.git` directories.
 
@@ -90,6 +90,7 @@
 | `buluslan-ecommerce-competitor-analyzer` | [buluslan-ecommerce-competitor-analyzer](https://github.com/buluslan-ecommerce-competitor-analyzer) | **1** | `python .agents/library/activate_skill.py activate ecommerce-competitor-analyzer` |
 | `buzzbysolcex-buzz-bd-agent` | [buzzbysolcex/buzz-bd-agent](https://github.com/buzzbysolcex/buzz-bd-agent) | **38** | `python .agents/library/activate_skill.py activate agent-contexts` |
 | `caffeinelabs-skills` | [caffeinelabs/skills](https://github.com/caffeinelabs/skills) | **38** | `python .agents/library/activate_skill.py activate caffeine-app` |
+| `calesthio-openmontage` | [calesthio/openmontage](https://github.com/calesthio/openmontage) | **4** | `python .agents/library/activate_skill.py activate core` |
 | `callstackincubator-agent-react-devtools` | [callstackincubator-agent-react-devtools](https://github.com/callstackincubator-agent-react-devtools) | **1** | `python .agents/library/activate_skill.py activate agent-react-devtools` |
 | `canner-wrenai` | [canner-wrenai](https://github.com/canner-wrenai) | **2** | `python .agents/library/activate_skill.py activate .claude-plugin` |
 | `career-ops-hq-career-ops` | [career-ops-hq/career-ops](https://github.com/career-ops-hq/career-ops) | **5** | `python .agents/library/activate_skill.py activate apify` |
@@ -317,7 +318,8 @@
 | `nateherkai-herk-edit-kit` | [nateherkai/herk-edit-kit](https://github.com/nateherkai/herk-edit-kit) | **15** | `python .agents/library/activate_skill.py activate cut-mistakes` |
 | `nateherkai-scroll-craft` | [nateherkai/scroll-craft](https://github.com/nateherkai/scroll-craft) | **1** | `python .agents/library/activate_skill.py activate scroll-craft` |
 | `neo4j-contrib-neo4j-skills` | [neo4j-contrib-neo4j-skills](https://github.com/neo4j-contrib-neo4j-skills) | **1** | `python .agents/library/activate_skill.py activate neo4j-skills` |
-| `neondatabase-agent-skills` | [neondatabase/agent-skills](https://github.com/neondatabase/agent-skills) | **10** | `python .agents/library/activate_skill.py activate neon` |
+| `neolabhq-context-engineering-kit` | [neolabhq/context-engineering-kit](https://github.com/neolabhq/context-engineering-kit) | **68** | `python .agents/library/activate_skill.py activate actualize` |
+| `neondatabase-agent-skills` | [neondatabase/agent-skills](https://github.com/neondatabase/agent-skills) | **12** | `python .agents/library/activate_skill.py activate neon` |
 | `nexscope-ai-amazon-skills` | [nexscope-ai/amazon-skills](https://github.com/nexscope-ai/amazon-skills) | **52** | `python .agents/library/activate_skill.py activate amazon-a-plus-content` |
 | `nexscope-ai-ecommerce-skills` | [nexscope-ai/ecommerce-skills](https://github.com/nexscope-ai/ecommerce-skills) | **162** | `python .agents/library/activate_skill.py activate affiliate-marketing-strategy` |
 | `nexu-io-open-design` | [nexu-io/open-design](https://github.com/nexu-io/open-design) | **169** | `python .agents/library/activate_skill.py activate 8-bit-orbit-video-template` |
@@ -331,6 +333,7 @@
 | `nousresearch-hermes-optional-skills` | [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | **152** | `python .agents/library/activate_skill.py activate 1password` |
 | `nousresearch-hermes-skills` | [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) | **58** | `python .agents/library/activate_skill.py activate airtable` |
 | `nowork-studio-notfair-plugin` | [nowork-studio/notfair-plugin](https://github.com/nowork-studio/notfair-plugin) | **48** | `python .agents/library/activate_skill.py activate backlink-audit` |
+| `nrwl-nx-ai-agents-config` | [nrwl/nx-ai-agents-config](https://github.com/nrwl/nx-ai-agents-config) | **10** | `python .agents/library/activate_skill.py activate link-workspace-packages` |
 | `nutlope-hallmark` | [Nutlope/hallmark](https://github.com/Nutlope/hallmark) | **1** | `python .agents/library/activate_skill.py activate hallmark` |
 | `nvidia-openshell` | [nvidia-openshell](https://github.com/nvidia-openshell) | **4** | `python .agents/library/activate_skill.py activate debug-inference` |
 | `nvidia-skills` | [NVIDIA/skills](https://github.com/NVIDIA/skills) | **430** | `python .agents/library/activate_skill.py activate accelerated-computing-cudf` |
@@ -372,7 +375,7 @@
 | `readdle-spark-cli-skills` | [readdle-spark-cli-skills](https://github.com/readdle-spark-cli-skills) | **34** | `python .agents/library/activate_skill.py activate persona-exec-assistant` |
 | `reason-machines-data-skills` | [reason-machines/data-skills](https://github.com/reason-machines/data-skills) | **93** | `python .agents/library/activate_skill.py activate adspy-analytics-intelligence` |
 | `reason-machines-trending-skills` | [reason-machines/trending-skills](https://github.com/reason-machines/trending-skills) | **496** | `python .agents/library/activate_skill.py activate 3dsvg-interactive-react` |
-| `rebelytics-one-skill-to-rule-them-all` | [rebelytics/one-skill-to-rule-them-all](https://github.com/rebelytics/one-skill-to-rule-them-all) | **2** | `python .agents/library/activate_skill.py activate one-skill-to-rule-them-all` |
+| `rebelytics-one-skill-to-rule-them-all` | [rebelytics/one-skill-to-rule-them-all](https://github.com/rebelytics/one-skill-to-rule-them-all) | **3** | `python .agents/library/activate_skill.py activate .temp_upstream_clones-rebelytics-one-skill-to-rule-them-all` |
 | `refoundai-lenny-skills` | [refoundai/lenny-skills](https://github.com/refoundai/lenny-skills) | **76** | `python .agents/library/activate_skill.py activate acquisition-channels` |
 | `rehan-remade-universal-modder` | [rehan-remade/universal-modder](https://github.com/rehan-remade/universal-modder) | **13** | `python .agents/library/activate_skill.py activate asset-pipeline` |
 | `remotion-dev-skills` | [remotion-dev/skills](https://github.com/remotion-dev/skills) | **13** | `python .agents/library/activate_skill.py activate remotion-best-practices` |

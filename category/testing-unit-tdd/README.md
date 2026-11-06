@@ -1,7 +1,7 @@
 # 🧪 Unit Testing, TDD & Verification
 
 > **Category**: `testing-unit-tdd`  
-> **Total Curated Skills**: 658 skills  
+> **Total Curated Skills**: 660 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -158,6 +158,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cost-benchmark`](../../library/ruvnet-ruflo/skills/cost-benchmark) | ⚪ Reserve | `ruvnet-ruflo` | Run the corpus benchmark — booster locally, optional Gemini/Sonnet/Opus baselines — and persist... |
 | [`cost-burn`](../../library/ruvnet-ruflo/skills/cost-burn) | ⚪ Reserve | `ruvnet-ruflo` | Burn-rate trend over time with optional drift-alert exit code. Bins session spend into buckets,... |
 | [`coverage`](../../library/alirezarezvani-claude-skills/skills/coverage) | ⚪ Reserve | `alirezarezvani-claude-skills` | Analyze test coverage gaps. Use when user says "test coverage", "what's not tested", "coverage ... |
+| [`create-hook`](../../library/neolabhq-context-engineering-kit/skills/create-hook) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Create and configure git hooks with intelligent project analysis, suggestions, and automated te... |
 | [`create-mod`](../../library/ruvnet-ruflo/skills/create-mod) | ⚪ Reserve | `ruvnet-ruflo` | Scaffold a Claude Code mod (a plugin with a function-hooks module) from ruflo's governed templa... |
 | [`creator-profile-teardown`](../../library/scrapecreators-social-media-research-skills/skills/creator-profile-teardown) | ⚪ Reserve | `scrapecreators-social-media-research-skills` | Use when the user wants to analyze a creator, influencer, founder, or brand social account and ... |
 | [`credit-cycle-analysis`](../../library/sickn33-agentic-awesome-skills/skills/credit-cycle-analysis) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Debtor and creditor credit-cycle analysis: weighted collection or payment days, ageing buckets,... |
@@ -188,6 +189,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`derisk-measurement-advisor`](../../library/deanpeters-product-manager-skills/skills/derisk-measurement-advisor) | ⚪ Reserve | `deanpeters-product-manager-skills` | Identify what to measure, test, or track to de-risk a product or AI idea. Use when stress-testi... |
 | [`design-action-combat`](../../library/mengto-skills/skills/design-action-combat) | ⚪ Reserve | `mengto-skills` | Design, implement, tune, or test readable tactical action combat for web games. Use for attack ... |
 | [`design-sprint-plan`](../../library/owl-listener-designer-skills/skills/design-sprint-plan) | ⚪ Reserve | `owl-listener-designer-skills` | Plan and facilitate a design sprint from challenge framing through prototype testing. Use when ... |
+| [`design-testing-strategy`](../../library/neolabhq-context-engineering-kit/skills/design-testing-strategy) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Use before writing any type of tests. Distills 14 industry sources into deterministic decision ... |
 | [`desktop-mvvm`](../../library/codewithmukesh-dotnet-claude-kit/skills/desktop-mvvm) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | MVVM for .NET desktop apps (WPF, Avalonia, WinForms, MAUI) with CommunityToolkit.Mvvm 8.4+ sour... |
 | [`deterministic-design`](../../library/sickn33-agentic-awesome-skills/skills/deterministic-design) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Measure rendered UI layout with reproducible spatial metrics and a separately assessed usabilit... |
 | [`dev-browser`](../../library/sawyerhood-dev-browser/skills/dev-browser) | ⚪ Reserve | `sawyerhood-dev-browser` | Browser automation with persistent named pages via the dev-browser CLI. Use when users ask to n... |

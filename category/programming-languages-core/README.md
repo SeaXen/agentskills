@@ -1,7 +1,7 @@
 # 📐 Programming Languages & Type Systems
 
 > **Category**: `programming-languages-core`  
-> **Total Curated Skills**: 399 skills  
+> **Total Curated Skills**: 400 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -103,6 +103,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`browser-use-to-stagehand`](../../library/browserbase-skills/skills/browser-use-to-stagehand) | ⚪ Reserve | `browserbase-skills` | Migrate browser-use (Python) browser-automation scripts to Stagehand v3 (TypeScript) on Browser... |
 | [`bug-bounty`](../../library/elementalsouls-claude-bughunter/skills/bug-bounty) | ⚪ Reserve | `elementalsouls-claude-bughunter` | Complete bug bounty workflow — recon (subdomain enumeration, asset discovery, fingerprinting, H... |
 | [`build-audit-logs`](../../library/evloghq-evlog/skills/build-audit-logs) | ⚪ Reserve | `evloghq-evlog` | Build or review audit trails in TypeScript/JavaScript apps using evlog (pipelines, typed action... |
+| [`build-mcp`](../../library/neolabhq-context-engineering-kit/skills/build-mcp) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to intera... |
 | [`bullmq-specialist`](../../library/antigravity-awesome-skills/skills/bullmq-specialist) | ⚪ Reserve | `antigravity-awesome-skills` | BullMQ expert for Redis-backed job queues, background processing, and reliable async execution ... |
 | [`bun-development`](../../library/antigravity-awesome-skills/skills/bun-development) | ⚪ Reserve | `antigravity-awesome-skills` | Modern JavaScript/TypeScript development with Bun runtime. Covers package management, bundling,... |
 | [`cargo-fuzz`](../../library/trailofbits-skills/skills/cargo-fuzz) | ⚪ Reserve | `trailofbits-skills` | Sets up and runs cargo-fuzz, the standard fuzzing tool for Cargo-based Rust projects. Covers ca... |

@@ -1,7 +1,7 @@
 # ⚡ Backend Systems, REST & Microservices
 
 > **Category**: `backend-api-design`  
-> **Total Curated Skills**: 1509 skills  
+> **Total Curated Skills**: 1514 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -998,6 +998,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`nvflare-convert-pytorch`](../../library/nvidia-skills/skills/nvflare-convert-pytorch) | ⚪ Reserve | `nvidia-skills` | Convert existing plain or manual PyTorch training code into an NVFLARE federated job using Clie... |
 | [`nvidia-ontology-query`](../../library/nvidia-skills/skills/nvidia-ontology-query) | ⚪ Reserve | `nvidia-skills` | Query Auto Ontology and validate generated SQL, rows, and answers. Use for MCP or REST access, ... |
 | [`nvshmem-docs`](../../library/nvidia-skills/skills/nvshmem-docs) | ⚪ Reserve | `nvidia-skills` | Find version-aware official NVSHMEM and NVSHMEM4Py documentation for releases, installation, AP... |
+| [`nx-cloud-api`](../../library/nrwl-nx-ai-agents-config/skills/nx-cloud-api) | ⚪ Reserve | `nrwl-nx-ai-agents-config` | Query the read-only Nx Cloud Public API for workspace data with `npx nx-cloud api`. Use this sk... |
+| [`nx-cloud-cache-investigator`](../../library/nrwl-nx-ai-agents-config/skills/nx-cloud-cache-investigator) | ⚪ Reserve | `nrwl-nx-ai-agents-config` | Investigate a specific Nx cache miss, artifact download or extraction failure, same-hash non-re... |
+| [`nx-cloud-ci-failure-review`](../../library/nrwl-nx-ai-agents-config/skills/nx-cloud-ci-failure-review) | ⚪ Reserve | `nrwl-nx-ai-agents-config` | Review failed Nx Cloud CI pipeline executions and group recurring, evidence-based failure patte... |
 | [`oauth2-provider-design`](../../library/samber-developer-platform-skills/skills/oauth2-provider-design) | ⚪ Reserve | `samber-developer-platform-skills` | Design the OAuth2 authorization-server surface a B2B SaaS offers third-party apps - the OAuth 2... |
 | [`observe-whatsapp`](../../library/antigravity-awesome-skills/skills/observe-whatsapp) | ⚪ Reserve | `antigravity-awesome-skills` | Observe and troubleshoot WhatsApp in Kapso: debug message delivery, inspect webhook deliveries/... |
 | [`octav-api`](../../library/internet-court-internet-court-skill/skills/octav-api) | ⚪ Reserve | `internet-court-internet-court-skill` | Integrate with Octav API for cryptocurrency portfolio tracking, transaction history, and DeFi a... |
@@ -1390,6 +1393,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`template-instantiation`](../../library/dotnet-skills/skills/template-instantiation) | ⚪ Reserve | `dotnet-skills` | Creates .NET projects from templates with validated parameters, smart defaults, Central Package... |
 | [`template-smart-defaults`](../../library/dotnet-skills/skills/template-smart-defaults) | ⚪ Reserve | `dotnet-skills` | Applies cross-parameter default rules when creating .NET projects with dotnet new, filling gaps... |
 | [`terraform-provider-offering`](../../library/samber-developer-platform-skills/skills/terraform-provider-offering) | ⚪ Reserve | `samber-developer-platform-skills` | Decides whether a SaaS or API platform should ship its own Terraform/OpenTofu provider, then bu... |
+| [`test-coverage`](../../library/neolabhq-context-engineering-kit/skills/test-coverage) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Use after writing tests to assess coverage quality across structural, mutation, requirements, a... |
 | [`testability-obstacle`](../../library/dotnet-skills/skills/testability-obstacle) | ⚪ Reserve | `dotnet-skills` | MUST USE for C#/.NET deterministic tests that require the smallest production seam for DateTime... |
 | [`testing-api-authentication-weaknesses`](../../library/mukul975-anthropic-cybersecurity-skills/skills/testing-api-authentication-weaknesses) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Tests API authentication mechanisms for weaknesses including broken |
 | [`testing-api-for-broken-object-level-authorization`](../../library/mukul975-anthropic-cybersecurity-skills/skills/testing-api-for-broken-object-level-authorization) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Tests REST and GraphQL APIs for Broken Object Level Authorization (BOLA/IDOR, |
@@ -1426,6 +1430,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`universal-scraping-architect`](../../library/alirezarezvani-claude-skills/skills/universal-scraping-architect) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use for web scraping, crawling, document extraction, API parsing, or building validation-heavy ... |
 | [`unpaywall-api`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/unpaywall-api) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Find free legal full-text versions of scholarly articles via Unpaywall |
 | [`upbit`](../../library/starchild-ai-agent-official-skills/skills/upbit) | ⚪ Reserve | `starchild-ai-agent-official-skills` | Use upbit CLI for Upbit REST API — spot orders, market data, withdrawals, deposits, travel rule... |
+| [`update-docs`](../../library/neolabhq-context-engineering-kit/skills/update-docs) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Update and maintain project documentation for local code changes using multi-agent workflow wit... |
 | [`update-swiftui-apis`](../../library/avdlee-swiftui-agent-skill/skills/update-swiftui-apis) | ⚪ Reserve | `avdlee-swiftui-agent-skill` | Scan Apple's SwiftUI documentation for deprecated APIs and update the SwiftUI Expert Skill with... |
 | [`upgrade-stripe`](../../library/stripe-ai/skills/upgrade-stripe) | ⚪ Reserve | `stripe-ai` | Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mo... |
 | [`upload-post-skill`](../../library/upload-post-upload-post-skill/skills/upload-post-skill) | ⚪ Reserve | `upload-post-upload-post-skill` | Upload content to social media platforms via Upload-Post API. Use when posting videos, photos, ... |

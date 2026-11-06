@@ -1,7 +1,7 @@
 # 🚀 DevOps, Containers & Deployment
 
 > **Category**: `devops-docker-cicd`  
-> **Total Curated Skills**: 553 skills  
+> **Total Curated Skills**: 554 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -495,6 +495,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`service-itsm-agentic-setup-configure`](../../library/forcedotcom-sf-skills/skills/service-itsm-agentic-setup-configure) | ⚪ Reserve | `forcedotcom-sf-skills` | Top-level orchestrator for setting up IT Service Management (ITSM) in Salesforce Service Cloud.... |
 | [`service-omni-presence-status-deploy`](../../library/forcedotcom-sf-skills/skills/service-omni-presence-status-deploy) | ⚪ Reserve | `forcedotcom-sf-skills` | Create the standard Available and Busy presence statuses needed for Omni-Channel routing. TRIGG... |
 | [`service-omni-routing-flow-deploy`](../../library/forcedotcom-sf-skills/skills/service-omni-routing-flow-deploy) | ⚪ Reserve | `forcedotcom-sf-skills` | Use to deploy an Omni-Channel routing Flow for Case or VoiceCall and verify it routes work item... |
+| [`setup-arxiv-mcp`](../../library/neolabhq-context-engineering-kit/skills/setup-arxiv-mcp) | ⚪ Reserve | `neolabhq-context-engineering-kit` | Guide for setup arXiv paper search MCP server using Docker MCP |
 | [`setup-deliverability-qa`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/setup-deliverability-qa) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "run a deliverability pre-flight before I send", "check my SPF/DKIM/D... |
 | [`setup-deploy`](../../library/garrytan-gstack/skills/setup-deploy) | ⚪ Reserve | `garrytan-gstack` | Configure deployment settings for /land-and-deploy. |
 | [`ship-web-games`](../../library/mengto-skills/skills/ship-web-games) | ⚪ Reserve | `mengto-skills` | Package, deploy, and verify a playable Three.js or web game. Use for release builds, asset deli... |
