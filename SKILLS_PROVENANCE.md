@@ -1,7 +1,7 @@
 # 🏛️ Complete Repository Provenance & Upstream Registry
 
 > **Active Reserve Libraries**: 484 repositories  
-> **Total Skills in Reserve**: 26,841 skills  
+> **Total Skills in Reserve**: 26,842 skills  
 > **Source Registry**: [`library/upstreams.json`](library/upstreams.json)  
 > **Format Standard**: Pure isolated repositories (`['skills', 'README.md', 'skills_index.json']`), 0 `.git` directories.
 
@@ -93,7 +93,7 @@
 | `calesthio-openmontage` | [calesthio/openmontage](https://github.com/calesthio/openmontage) | **4** | `python .agents/library/activate_skill.py activate core` |
 | `callstackincubator-agent-react-devtools` | [callstackincubator-agent-react-devtools](https://github.com/callstackincubator-agent-react-devtools) | **1** | `python .agents/library/activate_skill.py activate agent-react-devtools` |
 | `canner-wrenai` | [canner-wrenai](https://github.com/canner-wrenai) | **2** | `python .agents/library/activate_skill.py activate .claude-plugin` |
-| `career-ops-hq-career-ops` | [career-ops-hq/career-ops](https://github.com/career-ops-hq/career-ops) | **5** | `python .agents/library/activate_skill.py activate apify` |
+| `career-ops-hq-career-ops` | [career-ops-hq/career-ops](https://github.com/career-ops-hq/career-ops) | **6** | `python .agents/library/activate_skill.py activate apify` |
 | `caru-ini-stack-diagram` | [caru-ini/stack-diagram](https://github.com/caru-ini/stack-diagram) | **1** | `python .agents/library/activate_skill.py activate stack-diagram` |
 | `ccheney-robust-skills` | [ccheney-robust-skills](https://github.com/ccheney-robust-skills) | **11** | `python .agents/library/activate_skill.py activate bazel` |
 | `cdeistopened-skill-stack` | [cdeistopened-skill-stack](https://github.com/cdeistopened-skill-stack) | **1** | `python .agents/library/activate_skill.py activate skill-stack` |

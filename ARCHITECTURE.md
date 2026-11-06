@@ -10,7 +10,7 @@ Antigravity Kit is a modular system consisting of:
 
 - **20 Specialist Agents** - Role-based AI personas
 - **130 Active Hot-Set Skills** - Curated daily-driver engineering skills - Domain-specific knowledge modules
-- **26,786 Library Reserve Skills** - Offline capability archive across 484 repositories (`.agent/library/`)
+- **26,787 Library Reserve Skills** - Offline capability archive across 484 repositories (`.agent/library/`)
 - **18 Workflows** - Slash command procedures
 
 ---
@@ -22,8 +22,8 @@ Antigravity Kit is a modular system consisting of:
 ├── ARCHITECTURE.md          # This file
 ├── agents/                  # 20 Specialist Agents
 ├── skills/                  # 130 Active Hot-Set Skills
-├── category/                # 38 Granular Functional Category Directories (21,505 real skills)
-├── library/                 # 26,786 Offline Reserve Skills (484 repositories) & Activator
+├── category/                # 38 Granular Functional Category Directories (21,506 real skills)
+├── library/                 # 26,787 Offline Reserve Skills (484 repositories) & Activator
 ├── workflows/               # 18 Slash Commands
 ├── rules/                   # Global Rules
 └── scripts/                 # Master Validation Scripts
@@ -293,7 +293,7 @@ Slash command procedures. Invoke with `/command`.
 | `/deploy`        | Safe production deployment procedures & pre-flight checks                   |
 | `/enhance`       | Iterative feature updates on existing codebases                             |
 | `/impeccable`    | Anti-cliché UI polish, typography, and frontend design review                |
-| `/library`       | Search, inspect, and activate from the 26,786 offline reserve skills across 484 repositories          |
+| `/library`       | Search, inspect, and activate from the 26,787 offline reserve skills across 484 repositories          |
 | `/orchestrate`   | Multi-agent perspective coordination & workload balancing                   |
 | `/owl`           | Decoupled deep investigator & verified coder pipeline                       |
 | `/plan`          | Structured roadmap & task dependency planning (no code)                     |

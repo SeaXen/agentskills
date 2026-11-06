@@ -1,7 +1,7 @@
 # 📈 Sales Outreach, Leads & CRM
 
 > **Category**: `business-sales-crm`  
-> **Total Curated Skills**: 583 skills  
+> **Total Curated Skills**: 584 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -489,6 +489,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-call-prep`](../../library/anthropics-knowledge-work/skills/skills-call-prep) | ⚪ Reserve | `anthropics-knowledge-work` | Prepare for a customer or prospect call using Common Room signals. Triggers on 'prep me for my ... |
 | [`skills-call-summary`](../../library/anthropics-knowledge-work/skills/skills-call-summary) | ⚪ Reserve | `anthropics-knowledge-work` | Turn a call transcript or call notes into a customer follow-up email draft, an internal chat su... |
 | [`skills-campaign-plan`](../../library/anthropics-knowledge-work/skills/skills-campaign-plan) | ⚪ Reserve | `anthropics-knowledge-work` | Generate a full campaign brief with objectives, audience, messaging, channel strategy, content ... |
+| [`skills-career-ops`](../../library/career-ops-hq-career-ops/skills/skills-career-ops) | ⚪ Reserve | `career-ops-hq-career-ops` | Open-source AI job search agent -- evaluate offers, generate CVs, scan portals, track applicati... |
 | [`skills-close-plan`](../../library/anthropics-knowledge-work/skills/skills-close-plan) | ⚪ Reserve | `anthropics-knowledge-work` | Build the business case and mutual action plan for a deal - the why-buy/why-now story, the ROI ... |
 | [`skills-competitive-brief`](../../library/anthropics-knowledge-work/skills/skills-competitive-brief) | ⚪ Reserve | `anthropics-knowledge-work` | Research competitors and generate a positioning and messaging comparison with content gaps, opp... |
 | [`skills-competitive-intelligence`](../../library/anthropics-knowledge-work/skills/skills-competitive-intelligence) | ⚪ Reserve | `anthropics-knowledge-work` | Competitive analysis two ways - the in-deal play against a named competitor, and win/loss patte... |

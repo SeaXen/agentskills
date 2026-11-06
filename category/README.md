@@ -1,6 +1,6 @@
 # 🗂️ AgentSkills Functional Categories Directory
 
-> **Total Unique Skills**: 21505 standalone modular skills  
+> **Total Unique Skills**: 21506 standalone modular skills  
 > **Granular Categories**: 38 specialized domain folders  
 > **Architecture**: **100% Real folders & files** (No symlinks, fully portable across all operating systems).  
 > **Purpose**: Cleanly categorizes all skills into focused, human-sized collections.
@@ -17,7 +17,7 @@
 | **[`backend-api-design`](./backend-api-design)** | ⚡ Backend Systems, REST & Microservices | **1514** | [Open Catalog](./backend-api-design/README.md) |
 | **[`architecture-system-design`](./architecture-system-design)** | 🏛️ Architecture, System Design & Patterns | **682** | [Open Catalog](./architecture-system-design/README.md) |
 | **[`testing-unit-tdd`](./testing-unit-tdd)** | 🧪 Unit Testing, TDD & Verification | **661** | [Open Catalog](./testing-unit-tdd/README.md) |
-| **[`business-sales-crm`](./business-sales-crm)** | 📈 Sales Outreach, Leads & CRM | **583** | [Open Catalog](./business-sales-crm/README.md) |
+| **[`business-sales-crm`](./business-sales-crm)** | 📈 Sales Outreach, Leads & CRM | **584** | [Open Catalog](./business-sales-crm/README.md) |
 | **[`prompt-llm-engineering`](./prompt-llm-engineering)** | 💬 Prompt Engineering, LLMs & RAG | **561** | [Open Catalog](./prompt-llm-engineering/README.md) |
 | **[`git-version-control`](./git-version-control)** | 🐙 Git, Worktrees & PR Workflows | **559** | [Open Catalog](./git-version-control/README.md) |
 | **[`devops-docker-cicd`](./devops-docker-cicd)** | 🚀 DevOps, Containers & Deployment | **554** | [Open Catalog](./devops-docker-cicd/README.md) |
