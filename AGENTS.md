@@ -16,9 +16,9 @@ Counts drift and the docs disagree. Trust these, in order:
 | per-skill catalog records | `Skill.Sea/data/catalog.json` (~24.7 MB) |
 | repo cards | `Skill.Sea/data/repositories.json` |
 
-Verified 2026-11-06: **20,483 skills · 38 categories · 380 repositories · 130 hot-set**.
+Verified 2026-11-06: **21,504 skills · 38 categories · 484 repositories · 130 hot-set**.
 
-`README.md` (25,695 / 18,722 / 17,145), `update.py --help` ("364 repositories"), and this file's previous numbers are **stale**. Don't propagate them.
+`README.md`, `update.py --help`, and this file's previous numbers are **stale**. Don't propagate them.
 
 ## The #1 gotcha: the hot-set is a UNION of two directories
 

@@ -1,7 +1,7 @@
 # 🏛️ Architecture, System Design & Patterns
 
 > **Category**: `architecture-system-design`  
-> **Total Curated Skills**: 681 skills  
+> **Total Curated Skills**: 682 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -568,6 +568,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-architecture`](../../library/anthropics-knowledge-work/skills/skills-architecture) | ⚪ Reserve | `anthropics-knowledge-work` | Create or evaluate an architecture decision record (ADR). Use when choosing between technologie... |
 | [`skills-architecture-advisor`](../../library/codewithmukesh-dotnet-claude-kit/skills/skills-architecture-advisor) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Architecture selection advisor for .NET applications. Asks structured questions about domain co... |
 | [`skills-azure-resource-visualizer`](../../library/microsoft-azure-skills/skills/skills-azure-resource-visualizer) | ⚪ Reserve | `microsoft-azure-skills` | Analyze Azure resource groups and generate detailed Mermaid architecture diagrams showing the r... |
+| [`skills-bmad-architecture`](../../library/bmad-code-org-bmad-method/skills/skills-bmad-architecture) | ⚪ Reserve | `bmad-code-org-bmad-method` | Work out and record the architecture decisions that keep separately built parts of a system con... |
 | [`skills-build-mcp-server`](../../library/anthropics-claude-plugins-official/skills/skills-build-mcp-server) | ⚪ Reserve | `anthropics-claude-plugins-official` | This skill should be used when the user asks to "build an MCP server", "create an MCP", "make a... |
 | [`skills-choose-zoom-approach`](../../library/anthropics-knowledge-work/skills/skills-choose-zoom-approach) | ⚪ Reserve | `anthropics-knowledge-work` | Choose the right Zoom architecture for a use case. Use when deciding between REST API, Webhooks... |
 | [`skills-clean-architecture`](../../library/codewithmukesh-dotnet-claude-kit/skills/skills-clean-architecture) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Clean Architecture for .NET applications. Covers the 4-project layout (Domain, Application, Inf... |

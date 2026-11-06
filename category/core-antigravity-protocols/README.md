@@ -1,7 +1,7 @@
 # ⚔️ Core Antigravity Kit Protocols
 
 > **Category**: `core-antigravity-protocols`  
-> **Total Curated Skills**: 35 skills  
+> **Total Curated Skills**: 36 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -49,6 +49,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`session-compaction-and-restore`](../../library/mvschwarz-openrig/skills/session-compaction-and-restore) | ⚪ Reserve | `mvschwarz-openrig` | Use when reasoning about what survives compaction/context-loss/restart/seat-refresh, designing ... |
 | [`session-guard`](../../library/wshobson-agents/skills/session-guard) | ⚪ Reserve | `wshobson-agents` | Use when working on complex multi-step tasks, when a session is getting long (40+ tool calls), ... |
 | [`skill-porter`](../../library/sickn33-agentic-awesome-skills/skills/skill-porter) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Preview conservative tool-name translations and copy complete local skill bundles for manual ad... |
+| [`skills-bmad-customize`](../../library/bmad-code-org-bmad-method/skills/skills-bmad-customize) | ⚪ Reserve | `bmad-code-org-bmad-method` | Authors and updates customization overrides for installed BMad skills. Use when the user says '... |
 | [`skills-story-setup`](../../library/zenstory-ai-oh-story-claudecode/skills/skills-story-setup) | ⚪ Reserve | `zenstory-ai-oh-story-claudecode` | 网文写作工具集基础设施部署与检查。为 Claude Code / OpenCode / Codex / Google Antigravity / ZCode / OpenClaw / Rea... |
 | [`story-setup`](../../library/zenstory-ai-oh-story-claudecode/skills/story-setup) | ⚪ Reserve | `zenstory-ai-oh-story-claudecode` | 网文写作工具集基础设施部署与检查。为 Claude Code / OpenCode / Codex / Google Antigravity / ZCode / OpenClaw / Rea... |
 | [`strategic-compact`](../../library/affaan-m-ecc/skills/strategic-compact) | ⚪ Reserve | `affaan-m-ecc` | Suggests manual context compaction at logical intervals to preserve context through task phases... |

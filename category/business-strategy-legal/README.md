@@ -1,7 +1,7 @@
 # 📋 Business Strategy, Legal & HR
 
 > **Category**: `business-strategy-legal`  
-> **Total Curated Skills**: 338 skills  
+> **Total Curated Skills**: 340 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -308,6 +308,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`shopify-wholesale-channel`](../../library/nexscope-ai-ecommerce-skills/skills/shopify-wholesale-channel) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | B2B/wholesale setup — wholesale pricing, minimum orders, custom catalogs, net payment terms |
 | [`signature-request`](../../library/anthropics-knowledge-work/skills/signature-request) | ⚪ Reserve | `anthropics-knowledge-work` | Prepare and route a document for e-signature — run a pre-signature checklist, configure signing... |
 | [`skill-lifeguard`](../../library/majiayu000-spellbook/skills/skill-lifeguard) | ⚪ Reserve | `majiayu000-spellbook` | Use when a skill is brittle, drifting, repeatedly failing, or needs a Reliable Skill Contract. ... |
+| [`skills-bmad-agent-pm`](../../library/bmad-code-org-bmad-method/skills/skills-bmad-agent-pm) | ⚪ Reserve | `bmad-code-org-bmad-method` | John, the Product Manager: coaches planning documents out of the user, then updates or validate... |
+| [`skills-bmad-prd`](../../library/bmad-code-org-bmad-method/skills/skills-bmad-prd) | ⚪ Reserve | `bmad-code-org-bmad-method` | The earlier PRD workflow, kept for comparison with John the Product Manager (bmad-agent-pm), wh... |
 | [`skills-connect-required-verification-information`](../../library/stripe-ai/skills/skills-connect-required-verification-information) | ⚪ Reserve | `stripe-ai` | Use this skill when the user asks what information a Stripe Connect connected account must prov... |
 | [`skills-contract-review`](../../library/anthropics-knowledge-work/skills/skills-contract-review) | ⚪ Reserve | `anthropics-knowledge-work` | Lightweight NDA, MSA, and vendor contract review for SMBs without legal on staff. Reads contrac... |
 | [`skills-create-learning-path`](../../library/cursor-plugins/skills/skills-create-learning-path) | ⚪ Reserve | `cursor-plugins` | Build a personalized learning roadmap with milestones and practice checkpoints |

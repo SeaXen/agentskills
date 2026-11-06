@@ -220,6 +220,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link crypto-protocol-diagram"
   },
   {
+    "id": "cvss-scoring",
+    "name": "cvss-scoring",
+    "repository": "trailofbits-skills",
+    "category": "general",
+    "description": "\"Produces CVSS v4.0 vector strings from plain-text vulnerability descriptions by systematically evaluating base metrics. Use when scoring a vulnerability, generating a CVSS vector, or estimating severity.\"",
+    "path": "library/trailofbits-skills/skills/cvss-scoring",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cvss-scoring",
+    "link_cmd": "python .agents/library/activate_skill.py link cvss-scoring"
+  },
+  {
     "id": "devcontainer-setup",
     "name": "devcontainer-setup",
     "repository": "trailofbits-skills",
@@ -748,6 +758,16 @@
     "path": "library/trailofbits-skills/skills/skill-improver",
     "activation_cmd": "python .agents/library/activate_skill.py activate skill-improver",
     "link_cmd": "python .agents/library/activate_skill.py link skill-improver"
+  },
+  {
+    "id": "skills-agentic-actions-auditor",
+    "name": "skills-agentic-actions-auditor",
+    "repository": "trailofbits-skills",
+    "category": "general",
+    "description": "\"Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Claude Code Action, Gemini CLI, OpenAI Codex, and GitHub AI Inference. Detects attack vectors where attacker-controlled input reaches AI agents running in CI/CD pipelines, including env var intermediary patterns, direct expression injection, dangerous sandbox configurations, and wildcard user allowlists. Use when reviewing workflow files that invoke AI coding agents, auditing CI/CD pipeline security for prompt injection risks, or evaluating agentic action configurations.\"",
+    "path": "library/trailofbits-skills/skills/skills-agentic-actions-auditor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-agentic-actions-auditor",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-agentic-actions-auditor"
   },
   {
     "id": "slicing-code-context",

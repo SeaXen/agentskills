@@ -1,7 +1,7 @@
 # 🏛️ Complete Repository Provenance & Upstream Registry
 
 > **Active Reserve Libraries**: 484 repositories  
-> **Total Skills in Reserve**: 26,826 skills  
+> **Total Skills in Reserve**: 26,841 skills  
 > **Source Registry**: [`library/upstreams.json`](library/upstreams.json)  
 > **Format Standard**: Pure isolated repositories (`['skills', 'README.md', 'skills_index.json']`), 0 `.git` directories.
 
@@ -79,7 +79,7 @@
 | `bitwize-music-studio-claude-ai-music-skills` | [bitwize-music-studio-claude-ai-music-skills](https://github.com/bitwize-music-studio-claude-ai-music-skills) | **53** | `python .agents/library/activate_skill.py activate about` |
 | `bklit-bklit-ui` | [bklit-bklit-ui](https://github.com/bklit-bklit-ui) | **3** | `python .agents/library/activate_skill.py activate bklit-ui` |
 | `blader-humanizer` | [blader/humanizer](https://github.com/blader/humanizer) | **1** | `python .agents/library/activate_skill.py activate humanizer` |
-| `bmad-code-org-bmad-method` | [bmad-code-org/bmad-method](https://github.com/bmad-code-org/bmad-method) | **37** | `python .agents/library/activate_skill.py activate bmad` |
+| `bmad-code-org-bmad-method` | [bmad-code-org/bmad-method](https://github.com/bmad-code-org/bmad-method) | **50** | `python .agents/library/activate_skill.py activate bmad` |
 | `bradautomates-head-of-content` | [bradautomates-head-of-content](https://github.com/bradautomates-head-of-content) | **1** | `python .agents/library/activate_skill.py activate head-of-content` |
 | `breath57-dingtalk-skills` | [breath57-dingtalk-skills](https://github.com/breath57-dingtalk-skills) | **1** | `python .agents/library/activate_skill.py activate dingtalk-skills` |
 | `browser-act-skills` | [browser-act/skills](https://github.com/browser-act/skills) | **204** | `python .agents/library/activate_skill.py activate 1688-product-detail` |
@@ -439,7 +439,7 @@
 | `tigerless-labs-seo-ops` | [tigerless-labs/seo-ops](https://github.com/tigerless-labs/seo-ops) | **2** | `python .agents/library/activate_skill.py activate seo-ops` |
 | `titanwings-distilly` | [titanwings/distilly](https://github.com/titanwings/distilly) | **2** | `python .agents/library/activate_skill.py activate distilly` |
 | `tradermonty-claude-trading-skills` | [tradermonty-claude-trading-skills](https://github.com/tradermonty-claude-trading-skills) | **74** | `python .agents/library/activate_skill.py activate backtest-expert` |
-| `trailofbits-skills` | [trailofbits/skills](https://github.com/trailofbits/skills) | **97** | `python .agents/library/activate_skill.py activate address-sanitizer` |
+| `trailofbits-skills` | [trailofbits/skills](https://github.com/trailofbits/skills) | **99** | `python .agents/library/activate_skill.py activate address-sanitizer` |
 | `trailofbits-skills-curated` | [trailofbits-skills-curated](https://github.com/trailofbits-skills-curated) | **31** | `python .agents/library/activate_skill.py activate ffuf-web-fuzzing` |
 | `tt-a1i-archify` | [tt-a1i/archify](https://github.com/tt-a1i/archify) | **5** | `python .agents/library/activate_skill.py activate archify` |
 | `tw93-kami` | [tw93/Kami](https://github.com/tw93/Kami) | **1** | `python .agents/library/activate_skill.py activate kami` |

@@ -1,7 +1,7 @@
 # 🎨 Frontend Components & Design Systems
 
 > **Category**: `frontend-ui-components`  
-> **Total Curated Skills**: 1902 skills  
+> **Total Curated Skills**: 1905 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -209,6 +209,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`bmad-agent-ux-designer`](../../library/bmad-code-org-bmad-method/skills/bmad-agent-ux-designer) | ⚪ Reserve | `bmad-code-org-bmad-method` | UX designer and UI specialist. Use when the user asks to talk to Sally or requests the UX desig... |
 | [`bmad-party-mode`](../../library/bmad-code-org-bmad-method/skills/bmad-party-mode) | ⚪ Reserve | `bmad-code-org-bmad-method` | Orchestrates lively group discussions between installed BMAD agents or custom personas, and hel... |
 | [`bmod-core-tools`](../../library/bmad-code-org-bmad-method/skills/bmod-core-tools) | ⚪ Reserve | `bmad-code-org-bmad-method` | Required bmod metadata. Never invoke this skill. |
+| [`bmod-founder`](../../library/bmad-code-org-bmad-method/skills/bmod-founder) | ⚪ Reserve | `bmad-code-org-bmad-method` | Required bmod metadata. Never invoke this skill. |
 | [`bmod-method`](../../library/bmad-code-org-bmad-method/skills/bmod-method) | ⚪ Reserve | `bmad-code-org-bmad-method` | Required bmod metadata. Never invoke this skill. |
 | [`bmod-toolsmith`](../../library/bmad-code-org-bmad-method/skills/bmod-toolsmith) | ⚪ Reserve | `bmad-code-org-bmad-method` | Required bmod metadata. Never invoke this skill. |
 | [`bnbagent`](../../library/starchild-ai-agent-official-skills/skills/bnbagent) | ⚪ Reserve | `starchild-ai-agent-official-skills` | Build and operate on-chain AI agents on BNB Chain using the bnbagent Python SDK — register agen... |
@@ -1554,6 +1555,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-analyze`](../../library/anthropics-knowledge-work/skills/skills-analyze) | ⚪ Reserve | `anthropics-knowledge-work` | Answer data questions -- from quick lookups to full analyses. Use when looking up a single metr... |
 | [`skills-appinsights-instrumentation`](../../library/microsoft-azure-skills/skills/skills-appinsights-instrumentation) | ⚪ Reserve | `microsoft-azure-skills` | Guidance for instrumenting webapps with Azure Application Insights. Provides telemetry patterns... |
 | [`skills-babysit`](../../library/michael-denyer-pstack-claude/skills/skills-babysit) | ⚪ Reserve | `michael-denyer-pstack-claude` | Watch an open PR — fix failing CI, handle the straightforward review comments, and drive it to ... |
+| [`skills-bmad-agent-analyst`](../../library/bmad-code-org-bmad-method/skills/skills-bmad-agent-analyst) | ⚪ Reserve | `bmad-code-org-bmad-method` | Business analyst for market research, competitive analysis, and requirements. Use when the user... |
+| [`skills-bmad-agent-ux-designer`](../../library/bmad-code-org-bmad-method/skills/skills-bmad-agent-ux-designer) | ⚪ Reserve | `bmad-code-org-bmad-method` | UX designer and UI specialist. Use when the user asks to talk to Sally or requests the UX desig... |
 | [`skills-brainstorming`](../../library/obra-superpowers/skills/skills-brainstorming) | ⚪ Reserve | `obra-superpowers` | You MUST use this before any creative work - creating features, building components, adding fun... |
 | [`skills-build-dashboard`](../../library/anthropics-knowledge-work/skills/skills-build-dashboard) | ⚪ Reserve | `anthropics-knowledge-work` | Build an interactive HTML dashboard with charts, filters, and tables. Use when creating an exec... |
 | [`skills-build-figma`](../../library/cursor-plugins/skills/skills-build-figma) | ⚪ Reserve | `cursor-plugins` | Use for \"/build-figma\", a figma.com/design URL with node-id, or \"implement this Figma\" into... |

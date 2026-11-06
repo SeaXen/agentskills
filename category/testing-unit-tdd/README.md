@@ -1,7 +1,7 @@
 # 🧪 Unit Testing, TDD & Verification
 
 > **Category**: `testing-unit-tdd`  
-> **Total Curated Skills**: 660 skills  
+> **Total Curated Skills**: 661 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -534,6 +534,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skill-pipeline`](../../library/pskoett-pskoett-ai-skills/skills/skill-pipeline) | ⚪ Reserve | `pskoett-pskoett-ai-skills` | Pipeline orchestrator that classifies incoming coding tasks and routes them through the correct... |
 | [`skill-tester-ci`](../../library/pskoett-pskoett-ai-skills/skills/skill-tester-ci) | ⚪ Reserve | `pskoett-pskoett-ai-skills` | Validates all CI skills in this repo. Checks Agent Skills spec compliance, gh-aw workflow compi... |
 | [`skills-benchmark-checklist`](../../library/cursor-plugins/skills/skills-benchmark-checklist) | ⚪ Reserve | `cursor-plugins` | Vet a perf measurement (limiter, tuning, limits, errors, repeatability, relevance, and whether ... |
+| [`skills-bmad-forge-idea`](../../library/bmad-code-org-bmad-method/skills/skills-bmad-forge-idea) | ⚪ Reserve | `bmad-code-org-bmad-method` | Test a half-formed idea in a questioning conversation, with different personas probing its weak... |
 | [`skills-capacity-plan`](../../library/anthropics-knowledge-work/skills/skills-capacity-plan) | ⚪ Reserve | `anthropics-knowledge-work` | Plan resource capacity — workload analysis and utilization forecasting. Use when heading into q... |
 | [`skills-clerk-webhooks`](../../library/clerk-skills/skills/skills-clerk-webhooks) | ⚪ Reserve | `clerk-skills` | Clerk webhooks for real-time events and data syncing. Verify with verifyWebhook |
 | [`skills-dart-fix-runtime-errors`](../../library/dart-lang-skills/skills/skills-dart-fix-runtime-errors) | ⚪ Reserve | `dart-lang-skills` | Uses get_runtime_errors and lsp to fetch an active stack trace, locate the failing line, apply ... |

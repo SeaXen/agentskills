@@ -1,11 +1,11 @@
 {
   "version": "2.0.0",
-  "total_unique_skills": 21490,
+  "total_unique_skills": 21505,
   "total_categories": 38,
   "categories": {
     "code-quality-refactoring": {
       "title": "🧹 Code Quality, Refactoring & Clean Code",
-      "count": 5237,
+      "count": 5242,
       "skills": [
         {
           "name": "-21risk-automation",
@@ -3588,6 +3588,12 @@
           "is_active": false,
           "repo": "bmad-code-org-bmad-method",
           "description": "Review code changes with several independent reviewers in parallel, then triage and present the findings. Use when the user says \"run code review\" or \"review this code"
+        },
+        {
+          "name": "bmad-facilitate",
+          "is_active": false,
+          "repo": "bmad-code-org-bmad-method",
+          "description": "Coaches the user through writing, updating or validating a document. Use when invoked by skill name only"
         },
         {
           "name": "bmad-product-brief",
@@ -26078,6 +26084,30 @@
           "description": "Find what a change could break somewhere else before it ships, beyond the diff, and prove the one fact it's safe because of by running real code instead of writing it up. Use for 'blast radius of X', 'what could this break', or reviewing a small diff you don't trust."
         },
         {
+          "name": "skills-bmad-agent-architect",
+          "is_active": false,
+          "repo": "bmad-code-org-bmad-method",
+          "description": "System architect and technical design leader. Use when the user asks to talk to Winston or requests the architect"
+        },
+        {
+          "name": "skills-bmad-agent-dev",
+          "is_active": false,
+          "repo": "bmad-code-org-bmad-method",
+          "description": "Senior software engineer who implements stories and code changes. Use when the user asks to talk to Amelia or requests the developer agent"
+        },
+        {
+          "name": "skills-bmad-product-brief",
+          "is_active": false,
+          "repo": "bmad-code-org-bmad-method",
+          "description": "The earlier product brief workflow, kept for comparison with John the Product Manager (bmad-agent-pm), who now coaches product briefs. Use when the user names bmad-product-brief; otherwise use John."
+        },
+        {
+          "name": "skills-bmad-ux",
+          "is_active": false,
+          "repo": "bmad-code-org-bmad-method",
+          "description": "Capture the user''s UX vision in two documents: DESIGN.md for how the product looks and EXPERIENCE.md for how it behaves. Use when the user says \"lets create UX design\" or \"create UX specifications\" or \"help me plan the UX"
+        },
+        {
           "name": "skills-bro",
           "is_active": false,
           "repo": "cursor-plugins",
@@ -31433,7 +31463,7 @@
     },
     "architecture-system-design": {
       "title": "🏛️ Architecture, System Design & Patterns",
-      "count": 681,
+      "count": 682,
       "skills": [
         {
           "name": ".temp_upstream_clones-eugeniughelbur-obsidian-second-brain",
@@ -34730,6 +34760,12 @@
           "description": "Analyze Azure resource groups and generate detailed Mermaid architecture diagrams showing the relationships between individual resources. WHEN: create architecture diagram, visualize Azure resources, show resource relationships, generate Mermaid diagram, analyze resource group, diagram my resources, architecture visualization, resource topology, map Azure infrastructure."
         },
         {
+          "name": "skills-bmad-architecture",
+          "is_active": false,
+          "repo": "bmad-code-org-bmad-method",
+          "description": "Work out and record the architecture decisions that keep separately built parts of a system consistent, in a short architecture document. Creates, updates, or validates one; works from a ticket file, with an existing codebase or architecture document beside it. Use when the user says \"create the architecture\", \"create technical architecture\", \"architecture spine\", or \"create a solution design"
+        },
+        {
           "name": "skills-build-mcp-server",
           "is_active": false,
           "repo": "anthropics-claude-plugins-official",
@@ -35525,7 +35561,7 @@
     },
     "git-version-control": {
       "title": "🐙 Git, Worktrees & PR Workflows",
-      "count": 558,
+      "count": 559,
       "skills": [
         {
           "name": ".temp_upstream_clones-virgiliojr94-book-to-skill",
@@ -38238,6 +38274,12 @@
           "is_active": false,
           "repo": "alirezarezvani-claude-skills",
           "description": "Validate, test, and score the quality of skills within the claude-skills ecosystem. Comprehensive meta-skill: structure validation, Python script testing (syntax + imports + runtime + output format), multi-dimensional quality scoring with letter grades and tier classification (BASIC/STANDARD/POWERFUL). Use when authoring a new skill, auditing existing skills for tier promotion, setting up pre-commit hooks for skill quality, or integrating skill QA into CI."
+        },
+        {
+          "name": "skills-agentic-actions-auditor",
+          "is_active": false,
+          "repo": "trailofbits-skills",
+          "description": "Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Claude Code Action, Gemini CLI, OpenAI Codex, and GitHub AI Inference. Detects attack vectors where attacker-controlled input reaches AI agents running in CI/CD pipelines, including env var intermediary patterns, direct expression injection, dangerous sandbox configurations, and wildcard user allowlists. Use when reviewing workflow files that invoke AI coding agents, auditing CI/CD pipeline security for prompt injection risks, or evaluating agentic action configurations."
         },
         {
           "name": "skills-ci-cd",
@@ -45785,7 +45827,7 @@
     },
     "frontend-ui-components": {
       "title": "🎨 Frontend Components & Design Systems",
-      "count": 1902,
+      "count": 1905,
       "skills": [
         {
           "name": ".curated",
@@ -46923,6 +46965,12 @@
         },
         {
           "name": "bmod-core-tools",
+          "is_active": false,
+          "repo": "bmad-code-org-bmad-method",
+          "description": "Required bmod metadata. Never invoke this skill."
+        },
+        {
+          "name": "bmod-founder",
           "is_active": false,
           "repo": "bmad-code-org-bmad-method",
           "description": "Required bmod metadata. Never invoke this skill."
@@ -54996,6 +55044,18 @@
           "is_active": false,
           "repo": "michael-denyer-pstack-claude",
           "description": "Watch an open PR — fix failing CI, handle the straightforward review comments, and drive it to a mergeable state. Claude Code analog of Cursor's built-in /babysit. Use after opening a PR when the user wants the agent to shepherd it without re-prompting."
+        },
+        {
+          "name": "skills-bmad-agent-analyst",
+          "is_active": false,
+          "repo": "bmad-code-org-bmad-method",
+          "description": "Business analyst for market research, competitive analysis, and requirements. Use when the user asks to talk to Mary or requests the business analyst"
+        },
+        {
+          "name": "skills-bmad-agent-ux-designer",
+          "is_active": false,
+          "repo": "bmad-code-org-bmad-method",
+          "description": "UX designer and UI specialist. Use when the user asks to talk to Sally or requests the UX designer"
         },
         {
           "name": "skills-brainstorming",
@@ -71759,7 +71819,7 @@
     },
     "database-nosql-serverless": {
       "title": "⚡ NoSQL, Serverless & Vector DBs",
-      "count": 126,
+      "count": 127,
       "skills": [
         {
           "name": "agents-langchain",
@@ -71928,6 +71988,12 @@
           "is_active": false,
           "repo": "appeeky-aso-skills",
           "description": "When the user wants to monitor, triage, or reduce their app's crash rate — including setting up Crashlytics, prioritizing which crashes to fix first, interpreting crash data, and understanding how crashes affect App Store ranking. Use when the user mentions \"crash\", \"crashlytics\", \"crash rate\", \"ANR\", \"app not responding\", \"crash-free sessions\", \"crash-free users\", \"symbolication\", \"stability\", \"firebase crashes\", \"app crashing\", or \"crash report\". For overall analytics setup, see app-analytics."
+        },
+        {
+          "name": "cvss-scoring",
+          "is_active": false,
+          "repo": "trailofbits-skills",
+          "description": "Produces CVSS v4.0 vector strings from plain-text vulnerability descriptions by systematically evaluating base metrics. Use when scoring a vulnerability, generating a CVSS vector, or estimating severity."
         },
         {
           "name": "database-patterns",
@@ -77627,7 +77693,7 @@
     },
     "testing-unit-tdd": {
       "title": "🧪 Unit Testing, TDD & Verification",
-      "count": 660,
+      "count": 661,
       "skills": [
         {
           "name": "03-specification-search",
@@ -80718,6 +80784,12 @@
           "is_active": false,
           "repo": "cursor-plugins",
           "description": "Vet a perf measurement (limiter, tuning, limits, errors, repeatability, relevance, and whether the work happened) before you report or act on it. Use when you run a benchmark or report a speedup or regression you measured."
+        },
+        {
+          "name": "skills-bmad-forge-idea",
+          "is_active": false,
+          "repo": "bmad-code-org-bmad-method",
+          "description": "Test a half-formed idea in a questioning conversation, with different personas probing its weak points, until the user can act on it or drop it with confidence. Optionally writes a short brief for planning skills to build on. Use when the user says 'forge an idea', 'pressure-test this idea', 'stress-test my thinking', or 'harden this idea"
         },
         {
           "name": "skills-capacity-plan",
@@ -122861,7 +122933,7 @@
     },
     "business-strategy-legal": {
       "title": "📋 Business Strategy, Legal & HR",
-      "count": 338,
+      "count": 340,
       "skills": [
         {
           "name": "academy-guide",
@@ -124596,6 +124668,18 @@
           "is_active": false,
           "repo": "majiayu000-spellbook",
           "description": "Use when a skill is brittle, drifting, repeatedly failing, or needs a Reliable Skill Contract. Trigger for phrases like skill lifeguard, reliable skill, self-maintaining skill, negative examples, verification checkpoints, drift signals, replay hooks, or failure log to skill patch. Audits or patches skills so high-value workflows include explicit forbidden behaviors, checkpoints, machine-checkable done conditions, replay or smoke hooks, and drift detection."
+        },
+        {
+          "name": "skills-bmad-agent-pm",
+          "is_active": false,
+          "repo": "bmad-code-org-bmad-method",
+          "description": "John, the Product Manager: coaches planning documents out of the user, then updates or validates them. Use when the user asks for John, the PM or the product manager, or says ''create a PRD'', ''draft the product requirements'', ''update the PRD'', ''validate this PRD'', ''review my PRD'', ''write a product brief'', ''spec this feature for a coding agent'', ''prototype this'', ''plan a prototype'', ''is this problem worth pursuing'', ''write the business case'', ''draft the program charter'', ''write the strategy narrative'', ''shape a pitch'', ''write the requirements specification'', ''write the BRD'', ''plan an experiment'', ''plan the launch''."
+        },
+        {
+          "name": "skills-bmad-prd",
+          "is_active": false,
+          "repo": "bmad-code-org-bmad-method",
+          "description": "The earlier PRD workflow, kept for comparison with John the Product Manager (bmad-agent-pm), who now coaches PRDs. Use when the user names bmad-prd; otherwise use John."
         },
         {
           "name": "skills-connect-required-verification-information",
@@ -128957,7 +129041,7 @@
     },
     "core-antigravity-protocols": {
       "title": "⚔️ Core Antigravity Kit Protocols",
-      "count": 35,
+      "count": 36,
       "skills": [
         {
           "name": "agy-auto",
@@ -129138,6 +129222,12 @@
           "is_active": false,
           "repo": "sickn33-agentic-awesome-skills",
           "description": "Preview conservative tool-name translations and copy complete local skill bundles for manual adaptation to Google Antigravity."
+        },
+        {
+          "name": "skills-bmad-customize",
+          "is_active": false,
+          "repo": "bmad-code-org-bmad-method",
+          "description": "Authors and updates customization overrides for installed BMad skills. Use when the user says 'customize bmad', 'override a skill', 'change agent behavior', or 'customize a workflow"
         },
         {
           "name": "skills-story-setup",

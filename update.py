@@ -352,7 +352,7 @@ def sync_all_upstreams(force=False):
         try:
             # Fast blobless shallow clone with 15s timeout
             cmd = ['git', 'clone', '--depth', '1', '--filter=blob:none', '--single-branch', url, c_temp]
-            code, stdout, stderr = run_git_cmd(cmd, timeout=15)
+            code, stdout, stderr = run_git_cmd(cmd, timeout=45)
 
             if code == 0 and os.path.exists(c_temp):
                 target_skills_dir = os.path.join(target_repo_dir, 'skills')
@@ -774,6 +774,109 @@ def sync_lockfiles():
         else:
             print(f"✓ {lf}: already up to date ({len(synced)} skills tracked).", flush=True)
 
+# 5.5b. Auto-refresh every hardcoded count in docs & frontend files from the FRESH stats.json
+# (sync_documentation_metrics only covers README/ARCHITECTURE/PRODUCT/AGENTS badges with library-reserve
+#  measures; this covers the SITE measures in all remaining files so no number can ever go stale again.)
+def sync_frontend_doc_numbers():
+    stats_p = os.path.join(agents_dir, 'Skill.Sea', 'data', 'stats.json')
+    if not os.path.exists(stats_p):
+        return
+    try:
+        with open(stats_p, 'r', encoding='utf-8') as f:
+            st = json.load(f)
+    except Exception:
+        return
+    S = st.get('totalSkills', 0)
+    C = st.get('totalCategories', 0)
+    R = st.get('totalRepositories', 0)
+    H = st.get('activeHotSetCount', 0)
+    if not S:
+        return
+    s = f"{S:,}"; r = f"{R:,}"
+    today = datetime.now(timezone.utc).strftime('%Y-%m-%d')
+    cat_mb = 0.0
+    try:
+        cat_mb = os.path.getsize(os.path.join(agents_dir, 'Skill.Sea', 'data', 'catalog.json')) / (1024 * 1024)
+    except Exception:
+        pass
+    mb = f"{cat_mb:.2f}"
+
+    # (relative path, [(regex, replacement), ...]) — number-agnostic patterns, work forever after first fix
+    RULES = {
+        'AGENTS.md': [
+            (r'Verified \d{4}-\d{2}-\d{2}: \*\*[\d,]+ skills · \d+ categories · [\d,]+ repositories · \d+ hot-set\*\*',
+             f'Verified {today}: **{s} skills · {C} categories · {r} repositories · {H} hot-set**'),
+            (r'`README\.md` \([^)]*\), `update\.py --help` \("[^"]*"\), and this file',
+             '`README.md`, `update.py --help`, and this file'),
+        ],
+        'README.md': [
+            (r'Search [\d,]+\+ skills', f'Search {s}+ skills'),
+        ],
+        'PRODUCT.md': [
+            (r'catalog\.json` \([\d.]+ MB, [\d,]+ validated items\)', f'catalog.json` ({mb} MB, {s} validated items)'),
+        ],
+        'Skill.Sea/README.md': [
+            (r'[\d,]+\+ AI Agent Skills across \d+ functional disciplines from [\d,]+ open repositories',
+             f'{s}+ AI Agent Skills across {C} functional disciplines from {r} open repositories'),
+            (r'⚡ [\d,]+ Ingested Skills', f'⚡ {s} Ingested Skills'),
+            (r'from [\d,]+ official and community GitHub repositories', f'from {r} official and community GitHub repositories'),
+        ],
+        'Skill.Sea/PRODUCT.md': [
+            (r'indexes [\d,]+ skills discovered across [\d,]+ open GitHub repositories',
+             f'indexes {s} skills discovered across {r} open GitHub repositories'),
+            (r'\([\d,]+ Skills, \d+ Categories, [\d,]+ Repositories, \d+ Hot-Set\)',
+             f'({s} Skills, {C} Categories, {r} Repositories, {H} Hot-Set)'),
+            (r'\([\d.]+ MB, [\d,]+ validated items\)', f'({mb} MB, {s} validated items)'),
+            (r'stats\.json` \([\d,]+ skills, \d+ categories, [\d,]+ repos, \d+ hot-set\)',
+             f'stats.json` ({s} skills, {C} categories, {r} repos, {H} hot-set)'),
+        ],
+        'Skill.Sea/AGENTS.md': [
+            (r'[\d,]+ Antigravity Agent Skills\*\* indexed across [\d,]+ open-source repositories',
+             f'{s} Antigravity Agent Skills** indexed across {r} open-source repositories'),
+            (r'catalog\.json(\s+#) [\d.]+ MB master catalog \([\d,]+ items\)',
+             f'catalog.json\\1 {mb} MB master catalog ({s} items)'),
+        ],
+        'Skill.Sea/package.json': [
+            (r'[\d,]+\+ curated skills across \d+ categories from [\d,]+ repositories',
+             f'{s}+ curated skills across {C} categories from {r} repositories'),
+        ],
+        'Skill.Sea/manifest.json': [
+            (r'[\d,]+\+ autonomous AI agent skills across \d+ categories',
+             f'{s}+ autonomous AI agent skills across {C} categories'),
+        ],
+        'Skill.Sea/index.html': [
+            (r'for [\d,]+\+ AI Agent Skills across \d+ functional categories from [\d,]+ open GitHub repositories',
+             f'for {s}+ AI Agent Skills across {C} functional categories from {r} open GitHub repositories'),
+            (r'install [\d,]+\+ agent skills across \d+ categories from [\d,]+ open repositories',
+             f'install {s}+ agent skills across {C} categories from {r} open repositories'),
+            (r'Library & Git Repos \([\d,]+\)', f'Library & Git Repos ({r})'),
+            (r'All [\d,]+ skills & [\d,]+ repositories updated', f'All {s} skills & {r} repositories updated'),
+            (r'All [\d,]+ Ingested & Verified', f'All {s} Ingested & Verified'),
+        ],
+    }
+    changed = []
+    for rel, rules in RULES.items():
+        fp = os.path.join(agents_dir, rel)
+        if not os.path.exists(fp):
+            continue
+        try:
+            with open(fp, 'r', encoding='utf-8') as f:
+                content = f.read()
+        except Exception:
+            continue
+        new = content
+        for pat, rep in rules:
+            new = re.sub(pat, rep, new)
+        if new != content:
+            try:
+                with open(fp, 'w', encoding='utf-8') as f:
+                    f.write(new)
+            except Exception:
+                continue
+            changed.append(rel)
+    if changed:
+        print(f"✓ Refreshed hardcoded counts in docs/frontend: {', '.join(changed)}", flush=True)
+
 # 5. Rebuild real category system, provenance & documentation metrics
 def sync_documentation_metrics(agents_dir):
     """Synchronize ground truth metrics across README.md, ARCHITECTURE.md, PRODUCT.md, and AGENTS.md."""
@@ -926,6 +1029,8 @@ def rebuild_skill_sea_catalog(has_changes=False, force=False, deploy=False):
         try:
             subprocess.run(['node', script_path], cwd=os.path.join(agents_dir, 'Skill.Sea'), check=True)
             print("✓ Skill.Sea web catalog successfully synced.", flush=True)
+            # Fresh stats.json now on disk — refresh every hardcoded count in the docs/frontend so they self-heal
+            sync_frontend_doc_numbers()
         except Exception as e:
             print(f"⚠️ Skill.Sea catalog rebuild error: {e}", flush=True)
 

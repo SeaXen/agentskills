@@ -1,7 +1,7 @@
 # 🧹 Code Quality, Refactoring & Clean Code
 
 > **Category**: `code-quality-refactoring`  
-> **Total Curated Skills**: 5237 skills  
+> **Total Curated Skills**: 5242 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -616,6 +616,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`bmad-brainstorming`](../../library/bmad-code-org-bmad-method/skills/bmad-brainstorming) | ⚪ Reserve | `bmad-code-org-bmad-method` | Facilitate a brainstorming session using diverse creative techniques. Use when the user says 'h... |
 | [`bmad-build`](../../library/bmad-code-org-bmad-method/skills/bmad-build) | ⚪ Reserve | `bmad-code-org-bmad-method` | Implements a story, feature, or bug fix end to end: plan, code, review, verify. Use when the us... |
 | [`bmad-code-review`](../../library/bmad-code-org-bmad-method/skills/bmad-code-review) | ⚪ Reserve | `bmad-code-org-bmad-method` | Review code changes with several independent reviewers in parallel, then triage and present the... |
+| [`bmad-facilitate`](../../library/bmad-code-org-bmad-method/skills/bmad-facilitate) | ⚪ Reserve | `bmad-code-org-bmad-method` | Coaches the user through writing, updating or validating a document. Use when invoked by skill ... |
 | [`bmad-product-brief`](../../library/bmad-code-org-bmad-method/skills/bmad-product-brief) | ⚪ Reserve | `bmad-code-org-bmad-method` | Create, update, or validate a product brief. Use when the user wants help producing, editing, o... |
 | [`bmad-project-context`](../../library/bmad-code-org-bmad-method/skills/bmad-project-context) | ⚪ Reserve | `bmad-code-org-bmad-method` | Set up, adopt, refresh, or audit a repository''s agent instructions (the AGENTS.md block) so AI... |
 | [`bmad-shard-pro`](../../library/bmad-code-org-bmad-method/skills/bmad-shard-pro) | ⚪ Reserve | `bmad-code-org-bmad-method` | Makes long documents easy for agents to navigate. Use when the user says "shard this document",... |
@@ -4364,6 +4365,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-azure-quotas`](../../library/microsoft-azure-skills/skills/skills-azure-quotas) | ⚪ Reserve | `microsoft-azure-skills` | Check/manage Azure quotas and usage across providers. For deployment planning, capacity validat... |
 | [`skills-azure-reliability`](../../library/microsoft-azure-skills/skills/skills-azure-reliability) | ⚪ Reserve | `microsoft-azure-skills` | Assess and improve the reliability posture of PaaS Applications (Azure Functions and Azure App ... |
 | [`skills-blast-radius`](../../library/cursor-plugins/skills/skills-blast-radius) | ⚪ Reserve | `cursor-plugins` | Find what a change could break somewhere else before it ships, beyond the diff, and prove the o... |
+| [`skills-bmad-agent-architect`](../../library/bmad-code-org-bmad-method/skills/skills-bmad-agent-architect) | ⚪ Reserve | `bmad-code-org-bmad-method` | System architect and technical design leader. Use when the user asks to talk to Winston or requ... |
+| [`skills-bmad-agent-dev`](../../library/bmad-code-org-bmad-method/skills/skills-bmad-agent-dev) | ⚪ Reserve | `bmad-code-org-bmad-method` | Senior software engineer who implements stories and code changes. Use when the user asks to tal... |
+| [`skills-bmad-product-brief`](../../library/bmad-code-org-bmad-method/skills/skills-bmad-product-brief) | ⚪ Reserve | `bmad-code-org-bmad-method` | The earlier product brief workflow, kept for comparison with John the Product Manager (bmad-age... |
+| [`skills-bmad-ux`](../../library/bmad-code-org-bmad-method/skills/skills-bmad-ux) | ⚪ Reserve | `bmad-code-org-bmad-method` | Capture the user''s UX vision in two documents: DESIGN.md for how the product looks and EXPERIE... |
 | [`skills-bro`](../../library/cursor-plugins/skills/skills-bro) | ⚪ Reserve | `cursor-plugins` | Restate the last message in plain human language, with no jargon. |
 | [`skills-build-fix`](../../library/codewithmukesh-dotnet-claude-kit/skills/skills-build-fix) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Autonomous iteration loops for .NET: drive a broken build or failing test suite to green with b... |
 | [`skills-cancel-ralph`](../../library/cursor-plugins/skills/skills-cancel-ralph) | ⚪ Reserve | `cursor-plugins` | Cancel an active Ralph Loop. Use when the user wants to stop, cancel, or abort a running ralph ... |

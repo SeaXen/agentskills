@@ -1,7 +1,7 @@
 # ⚡ NoSQL, Serverless & Vector DBs
 
 > **Category**: `database-nosql-serverless`  
-> **Total Curated Skills**: 126 skills  
+> **Total Curated Skills**: 127 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -47,6 +47,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cosmosdb-best-practices`](../../library/cline-skills/skills/cosmosdb-best-practices) | ⚪ Reserve | `cline-skills` | Azure Cosmos DB performance optimization and best practices guidelines for NoSQL, partitioning,... |
 | [`cost-analysis`](../../library/microsoft-azure-skills/skills/cost-analysis) | ⚪ Reserve | `microsoft-azure-skills` | Analyze actual Azure spend, bill changes, and AKS or AI costs. WHEN: \"Azure cost breakdown\", ... |
 | [`crash-analytics`](../../library/appeeky-aso-skills/skills/crash-analytics) | ⚪ Reserve | `appeeky-aso-skills` | When the user wants to monitor, triage, or reduce their app's crash rate — including setting up... |
+| [`cvss-scoring`](../../library/trailofbits-skills/skills/cvss-scoring) | ⚪ Reserve | `trailofbits-skills` | Produces CVSS v4.0 vector strings from plain-text vulnerability descriptions by systematically ... |
 | [`database-patterns`](../../library/majiayu000-spellbook/skills/database-patterns) | ⚪ Reserve | `majiayu000-spellbook` | Use when designing PostgreSQL + Redis data models, indexes, caching strategies, JSONB usage, ti... |
 | [`debug-buttercup`](../../library/sickn33-agentic-awesome-skills/skills/debug-buttercup) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | All pods run in namespace crs. Use when pods in the crs namespace are in CrashLoopBackOff, OOMK... |
 | [`deep-searcher-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/deep-searcher-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Open deep research alternative for private data with vector search |

@@ -39540,6 +39540,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link bmad-eval"
   },
   {
+    "id": "bmad-facilitate",
+    "name": "bmad-facilitate",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "'Coaches the user through writing, updating or validating a document. Use when invoked by skill name only'",
+    "path": "library/bmad-code-org-bmad-method/skills/bmad-facilitate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bmad-facilitate",
+    "link_cmd": "python .agents/library/activate_skill.py link bmad-facilitate"
+  },
+  {
     "id": "bmad-forge-idea",
     "name": "bmad-forge-idea",
     "repository": "bmad-code-org-bmad-method",
@@ -39690,6 +39700,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link bmod-core-tools"
   },
   {
+    "id": "bmod-founder",
+    "name": "bmod-founder",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "Required bmod metadata. Never invoke this skill.",
+    "path": "library/bmad-code-org-bmad-method/skills/bmod-founder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bmod-founder",
+    "link_cmd": "python .agents/library/activate_skill.py link bmod-founder"
+  },
+  {
     "id": "bmod-method",
     "name": "bmod-method",
     "repository": "bmad-code-org-bmad-method",
@@ -39738,6 +39758,116 @@
     "path": "library/bmad-code-org-bmad-method/skills/sample-skill",
     "activation_cmd": "python .agents/library/activate_skill.py activate sample-skill",
     "link_cmd": "python .agents/library/activate_skill.py link sample-skill"
+  },
+  {
+    "id": "skills-bmad-agent-analyst",
+    "name": "skills-bmad-agent-analyst",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "Business analyst for market research, competitive analysis, and requirements. Use when the user asks to talk to Mary or requests the business analyst",
+    "path": "library/bmad-code-org-bmad-method/skills/skills-bmad-agent-analyst",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-bmad-agent-analyst",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-bmad-agent-analyst"
+  },
+  {
+    "id": "skills-bmad-agent-architect",
+    "name": "skills-bmad-agent-architect",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "System architect and technical design leader. Use when the user asks to talk to Winston or requests the architect",
+    "path": "library/bmad-code-org-bmad-method/skills/skills-bmad-agent-architect",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-bmad-agent-architect",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-bmad-agent-architect"
+  },
+  {
+    "id": "skills-bmad-agent-dev",
+    "name": "skills-bmad-agent-dev",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "Senior software engineer who implements stories and code changes. Use when the user asks to talk to Amelia or requests the developer agent",
+    "path": "library/bmad-code-org-bmad-method/skills/skills-bmad-agent-dev",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-bmad-agent-dev",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-bmad-agent-dev"
+  },
+  {
+    "id": "skills-bmad-agent-pm",
+    "name": "skills-bmad-agent-pm",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "'John, the Product Manager: coaches planning documents out of the user, then updates or validates them. Use when the user asks for John, the PM or the product manager, or says ''create a PRD'', ''draft the product requirements'', ''update the PRD'', ''validate this PRD'', ''review my PRD'', ''write a product brief'', ''spec this feature for a coding agent'', ''prototype this'', ''plan a prototype'', ''is this problem worth pursuing'', ''write the business case'', ''draft the program charter'', ''write the strategy narrative'', ''shape a pitch'', ''write the requirements specification'', ''write the BRD'', ''plan an experiment'', ''plan the launch''.'",
+    "path": "library/bmad-code-org-bmad-method/skills/skills-bmad-agent-pm",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-bmad-agent-pm",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-bmad-agent-pm"
+  },
+  {
+    "id": "skills-bmad-agent-ux-designer",
+    "name": "skills-bmad-agent-ux-designer",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "UX designer and UI specialist. Use when the user asks to talk to Sally or requests the UX designer",
+    "path": "library/bmad-code-org-bmad-method/skills/skills-bmad-agent-ux-designer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-bmad-agent-ux-designer",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-bmad-agent-ux-designer"
+  },
+  {
+    "id": "skills-bmad-architecture",
+    "name": "skills-bmad-architecture",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "'Work out and record the architecture decisions that keep separately built parts of a system consistent, in a short architecture document. Creates, updates, or validates one; works from a ticket file, with an existing codebase or architecture document beside it. Use when the user says \"create the architecture\", \"create technical architecture\", \"architecture spine\", or \"create a solution design\"'",
+    "path": "library/bmad-code-org-bmad-method/skills/skills-bmad-architecture",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-bmad-architecture",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-bmad-architecture"
+  },
+  {
+    "id": "skills-bmad-customize",
+    "name": "skills-bmad-customize",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "Authors and updates customization overrides for installed BMad skills. Use when the user says 'customize bmad', 'override a skill', 'change agent behavior', or 'customize a workflow'",
+    "path": "library/bmad-code-org-bmad-method/skills/skills-bmad-customize",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-bmad-customize",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-bmad-customize"
+  },
+  {
+    "id": "skills-bmad-forge-idea",
+    "name": "skills-bmad-forge-idea",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "Test a half-formed idea in a questioning conversation, with different personas probing its weak points, until the user can act on it or drop it with confidence. Optionally writes a short brief for planning skills to build on. Use when the user says 'forge an idea', 'pressure-test this idea', 'stress-test my thinking', or 'harden this idea'",
+    "path": "library/bmad-code-org-bmad-method/skills/skills-bmad-forge-idea",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-bmad-forge-idea",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-bmad-forge-idea"
+  },
+  {
+    "id": "skills-bmad-prd",
+    "name": "skills-bmad-prd",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "'The earlier PRD workflow, kept for comparison with John the Product Manager (bmad-agent-pm), who now coaches PRDs. Use when the user names bmad-prd; otherwise use John.'",
+    "path": "library/bmad-code-org-bmad-method/skills/skills-bmad-prd",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-bmad-prd",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-bmad-prd"
+  },
+  {
+    "id": "skills-bmad-product-brief",
+    "name": "skills-bmad-product-brief",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "'The earlier product brief workflow, kept for comparison with John the Product Manager (bmad-agent-pm), who now coaches product briefs. Use when the user names bmad-product-brief; otherwise use John.'",
+    "path": "library/bmad-code-org-bmad-method/skills/skills-bmad-product-brief",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-bmad-product-brief",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-bmad-product-brief"
+  },
+  {
+    "id": "skills-bmad-ux",
+    "name": "skills-bmad-ux",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "'Capture the user''s UX vision in two documents: DESIGN.md for how the product looks and EXPERIENCE.md for how it behaves. Use when the user says \"lets create UX design\" or \"create UX specifications\" or \"help me plan the UX\"'",
+    "path": "library/bmad-code-org-bmad-method/skills/skills-bmad-ux",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-bmad-ux",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-bmad-ux"
   },
   {
     "id": "with-trigger",
@@ -256550,6 +256680,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link crypto-protocol-diagram"
   },
   {
+    "id": "cvss-scoring",
+    "name": "cvss-scoring",
+    "repository": "trailofbits-skills",
+    "category": "general",
+    "description": "\"Produces CVSS v4.0 vector strings from plain-text vulnerability descriptions by systematically evaluating base metrics. Use when scoring a vulnerability, generating a CVSS vector, or estimating severity.\"",
+    "path": "library/trailofbits-skills/skills/cvss-scoring",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cvss-scoring",
+    "link_cmd": "python .agents/library/activate_skill.py link cvss-scoring"
+  },
+  {
     "id": "devcontainer-setup",
     "name": "devcontainer-setup",
     "repository": "trailofbits-skills",
@@ -257078,6 +257218,16 @@
     "path": "library/trailofbits-skills/skills/skill-improver",
     "activation_cmd": "python .agents/library/activate_skill.py activate skill-improver",
     "link_cmd": "python .agents/library/activate_skill.py link skill-improver"
+  },
+  {
+    "id": "skills-agentic-actions-auditor",
+    "name": "skills-agentic-actions-auditor",
+    "repository": "trailofbits-skills",
+    "category": "general",
+    "description": "\"Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Claude Code Action, Gemini CLI, OpenAI Codex, and GitHub AI Inference. Detects attack vectors where attacker-controlled input reaches AI agents running in CI/CD pipelines, including env var intermediary patterns, direct expression injection, dangerous sandbox configurations, and wildcard user allowlists. Use when reviewing workflow files that invoke AI coding agents, auditing CI/CD pipeline security for prompt injection risks, or evaluating agentic action configurations.\"",
+    "path": "library/trailofbits-skills/skills/skills-agentic-actions-auditor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-agentic-actions-auditor",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-agentic-actions-auditor"
   },
   {
     "id": "slicing-code-context",
