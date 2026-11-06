@@ -1288,6 +1288,14 @@
     "path": "category/architecture-system-design/color-system"
   },
   {
+    "id": "commercial-localization",
+    "name": "commercial-localization",
+    "category": "architecture-system-design",
+    "repository": "kostja94-marketing-skills",
+    "description": "Plan, audit, implement, migrate, or validate localization for multilingual products and websites, including locale scope, market readiness, URL architecture, content coverage, hreflang coordination, rollout, and production verification. Use translation for the actual translation, glossary, and language review work.",
+    "path": "category/architecture-system-design/commercial-localization"
+  },
+  {
     "id": "company-research",
     "name": "company-research",
     "category": "architecture-system-design",
@@ -1398,6 +1406,14 @@
     "repository": "affaan-m-ecc",
     "description": "Cache expensive file processing results using SHA-256 content hashes \u2014 path-independent, auto-invalidating, with service layer separation. Use when repeated file processing is slow and results should be cached and invalidated by content rather than path.",
     "path": "category/architecture-system-design/content-hash-cache-pattern"
+  },
+  {
+    "id": "content-translation",
+    "name": "content-translation",
+    "category": "architecture-system-design",
+    "repository": "kostja94-marketing-skills",
+    "description": "Translate, transcreate, review, or maintain multilingual product and marketing content, including source locking, glossary decisions, language style, machine-assisted workflows, legal-content safeguards, QA, and source-change synchronization. Use localization-strategy for market scope, locale architecture, rollout, and production release planning.",
+    "path": "category/architecture-system-design/content-translation"
   },
   {
     "id": "context-and-decisions",
@@ -2006,6 +2022,14 @@
     "repository": "actionbook-rust-skills",
     "description": "Use when building cloud-native apps. Keywords: kubernetes, k8s, docker, container, grpc, tonic, microservice, service mesh, observability, tracing, metrics, health check, cloud, deployment, \u4e91\u539f\u751f, \u5fae\u670d\u52a1, \u5bb9\u5668",
     "path": "category/architecture-system-design/domain-cloud-native"
+  },
+  {
+    "id": "domain-domain-architecture",
+    "name": "domain-domain-architecture",
+    "category": "architecture-system-design",
+    "repository": "kostja94-marketing-skills",
+    "description": "When the user wants to decide domain structure for multiple products or brands\u2014subfolder vs subdomain vs independent domain. Also use when the user mentions \"subfolder vs subdomain,\" \"subdirectory vs subdomain,\" \"multiple products domain,\" \"multiple websites,\" \"brand architecture,\" \"branded house,\" \"house of brands,\" \"where to host product,\" \"domain structure,\" or \"hub-spoke domain.\" For brand SERP, use multi-domain-brand-seo.",
+    "path": "category/architecture-system-design/domain-domain-architecture"
   },
   {
     "id": "domain-driven-design",
@@ -4408,6 +4432,14 @@
     "path": "category/architecture-system-design/skills-azure-resource-visualizer"
   },
   {
+    "id": "skills-azure-to-aws",
+    "name": "skills-azure-to-aws",
+    "category": "architecture-system-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Migrate Microsoft Azure workloads to AWS. Triggers on: Azure to AWS, move off Azure, AKS to EKS, App Service or Azure VMs to AWS compute, Azure SQL/Database to RDS, Cosmos DB to DynamoDB, Azure OpenAI to Bedrock, Azure cost estimates, or what-if workshops. Discovery uses the authenticated read-only `az` CLI, Terraform, a Resource Discovery for Azure (RDfA) report, and app code, with optional consent-gated OpenAI, OpenRouter, and Anthropic usage APIs. Terraform is optional. Runs Discover, Clarify, Design, Estimate, optional repricing, Generate, and Feedback; Clarify gates later phases and Generate is opt-in. Bicep/ARM discovery is not implemented; billing-export discovery is not implemented. Do not use for GCP or Heroku migrations, reverse migrations, general AWS architecture, or Azure-to-Azure refactoring.",
+    "path": "category/architecture-system-design/skills-azure-to-aws"
+  },
+  {
     "id": "skills-bmad-architecture",
     "name": "skills-bmad-architecture",
     "category": "architecture-system-design",
@@ -4502,6 +4534,22 @@
     "repository": "flutter-agent-plugins",
     "description": "Architects a Flutter application using the recommended layered approach (UI, Logic, Data). Use when structuring a new project or refactoring for scalability.",
     "path": "category/architecture-system-design/skills-flutter-apply-architecture-best-practices"
+  },
+  {
+    "id": "skills-gcp-to-aws",
+    "name": "skills-gcp-to-aws",
+    "category": "architecture-system-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Migrate GCP workloads to AWS, including AI and agentic workloads from any provider. Triggers on: migrate from GCP, GCP to AWS, move off Google Cloud, Cloud SQL to RDS, GKE to EKS, Cloud Run to Fargate, App Engine to Elastic Beanstalk, or OpenAI/Gemini/agentic workloads to Bedrock. Discovery uses the authenticated read-only `gcloud` CLI, Terraform, app code, or billing exports, with optional consent-gated OpenAI, OpenRouter, and Anthropic usage APIs. Terraform is optional. Runs Discover, Clarify, Design, Estimate, Generate, and Feedback; Clarify gates later phases. Do not use for Azure migrations (see azure-to-aws), reverse migrations, general AWS architecture without migration intent, or GCP-to-GCP refactoring.",
+    "path": "category/architecture-system-design/skills-gcp-to-aws"
+  },
+  {
+    "id": "skills-heroku-to-aws",
+    "name": "skills-heroku-to-aws",
+    "category": "architecture-system-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Migrate workloads from Heroku to AWS. Triggers on: migrate from Heroku, Heroku to AWS, move off Heroku, migrate Heroku Postgres to RDS, migrate Heroku Redis to ElastiCache, migrate Heroku Kafka to MSK, migrate dynos to Elastic Beanstalk, migrate dynos to Fargate, migrate Heroku Private Space, Heroku to ECS, leave Heroku, what-if workshop, compare migration scenarios, workshop mode. Runs a 6-phase process: discover Heroku resources live via the authenticated Heroku CLI (read-only, consent-gated) and/or from Terraform, Procfile/app.json, and billing exports; Terraform is optional. Then clarify, design, estimate costs, generate artifacts, and collect feedback. Clarify must finish before Design, Estimate, or Generate. An optional post-Estimate what-if workshop reprices region/HA/compute/Graviton scenarios. Do not use for: GCP migrations (see gcp-to-aws), Azure migrations (see azure-to-aws), AWS-to-Heroku reverse migration, general AWS architecture advice without migration intent, or Heroku-to-Heroku refactoring.",
+    "path": "category/architecture-system-design/skills-heroku-to-aws"
   },
   {
     "id": "skills-how",
@@ -4838,6 +4886,14 @@
     "repository": "aaron-he-zhu-aaron-marketing-skills",
     "description": "Use when the user asks to \"design our change narrative\", \"build the old-world-to-new-game story arc\", or \"frame the shift our category is undergoing\"; produces a Raskin-style strategic narrative arc \u2014 old world \u2192 the undeniable shift \u2192 winners vs losers under the new rules \u2192 the promised land \u2192 proof the promised land is real \u2014 derived from the positioning truth set and the belief/objection map, feeding the TALE Architecture arc sub-item. Every proof beat is labeled Measured / User-provided / [needs source] and this skill never adjudicates a claim. Not for the message house hierarchy \u2014 use message-system-architect; not for the pitch deck narrative \u2014 use pitch-narrative-builder; not for claim substantiation \u2014 use offer-claims-registry. \u53d8\u9769\u53d9\u4e8b\u5f27/\u65e7\u4e16\u754c/\u5e94\u8bb8\u4e4b\u5730/\u6218\u7565\u53d9\u4e8b\u7ed3\u6784",
     "path": "category/architecture-system-design/strategic-narrative-designer"
+  },
+  {
+    "id": "structure-website-structure",
+    "name": "structure-website-structure",
+    "category": "architecture-system-design",
+    "repository": "kostja94-marketing-skills",
+    "description": "When the user wants to plan website structure, decide which pages to build, or prioritize pages for a new or existing site. Also use when the user mentions \"website structure,\" \"site structure,\" \"which pages do I need,\" \"page planning,\" \"sitemap planning,\" \"Must Have pages,\" \"website architecture,\" or \"site hierarchy.\" For a specific page template (e.g. homepage), use homepage-generator or landing-page-generator as appropriate. Not for organic SEO roadmap alone; use seo-strategy.",
+    "path": "category/architecture-system-design/structure-website-structure"
   },
   {
     "id": "structured-logging-lite",

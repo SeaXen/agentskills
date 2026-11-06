@@ -1,7 +1,7 @@
 # ⚡ Backend Systems, REST & Microservices
 
 > **Category**: `backend-api-design`  
-> **Total Curated Skills**: 1516 skills  
+> **Total Curated Skills**: 1522 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -418,6 +418,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`convex-docs`](../../library/convex-agent-skills/skills/convex-docs) | ⚪ Reserve | `convex-agent-skills` | Pull version-current Convex docs for the version this project uses — pin the installed version,... |
 | [`convex-launch-readiness`](../../library/convex-agent-skills/skills/convex-launch-readiness) | ⚪ Reserve | `convex-agent-skills` | Run every Convex audit (authz, reviewer, advisor, insights) into one scored, deduped readiness ... |
 | [`core-api-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/core-api-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Search and retrieve open access research papers via CORE aggregator |
+| [`core-skills-aws-observability`](../../library/aws-agent-toolkit-for-aws/skills/core-skills-aws-observability) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Investigates root causes on the Omni context graph (service dependencies) and Intelligence insi... |
 | [`cost-openrouter`](../../library/ruvnet-ruflo/skills/cost-openrouter) | ⚪ Reserve | `ruvnet-ruflo` | OpenRouter real spend — key limit and usage today/week/month, one request's billed cost by gene... |
 | [`cot-contrarian-detector`](../../library/tradermonty-claude-trading-skills/skills/cot-contrarian-detector) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Detect crowded speculative positioning in CFTC futures markets (COT report analysis) to find co... |
 | [`countdown-api`](../../library/membranedev-application-skills/skills/countdown-api) | ⚪ Reserve | `membranedev-application-skills` | Countdown API integration. Manage Countdowns. Use when the user wants to interact with Countdow... |
@@ -945,6 +946,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`microservices-resilience`](../../skills/microservices-resilience) | 🟢 Active | `active` | Distributed systems resilience patterns, circuit breakers, bulkheads, rate limiting, and expone... |
 | [`microsoft-graph-api`](../../library/membranedev-application-skills/skills/microsoft-graph-api) | ⚪ Reserve | `membranedev-application-skills` | Microsoft Graph API integration. Manage data, records, and automate workflows. Use when the use... |
 | [`migrate-to-parallel`](../../library/parallel-web-parallel-agent-skills/skills/migrate-to-parallel) | ⚪ Reserve | `parallel-web-parallel-agent-skills` | Migrate Exa, Tavily, Perplexity, or Firecrawl web-data integrations completely to the appropria... |
+| [`migrating-hive-tables-to-s3-tables`](../../library/aws-agent-toolkit-for-aws/skills/migrating-hive-tables-to-s3-tables) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Migrates a Glue Data Catalog Hive table (Parquet) into Amazon S3 Tables as managed Iceberg usin... |
 | [`minimal-api`](../../library/codewithmukesh-dotnet-claude-kit/skills/minimal-api) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | .NET 10 minimal APIs — the default for building HTTP endpoints. Covers MapGroup, endpoint filte... |
 | [`mintlify`](../../library/cline-skills/skills/mintlify) | ⚪ Reserve | `cline-skills` | Comprehensive reference for building Mintlify documentation sites. Use when creating pages, con... |
 | [`mirrord-operator`](../../library/metalbear-co-mirrord/skills/mirrord-operator) | ⚪ Reserve | `metalbear-co-mirrord` | Help users install and configure the mirrord Operator for team/enterprise environments. Use whe... |
@@ -981,6 +983,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`nestjs`](../../library/giuseppe-trisciuoglio-developer-kit/skills/nestjs) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides comprehensive NestJS framework patterns with Drizzle ORM integration for building scal... |
 | [`nestjs-drizzle-crud-generator`](../../library/giuseppe-trisciuoglio-developer-kit/skills/nestjs-drizzle-crud-generator) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Generates complete CRUD modules for NestJS applications with Drizzle ORM. Use when building ser... |
 | [`netapi`](../../library/sickn33-agentic-awesome-skills/skills/netapi) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Check domains and IPs against a free compromised feed, find newly registered lookalike domains,... |
+| [`networking-and-content-delivery-skills-route53`](../../library/aws-agent-toolkit-for-aws/skills/networking-and-content-delivery-skills-route53) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Configures Amazon Route 53 DNS: public and private records, traffic-steering routing policies, ... |
 | [`newman-cicd-integration`](../../library/sickn33-agentic-awesome-skills/skills/newman-cicd-integration) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Generate ready-to-use CI/CD pipeline configurations that install and run Newman for automated A... |
 | [`news-api-automation`](../../library/composio-community-awesome-codex-skills/skills/news-api-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate News API tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | [`news-reaction-failure-analyzer`](../../library/tradermonty-claude-trading-skills/skills/news-reaction-failure-analyzer) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Judge whether a market FAILED to react to news favorable to a crowded speculative position — st... |
@@ -1289,6 +1292,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-api-versioning`](../../library/codewithmukesh-dotnet-claude-kit/skills/skills-api-versioning) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | API versioning strategies for ASP.NET Core. Covers Asp.Versioning library, URL segment, header,... |
 | [`skills-auth-guide`](../../library/makenotion-notion-cookbook/skills/skills-auth-guide) | ⚪ Reserve | `makenotion-notion-cookbook` | Guide to setting up third-party authentication for a Notion Worker. Covers brokered credentials... |
 | [`skills-authentication`](../../library/codewithmukesh-dotnet-claude-kit/skills/skills-authentication) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Authentication and authorization for ASP.NET Core. Covers JWT bearer tokens, OpenID Connect, AS... |
+| [`skills-aws-observability`](../../library/aws-agent-toolkit-for-aws/skills/skills-aws-observability) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Investigates root causes on the Omni context graph (service dependencies) and Intelligence insi... |
 | [`skills-azure-aigateway`](../../library/microsoft-azure-skills/skills/skills-azure-aigateway) | ⚪ Reserve | `microsoft-azure-skills` | Configure Azure API Management as an AI Gateway for AI models, MCP tools, and agents. WHEN: sem... |
 | [`skills-azure-compute`](../../library/microsoft-azure-skills/skills/skills-azure-compute) | ⚪ Reserve | `microsoft-azure-skills` | Azure VM/VMSS router. WHEN: create / provision / deploy / spin-up VM, recommend VM size, compar... |
 | [`skills-azure-kubernetes`](../../library/microsoft-azure-skills/skills/skills-azure-kubernetes) | ⚪ Reserve | `microsoft-azure-skills` | Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clusters. Covers Da... |
@@ -1386,6 +1390,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`tavily-key-generator-proxy`](../../library/reason-machines-trending-skills/skills/tavily-key-generator-proxy) | ⚪ Reserve | `reason-machines-trending-skills` | Auto batch-register Tavily API keys via browser automation and pool them behind a unified proxy... |
 | [`tavily-web`](../../library/antigravity-awesome-skills/skills/tavily-web) | ⚪ Reserve | `antigravity-awesome-skills` | Web search, content extraction, crawling, and research capabilities using Tavily API |
 | [`tear-sheet`](../../library/anthropics-financial-services/skills/tear-sheet) | ⚪ Reserve | `anthropics-financial-services` | Generate professional company tear sheets using S&P Capital IQ data via the Kensho LLM-ready AP... |
+| [`technical-indexing`](../../library/kostja94-marketing-skills/skills/technical-indexing) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to fix indexing issues from Search Console, use noindex, or implement Googl... |
+| [`technical-indexnow`](../../library/kostja94-marketing-skills/skills/technical-indexnow) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to implement IndexNow, notify search engines of new/updated URLs, or speed ... |
 | [`technical-writer`](../../library/vercel-labs-agent-browser/skills/technical-writer) | ⚪ Reserve | `vercel-labs-agent-browser` | Write, review, and edit developer documentation for SDKs, libraries, and frameworks, including ... |
 | [`telegram-bot-messaging`](../../library/sickn33-agentic-awesome-skills/skills/telegram-bot-messaging) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Send Telegram messages, files, and alerts via bot API; ask questions with inline buttons and wa... |
 | [`telegram-mini-app`](../../library/antigravity-awesome-skills/skills/telegram-mini-app) | ⚪ Reserve | `antigravity-awesome-skills` | Expert in building Telegram Mini Apps (TWA) - web apps that run inside Telegram with native-lik... |

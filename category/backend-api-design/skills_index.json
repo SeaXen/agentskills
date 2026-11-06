@@ -3192,6 +3192,14 @@
     "path": "category/backend-api-design/core-api-guide"
   },
   {
+    "id": "core-skills-aws-observability",
+    "name": "core-skills-aws-observability",
+    "category": "backend-api-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Investigates root causes on the Omni context graph (service dependencies) and Intelligence insights; builds, configures, debugs, tunes AWS observability - operator-symptom questions, detecting Omni vs classic CloudWatch. CloudWatch on a reporting service: fleet health views, Log Insights, metric/composite/anomaly alarms, custom metrics/EMF, dashboards, X-Ray/ADOT tracing, canaries, CloudTrail, Dynamic Instrumentation (live breakpoints), and Application Signals service map. CloudWatch Omni on an existing Space: SQL over logs/traces, PromQL, Omni dashboards, alerts and Slack notifications, programmatic/IaC access (API/SDK/CLI/CFN), driving Omni from a coding agent or skills, AI agent quality from traces - on-demand and online evaluation of live traffic, incl. setting it up, readback, evaluators. For first-time setup - creating an Omni Space, granting access, ingestion, or ADOT instrumentation for Application Signals or Omni - use setting-up-cloudwatch-observability. Not for app logging or threat detection.",
+    "path": "category/backend-api-design/core-skills-aws-observability"
+  },
+  {
     "id": "cost-openrouter",
     "name": "cost-openrouter",
     "category": "backend-api-design",
@@ -7408,6 +7416,14 @@
     "path": "category/backend-api-design/migrate-to-parallel"
   },
   {
+    "id": "migrating-hive-tables-to-s3-tables",
+    "name": "migrating-hive-tables-to-s3-tables",
+    "category": "backend-api-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Migrates a Glue Data Catalog Hive table (Parquet) into Amazon S3 Tables as managed Iceberg using the native S3 Tables migration API (StartTableMigration, SyncTableMigration, CompleteTableMigration), a managed service call, not a self-run CTAS, Glue, or EMR job. The source is a Hive table; an Iceberg source is never in scope, even when the destination is S3 Tables. Covers plan review, migrate, sync, complete, and validate. Same-account, same-region, Glue Hive Parquet source only. Use when the request asks to migrate or import a Hive table into S3 Tables, or names the native migration API. Not applicable to converting a self-managed or standard Iceberg table into S3 Tables (ingesting-into-data-lake covers that), self-run CTAS/Glue-ETL/Spark migrations (ingesting-into-data-lake), or creating empty tables (creating-data-lake-table).",
+    "path": "category/backend-api-design/migrating-hive-tables-to-s3-tables"
+  },
+  {
     "id": "minimal-api",
     "name": "minimal-api",
     "category": "backend-api-design",
@@ -7694,6 +7710,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Check domains and IPs against a free compromised feed, find newly registered lookalike domains, and get TLD stats and Top 1M ranks from NetAPI, with no API key.",
     "path": "category/backend-api-design/netapi"
+  },
+  {
+    "id": "networking-and-content-delivery-skills-route53",
+    "name": "networking-and-content-delivery-skills-route53",
+    "category": "backend-api-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Configures Amazon Route 53 DNS: public and private records, traffic-steering routing policies, health checks, DNS Firewall, Route 53 Profiles, VPC Resolver (also known as Route 53 Resolver) for hybrid and Outposts networks, and Global Resolver. Applicable when the customer wants to point a hostname at a target, split or fail over traffic across endpoints, monitor an endpoint, block malicious domains, centralize DNS across accounts, or resolve private DNS across a hybrid network. Routes to the right per-task procedure in references. Does not cover CloudFront-specific setup or non-DNS networking.",
+    "path": "category/backend-api-design/networking-and-content-delivery-skills-route53"
   },
   {
     "id": "newman-cicd-integration",
@@ -10160,6 +10184,14 @@
     "path": "category/backend-api-design/skills-authentication"
   },
   {
+    "id": "skills-aws-observability",
+    "name": "skills-aws-observability",
+    "category": "backend-api-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Investigates root causes on the Omni context graph (service dependencies) and Intelligence insights; builds, configures, debugs, tunes AWS observability - operator-symptom questions, detecting Omni vs classic CloudWatch. CloudWatch on a reporting service: fleet health views, Log Insights, metric/composite/anomaly alarms, custom metrics/EMF, dashboards, X-Ray/ADOT tracing, canaries, CloudTrail, Dynamic Instrumentation (live breakpoints), and Application Signals service map. CloudWatch Omni on an existing Space: SQL over logs/traces, PromQL, Omni dashboards, alerts and Slack notifications, programmatic/IaC access (API/SDK/CLI/CFN), driving Omni from a coding agent or skills, AI agent quality from traces - on-demand and online evaluation of live traffic, incl. setting it up, readback, evaluators. For first-time setup - creating an Omni Space, granting access, ingestion, or ADOT instrumentation for Application Signals or Omni - use setting-up-cloudwatch-observability. Not for app logging or threat detection.",
+    "path": "category/backend-api-design/skills-aws-observability"
+  },
+  {
     "id": "skills-azure-aigateway",
     "name": "skills-azure-aigateway",
     "category": "backend-api-design",
@@ -10934,6 +10966,22 @@
     "repository": "anthropics-financial-services",
     "description": "Generate professional company tear sheets using S&P Capital IQ data via the Kensho LLM-ready API MCP server. Use this skill whenever the user asks for a tear sheet, company one-pager, company profile, fact sheet, company snapshot, or company overview document \u2014 especially when they mention a specific company name or ticker. Also trigger when users ask for equity research summaries, M&A company profiles, corporate development target profiles, sales/BD meeting prep documents, or any concise single-company financial summary. This skill supports four audience types: equity research, investment banking/M&A, corporate development, and sales/business development. If the user doesn't specify an audience, ask. Works for both public and private companies.",
     "path": "category/backend-api-design/tear-sheet"
+  },
+  {
+    "id": "technical-indexing",
+    "name": "technical-indexing",
+    "category": "backend-api-design",
+    "repository": "kostja94-marketing-skills",
+    "description": "When the user wants to fix indexing issues from Search Console, use noindex, or implement Google Indexing API. Also use when the user mentions \"fix indexing,\" \"not indexed,\" \"Crawled - currently not indexed,\" \"discovered - currently not indexed,\" \"index coverage,\" \"noindex,\" \"noindex tag,\" \"pages not indexed,\" \"why not indexed,\" \"request indexing,\" or \"Google Indexing API.\" For sitemap, use xml-sitemap.",
+    "path": "category/backend-api-design/technical-indexing"
+  },
+  {
+    "id": "technical-indexnow",
+    "name": "technical-indexnow",
+    "category": "backend-api-design",
+    "repository": "kostja94-marketing-skills",
+    "description": "When the user wants to implement IndexNow, notify search engines of new/updated URLs, or speed up Bing indexing. Also use when the user mentions \"IndexNow,\" \"Bing indexing,\" \"URL notification,\" \"instant indexing,\" \"sitemap IndexNow sync,\" \"share URL list with sitemap,\" or \"IndexNow API.\" For sitemap SSOT, use xml-sitemap.",
+    "path": "category/backend-api-design/technical-indexnow"
   },
   {
     "id": "technical-writer",

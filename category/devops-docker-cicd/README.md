@@ -1,7 +1,7 @@
 # 🚀 DevOps, Containers & Deployment
 
 > **Category**: `devops-docker-cicd`  
-> **Total Curated Skills**: 554 skills  
+> **Total Curated Skills**: 555 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -489,6 +489,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`sentry-setup-ai-monitoring`](../../library/getsentry-sentry-for-ai/skills/sentry-setup-ai-monitoring) | ⚪ Reserve | `getsentry-sentry-for-ai` | Setup Sentry AI Agent Monitoring in any project. Use when asked to monitor LLM calls, track AI ... |
 | [`serverless-deploy`](../../library/runpod-runpod-plugins-official/skills/serverless-deploy) | ⚪ Reserve | `runpod-runpod-plugins-official` | Bring any source (a HuggingFace repo, a ComfyUI workflow, a Hub release, a custom container |
 | [`serverless-modal`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/serverless-modal) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Run GPU workloads on Modal — training, fine-tuning, inference, batch processing. Zero-config se... |
+| [`serverless-skills-aws-lambda-microvms`](../../library/aws-agent-toolkit-for-aws/skills/serverless-skills-aws-lambda-microvms) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Builds, runs, debugs, and operates applications on AWS Lambda MicroVMs — Firecracker-isolated, ... |
 | [`service-catalog-template-coordinate`](../../library/forcedotcom-sf-skills/skills/service-catalog-template-coordinate) | ⚪ Reserve | `forcedotcom-sf-skills` | Single entry point for the Unified Catalog Service Process lifecycle in Salesforce — find and d... |
 | [`service-helpagent-coordinate`](../../library/forcedotcom-sf-skills/skills/service-helpagent-coordinate) | ⚪ Reserve | `forcedotcom-sf-skills` | Use to set up, configure, ground, or go live with a Salesforce Help Agent (an Agentforce Servic... |
 | [`service-itsm-agentic-setup-cmdb-bundle-deploy`](../../library/forcedotcom-sf-skills/skills/service-itsm-agentic-setup-cmdb-bundle-deploy) | ⚪ Reserve | `forcedotcom-sf-skills` | Deploy (install) the CMDB Foundation base content bundle in Service Cloud ITSM against a produc... |

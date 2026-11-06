@@ -1,7 +1,7 @@
 # ☁️ Cloudflare Workers, Pages & Edge
 
 > **Category**: `cloudflare-edge`  
-> **Total Curated Skills**: 140 skills  
+> **Total Curated Skills**: 141 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -102,6 +102,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`narrative-drift-monitor`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/narrative-drift-monitor) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "check if our surfaces have drifted from the canon", "watch for compe... |
 | [`nemo-relay-instrument-context-isolation`](../../library/nvidia-skills/skills/nemo-relay-instrument-context-isolation) | ⚪ Reserve | `nvidia-skills` | Use this skill when concurrent requests, async tasks, threads, workers, goroutines, or agents n... |
 | [`netlify-development`](../../library/mindrally-skills/skills/netlify-development) | ⚪ Reserve | `mindrally-skills` | Best practices for building and deploying Netlify sites, covering serverless and edge functions... |
+| [`networking-and-content-delivery-skills-cloudfront`](../../library/aws-agent-toolkit-for-aws/skills/networking-and-content-delivery-skills-cloudfront) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Configures Amazon CloudFront content delivery across six workflows: when to use CloudFront and ... |
 | [`nextjs-on-cloudflare`](../../library/cloudflare-skills/skills/nextjs-on-cloudflare) | ⚪ Reserve | `cloudflare-skills` | Build, migrate, and deploy Next.js apps on Cloudflare Workers with vinext. Use when starting a ... |
 | [`nitro`](../../library/antfu-skills/skills/nitro) | ⚪ Reserve | `antfu-skills` | Nitro is the framework-agnostic server toolkit (powering Nuxt) for building and deploying web s... |
 | [`obsidian-wiki`](../../library/ar9av-obsidian-wiki/skills/obsidian-wiki) | ⚪ Reserve | `ar9av-obsidian-wiki` | Ingests AI conversation and session history from tools like Claude Code and Codex CLI into Obsi... |

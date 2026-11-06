@@ -1,7 +1,7 @@
 # 📋 Business Strategy, Legal & HR
 
 > **Category**: `business-strategy-legal`  
-> **Total Curated Skills**: 345 skills  
+> **Total Curated Skills**: 350 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -210,6 +210,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`landing-optimizer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/landing-optimizer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "optimize our landing page for influencer traffic", "fix our promo-co... |
 | [`lark-event`](../../library/larksuite-cli/skills/lark-event) | ⚪ Reserve | `larksuite-cli` | Lark/Feishu real-time event listening / subscribing / consuming: stream events as NDJSON via `l... |
 | [`launch-checklist`](../../library/donchitos-claude-code-game-studios/skills/launch-checklist) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Launch readiness across every department: code, content, store, marketing, community, infrastru... |
+| [`launch-conversion`](../../library/kostja94-marketing-skills/skills/launch-conversion) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to improve conversion rates, run A/B tests, optimize funnels, or reduce fri... |
 | [`launchdarkly-experiment-hypothesis-builder`](../../library/launchdarkly-ai-tooling/skills/launchdarkly-experiment-hypothesis-builder) | ⚪ Reserve | `launchdarkly-ai-tooling` | Help a user turn a rough idea into a strong, testable experiment hypothesis, or grade one they ... |
 | [`legal`](../../library/kostja94-marketing-skills/skills/legal) | ⚪ Reserve | `kostja94-marketing-skills` | Deprecated compatibility entry for Legal Page construction. This page is now maintained in Pagi... |
 | [`legal-agent-skills-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/legal-agent-skills-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Agent skills collection for legal research and automation |
@@ -258,6 +259,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`page-cro`](../../library/alirezarezvani-claude-skills/skills/page-cro) | ⚪ Reserve | `alirezarezvani-claude-skills` | When the user wants to optimize, improve, or increase conversions on any marketing page — inclu... |
 | [`paid-ads-guide`](../../library/nowork-studio-notfair-plugin/skills/paid-ads-guide) | ⚪ Reserve | `nowork-studio-notfair-plugin` | Explain NotFair's paid-ads skills, installation, platform boundaries, account connections, and ... |
 | [`parallel-monitor`](../../library/parallel-web-parallel-agent-skills/skills/parallel-monitor) | ⚪ Reserve | `parallel-web-parallel-agent-skills` | Continuously track the web for changes on a recurring cadence. Use when the user asks to 'monit... |
+| [`partnerships-education-program`](../../library/kostja94-marketing-skills/skills/partnerships-education-program) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan, implement, or optimize student and education discount programs. Al... |
 | [`partnerships-hiring`](../../library/mbfinotti-partnerships-skills/skills/partnerships-hiring) | ⚪ Reserve | `mbfinotti-partnerships-skills` | Employer-side partnerships hiring across the field's four sub-disciplines - channel/alliance, a... |
 | [`patent`](../../library/alirezarezvani-claude-skills/skills/patent) | ⚪ Reserve | `alirezarezvani-claude-skills` | Patent prior-art and landscape intelligence skill — not generic patent help. Commits to one of ... |
 | [`paywall-optimization`](../../library/appeeky-aso-skills/skills/paywall-optimization) | ⚪ Reserve | `appeeky-aso-skills` | When the user wants to design, test, or optimize their app's paywall — layout, copy, pricing di... |
@@ -276,6 +278,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`price-psychology-strategist`](../../library/sickn33-agentic-awesome-skills/skills/price-psychology-strategist) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Design pricing presentation, anchors, and tiers when an offer needs clearer value and fairness ... |
 | [`pricing-packaging-tracker`](../../library/deanpeters-product-manager-skills/skills/pricing-packaging-tracker) | ⚪ Reserve | `deanpeters-product-manager-skills` | Track competitor pricing and packaging as a diffable time series. Use when monitoring tiers, ga... |
 | [`pricing-page`](../../library/feimacode-open-design-agent-kit/skills/pricing-page) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A standalone pricing page — header, plan tiers, feature comparison table, and an FAQ. Use when ... |
+| [`pricing-pricing-strategy`](../../library/kostja94-marketing-skills/skills/pricing-pricing-strategy) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan, design, or optimize pricing strategy and structure. Also use when ... |
 | [`pricing-psychology-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/pricing-psychology-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Behavioral economics in pricing strategies and consumer decisions |
 | [`product-capability`](../../library/affaan-m-ecc/skills/product-capability) | ⚪ Reserve | `affaan-m-ecc` | Translate PRD intent, roadmap asks, or product discussions into an implementation-ready capabil... |
 | [`product-decision-agent`](../../library/davila7-claude-code-templates/skills/product-decision-agent) | ⚪ Reserve | `davila7-claude-code-templates` | 中文产品决策 Agent。用于中国大陆互联网产品、运营、增长、商业化、数据、项目推进和组织协作场景：产品规划、需求分析、PRD、需求优先级、排期、版本规划、Roadmap、MVP、灰度、上线... |
@@ -283,6 +286,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`product-sense-interview-answer`](../../library/deanpeters-product-manager-skills/skills/product-sense-interview-answer) | ⚪ Reserve | `deanpeters-product-manager-skills` | Structure a spoken PM product-sense answer with assumptions, segmentation, pain-point prioritiz... |
 | [`product-strategist`](../../library/alirezarezvani-claude-skills/skills/product-strategist) | ⚪ Reserve | `alirezarezvani-claude-skills` | Strategic product leadership toolkit for Head of Product covering OKR cascade generation, quart... |
 | [`product-strategy-session`](../../library/deanpeters-product-manager-skills/skills/product-strategy-session) | ⚪ Reserve | `deanpeters-product-manager-skills` | Run an end-to-end product strategy session across positioning, discovery, and roadmap planning.... |
+| [`quantum-computing-skills-amazon-braket`](../../library/aws-agent-toolkit-for-aws/skills/quantum-computing-skills-amazon-braket) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Runs quantum workflows on AWS / Amazon Braket: circuits and algorithms, QPU/device and ARN disc... |
 | [`rails-patterns`](../../library/affaan-m-ecc/skills/rails-patterns) | ⚪ Reserve | `affaan-m-ecc` | Ruby on Rails framework patterns for Rails 7.1+ and 8.x apps. Covers the directory contract, sk... |
 | [`ralph-tui-create-beads`](../../library/subsy-ralph-tui/skills/ralph-tui-create-beads) | ⚪ Reserve | `subsy-ralph-tui` | Convert PRDs to beads for ralph-tui execution. Creates an epic with child beads for each user s... |
 | [`ralph-tui-create-json`](../../library/subsy-ralph-tui/skills/ralph-tui-create-json) | ⚪ Reserve | `subsy-ralph-tui` | Convert PRDs to prd.json format for ralph-tui execution. Creates JSON task files with user stor... |
@@ -314,6 +318,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skill-lifeguard`](../../library/majiayu000-spellbook/skills/skill-lifeguard) | ⚪ Reserve | `majiayu000-spellbook` | Use when a skill is brittle, drifting, repeatedly failing, or needs a Reliable Skill Contract. ... |
 | [`skills-bmad-agent-pm`](../../library/bmad-code-org-bmad-method/skills/skills-bmad-agent-pm) | ⚪ Reserve | `bmad-code-org-bmad-method` | John, the Product Manager: coaches planning documents out of the user, then updates or validate... |
 | [`skills-bmad-prd`](../../library/bmad-code-org-bmad-method/skills/skills-bmad-prd) | ⚪ Reserve | `bmad-code-org-bmad-method` | The earlier PRD workflow, kept for comparison with John the Product Manager (bmad-agent-pm), wh... |
+| [`skills-competitor-research`](../../library/kostja94-marketing-skills/skills/skills-competitor-research) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to find competitors for a product or website, assess substitutes, or analyz... |
 | [`skills-connect-required-verification-information`](../../library/stripe-ai/skills/skills-connect-required-verification-information) | ⚪ Reserve | `stripe-ai` | Use this skill when the user asks what information a Stripe Connect connected account must prov... |
 | [`skills-contract-review`](../../library/anthropics-knowledge-work/skills/skills-contract-review) | ⚪ Reserve | `anthropics-knowledge-work` | Lightweight NDA, MSA, and vendor contract review for SMBs without legal on staff. Reads contrac... |
 | [`skills-create-learning-path`](../../library/cursor-plugins/skills/skills-create-learning-path) | ⚪ Reserve | `cursor-plugins` | Build a personalized learning roadmap with milestones and practice checkpoints |

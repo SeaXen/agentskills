@@ -80,6 +80,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link create-tile-palette-or-rule-tiles"
   },
   {
+    "id": "fix-3d-physics-collisions",
+    "name": "fix-3d-physics-collisions",
+    "repository": "unity-technologies-skills",
+    "category": "general",
+    "description": "Diagnoses and fixes 3D PhysX collision, trigger, and raycast problems. Use when asked to fix OnCollisionEnter or OnTriggerEnter not firing, objects passing through each other, raycasts that miss, or a misbehaving MeshCollider.",
+    "path": "library/unity-technologies-skills/skills/fix-3d-physics-collisions",
+    "activation_cmd": "python .agents/library/activate_skill.py activate fix-3d-physics-collisions",
+    "link_cmd": "python .agents/library/activate_skill.py link fix-3d-physics-collisions"
+  },
+  {
     "id": "generate-editor-search-query",
     "name": "generate-editor-search-query",
     "repository": "unity-technologies-skills",
@@ -128,6 +138,26 @@
     "path": "library/unity-technologies-skills/skills/localization",
     "activation_cmd": "python .agents/library/activate_skill.py activate localization",
     "link_cmd": "python .agents/library/activate_skill.py link localization"
+  },
+  {
+    "id": "localize-unity-project",
+    "name": "localize-unity-project",
+    "repository": "unity-technologies-skills",
+    "category": "general",
+    "description": "Sets up Unity Localization, including locales, String and Asset Tables, and CJK fonts. Use when the user wants to add languages or translate UI text.",
+    "path": "library/unity-technologies-skills/skills/localize-unity-project",
+    "activation_cmd": "python .agents/library/activate_skill.py activate localize-unity-project",
+    "link_cmd": "python .agents/library/activate_skill.py link localize-unity-project"
+  },
+  {
+    "id": "manage-cloud-build",
+    "name": "manage-cloud-build",
+    "repository": "unity-technologies-skills",
+    "category": "general",
+    "description": "Sets up Unity Build Automation build targets and diagnoses failed cloud builds. Make sure to use this skill when the user wants to set up cloud builds for a project or asks why a cloud build failed, but not for local builds or Pipeline Automation.",
+    "path": "library/unity-technologies-skills/skills/manage-cloud-build",
+    "activation_cmd": "python .agents/library/activate_skill.py activate manage-cloud-build",
+    "link_cmd": "python .agents/library/activate_skill.py link manage-cloud-build"
   },
   {
     "id": "manage-sprite-atlas",

@@ -1,7 +1,7 @@
 # 🔬 Scientific, Bio-Informatics & Astrophysics
 
 > **Category**: `scientific-bio-data`  
-> **Total Curated Skills**: 125 skills  
+> **Total Curated Skills**: 126 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -57,6 +57,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`falsify`](../../library/sickn33-agentic-awesome-skills/skills/falsify) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | The scientific thinking protocol for AI agents. Use when facing complex, ambiguous, or high-sta... |
 | [`feature-flags-launchdarkly-flag-create`](../../library/launchdarkly-ai-tooling/skills/feature-flags-launchdarkly-flag-create) | ⚪ Reserve | `launchdarkly-ai-tooling` | Create and configure LaunchDarkly feature flags in a way that fits the existing codebase. Use w... |
 | [`firecrawl-deep-research`](../../library/firecrawl-firecrawl-workflows/skills/firecrawl-deep-research) | ⚪ Reserve | `firecrawl-firecrawl-workflows` | Produce an intensive, cited analytical report: executive summary, multi-angle findings, contrar... |
+| [`fix-3d-physics-collisions`](../../library/unity-technologies-skills/skills/fix-3d-physics-collisions) | ⚪ Reserve | `unity-technologies-skills` | Diagnoses and fixes 3D PhysX collision, trigger, and raycast problems. Use when asked to fix On... |
 | [`fortran`](../../library/mindrally-skills/skills/fortran) | ⚪ Reserve | `mindrally-skills` | Best practices for modern Fortran (2003/2008+) scientific and numerical computing, covering mod... |
 | [`get-available-resources`](../../library/davila7-claude-code-templates/skills/get-available-resources) | ⚪ Reserve | `davila7-claude-code-templates` | This skill should be used at the start of any computationally intensive scientific task to dete... |
 | [`gget`](../../library/davila7-claude-code-templates/skills/gget) | ⚪ Reserve | `davila7-claude-code-templates` | CLI/Python toolkit for rapid bioinformatics queries. Preferred for quick BLAST searches. Access... |

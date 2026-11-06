@@ -1,7 +1,7 @@
 # 🚀 Productivity, Slack, Notion & Linear
 
 > **Category**: `productivity-workspace-tools`  
-> **Total Curated Skills**: 304 skills  
+> **Total Curated Skills**: 306 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -39,6 +39,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`board-governance`](../../library/sickn33-agentic-awesome-skills/skills/board-governance) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Board and governance register: meeting date, agenda, decision, resolution number, vote result, ... |
 | [`board-meeting`](../../library/alirezarezvani-claude-skills/skills/board-meeting) | ⚪ Reserve | `alirezarezvani-claude-skills` | Multi-agent board meeting protocol for strategic decisions. Runs a structured 6-phase deliberat... |
 | [`board-prep`](../../library/alirezarezvani-claude-skills/skills/board-prep) | ⚪ Reserve | `alirezarezvani-claude-skills` | Board meeting preparation for the adversarial scenario, not the friendly one. Forces numbers-co... |
+| [`brand-content-marketing`](../../library/kostja94-marketing-skills/skills/brand-content-marketing) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan content marketing across channels, define content types and formats... |
 | [`briefing-note`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/briefing-note) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Structured policy briefing note (1-2 pages). Issue, background, analysis, options, recommendati... |
 | [`build-agent`](../../library/anthropics-knowledge-work/skills/build-agent) | ⚪ Reserve | `anthropics-knowledge-work` | Turns a task the owner keeps doing by hand into a named, reusable skill they can trigger by nam... |
 | [`build-my-engineering-wiki`](../../library/makenotion-notion-cookbook/skills/build-my-engineering-wiki) | ⚪ Reserve | `makenotion-notion-cookbook` | Build a personalized Notion engineering home from technical docs, project context, and chat or ... |
@@ -53,6 +54,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`compute-on-demand-reservations`](../../library/google-skills/skills/compute-on-demand-reservations) | ⚪ Reserve | `google-skills` | Inspects, verifies, and manages Google Compute Engine (GCE) On-Demand reservations and analyzes... |
 | [`conference-cfp-submission`](../../library/samber-developer-relations-skills/skills/conference-cfp-submission) | ⚪ Reserve | `samber-developer-relations-skills` | Turns a talk idea into a submission-ready conference proposal for one specific event, or helps ... |
 | [`connections`](../../library/makenotion-notion-cookbook/skills/connections) | ⚪ Reserve | `makenotion-notion-cookbook` | Configure and use typed provider connections and connection-bound triggers in Notion App workfl... |
+| [`content-content-strategy`](../../library/kostja94-marketing-skills/skills/content-content-strategy) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan content for SEO, create content calendar, or build topic clusters. ... |
 | [`content-gap-analysis`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/content-gap-analysis) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "find content gaps", "竞品写了什么", or "还应该写什么"; builds a competitor-relat... |
 | [`content-marketing`](../../library/kostja94-marketing-skills/skills/content-marketing) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan content marketing across channels, define content types and formats... |
 | [`context-agent`](../../library/sickn33-agentic-awesome-skills/skills/context-agent) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Agente de contexto para continuidade entre sessoes. Salva resumos, decisoes, tarefas pendentes ... |

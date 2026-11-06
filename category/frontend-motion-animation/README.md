@@ -1,7 +1,7 @@
 # ✨ UI Motion, Animations & Polish
 
 > **Category**: `frontend-motion-animation`  
-> **Total Curated Skills**: 275 skills  
+> **Total Curated Skills**: 279 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -52,6 +52,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`blender-motion-state-inspection`](../../library/affaan-m-ecc/skills/blender-motion-state-inspection) | ⚪ Reserve | `affaan-m-ecc` | Use this skill when inspecting Blender characters, rigs, poses, animation retargeting, ground c... |
 | [`brag-slim`](../../library/latent-spaces-brag/skills/brag-slim) | ⚪ Reserve | `latent-spaces-brag` | Turn a project directory or a website URL into a short, shareable launch video with music, moti... |
 | [`brand-visual`](../../library/kostja94-marketing-skills/skills/brand-visual) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to define, audit, or apply visual identity (typography, colors, spacing, de... |
+| [`branding-brand-visual`](../../library/kostja94-marketing-skills/skills/branding-brand-visual) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to define, audit, or apply visual identity (typography, colors, spacing, de... |
 | [`break-ui`](../../library/emilkowalski-skills/skills/break-ui) | ⚪ Reserve | `emilkowalski-skills` | Try to break a piece of UI by feeding it worst-case data — long names, unbreakable emails, one-... |
 | [`build-awwwards-quality-sites`](../../library/mengto-skills/skills/build-awwwards-quality-sites) | ⚪ Reserve | `mengto-skills` | Art-direct and implement distinctive, motion-rich marketing, editorial, portfolio, and landing ... |
 | [`build-rigged-game-assets`](../../library/mengto-skills/skills/build-rigged-game-assets) | ⚪ Reserve | `mengto-skills` | Create, integrate, or audit production-ready rigged 3D characters and monsters with a main mode... |
@@ -150,6 +151,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`joint-gtm-planning`](../../library/mbfinotti-partnerships-skills/skills/joint-gtm-planning) | ⚪ Reserve | `mbfinotti-partnerships-skills` | Plan one joint go-to-market motion with one already-chosen partner - the joint value propositio... |
 | [`jury`](../../library/juliobsz-skills/skills/jury) | ⚪ Reserve | `juliobsz-skills` | Score any website the way an Awwwards jury would, from evidence alone. Screenshots every page t... |
 | [`kimodo-motion-diffusion`](../../library/reason-machines-trending-skills/skills/kimodo-motion-diffusion) | ⚪ Reserve | `reason-machines-trending-skills` | Generate high-quality 3D human and humanoid robot motions using Kimodo, a kinematic motion diff... |
+| [`launch-cold-start`](../../library/kostja94-marketing-skills/skills/launch-cold-start) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan cold start, get first users, or launch a new product with zero trac... |
+| [`launch-product-launch`](../../library/kostja94-marketing-skills/skills/launch-product-launch) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan a product launch, execute launch channels, or create a launch check... |
 | [`leading-org-change`](../../library/refoundai-lenny-skills/skills/leading-org-change) | ⚪ Reserve | `refoundai-lenny-skills` | Help users navigate complex transitions, from scaling new business units to managing crises and... |
 | [`macro-regime-detector`](../../library/tradermonty-claude-trading-skills/skills/macro-regime-detector) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Detect structural macro regime transitions (1-2 year horizon) using cross-asset ratio analysis.... |
 | [`magic-animator`](../../library/sickn33-agentic-awesome-skills/skills/magic-animator) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | AI-powered animation tool for creating motion in logos, UI, icons, and social media assets. |
@@ -261,6 +264,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`swiftui-animation`](../../library/dpearson2699-swift-ios-skills/skills/swiftui-animation) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Implement, diagnose, or review SwiftUI motion using explicit and scoped implicit animations, sp... |
 | [`swiftui-layout-components`](../../library/dpearson2699-swift-ios-skills/skills/swiftui-layout-components) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Build SwiftUI layouts using stacks, grids, lists, scroll views, forms, and controls. Covers VSt... |
 | [`taste-design`](../../library/google-labs-code-stitch-skills/skills/taste-design) | ⚪ Reserve | `google-labs-code-stitch-skills` | Semantic Design System Skill for Google Stitch. Generates agent-friendly DESIGN.md files that e... |
+| [`technical-crawlability`](../../library/kostja94-marketing-skills/skills/technical-crawlability) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to improve crawlability, fix orphan pages, or optimize site structure for s... |
 | [`technical-video-script`](../../library/samber-developer-relations-skills/skills/technical-video-script) | ⚪ Reserve | `samber-developer-relations-skills` | Writes or reviews a shooting-ready script for a technical video or screencast - a two-column vi... |
 | [`thinking-orbs`](../../library/mengto-skills/skills/thinking-orbs) | ⚪ Reserve | `mengto-skills` | Add accessible animated AI loading and agent-status indicators with the React thinking-orbs lib... |
 | [`threejs-animation`](../../library/cloudai-x-threejs-skills/skills/threejs-animation) | ⚪ Reserve | `cloudai-x-threejs-skills` | Keyframe, skeletal and morph-target animation, procedural motion and clip blending, on WebGL or... |

@@ -1,7 +1,7 @@
 # 📈 Sales Outreach, Leads & CRM
 
 > **Category**: `business-sales-crm`  
-> **Total Curated Skills**: 590 skills  
+> **Total Curated Skills**: 596 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -112,6 +112,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`consumer-goods-rtr-datacloud-export-configure`](../../library/forcedotcom-sf-skills/skills/consumer-goods-rtr-datacloud-export-configure) | ⚪ Reserve | `forcedotcom-sf-skills` | Configure a Trade Promotion Management (TPM) org's RTR (Real Time Reporting) export pipeline to... |
 | [`consumer-goods-tpe-dashboard-custom-kpi-configure`](../../library/forcedotcom-sf-skills/skills/consumer-goods-tpe-dashboard-custom-kpi-configure) | ⚪ Reserve | `forcedotcom-sf-skills` | Customize the Trade Promotion Effectiveness (TPE) Analytics dashboards' generic KPI slots (Prom... |
 | [`contact-research`](../../library/anthropics-knowledge-work/skills/contact-research) | ⚪ Reserve | `anthropics-knowledge-work` | Research a specific person using Common Room data. Triggers on 'who is [name]', 'look up [email... |
+| [`content-copywriting`](../../library/kostja94-marketing-skills/skills/content-copywriting) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to write or optimize short-form marketing copy—headlines, CTAs, ad copy, la... |
 | [`content-production`](../../library/alirezarezvani-claude-skills/skills/content-production) | ⚪ Reserve | `alirezarezvani-claude-skills` | Full content production pipeline — takes a topic from blank page to published-ready piece. Use ... |
 | [`continuous-discovery`](../../library/refoundai-lenny-skills/skills/continuous-discovery) | ⚪ Reserve | `refoundai-lenny-skills` | Help users build a sustainable habit of regular customer interaction to ensure product developm... |
 | [`contract-helper`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/contract-helper) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "draft an influencer contract", "review these agreement terms", or "b... |
@@ -305,6 +306,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`land-narrative-cascade-planner`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/land-narrative-cascade-planner) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "plan how our narrative lands on every surface", "write per-surface m... |
 | [`land-pitch-narrative-builder`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/land-pitch-narrative-builder) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "build our pitch deck narrative", "write a fundraising story", or "st... |
 | [`launch-feedback-synthesizer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/launch-feedback-synthesizer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "triage launch feedback", "cluster reviews, comments, and board posts... |
+| [`launch-retention`](../../library/kostja94-marketing-skills/skills/launch-retention) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to reduce churn, improve customer retention, or plan lifecycle marketing. A... |
 | [`lead-finder`](../../library/anthropics-knowledge-work/skills/lead-finder) | ⚪ Reserve | `anthropics-knowledge-work` | Builds a ranked list of prospects worth contacting. Works out the owner's ideal customer profil... |
 | [`lead-generation-google-social-media-finder`](../../library/browser-act-skills/skills/lead-generation-google-social-media-finder) | ⚪ Reserve | `browser-act-skills` | Searches Google to discover social media profiles associated with a person, brand, or username;... |
 | [`lead-generation-trustpilot-company-info`](../../library/browser-act-skills/skills/lead-generation-trustpilot-company-info) | ⚪ Reserve | `browser-act-skills` | Trustpilot company profile lookup on trustpilot.com — input a company domain (e.g. apple.com, s... |
@@ -337,6 +339,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`localize`](../../library/donchitos-claude-code-game-studios/skills/localize) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Localization pipeline — find hardcoded strings, extract string tables, cultural review, VO, RTL... |
 | [`log-activity`](../../library/anthropics-knowledge-work/skills/log-activity) | ⚪ Reserve | `anthropics-knowledge-work` | Log a call, meeting, or email exchange to the CRM after the fact as a completed activity on the... |
 | [`ma-playbook`](../../library/alirezarezvani-claude-skills/skills/ma-playbook) | ⚪ Reserve | `alirezarezvani-claude-skills` | M&A strategy for acquiring companies or being acquired. Due diligence, valuation, integration, ... |
+| [`manage-cloud-build`](../../library/unity-technologies-skills/skills/manage-cloud-build) | ⚪ Reserve | `unity-technologies-skills` | Sets up Unity Build Automation build targets and diagnoses failed cloud builds. Make sure to us... |
 | [`market-gap-analysis`](../../library/nexscope-ai-ecommerce-skills/skills/market-gap-analysis) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Identify underserved market gaps and unmet customer needs in e-commerce. Analyzes competitor bl... |
 | [`market-segments`](../../library/phuryn-pm-skills/skills/market-segments) | ⚪ Reserve | `phuryn-pm-skills` | Identify 3-5 potential customer segments with demographics, JTBD, and product fit analysis. Use... |
 | [`marketing-skills`](../../library/alirezarezvani-claude-skills/skills/marketing-skills) | ⚪ Reserve | `alirezarezvani-claude-skills` | Directory and router for the marketing skills library. Use when you need to find the right mark... |
@@ -361,6 +364,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`north-star-metrics`](../../library/refoundai-lenny-skills/skills/north-star-metrics) | ⚪ Reserve | `refoundai-lenny-skills` | Help users define, validate, and operationalize a North Star Metric that bridges the gap betwee... |
 | [`objection-preemptor`](../../library/sickn33-agentic-awesome-skills/skills/objection-preemptor) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Map customer objections and address them with evidence and choice-preserving language when a fu... |
 | [`odoo-sales-crm-expert`](../../library/sickn33-agentic-awesome-skills/skills/odoo-sales-crm-expert) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Expert guide for Odoo Sales and CRM: pipeline stages, quotation templates, pricelists, sales te... |
+| [`off-page-link-building`](../../library/kostja94-marketing-skills/skills/off-page-link-building) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to build backlinks, acquire links, or improve off-page SEO. Also use when t... |
 | [`office-hours`](../../library/alirezarezvani-claude-skills/skills/office-hours) | ⚪ Reserve | `alirezarezvani-claude-skills` | /c-level-agents:office-hours [topic] — YC-style 6-question founder interrogation before any adv... |
 | [`ohou-today-deal`](../../library/nomadamas-k-skill/skills/ohou-today-deal) | ⚪ Reserve | `nomadamas-k-skill` | 오늘의집 공개 오늘의딜 페이지에서 로그인 없이 특가 상품을 조회하고 할인율, 가격, 리뷰, 링크를 정리하는 읽기 전용 스킬. 돌쇠에서는 공식 표면을 통한 후속 액션까지 진... |
 | [`om-apply-upgrade-notes`](../../library/open-mercato-skills/skills/om-apply-upgrade-notes) | ⚪ Reserve | `open-mercato-skills` | Apply the skills collection's UPGRADE_NOTES.md after an upgrade. Re-syncs installed tracker and... |
@@ -387,6 +391,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`partner-enablement`](../../library/mbfinotti-partnerships-skills/skills/partner-enablement) | ⚪ Reserve | `mbfinotti-partnerships-skills` | Sequence the training, content, and certification a B2B partner program needs to make partners ... |
 | [`partnerships-architect`](../../library/alirezarezvani-claude-skills/skills/partnerships-architect) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when a startup is approached by a prospective partner and someone has to decide should we s... |
 | [`partnerships-career`](../../library/mbfinotti-partnerships-skills/skills/partnerships-career) | ⚪ Reserve | `mbfinotti-partnerships-skills` | Plans a partnerships career from the candidate side across the field's four sub-disciplines - c... |
+| [`partnerships-influencer-marketing`](../../library/kostja94-marketing-skills/skills/partnerships-influencer-marketing) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan, implement, or optimize influencer marketing strategy. Also use whe... |
 | [`patent-pipeline`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/patent-pipeline) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Full patent drafting pipeline from invention description to jurisdiction-formatted filing docum... |
 | [`performing-malware-hash-enrichment-with-virustotal`](../../library/mukul975-anthropic-cybersecurity-skills/skills/performing-malware-hash-enrichment-with-virustotal) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Enrich malware file hashes (MD5, SHA-1, SHA-256) using the VirusTotal |
 | [`persona-customer-support`](../../library/googleworkspace-cli/skills/persona-customer-support) | ⚪ Reserve | `googleworkspace-cli` | Manage customer support — track tickets, respond, escalate issues. |
@@ -412,6 +417,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`pptx-generator`](../../library/feimacode-open-design-agent-kit/skills/pptx-generator) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Create and edit PowerPoint presentations from scratch with PptxGenJS — MiniMax's production-tes... |
 | [`press-media-relations`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/press-media-relations) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "build a media list for my launch", "write a launch press release", o... |
 | [`press-release`](../../library/deanpeters-product-manager-skills/skills/press-release) | ⚪ Reserve | `deanpeters-product-manager-skills` | Write an Amazon-style press release that defines customer value before building. Use when align... |
+| [`pricing-discount-marketing`](../../library/kostja94-marketing-skills/skills/pricing-discount-marketing) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan, implement, or optimize discount and promotional pricing strategy. ... |
 | [`pricing-strategist`](../../library/alirezarezvani-claude-skills/skills/pricing-strategist) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when designing or revisiting product pricing — selecting a pricing model (subscription seat... |
 | [`process-mapper`](../../library/alirezarezvani-claude-skills/skills/process-mapper) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when a BizOps lead, COO, or process-improvement owner needs to document an end-to-end busin... |
 | [`product-manager-toolkit`](../../library/alirezarezvani-claude-skills/skills/product-manager-toolkit) | ⚪ Reserve | `alirezarezvani-claude-skills` | Comprehensive toolkit for product managers including RICE prioritization, customer interview an... |

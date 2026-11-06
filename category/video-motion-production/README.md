@@ -1,7 +1,7 @@
 # 🎬 Video Creation & Generative Motion
 
 > **Category**: `video-motion-production`  
-> **Total Curated Skills**: 234 skills  
+> **Total Curated Skills**: 237 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -51,6 +51,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`contact-center-web`](../../library/anthropics-knowledge-work/skills/contact-center-web) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Contact Center SDK for Web. Use for web chat/video/campaign embeds, engagement event handl... |
 | [`content-repurposer`](../../library/irinabuht12-oss-marketing-skills/skills/content-repurposer) | ⚪ Reserve | `irinabuht12-oss-marketing-skills` | Transform one long-form piece into multiple platform-specific content derivatives including Lin... |
 | [`content-repurposing`](../../library/101-skills-superpowers/skills/content-repurposing) | ⚪ Reserve | `101-skills-superpowers` | Content atomization — turn one piece of content into many formats. Covers blog-to-thread, blog-... |
+| [`content-video`](../../library/kostja94-marketing-skills/skills/content-video) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan video marketing, create video scripts, or optimize for short-form o... |
 | [`craft-short-video-scripter`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/craft-short-video-scripter) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "script this short video", "write a TikTok / Reels / Shorts script", ... |
 | [`cuboid-carousel`](../../library/heygen-hyperframes/skills/cuboid-carousel) | ⚪ Reserve | `heygen-hyperframes` | A chain of bevelled cuboids rides a travelling wave as a content carousel. HyperFrames block, 1... |
 | [`cut-the-curve`](../../library/heygen-hyperframes/skills/cut-the-curve) | ⚪ Reserve | `heygen-hyperframes` | The technique catalog: five velocity-matched SEAMS (zoom-through, INVERSE zoom-through, cut-the... |
@@ -152,6 +153,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`paper-2-web`](../../library/davila7-claude-code-templates/skills/paper-2-web) | ⚪ Reserve | `davila7-claude-code-templates` | This skill should be used when converting academic papers into promotional and presentation for... |
 | [`physical-ai-video-data-augmentation`](../../library/nvidia-skills/skills/physical-ai-video-data-augmentation) | ⚪ Reserve | `nvidia-skills` | Use when running video data augmentation and auto-labeling workflows on OSMO: flow selection, p... |
 | [`pixijs-assets`](../../library/pixijs-pixijs-skills/skills/pixijs-assets) | ⚪ Reserve | `pixijs-pixijs-skills` | Use this skill when loading and managing resources in PixiJS v8. Covers Assets.init, Assets.loa... |
+| [`platforms-youtube`](../../library/kostja94-marketing-skills/skills/platforms-youtube) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to optimize YouTube videos for search, create video descriptions, or improv... |
+| [`platforms-youtube-ads`](../../library/kostja94-marketing-skills/skills/platforms-youtube-ads) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to run YouTube ads, set up TrueView or Bumper campaigns, or optimize video ... |
 | [`podcast-ops`](../../library/ericosiu-ai-marketing-skills/skills/podcast-ops) | ⚪ Reserve | `ericosiu-ai-marketing-skills` | Podcast-to-Everything content pipeline. Takes a podcast RSS feed or raw transcript and generate... |
 | [`probe-sdk`](../../library/anthropics-knowledge-work/skills/probe-sdk) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom Probe SDK. Use after routing to a preflight workflow when testing brow... |
 | [`remotion`](../../library/davila7-claude-code-templates/skills/remotion) | ⚪ Reserve | `davila7-claude-code-templates` | Best practices and comprehensive guide for Remotion - programmatic video creation in React with... |

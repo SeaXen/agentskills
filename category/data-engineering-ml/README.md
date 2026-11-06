@@ -1,7 +1,7 @@
 # 📊 Data Pipelines, BigQuery & Machine Learning
 
 > **Category**: `data-engineering-ml`  
-> **Total Curated Skills**: 3279 skills  
+> **Total Curated Skills**: 3283 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -1991,6 +1991,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ometria`](../../library/membranedev-application-skills/skills/ometria) | ⚪ Reserve | `membranedev-application-skills` | Ometria integration. Manage Persons, Organizations, Deals, Pipelines, Activities, Notes and mor... |
 | [`omniconvert`](../../library/membranedev-application-skills/skills/omniconvert) | ⚪ Reserve | `membranedev-application-skills` | Omniconvert integration. Manage Persons, Organizations, Deals, Leads, Projects, Activities and ... |
 | [`omnisend`](../../library/membranedev-application-skills/skills/omnisend) | ⚪ Reserve | `membranedev-application-skills` | Omnisend integration. Manage Persons, Organizations, Activities, Notes, Files, Deals and more. ... |
+| [`on-page-description`](../../library/kostja94-marketing-skills/skills/on-page-description) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to write, audit, or optimize a meta description, SEO description, SERP snip... |
+| [`on-page-heading`](../../library/kostja94-marketing-skills/skills/on-page-heading) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to write or optimize H1-H6, fix heading hierarchy, improve content structur... |
 | [`oncehub`](../../library/membranedev-application-skills/skills/oncehub) | ⚪ Reserve | `membranedev-application-skills` | OnceHub integration. Manage Leads, Persons, Organizations, Deals, Pipelines, Activities and mor... |
 | [`one-ai`](../../library/membranedev-application-skills/skills/one-ai) | ⚪ Reserve | `membranedev-application-skills` | One AI integration. Manage Organizations, Users. Use when the user wants to interact with One A... |
 | [`onedesk`](../../library/membranedev-application-skills/skills/onedesk) | ⚪ Reserve | `membranedev-application-skills` | OneDesk integration. Manage Organizations. Use when the user wants to interact with OneDesk dat... |
@@ -2556,6 +2558,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`seo-bing`](../../library/agricidaniel-claude-seo/skills/seo-bing) | ⚪ Reserve | `agricidaniel-claude-seo` | Bing Webmaster Tools + IndexNow extension. Microsoft Copilot citations are fed by the Bing inde... |
 | [`seo-images`](../../library/agricidaniel-claude-seo/skills/seo-images) | ⚪ Reserve | `agricidaniel-claude-seo` | Image optimization analysis for SEO and performance. Checks alt text, file sizes, formats, resp... |
 | [`seo-programmatic`](../../library/agricidaniel-claude-seo/skills/seo-programmatic) | ⚪ Reserve | `agricidaniel-claude-seo` | Programmatic SEO planning and analysis for pages generated at scale from data sources. Covers t... |
+| [`seo-programmatic-seo`](../../library/kostja94-marketing-skills/skills/seo-programmatic-seo) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to create SEO pages at scale using templates and data—including AI-assisted... |
 | [`seqera`](../../library/membranedev-application-skills/skills/seqera) | ⚪ Reserve | `membranedev-application-skills` | Seqera integration. Manage Organizations, Users, Pipelines. Use when the user wants to interact... |
 | [`serpdog`](../../library/membranedev-application-skills/skills/serpdog) | ⚪ Reserve | `membranedev-application-skills` | Serpdog integration. Manage Keywords, Websites, Competitors, Users, Projects. Use when the user... |
 | [`serphouse`](../../library/membranedev-application-skills/skills/serphouse) | ⚪ Reserve | `membranedev-application-skills` | SERPhouse integration. Manage Organizations, Users. Use when the user wants to interact with SE... |
@@ -2640,6 +2643,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-data-context-extractor`](../../library/anthropics-knowledge-work/skills/skills-data-context-extractor) | ⚪ Reserve | `anthropics-knowledge-work` | Generate or improve a company-specific data analysis skill by extracting tribal knowledge from ... |
 | [`skills-explore-data`](../../library/anthropics-knowledge-work/skills/skills-explore-data) | ⚪ Reserve | `anthropics-knowledge-work` | Profile and explore a dataset to understand its shape, quality, and patterns. Use when encounte... |
 | [`skills-firecrawl-scrape`](../../library/firecrawl-cli/skills/skills-firecrawl-scrape) | ⚪ Reserve | `firecrawl-cli` | Read a known webpage or execute a discovered workflow or data-provider capability. Use for page... |
+| [`skills-keyword-research`](../../library/kostja94-marketing-skills/skills/skills-keyword-research) | ⚪ Reserve | `kostja94-marketing-skills` | Coordinates keyword research from a seed or existing keyword data through discovery, intent clu... |
 | [`skills-nature-data`](../../library/yuan1z0825-nature-skills/skills/skills-nature-data) | ⚪ Reserve | `yuan1z0825-nature-skills` | Draft or audit manuscript Data/Code Availability statements, dataset access routes, repository ... |
 | [`skills-parallel-data-enrichment`](../../library/parallel-web-parallel-agent-skills/skills/skills-parallel-data-enrichment) | ⚪ Reserve | `parallel-web-parallel-agent-skills` | Bulk data enrichment. Adds web-sourced fields (CEO names, funding, contact info) to lists of co... |
 | [`skills-reconciliation`](../../library/anthropics-knowledge-work/skills/skills-reconciliation) | ⚪ Reserve | `anthropics-knowledge-work` | Reconcile accounts by comparing GL balances to subledgers, bank statements, or third-party data... |

@@ -1,7 +1,7 @@
 # 💻 Terminal, Shell & System Automation
 
 > **Category**: `terminal-system-tools`  
-> **Total Curated Skills**: 448 skills  
+> **Total Curated Skills**: 449 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -27,6 +27,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`agentmemory-agents`](../../library/rohitg00-agentmemory/skills/agentmemory-agents) | ⚪ Reserve | `rohitg00-agentmemory` | How agentmemory wires into host coding agents via the connect command. Use when installing agen... |
 | [`agents-debug`](../../library/aws-agent-toolkit-for-aws/skills/agents-debug) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Use when your agent or environment is broken — wrong answers, errors, timeouts, tool failures, ... |
 | [`agents-generator`](../../library/sickn33-agentic-awesome-skills/skills/agents-generator) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Generate project-specific AGENTS.md and companion rules by analyzing a codebase. Supports full,... |
+| [`agentskillupdater`](../../skills/agentskillupdater) | 🟢 Active | `active` | Run, verify, and troubleshoot the Antigravity Agent Skills Vault & Skill.Sea automation pipelin... |
 | [`ai-automation-workflows`](../../library/101-skills-superpowers/skills/ai-automation-workflows) | ⚪ Reserve | `101-skills-superpowers` | Build automated AI workflows combining multiple models and services. Patterns: batch processing... |
 | [`ai-research-reproduction`](../../library/lllllllama-rigorpilot-skills/skills/ai-research-reproduction) | ⚪ Reserve | `lllllllama-rigorpilot-skills` | Rigor Reproduce compatible skill slug for README-first deep learning repository reproduction. U... |
 | [`amazon-ec2-image-builder`](../../library/aws-agent-toolkit-for-aws/skills/amazon-ec2-image-builder) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Creates and automates custom image builds with EC2 Image Builder - Linux, Windows, and macOS AM... |

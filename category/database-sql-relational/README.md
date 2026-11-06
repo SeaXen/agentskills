@@ -1,7 +1,7 @@
 # 🗄️ SQL Databases, ORMs & Indexing
 
 > **Category**: `database-sql-relational`  
-> **Total Curated Skills**: 477 skills  
+> **Total Curated Skills**: 486 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -89,6 +89,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`bigquery-troubleshooting`](../../library/google-skills/skills/bigquery-troubleshooting) | ⚪ Reserve | `google-skills` | Provides diagnostic workflows and step-by-step root-cause analysis procedures for actively brok... |
 | [`bigquery-udfs`](../../library/google-skills/skills/bigquery-udfs) | ⚪ Reserve | `google-skills` | Creates, deploys, and troubleshoots BigQuery User-Defined Functions (UDFs) and Remote Functions... |
 | [`binary-diff`](../../library/sickn33-agentic-awesome-skills/skills/binary-diff) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Cross-version binary symbol migration: diff updated binaries, recover function names without PD... |
+| [`brand-rebranding`](../../library/kostja94-marketing-skills/skills/brand-rebranding) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan or execute a rebrand—domain change, 301 redirects, migration, or an... |
 | [`build-game-inventory`](../../library/mengto-skills/skills/build-game-inventory) | ⚪ Reserve | `mengto-skills` | Build or repair game inventory, loot, equipment, tooltips, drag-and-drop, persistence, and prog... |
 | [`bulk-data-sharing-design`](../../library/samber-developer-platform-skills/skills/bulk-data-sharing-design) | ⚪ Reserve | `samber-developer-platform-skills` | Design bulk file and lake export as a B2B product surface - the two-camp choice between Parquet... |
 | [`bun-runtime`](../../library/affaan-m-ecc/skills/bun-runtime) | ⚪ Reserve | `affaan-m-ecc` | Bun as runtime, package manager, bundler, and test runner. When to choose Bun vs Node, migratio... |
@@ -132,12 +133,14 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`confluence-automation`](../../library/antigravity-awesome-skills/skills/confluence-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate Confluence page creation, content search, space management, labels, and hierarchy navi... |
 | [`connecting-to-data-source`](../../library/aws-agent-toolkit-for-aws/skills/connecting-to-data-source) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Create and troubleshoot AWS Glue connections to JDBC databases (Oracle, SQL Server, PostgreSQL,... |
 | [`content-aeo-optimizer`](../../library/irinabuht12-oss-marketing-skills/skills/content-aeo-optimizer) | ⚪ Reserve | `irinabuht12-oss-marketing-skills` | Rewrite existing pages so AI assistants can extract, quote, and cite them. Claude restructures ... |
+| [`content-podcast`](../../library/kostja94-marketing-skills/skills/content-podcast) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan, create, or market a podcast. Also use when the user mentions "podc... |
 | [`convertkit-automation`](../../library/antigravity-awesome-skills/skills/convertkit-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate ConvertKit (Kit) tasks via Rube MCP (Composio): manage subscribers, tags, broadcasts, ... |
 | [`convex-design`](../../library/cline-skills/skills/convex-design) | ⚪ Reserve | `cline-skills` | Design and build reactive, type-safe, production-grade backends on Convex. Covers schema, queri... |
 | [`convex-explain-app`](../../library/convex-agent-skills/skills/convex-explain-app) | ⚪ Reserve | `convex-agent-skills` | Explain an existing Convex app — data model + relationships, public vs internal functions, auth... |
 | [`convex-migrate`](../../library/convex-agent-skills/skills/convex-migrate) | ⚪ Reserve | `convex-agent-skills` | Migrate schema + backfill data on a deployed Convex app using @convex-dev/migrations. |
 | [`convex-migrate-rehearse`](../../library/convex-agent-skills/skills/convex-migrate-rehearse) | ⚪ Reserve | `convex-agent-skills` | Rehearse a live-app schema change + backfill on a snapshot-seeded preview deployment, verify, t... |
 | [`core-data`](../../library/dpearson2699-swift-ios-skills/skills/core-data) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Build, review, or improve Core Data persistence in apps that have not adopted SwiftData. Use wh... |
+| [`core-skills-aws-storage`](../../library/aws-agent-toolkit-for-aws/skills/core-skills-aws-storage) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Selects, investigates, and compares AWS object, file, and block storage services, and answers c... |
 | [`create-skill-test`](../../library/dotnet-skills/skills/create-skill-test) | ⚪ Reserve | `dotnet-skills` | Scaffolds eval.yaml evaluation specs for skills, custom agents, and redistributable gh-aw workf... |
 | [`creating-amazon-aurora-db-cluster-with-instances`](../../library/aws-agent-toolkit-for-aws/skills/creating-amazon-aurora-db-cluster-with-instances) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Creates a complete Amazon Aurora database cluster with instances, handling cluster creation, in... |
 | [`crypto-etl-analytics-core`](../../library/reason-machines-data-skills/skills/crypto-etl-analytics-core) | ⚪ Reserve | `reason-machines-data-skills` | End-to-end Python and MySQL data engineering pipeline with OOP analytics library for cryptocurr... |
@@ -173,6 +176,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`dms-schema-conversion`](../../library/aws-agent-toolkit-for-aws/skills/dms-schema-conversion) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Handles the full DMS Schema Conversion lifecycle including creating migration projects, convert... |
 | [`docker-app-data-migration`](../../library/seaxen-skills-backup/skills/docker-app-data-migration) | ⚪ Reserve | `seaxen-skills-backup` | Use when moving a Dockerized app's persistent host data to another disk or mount point without ... |
 | [`docusign-automation`](../../library/antigravity-awesome-skills/skills/docusign-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate DocuSign tasks via Rube MCP (Composio): templates, envelopes, signatures, document man... |
+| [`domain-domain-selection`](../../library/kostja94-marketing-skills/skills/domain-domain-selection) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to choose an SEO-friendly domain for a new site—brand vs keyword domain, TL... |
 | [`domain-selection`](../../library/kostja94-marketing-skills/skills/domain-selection) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to choose an SEO-friendly domain for a new site—brand vs keyword domain, TL... |
 | [`drizzle-migration-conflict`](../../library/sickn33-agentic-awesome-skills/skills/drizzle-migration-conflict) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Diagnose, repair, and prevent Drizzle Kit migration conflicts involving generated SQL, snapshot... |
 | [`drizzle-orm-patterns`](../../library/giuseppe-trisciuoglio-developer-kit/skills/drizzle-orm-patterns) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides comprehensive Drizzle ORM patterns for schema definition, CRUD operations, relations, ... |
@@ -313,7 +317,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`neon-instagres`](../../library/davila7-claude-code-templates/skills/neon-instagres) | ⚪ Reserve | `davila7-claude-code-templates` | Instantly provision production-ready Postgres databases with Neon Instagres. Use when setting u... |
 | [`neon-postgres`](../../library/antigravity-awesome-skills/skills/neon-postgres) | ⚪ Reserve | `antigravity-awesome-skills` | Expert patterns for Neon serverless Postgres, branching, connection pooling, and Prisma/Drizzle... |
 | [`neon-postgres-egress-optimizer`](../../library/neondatabase-agent-skills/skills/neon-postgres-egress-optimizer) | ⚪ Reserve | `neondatabase-agent-skills` | Diagnose and fix excessive Postgres egress (network data transfer) in a codebase. Use when a us... |
+| [`on-page-schema`](../../library/kostja94-marketing-skills/skills/on-page-schema) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to add or optimize structured data (Schema.org, JSON-LD). Also use when the... |
 | [`on-page-seo-checker`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/on-page-seo-checker) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "audit on-page SEO" or "diagnose why a single page dropped"; scores t... |
+| [`on-page-video-optimization`](../../library/kostja94-marketing-skills/skills/on-page-video-optimization) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to optimize videos for Google Search, video sitemap, VideoObject schema, or... |
 | [`one-drive-automation`](../../library/antigravity-awesome-skills/skills/one-drive-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate OneDrive file management, search, uploads, downloads, sharing, permissions, and folder... |
 | [`openclaw-migration`](../../library/seaxen-skills-backup/skills/openclaw-migration) | ⚪ Reserve | `seaxen-skills-backup` | Import an OpenClaw setup (memories, skills) into Hermes. |
 | [`opentofu-migration`](../../library/sickn33-agentic-awesome-skills/skills/opentofu-migration) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Migrate from Terraform to OpenTofu with state compatibility, provider |
@@ -408,6 +414,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`shopify-migration`](../../library/nexscope-ai-ecommerce-skills/skills/shopify-migration) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Platform migration to Shopify — from WooCommerce, Magento, BigCommerce, data transfer, URL redi... |
 | [`site-launch-checklist`](../../library/samber-cc-skills/skills/site-launch-checklist) | ⚪ Reserve | `samber-cc-skills` | Pre-launch checklist for shipping a new website or web app. Scope: analytics (GA4, PostHog, Goo... |
 | [`sitemap-audit`](../../library/nowork-studio-notfair-plugin/skills/sitemap-audit) | ⚪ Reserve | `nowork-studio-notfair-plugin` | XML sitemap audit — find and fix the sitemap problems that quietly waste crawl budget and slow ... |
+| [`skills-aws-storage`](../../library/aws-agent-toolkit-for-aws/skills/skills-aws-storage) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Selects, investigates, and compares AWS object, file, and block storage services, and answers c... |
 | [`skills-azure-cloud-migrate`](../../library/microsoft-azure-skills/skills/skills-azure-cloud-migrate) | ⚪ Reserve | `microsoft-azure-skills` | Assess and migrate cross-cloud workloads to Azure with reports and code conversion. Supports La... |
 | [`skills-azure-prepare`](../../library/microsoft-azure-skills/skills/skills-azure-prepare) | ⚪ Reserve | `microsoft-azure-skills` | Prepare azd-based Azure projects for deployment: generates azure.yaml, infrastructure (Bicep/Te... |
 | [`skills-azure-storage`](../../library/microsoft-azure-skills/skills/skills-azure-storage) | ⚪ Reserve | `microsoft-azure-skills` | Azure Storage Services including Blob Storage, File Shares, Queue Storage, Table Storage, and D... |
@@ -421,6 +428,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-project-setup`](../../library/codewithmukesh-dotnet-claude-kit/skills/skills-project-setup) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Tech-stack selection advisor for .NET projects: recommended defaults for database, auth, cachin... |
 | [`skills-seo-ai-visibility`](../../library/anthropics-knowledge-work/skills/skills-seo-ai-visibility) | ⚪ Reserve | `anthropics-knowledge-work` | Audits and fixes both halves of being found — classic search and AI answers. Search side: ranki... |
 | [`skills-sql-queries`](../../library/anthropics-knowledge-work/skills/skills-sql-queries) | ⚪ Reserve | `anthropics-knowledge-work` | Write correct, performant SQL across all major data warehouse dialects (Snowflake, BigQuery, Da... |
+| [`skills-tf-best-practices`](../../library/aws-agent-toolkit-for-aws/skills/skills-tf-best-practices) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Best-practice authoring guidance AND a read-only policy gate for AWS Terraform generated by a m... |
 | [`skills-write-query`](../../library/anthropics-knowledge-work/skills/skills-write-query) | ⚪ Reserve | `anthropics-knowledge-work` | Write optimized SQL for your dialect with best practices. Use when translating a natural-langua... |
 | [`smart-contract-upgrade-governance`](../../library/sickn33-agentic-awesome-skills/skills/smart-contract-upgrade-governance) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Soroban WASM upgrade governance register: executable bytecode hash, timelocked migration delays... |
 | [`snowflake-automation`](../../library/composio-community-awesome-codex-skills/skills/snowflake-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Snowflake data warehouse operations -- list databases, schemas, and tables, execute SQ... |
@@ -464,6 +472,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`tao-validate-dataset-format`](../../library/nvidia-skills/skills/tao-validate-dataset-format) | ⚪ Reserve | `nvidia-skills` | Run `tao-daft validate` to check NVIDIA TAO DAFT datasets for structure, schema, and cross-refe... |
 | [`team-composition-patterns`](../../library/wshobson-agents/skills/team-composition-patterns) | ⚪ Reserve | `wshobson-agents` | Design optimal agent team compositions with sizing heuristics, preset configurations, and agent... |
 | [`tech-stack-evaluator`](../../library/alirezarezvani-claude-skills/skills/tech-stack-evaluator) | ⚪ Reserve | `alirezarezvani-claude-skills` | Technology stack evaluation and comparison with TCO analysis, security assessment, and ecosyste... |
+| [`technical-robots`](../../library/kostja94-marketing-skills/skills/technical-robots) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to configure, audit, or optimize robots.txt. Also use when the user mention... |
 | [`technical-seo-checker`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/technical-seo-checker) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "check technical SEO"; audits crawlability, indexing, Core Web Vitals... |
 | [`test-anti-patterns`](../../library/dotnet-skills/skills/test-anti-patterns) | ⚪ Reserve | `dotnet-skills` | Audit a test file or suite; produce a severity-ranked diagnostic report. ALWAYS USE for tests t... |
 | [`test-framework-migration-skill`](../../library/sickn33-agentic-awesome-skills/skills/test-framework-migration-skill) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Migrates and converts test automation scripts between Selenium, Playwright, Puppeteer, and Cypr... |

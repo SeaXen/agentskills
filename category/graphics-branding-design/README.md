@@ -1,7 +1,7 @@
 # 🎨 Visual Design, Branding & Graphics
 
 > **Category**: `graphics-branding-design`  
-> **Total Curated Skills**: 125 skills  
+> **Total Curated Skills**: 126 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -31,6 +31,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`axton-obsidian-visual`](../../library/axtonliu-axton-obsidian-visual-skills/skills/axton-obsidian-visual) | ⚪ Reserve | `axtonliu-axton-obsidian-visual-skills` | Generates Excalidraw, Mermaid, and Obsidian Canvas diagrams from text, supporting animations, m... |
 | [`blue-ocean-strategy`](../../library/wondelai-skills/skills/blue-ocean-strategy) | ⚪ Reserve | `wondelai-skills` | Create uncontested market space using value innovation instead of competing head-to-head. Use w... |
 | [`brand-growth-system-builder`](../../library/sickn33-agentic-awesome-skills/skills/brand-growth-system-builder) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Route requests across 13 brand and growth modules. Use when an SME needs help choosing branding... |
+| [`branding-favicon`](../../library/kostja94-marketing-skills/skills/branding-favicon) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to implement, optimize, or audit favicon and app icons. Also use when the u... |
 | [`browser-fingerprint-audit`](../../library/liarjsdev-liarjs-skills/skills/browser-fingerprint-audit) | ⚪ Reserve | `liarjsdev-liarjs-skills` | Audit a browser fingerprint for internal contradictions with the liarjs CLI - canvas, WebGL, We... |
 | [`build-design`](../../library/jakubkrehel-skills/skills/build-design) | ⚪ Reserve | `jakubkrehel-skills` | Builds UI from a Figma file or a design image so it matches the design, using the project's exi... |
 | [`business-model`](../../library/phuryn-pm-skills/skills/business-model) | ⚪ Reserve | `phuryn-pm-skills` | Generate a Business Model Canvas with all 9 building blocks. Use when creating a business model... |

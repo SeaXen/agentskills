@@ -1,7 +1,7 @@
 # 🐙 Git, Worktrees & PR Workflows
 
 > **Category**: `git-version-control`  
-> **Total Curated Skills**: 561 skills  
+> **Total Curated Skills**: 563 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -61,6 +61,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`bankr-signals`](../../library/buzzbysolcex-buzz-bd-agent/skills/bankr-signals) | ⚪ Reserve | `buzzbysolcex-buzz-bd-agent` | On-chain verified trading signals for Buzz BD Agent. Publish scan results with TX hash proof fo... |
 | [`banner-creator`](../../library/resciencelab-opc-skills/skills/banner-creator) | ⚪ Reserve | `resciencelab-opc-skills` | Create banners using AI image generation. Discuss format/style, generate variations, iterate wi... |
 | [`baoyu-wechat-summary`](../../library/jimliu-baoyu-skills/skills/baoyu-wechat-summary) | ⚪ Reserve | `jimliu-baoyu-skills` | Summarizes WeChat group chat highlights into a structured digest using the local wx-cli binary ... |
+| [`bedrock-migration-assessment`](../../library/aws-agent-toolkit-for-aws/skills/bedrock-migration-assessment) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Source-cloud-neutral assessment of AI/LLM usage for a migration to Amazon Bedrock. Use when the... |
 | [`better-auth`](../../library/giuseppe-trisciuoglio-developer-kit/skills/better-auth) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides Better Auth integration patterns for NestJS backend and Next.js frontend with Drizzle ... |
 | [`bitbucket-automation`](../../library/antigravity-awesome-skills/skills/bitbucket-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate Bitbucket repositories, pull requests, branches, issues, and workspace management via ... |
 | [`block-no-verify-hook`](../../library/wshobson-agents/skills/block-no-verify-hook) | ⚪ Reserve | `wshobson-agents` | Configure a PreToolUse hook to prevent AI agents from skipping git pre-commit hooks with --no-v... |
@@ -482,6 +483,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-firebase-app-hosting-basics`](../../library/firebase-agent-skills/skills/skills-firebase-app-hosting-basics) | ⚪ Reserve | `firebase-agent-skills` | Deploys and manages full-stack web applications (Next.js, Angular) with Server-Side Rendering (... |
 | [`skills-forecast`](../../library/anthropics-knowledge-work/skills/skills-forecast) | ⚪ Reserve | `anthropics-knowledge-work` | Generate the commit / best-case / pipeline narrative for a forecast call or a 1:1 with your man... |
 | [`skills-get-pr-comments`](../../library/cursor-plugins/skills/skills-get-pr-comments) | ⚪ Reserve | `cursor-plugins` | Fetch and summarize review comments from the active pull request |
+| [`skills-llm-to-bedrock`](../../library/aws-agent-toolkit-for-aws/skills/skills-llm-to-bedrock) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Use when the user wants to migrate code that calls OpenAI, Gemini/Google AI, or the Anthropic A... |
 | [`skills-loop-on-ci`](../../library/cursor-plugins/skills/skills-loop-on-ci) | ⚪ Reserve | `cursor-plugins` | Monitor PR checks and fix failures until green. Uses gh pr checks as the source of truth for PR... |
 | [`skills-make-pr-easy-to-review`](../../library/cursor-plugins/skills/skills-make-pr-easy-to-review) | ⚪ Reserve | `cursor-plugins` | Prepare PRs for review by cleaning noisy history, improving PR descriptions, and adding reviewe... |
 | [`skills-metronome`](../../library/stripe-ai/skills/skills-metronome) | ⚪ Reserve | `stripe-ai` | Guides Metronome usage-based billing integration decisions — event ingestion (single and batch,... |

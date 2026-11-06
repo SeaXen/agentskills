@@ -1,7 +1,7 @@
 # 🏛️ Complete Repository Provenance & Upstream Registry
 
 > **Active Reserve Libraries**: 484 repositories  
-> **Total Skills in Reserve**: 27,032 skills  
+> **Total Skills in Reserve**: 27,115 skills  
 > **Source Registry**: [`library/upstreams.json`](library/upstreams.json)  
 > **Format Standard**: Pure isolated repositories (`['skills', 'README.md', 'skills_index.json']`), 0 `.git` directories.
 
@@ -63,7 +63,7 @@
 | `astro-han-karpathy-llm-wiki` | [astro-han-karpathy-llm-wiki](https://github.com/astro-han-karpathy-llm-wiki) | **1** | `python .agents/library/activate_skill.py activate karpathy-llm-wiki` |
 | `autonnel-autonnel-skills` | [autonnel/autonnel-skills](https://github.com/autonnel/autonnel-skills) | **6** | `python .agents/library/activate_skill.py activate funnel-platform-picker` |
 | `avdlee-swiftui-agent-skill` | [AvdLee/SwiftUI-Agent-Skill](https://github.com/AvdLee/SwiftUI-Agent-Skill) | **2** | `python .agents/library/activate_skill.py activate swiftui-expert-skill` |
-| `aws-agent-toolkit-for-aws` | [aws/agent-toolkit-for-aws](https://github.com/aws/agent-toolkit-for-aws) | **155** | `python .agents/library/activate_skill.py activate agent-advisor` |
+| `aws-agent-toolkit-for-aws` | [aws/agent-toolkit-for-aws](https://github.com/aws/agent-toolkit-for-aws) | **173** | `python .agents/library/activate_skill.py activate agent-advisor` |
 | `axtonliu-axton-obsidian-visual-skills` | [axtonliu/axton-obsidian-visual-skills](https://github.com/axtonliu/axton-obsidian-visual-skills) | **4** | `python .agents/library/activate_skill.py activate axton-obsidian-visual` |
 | `ayghri-i-have-adhd` | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | **1** | `python .agents/library/activate_skill.py activate i-have-adhd` |
 | `backnotprop-bro` | [backnotprop-bro](https://github.com/backnotprop-bro) | **10** | `python .agents/library/activate_skill.py activate big-pics-little-words` |
@@ -244,7 +244,7 @@
 | `kaomei-stickman-video-director` | [kaomei/stickman-video-director](https://github.com/kaomei/stickman-video-director) | **1** | `python .agents/library/activate_skill.py activate directing-stickman-videos` |
 | `kepano-obsidian-skills` | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) | **6** | `python .agents/library/activate_skill.py activate defuddle` |
 | `kesslerio-attio-mcp-server` | [kesslerio-attio-mcp-server](https://github.com/kesslerio-attio-mcp-server) | **2** | `python .agents/library/activate_skill.py activate attio-mcp-usage` |
-| `kostja94-marketing-skills` | [kostja94/marketing-skills](https://github.com/kostja94/marketing-skills) | **185** | `python .agents/library/activate_skill.py activate 404` |
+| `kostja94-marketing-skills` | [kostja94/marketing-skills](https://github.com/kostja94/marketing-skills) | **247** | `python .agents/library/activate_skill.py activate 404` |
 | `langchain-ai-langchain-skills` | [langchain-ai/langchain-skills](https://github.com/langchain-ai/langchain-skills) | **22** | `python .agents/library/activate_skill.py activate deep-agents-core` |
 | `larksuite-cli` | [larksuite/cli](https://github.com/larksuite/cli) | **37** | `python .agents/library/activate_skill.py activate bad-skill` |
 | `latent-spaces-brag` | [latent-spaces/brag](https://github.com/latent-spaces/brag) | **2** | `python .agents/library/activate_skill.py activate brag` |
@@ -451,7 +451,7 @@
 | `ui-ux-pro-max-skill` | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | **7** | `python .agents/library/activate_skill.py activate banner-design` |
 | `uizze-uizze` | [uizze/uizze](https://github.com/uizze/uizze) | **5** | `python .agents/library/activate_skill.py activate anti-ui-slop` |
 | `underleveledbuilder-awesome-short-drama-skills` | [UnderleveledBuilder/awesome-short-drama-skills](https://github.com/UnderleveledBuilder/awesome-short-drama-skills) | **1** | `python .agents/library/activate_skill.py activate short-drama-skill-finder` |
-| `unity-technologies-skills` | [unity-technologies/skills](https://github.com/unity-technologies/skills) | **70** | `python .agents/library/activate_skill.py activate 2d-pixel-perfect` |
+| `unity-technologies-skills` | [unity-technologies/skills](https://github.com/unity-technologies/skills) | **73** | `python .agents/library/activate_skill.py activate 2d-pixel-perfect` |
 | `upload-post-upload-post-skill` | [upload-post-upload-post-skill](https://github.com/upload-post-upload-post-skill) | **1** | `python .agents/library/activate_skill.py activate upload-post-skill` |
 | `upstash-redis-js` | [upstash-redis-js](https://github.com/upstash-redis-js) | **6** | `python .agents/library/activate_skill.py activate advanced-features` |
 | `useosint-skills` | [useosint/skills](https://github.com/useosint/skills) | **29** | `python .agents/library/activate_skill.py activate dig-through-data-brokers` |

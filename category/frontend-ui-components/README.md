@@ -1,7 +1,7 @@
 # 🎨 Frontend Components & Design Systems
 
 > **Category**: `frontend-ui-components`  
-> **Total Curated Skills**: 1968 skills  
+> **Total Curated Skills**: 1976 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -166,6 +166,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`avalonia-layout-zafiro`](../../library/antigravity-awesome-skills/skills/avalonia-layout-zafiro) | ⚪ Reserve | `antigravity-awesome-skills` | Guidelines for modern Avalonia UI layout using Zafiro.Avalonia, emphasizing shared styles, gene... |
 | [`awesome-gpt-image-2-prompts`](../../library/reason-machines-trending-skills/skills/awesome-gpt-image-2-prompts) | ⚪ Reserve | `reason-machines-trending-skills` | name: awesome-gpt-image-2-prompts |
 | [`aws-blocks`](../../library/aws-agent-toolkit-for-aws/skills/aws-blocks) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Guides building full-stack applications with AWS Blocks — an Infrastructure-from-Code framework... |
+| [`aws-investigation`](../../library/aws-agent-toolkit-for-aws/skills/aws-investigation) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Investigates what is happening in an AWS account from evidence already recorded there. Not for ... |
 | [`aws-transform`](../../library/aws-agent-toolkit-for-aws/skills/aws-transform) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Performs code upgrades, migrations, and transformations using the AWS Transform (ATX) CLI. Use ... |
 | [`awt-e2e-testing`](../../library/sickn33-agentic-awesome-skills/skills/awt-e2e-testing) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | AI-powered E2E web testing — eyes and hands for AI coding tools. Declarative YAML scenarios, Pl... |
 | [`ax-extract-workflow`](../../library/sickn33-agentic-awesome-skills/skills/ax-extract-workflow) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Reconstruct workflow behind a past coding-agent artifact using local ax sessions/commits/skills... |
@@ -368,6 +369,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`color-palette`](../../library/jezweb-claude-skills/skills/color-palette) | ⚪ Reserve | `jezweb-claude-skills` | Generate complete, accessible colour palettes from a single brand hex. Produces 11-shade scale ... |
 | [`comet`](../../library/rpamis-comet/skills/comet) | ⚪ Reserve | `rpamis-comet` | 24 agent skills from rpamis/comet — including comet, comet-build, comet-archive. Install with n... |
 | [`commerce-b2b-open-code-components-replace`](../../library/forcedotcom-sf-skills/skills/commerce-b2b-open-code-components-replace) | ⚪ Reserve | `forcedotcom-sf-skills` | Replace OOTB (out-of-the-box) B2B Commerce components with open source equivalents in site meta... |
+| [`community-community-forum`](../../library/kostja94-marketing-skills/skills/community-community-forum) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to promote via forums, communities, or invite users to join a community. Al... |
 | [`community-forum`](../../library/kostja94-marketing-skills/skills/community-forum) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to promote via forums, communities, or invite users to join a community. Al... |
 | [`community-launch-runner`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/community-launch-runner) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "launch on Product Hunt / Hacker News", "prepare community or directo... |
 | [`comp-analysis`](../../library/anthropics-knowledge-work/skills/comp-analysis) | ⚪ Reserve | `anthropics-knowledge-work` | Analyze compensation — benchmarking, band placement, and equity modeling. Trigger with "what sh... |
@@ -1056,6 +1058,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ljg-relationship`](../../library/lijigang-ljg-skills/skills/ljg-relationship) | ⚪ Reserve | `lijigang-ljg-skills` | Relationship analyst combining structural diagnostics (5-layer framework) with psychoanalytic d... |
 | [`local`](../../library/kostja94-marketing-skills/skills/local) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to optimize for local search, set up Google Business Profile, or build loca... |
 | [`local-deep-research-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/local-deep-research-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Deep research agent searching 10+ sources with local or cloud LLMs |
+| [`localize-unity-project`](../../library/unity-technologies-skills/skills/localize-unity-project) | ⚪ Reserve | `unity-technologies-skills` | Sets up Unity Localization, including locales, String and Asset Tables, and CJK fonts. Use when... |
 | [`logo`](../../library/kostja94-marketing-skills/skills/logo) | ⚪ Reserve | `kostja94-marketing-skills` | Deprecated compatibility entry for Logo construction. This component is now maintained in Brick... |
 | [`long-running-batch-workflows`](../../library/seaxen-skills-backup/skills/long-running-batch-workflows) | ⚪ Reserve | `seaxen-skills-backup` | Use when executing multi-step batch work that would run >3 minutes continuously (WebP/image con... |
 | [`longbridge-earnings`](../../library/longbridge-skills/skills/longbridge-earnings) | ⚪ Reserve | `longbridge-skills` | Earnings analysis — pre- and post-earnings. Pre-earnings preview: prior-guidance review, recent... |
@@ -1257,7 +1260,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`omnistudio-dependencies-analyze`](../../library/forcedotcom-sf-skills/skills/omnistudio-dependencies-analyze) | ⚪ Reserve | `forcedotcom-sf-skills` | Cross-cutting OmniStudio analysis skill for namespace detection, dependency visualization, and ... |
 | [`omnistudio-flexcard-generate`](../../library/forcedotcom-sf-skills/skills/omnistudio-flexcard-generate) | ⚪ Reserve | `forcedotcom-sf-skills` | OmniStudio FlexCard creation and validation with 130-point scoring. Use when building at-a-glan... |
 | [`omnistudio-omniscript-generate`](../../library/forcedotcom-sf-skills/skills/omnistudio-omniscript-generate) | ⚪ Reserve | `forcedotcom-sf-skills` | OmniStudio OmniScript creation and validation with 120-point scoring. Use when building guided ... |
+| [`on-page-internal-links`](../../library/kostja94-marketing-skills/skills/on-page-internal-links) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to optimize internal linking, fix orphan pages, or improve link structure. ... |
+| [`on-page-metadata`](../../library/kostja94-marketing-skills/skills/on-page-metadata) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants a full-page metadata audit or implementation across discovery, search inten... |
 | [`on-page-seo-audit-checker`](../../library/sickn33-agentic-awesome-skills/skills/on-page-seo-audit-checker) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | On-Page SEO Audit Checker. Use when working with page URL or HTML and target reader task. |
+| [`on-page-title`](../../library/kostja94-marketing-skills/skills/on-page-title) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to write, audit, or optimize an HTML title tag, SEO title, page title, SERP... |
 | [`onchainkit`](../../library/mindrally-skills/skills/onchainkit) | ⚪ Reserve | `mindrally-skills` | Expert guidance for building onchain applications with OnchainKit SDK components and utilities |
 | [`one-pager`](../../library/backnotprop-bro/skills/one-pager) | ⚪ Reserve | `backnotprop-bro` | Make a one-pager: one HTML page that shares an idea with teammates early, or recaps work for th... |
 | [`onecite-reference-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/onecite-reference-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | AI toolkit to parse, complete, and format academic references |
@@ -1293,6 +1299,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`oss-distribution-strategy`](../../library/samber-developer-relations-skills/skills/oss-distribution-strategy) | ⚪ Reserve | `samber-developer-relations-skills` | Designs an open-source project's ongoing distribution mix after the launch window - registry me... |
 | [`oss-maintainer-sustainability`](../../library/samber-developer-relations-skills/skills/oss-maintainer-sustainability) | ⚪ Reserve | `samber-developer-relations-skills` | Plans how an open-source maintainer keeps a project going without burning out, or leaves it wit... |
 | [`overleaf-collaboration-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/overleaf-collaboration-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Guide to collaborative LaTeX editing with Overleaf |
+| [`owned-email-marketing`](../../library/kostja94-marketing-skills/skills/owned-email-marketing) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan email marketing, EDM, newsletter strategy, or email deliverability.... |
 | [`page-mascot`](../../library/nilbuild-page-mascot/skills/page-mascot) | ⚪ Reserve | `nilbuild-page-mascot` | Put a cursor-tracking mascot on a page -- a chibi character that turns its head toward the poin... |
 | [`pancakeswap-v2-plugin`](../../library/okx-plugin-store/skills/pancakeswap-v2-plugin) | ⚪ Reserve | `okx-plugin-store` | Swap tokens and manage liquidity on PancakeSwap V2 (xyk AMM) on BSC, Base, and Arbitrum. Trigge... |
 | [`pancakeswap-v3-plugin`](../../library/okx-plugin-store/skills/pancakeswap-v3-plugin) | ⚪ Reserve | `okx-plugin-store` | Swap tokens and manage liquidity on PancakeSwap V3 on Ethereum, BNB Chain, Base, Arbitrum, and ... |
@@ -1303,6 +1310,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`parcel-bundler`](../../library/mindrally-skills/skills/parcel-bundler) | ⚪ Reserve | `mindrally-skills` | Best practices and guidelines for Parcel, the zero-configuration web application bundler |
 | [`parsing-artifacts-with-eric-zimmerman-tools`](../../library/mukul975-anthropic-cybersecurity-skills/skills/parsing-artifacts-with-eric-zimmerman-tools) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Parse Windows forensic artifacts—$MFT/$J (MFTECmd), Prefetch (PECmd), registry hives (RECmd), s... |
 | [`partner-channel-program`](../../library/mbfinotti-partnerships-skills/skills/partner-channel-program) | ⚪ Reserve | `mbfinotti-partnerships-skills` | Design the overall structure of a B2B partner or channel program from scratch - a readiness gat... |
+| [`partnerships-affiliate-marketing`](../../library/kostja94-marketing-skills/skills/partnerships-affiliate-marketing) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan, implement, or optimize affiliate marketing strategy. Also use when... |
 | [`patent-analysis-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/patent-analysis-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Patent search, classification, landscape analysis, and prior art mining |
 | [`pathogen-variant-surveillance`](../../library/k-dense-ai-scientific-agent-skills/skills/pathogen-variant-surveillance) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Queries public GenSpectrum LAPIS data for pathogen genomic surveillance, current lineage nomenc... |
 | [`pay-the-bills`](../../library/anthropics-knowledge-work/skills/pay-the-bills) | ⚪ Reserve | `anthropics-knowledge-work` | Works the bill pile from the AP inbox all the way to a staged payment run — reads and codes eve... |

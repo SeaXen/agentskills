@@ -1,7 +1,7 @@
 # 👁️ Visual Taste, Critique & Typography
 
 > **Category**: `frontend-visual-taste`  
-> **Total Curated Skills**: 171 skills  
+> **Total Curated Skills**: 173 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -42,6 +42,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`blue-cloudy-clean-modern`](../../library/mengto-skills/skills/blue-cloudy-clean-modern) | ⚪ Reserve | `mengto-skills` | Create a clean modern design system with a luminous blue sky atmosphere, soft drifting cloud li... |
 | [`bold`](../../library/bergside-awesome-design-skills/skills/bold) | ⚪ Reserve | `bergside-awesome-design-skills` | Strong visual presence with heavyweight typography, high-contrast colors, and commanding layout... |
 | [`book-cover-design`](../../library/101-skills-superpowers/skills/book-cover-design) | ⚪ Reserve | `101-skills-superpowers` | Book cover design with genre-specific conventions, typography rules, and AI image generation. C... |
+| [`brand-branding`](../../library/kostja94-marketing-skills/skills/brand-branding) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to define, audit, or apply brand strategy—purpose, values, positioning, sto... |
 | [`brand-guidelines`](../../library/alirezarezvani-claude-skills/skills/brand-guidelines) | ⚪ Reserve | `alirezarezvani-claude-skills` | When the user wants to apply, document, or enforce brand guidelines for any product or company.... |
 | [`brand-guidelines-anthropic`](../../library/antigravity-awesome-skills/skills/brand-guidelines-anthropic) | ⚪ Reserve | `antigravity-awesome-skills` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benef... |
 | [`brand-guidelines-community`](../../library/antigravity-awesome-skills/skills/brand-guidelines-community) | ⚪ Reserve | `antigravity-awesome-skills` | Applies Anthropic's official brand colors and typography to any sort of artifact that may benef... |
@@ -173,6 +174,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`taste-skill-v1`](../../library/feimacode-open-design-agent-kit/skills/taste-skill-v1) | ⚪ Reserve | `feimacode-open-design-agent-kit` | The original v1 taste-skill, preserved for projects depending on its exact behavior. The curren... |
 | [`tasteforge-video`](../../library/affaan-m-ecc/skills/tasteforge-video) | ⚪ Reserve | `affaan-m-ecc` | Use for file-driven multimodal image, video, and 3D-asset discovery; taste interviews; distill ... |
 | [`tech-doc-style-chinese`](../../library/reason-machines-trending-skills/skills/tech-doc-style-chinese) | ⚪ Reserve | `reason-machines-trending-skills` | Writing skill for Chinese technical documentation and product copy — enforces clarity, correct ... |
+| [`technical-mobile-friendly`](../../library/kostja94-marketing-skills/skills/technical-mobile-friendly) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to optimize for mobile-first indexing or fix mobile usability. Also use whe... |
 | [`threejs-postprocessing`](../../library/cloudai-x-threejs-skills/skills/threejs-postprocessing) | ⚪ Reserve | `cloudai-x-threejs-skills` | Three.js post-processing: composer pass chains, built-in renderer effects, and the WebGPU/TSL n... |
 | [`threejs-textures`](../../library/cloudai-x-threejs-skills/skills/threejs-textures) | ⚪ Reserve | `cloudai-x-threejs-skills` | Three.js textures: image loading, color spaces, UV channels and transforms, texture types from ... |
 | [`typography-scale`](../../library/owl-listener-designer-skills/skills/typography-scale) | ⚪ Reserve | `owl-listener-designer-skills` | Create a modular type scale with size, weight, and line-height relationships. Use when establis... |

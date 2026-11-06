@@ -420,6 +420,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link aws-iam"
   },
   {
+    "id": "aws-investigation",
+    "name": "aws-investigation",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">-",
+    "path": "library/aws-agent-toolkit-for-aws/skills/aws-investigation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate aws-investigation",
+    "link_cmd": "python .agents/library/activate_skill.py link aws-investigation"
+  },
+  {
     "id": "aws-lambda-durable-functions",
     "name": "aws-lambda-durable-functions",
     "repository": "aws-agent-toolkit-for-aws",
@@ -660,6 +670,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link azure-to-aws"
   },
   {
+    "id": "bedrock-migration-assessment",
+    "name": "bedrock-migration-assessment",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Source-cloud-neutral assessment of AI/LLM usage for a migration to Amazon Bedrock. Use when the user wants to find which OpenAI (direct or Azure OpenAI), Anthropic, Google/Gemini, or OpenRouter calls their code makes, or already has a provider-neutral ai-workload-profile.json (schema 1.0 or 1.1), and wants to answer the AI migration questions. It scans the code or validates the profile, then runs Clarify, and needs no infrastructure skill installed. This release stops after Clarify: it does not design, estimate, generate artifacts, or rewrite code. To rewrite SDK calls to Bedrock and get a branch, use llm-to-bedrock; for infrastructure migrations use gcp-to-aws, azure-to-aws, or heroku-to-aws.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/bedrock-migration-assessment",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bedrock-migration-assessment",
+    "link_cmd": "python .agents/library/activate_skill.py link bedrock-migration-assessment"
+  },
+  {
     "id": "chatting-with-aws-devops-agent",
     "name": "chatting-with-aws-devops-agent",
     "repository": "aws-agent-toolkit-for-aws",
@@ -758,6 +778,36 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/core-skills",
     "activation_cmd": "python .agents/library/activate_skill.py activate core-skills",
     "link_cmd": "python .agents/library/activate_skill.py link core-skills"
+  },
+  {
+    "id": "core-skills-aws-observability",
+    "name": "core-skills-aws-observability",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">-",
+    "path": "library/aws-agent-toolkit-for-aws/skills/core-skills-aws-observability",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-skills-aws-observability",
+    "link_cmd": "python .agents/library/activate_skill.py link core-skills-aws-observability"
+  },
+  {
+    "id": "core-skills-aws-serverless",
+    "name": "core-skills-aws-serverless",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "Routes serverless requests to a compute form factor and the skill that owns it. Applies to Lambda, API Gateway, EventBridge, Step Functions and event-driven work while the compute, orchestration or integration choice is open \u2014 API backends, webhooks, jobs, cron, queue/stream consumers, durable workflows, event routing, Step Functions vs Durable Functions, and Pipes vs native event source mappings for queues and streams. Decides Event Functions on-demand vs Managed Instances, Web Functions, MicroVMs, EventBridge rules/Scheduler/Pipes/bus, HTTP vs REST API. Owns shared Lambda references (cold starts, SnapStart, concurrency, event sources, function URLs, throttling, troubleshooting). Defers to the specialized skill once a request commits to one form factor or service, or describes its defining feature without naming it (durable checkpointing and automatic step retries, Firecracker sandbox, managed instances, Node.js server). Not for EC2, ECS/EKS/Fargate or Amplify hosting.",
+    "path": "library/aws-agent-toolkit-for-aws/skills/core-skills-aws-serverless",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-skills-aws-serverless",
+    "link_cmd": "python .agents/library/activate_skill.py link core-skills-aws-serverless"
+  },
+  {
+    "id": "core-skills-aws-storage",
+    "name": "core-skills-aws-storage",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Selects, investigates, and compares AWS object, file, and block storage services, and answers cost, performance, configuration, security, and troubleshooting questions about storage services. Applies when a user asks where to store or archive data based on their usage patterns; which storage service to choose or how two compare; how to migrate data from on-premises or between AWS services; how to protect, replicate, or recover data; how to optimize storage costs; where to deploy shared NFS, SMB, or POSIX file systems; where to store vector embeddings or tabular data; what storage backs enterprise file shares, self-managed databases on EC2, VMware, or stateful containers; or asks what an AWS storage service can do or how it works. Relevant for storage needs for workloads such as AI/ML, analytics, EDA, HPC, media, genomics, or financial trading. Not applicable for SQL query engines (Athena, Spark, Redshift, EMR), ETL (Glue), streaming (Kafka, MSK, Kinesis), or managed database services (RDS, Aurora, DynamoDB).\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/core-skills-aws-storage",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-skills-aws-storage",
+    "link_cmd": "python .agents/library/activate_skill.py link core-skills-aws-storage"
   },
   {
     "id": "creating-amazon-aurora-db-cluster-with-instances",
@@ -1060,6 +1110,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link migrate-to-msk"
   },
   {
+    "id": "migrating-hive-tables-to-s3-tables",
+    "name": "migrating-hive-tables-to-s3-tables",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Migrates a Glue Data Catalog Hive table (Parquet) into Amazon S3 Tables as managed Iceberg using the native S3 Tables migration API (StartTableMigration, SyncTableMigration, CompleteTableMigration), a managed service call, not a self-run CTAS, Glue, or EMR job. The source is a Hive table; an Iceberg source is never in scope, even when the destination is S3 Tables. Covers plan review, migrate, sync, complete, and validate. Same-account, same-region, Glue Hive Parquet source only. Use when the request asks to migrate or import a Hive table into S3 Tables, or names the native migration API. Not applicable to converting a self-managed or standard Iceberg table into S3 Tables (ingesting-into-data-lake covers that), self-run CTAS/Glue-ETL/Spark migrations (ingesting-into-data-lake), or creating empty tables (creating-data-lake-table).\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/migrating-hive-tables-to-s3-tables",
+    "activation_cmd": "python .agents/library/activate_skill.py activate migrating-hive-tables-to-s3-tables",
+    "link_cmd": "python .agents/library/activate_skill.py link migrating-hive-tables-to-s3-tables"
+  },
+  {
     "id": "migrating-to-amazon-redshift",
     "name": "migrating-to-amazon-redshift",
     "repository": "aws-agent-toolkit-for-aws",
@@ -1068,6 +1128,26 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/migrating-to-amazon-redshift",
     "activation_cmd": "python .agents/library/activate_skill.py activate migrating-to-amazon-redshift",
     "link_cmd": "python .agents/library/activate_skill.py link migrating-to-amazon-redshift"
+  },
+  {
+    "id": "networking-and-content-delivery-skills-cloudfront",
+    "name": "networking-and-content-delivery-skills-cloudfront",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">",
+    "path": "library/aws-agent-toolkit-for-aws/skills/networking-and-content-delivery-skills-cloudfront",
+    "activation_cmd": "python .agents/library/activate_skill.py activate networking-and-content-delivery-skills-cloudfront",
+    "link_cmd": "python .agents/library/activate_skill.py link networking-and-content-delivery-skills-cloudfront"
+  },
+  {
+    "id": "networking-and-content-delivery-skills-route53",
+    "name": "networking-and-content-delivery-skills-route53",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">-",
+    "path": "library/aws-agent-toolkit-for-aws/skills/networking-and-content-delivery-skills-route53",
+    "activation_cmd": "python .agents/library/activate_skill.py activate networking-and-content-delivery-skills-route53",
+    "link_cmd": "python .agents/library/activate_skill.py link networking-and-content-delivery-skills-route53"
   },
   {
     "id": "operate-on-aws",
@@ -1108,6 +1188,16 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/prompt-library-for-startups",
     "activation_cmd": "python .agents/library/activate_skill.py activate prompt-library-for-startups",
     "link_cmd": "python .agents/library/activate_skill.py link prompt-library-for-startups"
+  },
+  {
+    "id": "quantum-computing-skills-amazon-braket",
+    "name": "quantum-computing-skills-amazon-braket",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Runs quantum workflows on AWS / Amazon Braket: circuits and algorithms, QPU/device and ARN discovery, LocalSimulator, tasks, program sets, Hybrid Jobs, S3 results, pricing, account setup, and spending limits. Applies to quantum programs and execution, AHS, OpenQASM, pulse control, reservations, notebooks, or Qiskit or PennyLane integrations.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/quantum-computing-skills-amazon-braket",
+    "activation_cmd": "python .agents/library/activate_skill.py activate quantum-computing-skills-amazon-braket",
+    "link_cmd": "python .agents/library/activate_skill.py link quantum-computing-skills-amazon-braket"
   },
   {
     "id": "querying-aws-cloudwatch",
@@ -1320,6 +1410,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link securing-s3-buckets"
   },
   {
+    "id": "serverless-skills-aws-lambda-microvms",
+    "name": "serverless-skills-aws-lambda-microvms",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "Builds, runs, debugs, and operates applications on AWS Lambda MicroVMs \u2014 Firecracker-isolated, snapshot-resumable serverless compute environments running inside a container with up to 8 hr lifetimes. Applicable when workloads need strong isolation between tenants, isolated serverless compute, sandbox compute, or secure multi-tenant execution. Also suited for AI/agent code-execution sandboxes, interactive code playgrounds and notebooks (Jupyter, REPLs, dev environments running user-supplied code), reinforcement-learning environments, multi-tenant CI executors and build runners, sessionful game or simulation servers, or isolated security scanners. Also applicable when the workload needs long-lived sessions, a real port-listening server (gRPC, WebSocket, custom TCP protocols), state preserved across periods of inactivity (suspend/resume), container-level access (FUSE, eBPF, custom syscalls), or session-affine routing.",
+    "path": "library/aws-agent-toolkit-for-aws/skills/serverless-skills-aws-lambda-microvms",
+    "activation_cmd": "python .agents/library/activate_skill.py activate serverless-skills-aws-lambda-microvms",
+    "link_cmd": "python .agents/library/activate_skill.py link serverless-skills-aws-lambda-microvms"
+  },
+  {
     "id": "setting-up-cloudtrail-multi-region",
     "name": "setting-up-cloudtrail-multi-region",
     "repository": "aws-agent-toolkit-for-aws",
@@ -1418,6 +1518,86 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/sitetositevpn",
     "activation_cmd": "python .agents/library/activate_skill.py activate sitetositevpn",
     "link_cmd": "python .agents/library/activate_skill.py link sitetositevpn"
+  },
+  {
+    "id": "skills-aws-observability",
+    "name": "skills-aws-observability",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">-",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-aws-observability",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-aws-observability",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-aws-observability"
+  },
+  {
+    "id": "skills-aws-serverless",
+    "name": "skills-aws-serverless",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "Routes serverless requests to a compute form factor and the skill that owns it. Applies to Lambda, API Gateway, EventBridge, Step Functions and event-driven work while the compute, orchestration or integration choice is open \u2014 API backends, webhooks, jobs, cron, queue/stream consumers, durable workflows, event routing, Step Functions vs Durable Functions, and Pipes vs native event source mappings for queues and streams. Decides Event Functions on-demand vs Managed Instances, Web Functions, MicroVMs, EventBridge rules/Scheduler/Pipes/bus, HTTP vs REST API. Owns shared Lambda references (cold starts, SnapStart, concurrency, event sources, function URLs, throttling, troubleshooting). Defers to the specialized skill once a request commits to one form factor or service, or describes its defining feature without naming it (durable checkpointing and automatic step retries, Firecracker sandbox, managed instances, Node.js server). Not for EC2, ECS/EKS/Fargate or Amplify hosting.",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-aws-serverless",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-aws-serverless",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-aws-serverless"
+  },
+  {
+    "id": "skills-aws-storage",
+    "name": "skills-aws-storage",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Selects, investigates, and compares AWS object, file, and block storage services, and answers cost, performance, configuration, security, and troubleshooting questions about storage services. Applies when a user asks where to store or archive data based on their usage patterns; which storage service to choose or how two compare; how to migrate data from on-premises or between AWS services; how to protect, replicate, or recover data; how to optimize storage costs; where to deploy shared NFS, SMB, or POSIX file systems; where to store vector embeddings or tabular data; what storage backs enterprise file shares, self-managed databases on EC2, VMware, or stateful containers; or asks what an AWS storage service can do or how it works. Relevant for storage needs for workloads such as AI/ML, analytics, EDA, HPC, media, genomics, or financial trading. Not applicable for SQL query engines (Athena, Spark, Redshift, EMR), ETL (Glue), streaming (Kafka, MSK, Kinesis), or managed database services (RDS, Aurora, DynamoDB).\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-aws-storage",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-aws-storage",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-aws-storage"
+  },
+  {
+    "id": "skills-azure-to-aws",
+    "name": "skills-azure-to-aws",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Migrate Microsoft Azure workloads to AWS. Triggers on: Azure to AWS, move off Azure, AKS to EKS, App Service or Azure VMs to AWS compute, Azure SQL/Database to RDS, Cosmos DB to DynamoDB, Azure OpenAI to Bedrock, Azure cost estimates, or what-if workshops. Discovery uses the authenticated read-only `az` CLI, Terraform, a Resource Discovery for Azure (RDfA) report, and app code, with optional consent-gated OpenAI, OpenRouter, and Anthropic usage APIs. Terraform is optional. Runs Discover, Clarify, Design, Estimate, optional repricing, Generate, and Feedback; Clarify gates later phases and Generate is opt-in. Bicep/ARM discovery is not implemented; billing-export discovery is not implemented. Do not use for GCP or Heroku migrations, reverse migrations, general AWS architecture, or Azure-to-Azure refactoring.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-azure-to-aws",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-azure-to-aws",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-azure-to-aws"
+  },
+  {
+    "id": "skills-gcp-to-aws",
+    "name": "skills-gcp-to-aws",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Migrate GCP workloads to AWS, including AI and agentic workloads from any provider. Triggers on: migrate from GCP, GCP to AWS, move off Google Cloud, Cloud SQL to RDS, GKE to EKS, Cloud Run to Fargate, App Engine to Elastic Beanstalk, or OpenAI/Gemini/agentic workloads to Bedrock. Discovery uses the authenticated read-only `gcloud` CLI, Terraform, app code, or billing exports, with optional consent-gated OpenAI, OpenRouter, and Anthropic usage APIs. Terraform is optional. Runs Discover, Clarify, Design, Estimate, Generate, and Feedback; Clarify gates later phases. Do not use for Azure migrations (see azure-to-aws), reverse migrations, general AWS architecture without migration intent, or GCP-to-GCP refactoring.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-gcp-to-aws",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gcp-to-aws",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gcp-to-aws"
+  },
+  {
+    "id": "skills-heroku-to-aws",
+    "name": "skills-heroku-to-aws",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Migrate workloads from Heroku to AWS. Triggers on: migrate from Heroku, Heroku to AWS, move off Heroku, migrate Heroku Postgres to RDS, migrate Heroku Redis to ElastiCache, migrate Heroku Kafka to MSK, migrate dynos to Elastic Beanstalk, migrate dynos to Fargate, migrate Heroku Private Space, Heroku to ECS, leave Heroku, what-if workshop, compare migration scenarios, workshop mode. Runs a 6-phase process: discover Heroku resources live via the authenticated Heroku CLI (read-only, consent-gated) and/or from Terraform, Procfile/app.json, and billing exports; Terraform is optional. Then clarify, design, estimate costs, generate artifacts, and collect feedback. Clarify must finish before Design, Estimate, or Generate. An optional post-Estimate what-if workshop reprices region/HA/compute/Graviton scenarios. Do not use for: GCP migrations (see gcp-to-aws), Azure migrations (see azure-to-aws), AWS-to-Heroku reverse migration, general AWS architecture advice without migration intent, or Heroku-to-Heroku refactoring.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-heroku-to-aws",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-heroku-to-aws",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-heroku-to-aws"
+  },
+  {
+    "id": "skills-llm-to-bedrock",
+    "name": "skills-llm-to-bedrock",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Use when the user wants to migrate code that calls OpenAI, Gemini/Google AI, or the Anthropic API to Amazon Bedrock \u2014 a pure model/SDK rewrite. End-to-end: assesses the codebase, optionally captures aggregate OpenAI, OpenRouter, or Anthropic cost and token usage through consent-gated provider APIs, rewrites SDK calls, evaluates output quality against Bedrock, and delivers a ready-to-merge git branch. Also has an access-only mode for checking or enabling Bedrock model access for specific models (e.g. 'request access to Claude on Bedrock', 'which models do I turn on') with no code migration \u2014 it checks each model and walks the right access step, then stops. Not for agent runtime selection or agent migration planning (use agent-advisor), nor standalone cost estimates or infra-only migration. The full migration REQUIRES gcp-to-aws OR azure-to-aws installed alongside this skill (gcp-to-aws preferred when both are present); access-only mode needs neither.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-llm-to-bedrock",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-llm-to-bedrock",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-llm-to-bedrock"
+  },
+  {
+    "id": "skills-tf-best-practices",
+    "name": "skills-tf-best-practices",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">-",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-tf-best-practices",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-tf-best-practices",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-tf-best-practices"
   },
   {
     "id": "specialized-skills",

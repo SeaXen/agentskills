@@ -1,7 +1,7 @@
 # 🏛️ Architecture, System Design & Patterns
 
 > **Category**: `architecture-system-design`  
-> **Total Curated Skills**: 686 skills  
+> **Total Curated Skills**: 693 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -180,6 +180,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`coding-agent-docs-optimization`](../../library/samber-developer-relations-skills/skills/coding-agent-docs-optimization) | ⚪ Reserve | `samber-developer-relations-skills` | Makes SDK, API or protocol documentation something a coding agent can integrate from unattended... |
 | [`cognitive-pattern`](../../library/ruvnet-ruflo/skills/cognitive-pattern) | ⚪ Reserve | `ruvnet-ruflo` | Define and manage cognitive patterns for agent reasoning and decision-making |
 | [`color-system`](../../library/owl-listener-designer-skills/skills/color-system) | ⚪ Reserve | `owl-listener-designer-skills` | Build a product colour system — tonal scales, semantic roles, and contrast compliance. Use when... |
+| [`commercial-localization`](../../library/kostja94-marketing-skills/skills/commercial-localization) | ⚪ Reserve | `kostja94-marketing-skills` | Plan, audit, implement, migrate, or validate localization for multilingual products and website... |
 | [`company-research`](../../library/browserbase-skills/skills/company-research) | ⚪ Reserve | `browserbase-skills` | Company discovery and deep research skill. Researches a company's product and ICP, discovers ta... |
 | [`competitor-alternatives`](../../library/alirezarezvani-claude-skills/skills/competitor-alternatives) | ⚪ Reserve | `alirezarezvani-claude-skills` | When the user wants to create competitor comparison or alternative pages for SEO and sales enab... |
 | [`component-spec`](../../library/owl-listener-designer-skills/skills/component-spec) | ⚪ Reserve | `owl-listener-designer-skills` | Specify one component — props, states, variants, accessibility, and usage rules. Use when defin... |
@@ -194,6 +195,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`connector-weatherapi`](../../library/caffeinelabs-skills/skills/connector-weatherapi) | ⚪ Reserve | `caffeinelabs-skills` | MANDATORY recipe for every Caffeine build that reads weather data from a canister. The supporte... |
 | [`connector-x`](../../library/caffeinelabs-skills/skills/connector-x) | ⚪ Reserve | `caffeinelabs-skills` | MANDATORY recipe for every Caffeine build that posts to or reads from X (Twitter) from a canist... |
 | [`content-hash-cache-pattern`](../../library/affaan-m-ecc/skills/content-hash-cache-pattern) | ⚪ Reserve | `affaan-m-ecc` | Cache expensive file processing results using SHA-256 content hashes — path-independent, auto-i... |
+| [`content-translation`](../../library/kostja94-marketing-skills/skills/content-translation) | ⚪ Reserve | `kostja94-marketing-skills` | Translate, transcreate, review, or maintain multilingual product and marketing content, includi... |
 | [`context-and-decisions`](../../library/affaan-m-ecc/skills/context-and-decisions) | ⚪ Reserve | `affaan-m-ecc` | Govern stable domain context with a narrowly scoped CONTEXT.md when needed, and route hard-to-r... |
 | [`context-architecture`](../../library/davila7-claude-code-templates/skills/context-architecture) | ⚪ Reserve | `davila7-claude-code-templates` | Audit a codebase and bind every claim it makes about itself to a mechanism that fails when the ... |
 | [`context-degradation`](../../library/antigravity-awesome-skills/skills/context-degradation) | ⚪ Reserve | `antigravity-awesome-skills` | Recognize patterns of context failure: lost-in-middle, poisoning, distraction, and clash |
@@ -270,6 +272,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`documentation-generation-doc-generate`](../../library/antigravity-awesome-skills/skills/documentation-generation-doc-generate) | ⚪ Reserve | `antigravity-awesome-skills` | You are a documentation expert specializing in creating comprehensive, maintainable documentati... |
 | [`domain-architecture`](../../library/kostja94-marketing-skills/skills/domain-architecture) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to decide domain structure for multiple products or brands—subfolder vs sub... |
 | [`domain-cloud-native`](../../library/actionbook-rust-skills/skills/domain-cloud-native) | ⚪ Reserve | `actionbook-rust-skills` | Use when building cloud-native apps. Keywords: kubernetes, k8s, docker, container, grpc, tonic,... |
+| [`domain-domain-architecture`](../../library/kostja94-marketing-skills/skills/domain-domain-architecture) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to decide domain structure for multiple products or brands—subfolder vs sub... |
 | [`domain-driven-design`](../../library/antigravity-awesome-skills/skills/domain-driven-design) | ⚪ Reserve | `antigravity-awesome-skills` | Plan and route Domain-Driven Design work from strategic modeling to tactical implementation and... |
 | [`domain-modeling`](../../skills/domain-modeling) | 🟢 Active | `active` | Build and sharpen a project's domain model. Use when the user wants to pin down domain terminol... |
 | [`dossier-collect`](../../library/ruvnet-ruflo/skills/dossier-collect) | ⚪ Reserve | `ruvnet-ruflo` | Build a graph-structured dossier on a seed entity via parallel fan-out + recursive expansion ac... |
@@ -570,6 +573,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-architecture`](../../library/anthropics-knowledge-work/skills/skills-architecture) | ⚪ Reserve | `anthropics-knowledge-work` | Create or evaluate an architecture decision record (ADR). Use when choosing between technologie... |
 | [`skills-architecture-advisor`](../../library/codewithmukesh-dotnet-claude-kit/skills/skills-architecture-advisor) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Architecture selection advisor for .NET applications. Asks structured questions about domain co... |
 | [`skills-azure-resource-visualizer`](../../library/microsoft-azure-skills/skills/skills-azure-resource-visualizer) | ⚪ Reserve | `microsoft-azure-skills` | Analyze Azure resource groups and generate detailed Mermaid architecture diagrams showing the r... |
+| [`skills-azure-to-aws`](../../library/aws-agent-toolkit-for-aws/skills/skills-azure-to-aws) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Migrate Microsoft Azure workloads to AWS. Triggers on: Azure to AWS, move off Azure, AKS to EKS... |
 | [`skills-bmad-architecture`](../../library/bmad-code-org-bmad-method/skills/skills-bmad-architecture) | ⚪ Reserve | `bmad-code-org-bmad-method` | Work out and record the architecture decisions that keep separately built parts of a system con... |
 | [`skills-build-mcp-server`](../../library/anthropics-claude-plugins-official/skills/skills-build-mcp-server) | ⚪ Reserve | `anthropics-claude-plugins-official` | This skill should be used when the user asks to "build an MCP server", "create an MCP", "make a... |
 | [`skills-choose-zoom-approach`](../../library/anthropics-knowledge-work/skills/skills-choose-zoom-approach) | ⚪ Reserve | `anthropics-knowledge-work` | Choose the right Zoom architecture for a use case. Use when deciding between REST API, Webhooks... |
@@ -582,6 +586,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-documentation`](../../library/anthropics-knowledge-work/skills/skills-documentation) | ⚪ Reserve | `anthropics-knowledge-work` | Write and maintain technical documentation. Trigger with "write docs for", "document this", "cr... |
 | [`skills-error-handling`](../../library/codewithmukesh-dotnet-claude-kit/skills/skills-error-handling) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Error handling strategy for .NET 10 applications. Covers the Result pattern, ProblemDetails (RF... |
 | [`skills-flutter-apply-architecture-best-practices`](../../library/flutter-agent-plugins/skills/skills-flutter-apply-architecture-best-practices) | ⚪ Reserve | `flutter-agent-plugins` | Architects a Flutter application using the recommended layered approach (UI, Logic, Data). Use ... |
+| [`skills-gcp-to-aws`](../../library/aws-agent-toolkit-for-aws/skills/skills-gcp-to-aws) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Migrate GCP workloads to AWS, including AI and agentic workloads from any provider. Triggers on... |
+| [`skills-heroku-to-aws`](../../library/aws-agent-toolkit-for-aws/skills/skills-heroku-to-aws) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Migrate workloads from Heroku to AWS. Triggers on: migrate from Heroku, Heroku to AWS, move off... |
 | [`skills-how`](../../library/cursor-plugins/skills/skills-how) | ⚪ Reserve | `cursor-plugins` | Use for \"how does X work\", code walkthroughs before changing something, and placement / owner... |
 | [`skills-instinct-system`](../../library/codewithmukesh-dotnet-claude-kit/skills/skills-instinct-system) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Unified learning-and-memory system: confidence-scored instincts (observe-hypothesize-confirm, s... |
 | [`skills-manage-sprite-atlas`](../../library/unity-technologies-skills/skills/skills-manage-sprite-atlas) | ⚪ Reserve | `unity-technologies-skills` | Manages SpriteAtlas assets through a prebuild pipeline, covering master and variant atlases, pa... |
@@ -624,6 +630,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`story-done`](../../library/donchitos-claude-code-game-studios/skills/story-done) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Closes a finished story: verifies each acceptance criterion, checks for design or ADR deviation... |
 | [`story-readiness`](../../library/donchitos-claude-code-game-studios/skills/story-readiness) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Checks whether a story is ready to implement: clear acceptance criteria, no open questions, val... |
 | [`strategic-narrative-designer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/strategic-narrative-designer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "design our change narrative", "build the old-world-to-new-game story... |
+| [`structure-website-structure`](../../library/kostja94-marketing-skills/skills/structure-website-structure) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan website structure, decide which pages to build, or prioritize pages... |
 | [`structured-logging-lite`](../../library/majiayu000-spellbook/skills/structured-logging-lite) | ⚪ Reserve | `majiayu000-spellbook` | Design, audit, or implement application structured logging architecture from repository evidenc... |
 | [`subagent-batch-note-conversion`](../../library/seaxen-skills-backup/skills/subagent-batch-note-conversion) | ⚪ Reserve | `seaxen-skills-backup` | Validated pattern for batch-converting medical note scaffolds to full FCPS/MRCP notes using 3 p... |
 | [`swift-architecture`](../../library/dpearson2699-swift-ios-skills/skills/swift-architecture) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Selects, reviews, and migrates Apple-platform app architectures across MV with Observation, MVV... |
