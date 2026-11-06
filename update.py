@@ -947,8 +947,10 @@ def rebuild_skill_sea_catalog(has_changes=False, force=False, deploy=False):
 # 6. Git Commit & Push
 def git_commit_and_push():
     print("\n[6/6] Checking Git status and pushing updates...", flush=True)
-    status = subprocess.run(['git', 'status', '--porcelain', '--untracked-files=all'], cwd=agents_dir, capture_output=True, text=True).stdout
-    if not status.strip():
+    # -z: NUL-separated, NO C-quoting (non-ASCII filenames stay raw — fixes the octal-mangled pathspec bug)
+    status_proc = subprocess.run(['git', 'status', '--porcelain', '-z', '--untracked-files=all'], cwd=agents_dir, capture_output=True)
+    status_raw = status_proc.stdout.decode('utf-8', errors='replace')
+    if not status_raw.strip('\x00'):
         print("✓ Working tree clean. Everything is already up to date on Git.", flush=True)
         return
 
@@ -971,15 +973,16 @@ def git_commit_and_push():
             pass
 
     to_stage, skipped = [], 0
-    for line in status.splitlines():
-        if not line.strip():
+    for record in status_raw.split('\x00'):
+        if not record.strip():
             continue
-        p = line[3:].strip().strip('"').replace('\\', '/')
-        if ' -> ' in p:
+        xy = record[:2]
+        p = record[3:].replace('\\', '/')
+        if ' -> ' in p:  # rename entry: XY is two chars, old -> new
             p = p.split(' -> ')[-1]
         stage = False
-        if line[:2] != '??':
-            stage = True  # tracked modification/deletion/rename
+        if xy != '??':
+            stage = True  # tracked modification/deletion/rename (skip re-adding already-staged deletions)
         elif p.startswith(('skills/', 'category/', 'Skill.Sea/data/')):
             stage = True
         elif p in ('README.md', 'ARCHITECTURE.md', 'PRODUCT.md', 'AGENTS.md', 'SKILLS_PROVENANCE.md', 'skills-lock.json'):
@@ -1003,9 +1006,9 @@ def git_commit_and_push():
         print("✓ No committable changes (all pending entries are ignored junk).", flush=True)
         return
 
-    def _git_run(args):
+    def _git_run(args, stdin_text=None):
         """Run a git command; auto-clear a STALE .git/index.lock (no live git process) and retry once."""
-        res = subprocess.run(args, cwd=agents_dir, capture_output=True, text=True, encoding='utf-8', errors='replace')
+        res = subprocess.run(args, cwd=agents_dir, capture_output=True, text=True, encoding='utf-8', errors='replace', input=stdin_text)
         if res.returncode != 0 and 'index.lock' in (res.stderr or ''):
             lock_path = os.path.join(agents_dir, '.git', 'index.lock')
             if os.path.exists(lock_path):
@@ -1014,19 +1017,37 @@ def git_commit_and_push():
                     print("⚠️ Stale .git/index.lock detected (no git process running) — removing and retrying.", flush=True)
                     try:
                         os.remove(lock_path)
-                        res = subprocess.run(args, cwd=agents_dir, capture_output=True, text=True, encoding='utf-8', errors='replace')
+                        res = subprocess.run(args, cwd=agents_dir, capture_output=True, text=True, encoding='utf-8', errors='replace', input=stdin_text)
                     except Exception as e:
                         print(f"⚠️ Could not remove stale lock: {e}", flush=True)
         return res
 
+    # Stage via --pathspec-from-file (stdin): deep library/ paths blow past the Windows
+    # 32,767-char command-line limit, so paths are never passed as argv. ':(literal)'
+    # disables glob magic so names containing * ? [ ] # are matched verbatim.
     staged = 0
-    for i in range(0, len(to_stage), 200):  # chunked to stay under Windows cmd limits
-        chunk = to_stage[i:i + 200]
-        res = _git_run(['git', 'add', '--'] + chunk)
+    CHUNK_CHARS = 20000  # conservative stdin chunk for progress reporting
+
+    def _flush(chunk):
+        nonlocal staged
+        if not chunk:
+            return
+        payload = '\n'.join(':(literal)' + p for p in chunk) + '\n'
+        res = _git_run(['git', 'add', '--pathspec-from-file=-'], payload)
         if res.returncode != 0:
-            print(f"⚠️ git add chunk failed: {res.stderr}", flush=True)
+            print(f"⚠️ git add chunk failed ({len(chunk)} paths): {(res.stderr or '').strip()[:300]}", flush=True)
         else:
             staged += len(chunk)
+
+    chunk, chunk_len = [], 0
+    for p in to_stage:
+        add_len = len(p) + 12
+        if chunk and chunk_len + add_len > CHUNK_CHARS:
+            _flush(chunk)
+            chunk, chunk_len = [], 0
+        chunk.append(p)
+        chunk_len += add_len
+    _flush(chunk)
     print(f"Staged {staged} paths ({skipped} untracked junk entries skipped).", flush=True)
 
     if staged == 0:
