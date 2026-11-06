@@ -9,9 +9,9 @@ Operational runbook for the Antigravity Agent Skills Vault (this repo, public at
 
 ## Ground truth — read, never guess
 
-Counts drift and the docs disagree. **`Skill.Sea/data/stats.json` is the single source of truth** (`totalSkills`, `totalCategories`, `totalRepositories`, `activeHotSetCount`). As of 2026-11-06 it read 21,654 skills · 38 categories · 484 repositories · 130 hot-set — always re-read the file instead of quoting any doc. README/AGENTS.md prose numbers are auto-refreshed by the pipeline but can lag one run behind stats.json.
+Counts drift and the docs disagree. **`Skill.Sea/data/stats.json` is the single source of truth** (`totalSkills`, `totalCategories`, `totalRepositories`, `activeHotSetCount`). As of 2026-11-06 it read 21,749 skills · 38 categories · 485 repositories · 131 hot-set — always re-read the file instead of quoting any doc. README/AGENTS.md prose numbers are auto-refreshed by the pipeline but can lag one run behind stats.json.
 
-The hot-set (130) is a **union of two directories**: `skills/` (90 dirs) + the parent workspace `../.agent/skills/` (91 dirs, outside this repo). Adding a skill to one without the other produces confusing count diffs — edit or remove both copies.
+The hot-set (131) is a **union of two directories**: `skills/` (91 dirs) + the parent workspace `../.agent/skills/` (91 dirs, outside this repo) — roughly 51 names exist in both, so the union is not the sum (91 + 91 − 51 = 131). Adding a skill to one without the other produces confusing count diffs — edit or remove both copies.
 
 ## The one command
 

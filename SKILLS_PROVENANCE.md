@@ -1,7 +1,7 @@
 # 🏛️ Complete Repository Provenance & Upstream Registry
 
 > **Active Reserve Libraries**: 484 repositories  
-> **Total Skills in Reserve**: 27,127 skills  
+> **Total Skills in Reserve**: 27,135 skills  
 > **Source Registry**: [`library/upstreams.json`](library/upstreams.json)  
 > **Format Standard**: Pure isolated repositories (`['skills', 'README.md', 'skills_index.json']`), 0 `.git` directories.
 
@@ -63,7 +63,7 @@
 | `astro-han-karpathy-llm-wiki` | [astro-han-karpathy-llm-wiki](https://github.com/astro-han-karpathy-llm-wiki) | **1** | `python .agents/library/activate_skill.py activate karpathy-llm-wiki` |
 | `autonnel-autonnel-skills` | [autonnel/autonnel-skills](https://github.com/autonnel/autonnel-skills) | **6** | `python .agents/library/activate_skill.py activate funnel-platform-picker` |
 | `avdlee-swiftui-agent-skill` | [AvdLee/SwiftUI-Agent-Skill](https://github.com/AvdLee/SwiftUI-Agent-Skill) | **2** | `python .agents/library/activate_skill.py activate swiftui-expert-skill` |
-| `aws-agent-toolkit-for-aws` | [aws/agent-toolkit-for-aws](https://github.com/aws/agent-toolkit-for-aws) | **173** | `python .agents/library/activate_skill.py activate agent-advisor` |
+| `aws-agent-toolkit-for-aws` | [aws/agent-toolkit-for-aws](https://github.com/aws/agent-toolkit-for-aws) | **174** | `python .agents/library/activate_skill.py activate agent-advisor` |
 | `axtonliu-axton-obsidian-visual-skills` | [axtonliu/axton-obsidian-visual-skills](https://github.com/axtonliu/axton-obsidian-visual-skills) | **4** | `python .agents/library/activate_skill.py activate axton-obsidian-visual` |
 | `ayghri-i-have-adhd` | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | **1** | `python .agents/library/activate_skill.py activate i-have-adhd` |
 | `backnotprop-bro` | [backnotprop-bro](https://github.com/backnotprop-bro) | **10** | `python .agents/library/activate_skill.py activate big-pics-little-words` |
@@ -117,7 +117,7 @@
 | `confident-ai-deepeval` | [confident-ai-deepeval](https://github.com/confident-ai-deepeval) | **3** | `python .agents/library/activate_skill.py activate deepeval` |
 | `conorbronsdon-avoid-ai-writing` | [conorbronsdon/avoid-ai-writing](https://github.com/conorbronsdon/avoid-ai-writing) | **16** | `python .agents/library/activate_skill.py activate .temp_upstream_clones-conorbronsdon-avoid-ai-writing` |
 | `convex-agent-skills` | [convex/agent-skills](https://github.com/convex/agent-skills) | **33** | `python .agents/library/activate_skill.py activate convex` |
-| `coreyhaines31-marketingskills` | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | **53** | `python .agents/library/activate_skill.py activate ab-testing` |
+| `coreyhaines31-marketingskills` | [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills) | **54** | `python .agents/library/activate_skill.py activate ab-testing` |
 | `countbot-ai-countbot` | [countbot-ai-countbot](https://github.com/countbot-ai-countbot) | **1** | `python .agents/library/activate_skill.py activate countbot` |
 | `crypto-skills` | [kukapay/crypto-skills](https://github.com/kukapay/crypto-skills) | **6** | `python .agents/library/activate_skill.py activate evm-swiss-knife` |
 | `currents-dev-playwright-best-practices-skill` | [currents-dev/playwright-best-practices-skill](https://github.com/currents-dev/playwright-best-practices-skill) | **1** | `python .agents/library/activate_skill.py activate playwright-best-practices` |
@@ -234,7 +234,7 @@
 | `jezweb-claude-skills` | [jezweb/claude-skills](https://github.com/jezweb/claude-skills) | **63** | `python .agents/library/activate_skill.py activate ai-image-generator` |
 | `jiatastic-open-python-skills` | [jiatastic-open-python-skills](https://github.com/jiatastic-open-python-skills) | **8** | `python .agents/library/activate_skill.py activate commit-message` |
 | `jimliu-baoyu-design` | [JimLiu/baoyu-design](https://github.com/JimLiu/baoyu-design) | **9** | `python .agents/library/activate_skill.py activate baoyu-design` |
-| `jimliu-baoyu-skills` | [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | **22** | `python .agents/library/activate_skill.py activate baoyu-article-illustrator` |
+| `jimliu-baoyu-skills` | [JimLiu/baoyu-skills](https://github.com/JimLiu/baoyu-skills) | **26** | `python .agents/library/activate_skill.py activate baoyu-article-illustrator` |
 | `jimmylv-bibigpt-skill` | [jimmylv-bibigpt-skill](https://github.com/jimmylv-bibigpt-skill) | **4** | `python .agents/library/activate_skill.py activate bibi` |
 | `joeseesun-qiaomu-novel-generator` | [joeseesun-qiaomu-novel-generator](https://github.com/joeseesun-qiaomu-novel-generator) | **1** | `python .agents/library/activate_skill.py activate qiaomu-novel-generator` |
 | `juliobsz-skills` | [juliobsz/skills](https://github.com/juliobsz/skills) | **2** | `python .agents/library/activate_skill.py activate awwwards` |
@@ -431,7 +431,7 @@
 | `t3dotgg-tstack` | [t3dotgg/tstack](https://github.com/t3dotgg/tstack) | **9** | `python .agents/library/activate_skill.py activate babysit-pr` |
 | `tailscale-tailscale-skill` | [tailscale-tailscale-skill](https://github.com/tailscale-tailscale-skill) | **1** | `python .agents/library/activate_skill.py activate tailscale` |
 | `taste-skill` | [Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill) | **2** | `python .agents/library/activate_skill.py activate design-taste-frontend` |
-| `tavily-ai-skills` | [tavily-ai/skills](https://github.com/tavily-ai/skills) | **15** | `python .agents/library/activate_skill.py activate core` |
+| `tavily-ai-skills` | [tavily-ai/skills](https://github.com/tavily-ai/skills) | **17** | `python .agents/library/activate_skill.py activate core` |
 | `tejashmakwana-motionmaxxing` | [Tejashmakwana/motionmaxxing](https://github.com/Tejashmakwana/motionmaxxing) | **1** | `python .agents/library/activate_skill.py activate motionmaxxing` |
 | `tencentedgeone-edgeone-makers-tools` | [tencentedgeone-edgeone-makers-tools](https://github.com/tencentedgeone-edgeone-makers-tools) | **1** | `python .agents/library/activate_skill.py activate edgeone-makers-tools` |
 | `thedotmack-claude-mem` | [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) | **35** | `python .agents/library/activate_skill.py activate agent-cost-report` |

@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "total_unique_skills": 21750,
+  "total_unique_skills": 21758,
   "total_categories": 38,
   "categories": {
     "code-quality-refactoring": {
@@ -35927,7 +35927,7 @@
     },
     "git-version-control": {
       "title": "🐙 Git, Worktrees & PR Workflows",
-      "count": 563,
+      "count": 564,
       "skills": [
         {
           "name": ".temp_upstream_clones-virgiliojr94-book-to-skill",
@@ -38664,6 +38664,12 @@
           "is_active": false,
           "repo": "trailofbits-skills",
           "description": "Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Claude Code Action, Gemini CLI, OpenAI Codex, and GitHub AI Inference. Detects attack vectors where attacker-controlled input reaches AI agents running in CI/CD pipelines, including env var intermediary patterns, direct expression injection, dangerous sandbox configurations, and wildcard user allowlists. Use when reviewing workflow files that invoke AI coding agents, auditing CI/CD pipeline security for prompt injection risks, or evaluating agentic action configurations."
+        },
+        {
+          "name": "skills-baoyu-wechat-summary",
+          "is_active": false,
+          "repo": "jimliu-baoyu-skills",
+          "description": "Summarizes WeChat group chat highlights into a structured digest using the local wx-cli binary (https://github.com/jackwener/wx-cli). Generates a normal digest by default; a roast (毒舌) version is opt-in. Maintains per-group history (history.json + history-digests.jsonl), per-user profiles, and per-group fact memory (memory.md) across runs, with privacy guardrails baked in. Use when the user asks to \"总结群聊\", \"群聊精华\", \"群聊摘要\", \"summarize group chat\", \"group chat digest\", mentions a WeChat group name with a time range, says \"帮我看看 XX 群最近聊了什么\", \"XX 群有什么值得看的\", or asks to \"回溯画像\" / \"初始化画像\" / \"backfill profiles\". Adds the roast version when the user says \"毒舌版\", \"roast 版\", \"再来个毒舌的\", or similar."
         },
         {
           "name": "skills-ci-cd",
@@ -59795,7 +59801,7 @@
     },
     "frontend-visual-taste": {
       "title": "👁️ Visual Taste, Critique & Typography",
-      "count": 173,
+      "count": 175,
       "skills": [
         {
           "name": "accessibility-review",
@@ -60626,6 +60632,18 @@
           "description": "Run a WCAG 2.1 AA accessibility audit on a design or page. Trigger with \"audit accessibility\", \"check a11y\", \"is this accessible?\", or when reviewing a design for color contrast, keyboard navigation, touch target size, or screen reader behavior before handoff."
         },
         {
+          "name": "skills-baoyu-cover-image",
+          "is_active": false,
+          "repo": "jimliu-baoyu-skills",
+          "description": "Generates article cover images with 5 dimensions (type, palette, rendering, text, mood) combining 11 color palettes and 7 rendering styles. Supports cinematic (2.35:1), widescreen (16:9), and square (1:1) aspects. Use when user asks to \"generate cover image\", \"create article cover\", or \"make cover\"."
+        },
+        {
+          "name": "skills-baoyu-xhs-images",
+          "is_active": false,
+          "repo": "jimliu-baoyu-skills",
+          "description": "Generates infographic image card series with 12 visual styles, 8 layouts, and 3 color palettes. Breaks content into 1-10 cartoon-style image cards optimized for social media engagement. Use when user mentions \"小红书图片\", \"小红书种草\", \"小绿书\", \"微信图文\", \"微信贴图\", \"image cards\", \"图片卡片\", baoyu-xhs-images, or wants social media infographic series."
+        },
+        {
           "name": "skills-brand-style",
           "is_active": false,
           "repo": "anthropics-knowledge-work",
@@ -60839,7 +60857,7 @@
     },
     "backend-api-design": {
       "title": "⚡ Backend Systems, REST & Microservices",
-      "count": 1523,
+      "count": 1525,
       "skills": [
         {
           "name": "0g-compute",
@@ -67640,6 +67658,12 @@
           "description": "Test-driven development for Quarkus 3.x LTS using JUnit 5, Mockito, REST Assured, Camel testing, and JaCoCo. Use when adding features, fixing bugs, or refactoring event-driven services."
         },
         {
+          "name": "querying-aws-athena",
+          "is_active": false,
+          "repo": "aws-agent-toolkit-for-aws",
+          "description": "Runs SQL queries on Amazon Athena query history exported as an Apache Iceberg table in S3 Tables. The query_executions system table captures per-query metadata (query text, IAM principal, work group, statement type, data scanned, timing breakdown, error details, tables accessed, result reuse, engine version) for every completed query. Applies when analyzing Athena usage and cost, finding who ran a query, auditing table access, tracking data scanned by user or work group, investigating slow or failed queries, detecting performance regressions, reporting query history beyond the 45-day API window, or enabling Athena system tables. Prefers the system table over the ListQueryExecutions and GetQueryExecution APIs at scale. Trigger phrases: Athena query history, who ran this query, data scanned by user, most queried tables, slowest queries, failed query analysis, Athena cost by work group, query audit trail, enable Athena system tables."
+        },
+        {
           "name": "quickgo-api",
           "is_active": false,
           "repo": "brycewang-stanford-auto-empirical-research-skills",
@@ -68502,6 +68526,12 @@
           "is_active": false,
           "repo": "microsoft-azure-skills",
           "description": "Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clusters. Covers Day-0 checklist, SKU selection (Automatic vs Standard), networking options (private API server, Azure CNI Overlay, egress configuration), security, and operations (autoscaling, upgrade strategy, cost analysis). WHEN: create AKS environment, provision AKS, enable AKS observability, design AKS networking, choose AKS SKU, secure AKS, optimize AKS, AKS spot nodes, AKS cluster-autoscaler, rightsize AKS pod, pod rightsizing, over-provisioned AKS pod, pod resource requests and limits, Vertical Pod Autoscaler, VPA recommendations."
+        },
+        {
+          "name": "skills-baoyu-danger-gemini-web",
+          "is_active": false,
+          "repo": "jimliu-baoyu-skills",
+          "description": "Generates images and text via reverse-engineered Gemini Web API. Supports text generation, image generation from prompts, reference images for vision input, and multi-turn conversations. Use when other skills need image generation backend, or when user requests \"generate image with Gemini\", \"Gemini text generation\", or needs vision-capable AI generation."
         },
         {
           "name": "skills-build-connector",
@@ -82799,7 +82829,7 @@
     },
     "security-vulnerability-audit": {
       "title": "🛡️ Vulnerability Auditing & Pentesting",
-      "count": 417,
+      "count": 418,
       "skills": [
         {
           "name": "00-phack-router",
@@ -85014,6 +85044,12 @@
           "is_active": false,
           "repo": "open-mercato-skills",
           "description": "Audit third-party dependencies for known security advisories in any ecosystem — reads every lockfile, uses the native audit tool where one exists and the OSV database otherwise, and files one deduplicated issue per vulnerable package with its upgrade path. For code-level security review use om-auto-sec-report. Use for \"audit dependencies\", \"check for vulnerable packages\", \"security advisories\"."
+        },
+        {
+          "name": "skills-reverse-engineer-marketing",
+          "is_active": false,
+          "repo": "coreyhaines31-marketingskills",
+          "description": "When the user wants to reverse engineer how another company grew and copy what worked. Also use when the user mentions 'reverse engineer,' 'how did X grow,' 'how does X get customers,' 'growth teardown,' 'marketing teardown,' 'GTM teardown,' 'what is X doing for marketing,' 'what made X take off,' 'copy X's playbook,' 'funnel hack,' 'map their funnel,' 'what is everyone in my category doing,' 'where are competitors weak,' 'what is X hiring for,' or 'watch what X is doing.' Builds a dated log of a company's moves against its traffic curve from public data, sign-ups and demos, team interviews, job posts, reviews, and hidden signals (DNS, certificate logs, archives), compares it with the user's own data and with other competitors, finds where they're weak, and turns it all into plays routed to the skill that runs each one. For a snapshot profile of a competitor's positioning, pricing, and features, see competitor-profiling. For comparison pages, see competitors. For why a single post went viral, see social."
         },
         {
           "name": "skills-security-scan",
@@ -92801,7 +92837,7 @@
     },
     "data-engineering-ml": {
       "title": "📊 Data Pipelines, BigQuery & Machine Learning",
-      "count": 3283,
+      "count": 3284,
       "skills": [
         {
           "name": "09-search-procedures",
@@ -96624,6 +96660,12 @@
           "is_active": false,
           "repo": "membranedev-application-skills",
           "description": "Copperx integration. Manage Organizations, Pipelines, Users, Filters. Use when the user wants to interact with Copperx data."
+        },
+        {
+          "name": "core-tavily-search",
+          "is_active": false,
+          "repo": "tavily-ai-skills",
+          "description": "Use this skill whenever a task needs the web: searching for information, checking current facts or news, finding sources, reading a URL, finding a page on a site, or collecting many pages from a site. Use it for anything past your training data or anything the user wants verified online."
         },
         {
           "name": "cornerstone-talentlink",
@@ -120677,7 +120719,7 @@
     },
     "business-sales-crm": {
       "title": "📈 Sales Outreach, Leads & CRM",
-      "count": 596,
+      "count": 597,
       "skills": [
         {
           "name": "10-Jill0099-causal-inference-mixtape",
@@ -124026,6 +124068,12 @@
           "is_active": false,
           "repo": "browser-act-skills",
           "description": "Fetch customer reviews for a Taobao or Tmall product by itemId, returning reviewer name, date, purchased variant, review text, and photo URLs. Use when user asks to get product reviews from Taobao, scrape Taobao customer feedback, extract buyer reviews by item ID, collect Tmall ratings and comments, 采集淘宝商品评价, 抓取淘宝买家评论, 获取淘宝商品评论, 天猫商品评价抓取, 按商品ID获取评价. Also applies to sentiment analysis of product reviews, building review datasets, and monitoring product rating changes."
+        },
+        {
+          "name": "tasks-tavily-research",
+          "is_active": false,
+          "repo": "tavily-ai-skills",
+          "description": "Research a topic in depth with Tavily. Use this skill when a question needs many sources gathered and weighed together: analysing a market, policy, technology or trend, comparing options across several criteria, reviewing the literature, or any request to research, investigate or analyze something in depth. A single fact or answer to find, even one with many clues, is a tavily-search task. For one CRM record use tavily-entity, for a table of matches use tavily-list, and for a recurring check use tavily-monitor."
         },
         {
           "name": "tavily-entity",

@@ -1,7 +1,7 @@
 # 📊 Data Pipelines, BigQuery & Machine Learning
 
 > **Category**: `data-engineering-ml`  
-> **Total Curated Skills**: 3283 skills  
+> **Total Curated Skills**: 3284 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -656,6 +656,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`coperniq`](../../library/membranedev-application-skills/skills/coperniq) | ⚪ Reserve | `membranedev-application-skills` | Coperniq integration. Manage Organizations, Pipelines, Users, Filters. Use when the user wants ... |
 | [`copper`](../../library/membranedev-application-skills/skills/copper) | ⚪ Reserve | `membranedev-application-skills` | Copper integration. Manage Persons, Organizations, Leads, Deals, Projects, Activities and more.... |
 | [`copperx`](../../library/membranedev-application-skills/skills/copperx) | ⚪ Reserve | `membranedev-application-skills` | Copperx integration. Manage Organizations, Pipelines, Users, Filters. Use when the user wants t... |
+| [`core-tavily-search`](../../library/tavily-ai-skills/skills/core-tavily-search) | ⚪ Reserve | `tavily-ai-skills` | Use this skill whenever a task needs the web: searching for information, checking current facts... |
 | [`cornerstone-talentlink`](../../library/membranedev-application-skills/skills/cornerstone-talentlink) | ⚪ Reserve | `membranedev-application-skills` | Cornerstone TalentLink integration. Manage data, records, and automate workflows. Use when the ... |
 | [`corsizio`](../../library/membranedev-application-skills/skills/corsizio) | ⚪ Reserve | `membranedev-application-skills` | Corsizio integration. Manage Courses, Events, Participants, Instructors, Locations, Coupons and... |
 | [`cortex-xsoar`](../../library/membranedev-application-skills/skills/cortex-xsoar) | ⚪ Reserve | `membranedev-application-skills` | Cortex XSOAR integration. Manage data, records, and automate workflows. Use when the user wants... |

@@ -21,7 +21,7 @@ Zero-runtime external dependencies. Pure vanilla HTML5, custom design tokens in 
 
 ## Product Purpose
 
-Skill.Sea is an ultra-fast, zero-dependency directory, leaderboard, and 1-click activation suite for curated AI Agent Skills. It indexes 21,749 skills discovered across 485 open GitHub repositories and organizes them into 38 distinct engineering disciplines. Success means zero-friction discovery, instant evaluation, and offline-capable workspace activation with zero token bloat.
+Skill.Sea is an ultra-fast, zero-dependency directory, leaderboard, and 1-click activation suite for curated AI Agent Skills. It indexes 21,757 skills discovered across 485 open GitHub repositories and organizes them into 38 distinct engineering disciplines. Success means zero-friction discovery, instant evaluation, and offline-capable workspace activation with zero token bloat.
 
 ## Positioning
 
@@ -46,7 +46,7 @@ Unlike bloated registries or monolithic skill packs that force thousands of inst
 
 - **Confirmed Functionality**:
   - Full-text instant search across names, descriptions, categories, and command snippets with keyboard shortcut (`/`).
-  - Edge-to-edge telemetry metrics cards showing real-time synchronized counts (21,749 Skills, 38 Categories, 485 Repositories, 131 Hot-Set).
+  - Edge-to-edge telemetry metrics cards showing real-time synchronized counts (21,757 Skills, 38 Categories, 485 Repositories, 131 Hot-Set).
   - Horizontal scrolling category rail with colored badges and item counts.
   - 1-Click install mode switcher supporting:
     1. Universal NPX (`npx skills add <url>`)
@@ -74,10 +74,10 @@ Unlike bloated registries or monolithic skill packs that force thousands of inst
 
 ## Evidence on Hand
 
-- **Master Catalog Data**: `Skill.Sea/data/catalog.json` (26.27 MB, 21,749 validated items).
+- **Master Catalog Data**: `Skill.Sea/data/catalog.json` (26.28 MB, 21,757 validated items).
 - **Taxonomy Categories**: `Skill.Sea/data/categories.json` (38 domain definitions).
 - **Origin Repositories**: `Skill.Sea/data/repositories.json` (2.41 MB, 485 indexed repositories).
-- **Telemetry Statistics**: `Skill.Sea/data/stats.json` (21,749 skills, 38 categories, 485 repos, 131 hot-set).
+- **Telemetry Statistics**: `Skill.Sea/data/stats.json` (21,757 skills, 38 categories, 485 repos, 131 hot-set).
 - **Physical Skill Files**: Canonical source directories under `.agents/skills/` and `.agents/library/`.
 - **Cloudflare Edge Configuration**: `functions/data/[[path]].js`, `_headers`, and `_routes.json`.
 

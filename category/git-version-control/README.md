@@ -1,7 +1,7 @@
 # 🐙 Git, Worktrees & PR Workflows
 
 > **Category**: `git-version-control`  
-> **Total Curated Skills**: 563 skills  
+> **Total Curated Skills**: 564 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -475,6 +475,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skill-seekers`](../../library/antigravity-awesome-skills/skills/skill-seekers) | ⚪ Reserve | `antigravity-awesome-skills` | -Automatically convert documentation websites, GitHub repositories, and PDFs into Claude AI ski... |
 | [`skill-tester`](../../library/alirezarezvani-claude-skills/skills/skill-tester) | ⚪ Reserve | `alirezarezvani-claude-skills` | Validate, test, and score the quality of skills within the claude-skills ecosystem. Comprehensi... |
 | [`skills-agentic-actions-auditor`](../../library/trailofbits-skills/skills/skills-agentic-actions-auditor) | ⚪ Reserve | `trailofbits-skills` | Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including... |
+| [`skills-baoyu-wechat-summary`](../../library/jimliu-baoyu-skills/skills/skills-baoyu-wechat-summary) | ⚪ Reserve | `jimliu-baoyu-skills` | Summarizes WeChat group chat highlights into a structured digest using the local wx-cli binary ... |
 | [`skills-ci-cd`](../../library/codewithmukesh-dotnet-claude-kit/skills/skills-ci-cd) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | CI/CD pipelines for .NET applications. Covers GitHub Actions and Azure DevOps YAML pipelines wi... |
 | [`skills-claude-security`](../../library/anthropics-claude-plugins-official/skills/skills-claude-security) | ⚪ Reserve | `anthropics-claude-plugins-official` | Claude Security: scan the codebase (the whole repository or a scoped part of it), scan changes ... |
 | [`skills-cursor-sdk`](../../library/cursor-plugins/skills/skills-cursor-sdk) | ⚪ Reserve | `cursor-plugins` | Guide users building apps, scripts, CI pipelines, or automations on top of the Cursor TypeScrip... |

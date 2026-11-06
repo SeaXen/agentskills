@@ -7,7 +7,7 @@
 
 ## 1. Overview & Live Endpoints
 
-`Skill.Sea` is the zero-dependency web interface, leaderboard, and interactive exploration portal for the **21,749 Antigravity Agent Skills** indexed across 485 open-source repositories in 38 categories.
+`Skill.Sea` is the zero-dependency web interface, leaderboard, and interactive exploration portal for the **21,757 Antigravity Agent Skills** indexed across 485 open-source repositories in 38 categories.
 
 * **Live Production Endpoints:**
   - **Primary Custom Domain:** **[https://skill.drsea.top](https://skill.drsea.top)**
@@ -41,7 +41,7 @@ Skill.Sea/
 │   └── data/[[path]].js       # ⚡ Cloudflare Pages Function (streams /data/* directly from R2 bucket)
 │
 ├── data/                      # 📦 PRE-AGGREGATED MASTER DATASETS (Rebuilt automatically)
-│   ├── catalog.json           # 26.27 MB master catalog (21,749 items)
+│   ├── catalog.json           # 26.28 MB master catalog (21,757 items)
 │   ├── categories.json        # 38 domain category records
 │   ├── repositories.json      # 485 repository cards
 │   └── stats.json             # Real-time telemetry counts

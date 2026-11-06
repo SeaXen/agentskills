@@ -1,6 +1,6 @@
 # 🗂️ AgentSkills Functional Categories Directory
 
-> **Total Unique Skills**: 21750 standalone modular skills  
+> **Total Unique Skills**: 21758 standalone modular skills  
 > **Granular Categories**: 38 specialized domain folders  
 > **Architecture**: **100% Real folders & files** (No symlinks, fully portable across all operating systems).  
 > **Purpose**: Cleanly categorizes all skills into focused, human-sized collections.
@@ -12,18 +12,18 @@
 | Category Folder | Domain Title | Skills | Individual Catalog |
 | :--- | :--- | :---: | :--- |
 | **[`code-quality-refactoring`](./code-quality-refactoring)** | 🧹 Code Quality, Refactoring & Clean Code | **5292** | [Open Catalog](./code-quality-refactoring/README.md) |
-| **[`data-engineering-ml`](./data-engineering-ml)** | 📊 Data Pipelines, BigQuery & Machine Learning | **3283** | [Open Catalog](./data-engineering-ml/README.md) |
+| **[`data-engineering-ml`](./data-engineering-ml)** | 📊 Data Pipelines, BigQuery & Machine Learning | **3284** | [Open Catalog](./data-engineering-ml/README.md) |
 | **[`frontend-ui-components`](./frontend-ui-components)** | 🎨 Frontend Components & Design Systems | **1980** | [Open Catalog](./frontend-ui-components/README.md) |
-| **[`backend-api-design`](./backend-api-design)** | ⚡ Backend Systems, REST & Microservices | **1523** | [Open Catalog](./backend-api-design/README.md) |
+| **[`backend-api-design`](./backend-api-design)** | ⚡ Backend Systems, REST & Microservices | **1525** | [Open Catalog](./backend-api-design/README.md) |
 | **[`architecture-system-design`](./architecture-system-design)** | 🏛️ Architecture, System Design & Patterns | **693** | [Open Catalog](./architecture-system-design/README.md) |
 | **[`testing-unit-tdd`](./testing-unit-tdd)** | 🧪 Unit Testing, TDD & Verification | **666** | [Open Catalog](./testing-unit-tdd/README.md) |
-| **[`business-sales-crm`](./business-sales-crm)** | 📈 Sales Outreach, Leads & CRM | **596** | [Open Catalog](./business-sales-crm/README.md) |
-| **[`git-version-control`](./git-version-control)** | 🐙 Git, Worktrees & PR Workflows | **563** | [Open Catalog](./git-version-control/README.md) |
+| **[`business-sales-crm`](./business-sales-crm)** | 📈 Sales Outreach, Leads & CRM | **597** | [Open Catalog](./business-sales-crm/README.md) |
+| **[`git-version-control`](./git-version-control)** | 🐙 Git, Worktrees & PR Workflows | **564** | [Open Catalog](./git-version-control/README.md) |
 | **[`prompt-llm-engineering`](./prompt-llm-engineering)** | 💬 Prompt Engineering, LLMs & RAG | **563** | [Open Catalog](./prompt-llm-engineering/README.md) |
 | **[`devops-docker-cicd`](./devops-docker-cicd)** | 🚀 DevOps, Containers & Deployment | **555** | [Open Catalog](./devops-docker-cicd/README.md) |
 | **[`database-sql-relational`](./database-sql-relational)** | 🗄️ SQL Databases, ORMs & Indexing | **486** | [Open Catalog](./database-sql-relational/README.md) |
 | **[`terminal-system-tools`](./terminal-system-tools)** | 💻 Terminal, Shell & System Automation | **449** | [Open Catalog](./terminal-system-tools/README.md) |
-| **[`security-vulnerability-audit`](./security-vulnerability-audit)** | 🛡️ Vulnerability Auditing & Pentesting | **417** | [Open Catalog](./security-vulnerability-audit/README.md) |
+| **[`security-vulnerability-audit`](./security-vulnerability-audit)** | 🛡️ Vulnerability Auditing & Pentesting | **418** | [Open Catalog](./security-vulnerability-audit/README.md) |
 | **[`security-compliance-auth`](./security-compliance-auth)** | 🔒 Auth, Hardening & Compliance | **411** | [Open Catalog](./security-compliance-auth/README.md) |
 | **[`programming-languages-core`](./programming-languages-core)** | 📐 Programming Languages & Type Systems | **401** | [Open Catalog](./programming-languages-core/README.md) |
 | **[`business-strategy-legal`](./business-strategy-legal)** | 📋 Business Strategy, Legal & HR | **350** | [Open Catalog](./business-strategy-legal/README.md) |
@@ -36,7 +36,7 @@
 | **[`video-motion-production`](./video-motion-production)** | 🎬 Video Creation & Generative Motion | **237** | [Open Catalog](./video-motion-production/README.md) |
 | **[`audio-voice-sound`](./audio-voice-sound)** | 🎙️ Audio, Voice Cloning & Sound Design | **207** | [Open Catalog](./audio-voice-sound/README.md) |
 | **[`autonomous-agents-hermes`](./autonomous-agents-hermes)** | 🧠 NousResearch Hermes Agent Skills | **182** | [Open Catalog](./autonomous-agents-hermes/README.md) |
-| **[`frontend-visual-taste`](./frontend-visual-taste)** | 👁️ Visual Taste, Critique & Typography | **173** | [Open Catalog](./frontend-visual-taste/README.md) |
+| **[`frontend-visual-taste`](./frontend-visual-taste)** | 👁️ Visual Taste, Critique & Typography | **175** | [Open Catalog](./frontend-visual-taste/README.md) |
 | **[`testing-playwright-e2e`](./testing-playwright-e2e)** | 🎭 Playwright & Browser Automation | **154** | [Open Catalog](./testing-playwright-e2e/README.md) |
 | **[`cloudflare-edge`](./cloudflare-edge)** | ☁️ Cloudflare Workers, Pages & Edge | **142** | [Open Catalog](./cloudflare-edge/README.md) |
 | **[`database-nosql-serverless`](./database-nosql-serverless)** | ⚡ NoSQL, Serverless & Vector DBs | **127** | [Open Catalog](./database-nosql-serverless/README.md) |

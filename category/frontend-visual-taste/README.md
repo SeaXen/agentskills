@@ -1,7 +1,7 @@
 # 👁️ Visual Taste, Critique & Typography
 
 > **Category**: `frontend-visual-taste`  
-> **Total Curated Skills**: 173 skills  
+> **Total Curated Skills**: 175 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -157,6 +157,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`scenario-video-editing`](../../library/scenario-labs-skills/skills/scenario-video-editing) | ⚪ Reserve | `scenario-labs-skills` | Use when editing footage already on Scenario through MCP with a tool model, not a new generatio... |
 | [`site-specification`](../../library/cline-skills/skills/site-specification) | ⚪ Reserve | `cline-skills` | Extract comprehensive site specifications from simple descriptions. Use when analyzing a user's... |
 | [`skills-accessibility-review`](../../library/anthropics-knowledge-work/skills/skills-accessibility-review) | ⚪ Reserve | `anthropics-knowledge-work` | Run a WCAG 2.1 AA accessibility audit on a design or page. Trigger with "audit accessibility", ... |
+| [`skills-baoyu-cover-image`](../../library/jimliu-baoyu-skills/skills/skills-baoyu-cover-image) | ⚪ Reserve | `jimliu-baoyu-skills` | Generates article cover images with 5 dimensions (type, palette, rendering, text, mood) combini... |
+| [`skills-baoyu-xhs-images`](../../library/jimliu-baoyu-skills/skills/skills-baoyu-xhs-images) | ⚪ Reserve | `jimliu-baoyu-skills` | Generates infographic image card series with 12 visual styles, 8 layouts, and 3 color palettes.... |
 | [`skills-brand-style`](../../library/anthropics-knowledge-work/skills/skills-brand-style) | ⚪ Reserve | `anthropics-knowledge-work` | Sets and updates the owner's brand look and output preferences, which every page and document t... |
 | [`skills-data-visualization`](../../library/anthropics-knowledge-work/skills/skills-data-visualization) | ⚪ Reserve | `anthropics-knowledge-work` | Create effective data visualizations with Python (matplotlib, seaborn, plotly). Use when buildi... |
 | [`skills-frontend-design`](../../library/anthropics-claude-plugins-official/skills/skills-frontend-design) | ⚪ Reserve | `anthropics-claude-plugins-official` | Guidance for distinctive, intentional visual design when building new UI or reshaping an existi... |

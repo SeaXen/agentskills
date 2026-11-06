@@ -1,7 +1,7 @@
 # 📈 Sales Outreach, Leads & CRM
 
 > **Category**: `business-sales-crm`  
-> **Total Curated Skills**: 596 skills  
+> **Total Curated Skills**: 597 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -577,6 +577,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`tao-run-deft-pas`](../../library/nvidia-skills/skills/tao-run-deft-pas) | ⚪ Reserve | `nvidia-skills` | Run iterative improvement for NVIDIA TAO CLIP / SigLIP image-text retrieval on attribute-labell... |
 | [`taobao-keyword-search`](../../library/browser-act-skills/skills/taobao-keyword-search) | ⚪ Reserve | `browser-act-skills` | Search Taobao and Tmall product listings by keyword, returning paginated product cards with tit... |
 | [`taobao-product-reviews`](../../library/browser-act-skills/skills/taobao-product-reviews) | ⚪ Reserve | `browser-act-skills` | Fetch customer reviews for a Taobao or Tmall product by itemId, returning reviewer name, date, ... |
+| [`tasks-tavily-research`](../../library/tavily-ai-skills/skills/tasks-tavily-research) | ⚪ Reserve | `tavily-ai-skills` | Research a topic in depth with Tavily. Use this skill when a question needs many sources gather... |
 | [`tavily-entity`](../../library/tavily-ai-skills/skills/tavily-entity) | ⚪ Reserve | `tavily-ai-skills` | Fill in a company, person, or organization for a CRM from the web, using Tavily, including a CS... |
 | [`tavily-list`](../../library/tavily-ai-skills/skills/tavily-list) | ⚪ Reserve | `tavily-ai-skills` | Build a deduplicated table of matches for a set, using Tavily. The table is what search returne... |
 | [`team-communication-protocols`](../../library/wshobson-agents/skills/team-communication-protocols) | ⚪ Reserve | `wshobson-agents` | Structured messaging protocols for agent team communication including message type selection, p... |

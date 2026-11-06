@@ -1,7 +1,7 @@
 # ⚡ Backend Systems, REST & Microservices
 
 > **Category**: `backend-api-design`  
-> **Total Curated Skills**: 1523 skills  
+> **Total Curated Skills**: 1525 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -1152,6 +1152,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`pyzotero`](../../library/k-dense-ai-scientific-agent-skills/skills/pyzotero) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Manages Zotero reference libraries using the pyzotero Python client: retrieves, creates, update... |
 | [`qa-only`](../../library/garrytan-gstack/skills/qa-only) | ⚪ Reserve | `garrytan-gstack` | Report browser/API/CLI/job/worker/webhook bugs. (gstack) |
 | [`quarkus-tdd`](../../library/affaan-m-ecc/skills/quarkus-tdd) | ⚪ Reserve | `affaan-m-ecc` | Test-driven development for Quarkus 3.x LTS using JUnit 5, Mockito, REST Assured, Camel testing... |
+| [`querying-aws-athena`](../../library/aws-agent-toolkit-for-aws/skills/querying-aws-athena) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Runs SQL queries on Amazon Athena query history exported as an Apache Iceberg table in S3 Table... |
 | [`quickgo-api`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/quickgo-api) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Browse and search Gene Ontology annotations via the QuickGO API |
 | [`quicknode-skill`](../../library/internet-court-internet-court-skill/skills/quicknode-skill) | ⚪ Reserve | `internet-court-internet-court-skill` | Quicknode blockchain infrastructure for 80+ chains: Core RPC API, Streams, Webhooks, Blazar WSS... |
 | [`r-package-development`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/r-package-development) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | R package development guide covering dependencies, API design, testing, and documentation. Use ... |
@@ -1296,6 +1297,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-azure-aigateway`](../../library/microsoft-azure-skills/skills/skills-azure-aigateway) | ⚪ Reserve | `microsoft-azure-skills` | Configure Azure API Management as an AI Gateway for AI models, MCP tools, and agents. WHEN: sem... |
 | [`skills-azure-compute`](../../library/microsoft-azure-skills/skills/skills-azure-compute) | ⚪ Reserve | `microsoft-azure-skills` | Azure VM/VMSS router. WHEN: create / provision / deploy / spin-up VM, recommend VM size, compar... |
 | [`skills-azure-kubernetes`](../../library/microsoft-azure-skills/skills/skills-azure-kubernetes) | ⚪ Reserve | `microsoft-azure-skills` | Plan, create, and configure production-ready Azure Kubernetes Service (AKS) clusters. Covers Da... |
+| [`skills-baoyu-danger-gemini-web`](../../library/jimliu-baoyu-skills/skills/skills-baoyu-danger-gemini-web) | ⚪ Reserve | `jimliu-baoyu-skills` | Generates images and text via reverse-engineered Gemini Web API. Supports text generation, imag... |
 | [`skills-build-connector`](../../library/anthropics-knowledge-work/skills/skills-build-connector) | ⚪ Reserve | `anthropics-knowledge-work` | Gets Claude talking to a tool nobody built an official connector for. Works out what the system... |
 | [`skills-build-gtk`](../../library/unity-technologies-skills/skills/skills-build-gtk) | ⚪ Reserve | `unity-technologies-skills` | Builds node-based Editor tools with Unity Graph Toolkit (GTK) on Unity 6.6+: graphs, nodes, por... |
 | [`skills-build-zoom-bot`](../../library/anthropics-knowledge-work/skills/skills-build-zoom-bot) | ⚪ Reserve | `anthropics-knowledge-work` | Build a Zoom meeting bot, recorder, or real-time media workflow. Use when joining meetings prog... |
