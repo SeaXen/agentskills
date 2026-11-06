@@ -1,7 +1,7 @@
 # 🎨 Frontend Components & Design Systems
 
 > **Category**: `frontend-ui-components`  
-> **Total Curated Skills**: 1976 skills  
+> **Total Curated Skills**: 1980 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -654,6 +654,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`fillout_forms-automation`](../../library/composio-community-awesome-codex-skills/skills/fillout_forms-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Fillout tasks via Rube MCP (Composio): forms, submissions, workflows, and form builder... |
 | [`financial-data-analysis`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/financial-data-analysis) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Methods for acquiring, cleaning, and analyzing financial datasets for research |
 | [`find-complementary-founders`](../../library/sickn33-agentic-awesome-skills/skills/find-complementary-founders) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use when an owner explicitly asks for a cofounder or project partner, or explicitly says they n... |
+| [`find-repeated-work-within-one-build`](../../library/dotnet-skills/skills/find-repeated-work-within-one-build) | ⚪ Reserve | `dotnet-skills` | Use ONLY for auditing executed-task counts or batching/hoisting costs within ONE MSBuild invoca... |
 | [`fingerprint-failure-triage`](../../library/liarjsdev-liarjs-skills/skills/fingerprint-failure-triage) | ⚪ Reserve | `liarjsdev-liarjs-skills` | Read a liarjs fingerprint report and attribute each failing check to the component that produce... |
 | [`finsight-research-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/finsight-research-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Deep financial research with the FinSight multi-agent system |
 | [`firecrawl-agent`](../../library/firecrawl-cli/skills/firecrawl-agent) | ⚪ Reserve | `firecrawl-cli` | Autonomously navigate websites and extract structured data across pages. Use when the task requ... |
@@ -1621,6 +1622,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-build-figma`](../../library/cursor-plugins/skills/skills-build-figma) | ⚪ Reserve | `cursor-plugins` | Use for \"/build-figma\", a figma.com/design URL with node-id, or \"implement this Figma\" into... |
 | [`skills-build-mcp-app`](../../library/anthropics-claude-plugins-official/skills/skills-build-mcp-app) | ⚪ Reserve | `anthropics-claude-plugins-official` | This skill should be used when the user wants to build an "MCP app", add "interactive UI" or "w... |
 | [`skills-build-mcpb`](../../library/anthropics-claude-plugins-official/skills/skills-build-mcpb) | ⚪ Reserve | `anthropics-claude-plugins-official` | This skill should be used when the user wants to "package an MCP server", "bundle an MCP", "mak... |
+| [`skills-build-perf-baseline`](../../library/dotnet-skills/skills/skills-build-perf-baseline) | ⚪ Reserve | `dotnet-skills` | Establish MSBuild/.NET baselines before optimizing. USE FOR: unranked slow builds; cold/warm/in... |
+| [`skills-build-perf-diagnostics`](../../library/dotnet-skills/skills/skills-build-perf-diagnostics) | ⚪ Reserve | `dotnet-skills` | Diagnose MSBuild bottlenecks from binlog timelines and Target/Task Performance Summaries after ... |
+| [`skills-check-bin-obj-clash`](../../library/dotnet-skills/skills/skills-check-bin-obj-clash) | ⚪ Reserve | `dotnet-skills` | Find OutputPath/IntermediateOutputPath collisions between distinct projects or required propert... |
 | [`skills-clerk-astro-patterns`](../../library/clerk-skills/skills/skills-clerk-astro-patterns) | ⚪ Reserve | `clerk-skills` | Astro patterns with Clerk — middleware, SSR pages, island components, |
 | [`skills-clerk-custom-ui`](../../library/clerk-skills/skills/skills-clerk-custom-ui) | ⚪ Reserve | `clerk-skills` | Custom authentication flows and component appearance - hooks (useSignIn, |
 | [`skills-clerk-setup`](../../library/clerk-skills/skills/skills-clerk-setup) | ⚪ Reserve | `clerk-skills` | Set up Clerk authentication in any project with the Clerk CLI and official framework quickstart... |

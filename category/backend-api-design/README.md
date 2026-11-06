@@ -1,7 +1,7 @@
 # ⚡ Backend Systems, REST & Microservices
 
 > **Category**: `backend-api-design`  
-> **Total Curated Skills**: 1522 skills  
+> **Total Curated Skills**: 1523 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -1318,6 +1318,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-migrate-to-parallel`](../../library/parallel-web-parallel-agent-skills/skills/skills-migrate-to-parallel) | ⚪ Reserve | `parallel-web-parallel-agent-skills` | Migrate Exa, Tavily, Perplexity, or Firecrawl web-data integrations completely to the appropria... |
 | [`skills-minimal-api`](../../library/codewithmukesh-dotnet-claude-kit/skills/skills-minimal-api) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | .NET 10 minimal APIs — the default for building HTTP endpoints. Covers MapGroup, endpoint filte... |
 | [`skills-mirrord-operator`](../../library/metalbear-co-mirrord/skills/skills-mirrord-operator) | ⚪ Reserve | `metalbear-co-mirrord` | Help users install and configure the mirrord Operator for team/enterprise environments. Use whe... |
+| [`skills-msbuild`](../../library/dotnet-skills/skills/skills-msbuild) | ⚪ Reserve | `dotnet-skills` | Use before MSBuild custom-target or incremental-generation repairs, XML/import/hook review, .bi... |
 | [`skills-nature-downloader`](../../library/yuan1z0825-nature-skills/skills/skills-nature-downloader) | ⚪ Reserve | `yuan1z0825-nature-skills` | Use when a user needs lawful academic full text, CNKI institutional access, English OA retrieva... |
 | [`skills-okx-agent-payments-protocol`](../../library/okx-onchainos-skills/skills/skills-okx-agent-payments-protocol) | ⚪ Reserve | `okx-onchainos-skills` | Handle agent payments and paid endpoints via x402, MPP, payment links, a2a-pay, and HTTP-paymen... |
 | [`skills-openapi`](../../library/codewithmukesh-dotnet-claude-kit/skills/skills-openapi) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Built-in OpenAPI support for .NET 10 applications. Covers document generation, transformers, Ty... |

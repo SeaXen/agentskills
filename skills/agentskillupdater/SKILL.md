@@ -5,7 +5,7 @@ description: Run, verify, and troubleshoot the Antigravity Agent Skills Vault & 
 
 # Agent Skills Updater
 
-Operational runbook for the Antigravity Agent Skills Vault (`D:/Repo/.agents`, public at `github.com/SeaXen/agentskills`) and its live web app **Skill.Sea** (`https://skill.drsea.top`). Everything below was learned by running this pipeline in production — follow it and you will not repeat the bugs listed in `references/pitfalls.md`.
+Operational runbook for the Antigravity Agent Skills Vault (this repo, public at `github.com/SeaXen/agentskills`) and its live web app **Skill.Sea** (`https://skill.drsea.top`). Everything below was learned by running this pipeline in production — follow it and you will not repeat the bugs listed in `references/pitfalls.md`.
 
 ## Ground truth — read, never guess
 
@@ -32,7 +32,7 @@ Other flags: `--no-push` (commit-free), `--deploy` (also `npx wrangler deploy` �
 
 - **[0/6] Discovery** — skills.sh audit (`--sync --min-installs 100k`) plus skillleaderboard (`--starred 150 --ingest`, `--trending 50 --ingest`). New repos are cloned into `library/<owner>-<repo>/` and registered in `library/upstreams.json`, so later runs track them. Ingestion resumes — already-ingested repos are skipped.
 - **[1/6] Upstream sync** — parallel `git ls-remote` HEAD check of every repo; changed repos are shallow-cloned (blobless, 45 s timeout) into a temp dir; skills extracted to `library/<repo>/skills/<name>/`; dev-tooling junk stripped; `.upstream_commit` watermark written. If a clone times out but local skills exist, the watermark is still written (repo only retries on its next upstream commit).
-- **[2/6] Active skills** — upstream updates copied into workspaces: this repo's `skills/`, `D:\Gravity\Managment\.agents` (only if it exists), and the parent `.agent` workspace (only if it exists). Lockfile-sourced skills update only when their source repo was updated this run.
+- **[2/6] Active skills** - upstream updates copied into workspaces: this repo's `skills/`, any optional extra workspaces the user has configured (see pipeline.md), and the parent `.agent` workspace (only if it exists). Lockfile-sourced skills update only when their source repo was updated this run.
 - **[3/6] Index** — incremental rebuild of `library/skills_index.json`: only updated/new repos are re-parsed; unchanged repos reuse their cached per-repo `skills_index.json`. This is why the count grows only when repos actually change.
 - **[4/6] Lockfiles** — `skills-lock.json` reconciled against the actual skills dirs of each workspace.
 - **[5/6] Categories / provenance / docs** — 38 categories rebuilt (`category/categories_index.json`), `SKILLS_PROVENANCE.md` regenerated, README/ARCHITECTURE/PRODUCT/AGENTS metrics synced.

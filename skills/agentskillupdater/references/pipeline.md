@@ -29,7 +29,7 @@ Runs two sub-scripts, each of which does its own ingest/reindex (their log lines
 Returns the list of repo IDs actually updated — this list drives steps [2/6] and [3/6].
 
 ### [2/6] sync_active_skills(updated_repo_ids)
-Workspaces: this repo (`agents_dir`), `D:\Gravity\Managment\.agents`, and the parent `.agent` workspace. Lockfile workspaces require both `skills/` and `skills-lock.json`; a skill updates only when its lockfile `source` (owner/repo → `owner-repo` slug) matches a repo updated this run. The lockfile-less parent workspace uses a unique-name fallback: update only when exactly one updated repo contains that skill name.
+Workspaces: this repo (`agents_dir`), any extra workspaces the user has configured (env var `AGENTS_EXTRA_WORKSPACES` or `workspaces.json`), and the parent `.agent` workspace. Lockfile workspaces require both `skills/` and `skills-lock.json`; a skill updates only when its lockfile `source` (owner/repo → `owner-repo` slug) matches a repo updated this run. The lockfile-less parent workspace uses a unique-name fallback: update only when exactly one updated repo contains that skill name.
 
 ### [3/6] rebuild_all_indexes(updated_repo_ids, force)
 Walks `library/<repo>/skills/` one level per repo; updated/new repos are re-parsed (regex `description:`/`category:` from the first 2,000 chars of SKILL.md), others reuse the cached per-repo `skills_index.json`. Writes the master `library/skills_index.json` (list of records: id, name, repository, category, description, path, activation_cmd).

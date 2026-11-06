@@ -1,7 +1,7 @@
 # 💬 Prompt Engineering, LLMs & RAG
 
 > **Category**: `prompt-llm-engineering`  
-> **Total Curated Skills**: 561 skills  
+> **Total Curated Skills**: 563 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -510,6 +510,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-clerk-swift`](../../library/clerk-skills/skills/skills-clerk-swift) | ⚪ Reserve | `clerk-skills` | Implement Clerk authentication UI in native Swift apps on iOS and macOS with ClerkKitUI prebuil... |
 | [`skills-codex-gemini-review`](../../library/wanshuiyin-auto-claude-code-research-in-sleep/skills/skills-codex-gemini-review) | ⚪ Reserve | `wanshuiyin-auto-claude-code-research-in-sleep` |  |
 | [`skills-configure`](../../library/anthropics-claude-plugins-official/skills/skills-configure) | ⚪ Reserve | `anthropics-claude-plugins-official` | Set up the Discord channel — save the bot token and review access policy. Use when the user pas... |
+| [`skills-eval-performance`](../../library/dotnet-skills/skills/skills-eval-performance) | ⚪ Reserve | `dotnet-skills` | Diagnose measured MSBuild evaluation cost before targets run. USE FOR: evaluation-only repeats ... |
+| [`skills-incremental-build`](../../library/dotnet-skills/skills/skills-incremental-build) | ⚪ Reserve | `dotnet-skills` | Fix MSBuild incremental/no-op builds: 'nothing changed but it rebuilds anyway'. USE FOR: target... |
 | [`skills-okx-dex-market`](../../library/okx-onchainos-skills/skills/skills-okx-dex-market) | ⚪ Reserve | `okx-onchainos-skills` | Query read-only DEX token, market, signal, social, trenches, and WebSocket data. Use for token ... |
 | [`skills-om-evolve-harness`](../../library/open-mercato-skills/skills/skills-om-evolve-harness) | ⚪ Reserve | `open-mercato-skills` | Turn a real agent failure into one reproducible eval-harness case plus the smallest knowledge c... |
 | [`skills-principle-explain-the-number`](../../library/cursor-plugins/skills/skills-principle-explain-the-number) | ⚪ Reserve | `cursor-plugins` | Apply before you measure, and before you trust, report, or act on a number you measured: a spee... |

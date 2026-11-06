@@ -5080,6 +5080,14 @@
     "path": "category/frontend-ui-components/find-complementary-founders"
   },
   {
+    "id": "find-repeated-work-within-one-build",
+    "name": "find-repeated-work-within-one-build",
+    "category": "frontend-ui-components",
+    "repository": "dotnet-skills",
+    "description": "Use ONLY for auditing executed-task counts or batching/hoisting costs within ONE MSBuild invocation: per-project Exec, duplicate dependency builds, per-item generators, run-once races. NEVER load for evaluation-only global-property variants with once-only target/task execution, idle-node/serial-chain investigations, second/unchanged builds, restores across commands, required-variant bin/obj collisions or unranked slowness. Do not load to check scope or replace an unavailable specialist; answer directly.",
+    "path": "category/frontend-ui-components/find-repeated-work-within-one-build"
+  },
+  {
     "id": "fingerprint-failure-triage",
     "name": "fingerprint-failure-triage",
     "category": "frontend-ui-components",
@@ -12814,6 +12822,30 @@
     "repository": "anthropics-claude-plugins-official",
     "description": "This skill should be used when the user wants to \"package an MCP server\", \"bundle an MCP\", \"make an MCPB\", \"ship a local MCP server\", \"distribute a local MCP\", discusses \".mcpb files\", mentions bundling a Node or Python runtime with their MCP server, or needs an MCP server that interacts with the local filesystem, desktop apps, or OS and must be installable without the user having Node/Python set up.",
     "path": "category/frontend-ui-components/skills-build-mcpb"
+  },
+  {
+    "id": "skills-build-perf-baseline",
+    "name": "skills-build-perf-baseline",
+    "category": "frontend-ui-components",
+    "repository": "dotnet-skills",
+    "description": "Establish MSBuild/.NET baselines before optimizing. USE FOR: unranked slow builds; cold/warm/incremental/no-op measurements; before/after comparisons; CI caching; static graph, artifacts output, dependency graph trimming. DO NOT USE FOR: measured bottlenecks (build-perf-diagnostics), known repeated restores (eliminate-redundant-restores), within-build duplicate calls (find-repeated-work-within-one-build), non-MSBuild builds.",
+    "path": "category/frontend-ui-components/skills-build-perf-baseline"
+  },
+  {
+    "id": "skills-build-perf-diagnostics",
+    "name": "skills-build-perf-diagnostics",
+    "category": "frontend-ui-components",
+    "repository": "dotnet-skills",
+    "description": "Diagnose MSBuild bottlenecks from binlog timelines and Target/Task Performance Summaries after baseline measurements. USE FOR: unknown build slowness, RAR >5s, analyzers >30% of Csc, a target >50% of build, node utilization below 80%, excessive Copy, restore overhead. DO NOT USE FOR: within-build duplicates (find-repeated-work-within-one-build), known repeated restores (eliminate-redundant-restores), initial baselines (build-perf-baseline), incremental rebuilds (incremental-build), parallelism tuning (build-parallelism), non-MSBuild builds.",
+    "path": "category/frontend-ui-components/skills-build-perf-diagnostics"
+  },
+  {
+    "id": "skills-check-bin-obj-clash",
+    "name": "skills-check-bin-obj-clash",
+    "category": "frontend-ui-components",
+    "repository": "dotnet-skills",
+    "description": "Find OutputPath/IntermediateOutputPath collisions between distinct projects or required property/TFM variants. USE FOR: missing/overwritten bin/obj or project.assets.json, parallel 'Cannot create a file when that file already exists' or 'file is being used by another process', shared paths, missing AppendTargetFrameworkToOutputPath, PublishReadyToRun, SetTargetFramework on single-target references. DO NOT USE FOR: duplicates or invariant-generation races (find-repeated-work-within-one-build), OS locking, single-instance builds, non-MSBuild systems.",
+    "path": "category/frontend-ui-components/skills-check-bin-obj-clash"
   },
   {
     "id": "skills-clerk-astro-patterns",

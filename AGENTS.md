@@ -4,7 +4,7 @@ Operational runbook for AI coding agents (OpenCode, Claude Code, Cursor, Codex, 
 
 ## What this repo is
 
-`D:/Repo/.agents` **is** the git repo root (remote `SeaXen/agentskills`, branch `main`) — not a subfolder of a larger app. It holds a catalog of agent `SKILL.md` modules plus **Skill.Sea**, a zero-dependency web app deployed to Cloudflare.
+The directory you cloned this repo into **is** the git repo root (remote `SeaXen/agentskills`, branch `main`) — not a subfolder of a larger app. It holds a catalog of agent `SKILL.md` modules plus **Skill.Sea**, a zero-dependency web app deployed to Cloudflare.
 
 ## Ground-truth numbers — do not guess, read the file
 
@@ -16,7 +16,7 @@ Counts drift and the docs disagree. Trust these, in order:
 | per-skill catalog records | `Skill.Sea/data/catalog.json` (~24.7 MB) |
 | repo cards | `Skill.Sea/data/repositories.json` |
 
-Verified 2026-11-06: **21,737 skills · 38 categories · 485 repositories · 131 hot-set**.
+Verified 2026-11-06: **21,749 skills · 38 categories · 485 repositories · 131 hot-set**.
 
 `README.md`, `update.py --help`, and this file's previous numbers are **stale**. Don't propagate them.
 
@@ -24,8 +24,8 @@ Verified 2026-11-06: **21,737 skills · 38 categories · 485 repositories · 131
 
 `Skill.Sea/scripts/build-catalog.js` (lines 12–13) merges **both**:
 
-- `D:/Repo/.agents/skills/` (90 dirs)
-- `D:/Repo/.agent/skills/` (91 dirs — **parent workspace, outside this repo**)
+- `skills/` in this repo (90 dirs)
+- `../.agent/skills/` (91 dirs — **parent workspace, outside this repo**, if present)
 
 → `activeHotSetCount = 130`.
 
@@ -41,7 +41,7 @@ Related: each `category/<name>/` holds only `README.md` + `skills_index.json`. `
 - `workflows/` (18 files), `agents/` (20 personas), `rules/` (`GEMINI.md`, `brainsyncory.md`).
 - `Skill.Sea/` — the web app. **See `Skill.Sea/AGENTS.md`: it is the frontend runbook and is more current than this file for anything frontend.**
 - `scripts/` — `verify_all.py`, `checklist.py`, `session_manager.py`, `auto_preview.py`, `setup_hooks.py`.
-- No `opencode.json`, `.cursorrules`, `.cursor/rules`, or `copilot-instructions.md` exists anywhere under `D:/Repo`.
+- No `opencode.json`, `.cursorrules`, `.cursor/rules`, or `copilot-instructions.md` exists anywhere in this repo.
 
 ## Commands
 

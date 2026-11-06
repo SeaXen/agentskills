@@ -1,7 +1,7 @@
 # 🧹 Code Quality, Refactoring & Clean Code
 
 > **Category**: `code-quality-refactoring`  
-> **Total Curated Skills**: 5289 skills  
+> **Total Curated Skills**: 5292 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -1542,6 +1542,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`doppler-marketing-automation-automation`](../../library/composio-community-awesome-codex-skills/skills/doppler-marketing-automation-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Doppler Marketing Automation tasks via Rube MCP (Composio). Always search tools first ... |
 | [`doppler-secretops-automation`](../../library/composio-community-awesome-codex-skills/skills/doppler-secretops-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Doppler Secretops tasks via Rube MCP (Composio). Always search tools first for current... |
 | [`dotnet-aot-compat`](../../library/dotnet-skills/skills/dotnet-aot-compat) | ⚪ Reserve | `dotnet-skills` | Make .NET projects compatible with Native AOT and trimming by systematically resolving IL trim/... |
+| [`dotnet-breaking-changes`](../../library/dotnet-skills/skills/dotnet-breaking-changes) | ⚪ Reserve | `dotnet-skills` | Use before changing .NET/C# code whose callers you do not control: a NuGet library, or a repo w... |
 | [`dotnet-pinvoke`](../../library/dotnet-skills/skills/dotnet-pinvoke) | ⚪ Reserve | `dotnet-skills` | Correctly call native (C/C++) libraries from .NET using P/Invoke and LibraryImport. Covers func... |
 | [`dotsimple-automation`](../../library/composio-community-awesome-codex-skills/skills/dotsimple-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Dotsimple tasks via Rube MCP (Composio). Always search tools first for current schemas... |
 | [`doubt-driven-development`](../../skills/doubt-driven-development) | 🟢 Active | `active` | Subjects every non-trivial decision to a fresh-context adversarial review before it stands. |
@@ -4430,6 +4431,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-cowork-plugin-customizer`](../../library/anthropics-knowledge-work/skills/skills-cowork-plugin-customizer) | ⚪ Reserve | `anthropics-knowledge-work` | Customize a Claude Code plugin for a specific organization's tools and workflows. Use when: cus... |
 | [`skills-create-tile-palette-or-rule-tiles`](../../library/unity-technologies-skills/skills/skills-create-tile-palette-or-rule-tiles) | ⚪ Reserve | `unity-technologies-skills` | Create a 2D tile palette from sprites or textures, or make tiles change based on their neighbou... |
 | [`skills-crm-autopilot`](../../library/anthropics-knowledge-work/skills/skills-crm-autopilot) | ⚪ Reserve | `anthropics-knowledge-work` | Keeps the CRM current without the owner ever opening it. Creates and updates contacts and deals... |
+| [`skills-csharp-refactoring`](../../library/dotnet-skills/skills/skills-csharp-refactoring) | ⚪ Reserve | `dotnet-skills` | Safely refactors C#/.NET code without changing behavior. USE FOR any request to refactor, renam... |
 | [`skills-dart-collect-coverage`](../../library/dart-lang-skills/skills/skills-dart-collect-coverage) | ⚪ Reserve | `dart-lang-skills` | Collect coverage using the coverage packge and create an LCOV report |
 | [`skills-dart-resolve-package-conflicts`](../../library/dart-lang-skills/skills/skills-dart-resolve-package-conflicts) | ⚪ Reserve | `dart-lang-skills` | Workflow for fixing package version conflicts. Use this when `pub get` fails due to incompatibl... |
 | [`skills-dart-run-static-analysis`](../../library/dart-lang-skills/skills/skills-dart-run-static-analysis) | ⚪ Reserve | `dart-lang-skills` | Execute `dart analyze` to identify warnings and errors, and use `dart fix --apply` to automatic... |
@@ -4464,6 +4466,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-initialize-ai-navigation`](../../library/unity-technologies-skills/skills/skills-initialize-ai-navigation) | ⚪ Reserve | `unity-technologies-skills` | Sets up and configures Unity AI Navigation, including NavMesh surfaces, agents, obstacles, and ... |
 | [`skills-kb-article`](../../library/anthropics-knowledge-work/skills/skills-kb-article) | ⚪ Reserve | `anthropics-knowledge-work` | Draft a knowledge base article from a resolved issue or common question. Use when a ticket reso... |
 | [`skills-ketchup`](../../library/cursor-plugins/skills/skills-ketchup) | ⚪ Reserve | `cursor-plugins` | Catch the user up on what changed in this chat since their last message, in plain words and sma... |
+| [`skills-keyword-mapping`](../../library/kostja94-marketing-skills/skills/skills-keyword-mapping) | ⚪ Reserve | `kostja94-marketing-skills` | Maps keyword clusters to existing website assets and recommends reuse, improvement, consolidati... |
 | [`skills-knowledge-synthesis`](../../library/anthropics-knowledge-work/skills/skills-knowledge-synthesis) | ⚪ Reserve | `anthropics-knowledge-work` | Combines search results from multiple sources into coherent, deduplicated answers with source a... |
 | [`skills-logging`](../../library/codewithmukesh-dotnet-claude-kit/skills/skills-logging) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Observability overview and glue for .NET 10: how the pieces fit together, plus the cross-cuttin... |
 | [`skills-maintain-formal-verification-skill`](../../library/cursor-plugins/skills/skills-maintain-formal-verification-skill) | ⚪ Reserve | `cursor-plugins` | Bring a project's formal verification back in line with the code after the code changes: find t... |

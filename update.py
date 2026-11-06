@@ -32,6 +32,30 @@ if hasattr(sys.stdout, 'reconfigure'):
 
 agents_dir = os.path.dirname(os.path.abspath(__file__))
 repo_root = os.path.dirname(agents_dir)
+
+def _extra_workspaces():
+    """Optional extra workspaces chosen by the user (env var AGENTS_EXTRA_WORKSPACES or <repo>/workspaces.json). No hardcoded machine paths."""
+    extras = []
+    env = os.environ.get('AGENTS_EXTRA_WORKSPACES', '')
+    if env:
+        for part in re.split(r'[;' + re.escape(os.pathsep) + r']', env):
+            if part.strip():
+                extras.append(part.strip())
+    cfg = os.path.join(agents_dir, 'workspaces.json')
+    if os.path.exists(cfg):
+        try:
+            with open(cfg, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            for p in (data.get('extra_workspaces') or []):
+                if p and str(p).strip():
+                    extras.append(str(p).strip())
+        except Exception:
+            pass
+    out = []
+    for p in extras:
+        ep = os.path.abspath(os.path.expanduser(p))
+        out.append((os.path.basename(ep.rstrip("\\/")) or ep, ep))
+    return out
 skills_dir = os.path.join(agents_dir, 'skills')
 library_dir = os.path.join(agents_dir, 'library')
 upstreams_file = os.path.join(library_dir, 'upstreams.json')
@@ -451,9 +475,8 @@ def sync_active_skills(updated_repo_ids=None):
 
     workspaces = [
         ("Vault (.agents)", agents_dir),
-        ("Managment (.agents)", r"D:\Gravity\Managment\.agents"),
         ("Parent workspace (.agent)", os.path.join(os.path.dirname(agents_dir.rstrip("\\/")), ".agent"))
-    ]
+    ] + _extra_workspaces()
 
     updated_set = set(updated_repo_ids or [])
     lib_repo_list = sorted([
@@ -737,7 +760,7 @@ def rebuild_all_indexes(updated_repo_ids=None, force=False):
 def sync_lockfiles():
     print("\n[4/6] Synchronizing skills-lock.json across workspaces...", flush=True)
     now = datetime.now(timezone.utc).isoformat()
-    for ag_dir in [agents_dir, r'D:\Gravity\Managment\.agents']:
+    for ag_dir in [agents_dir] + [p for _, p in _extra_workspaces()]:
         s_dir = os.path.join(ag_dir, 'skills')
         lf = os.path.join(ag_dir, 'skills-lock.json')
         if not os.path.exists(s_dir):

@@ -12184,6 +12184,14 @@
     "path": "category/code-quality-refactoring/dotnet-aot-compat"
   },
   {
+    "id": "dotnet-breaking-changes",
+    "name": "dotnet-breaking-changes",
+    "category": "code-quality-refactoring",
+    "repository": "dotnet-skills",
+    "description": "Use before changing .NET/C# code whose callers you do not control: a NuGet library, or a repo with PublicAPI.Shipped/Unshipped.txt, ApiCompat, multiple TargetFrameworks, InternalsVisibleTo, or generated (.g.cs) partials. Green builds miss silent breaks from optional parameters, parameter names, sealing, const values, nullability, and #if. USE FOR: \"without breaking existing callers\"; adding a public method, overload, optional parameter, or interface member to a shipped library; renaming a public method or an internal helper a friend assembly uses; consolidating duplicated logic; changing a signature, nullability, default, or attribute; adding a target framework; RS0016/RS0017 or ApiCompat errors; \"is this PR breaking?\". For a rename, extract, or merge, also invoke csharp-refactoring. DO NOT USE FOR: an executable whose callers all live in one project; renaming a local variable or private member, even in a shipped library; formatting; framework/SDK/NuGet upgrades (use dotnet-upgrade).",
+    "path": "category/code-quality-refactoring/dotnet-breaking-changes"
+  },
+  {
     "id": "dotnet-pinvoke",
     "name": "dotnet-pinvoke",
     "category": "code-quality-refactoring",
@@ -35288,6 +35296,14 @@
     "path": "category/code-quality-refactoring/skills-crm-autopilot"
   },
   {
+    "id": "skills-csharp-refactoring",
+    "name": "skills-csharp-refactoring",
+    "category": "code-quality-refactoring",
+    "repository": "dotnet-skills",
+    "description": "Safely refactors C#/.NET code without changing behavior. USE FOR any request to refactor, rename, move, extract, inline, merge, consolidate, deduplicate, split, or modernize C# code, even a small extract, inline, or rename, or merging near-identical types; green builds miss drift in #if branches, generated partials, and reflection/config names. When a changed member is visible outside the assembly (PublicAPI.*.txt, InternalsVisibleTo, shipped package), also invoke dotnet-breaking-changes; local/private renames do not need it. Also use when a request calls a feature, bug fix, package/framework upgrade, or public nullability change a refactor and the behavior-changing part must be separated or declined. DO NOT USE FOR ordinary feature or bug fixes not presented as refactoring; standalone upgrades after reclassification (use dotnet-upgrade); adding tests; or formatting-only work.",
+    "path": "category/code-quality-refactoring/skills-csharp-refactoring"
+  },
+  {
     "id": "skills-dart-collect-coverage",
     "name": "skills-dart-collect-coverage",
     "category": "code-quality-refactoring",
@@ -35558,6 +35574,14 @@
     "repository": "cursor-plugins",
     "description": "Catch the user up on what changed in this chat since their last message, in plain words and small visuals. List every item waiting on them with what they need to decide it from the reply alone. Use for /ketchup.",
     "path": "category/code-quality-refactoring/skills-ketchup"
+  },
+  {
+    "id": "skills-keyword-mapping",
+    "name": "skills-keyword-mapping",
+    "category": "code-quality-refactoring",
+    "repository": "kostja94-marketing-skills",
+    "description": "Maps keyword clusters to existing website assets and recommends reuse, improvement, consolidation review or a new page.",
+    "path": "category/code-quality-refactoring/skills-keyword-mapping"
   },
   {
     "id": "skills-knowledge-synthesis",

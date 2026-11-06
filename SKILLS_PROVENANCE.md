@@ -1,7 +1,7 @@
 # 🏛️ Complete Repository Provenance & Upstream Registry
 
 > **Active Reserve Libraries**: 484 repositories  
-> **Total Skills in Reserve**: 27,115 skills  
+> **Total Skills in Reserve**: 27,127 skills  
 > **Source Registry**: [`library/upstreams.json`](library/upstreams.json)  
 > **Format Standard**: Pure isolated repositories (`['skills', 'README.md', 'skills_index.json']`), 0 `.git` directories.
 
@@ -140,7 +140,7 @@
 | `dokhacgiakhoa-agent-skills-4-vibe-coding-cli` | [dokhacgiakhoa-agent-skills-4-vibe-coding-cli](https://github.com/dokhacgiakhoa-agent-skills-4-vibe-coding-cli) | **1** | `python .agents/library/activate_skill.py activate agent-skills-4-vibe-coding-cli` |
 | `donchitos-claude-code-game-studios` | [Donchitos/Claude-Code-Game-Studios](https://github.com/Donchitos/Claude-Code-Game-Studios) | **75** | `python .agents/library/activate_skill.py activate adopt` |
 | `dontbesilent2025-dbskill` | [dontbesilent2025/dbskill](https://github.com/dontbesilent2025/dbskill) | **35** | `python .agents/library/activate_skill.py activate dbs` |
-| `dotnet-skills` | [dotnet/skills](https://github.com/dotnet/skills) | **114** | `python .agents/library/activate_skill.py activate agentic-workflows` |
+| `dotnet-skills` | [dotnet/skills](https://github.com/dotnet/skills) | **125** | `python .agents/library/activate_skill.py activate agentic-workflows` |
 | `dpearson2699-swift-ios-skills` | [dpearson2699/swift-ios-skills](https://github.com/dpearson2699/swift-ios-skills) | **86** | `python .agents/library/activate_skill.py activate accessorysetupkit` |
 | `dynatrace-dtctl` | [dynatrace-dtctl](https://github.com/dynatrace-dtctl) | **1** | `python .agents/library/activate_skill.py activate dtctl` |
 | `earthtojake-text-to-cad` | [earthtojake/text-to-cad](https://github.com/earthtojake/text-to-cad) | **13** | `python .agents/library/activate_skill.py activate bambu-labs` |
@@ -244,7 +244,7 @@
 | `kaomei-stickman-video-director` | [kaomei/stickman-video-director](https://github.com/kaomei/stickman-video-director) | **1** | `python .agents/library/activate_skill.py activate directing-stickman-videos` |
 | `kepano-obsidian-skills` | [kepano/obsidian-skills](https://github.com/kepano/obsidian-skills) | **6** | `python .agents/library/activate_skill.py activate defuddle` |
 | `kesslerio-attio-mcp-server` | [kesslerio-attio-mcp-server](https://github.com/kesslerio-attio-mcp-server) | **2** | `python .agents/library/activate_skill.py activate attio-mcp-usage` |
-| `kostja94-marketing-skills` | [kostja94/marketing-skills](https://github.com/kostja94/marketing-skills) | **247** | `python .agents/library/activate_skill.py activate 404` |
+| `kostja94-marketing-skills` | [kostja94/marketing-skills](https://github.com/kostja94/marketing-skills) | **248** | `python .agents/library/activate_skill.py activate 404` |
 | `langchain-ai-langchain-skills` | [langchain-ai/langchain-skills](https://github.com/langchain-ai/langchain-skills) | **22** | `python .agents/library/activate_skill.py activate deep-agents-core` |
 | `larksuite-cli` | [larksuite/cli](https://github.com/larksuite/cli) | **37** | `python .agents/library/activate_skill.py activate bad-skill` |
 | `latent-spaces-brag` | [latent-spaces/brag](https://github.com/latent-spaces/brag) | **2** | `python .agents/library/activate_skill.py activate brag` |

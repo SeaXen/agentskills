@@ -50,10 +50,10 @@ def resolve_agents_dir():
         return parent
     if os.path.exists(os.path.join(script_dir, 'library')):
         return script_dir
-    default_vault = "D:/Repo/.agents"
+    default_vault = parent  # repo root relative to this script — works wherever the repo is cloned
     if os.path.exists(os.path.join(default_vault, 'library')):
         return default_vault
-    for ws_cand in ["D:/Gravity/Managment/.agents", os.path.expanduser("~/.agents")]:
+    for ws_cand in [os.path.expanduser("~/.agents")]:
         if os.path.exists(os.path.join(ws_cand, 'library')):
             return ws_cand
     return default_vault
@@ -345,7 +345,7 @@ def generate_markdown_report(total_repos, in_vault, missing, min_installs, max_i
         inst = f"**{r.get('installs_str') or format_installs(r.get('installs', 0))}**"
         sk_cnt = str(r.get('skills_count', 1))
         if r.get('in_library'):
-            v_status = f"✅ [`library/{r['library_folder']}`](file:///D:/Repo/.agents/library/{r['library_folder']})"
+            v_status = f"✅ `library/{r['library_folder']}`"
         else:
             v_status = "❌ Missing"
         ssh_link = f"[skills.sh]({r['url']})"

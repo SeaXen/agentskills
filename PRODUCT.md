@@ -18,7 +18,7 @@ Zero-runtime external dependencies. Pure vanilla HTML5, custom design tokens in 
 
 ## Product Purpose
 
-The Antigravity Agent Skills Vault and companion web app Skill.Sea provide an ultra-fast, zero-dependency directory, leaderboard, and 1-click activation suite for curated AI Agent Skills. It indexes 27,060 skills discovered across 484 open GitHub repositories and organizes them into 38 distinct engineering disciplines. Success means zero-friction discovery and instant, offline-capable workspace activation with zero token bloat.
+The Antigravity Agent Skills Vault and companion web app Skill.Sea provide an ultra-fast, zero-dependency directory, leaderboard, and 1-click activation suite for curated AI Agent Skills. It indexes 27,072 skills discovered across 484 open GitHub repositories and organizes them into 38 distinct engineering disciplines. Success means zero-friction discovery and instant, offline-capable workspace activation with zero token bloat.
 
 ## Positioning
 
@@ -30,7 +30,7 @@ Unlike bloated registries or monolithic skill packs that force thousands of inst
 
 ## Operating Context
 
-- **Local Development Workbench**: Served on `http://127.0.0.1:8080` inside `D:/Repo/.agents/Skill.Sea`, mounted directly alongside the `.agents/library/` master repository and active `.agents/skills/` directory.
+- **Local Development Workbench**: Served on `http://127.0.0.1:8080` inside `Skill.Sea/` (in this repo), mounted directly alongside the `library/` master repository and active `skills/` directory.
 - **Production Edge Endpoints**: Live on **[https://skill.drsea.top](https://skill.drsea.top)** (Mirrors: [https://skill.drsea.eu.org](https://skill.drsea.eu.org) & [https://skill-sea.drsea.workers.dev](https://skill-sea.drsea.workers.dev)), streaming master datasets from Cloudflare R2 bucket `skill-sea-vault` with HTTP ETags and 304 conditional request caching.
 - **Git Hook Automation**: Automatically synchronized via Git hooks (`.git/hooks/pre-commit` and `.git/hooks/pre-push`), ensuring datasets (`catalog.json`, `categories.json`, `repositories.json`, `stats.json`) stay synchronized on every commit and push.
 - **Dual Display Modes**: Seamless switching between light (warm paper `#f9f9f7`) and dark (deep graphite `#0b0b0b`) themes.
@@ -40,7 +40,7 @@ Unlike bloated registries or monolithic skill packs that force thousands of inst
 
 - **Confirmed Functionality**:
   - Full-text instant search across names, descriptions, categories, and command snippets with keyboard shortcut (`/`).
-  - Edge-to-edge telemetry metrics cards showing real-time synchronized counts (27,060 Skills, 38 Categories, 484 Repositories, 131 Hot-Set).
+  - Edge-to-edge telemetry metrics cards showing real-time synchronized counts (27,072 Skills, 38 Categories, 484 Repositories, 131 Hot-Set).
   - Horizontal scrolling category rail with colored badges and item counts.
   - 1-Click install mode switcher supporting:
     1. Universal NPX (`npx skills add <url>`)
@@ -62,10 +62,10 @@ Unlike bloated registries or monolithic skill packs that force thousands of inst
 
 ## Evidence on Hand
 
-- **Master Catalog Data**: `Skill.Sea/data/catalog.json` (26.25 MB, 21,737 validated items).
+- **Master Catalog Data**: `Skill.Sea/data/catalog.json` (26.27 MB, 21,749 validated items).
 - **Taxonomy Categories**: `Skill.Sea/data/categories.json` (38 domain definitions).
 - **Origin Repositories**: `Skill.Sea/data/repositories.json` (2.41 MB, 485 indexed repositories).
-- **Telemetry Statistics**: `Skill.Sea/data/stats.json` (27,060 skills, 38 categories, 484 repos, 131 hot-set).
+- **Telemetry Statistics**: `Skill.Sea/data/stats.json` (27,072 skills, 38 categories, 484 repos, 131 hot-set).
 - **Cloudflare R2 Bucket**: `skill-sea-vault` with active Wrangler OAuth configuration.
 - **Physical Skill Files**: Canonical source directories under `.agents/skills/` and `.agents/library/`.
 

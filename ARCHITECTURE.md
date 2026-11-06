@@ -10,7 +10,7 @@ Antigravity Kit is a modular system consisting of:
 
 - **20 Specialist Agents** - Role-based AI personas
 - **131 Active Hot-Set Skills** - Curated daily-driver engineering skills - Domain-specific knowledge modules
-- **27,060 Library Reserve Skills** - Offline capability archive across 484 repositories (`.agent/library/`)
+- **27,072 Library Reserve Skills** - Offline capability archive across 484 repositories (`.agent/library/`)
 - **18 Workflows** - Slash command procedures
 
 ---
@@ -22,8 +22,8 @@ Antigravity Kit is a modular system consisting of:
 ├── ARCHITECTURE.md          # This file
 ├── agents/                  # 20 Specialist Agents
 ├── skills/                  # 131 Active Hot-Set Skills
-├── category/                # 38 Granular Functional Category Directories (21,738 real skills)
-├── library/                 # 27,060 Offline Reserve Skills (484 repositories) & Activator
+├── category/                # 38 Granular Functional Category Directories (21,750 real skills)
+├── library/                 # 27,072 Offline Reserve Skills (484 repositories) & Activator
 ├── workflows/               # 18 Slash Commands
 ├── rules/                   # Global Rules
 └── scripts/                 # Master Validation Scripts
@@ -293,7 +293,7 @@ Slash command procedures. Invoke with `/command`.
 | `/deploy`        | Safe production deployment procedures & pre-flight checks                   |
 | `/enhance`       | Iterative feature updates on existing codebases                             |
 | `/impeccable`    | Anti-cliché UI polish, typography, and frontend design review                |
-| `/library`       | Search, inspect, and activate from the 27,060 offline reserve skills across 484 repositories          |
+| `/library`       | Search, inspect, and activate from the 27,072 offline reserve skills across 484 repositories          |
 | `/orchestrate`   | Multi-agent perspective coordination & workload balancing                   |
 | `/owl`           | Decoupled deep investigator & verified coder pipeline                       |
 | `/plan`          | Structured roadmap & task dependency planning (no code)                     |
@@ -407,14 +407,14 @@ For details, see [scripts/README.md](scripts/README.md)
 ## 🎯 Active Curated Skills vs Full Library
 
 To maintain optimal context performance and adhere strictly to AI system context budgets without prompt bloat or skill exclusion:
-- **Active Hot Set (`D:\Repo\.agent\skills`)**: **89 curated high-signal skills** (Core standards, Next.js, Cloudflare, testing, UI craft, databases, security, academic research).
-- **Full Offline Store (`D:\Repo\.agents\skills`)**: **594 total skills** preserved permanently on disk.
-- **Skill Activation on Demand**: Any skill from the 594 library can be activated into `.agent/skills` anytime via `python .agents/library/activate_skill.py <skill-name>` or `/library`.
+- **Active Hot Set (`../.agent/skills/`)**: **89 curated high-signal skills** (Core standards, Next.js, Cloudflare, testing, UI craft, databases, security, academic research).
+- **Full Offline Store (`skills/` in this repo)**: **594 total skills** preserved permanently on disk.
+- **Skill Activation on Demand**: Any skill from the 594 library can be activated into `.agent/skills` anytime via `python library/activate_skill.py <skill-name>` or `/library`.
 
 
 ### 📚 Skills Provenance & Upstream Registry
 
 All 594 installed skills and their upstream origins, source repositories, and update commands are systematically cataloged in:
-- **Registry Document**: [`SKILLS_PROVENANCE.md`](file:///D:/Repo/.agents/SKILLS_PROVENANCE.md)
-- **JSON Lockfiles**: [`skills-lock.json`](file:///D:/Repo/.agents/skills-lock.json)
+- **Registry Document**: [`SKILLS_PROVENANCE.md`](SKILLS_PROVENANCE.md)
+- **JSON Lockfiles**: [`skills-lock.json`](skills-lock.json)
 - Covers 32 distinct source repositories (e.g. `anthropics/knowledge-work-plugins`, `magentosh/superpowers`, `emilkowalski/skills`, `vercel-labs/agent-skills`, `cloudflare/skills`, `addyosmani/agent-skills`, etc.).

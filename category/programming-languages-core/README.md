@@ -1,7 +1,7 @@
 # 📐 Programming Languages & Type Systems
 
 > **Category**: `programming-languages-core`  
-> **Total Curated Skills**: 400 skills  
+> **Total Curated Skills**: 401 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -361,6 +361,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`sign-in-with-google-web`](../../library/google-skills/skills/sign-in-with-google-web) | ⚪ Reserve | `google-skills` | Implement, configure, and secure Sign In With Google (SiwG) using Google Identity Services (GIS... |
 | [`skills-azure-messaging`](../../library/microsoft-azure-skills/skills/skills-azure-messaging) | ⚪ Reserve | `microsoft-azure-skills` | Troubleshoot and resolve issues with Azure Messaging SDKs for Event Hubs and Service Bus. Cover... |
 | [`skills-azure-upgrade`](../../library/microsoft-azure-skills/skills/skills-azure-upgrade) | ⚪ Reserve | `microsoft-azure-skills` | Assess and upgrade Azure workloads between plans, tiers, or SKUs, or modernize Azure SDK depend... |
+| [`skills-csharp-expert`](../../library/dotnet-skills/skills/skills-csharp-expert) | ⚪ Reserve | `dotnet-skills` | Route C# and .NET requests to the exact installed specialist or smallest dotnet/skills marketpl... |
 | [`skills-principle-type-system-discipline`](../../library/cursor-plugins/skills/skills-principle-type-system-discipline) | ⚪ Reserve | `cursor-plugins` | Apply when designing types, reviewing a function signature, or writing code in any statically-t... |
 | [`skills-typescript-best-practices`](../../library/cursor-plugins/skills/skills-typescript-best-practices) | ⚪ Reserve | `cursor-plugins` | TypeScript best practices. Use when reading or editing any .ts or .tsx file. |
 | [`slack-bot-builder`](../../library/antigravity-awesome-skills/skills/slack-bot-builder) | ⚪ Reserve | `antigravity-awesome-skills` | Build Slack apps using the Bolt framework across Python, JavaScript, and Java. Covers Block Kit... |

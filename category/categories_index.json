@@ -1,11 +1,11 @@
 {
   "version": "2.0.0",
-  "total_unique_skills": 21738,
+  "total_unique_skills": 21750,
   "total_categories": 38,
   "categories": {
     "code-quality-refactoring": {
       "title": "🧹 Code Quality, Refactoring & Clean Code",
-      "count": 5289,
+      "count": 5292,
       "skills": [
         {
           "name": "-21risk-automation",
@@ -9144,6 +9144,12 @@
           "is_active": false,
           "repo": "dotnet-skills",
           "description": "Make .NET projects compatible with Native AOT and trimming by systematically resolving IL trim/AOT analyzer warnings. USE FOR: making projects AOT-compatible, fixing trimming warnings, resolving IL warnings (IL2026, IL2070, IL2067, IL2072, IL3050), adding DynamicallyAccessedMembers annotations, enabling IsAotCompatible. DO NOT USE FOR: publishing native AOT binaries, optimizing binary size, replacing reflection-heavy libraries with alternatives. INVOKES: no tools — pure knowledge skill."
+        },
+        {
+          "name": "dotnet-breaking-changes",
+          "is_active": false,
+          "repo": "dotnet-skills",
+          "description": "Use before changing .NET/C# code whose callers you do not control: a NuGet library, or a repo with PublicAPI.Shipped/Unshipped.txt, ApiCompat, multiple TargetFrameworks, InternalsVisibleTo, or generated (.g.cs) partials. Green builds miss silent breaks from optional parameters, parameter names, sealing, const values, nullability, and #if. USE FOR: \"without breaking existing callers\"; adding a public method, overload, optional parameter, or interface member to a shipped library; renaming a public method or an internal helper a friend assembly uses; consolidating duplicated logic; changing a signature, nullability, default, or attribute; adding a target framework; RS0016/RS0017 or ApiCompat errors; \"is this PR breaking?\". For a rename, extract, or merge, also invoke csharp-refactoring. DO NOT USE FOR: an executable whose callers all live in one project; renaming a local variable or private member, even in a shipped library; formatting; framework/SDK/NuGet upgrades (use dotnet-upgrade)."
         },
         {
           "name": "dotnet-pinvoke",
@@ -26474,6 +26480,12 @@
           "description": "Keeps the CRM current without the owner ever opening it. Creates and updates contacts and deals from email, calendar, and call transcripts; logs activity automatically; drafts follow-ups on deals that have gone quiet; and maintains a next-step queue so nothing sits unowned. Runs on demand or on a schedule, includes a hygiene sweep for duplicates and stale records, and builds a lightweight CRM in a spreadsheet for owners who don't have one. Use this whenever CRM data or pipeline hygiene comes up — including phrasings like \"update my CRM,\" \"log this call,\" \"clean up HubSpot,\" \"clean up Salesforce,\" \"add this to the deal,\" \"turn my meeting into a deal note,\" \"which deals have gone quiet,\" \"I hate data entry,\" or \"my pipeline is out of date.\" Reach for it when the owner describes a call or meeting worth recording, even without naming the CRM."
         },
         {
+          "name": "skills-csharp-refactoring",
+          "is_active": false,
+          "repo": "dotnet-skills",
+          "description": "Safely refactors C#/.NET code without changing behavior. USE FOR any request to refactor, rename, move, extract, inline, merge, consolidate, deduplicate, split, or modernize C# code, even a small extract, inline, or rename, or merging near-identical types; green builds miss drift in #if branches, generated partials, and reflection/config names. When a changed member is visible outside the assembly (PublicAPI.*.txt, InternalsVisibleTo, shipped package), also invoke dotnet-breaking-changes; local/private renames do not need it. Also use when a request calls a feature, bug fix, package/framework upgrade, or public nullability change a refactor and the behavior-changing part must be separated or declined. DO NOT USE FOR ordinary feature or bug fixes not presented as refactoring; standalone upgrades after reclassification (use dotnet-upgrade); adding tests; or formatting-only work."
+        },
+        {
           "name": "skills-dart-collect-coverage",
           "is_active": false,
           "repo": "dart-lang-skills",
@@ -26676,6 +26688,12 @@
           "is_active": false,
           "repo": "cursor-plugins",
           "description": "Catch the user up on what changed in this chat since their last message, in plain words and small visuals. List every item waiting on them with what they need to decide it from the reply alone. Use for /ketchup."
+        },
+        {
+          "name": "skills-keyword-mapping",
+          "is_active": false,
+          "repo": "kostja94-marketing-skills",
+          "description": "Maps keyword clusters to existing website assets and recommends reuse, improvement, consolidation review or a new page."
         },
         {
           "name": "skills-knowledge-synthesis",
@@ -41993,7 +42011,7 @@
     },
     "programming-languages-core": {
       "title": "📐 Programming Languages & Type Systems",
-      "count": 400,
+      "count": 401,
       "skills": [
         {
           "name": "ab-test-store-listing",
@@ -44046,6 +44064,12 @@
           "is_active": false,
           "repo": "microsoft-azure-skills",
           "description": "Assess and upgrade Azure workloads between plans, tiers, or SKUs, or modernize Azure SDK dependencies in source code. WHEN: upgrade Consumption to Flex Consumption, upgrade Azure Functions plan, change hosting plan, function app SKU, migrate App Service to Container Apps, modernize legacy Azure Java SDKs (com.microsoft.azure to com.azure), migrate Azure Cache for Redis (ACR/ACRE) to Azure Managed Redis (AMR)."
+        },
+        {
+          "name": "skills-csharp-expert",
+          "is_active": false,
+          "repo": "dotnet-skills",
+          "description": "Route C# and .NET requests to the exact installed specialist or smallest dotnet/skills marketplace plugin. USE FOR: \"which specialist should own this\" or \"how do I add the skill\" requests involving ASP.NET Core endpoints, Blazor, MAUI binding, Windows Forms specialist selection or installation, EF Core queries, test framework migration (NUnit, xUnit, MSTest), framework migration, runtime CPU/allocation evidence, file-based C#, editor/compiler defects, a surviving MSBuild `.binlog`, or a plugin missing from `/skills`; also use for C# semantics when no narrower specialist exists, including \"do I need another specialist?\" questions. DO NOT USE FOR: requests that already name the exact installed specialist to invoke, or work unrelated to C# or .NET."
         },
         {
           "name": "skills-principle-type-system-discipline",
@@ -46205,7 +46229,7 @@
     },
     "frontend-ui-components": {
       "title": "🎨 Frontend Components & Design Systems",
-      "count": 1976,
+      "count": 1980,
       "skills": [
         {
           "name": ".curated",
@@ -50016,6 +50040,12 @@
           "is_active": false,
           "repo": "sickn33-agentic-awesome-skills",
           "description": "Use when an owner explicitly asks for a cofounder or project partner, or explicitly says they need a complementary builder, operator, go-to-market partner, or scaling capability. Assess and publish only the agent's own owner, then rank only approved own-owner profiles."
+        },
+        {
+          "name": "find-repeated-work-within-one-build",
+          "is_active": false,
+          "repo": "dotnet-skills",
+          "description": "Use ONLY for auditing executed-task counts or batching/hoisting costs within ONE MSBuild invocation: per-project Exec, duplicate dependency builds, per-item generators, run-once races. NEVER load for evaluation-only global-property variants with once-only target/task execution, idle-node/serial-chain investigations, second/unchanged builds, restores across commands, required-variant bin/obj collisions or unranked slowness. Do not load to check scope or replace an unavailable specialist; answer directly."
         },
         {
           "name": "fingerprint-failure-triage",
@@ -55820,6 +55850,24 @@
           "description": "This skill should be used when the user wants to \"package an MCP server\", \"bundle an MCP\", \"make an MCPB\", \"ship a local MCP server\", \"distribute a local MCP\", discusses \".mcpb files\", mentions bundling a Node or Python runtime with their MCP server, or needs an MCP server that interacts with the local filesystem, desktop apps, or OS and must be installable without the user having Node/Python set up."
         },
         {
+          "name": "skills-build-perf-baseline",
+          "is_active": false,
+          "repo": "dotnet-skills",
+          "description": "Establish MSBuild/.NET baselines before optimizing. USE FOR: unranked slow builds; cold/warm/incremental/no-op measurements; before/after comparisons; CI caching; static graph, artifacts output, dependency graph trimming. DO NOT USE FOR: measured bottlenecks (build-perf-diagnostics), known repeated restores (eliminate-redundant-restores), within-build duplicate calls (find-repeated-work-within-one-build), non-MSBuild builds."
+        },
+        {
+          "name": "skills-build-perf-diagnostics",
+          "is_active": false,
+          "repo": "dotnet-skills",
+          "description": "Diagnose MSBuild bottlenecks from binlog timelines and Target/Task Performance Summaries after baseline measurements. USE FOR: unknown build slowness, RAR >5s, analyzers >30% of Csc, a target >50% of build, node utilization below 80%, excessive Copy, restore overhead. DO NOT USE FOR: within-build duplicates (find-repeated-work-within-one-build), known repeated restores (eliminate-redundant-restores), initial baselines (build-perf-baseline), incremental rebuilds (incremental-build), parallelism tuning (build-parallelism), non-MSBuild builds."
+        },
+        {
+          "name": "skills-check-bin-obj-clash",
+          "is_active": false,
+          "repo": "dotnet-skills",
+          "description": "Find OutputPath/IntermediateOutputPath collisions between distinct projects or required property/TFM variants. USE FOR: missing/overwritten bin/obj or project.assets.json, parallel 'Cannot create a file when that file already exists' or 'file is being used by another process', shared paths, missing AppendTargetFrameworkToOutputPath, PublishReadyToRun, SetTargetFramework on single-target references. DO NOT USE FOR: duplicates or invariant-generation races (find-repeated-work-within-one-build), OS locking, single-instance builds, non-MSBuild systems."
+        },
+        {
           "name": "skills-clerk-astro-patterns",
           "is_active": false,
           "repo": "clerk-skills",
@@ -60791,7 +60839,7 @@
     },
     "backend-api-design": {
       "title": "⚡ Backend Systems, REST & Microservices",
-      "count": 1522,
+      "count": 1523,
       "skills": [
         {
           "name": "0g-compute",
@@ -68588,6 +68636,12 @@
           "description": "Help users install and configure the mirrord Operator for team/enterprise environments. Use when users ask about operator setup, Helm installation, cloud API key or license configuration, air-gapped/offline licensing, enabling features (queue splitting, DB branching, preview environments, multi-cluster), internal registries, OpenShift/GKE Autopilot, RBAC, or multi-user mirrord deployments. Also use when an AI agent hits a Team or Enterprise feature on a cluster with no license and needs to offer the user a trial (agent-started trial; the trial is Enterprise tier)."
         },
         {
+          "name": "skills-msbuild",
+          "is_active": false,
+          "repo": "dotnet-skills",
+          "description": "Use before MSBuild custom-target or incremental-generation repairs, XML/import/hook review, .binlog capture/replay, or assessing supported/unsupported build-speedup claims and controlled timings, even without a checkout. For MSBuild authoring itself, activate before reviewing/editing .proj/.props/.targets/.csproj/.fsproj/.vbproj or Directory.Build files, including no-change import reviews. Framework/API/.NET/ASP.NET upgrade plans and working non-SDK-to-SDK/packages.config conversions are migrations, even if they mention .csproj/NuGet: DO NOT activate. A failing assertion after a successful build is code/test debugging: DO NOT activate. Check Import/Exists, required and NuGet build/buildTransitive/nuspec imports, conditions, Inputs/Outputs, stale outputs and incorrect skips. Build checks use copies; source inputs stay read-only. Diagnose failed dotnet build/restore/pack/publish or slow evaluation/compilation/copying. Exclude SDK installation alone, C# refactoring, runtime CPU profiling and non-MSBuild builds."
+        },
+        {
           "name": "skills-nature-downloader",
           "is_active": false,
           "repo": "yuan1z0825-nature-skills",
@@ -73619,7 +73673,7 @@
     },
     "cloudflare-edge": {
       "title": "☁️ Cloudflare Workers, Pages & Edge",
-      "count": 141,
+      "count": 142,
       "skills": [
         {
           "name": "agents-sdk",
@@ -74292,6 +74346,12 @@
           "is_active": false,
           "repo": "tradermonty-claude-trading-skills",
           "description": "Record and analyze post-trade outcomes for signals generated by edge pipeline and other skills. Track false positives, missed opportunities, and regime mismatches. Feed results back to edge-signal-aggregator weights and skill improvement backlog."
+        },
+        {
+          "name": "skills-build-parallelism",
+          "is_active": false,
+          "repo": "dotnet-skills",
+          "description": "Analyze MSBuild scheduling across at least two distinct projects in a solution/filter/Build.proj. USE FOR: measured idle workers, -m not scaling, serial ProjectReference critical paths, graph builds, MSBuild Projects-list scheduling. DO NOT USE FOR: duplicate executions or invariant-generation races (find-repeated-work-within-one-build), non-MSBuild systems."
         },
         {
           "name": "skills-code-review",
@@ -89039,7 +89099,7 @@
     },
     "prompt-llm-engineering": {
       "title": "💬 Prompt Engineering, LLMs & RAG",
-      "count": 561,
+      "count": 563,
       "skills": [
         {
           "name": "adhx",
@@ -91986,6 +92046,18 @@
           "is_active": false,
           "repo": "anthropics-claude-plugins-official",
           "description": "Set up the Discord channel — save the bot token and review access policy. Use when the user pastes a Discord bot token, asks to configure Discord, asks \"how do I set this up\" or \"who can reach me,\" or wants to check channel status."
+        },
+        {
+          "name": "skills-eval-performance",
+          "is_active": false,
+          "repo": "dotnet-skills",
+          "description": "Diagnose measured MSBuild evaluation cost before targets run. USE FOR: evaluation-only repeats under global-property variants, expensive node_modules/.git/bin/obj globs, import depth >20, /pp >10K lines, file-I/O property functions, five-phase evaluation. DO NOT USE FOR: duplicate executions (find-repeated-work-within-one-build), execution bottlenecks (build-perf-diagnostics), incremental rebuilds (incremental-build), non-MSBuild systems."
+        },
+        {
+          "name": "skills-incremental-build",
+          "is_active": false,
+          "repo": "dotnet-skills",
+          "description": "Fix MSBuild incremental/no-op builds: 'nothing changed but it rebuilds anyway'. USE FOR: targets re-executing on subsequent builds, missing Inputs/Outputs or FileWrites, volatile output paths, untracked writes, glob changes, Visual Studio Fast Up-to-Date Check (FUTDC); 'Building target completely' vs 'Skipping target' in binlog. DO NOT USE FOR: within-build duplicates (find-repeated-work-within-one-build), first-build slowness (build-perf-baseline), parallelism (build-parallelism), slow evaluation (eval-performance), non-MSBuild systems."
         },
         {
           "name": "skills-okx-dex-market",
