@@ -1,0 +1,297 @@
+# Aspire Skills
+
+Aspire Skills is a plugin, skill pack, and extension pack for AI coding agents working on Aspire distributed applications.
+
+It helps agents recognize Aspire workspaces, use the Aspire CLI correctly, route common work to focused skills instead of ad hoc `dotnet`, `curl`, Docker, or shell workflows, and surface focused visual tools for Aspire-specific tasks.
+
+## What's included
+
+### Skills
+
+| Skill | Purpose |
+|-------|---------|
+| `aspire` | Top-level router for Aspire projects |
+| `aspire-init` | Creates a new Aspire project or adds an Aspire skeleton to an existing repo |
+| `aspireify` | Wires a new AppHost or extends an existing application graph |
+| `aspire-project-v2-migration` | Assesses and migrates eligible Aspire 13.6+ legacy project resources to Project v2 after explicit edit approval |
+| `aspire-orchestration` | Starts, stops, waits for, and manages Aspire resources |
+| `aspire-deployment` | Publishes, deploys, and tears down Aspire apps |
+| `aspire-monitoring` | Routes logs, traces, dashboard, telemetry, and diagnostics work |
+| `aspire-terminals` | Authors resource/dock/dialog/headless terminals, reuses REPLs, and automates terminal input and VHS-subset tapes |
+
+`aspire-terminals` covers Aspire 13.5 resource terminals and capability-gated
+13.6 terminal services, prompts, REPLs and tape playback. Its
+[tape reference](skills/aspire-terminals/references/tapes.md) documents Aspire's
+supported VHS syntax and plain-text output formats, not all upstream VHS features.
+
+### Extensions
+
+| Extension | Purpose |
+|-----------|---------|
+| `aspire-doctor` | Visualizes `aspire doctor` environment checks, suggested fixes, and detected CLI installations |
+| `aspireify` | Presents Aspireify findings and the proposed resource plan for confirmation before AppHost edits |
+| `aspire-apphosts` | Workspace and Global AppHost workbench |
+
+## Install
+
+Choose the path that matches your agent host.
+
+### Aspire CLI
+
+Aspire's first-party agent setup installs Aspire skill files and extension files into detected agent environments. Aspire MCP server configuration is separate and opt-in.
+
+- In Aspire 13.6 and later, the agent setup that `aspire new` and `aspire init` run preselects the recommended repository-local skills, including `aspireify`. It doesn't offer MCP configuration.
+- Standalone `aspire agent init` keeps an MCP choice that's off by default. It doesn't configure MCP in non-interactive runs unless you pass `--mcp`.
+
+**Create a new Aspire app** and opt into agent guidance when prompted:
+
+```bash
+aspire new
+```
+
+**Add Aspire to an existing repository** and opt into agent guidance when prompted:
+
+```bash
+aspire init
+```
+
+**Add, update, or reconfigure agent guidance** in an existing Aspire workspace:
+
+```bash
+aspire agent init
+```
+
+**Configure the Aspire MCP server** only when you want it (Aspire 13.6+):
+
+```bash
+aspire agent init --mcp
+```
+
+In Aspire 13.5, run `aspire agent init` interactively and select the MCP server option; 13.5 has no `--mcp` flag.
+
+The generated skills bundle selects `aspire-terminals` by default alongside
+`aspire`, `aspireify` and `aspire-deployment`. Shipping this in Aspire also requires
+refreshing the CLI's embedded `aspire-skills` archive and metadata in
+`microsoft/aspire`, and aligning `AspireSkillsInstaller` with the published bundle
+version. Repository changes alone do not update an installed CLI's embedded skills;
+verify `aspire agent init` selection with the refreshed CLI before release.
+
+### GitHub Copilot app
+
+The GitHub Copilot app plugin installs Aspire skills and canvas extensions for
+the current user.
+
+**Prerequisites:**
+
+- [GitHub Copilot app](https://gh.io/app) installed.
+- A GitHub Copilot subscription (paid or free).
+
+**Install the plugin:**
+
+1. Click [this link](https://github.com/copilot/app/launch?entry_point=aspire_skills_docs&open=ghapp%3A%2F%2Fplugins%2Fmarketplace%2Fadd%3Fsource%3Dmicrosoft%2Faspire-skills)
+   to automatically open the **Settings** > **Plugins** window in the GitHub
+   Copilot app.
+2. In the **Add plugin marketplace?** dialog, select **Allow**.
+3. The **Plugins** window opens with the `microsoft/aspire-skills` marketplace.
+   Select **Add marketplace**.
+4. Expand the `aspire-skills` entry and select **Install** on the `aspire`
+   plugin.
+
+### GitHub Copilot CLI
+
+Start Copilot CLI with `copilot`, then run the following commands inside it.
+
+**Add the marketplace** (first time only):
+
+```text
+/plugin marketplace add microsoft/aspire-skills
+```
+
+**Install the plugin:**
+
+```text
+/plugin install aspire@aspire-skills
+```
+
+**Update the plugin:**
+
+```text
+/plugin update aspire@aspire-skills
+```
+
+### Claude Code
+
+Start Claude Code with `claude`, then run the following commands inside it.
+
+**Add the marketplace** (first time only):
+
+```text
+/plugin marketplace add microsoft/aspire-skills
+```
+
+**Install the plugin:**
+
+```text
+/plugin install aspire@aspire-skills
+```
+
+**Update the plugin:**
+
+```text
+/plugin update aspire@aspire-skills
+```
+
+### Gemini CLI
+
+**Install the extension:**
+
+```bash
+gemini extensions install https://github.com/microsoft/aspire-skills
+```
+
+### Cursor CLI
+
+**Install the skills:**
+
+```bash
+mkdir -p ~/.cursor/skills
+git clone https://github.com/microsoft/aspire-skills ~/.cursor/skills/aspire-skills
+```
+
+**Start Cursor CLI:**
+
+```bash
+agent
+```
+
+### Codex CLI
+
+**Add the marketplace** (first time only):
+
+```bash
+codex plugin marketplace add microsoft/aspire-skills
+```
+
+**Install the plugin:**
+
+Start Codex with `codex`, run `/plugins`, and install `aspire` from the
+`aspire-skills` marketplace.
+
+### OpenCode
+
+**Install using [APM](https://github.com/microsoft/apm), then start OpenCode:**
+
+```bash
+apm install microsoft/aspire-skills
+opencode
+```
+
+#### Skill catalogs
+
+As an alternative to APM, configure OpenCode to load the skills directly from
+an HTTP catalog. Add the configuration for your OpenCode version to
+`opencode.json` or `opencode.jsonc`, preserving any existing settings.
+
+**OpenCode V2:**
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "skills": [
+    "https://raw.githubusercontent.com/microsoft/aspire-skills/main/opencode/v2/"
+  ]
+}
+```
+
+**OpenCode V1:**
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "skills": {
+    "urls": [
+      "https://raw.githubusercontent.com/microsoft/aspire-skills/main/opencode/v1/"
+    ]
+  }
+}
+```
+
+See OpenCode's [skill sources documentation](https://opencode.ai/v2/docs/skills#sources)
+for configuration guidance.
+
+### Ollama + Copilot CLI
+
+**Launch Copilot with Ollama:**
+
+```bash
+ollama launch copilot
+```
+
+In the Copilot session that opens, run the `/plugin` commands from
+[GitHub Copilot CLI](#github-copilot-cli) above to add the marketplace and install
+or update `aspire`.
+
+### skills.sh via NPX
+
+Use the Skills-compatible installer when your agent host supports skills.sh-managed skill locations.
+
+**Install the skills:**
+
+```bash
+npx skills add microsoft/aspire-skills
+```
+
+For hosts that need an explicit skills directory and target agent, install from the `skills/` folder:
+
+```bash
+npx skills add https://github.com/microsoft/aspire-skills/tree/main/skills \
+  -a github-copilot -g -y
+```
+
+In that command, `-a github-copilot` selects the target agent, `-g` installs globally, and `-y` accepts prompts.
+
+## Repository layout
+
+| Path | Purpose |
+|------|---------|
+| `skills/` | Source skill files, references, and evals |
+| `opencode/` | Generated OpenCode V1 and V2 skill catalogs |
+| `docs/` | Documentation |
+| `extensions/` | Source GitHub Copilot app canvas extensions |
+| `.plugin/`, `.claude-plugin/`, `.cursor-plugin/` | Plugin metadata for marketplaces |
+| `.github/plugins/aspire-skills/` | Published plugin mirror |
+| `evals/` | Shared evaluation fixtures and helpers |
+
+Aspire CLI owns agent telemetry hooks and their tests in `microsoft/aspire`.
+The plugins do not register telemetry hooks.
+
+## Development
+
+Regenerate the OpenCode catalogs after changing shipped skills, references, or
+assets, and commit the output with the source changes:
+
+```bash
+npm run catalog
+npm run catalog:check
+```
+
+The catalog check verifies that the committed V1 and V2 catalogs match the
+committed skill source, including file lists and SHA-512 content versions.
+
+### Publishing releases
+
+Merging a same-repository `release/<version>` PR into `main` runs
+[the publisher](.github/workflows/publish.yml). It tags the exact merged commit,
+copies the approved changelog notes into a source-only GitHub release, and uploads
+no generated archives. It uses `GITHUB_TOKEN`, not a repo bot or stored personal
+token. Reruns preserve the tag's commit and notes.
+See [the development guide](docs/development.md) for the release flow.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+See the [development guide](docs/development.md) for local development.
+
+## License
+
+[MIT](LICENSE)

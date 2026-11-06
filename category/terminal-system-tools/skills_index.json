@@ -232,6 +232,14 @@
     "path": "category/terminal-system-tools/apple-container"
   },
   {
+    "id": "applescript",
+    "name": "applescript",
+    "category": "terminal-system-tools",
+    "repository": "martinholovsky-claude-skills-generator",
+    "description": "Expert in AppleScript and JavaScript for Automation (JXA) for macOS system scripting. Specializes in secure script execution, application automation, and system integration. HIGH-RISK skill due to shell command execution and system-wide control capabilities.",
+    "path": "category/terminal-system-tools/applescript"
+  },
+  {
     "id": "applying-a-permission-policy",
     "name": "applying-a-permission-policy",
     "category": "terminal-system-tools",
@@ -254,6 +262,38 @@
     "repository": "rorkai-app-store-connect-cli-skills",
     "description": "Guidance for using asc cli in this repo (flags, output formats, pagination, auth, and discovery). Use when asked to run or design asc commands or interact with App Store Connect via the CLI.",
     "path": "category/terminal-system-tools/asc-cli-usage"
+  },
+  {
+    "id": "ascii-backdrop",
+    "name": "ascii-backdrop",
+    "category": "terminal-system-tools",
+    "repository": "majiayu000-spellbook",
+    "description": "Turn any subject into an animated ASCII backdrop behind a UI, like a dark prompt page with jellyfish drawn in drifting characters, or a swarm of colour-tile bodies that veer away from the cursor. The subject is open-ended: creatures, objects, particles, smoke, a word or logo, an image or video, a per-pixel field, a shaded 3D solid, or your own canvas draw function. Six print modes can be mixed: brightness glyphs, edge-following glyphs, shape-matched glyphs, braille dots, ordered-dither dots and colour tiles; plus cursor glow, click ripples, a CRT terminal finish, and two page helpers (text decode and image-to-ASCII dissolve). Ships a dependency-free JS engine with HTML and React wiring. Use when the user asks for an ASCII background, ASCII art animation, glyph or braille backdrop, text scramble/decode, or an ASCII image reveal, or says 'ASCII \u80cc\u666f' / '\u5b57\u7b26\u753b\u52a8\u6548'.",
+    "path": "category/terminal-system-tools/ascii-backdrop"
+  },
+  {
+    "id": "aspire-monitoring",
+    "name": "aspire-monitoring",
+    "category": "terminal-system-tools",
+    "repository": "microsoft-aspire-skills",
+    "description": "**ANALYSIS SKILL** - Observe Aspire apps: logs, traces, metrics, resource state, telemetry export, browser telemetry, and the standalone dashboard. Routes between local Aspire CLI, AKS workload diagnostics, and deployed Azure resource health. USE FOR: aspire logs, aspire otel logs, aspire otel traces, aspire otel spans, aspire describe, aspire ps, aspire export, aspire dashboard run, describe --include-hidden, browser logs in dashboard, DevTunnel URLs, WithBrowserLogs, App Insights query, AKS pod logs, container app logs. DO NOT USE FOR: start/stop/wait (use aspire-orchestration), deploy/publish/destroy (use aspire-deployment), AppHost code edits like WithBrowserLogs() (use aspireify), Azure provisioning (use azure-prepare), terminal authoring/input/tapes (use aspire-terminals). INVOKES: aspire CLI, azure-diagnostics (deployed Azure), kubectl + Container Insights. FOR SINGLE OPERATIONS: Run the aspire CLI command directly for quick log or describe lookups.",
+    "path": "category/terminal-system-tools/aspire-monitoring"
+  },
+  {
+    "id": "aspire-terminals",
+    "name": "aspire-terminals",
+    "category": "terminal-system-tools",
+    "repository": "microsoft-aspire-skills",
+    "description": "**WORKFLOW SKILL** - Author and automate Aspire terminals. USE FOR: WithTerminal, withTerminal, TerminalService, TerminalLaunchOptions, docked terminals, terminal prompts, PromptTerminalAsync, TerminalPlacement, AspireTerminalKey, WithRepl, withRepl, aspire terminal ps/attach/tape play, VHS tapes for Aspire, or terminal screen/input automation. DO NOT USE FOR: generic shell commands, ordinary AppHost resource wiring (aspireify), start/stop/wait (aspire-orchestration), logs/traces or browser telemetry (aspire-monitoring), deployment (aspire-deployment), or nonterminal Interaction Service prompts (aspireify). INVOKES: Aspire docs/API lookup, AppHost edits, Aspire terminal CLI; aspire-orchestration for lifecycle validation. FOR SINGLE OPERATIONS: Choose the terminal owner and lifetime first, then read the matching reference.",
+    "path": "category/terminal-system-tools/aspire-terminals"
+  },
+  {
+    "id": "aspireify",
+    "name": "aspireify",
+    "category": "terminal-system-tools",
+    "repository": "microsoft-aspire-skills",
+    "description": "**WORKFLOW SKILL** - Wire Aspire AppHosts or repair TypeScript AppHost toolchains. Scans the repo, proposes a resource graph, edits C#, file-based C#, or TypeScript AppHosts, wires ServiceDefaults + OTel, validates with `aspire start`, then stops. USE FOR: wire/scaffold AppHost, add Postgres/Redis/Rabbit/Mongo, connect frontend to API, after `aspire init`, AddNextJsApp, AddViteApp, WithBrowserLogs, Interaction Service, command arguments, apphost.cs, apphost.mts, unified withEnvironment, .aspire/modules refusal, config/secrets, TS dependency restore, pnpm/yarn/bun, or Yarn Classic. DO NOT USE FOR: skeleton drop (aspire-init), lifecycle-only start/stop/wait/restart or `aspire update --migrate` (aspire-orchestration), publish/deploy/destroy (aspire-deployment), logs/traces (aspire-monitoring), terminal authoring or automation (aspire-terminals). INVOKES: aspire CLI, AppHost source edits, ServiceDefaults wiring. FOR SINGLE OPERATIONS: Run `aspire add PACKAGE` directly for a one-off integration.",
+    "path": "category/terminal-system-tools/aspireify"
   },
   {
     "id": "audit-skills",
@@ -334,6 +374,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "Master Bash Automated Testing System (Bats) for comprehensive shell script testing. Use when writing tests for shell scripts, CI/CD pipelines, or requiring test-driven development of shell utilities.",
     "path": "category/terminal-system-tools/bats-testing-patterns"
+  },
+  {
+    "id": "bibi",
+    "name": "bibi",
+    "category": "terminal-system-tools",
+    "repository": "jimmylv-bibigpt-skill",
+    "description": "Video summarizer agent skill for Claude Code, Codex, ChatGPT, Cursor and OpenClaw. Summarize YouTube, Bilibili, TikTok, Twitter/X, Xiaohongshu (video and image notes), podcasts and any online or local video / audio; extract timestamped transcripts and subtitles; chapter-by-chapter summaries; optionally remix the takeaway into a TikTok-style vertical music video. Not for already-saved videos (`bibi-library`), channel feeds (`bibi-feed`), or slides / frames / mind maps (`bibi-vision`): sibling skills, same CLI and account. Triggers: \"summarize this video\", \"what's this video about\", \"get transcript\", \"extract subtitles\", \"YouTube summary\", \"podcast notes\", \"video to notes\", \"video summarizer\", \"\u603b\u7ed3\u8fd9\u4e2a\u89c6\u9891\", \"\u5e2e\u6211\u770b\u770b\u8fd9\u4e2a\u89c6\u9891\u8bb2\u4e86\u4ec0\u4e48\", \"B\u7ad9\u603b\u7ed3\", \"video to TikTok MV\", \"\u628a\u89c6\u9891\u53d8\u6210 TikTok\". Works via the bibi CLI (macOS/Windows), the hosted MCP server, or OpenAPI (Linux / no CLI).",
+    "path": "category/terminal-system-tools/bibi"
   },
   {
     "id": "binlog-generation",
@@ -824,6 +872,14 @@
     "path": "category/terminal-system-tools/create-datadriven-aspnetcore"
   },
   {
+    "id": "cross-platform-builds",
+    "name": "cross-platform-builds",
+    "category": "terminal-system-tools",
+    "repository": "martinholovsky-claude-skills-generator",
+    "description": "Expert in building desktop applications for Windows, macOS, and Linux with focus on platform-specific configurations, code signing, and distribution requirements",
+    "path": "category/terminal-system-tools/cross-platform-builds"
+  },
+  {
     "id": "cross-platform-compatibility",
     "name": "cross-platform-compatibility",
     "category": "terminal-system-tools",
@@ -926,6 +982,14 @@
     "repository": "composio-community-awesome-codex-skills",
     "description": "Query and filter Datadog logs from the shell using the Composio CLI. Run scoped log searches, pivot across services/environments, and export structured JSON for downstream agents instead of click-driving the Datadog UI.",
     "path": "category/terminal-system-tools/datadog-logs"
+  },
+  {
+    "id": "dbus",
+    "name": "dbus",
+    "category": "terminal-system-tools",
+    "repository": "martinholovsky-claude-skills-generator",
+    "description": "Expert in D-Bus IPC (Inter-Process Communication) on Linux systems. Specializes in secure service communication, method calls, signal handling, and system integration. HIGH-RISK skill due to system service access and privileged operations.",
+    "path": "category/terminal-system-tools/dbus"
   },
   {
     "id": "dcf-model",
@@ -1928,6 +1992,14 @@
     "path": "category/terminal-system-tools/kernel-exploitation"
   },
   {
+    "id": "ladder",
+    "name": "ladder",
+    "category": "terminal-system-tools",
+    "repository": "backnotprop-bro",
+    "description": "Render one lane of work as a vertical progress ladder in the terminal, done on top and todo below, read top to bottom.",
+    "path": "category/terminal-system-tools/ladder"
+  },
+  {
     "id": "langchain-middleware",
     "name": "langchain-middleware",
     "category": "terminal-system-tools",
@@ -2030,6 +2102,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "System administration for Linux servers. Manage packages, services, and",
     "path": "category/terminal-system-tools/linux-administration"
+  },
+  {
+    "id": "linux-at-spi2",
+    "name": "linux-at-spi2",
+    "category": "terminal-system-tools",
+    "repository": "martinholovsky-claude-skills-generator",
+    "description": "Expert in AT-SPI2 (Assistive Technology Service Provider Interface) for Linux desktop automation. Specializes in accessible automation of GTK/Qt applications via D-Bus accessibility interface. HIGH-RISK skill requiring security controls for system-wide access.",
+    "path": "category/terminal-system-tools/linux-at-spi2"
   },
   {
     "id": "linux-desktop-app-bundles",
@@ -2342,6 +2422,14 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "/cs-onboard \u2014 Founder interview that populates ~/.claude/company-context.md using the canonical 7-dimension cs-onboard schema. The first command to run when starting with c-level-agents. Use when setting up the virtual C-suite for a new company, or when advisors lack company context \u2014 e.g. before a first /c-level-agents:boardroom or after a fundraise changes the numbers.",
     "path": "category/terminal-system-tools/onboard"
+  },
+  {
+    "id": "openai-playwright",
+    "name": "openai-playwright",
+    "category": "terminal-system-tools",
+    "repository": "trailofbits-skills-curated",
+    "description": "Use when the task requires automating a real browser from the terminal (navigation, form",
+    "path": "category/terminal-system-tools/openai-playwright"
   },
   {
     "id": "opencli-rs-web-scraper",
@@ -2848,6 +2936,14 @@
     "path": "category/terminal-system-tools/seo-new-keywords-research"
   },
   {
+    "id": "serial-shell",
+    "name": "serial-shell",
+    "category": "terminal-system-tools",
+    "repository": "leokemp223-embed-ai-tool",
+    "description": "\u5f53\u9700\u8981\u901a\u8fc7\u4e32\u53e3\u4e0e\u5d4c\u5165\u5f0f\u8bbe\u5907\u5efa\u7acb\u4ea4\u4e92\u5f0f Shell \u4f1a\u8bdd\u3001\u6267\u884c\u5355\u6761\u547d\u4ee4\u6216\u6279\u91cf\u811a\u672c\u65f6\u4f7f\u7528\u3002",
+    "path": "category/terminal-system-tools/serial-shell"
+  },
+  {
     "id": "service-de-channel-activate",
     "name": "service-de-channel-activate",
     "category": "terminal-system-tools",
@@ -3144,6 +3240,14 @@
     "path": "category/terminal-system-tools/stata-results"
   },
   {
+    "id": "status",
+    "name": "status",
+    "category": "terminal-system-tools",
+    "repository": "backnotprop-bro",
+    "description": "Render the state of the work in flight as an ASCII status board in the terminal, instead of a status paragraph.",
+    "path": "category/terminal-system-tools/status"
+  },
+  {
     "id": "syswatch-terminal-diagnostics",
     "name": "syswatch-terminal-diagnostics",
     "category": "terminal-system-tools",
@@ -3158,6 +3262,14 @@
     "repository": "reason-machines-trending-skills",
     "description": "name: t1code-terminal-ui",
     "path": "category/terminal-system-tools/t1code-terminal-ui"
+  },
+  {
+    "id": "talos-os-expert",
+    "name": "talos-os-expert",
+    "category": "terminal-system-tools",
+    "repository": "martinholovsky-claude-skills-generator",
+    "description": "Elite Talos Linux expert specializing in immutable Kubernetes OS, secure cluster deployment, machine configurations, talosctl CLI operations, upgrades, and production-grade security hardening. Expert in Talos 1.6+, secure boot, disk encryption, and zero-trust infrastructure. Use when deploying Talos clusters, configuring machine configs, troubleshooting node issues, or implementing security best practices.",
+    "path": "category/terminal-system-tools/talos-os-expert"
   },
   {
     "id": "tao-setup-nvidia-gpu-host",
@@ -3376,6 +3488,14 @@
     "path": "category/terminal-system-tools/wizard"
   },
   {
+    "id": "wooyun-legacy",
+    "name": "wooyun-legacy",
+    "category": "terminal-system-tools",
+    "repository": "trailofbits-skills-curated",
+    "description": "Provides web vulnerability testing methodology distilled from 88,636 real-world cases from the WooYun vulnerability database (2010-2016). Use when performing penetration testing, security audits, code reviews for security flaws, or vulnerability research. Covers SQL injection, XSS, command execution, file upload, path traversal, unauthorized access, information disclosure, and business logic flaws.",
+    "path": "category/terminal-system-tools/wooyun-legacy"
+  },
+  {
     "id": "workspace-boundary-discipline",
     "name": "workspace-boundary-discipline",
     "category": "terminal-system-tools",
@@ -3406,6 +3526,30 @@
     "repository": "useosint-skills",
     "description": "Corporate due-diligence workflow \u2014 resolve a brand or website to its registered legal entity, map group structure and beneficial ownership, profile officers and directors, enumerate the digital estate, and screen litigation, insolvency, procurement, sanctions, PEP and adverse media. Use when asked to check out, vet or research a company, verify a supplier or counterparty before signing or paying, or assess whether a business is real. Applies to vendor and third-party risk, KYC and KYB onboarding, M&A and investor diligence, procurement integrity, and shell-company assessment. Reference at useosint.com/skills/x-ray-a-company.",
     "path": "category/terminal-system-tools/x-ray-a-company"
+  },
+  {
+    "id": "xberg-batch-extraction",
+    "name": "xberg-batch-extraction",
+    "category": "terminal-system-tools",
+    "repository": "xberg-io-xberg",
+    "description": "Use when extracting from many files at once with shared config, bounded parallelism, per-file overrides, and error recovery. Covers the `batch` command, `--file-configs`, `--max-concurrent`, and output layout.",
+    "path": "category/terminal-system-tools/xberg-batch-extraction"
+  },
+  {
+    "id": "xberg-chunking",
+    "name": "xberg-chunking",
+    "category": "terminal-system-tools",
+    "repository": "xberg-io-xberg",
+    "description": "Use when splitting extracted text into chunks for LLM context windows or RAG ingestion. Covers chunk size, overlap, markdown/yaml/semantic chunkers, tokenizer-based sizing, and the standalone `chunk` command.",
+    "path": "category/terminal-system-tools/xberg-chunking"
+  },
+  {
+    "id": "xberg-extracting-keywords",
+    "name": "xberg-extracting-keywords",
+    "category": "terminal-system-tools",
+    "repository": "xberg-io-xberg",
+    "description": "Use when extracting keywords (YAKE/RAKE) from documents \u2014 and, secondarily, when detecting document language or generating embeddings for RAG and search. Covers the keyword config (and its feature gating), `--detect-language`, and the standalone `embed` command with real flags.",
+    "path": "category/terminal-system-tools/xberg-extracting-keywords"
   },
   {
     "id": "yoinks-ink-tui-downloader",

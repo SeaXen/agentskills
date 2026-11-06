@@ -1,7 +1,7 @@
 # 💻 Terminal, Shell & System Automation
 
 > **Category**: `terminal-system-tools`  
-> **Total Curated Skills**: 427 skills  
+> **Total Curated Skills**: 445 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -48,9 +48,14 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`app-shell`](../../library/feimacode-open-design-agent-kit/skills/app-shell) | ⚪ Reserve | `feimacode-open-design-agent-kit` | The frame of a web or mobile app: navigation (sidebar, top bar or tab bar), account menu and on... |
 | [`app-table`](../../library/feimacode-open-design-agent-kit/skills/app-table) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A list or table of records with search, filters, sort, selection, bulk actions and pagination, ... |
 | [`apple-container`](../../library/sickn33-agentic-awesome-skills/skills/apple-container) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Build, run, and manage OCI/Linux containers as lightweight per-container VMs on Apple-silicon m... |
+| [`applescript`](../../library/martinholovsky-claude-skills-generator/skills/applescript) | ⚪ Reserve | `martinholovsky-claude-skills-generator` | Expert in AppleScript and JavaScript for Automation (JXA) for macOS system scripting. Specializ... |
 | [`applying-a-permission-policy`](../../library/mvschwarz-openrig/skills/applying-a-permission-policy) | ⚪ Reserve | `mvschwarz-openrig` | Use before launching a team during agent-guided setup, or when a user asks to configure OpenRig... |
 | [`arxiv-cli-tools`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/arxiv-cli-tools) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Command-line tools for searching and batch-downloading arXiv papers |
 | [`asc-cli-usage`](../../library/rorkai-app-store-connect-cli-skills/skills/asc-cli-usage) | ⚪ Reserve | `rorkai-app-store-connect-cli-skills` | Guidance for using asc cli in this repo (flags, output formats, pagination, auth, and discovery... |
+| [`ascii-backdrop`](../../library/majiayu000-spellbook/skills/ascii-backdrop) | ⚪ Reserve | `majiayu000-spellbook` | Turn any subject into an animated ASCII backdrop behind a UI, like a dark prompt page with jell... |
+| [`aspire-monitoring`](../../library/microsoft-aspire-skills/skills/aspire-monitoring) | ⚪ Reserve | `microsoft-aspire-skills` | **ANALYSIS SKILL** - Observe Aspire apps: logs, traces, metrics, resource state, telemetry expo... |
+| [`aspire-terminals`](../../library/microsoft-aspire-skills/skills/aspire-terminals) | ⚪ Reserve | `microsoft-aspire-skills` | **WORKFLOW SKILL** - Author and automate Aspire terminals. USE FOR: WithTerminal, withTerminal,... |
+| [`aspireify`](../../library/microsoft-aspire-skills/skills/aspireify) | ⚪ Reserve | `microsoft-aspire-skills` | **WORKFLOW SKILL** - Wire Aspire AppHosts or repair TypeScript AppHost toolchains. Scans the re... |
 | [`audit-skills`](../../library/sickn33-agentic-awesome-skills/skills/audit-skills) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Expert security auditor for AI Skills and Bundles. Performs non-intrusive static analysis to id... |
 | [`auditing-entra-id-with-aadinternals`](../../library/mukul975-anthropic-cybersecurity-skills/skills/auditing-entra-id-with-aadinternals) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Drive the AADInternals PowerShell toolkit to perform Microsoft Entra ID tenant reconnaissance, ... |
 | [`aws-cli-beast`](../../library/giuseppe-trisciuoglio-developer-kit/skills/aws-cli-beast) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides advanced AWS CLI patterns for managing EC2, Lambda, S3, DynamoDB, RDS, VPC, IAM, and C... |
@@ -61,6 +66,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`bash-pro`](../../library/antigravity-awesome-skills/skills/bash-pro) | ⚪ Reserve | `antigravity-awesome-skills` | Master of defensive Bash scripting for production automation, CI/CD |
 | [`bash-scripting`](../../library/mindrally-skills/skills/bash-scripting) | ⚪ Reserve | `mindrally-skills` | Bash scripting guidelines covering security, portability, error handling, and automation best p... |
 | [`bats-testing-patterns`](../../library/antigravity-awesome-skills/skills/bats-testing-patterns) | ⚪ Reserve | `antigravity-awesome-skills` | Master Bash Automated Testing System (Bats) for comprehensive shell script testing. Use when wr... |
+| [`bibi`](../../library/jimmylv-bibigpt-skill/skills/bibi) | ⚪ Reserve | `jimmylv-bibigpt-skill` | Video summarizer agent skill for Claude Code, Codex, ChatGPT, Cursor and OpenClaw. Summarize Yo... |
 | [`binlog-generation`](../../library/dotnet-skills/skills/binlog-generation) | ⚪ Reserve | `dotnet-skills` | Generate MSBuild binary logs (binlogs) for build diagnostics and analysis. USE FOR: adding /bl:... |
 | [`bionemo-genomics-workflow-acceleration`](../../library/nvidia-skills/skills/bionemo-genomics-workflow-acceleration) | ⚪ Reserve | `nvidia-skills` | Use when accelerating existing genomics workflows with NVIDIA Parabricks, improving runtime or ... |
 | [`book-study`](../../library/sanyuan0704-sanyuan-skills/skills/book-study) | ⚪ Reserve | `sanyuan0704-sanyuan-skills` | Reading coach: guides users through books systematically with knowledge compilation, mastery te... |
@@ -122,6 +128,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cowork-to-code-bridge`](../../library/sickn33-agentic-awesome-skills/skills/cowork-to-code-bridge) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use an already-installed, independently verified cowork-to-code bridge to run narrowly approved... |
 | [`cqrs-implementation`](../../library/antigravity-awesome-skills/skills/cqrs-implementation) | ⚪ Reserve | `antigravity-awesome-skills` | Implement Command Query Responsibility Segregation for scalable architectures. Use when separat... |
 | [`create-datadriven-aspnetcore`](../../library/dotnet-skills/skills/create-datadriven-aspnetcore) | ⚪ Reserve | `dotnet-skills` | Generate or scaffold ASP.NET Core code — Razor Pages, Blazor components, MVC controllers, views... |
+| [`cross-platform-builds`](../../library/martinholovsky-claude-skills-generator/skills/cross-platform-builds) | ⚪ Reserve | `martinholovsky-claude-skills-generator` | Expert in building desktop applications for Windows, macOS, and Linux with focus on platform-sp... |
 | [`cross-platform-compatibility`](../../library/aj-geddes-useful-ai-prompts/skills/cross-platform-compatibility) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Handle cross-platform compatibility including file paths, environment detection, platform-speci... |
 | [`csharp-scripts`](../../library/dotnet-skills/skills/csharp-scripts) | ⚪ Reserve | `dotnet-skills` | Run file-based C# apps with the .NET CLI when the user explicitly wants C#/.NET code without cr... |
 | [`ctf-misc`](../../library/ljagiello-ctf-skills/skills/ctf-misc) | ⚪ Reserve | `ljagiello-ctf-skills` | Provides miscellaneous CTF challenge techniques for problems that do not cleanly fit the main c... |
@@ -135,6 +142,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`data-dashboard`](../../library/plugin87-ux-ui-agent-skills/skills/data-dashboard) | ⚪ Reserve | `plugin87-ux-ui-agent-skills` | Build a dense, data-heavy screen - an analytics console or a trading terminal - with real chart... |
 | [`database-security`](../../library/sickn33-agentic-awesome-skills/skills/database-security) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Authorized database security assessment across PostgreSQL, MySQL, MSSQL, MongoDB, and Redis: ex... |
 | [`datadog-logs`](../../library/composio-community-awesome-codex-skills/skills/datadog-logs) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Query and filter Datadog logs from the shell using the Composio CLI. Run scoped log searches, p... |
+| [`dbus`](../../library/martinholovsky-claude-skills-generator/skills/dbus) | ⚪ Reserve | `martinholovsky-claude-skills-generator` | Expert in D-Bus IPC (Inter-Process Communication) on Linux systems. Specializes in secure servi... |
 | [`dcf-model`](../../library/anthropics-financial-services/skills/dcf-model) | ⚪ Reserve | `anthropics-financial-services` | Real DCF (Discounted Cash Flow) model creation for equity valuation. Retrieves financial data f... |
 | [`deepseek-harness-setup`](../../library/affaan-m-ecc/skills/deepseek-harness-setup) | ⚪ Reserve | `affaan-m-ecc` | Install and operate Everything Claude Code (ECC) on the DeepSeek Harness (DSH): native skill ro... |
 | [`degenclaw`](../../library/starchild-ai-agent-official-skills/skills/degenclaw) | ⚪ Reserve | `starchild-ai-agent-official-skills` | Join the Degenerate Claw perpetuals trading competition for ACP agents. Use this skill when ask... |
@@ -260,6 +268,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`jetson-video-benchmark`](../../library/nvidia-skills/skills/jetson-video-benchmark) | ⚪ Reserve | `nvidia-skills` | Use when measuring Jetson Video Codec SDK or PyNvVideoCodec encode/decode throughput, comparing... |
 | [`jq`](../../library/sickn33-agentic-awesome-skills/skills/jq) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Expert jq usage for JSON querying, filtering, transformation, and pipeline integration. Practic... |
 | [`kernel-exploitation`](../../library/yaklang-hack-skills/skills/kernel-exploitation) | ⚪ Reserve | `yaklang-hack-skills` | Linux kernel exploitation playbook. Use when exploiting kernel vulnerabilities (UAF, OOB, race ... |
+| [`ladder`](../../library/backnotprop-bro/skills/ladder) | ⚪ Reserve | `backnotprop-bro` | Render one lane of work as a vertical progress ladder in the terminal, done on top and todo bel... |
 | [`langchain-middleware`](../../library/langchain-ai-langchain-skills/skills/langchain-middleware) | ⚪ Reserve | `langchain-ai-langchain-skills` | INVOKE THIS SKILL when you need human-in-the-loop approval, custom middleware, or structured ou... |
 | [`langgraph-fundamentals`](../../library/langchain-ai-langchain-skills/skills/langgraph-fundamentals) | ⚪ Reserve | `langchain-ai-langchain-skills` | INVOKE THIS SKILL when writing ANY LangGraph code. Covers StateGraph, state schemas, nodes, edg... |
 | [`langgraph-human-in-the-loop`](../../library/langchain-ai-langchain-skills/skills/langgraph-human-in-the-loop) | ⚪ Reserve | `langchain-ai-langchain-skills` | INVOKE THIS SKILL when implementing human-in-the-loop patterns, pausing for approval, or handli... |
@@ -273,6 +282,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`linear-sdk-scripting`](../../library/cline-skills/skills/linear-sdk-scripting) | ⚪ Reserve | `cline-skills` | Perform actions in Linear (read, create, update, search issues, projects, comments, teams, cycl... |
 | [`linux`](../../library/anthropics-knowledge-work/skills/linux) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Video SDK for Linux - C++ headless bots, raw audio/video capture/injection, Qt/GTK integra... |
 | [`linux-administration`](../../library/sickn33-agentic-awesome-skills/skills/linux-administration) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | System administration for Linux servers. Manage packages, services, and |
+| [`linux-at-spi2`](../../library/martinholovsky-claude-skills-generator/skills/linux-at-spi2) | ⚪ Reserve | `martinholovsky-claude-skills-generator` | Expert in AT-SPI2 (Assistive Technology Service Provider Interface) for Linux desktop automatio... |
 | [`linux-desktop-app-bundles`](../../library/seaxen-skills-backup/skills/linux-desktop-app-bundles) | ⚪ Reserve | `seaxen-skills-backup` | Install or update vendor-distributed Linux desktop apps from tarballs or direct downloads, wire... |
 | [`linux-hardening`](../../library/sickn33-agentic-awesome-skills/skills/linux-hardening) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Apply CIS benchmarks and secure Linux servers. |
 | [`linux-host-performance-diagnosis`](../../library/seaxen-skills-backup/skills/linux-host-performance-diagnosis) | ⚪ Reserve | `seaxen-skills-backup` | Diagnose CPU load, temperature spikes, and periodic resource consumption on a Linux host (lapto... |
@@ -312,6 +322,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`nv-reason-cxr`](../../library/nvidia-skills/skills/nv-reason-cxr) | ⚪ Reserve | `nvidia-skills` | Used for command-shape or live NV-Reason-CXR chest X-ray reasoning smoke tests. Not for diagnos... |
 | [`obsidian-cli`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/obsidian-cli) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Interact with Obsidian vaults using the Obsidian CLI to read, create, search, and manage notes,... |
 | [`onboard`](../../library/alirezarezvani-claude-skills/skills/onboard) | ⚪ Reserve | `alirezarezvani-claude-skills` | /cs-onboard — Founder interview that populates ~/.claude/company-context.md using the canonical... |
+| [`openai-playwright`](../../library/trailofbits-skills-curated/skills/openai-playwright) | ⚪ Reserve | `trailofbits-skills-curated` | Use when the task requires automating a real browser from the terminal (navigation, form |
 | [`opencli-rs-web-scraper`](../../library/reason-machines-trending-skills/skills/opencli-rs-web-scraper) | ⚪ Reserve | `reason-machines-trending-skills` | Blazing fast Rust CLI tool to fetch information from 55+ websites (Twitter, Reddit, YouTube, Bi... |
 | [`opencli-web-automation`](../../library/reason-machines-trending-skills/skills/opencli-web-automation) | ⚪ Reserve | `reason-machines-trending-skills` | Turn any website into a CLI using browser session reuse and AI-powered command discovery |
 | [`openrig-cmux`](../../library/mvschwarz-openrig/skills/openrig-cmux) | ⚪ Reserve | `mvschwarz-openrig` | Use when opening OpenRig fleet terminals into cmux — turning a rig, pod, mission, slice, or sav... |
@@ -375,6 +386,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`sentry-cli`](../../library/cline-skills/skills/sentry-cli) | ⚪ Reserve | `cline-skills` | Guide for using the Sentry CLI to interact with Sentry from the command line. Use when the user... |
 | [`sentry-flutter-sdk`](../../library/getsentry-sentry-for-ai/skills/sentry-flutter-sdk) | ⚪ Reserve | `getsentry-sentry-for-ai` | Full Sentry SDK setup for Flutter and Dart. Use when asked to "add Sentry to Flutter", "install... |
 | [`seo-new-keywords-research`](../../library/zhuyansen-new-term-radar/skills/seo-new-keywords-research) | ⚪ Reserve | `zhuyansen-new-term-radar` | Turn new AI names or unstructured AI market signals into a keyword priority table. For each nam... |
+| [`serial-shell`](../../library/leokemp223-embed-ai-tool/skills/serial-shell) | ⚪ Reserve | `leokemp223-embed-ai-tool` | 当需要通过串口与嵌入式设备建立交互式 Shell 会话、执行单条命令或批量脚本时使用。 |
 | [`service-de-channel-activate`](../../library/forcedotcom-sf-skills/skills/service-de-channel-activate) | ⚪ Reserve | `forcedotcom-sf-skills` | Activate an Enhanced `MessagingChannel` (WhatsApp/Apple/Facebook/SMS/RCS) by PATCHing `Messagin... |
 | [`service-de-channel-create`](../../library/forcedotcom-sf-skills/skills/service-de-channel-create) | ⚪ Reserve | `forcedotcom-sf-skills` | **INTERNAL USE ONLY — invoked by `service-de-headless-channel-configure`.** Insert an Enhanced ... |
 | [`service-omni-agent-work-sharing-configure`](../../library/forcedotcom-sf-skills/skills/service-omni-agent-work-sharing-configure) | ⚪ Reserve | `forcedotcom-sf-skills` | Use to configure or verify org-wide AgentWork visibility for supervisors after explicit confirm... |
@@ -412,8 +424,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`stata-help`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/stata-help) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Look up Stata command documentation and display formatted help text. |
 | [`stata-log`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/stata-log) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Tail, read, or search a Stata log file from a previous command or background task. |
 | [`stata-results`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/stata-results) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Fetch and display stored r(), e(), and s() results from the last Stata command. |
+| [`status`](../../library/backnotprop-bro/skills/status) | ⚪ Reserve | `backnotprop-bro` | Render the state of the work in flight as an ASCII status board in the terminal, instead of a s... |
 | [`syswatch-terminal-diagnostics`](../../library/reason-machines-trending-skills/skills/syswatch-terminal-diagnostics) | ⚪ Reserve | `reason-machines-trending-skills` | SysWatch is a single-host system diagnostics TUI for macOS and Linux with twelve tabs, plain-En... |
 | [`t1code-terminal-ui`](../../library/reason-machines-trending-skills/skills/t1code-terminal-ui) | ⚪ Reserve | `reason-machines-trending-skills` | name: t1code-terminal-ui |
+| [`talos-os-expert`](../../library/martinholovsky-claude-skills-generator/skills/talos-os-expert) | ⚪ Reserve | `martinholovsky-claude-skills-generator` | Elite Talos Linux expert specializing in immutable Kubernetes OS, secure cluster deployment, ma... |
 | [`tao-setup-nvidia-gpu-host`](../../library/nvidia-skills/skills/tao-setup-nvidia-gpu-host) | ⚪ Reserve | `nvidia-skills` | Host setup for TAO GPU backends. Checks and, after user approval, installs minimum-compatible N... |
 | [`tao-token-efficient-execution`](../../library/nvidia-skills/skills/tao-token-efficient-execution) | ⚪ Reserve | `nvidia-skills` | Token-efficient execution kit for repeated TAO agentic workflows. Compiles a skill into stage c... |
 | [`tavily-cli`](../../library/tavily-ai-skills/skills/tavily-cli) | ⚪ Reserve | `tavily-ai-skills` | Set up, authenticate, update, troubleshoot, or choose between Tavily CLI web commands. Use when... |
@@ -441,8 +455,12 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`wiki-cli`](../../library/agricidaniel-claude-obsidian/skills/wiki-cli) | ⚪ Reserve | `agricidaniel-claude-obsidian` | Detect and use the official Obsidian command-line interface for read-only vault access; use for... |
 | [`windows-shell-reliability`](../../library/sickn33-agentic-awesome-skills/skills/windows-shell-reliability) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Reliable command execution on Windows: paths, encoding, and common binary pitfalls. |
 | [`wizard`](../../library/mattpocock-skills/skills/wizard) | ⚪ Reserve | `mattpocock-skills` | Generate an interactive bash wizard that walks a human through steps only they can perform. Use... |
+| [`wooyun-legacy`](../../library/trailofbits-skills-curated/skills/wooyun-legacy) | ⚪ Reserve | `trailofbits-skills-curated` | Provides web vulnerability testing methodology distilled from 88,636 real-world cases from the ... |
 | [`workspace-boundary-discipline`](../../library/seaxen-skills-backup/skills/workspace-boundary-discipline) | ⚪ Reserve | `seaxen-skills-backup` | Keep plans, scaffolds, and edits inside the correct project boundary when the shell cwd and tas... |
 | [`wterm-web-terminal`](../../library/reason-machines-trending-skills/skills/wterm-web-terminal) | ⚪ Reserve | `reason-machines-trending-skills` | Web terminal emulator with Zig/WASM core, DOM rendering, and React/vanilla JS bindings |
 | [`wx-cli-wechat-local-data`](../../library/reason-machines-trending-skills/skills/wx-cli-wechat-local-data) | ⚪ Reserve | `reason-machines-trending-skills` | name: wx-cli-wechat-local-data |
 | [`x-ray-a-company`](../../library/useosint-skills/skills/x-ray-a-company) | ⚪ Reserve | `useosint-skills` | Corporate due-diligence workflow — resolve a brand or website to its registered legal entity, m... |
+| [`xberg-batch-extraction`](../../library/xberg-io-xberg/skills/xberg-batch-extraction) | ⚪ Reserve | `xberg-io-xberg` | Use when extracting from many files at once with shared config, bounded parallelism, per-file o... |
+| [`xberg-chunking`](../../library/xberg-io-xberg/skills/xberg-chunking) | ⚪ Reserve | `xberg-io-xberg` | Use when splitting extracted text into chunks for LLM context windows or RAG ingestion. Covers ... |
+| [`xberg-extracting-keywords`](../../library/xberg-io-xberg/skills/xberg-extracting-keywords) | ⚪ Reserve | `xberg-io-xberg` | Use when extracting keywords (YAKE/RAKE) from documents — and, secondarily, when detecting docu... |
 | [`yoinks-ink-tui-downloader`](../../library/seaxen-skills-backup/skills/yoinks-ink-tui-downloader) | ⚪ Reserve | `seaxen-skills-backup` | Use when building an Ink terminal TUI or wrapping yt-dlp. |

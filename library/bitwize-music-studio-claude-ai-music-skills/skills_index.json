@@ -1,0 +1,532 @@
+[
+  {
+    "id": "about",
+    "name": "about",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Provides information about the bitwize-music plugin, its version, and its creator. Use when the user asks about the plugin, its purpose, version, or capabilities.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/about",
+    "activation_cmd": "python .agents/library/activate_skill.py activate about",
+    "link_cmd": "python .agents/library/activate_skill.py link about"
+  },
+  {
+    "id": "album-art-director",
+    "name": "album-art-director",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Creates visual concepts for album artwork and generates AI art prompts. Use during planning for concept discussion, or after all tracks are Final for actual artwork generation.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/album-art-director",
+    "activation_cmd": "python .agents/library/activate_skill.py activate album-art-director",
+    "link_cmd": "python .agents/library/activate_skill.py link album-art-director"
+  },
+  {
+    "id": "album-conceptualizer",
+    "name": "album-conceptualizer",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Designs album concepts, tracklist architecture, and thematic planning through 7 structured phases. Use when planning a new album or reworking an existing album concept.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/album-conceptualizer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate album-conceptualizer",
+    "link_cmd": "python .agents/library/activate_skill.py link album-conceptualizer"
+  },
+  {
+    "id": "album-dashboard",
+    "name": "album-dashboard",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Shows a structured progress dashboard for an album with percentage complete per phase, blocking items, and status breakdown. Use for a quick visual overview of album progress.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/album-dashboard",
+    "activation_cmd": "python .agents/library/activate_skill.py activate album-dashboard",
+    "link_cmd": "python .agents/library/activate_skill.py link album-dashboard"
+  },
+  {
+    "id": "album-ideas",
+    "name": "album-ideas",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Tracks and manages album ideas including brainstorming, planning, and status updates. Use when the user wants to add, review, or organize their album idea backlog.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/album-ideas",
+    "activation_cmd": "python .agents/library/activate_skill.py activate album-ideas",
+    "link_cmd": "python .agents/library/activate_skill.py link album-ideas"
+  },
+  {
+    "id": "clipboard",
+    "name": "clipboard",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Copies track content (lyrics, style prompts, streaming lyrics) to the system clipboard. Use when the user needs to paste lyrics or style prompts into Suno or other external tools.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/clipboard",
+    "activation_cmd": "python .agents/library/activate_skill.py activate clipboard",
+    "link_cmd": "python .agents/library/activate_skill.py link clipboard"
+  },
+  {
+    "id": "cloud-uploader",
+    "name": "cloud-uploader",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Uploads promo videos and content to Cloudflare R2 or AWS S3. Use when the user wants to host promo content for social media or distribution.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/cloud-uploader",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cloud-uploader",
+    "link_cmd": "python .agents/library/activate_skill.py link cloud-uploader"
+  },
+  {
+    "id": "configure",
+    "name": "configure",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Sets up or edits the plugin configuration file interactively. Use on first-time setup, when config is missing, or when the user wants to change settings.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/configure",
+    "activation_cmd": "python .agents/library/activate_skill.py activate configure",
+    "link_cmd": "python .agents/library/activate_skill.py link configure"
+  },
+  {
+    "id": "document-hunter",
+    "name": "document-hunter",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Searches and retrieves documents from free public sources using automated browser navigation. Use when research needs primary source documents like court filings, government reports, or public records.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/document-hunter",
+    "activation_cmd": "python .agents/library/activate_skill.py activate document-hunter",
+    "link_cmd": "python .agents/library/activate_skill.py link document-hunter"
+  },
+  {
+    "id": "explicit-checker",
+    "name": "explicit-checker",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Scans lyrics for explicit content and verifies that explicit flags match actual content. Use before Suno generation or release to ensure accurate content ratings.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/explicit-checker",
+    "activation_cmd": "python .agents/library/activate_skill.py activate explicit-checker",
+    "link_cmd": "python .agents/library/activate_skill.py link explicit-checker"
+  },
+  {
+    "id": "genre-creator",
+    "name": "genre-creator",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Create new genre documentation files for the bitwize-music genre library. Use when the user wants to add a genre, says \"/genre-creator\", \"neues Genre erstellen\", \"Genre hinzufuegen\", \"add genre\", or asks to create genre documentation. Takes a genre name as argument.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/genre-creator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate genre-creator",
+    "link_cmd": "python .agents/library/activate_skill.py link genre-creator"
+  },
+  {
+    "id": "health-check",
+    "name": "health-check",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Runs plugin health checks (venv packages, skill registration, and album slug collisions). Use when the user asks to check plugin health, verify setup, or troubleshoot missing skills.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/health-check",
+    "activation_cmd": "python .agents/library/activate_skill.py activate health-check",
+    "link_cmd": "python .agents/library/activate_skill.py link health-check"
+  },
+  {
+    "id": "help",
+    "name": "help",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Shows available skills, common workflows, and quick reference for the plugin. Use when the user asks for help, what skills are available, or how to do something.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/help",
+    "activation_cmd": "python .agents/library/activate_skill.py activate help",
+    "link_cmd": "python .agents/library/activate_skill.py link help"
+  },
+  {
+    "id": "import-art",
+    "name": "import-art",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Places album art files in the correct audio and content directory locations. Use when the user has generated or downloaded album artwork that needs to be saved.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/import-art",
+    "activation_cmd": "python .agents/library/activate_skill.py activate import-art",
+    "link_cmd": "python .agents/library/activate_skill.py link import-art"
+  },
+  {
+    "id": "import-audio",
+    "name": "import-audio",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Moves audio files to the correct album location with proper path structure. Use when the user has downloaded WAV files from Suno or other sources that need to be organized.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/import-audio",
+    "activation_cmd": "python .agents/library/activate_skill.py activate import-audio",
+    "link_cmd": "python .agents/library/activate_skill.py link import-audio"
+  },
+  {
+    "id": "import-track",
+    "name": "import-track",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Moves track markdown files to the correct album location. Use when the user has track files in Downloads or other locations that need to be placed in an album.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/import-track",
+    "activation_cmd": "python .agents/library/activate_skill.py activate import-track",
+    "link_cmd": "python .agents/library/activate_skill.py link import-track"
+  },
+  {
+    "id": "lyric-refiner",
+    "name": "lyric-refiner",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Autonomous multi-pass lyric refinement for tightening, cohesion, and album unity. Use after lyrics are written to polish a track or entire album through iterative passes.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/lyric-refiner",
+    "activation_cmd": "python .agents/library/activate_skill.py activate lyric-refiner",
+    "link_cmd": "python .agents/library/activate_skill.py link lyric-refiner"
+  },
+  {
+    "id": "lyric-reviewer",
+    "name": "lyric-reviewer",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Reviews lyrics against a quality checklist before Suno generation. Use before generating tracks to catch rhyme, prosody, pronunciation, and structural issues.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/lyric-reviewer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate lyric-reviewer",
+    "link_cmd": "python .agents/library/activate_skill.py link lyric-reviewer"
+  },
+  {
+    "id": "lyric-writer",
+    "name": "lyric-writer",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Writes or reviews lyrics with professional prosody, rhyme craft, and quality checks. Use when writing new lyrics, revising existing lyrics, or when the user says 'let's work on a track.'",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/lyric-writer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate lyric-writer",
+    "link_cmd": "python .agents/library/activate_skill.py link lyric-writer"
+  },
+  {
+    "id": "mastering-engineer",
+    "name": "mastering-engineer",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Guides audio mastering for streaming platforms including loudness optimization and tonal balance. Use when the user has approved tracks and wants to master audio files.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/mastering-engineer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mastering-engineer",
+    "link_cmd": "python .agents/library/activate_skill.py link mastering-engineer"
+  },
+  {
+    "id": "mix-engineer",
+    "name": "mix-engineer",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Polishes raw Suno audio by processing per-stem WAVs (vocals, backing_vocals, drums, bass, guitar, keyboard, strings, brass, woodwinds, percussion, synth, other) with targeted cleanup, EQ, and compression, then remixing into a polished stereo WAV ready for mastering. Use after audio import and before mastering.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/mix-engineer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mix-engineer",
+    "link_cmd": "python .agents/library/activate_skill.py link mix-engineer"
+  },
+  {
+    "id": "new-album",
+    "name": "new-album",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Creates a new album with the correct directory structure and templates. Use IMMEDIATELY when the user says 'make a new album' or similar, before any discussion.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/new-album",
+    "activation_cmd": "python .agents/library/activate_skill.py activate new-album",
+    "link_cmd": "python .agents/library/activate_skill.py link new-album"
+  },
+  {
+    "id": "next-step",
+    "name": "next-step",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Analyzes album state and recommends the optimal next action. Use when the user asks \"what should I do next?\" or \"what's left to do?\"",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/next-step",
+    "activation_cmd": "python .agents/library/activate_skill.py activate next-step",
+    "link_cmd": "python .agents/library/activate_skill.py link next-step"
+  },
+  {
+    "id": "plagiarism-checker",
+    "name": "plagiarism-checker",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Scans lyrics for phrases that may match existing songs using web search and LLM knowledge. Use before release to check for unintentional borrowing.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/plagiarism-checker",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plagiarism-checker",
+    "link_cmd": "python .agents/library/activate_skill.py link plagiarism-checker"
+  },
+  {
+    "id": "pre-generation-check",
+    "name": "pre-generation-check",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Validates all pre-generation gates before sending tracks to Suno. Checks sources verified, lyrics reviewed, pronunciation resolved, explicit flag set, style prompt complete, and artist names cleared. Use before generating tracks on Suno or when the user says \"pre-gen check\" or \"ready to generate\".",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/pre-generation-check",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pre-generation-check",
+    "link_cmd": "python .agents/library/activate_skill.py link pre-generation-check"
+  },
+  {
+    "id": "promo-director",
+    "name": "promo-director",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Generates 15-second vertical promo videos for social media from mastered audio. Use after mastering is complete and before release, when the user wants social media content.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/promo-director",
+    "activation_cmd": "python .agents/library/activate_skill.py activate promo-director",
+    "link_cmd": "python .agents/library/activate_skill.py link promo-director"
+  },
+  {
+    "id": "promo-reviewer",
+    "name": "promo-reviewer",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Reviews and iterates on social media copy in album promo/ files. Use after populating promo templates and before release to polish platform-specific posts.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/promo-reviewer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate promo-reviewer",
+    "link_cmd": "python .agents/library/activate_skill.py link promo-reviewer"
+  },
+  {
+    "id": "promo-writer",
+    "name": "promo-writer",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Generates platform-specific social media copy from album themes, track concepts, and lyrics. Use when promo/ templates need to be populated before release.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/promo-writer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate promo-writer",
+    "link_cmd": "python .agents/library/activate_skill.py link promo-writer"
+  },
+  {
+    "id": "promote-idea",
+    "name": "promote-idea",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Converts an album idea from IDEAS.md into an actual album project in one step. Use when the user says \"promote [idea title]\", \"turn idea into album\", or \"start working on [idea]\".",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/promote-idea",
+    "activation_cmd": "python .agents/library/activate_skill.py activate promote-idea",
+    "link_cmd": "python .agents/library/activate_skill.py link promote-idea"
+  },
+  {
+    "id": "pronunciation-specialist",
+    "name": "pronunciation-specialist",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Scans lyrics for pronunciation risks and prevents Suno mispronunciations. Use when writing lyrics with proper nouns, technical terms, homographs, or non-English words.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/pronunciation-specialist",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pronunciation-specialist",
+    "link_cmd": "python .agents/library/activate_skill.py link pronunciation-specialist"
+  },
+  {
+    "id": "release-director",
+    "name": "release-director",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Coordinates album release including QA, distribution prep, and platform uploads. Use when mastering and album art are complete and the user is ready to release.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/release-director",
+    "activation_cmd": "python .agents/library/activate_skill.py activate release-director",
+    "link_cmd": "python .agents/library/activate_skill.py link release-director"
+  },
+  {
+    "id": "rename",
+    "name": "rename",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Renames an album or track, updating slugs, titles, and all mirrored paths. Use when the user wants to rename an album or track.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/rename",
+    "activation_cmd": "python .agents/library/activate_skill.py activate rename",
+    "link_cmd": "python .agents/library/activate_skill.py link rename"
+  },
+  {
+    "id": "researcher",
+    "name": "researcher",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Conducts investigative-grade research with primary source analysis, cross-verification, and trial-level depth. Use when an album needs factual research, source material, or verification of claims.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/researcher",
+    "activation_cmd": "python .agents/library/activate_skill.py activate researcher",
+    "link_cmd": "python .agents/library/activate_skill.py link researcher"
+  },
+  {
+    "id": "researchers-biographical",
+    "name": "researchers-biographical",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Researches personal backgrounds, interviews, motivations, and humanizing details. Use when research needs biographical context about people involved in the album's subject.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/researchers-biographical",
+    "activation_cmd": "python .agents/library/activate_skill.py activate researchers-biographical",
+    "link_cmd": "python .agents/library/activate_skill.py link researchers-biographical"
+  },
+  {
+    "id": "researchers-financial",
+    "name": "researchers-financial",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Researches SEC filings, earnings calls, analyst reports, and market data. Use when the album subject involves financial crimes, corporate stories, or market events.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/researchers-financial",
+    "activation_cmd": "python .agents/library/activate_skill.py activate researchers-financial",
+    "link_cmd": "python .agents/library/activate_skill.py link researchers-financial"
+  },
+  {
+    "id": "researchers-gov",
+    "name": "researchers-gov",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Researches DOJ/FBI/SEC press releases, agency statements, and government sources. Use when research needs official government records or agency documentation.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/researchers-gov",
+    "activation_cmd": "python .agents/library/activate_skill.py activate researchers-gov",
+    "link_cmd": "python .agents/library/activate_skill.py link researchers-gov"
+  },
+  {
+    "id": "researchers-historical",
+    "name": "researchers-historical",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Researches archives, contemporary accounts, and timeline reconstruction. Use when the album subject involves historical events that need primary source verification.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/researchers-historical",
+    "activation_cmd": "python .agents/library/activate_skill.py activate researchers-historical",
+    "link_cmd": "python .agents/library/activate_skill.py link researchers-historical"
+  },
+  {
+    "id": "researchers-journalism",
+    "name": "researchers-journalism",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Researches investigative articles, interviews, and news coverage. Use when research needs journalistic sources for cross-referencing or additional context.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/researchers-journalism",
+    "activation_cmd": "python .agents/library/activate_skill.py activate researchers-journalism",
+    "link_cmd": "python .agents/library/activate_skill.py link researchers-journalism"
+  },
+  {
+    "id": "researchers-legal",
+    "name": "researchers-legal",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Researches court documents, indictments, plea agreements, and sentencing records. Use when the album subject involves legal proceedings or criminal cases.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/researchers-legal",
+    "activation_cmd": "python .agents/library/activate_skill.py activate researchers-legal",
+    "link_cmd": "python .agents/library/activate_skill.py link researchers-legal"
+  },
+  {
+    "id": "researchers-primary-source",
+    "name": "researchers-primary-source",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Researches the subject's own words from tweets, blogs, forums, and chat logs. Use when research needs direct quotes or first-person accounts.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/researchers-primary-source",
+    "activation_cmd": "python .agents/library/activate_skill.py activate researchers-primary-source",
+    "link_cmd": "python .agents/library/activate_skill.py link researchers-primary-source"
+  },
+  {
+    "id": "researchers-security",
+    "name": "researchers-security",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Researches malware analysis, CVEs, attribution reports, and hacker community sources. Use when the album subject involves cybersecurity incidents or threat actors.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/researchers-security",
+    "activation_cmd": "python .agents/library/activate_skill.py activate researchers-security",
+    "link_cmd": "python .agents/library/activate_skill.py link researchers-security"
+  },
+  {
+    "id": "researchers-tech",
+    "name": "researchers-tech",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Researches project histories, changelogs, developer interviews, and open source documentation. Use when the album subject involves technology projects or developer stories.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/researchers-tech",
+    "activation_cmd": "python .agents/library/activate_skill.py activate researchers-tech",
+    "link_cmd": "python .agents/library/activate_skill.py link researchers-tech"
+  },
+  {
+    "id": "researchers-verifier",
+    "name": "researchers-verifier",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Performs quality control, citation validation, and fact-checking before human review. Use after research is complete to verify all sources and claims before production.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/researchers-verifier",
+    "activation_cmd": "python .agents/library/activate_skill.py activate researchers-verifier",
+    "link_cmd": "python .agents/library/activate_skill.py link researchers-verifier"
+  },
+  {
+    "id": "resume",
+    "name": "resume",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Finds an album by name and shows detailed status with next steps. Use when the user mentions an album name or wants to continue previous work.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/resume",
+    "activation_cmd": "python .agents/library/activate_skill.py activate resume",
+    "link_cmd": "python .agents/library/activate_skill.py link resume"
+  },
+  {
+    "id": "session-start",
+    "name": "session-start",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Runs the session startup procedure - verifies setup, loads config and state, checks skill models, and reports project status. Use at the beginning of a fresh session.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/session-start",
+    "activation_cmd": "python .agents/library/activate_skill.py activate session-start",
+    "link_cmd": "python .agents/library/activate_skill.py link session-start"
+  },
+  {
+    "id": "setup",
+    "name": "setup",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Detects your Python environment and guides you through installing plugin dependencies. Use on first-time setup or when MCP server fails to start.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/setup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setup",
+    "link_cmd": "python .agents/library/activate_skill.py link setup"
+  },
+  {
+    "id": "sheet-music-publisher",
+    "name": "sheet-music-publisher",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Converts mastered audio to sheet music and creates printable songbooks. Use after mastering when the user wants sheet music or a songbook for their album.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/sheet-music-publisher",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sheet-music-publisher",
+    "link_cmd": "python .agents/library/activate_skill.py link sheet-music-publisher"
+  },
+  {
+    "id": "suno-engineer",
+    "name": "suno-engineer",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Constructs technical Suno style prompts for the current model family (v6, v6-wild, v6-mini), selects models and generation settings, and optimizes prompts. Use when creating or refining Suno prompts for track generation.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/suno-engineer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate suno-engineer",
+    "link_cmd": "python .agents/library/activate_skill.py link suno-engineer"
+  },
+  {
+    "id": "test",
+    "name": "test",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Runs automated tests to validate plugin integrity across 14 categories. Use before creating PRs, after making changes to skills or templates, or to verify plugin health.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/test",
+    "activation_cmd": "python .agents/library/activate_skill.py activate test",
+    "link_cmd": "python .agents/library/activate_skill.py link test"
+  },
+  {
+    "id": "tutorial",
+    "name": "tutorial",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Provides interactive guided album creation for new users. Use when the user is new to the plugin or asks for a walkthrough of the album creation process.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/tutorial",
+    "activation_cmd": "python .agents/library/activate_skill.py activate tutorial",
+    "link_cmd": "python .agents/library/activate_skill.py link tutorial"
+  },
+  {
+    "id": "validate-album",
+    "name": "validate-album",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Validates album directory structure, file locations, and content integrity. Use before release or whenever the user wants to check an album's structural health.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/validate-album",
+    "activation_cmd": "python .agents/library/activate_skill.py activate validate-album",
+    "link_cmd": "python .agents/library/activate_skill.py link validate-album"
+  },
+  {
+    "id": "verify-sources",
+    "name": "verify-sources",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Captures human source verification for tracks, timestamps it, and updates track files. Use when sources need human review before generation.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/verify-sources",
+    "activation_cmd": "python .agents/library/activate_skill.py activate verify-sources",
+    "link_cmd": "python .agents/library/activate_skill.py link verify-sources"
+  },
+  {
+    "id": "voice-checker",
+    "name": "voice-checker",
+    "repository": "bitwize-music-studio-claude-ai-music-skills",
+    "category": "general",
+    "description": "Reviews lyrics and prose for AI-written patterns (abstract noun stacking, over-explained metaphors, cliche escalation, missing idiosyncrasy, prose AI tells). Advisory Warning/Info severity \u2014 flags issues, does not block or rewrite. Use when reviewing lyrics for authenticity or before generation to catch AI-sounding language.",
+    "path": "library/bitwize-music-studio-claude-ai-music-skills/skills/voice-checker",
+    "activation_cmd": "python .agents/library/activate_skill.py activate voice-checker",
+    "link_cmd": "python .agents/library/activate_skill.py link voice-checker"
+  }
+]

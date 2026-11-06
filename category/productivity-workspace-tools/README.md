@@ -1,7 +1,7 @@
 # 🚀 Productivity, Slack, Notion & Linear
 
 > **Category**: `productivity-workspace-tools`  
-> **Total Curated Skills**: 283 skills  
+> **Total Curated Skills**: 294 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -26,6 +26,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`agent-deep-links`](../../library/composio-community-awesome-codex-skills/skills/agent-deep-links) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Build, validate, and troubleshoot deep links for Codex, Cursor, VS Code, Visual Studio, and sim... |
 | [`agent-orchestration-advisor`](../../library/deanpeters-product-manager-skills/skills/agent-orchestration-advisor) | ⚪ Reserve | `deanpeters-product-manager-skills` | Design multi-agent AI workflows with clear boundaries, handoffs, and monitoring. Use when a com... |
 | [`agent-self-scheduling`](../../library/sickn33-agentic-awesome-skills/skills/agent-self-scheduling) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Schedule AI agent runs with cron, loops, or external clocks while avoiding unsafe tight autonom... |
+| [`agent-skills-4-vibe-coding-cli`](../../library/dokhacgiakhoa-agent-skills-4-vibe-coding-cli/skills/agent-skills-4-vibe-coding-cli) | ⚪ Reserve | `dokhacgiakhoa-agent-skills-4-vibe-coding-cli` | 369 agent skills from dokhacgiakhoa/agent-skills-4-vibe-coding-cli — including notion-mcp, ui-u... |
 | [`analyzing-slack-space-and-file-system-artifacts`](../../library/mukul975-anthropic-cybersecurity-skills/skills/analyzing-slack-space-and-file-system-artifacts) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Examine NTFS slack space, MFT entries, the USN Change Journal, and Alternate Data Streams (ADS)... |
 | [`ar-loop`](../../library/alirezarezvani-claude-skills/skills/ar-loop) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use for /ar-loop, or to run an autoresearch experiment on a schedule (10 min to monthly) with C... |
 | [`atlassian-admin`](../../library/alirezarezvani-claude-skills/skills/atlassian-admin) | ⚪ Reserve | `alirezarezvani-claude-skills` | Atlassian Administrator for managing and organizing Atlassian products (Jira, Confluence, Bitbu... |
@@ -68,6 +69,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`developer-growth-analysis`](../../library/composio-community-awesome-codex-skills/skills/developer-growth-analysis) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Analyzes your recent Codex chat history to identify coding patterns, development gaps, and area... |
 | [`developer-office-hours-program`](../../library/samber-developer-relations-skills/skills/developer-office-hours-program) | ⚪ Reserve | `samber-developer-relations-skills` | Designs a recurring developer office-hours or AMA program: format, a slot fitting the users' ti... |
 | [`devrel-content-calendar`](../../library/samber-developer-relations-skills/skills/devrel-content-calendar) | ⚪ Reserve | `samber-developer-relations-skills` | Plans a quarter of developer-relations content as a dated slot plan with named owners and revie... |
+| [`digift-plugin`](../../library/okx-plugin-store/skills/digift-plugin) | ⚪ Reserve | `okx-plugin-store` | DigiFT RWA platform CLI — query products, prices, fees, calendar, whitelist, orders; build subs... |
 | [`doc-gen`](../../library/ruvnet-ruflo/skills/doc-gen) | ⚪ Reserve | `ruvnet-ruflo` | Generate and maintain documentation with drift detection. Use when the user asks to write/updat... |
 | [`doordash-group-orders`](../../library/davila7-claude-code-templates/skills/doordash-group-orders) | ⚪ Reserve | `davila7-claude-code-templates` | Group food ordering through the DoorDash CLI (dd-cli) from a persistent team roster. One reques... |
 | [`ecommerce-social-media-marketing`](../../library/nexscope-ai-ecommerce-skills/skills/ecommerce-social-media-marketing) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Social media marketing strategy for ecommerce brands. Content calendar planning, platform-speci... |
@@ -92,6 +94,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`experience-map`](../../library/owl-listener-designer-skills/skills/experience-map) | ⚪ Reserve | `owl-listener-designer-skills` | Map the full ecosystem of touchpoints, channels, and relationships across a service. Use when t... |
 | [`explore-participation-warmup-planner`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/explore-participation-warmup-planner) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "plan the participation ramp before we promote", "how much account hi... |
 | [`extension-email-calendar-events`](../../library/caffeinelabs-skills/skills/extension-email-calendar-events) | ⚪ Reserve | `caffeinelabs-skills` | Support for organising events/meetings and sending invitations by email. |
+| [`facts`](../../library/backnotprop-bro/skills/facts) | ⚪ Reserve | `backnotprop-bro` | Give a capable engineer a terse, jargon-free briefing on the critical facts and implications of... |
 | [`fireflies-transcript`](../../library/davidondrej-skills/skills/fireflies-transcript) | ⚪ Reserve | `davidondrej-skills` | Fetch raw Fireflies.ai meeting transcripts. Use only when the user explicitly invokes /fireflie... |
 | [`fiscal-briefing`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/fiscal-briefing) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Public finances briefing. Supports UK, US, and Australia. Produces a single compact briefing on... |
 | [`flashqla-linear-attention`](../../library/reason-machines-trending-skills/skills/flashqla-linear-attention) | ⚪ Reserve | `reason-machines-trending-skills` | name: flashqla-linear-attention |
@@ -206,14 +209,22 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`rdd-analysis`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/rdd-analysis) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Econometrics skill for Regression Discontinuity Design (RDD). Activates when the user asks abou... |
 | [`recipe-batch-invite-to-event`](../../library/googleworkspace-cli/skills/recipe-batch-invite-to-event) | ⚪ Reserve | `googleworkspace-cli` | Add a list of attendees to an existing Google Calendar event and send notifications. |
 | [`recipe-block-focus-time`](../../library/googleworkspace-cli/skills/recipe-block-focus-time) | ⚪ Reserve | `googleworkspace-cli` | Create recurring focus time blocks on Google Calendar to protect deep work hours. |
+| [`recipe-calendar-audit`](../../library/readdle-spark-cli-skills/skills/recipe-calendar-audit) | ⚪ Reserve | `readdle-spark-cli-skills` | Analyze meeting load over a time range: total meetings, meeting hours, busiest days, back-to-ba... |
 | [`recipe-create-events-from-sheet`](../../library/googleworkspace-cli/skills/recipe-create-events-from-sheet) | ⚪ Reserve | `googleworkspace-cli` | Read event data from a Google Sheets spreadsheet and create Google Calendar entries for each ro... |
 | [`recipe-create-meet-space`](../../library/googleworkspace-cli/skills/recipe-create-meet-space) | ⚪ Reserve | `googleworkspace-cli` | Create a Google Meet meeting space and share the join link. |
+| [`recipe-end-of-day`](../../library/readdle-spark-cli-skills/skills/recipe-end-of-day) | ⚪ Reserve | `readdle-spark-cli-skills` | End-of-day review: check for loose ends, review pinned items, and preview tomorrow's calendar. |
 | [`recipe-find-free-time`](../../library/googleworkspace-cli/skills/recipe-find-free-time) | ⚪ Reserve | `googleworkspace-cli` | Query Google Calendar free/busy status for multiple users to find a meeting slot. |
+| [`recipe-invitation-manager`](../../library/readdle-spark-cli-skills/skills/recipe-invitation-manager) | ⚪ Reserve | `readdle-spark-cli-skills` | Process pending calendar invitations: check availability and present a decision list with recom... |
+| [`recipe-meeting-followup`](../../library/readdle-spark-cli-skills/skills/recipe-meeting-followup) | ⚪ Reserve | `readdle-spark-cli-skills` | Review a meeting transcript and draft follow-up emails with action items to attendees. |
+| [`recipe-meeting-prep`](../../library/readdle-spark-cli-skills/skills/recipe-meeting-prep) | ⚪ Reserve | `readdle-spark-cli-skills` | Prepare for an upcoming meeting: check agenda, search for email context, look up attendee detai... |
+| [`recipe-morning-standup`](../../library/readdle-spark-cli-skills/skills/recipe-morning-standup) | ⚪ Reserve | `readdle-spark-cli-skills` | Morning standup briefing: today's events, unread people and priority mail, and team assignment ... |
 | [`recipe-plan-weekly-schedule`](../../library/googleworkspace-cli/skills/recipe-plan-weekly-schedule) | ⚪ Reserve | `googleworkspace-cli` | Review your Google Calendar week, identify gaps, and add events to fill them. |
 | [`recipe-post-mortem-setup`](../../library/googleworkspace-cli/skills/recipe-post-mortem-setup) | ⚪ Reserve | `googleworkspace-cli` | Create a Google Docs post-mortem, schedule a Google Calendar review, and notify via Chat. |
 | [`recipe-reschedule-meeting`](../../library/googleworkspace-cli/skills/recipe-reschedule-meeting) | ⚪ Reserve | `googleworkspace-cli` | Move a Google Calendar event to a new time and automatically notify all attendees. |
+| [`recipe-schedule-meeting`](../../library/readdle-spark-cli-skills/skills/recipe-schedule-meeting) | ⚪ Reserve | `readdle-spark-cli-skills` | Find mutual availability with attendees and suggest meeting times. |
 | [`recipe-schedule-recurring-event`](../../library/googleworkspace-cli/skills/recipe-schedule-recurring-event) | ⚪ Reserve | `googleworkspace-cli` | Create a recurring Google Calendar event with attendees. |
 | [`recipe-share-event-materials`](../../library/googleworkspace-cli/skills/recipe-share-event-materials) | ⚪ Reserve | `googleworkspace-cli` | Share Google Drive files with all attendees of a Google Calendar event. |
+| [`recipe-topic-timeline`](../../library/readdle-spark-cli-skills/skills/recipe-topic-timeline) | ⚪ Reserve | `readdle-spark-cli-skills` | Build a chronological narrative for a topic by interleaving meeting transcript excerpts and ema... |
 | [`regression-modeling`](../../library/aj-geddes-useful-ai-prompts/skills/regression-modeling) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Build predictive models using linear regression, polynomial regression, and regularized regress... |
 | [`report-pack`](../../library/anthropics-knowledge-work/skills/report-pack) | ⚪ Reserve | `anthropics-knowledge-work` | Delivers the owner's custom recurring report pack on a set cadence — runs the saved report defi... |
 | [`research`](../../library/alirezarezvani-claude-skills/skills/research) | ⚪ Reserve | `alirezarezvani-claude-skills` | Default entry point for any research request — a hybrid router that classifies the question det... |
@@ -259,6 +270,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`slack`](../../library/membranedev-application-skills/skills/slack) | ⚪ Reserve | `membranedev-application-skills` | Slack integration. Manage communication data, records, and workflows. Use when the user wants t... |
 | [`slack-automation`](../../library/antigravity-awesome-skills/skills/slack-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate Slack messaging, channel management, search, reactions, and threads via Rube MCP (Comp... |
 | [`slack-messaging`](../../library/anthropics-knowledge-work/skills/slack-messaging) | ⚪ Reserve | `anthropics-knowledge-work` | Guidance for composing well-formatted, effective Slack messages using mrkdwn syntax |
+| [`slack-mrkdwn`](../../library/ccheney-robust-skills/skills/slack-mrkdwn) | ⚪ Reserve | `ccheney-robust-skills` | Format or debug Slack message text, mentions, links, dates, and escaping. Use when choosing Sla... |
 | [`slack-search`](../../library/anthropics-knowledge-work/skills/slack-search) | ⚪ Reserve | `anthropics-knowledge-work` | Guidance for effectively searching Slack to find messages, files, channels, and people |
 | [`slack-workflows`](../../library/claude-office-skills-skills/skills/slack-workflows) | ⚪ Reserve | `claude-office-skills-skills` | Slack automation and workflow builder - notifications, standup bots, approval flows, and cross-... |
 | [`social-calendar-builder`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/social-calendar-builder) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "build our social posting calendar", "set weekly slots and queue dept... |
@@ -293,7 +305,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`weekly-prep-brief`](../../library/anthropics-knowledge-work/skills/weekly-prep-brief) | ⚪ Reserve | `anthropics-knowledge-work` | Generate a comprehensive weekly briefing for all external calls in the next 7 days. Triggers on... |
 | [`weekly-project-digest`](../../library/makenotion-notion-cookbook/skills/weekly-project-digest) | ⚪ Reserve | `makenotion-notion-cookbook` | Produces evidence-based weekly project or team updates by comparing reporting periods, tasks, d... |
 | [`wiki-narrate`](../../library/ar9av-obsidian-wiki/skills/wiki-narrate) | ⚪ Reserve | `ar9av-obsidian-wiki` | Turn a wiki topic into a cited Markdown briefing, plain-language explanation, or progressive le... |
-| [`workflow`](../../library/makenotion-notion-cookbook/skills/workflow) | ⚪ Reserve | `makenotion-notion-cookbook` | Scaffold a Notion Worker Workflow with typed triggers and replay-safe durable steps. |
 | [`workflow-validate`](../../library/makenotion-notion-cookbook/skills/workflow-validate) | ⚪ Reserve | `makenotion-notion-cookbook` | Review Notion Worker Workflows for trigger typing and retry safety. |
 | [`workshop-program-design`](../../library/samber-dev-event-organizer-skills/skills/workshop-program-design) | ⚪ Reserve | `samber-dev-event-organizer-skills` | Design how a hands-on technical workshop at a developer event or conference runs, once the form... |
 | [`yes-md`](../../library/sickn33-agentic-awesome-skills/skills/yes-md) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | 6-layer AI governance: safety gates, evidence-based debugging, anti-slack detection, and machin... |

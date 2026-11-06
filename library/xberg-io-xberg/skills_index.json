@@ -1,0 +1,72 @@
+[
+  {
+    "id": "xberg",
+    "name": "xberg",
+    "repository": "xberg-io-xberg",
+    "category": "general",
+    "description": "Extract text, tables, metadata, and images from 107 document formats (PDF, Office, images, HTML, email, archives, academic) using Xberg. Use when writing code that calls Xberg APIs in Python, Node.js/TypeScript, Rust, or CLI. Covers installation, extraction (sync/async), configuration (OCR, chunking, output format), batch processing, error handling, and plugins.",
+    "path": "library/xberg-io-xberg/skills/xberg",
+    "activation_cmd": "python .agents/library/activate_skill.py activate xberg",
+    "link_cmd": "python .agents/library/activate_skill.py link xberg"
+  },
+  {
+    "id": "xberg-batch-extraction",
+    "name": "xberg-batch-extraction",
+    "repository": "xberg-io-xberg",
+    "category": "general",
+    "description": "Use when extracting from many files at once with shared config, bounded parallelism, per-file overrides, and error recovery. Covers the `batch` command, `--file-configs`, `--max-concurrent`, and output layout.",
+    "path": "library/xberg-io-xberg/skills/xberg-batch-extraction",
+    "activation_cmd": "python .agents/library/activate_skill.py activate xberg-batch-extraction",
+    "link_cmd": "python .agents/library/activate_skill.py link xberg-batch-extraction"
+  },
+  {
+    "id": "xberg-chunking",
+    "name": "xberg-chunking",
+    "repository": "xberg-io-xberg",
+    "category": "general",
+    "description": "Use when splitting extracted text into chunks for LLM context windows or RAG ingestion. Covers chunk size, overlap, markdown/yaml/semantic chunkers, tokenizer-based sizing, and the standalone `chunk` command.",
+    "path": "library/xberg-io-xberg/skills/xberg-chunking",
+    "activation_cmd": "python .agents/library/activate_skill.py activate xberg-chunking",
+    "link_cmd": "python .agents/library/activate_skill.py link xberg-chunking"
+  },
+  {
+    "id": "xberg-extracting-keywords",
+    "name": "xberg-extracting-keywords",
+    "repository": "xberg-io-xberg",
+    "category": "general",
+    "description": "Use when extracting keywords (YAKE/RAKE) from documents \u2014 and, secondarily, when detecting document language or generating embeddings for RAG and search. Covers the keyword config (and its feature gating), `--detect-language`, and the standalone `embed` command with real flags.",
+    "path": "library/xberg-io-xberg/skills/xberg-extracting-keywords",
+    "activation_cmd": "python .agents/library/activate_skill.py activate xberg-extracting-keywords",
+    "link_cmd": "python .agents/library/activate_skill.py link xberg-extracting-keywords"
+  },
+  {
+    "id": "xberg-extracting-tables",
+    "name": "xberg-extracting-tables",
+    "repository": "xberg-io-xberg",
+    "category": "general",
+    "description": "Use when extracting tabular data from PDFs, spreadsheets, or images. Covers layout-aware table detection, table model selection, output formats (markdown / JSON cells), and known limits.",
+    "path": "library/xberg-io-xberg/skills/xberg-extracting-tables",
+    "activation_cmd": "python .agents/library/activate_skill.py activate xberg-extracting-tables",
+    "link_cmd": "python .agents/library/activate_skill.py link xberg-extracting-tables"
+  },
+  {
+    "id": "xberg-extracting-with-ocr",
+    "name": "xberg-extracting-with-ocr",
+    "repository": "xberg-io-xberg",
+    "category": "general",
+    "description": "Use when extracting text from scanned PDFs, photographed pages, or images that have no embedded text layer. Covers OCR backends, language packs, force-OCR, and performance tuning.",
+    "path": "library/xberg-io-xberg/skills/xberg-extracting-with-ocr",
+    "activation_cmd": "python .agents/library/activate_skill.py activate xberg-extracting-with-ocr",
+    "link_cmd": "python .agents/library/activate_skill.py link xberg-extracting-with-ocr"
+  },
+  {
+    "id": "xberg-picking-a-format",
+    "name": "xberg-picking-a-format",
+    "repository": "xberg-io-xberg",
+    "category": "general",
+    "description": "Use when choosing an output format for extracted documents \u2014 plain text, markdown, djot, HTML, JSON, or DocTags. Maps consumer (LLM, parser, archive) to the right `--format` / `--content-format` pair.",
+    "path": "library/xberg-io-xberg/skills/xberg-picking-a-format",
+    "activation_cmd": "python .agents/library/activate_skill.py activate xberg-picking-a-format",
+    "link_cmd": "python .agents/library/activate_skill.py link xberg-picking-a-format"
+  }
+]

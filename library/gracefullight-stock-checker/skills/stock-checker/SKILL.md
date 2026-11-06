@@ -1,0 +1,125 @@
+---
+name: stock-checker
+description: 69 agent skills from gracefullight/stock-checker — including stock-analysis, yahoo-finance, trading-analysis. Install with npx skills add gracefullight/stock-checker.
+---
+
+# Repository Guidelines
+
+## Project Structure & Module Organization
+- `packages/core/src/`: Signal engine, backtest, persistence, and CLI entry (`index.ts`).
+- `packages/automation/`: TypeScript service tooling and offline WhatsApp SDK regressions.
+- `packages/core/public/`: Monthly CSV outputs (e.g., `stock_data_202610.csv`).
+- `apps/api/src/`: Fastify API for stock analysis, history, portfolio, and watchlist.
+- `apps/web/src/`: Next.js screener, charts, portfolio, and alerts.
+- `.github/workflows/daily-data.yml`: Nightly scheduler that runs the CLI and commits new CSVs.
+- `mise.toml`: Runtime versions and development, quality, and CLI tasks.
+- `packages/finance/`: Locked Python finance dependencies, Pyrefly settings, and pytest regressions.
+- `tsconfig.json`: Shared TypeScript config (strict mode, ESNext modules, bundler resolution).
+
+## Build, Test, and Development Commands
+- `mise install`: Install Node 26, Bun 1.4.2, Python 3.14, and uv 0.12.22.
+- `bun install`: Install workspace dependencies and repository Git hooks.
+- `mise run dev`: Start the API (5101) and web (5100) servers.
+- `mise run predict -- --ticker=TSLA,PLTR --sort=asc`: Run predictions and append monthly CSV rows.
+- `mise run strategy:validate -- --dataset=/absolute/raw-snapshot --output=/absolute/report.json`: Recompute BUY observations, non-overlapping five-session trades, costs, and drawdown from a frozen offline dataset.
+- `mise run lint`, `mise run typecheck`, `mise run test`: Run quality checks.
+- Bun workspace scripts are inferred by mise; `mise run //apps/web:typecheck` runs a package task.
+- `mise run typecheck:automation`: Check `.mts` automation scripts and tests, executed through `tsx`.
+- `mise run finance:typecheck`: Check the Python finance tests with Pyrefly.
+- `mise run finance:lint`, `mise run finance:format:check`: Check `packages/finance/` lint and formatting with Ruff.
+- `mise run finance:fix`: Apply safe Ruff fixes, then format sequentially.
+- `mise run finance:test`: Run the offline Python finance regressions.
+- `mise run mcp`: Run the local stock analyst MCP over stdio; reserve stdout for JSON-RPC.
+- `mise run typecheck:mcp`, `mise run test:mcp`: Check the MCP integration.
+- `mise run release:test`: Check release PR validation, Bun version synchronization, and merge guards.
+- Slack alerts: `SLACK_WEBHOOK_URL=... mise run predict -- --ticker=AAPL` or `--slack-webhook=...`.
+- `mise run whatsapp:link`: Open the local QR page and link a WhatsApp Web sender from the phone's Linked devices screen.
+- `mise run whatsapp:gateway`: Run the linked local gateway on loopback port 5102.
+- `mise run whatsapp:service:install -- --link`: Install the macOS user service and enable initial QR pairing; omit `--link` after pairing. See README for service lifecycle commands.
+- `mise run whatsapp:service:status`, `mise run services:test`: Inspect the local service and test its installer offline.
+- `mise run whatsapp:test`: Verify the pinned Baileys registration patch against mocked SDK sockets and timers without network access.
+- `mise run daily-report:service:install`: Schedule BUY screening of the configured validated universe (`CONFIGURED_UNIVERSE_TICKERS`, no browser needed) once per Sydney date at 09:00, with a late catch-up run until 90 minutes before the next NYSE open; use `:status` or `:stop` to inspect or disable the trigger without changing the gateway. `DAILY_REPORT_SOURCE=finviz` at install opts into the Finviz discovery lane (requires Aside; saved jobs carry `universe.source: 'finviz-candidates'` and `validated: false`), which falls back to the configured universe when collection fails.
+- `mise run daily-report -- --dry-run` / `--status`: Check readiness, the scan-time estimate, or saved daily state without market work or notifications. Runs record the latest completed NYSE session (`usSession`) and skip a later local date whose session was already delivered (`skipped` / `no-new-session`). Finviz defaults collect up to 200 volume-ordered candidates; every lane evaluates for up to 20 minutes, preserves partial coverage, and records collection (`capped` vs `partial`) separately from analysis status in the shared `data/market-scans/` store.
+- `mise run market-scans:prune -- --days=30 [--dry-run]`: Opt-in storage hygiene that moves older saved scans under `data/market-scans/archive/`, keeping the job summary, BUY matches, and paper-performance ledgers; the job holding a live lease is never touched.
+- `mise run whatsapp:service:restart`: Restart the owned macOS service, preserving credentials and its QR/gateway mode; renew an expired initial QR attempt.
+- WhatsApp alerts: set `WHATSAPP_TO` in E.164 format and keep the local gateway running. CLI BUY/SELL batches, saved market-screen completion summaries, and MCP `screen_stocks` with `notifyWhatsApp: true` send bounded plain-text summaries. MCP notification defaults to `false`; see README for setup.
+- WhatsApp details: preserve the original SC decision, model settings, reasons, and reference date; include historical BUY win rates with sample counts and dates plus available analyst targets. Limit enrichment to three candidates and 30 seconds, skip it when notifications are disabled, and label unavailable data explicitly. Historical rates and ATR touch rates are not future execution probabilities.
+- WhatsApp layout: use Korean labels, bold ticker decisions, short lines, and blank lines between tickers. Keep messages focused on ticker details and sources, with sample counts, observation periods, costs, reference dates, and availability alongside the relevant values. Omit standalone coverage and interpretation sections; keep structured screening coverage intact and the summary within 3,000 UTF-16 units.
+
+## Coding Style & Naming Conventions
+- Language: TypeScript with `strict: true`, `esModuleInterop: true`.
+- Modules: ESNext with bundler resolution.
+- Indentation: 2 spaces; keep lines focused and typed.
+- Naming: `lowerCamelCase` for vars/functions, `UpperCamelCase` for types/interfaces, `UPPER_SNAKE_CASE` for constants.
+- Logging: Use `pino` on stderr for diagnostics (avoid `console.log` for logs). Intentional CLI output such as summary tables and CSV/JSON exports may write to stdout; MCP code paths must keep stdout for JSON-RPC.
+- Structure: Keep CLI and route handlers thin; place helpers in the owning workspace's `src/`.
+- Signal settings: CLI, API/web, MCP, screening, and backtests resolve the same complete leader-pullback configuration through `loadPipelineConfig`; ignore legacy partial weight files. No command rewrites the saved configuration (the optimize/learn loop was removed); freeze the configuration for each batch or saved scan.
+
+## Testing Guidelines
+- `packages/core`, `apps/api`, and `apps/web` use Vitest; suites live next to their sources as `*.test.ts` / `*.test.tsx` or in sibling `__tests__/` directories under `src/`.
+- `apps/mcp` uses `bun test`; `packages/automation` and `.github/scripts` use `node --test` with `.mts` files.
+- Python finance regressions use pytest under `packages/finance/tests/`; Ruff and Pyrefly check only `packages/finance/` (the oma-managed skill scripts under `.agents/` are resolved for imports, never linted or modified).
+- Use `mise run test:core`, `mise run test:api`, `mise run test:web`, or `mise run test:mcp` for scoped checks; `mise run test` keeps running sibling suites when one fails.
+- Add regression tests for behavior changes; use fixtures and mocks for external market data.
+
+## Commit & Pull Request Guidelines
+- Commits: Follow Conventional Commits (`feat:`, `fix:`, `docs:`, `chore:`). Examples in history: `feat: add INTC and UPST tickers`, `fix: notify slack after csv write`.
+- PRs: Include a concise description, linked issue (if any), and a sample run (command used plus snippet of CSV output or logs). Note any changes affecting the GH Action.
+- CI: Ensure the nightly workflow continues to succeed without extra setup (no new required secrets).
+- Releases: Main pushes generate a Release Please PR, validate its exact commit, automatically squash-merge passing version changes, and create the tag/GitHub Release. Keep root/workspace versions and `bun.lock` synchronized. Nightly `chore(data)` commits touch only `packages/core/public/`, which `exclude-paths` in `release-please-config.json` keeps out of releases.
+
+## Security & Configuration Tips
+- Do not commit secrets. Pass Slack webhooks via env vars or GitHub Secrets.
+- Keep WhatsApp recipient settings and optional gateway tokens in environment variables. Linked sessions and the default `0600` gateway-token file live in ignored `data/whatsapp/`; do not commit them or QR codes. Notification failures must preserve saved screening and prediction results.
+- WhatsApp Web notifications require a running local gateway; GitHub-hosted nightly runs have no linked session and keep notifications disabled without new required secrets.
+- Network calls: Uses public Yahoo Finance API and alternative.me FGI; handle failures gracefully (already logged) and avoid adding rate-limited loops.
+
+<!-- OMA:START — managed by oh-my-agent. Do not edit this block manually. -->
+
+# oh-my-agent
+
+Follow `.agents/skills/_shared/core/execution-policy.md` for authorization, clarification, verification, and completion. System/developer instructions and the user's request take precedence over OMA defaults. Never build, compile, bundle, or package software unless the user explicitly requests a build.
+
+- **SSOT**: Do not modify `.agents/` definitions (skills, workflows, rules, agents, config) directly. Run outputs under `.agents/results/` and `.agents/state/` are generated artifacts and may be written.
+- **Response language**: Follow `language` in `.agents/oma-config.yaml`.
+- **Skills**: Read the relevant `.agents/skills/{name}/SKILL.md` when needed.
+- **Subagents**:
+  - claude: Same-vendor native dispatch via Claude Code Agent tool with `.claude/agents/{name}.md`; cross-vendor fallback via `oma agent spawn`
+  - codex: Same-vendor native dispatch via Codex custom agents in `.codex/agents/{name}.toml`; cross-vendor fallback via `oma agent spawn`
+  - cursor: `@agent-name` (defined in `.cursor/agents/`)
+  - qwen: Same-vendor native dispatch via Qwen Code subagents in `.qwen/agents/{name}.md`; cross-vendor fallback via `oma agent spawn`
+- Write non-ASCII tool-call parameters as literal UTF-8, not Unicode escapes.
+
+## Per-Agent Dispatch
+
+Resolve each agent from `.agents/oma-config.cue` or `.agents/oma-config.yaml`, overlaid by `.agents/oma-config.local.cue` or `.agents/oma-config.local.yaml` when present. With `model_preset: free`, always use `oma agent spawn` so the subprocess receives the FreeLLMAPI route; `free.model` replaces per-agent model pins. Otherwise, explicit `agents:` overrides take priority. With `model_preset: auto`, follow the current vendor's native agent/model settings; use `default_cli` only when the runtime is unknown. Use native subagents when the target matches the current runtime; otherwise, or when native dispatch is unavailable, use `oma agent spawn`.
+
+## Code Search
+
+Serena MCP is required for code search and discovery. Load deferred tools before use. Use `find_file` for paths, `search_for_pattern` for content, and `find_symbol` / `get_symbols_overview` for symbols. Native search is only for paths outside this project, ignored paths, or plain non-code content. The PreToolUse guard already allows searches confined to confirmed provider exclusions or paths outside this project.
+
+## Workflows
+
+Run workflows only when explicitly requested or detected by a hook; never self-initiate. Read and follow `.agents/workflows/{name}.md`. Continue active workflows until complete or explicitly cancelled.
+
+## Project Rules
+
+Read the relevant file from `.agents/rules/` when working on matching code.
+
+| Rule | File | Scope |
+|------|------|-------|
+| backend | `.agents/rules/backend.md` | on request |
+| commit | `.agents/rules/commit.md` | on request |
+| database | `.agents/rules/database.md` | **/*.{sql,prisma} |
+| debug | `.agents/rules/debug.md` | on request |
+| design | `.agents/rules/design.md` | on request |
+| dev-workflow | `.agents/rules/dev-workflow.md` | on request |
+| frontend | `.agents/rules/frontend.md` | **/*.{tsx,jsx,css,scss} |
+| i18n-arb | `.agents/rules/i18n-arb.md` | **/*.arb |
+| i18n-guide | `.agents/rules/i18n-guide.md` | always |
+| infrastructure | `.agents/rules/infrastructure.md` | **/*.{tf,tfvars,hcl} |
+| market | `.agents/rules/market.md` | on request |
+| mobile | `.agents/rules/mobile.md` | **/*.{dart,swift,kt} |
+| quality | `.agents/rules/quality.md` | on request |
+
+<!-- OMA:END -->

@@ -1,7 +1,7 @@
 # 📚 Academic Writing, Research & Literature
 
 > **Category**: `academic-writing-publishing`  
-> **Total Curated Skills**: 248 skills  
+> **Total Curated Skills**: 255 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -120,9 +120,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`huggingface-paper-publisher`](../../library/huggingface-skills/skills/huggingface-paper-publisher) | ⚪ Reserve | `huggingface-skills` | Publish and manage research papers on Hugging Face Hub. Supports creating paper pages, linking ... |
 | [`hypogenic`](../../library/davila7-claude-code-templates/skills/hypogenic) | ⚪ Reserve | `davila7-claude-code-templates` | Automated hypothesis generation and testing using large language models. Use this skill when ge... |
 | [`i1`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/i1) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Paper Retrieval Agent - Multi-database paper fetching from Semantic Scholar, OpenAlex, arXiv Ha... |
+| [`idea-evaluator`](../../library/hkustdial-supervisor-skills/skills/idea-evaluator) | ⚪ Reserve | `hkustdial-supervisor-skills` | Evaluates a preliminary research idea against a five-dimension framework (Higher, Faster, Stron... |
 | [`implement-content-writer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/implement-content-writer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "write SEO content", "draft a blog post / landing page", "update outd... |
 | [`institutional-repository-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/institutional-repository-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Access papers from institutional and subject repositories at scale |
 | [`interlibrary-loan-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/interlibrary-loan-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Access papers through interlibrary loan and document delivery services |
+| [`intro-drafter`](../../library/hkustdial-supervisor-skills/skills/intro-drafter) | ⚪ Reserve | `hkustdial-supervisor-skills` | Drafts the Introduction prose for a technical paper, guided internally by a six-paragraph flowc... |
 | [`introduction-writing-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/introduction-writing-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Guide to writing effective research paper introductions |
 | [`invokely-statistics`](../../library/sickn33-agentic-awesome-skills/skills/invokely-statistics) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use Invokely MCP to find official statistics, retrieve values and series, compare or rank place... |
 | [`journal-digest`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/journal-digest) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | 经济金融顶刊文献速递与选题建议生成器。通过RSS和网页抓取获取经济学、金融学、会计学顶级期刊的最新论文， 筛选公司金融相关文献，生成中文综述摘要和研究选题建议。 当用户提到"期刊速递"、"文... |
@@ -132,6 +134,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`kill-argument`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/kill-argument) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Two-thread adversarial review: a fresh reviewer constructs the strongest 200-word rejection mem... |
 | [`latte-review-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/latte-review-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Automate systematic literature reviews with LatteReview AI agents |
 | [`light-mode-paper-technical`](../../library/mengto-skills/skills/light-mode-paper-technical) | ⚪ Reserve | `mengto-skills` | Create a light-mode technical design system with warm paper surfaces, dark outer framing, subtl... |
+| [`linkfox-zhihuiya-abstract-data-translated`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-zhihuiya-abstract-data-translated) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 按智慧芽（PatSnap）专利 ID 或公开（公告）号获取专利标题和摘要的中文、英文或日文翻译，支持批量查询及按需采用同族专利摘要。适用于专利摘要查询、标题翻译和指定语言的摘要阅读；用户询问... |
+| [`linkfox-zhihuiya-abstract-image`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-zhihuiya-abstract-image) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 通过专利 ID 或公开公告号从智慧芽（PatSnap）获取单件或批量专利摘要附图，展示代表性图纸、示意图及图片下载路径。适用于专利摘要附图检索、专利图片查询和已知专利的图示查看；不适用于全文... |
+| [`linkfox-zhihuiya-patent-forward-citation`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-zhihuiya-patent-forward-citation) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 查询智慧芽（PatSnap）中指定专利引用的专利及非专利文献，支持按专利 ID 或公开公告号单条、批量查询和引证分析。适用于核对专利参考文献、在先技术引用、论文与技术报告等引证信息。查询“哪... |
 | [`lit-review`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/lit-review) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Structured literature search and synthesis for the sewage-house-prices project. Searches top-5 ... |
 | [`lit-review-assistant`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/lit-review-assistant) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Search, summarize, and synthesize economics literature |
 | [`literature-gap-finder`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/literature-gap-finder) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Method×Setting matrices and systematic gap identification |
@@ -205,6 +210,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`proofread`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/proofread) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Proofread the sewage-house-prices manuscript. Checks 6 categories — structure, claims-evidence ... |
 | [`quiz-maker`](../../library/genspark-ai-genoffice/skills/quiz-maker) | ⚪ Reserve | `genspark-ai-genoffice` | Write a complete test paper by knowledge point and difficulty with an answer key and explanatio... |
 | [`readability`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/readability) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Correct grammar errors, typos, and improve academic readability in LaTeX, Markdown, or plain-te... |
+| [`rebuttal-guidance`](../../library/hkustdial-supervisor-skills/skills/rebuttal-guidance) | ⚪ Reserve | `hkustdial-supervisor-skills` | Provides actionable peer-review rebuttal guidance (not full rebuttal prose) using conditional p... |
 | [`replicate-paper`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/replicate-paper) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Run a full 6-phase autonomous replication of a biomedical/epidemiology paper against UK Biobank... |
 | [`research-lit`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/research-lit) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Search and analyze research papers, find related work, summarize key ideas. Use when user says ... |
 | [`research-paper-kb`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/research-paper-kb) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Build a persistent cross-session knowledge base from academic papers |
@@ -241,6 +247,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`sophosia-reference-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/sophosia-reference-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Reference manager with PDF viewer and Markdown note support |
 | [`split-pdf`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/split-pdf) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Download, split, and deeply read academic PDFs. Use when asked to read, review, or summarize an... |
 | [`sr-screener`](../../library/academic-research-skills/skills/sr-screener) | ⚪ Reserve | `academic-research-skills` | Protocol-driven study screening for systematic, scoping and rapid reviews. Turns a proposal or ... |
+| [`starter-coach`](../../library/okx-plugin-store/skills/starter-coach) | ⚪ Reserve | `okx-plugin-store` | Starter Coach V2 — conversational 6-step skill that guides users to build their own automated D... |
 | [`stat-writing`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/stat-writing) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | End-to-end statistical writing assistant for LaTeX - draft title/abstract/keywords, expand outl... |
 | [`stata-publication-qa`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/stata-publication-qa) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Review regression outputs, tables, and graphs for publication readiness. Use when the user asks... |
 | [`stata-table-builder`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/stata-table-builder) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Build and review paper-ready regression, balance, and summary tables from Stata outputs. Use wh... |

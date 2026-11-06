@@ -1,0 +1,32 @@
+[
+  {
+    "id": "resolve-agent-reviews",
+    "name": "resolve-agent-reviews",
+    "repository": "pbakaus-agent-reviews",
+    "category": "general",
+    "description": "Resolve PR review bot findings on current PR. Fetches unanswered bot comments, evaluates each finding, fixes real bugs, dismisses false positives, replies to every comment, and waits for the head commit's checks until a pass is clean.",
+    "path": "library/pbakaus-agent-reviews/skills/resolve-agent-reviews",
+    "activation_cmd": "python .agents/library/activate_skill.py activate resolve-agent-reviews",
+    "link_cmd": "python .agents/library/activate_skill.py link resolve-agent-reviews"
+  },
+  {
+    "id": "resolve-human-reviews",
+    "name": "resolve-human-reviews",
+    "repository": "pbakaus-agent-reviews",
+    "category": "general",
+    "description": "Resolve human PR review comments on current PR. Fetches unanswered human comments, evaluates each piece of feedback, applies fixes, and replies to every comment with the outcome.",
+    "path": "library/pbakaus-agent-reviews/skills/resolve-human-reviews",
+    "activation_cmd": "python .agents/library/activate_skill.py activate resolve-human-reviews",
+    "link_cmd": "python .agents/library/activate_skill.py link resolve-human-reviews"
+  },
+  {
+    "id": "resolve-reviews",
+    "name": "resolve-reviews",
+    "repository": "pbakaus-agent-reviews",
+    "category": "general",
+    "description": "Resolve all PR review comments (human and bot) on current PR. Fetches unanswered comments, evaluates each one, fixes real issues, dismisses false positives, and replies to every comment with the outcome.",
+    "path": "library/pbakaus-agent-reviews/skills/resolve-reviews",
+    "activation_cmd": "python .agents/library/activate_skill.py activate resolve-reviews",
+    "link_cmd": "python .agents/library/activate_skill.py link resolve-reviews"
+  }
+]

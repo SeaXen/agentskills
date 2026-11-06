@@ -1,7 +1,7 @@
 # 🔒 Auth, Hardening & Compliance
 
 > **Category**: `security-compliance-auth`  
-> **Total Curated Skills**: 398 skills  
+> **Total Curated Skills**: 409 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -239,6 +239,15 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`legal-compliance-vault`](../../library/sickn33-agentic-awesome-skills/skills/legal-compliance-vault) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Legal and compliance document vault: document type, framework, owner and department, effective ... |
 | [`legal-research-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/legal-research-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Legal research methods, case law analysis, and compliance tools |
 | [`levelplay-unity-integration`](../../library/unity-technologies-skills/skills/levelplay-unity-integration) | ⚪ Reserve | `unity-technologies-skills` | Integrates the LevelPlay ad mediation SDK via the Ads Mediation package. Use when the user asks... |
+| [`linkfox-amazon-ads-auth`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-amazon-ads-auth) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 管理亚马逊广告（Amazon Ads）账号的授权连接，支持手动授权、紫鸟自动或批量授权、已授权账号与站点查询、广告 profile 查询和当前成员连接解绑。适用于广告账号绑定、恢复授权、为广... |
+| [`linkfox-amazon-store-auth`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-amazon-store-auth) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 管理亚马逊卖家店铺授权与账号连接，支持手动授权、紫鸟 CLI 自动或批量授权、已授权店铺查询、授权状态检查、令牌刷新及本地解绑。适用于新增或恢复店铺连接、授权失效排查和为卖家后台业务选择账号... |
+| [`linkfox-shopee-store-auth`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-shopee-store-auth) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 管理 Shopee（虾皮）店铺的 ERP 与广告（AD）独立授权，生成授权链接、查询已授权店铺与授权状态，并为后续业务确定店铺。适用于卖家账号绑定、补充广告授权、核对授权状态和多店选择；不适... |
+| [`linkfox-shopee-store-public`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-shopee-store-public) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 处理 Shopee（虾皮）Public 公共能力，查询 Partner 下已授权店铺、商户和开放平台 IP 段，并支持授权码交换 token、刷新 token 及 resend code 换... |
+| [`linkfox-shopee-store-push`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-shopee-store-push) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 管理 Shopee（虾皮）应用的 Push 推送配置，支持设置及读取回调配置、获取丢失推送消息并确认消费。适用于推送回调维护、webhook 配置核对和丢失消息补推管理；不适用于店铺授权、公... |
+| [`linkfox-sif-compliance-detection`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-sif-compliance-detection) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | SIF-外观专利检测，当前提供商品图片外观相似检索，返回相似外观登记候选，支持辅助标题、地区、来源归属、洛迦诺分类和法律状态筛选。用于以图查外观登记和产品外观风险候选排查；结果仅供候选审查，... |
+| [`linkfox-temu-compliance-global`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-temu-compliance-global) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 管理 Temu 全球站商品合规资料，支持查询治理属性与 GPSR 等合规模板、编辑合规信息、查询待上传资质项、上传和查询商品资质、上传实拍图及合规文件、识别图片和获取加签资源。适用于已授权店... |
+| [`linkfox-wb-e-commerce-compliance`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-wb-e-commerce-compliance) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 面向电商上架与产品合规审查的专利检索、核验、比对和证据整理能力。 |
+| [`linkfox-wb-sif-compliance-detection`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-wb-sif-compliance-detection) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 按商品图片检索外观登记相似候选并呈现来源风险线索，支持外观专利候选排查与人工复核，不作侵权判定。 |
 | [`longbridge-portfolio`](../../library/longbridge-skills/skills/longbridge-portfolio) | ⚪ Reserve | `longbridge-skills` | Account assets, equity and fund positions, P&L, cash flow records, account statements, margin r... |
 | [`lookalike-audience-seeds`](../../library/mbfinotti-advertising-skills/skills/lookalike-audience-seeds) | ⚪ Reserve | `mbfinotti-advertising-skills` | Select and size the seed customer list behind a lookalike, similar, or value-based audience - w... |
 | [`m365-agents-dotnet`](../../library/antigravity-awesome-skills/skills/m365-agents-dotnet) | ⚪ Reserve | `antigravity-awesome-skills` | Microsoft 365 Agents SDK for .NET. Build multichannel agents for Teams/M365/Copilot Studio with... |
@@ -298,6 +307,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`privacy-dynamics`](../../library/membranedev-application-skills/skills/privacy-dynamics) | ⚪ Reserve | `membranedev-application-skills` | Privacy Dynamics integration. Manage data, records, and automate workflows. Use when the user w... |
 | [`privacy-parser-pii-extraction`](../../library/reason-machines-trending-skills/skills/privacy-parser-pii-extraction) | ⚪ Reserve | `reason-machines-trending-skills` | Extract structured PII spans from text using the OpenAI Privacy Filter 1.5B model reversed — re... |
 | [`privacy-policy`](../../library/phuryn-pm-skills/skills/privacy-policy) | ⚪ Reserve | `phuryn-pm-skills` | Draft a detailed privacy policy covering data types, jurisdiction, GDPR and compliance consider... |
+| [`product-ux-expert`](../../library/majiayu000-spellbook/skills/product-ux-expert) | ⚪ Reserve | `majiayu000-spellbook` | Product interaction and UX expert. Use when reviewing UI/UX, conducting heuristic evaluations, ... |
 | [`protect-mcp-setup`](../../library/wshobson-agents/skills/protect-mcp-setup) | ⚪ Reserve | `wshobson-agents` | Configure Cedar policy enforcement and Ed25519 signed receipts for Claude Code tool calls. Use ... |
 | [`protocol-channel-registry`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/protocol-channel-registry) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to register/query a social channel, record channel state, cadence, gover... |
 | [`protocol-creator-registry`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/protocol-creator-registry) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks "what did we pay this creator last time" or to "update the creator roste... |
@@ -406,6 +416,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ui-states`](../../library/sickn33-agentic-awesome-skills/skills/ui-states) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Design and build the UI states agents forget: first use, empty, loading, error, offline, no res... |
 | [`vendor-management`](../../library/alirezarezvani-claude-skills/skills/vendor-management) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when reviewing, scoring, or auditing third-party SaaS / vendor relationships — running a ve... |
 | [`video-sdk-ios`](../../library/anthropics-knowledge-work/skills/video-sdk-ios) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Video SDK for iOS native apps. Use when building custom iOS video sessions with full UI co... |
+| [`wake-word-detection`](../../library/martinholovsky-claude-skills-generator/skills/wake-word-detection) | ⚪ Reserve | `martinholovsky-claude-skills-generator` | Expert skill for implementing wake word detection with openWakeWord. Covers audio monitoring, k... |
 | [`warehouse`](../../library/sickn33-agentic-awesome-skills/skills/warehouse) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Plan and review read-only data warehouse analysis with explicit scope, privacy, provenance, and... |
 | [`web-design-guidelines`](../../skills/web-design-guidelines) | 🟢 Active | `active` | Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "chec... |
 | [`whiteboard`](../../library/anthropics-knowledge-work/skills/whiteboard) | ⚪ Reserve | `anthropics-knowledge-work` | Guidance for the bundled Zoom Whiteboard MCP connector. Use for Whiteboard MCP auth, endpoints,... |

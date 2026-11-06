@@ -1,0 +1,72 @@
+[
+  {
+    "id": "creating-skills",
+    "name": "creating-skills",
+    "repository": "fvadicamo-dev-agent-skills",
+    "category": "general",
+    "description": "Guide for creating Claude Code skills following Anthropic's official best practices. Use when user wants to create a new skill, build a skill, write SKILL.md, update an existing skill, or needs skill creation guidelines. Provides structure, frontmatter fields, naming conventions, and new features like dynamic context injection and subagent execution.",
+    "path": "library/fvadicamo-dev-agent-skills/skills/creating-skills",
+    "activation_cmd": "python .agents/library/activate_skill.py activate creating-skills",
+    "link_cmd": "python .agents/library/activate_skill.py link creating-skills"
+  },
+  {
+    "id": "decision-records",
+    "name": "decision-records",
+    "repository": "fvadicamo-dev-agent-skills",
+    "category": "general",
+    "description": "Creates, supersedes and validates decision records (ADRs) against the convention a collection already follows, instead of imposing a published one. Use when the user wants to record a decision, write an ADR, supersede an existing decision, audit or lint a decisions folder, check that an ADR index is in sync, or asks \"why did we decide X\". Deduces the filename scheme, section set and status vocabulary from the records already there; ships a validator with an exit code, so the audit is a check and not an opinion.",
+    "path": "library/fvadicamo-dev-agent-skills/skills/decision-records",
+    "activation_cmd": "python .agents/library/activate_skill.py activate decision-records",
+    "link_cmd": "python .agents/library/activate_skill.py link decision-records"
+  },
+  {
+    "id": "git-commit",
+    "name": "git-commit",
+    "repository": "fvadicamo-dev-agent-skills",
+    "category": "general",
+    "description": "Creates git commits following Conventional Commits format with type/scope/subject. Use when user wants to commit changes, create commit, save work, or stage and commit. Enforces project-specific conventions from CLAUDE.md.",
+    "path": "library/fvadicamo-dev-agent-skills/skills/git-commit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate git-commit",
+    "link_cmd": "python .agents/library/activate_skill.py link git-commit"
+  },
+  {
+    "id": "github-pr-creation",
+    "name": "github-pr-creation",
+    "repository": "fvadicamo-dev-agent-skills",
+    "category": "general",
+    "description": "Creates GitHub Pull Requests with automated validation and task tracking. Use when user wants to create PR, open pull request, submit for review, or check if ready for PR. Analyzes commits, validates task completion, generates Conventional Commits title and description, suggests labels. NOTE - for merging existing PRs, use github-pr-merge instead.",
+    "path": "library/fvadicamo-dev-agent-skills/skills/github-pr-creation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate github-pr-creation",
+    "link_cmd": "python .agents/library/activate_skill.py link github-pr-creation"
+  },
+  {
+    "id": "github-pr-merge",
+    "name": "github-pr-merge",
+    "repository": "fvadicamo-dev-agent-skills",
+    "category": "general",
+    "description": "Merges GitHub Pull Requests after validating pre-merge checklist. Use when user wants to merge PR, close PR, finalize PR, complete merge, approve and merge, or execute merge. Runs pre-merge validation (tests, lint, CI, comments), confirms with user, merges with proper format, handles post-merge cleanup.",
+    "path": "library/fvadicamo-dev-agent-skills/skills/github-pr-merge",
+    "activation_cmd": "python .agents/library/activate_skill.py activate github-pr-merge",
+    "link_cmd": "python .agents/library/activate_skill.py link github-pr-merge"
+  },
+  {
+    "id": "github-pr-review",
+    "name": "github-pr-review",
+    "repository": "fvadicamo-dev-agent-skills",
+    "category": "general",
+    "description": "Handles PR review comments and feedback resolution. Use when user wants to resolve PR comments, handle review feedback, fix review comments, address PR review, check review status, respond to reviewer, verify PR readiness, review PR comments, analyze review feedback, evaluate PR comments, assess review suggestions, or triage PR comments. Fetches comments via GitHub CLI, classifies by severity, applies fixes with user confirmation, commits with proper format, replies to threads.",
+    "path": "library/fvadicamo-dev-agent-skills/skills/github-pr-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate github-pr-review",
+    "link_cmd": "python .agents/library/activate_skill.py link github-pr-review"
+  },
+  {
+    "id": "privacy-guard",
+    "name": "privacy-guard",
+    "repository": "fvadicamo-dev-agent-skills",
+    "category": "general",
+    "description": "Prevents private infrastructure details (node hostnames, internal project names, local usernames and personal emails, absolute home paths, private and VPN IP ranges) from leaking into public repositories through commits, PRs, docs or release artifacts. Use when working in a public or soon-to-be-public repo, before commits or releases, when writing deployment docs for an OSS project, or when the user asks to \"set up the privacy guard\", \"install privacy-guard\", \"check for leaks\", \"protect this public repo\". Bootstraps a pre-commit hook backed by a gitignored local denylist plus gitleaks.",
+    "path": "library/fvadicamo-dev-agent-skills/skills/privacy-guard",
+    "activation_cmd": "python .agents/library/activate_skill.py activate privacy-guard",
+    "link_cmd": "python .agents/library/activate_skill.py link privacy-guard"
+  }
+]

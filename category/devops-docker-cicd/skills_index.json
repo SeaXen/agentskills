@@ -216,6 +216,22 @@
     "path": "category/devops-docker-cicd/artifact-management"
   },
   {
+    "id": "aspire-deployment",
+    "name": "aspire-deployment",
+    "category": "devops-docker-cicd",
+    "repository": "microsoft-aspire-skills",
+    "description": "**WORKFLOW SKILL** \u2014 Deploy Aspire apps from AppHost models to Docker Compose, Kubernetes, Azure, AWS, or preview Radius. WHEN: \\\"deploy Aspire app\\\", \\\"publish Aspire artifacts\\\", \\\"deploy to Azure Container Apps\\\", \\\"generate Kubernetes artifacts\\\", \\\"deploy to Radius\\\", \\\"tear down Aspire deployment\\\". INVOKES: aspire CLI, Aspire docs, target cloud/container CLIs. FOR SINGLE OPERATIONS: use generic Azure, Kubernetes, Docker, AWS, or Radius tools only when no Aspire AppHost exists.",
+    "path": "category/devops-docker-cicd/aspire-deployment"
+  },
+  {
+    "id": "aspire-init",
+    "name": "aspire-init",
+    "category": "devops-docker-cicd",
+    "repository": "microsoft-aspire-skills",
+    "description": "**WORKFLOW SKILL** - First-run flow for adding Aspire to a repo. Picks `aspire new` (greenfield) or `aspire init` (existing repo), drops the AppHost skeleton, then hands off to `aspireify` for resource wiring. USE FOR: aspire init, aspire new, aspire-starter, aspire-ts-starter, aspire-py-starter, add Aspire to existing repo, scaffold Aspire app, bootstrap Aspire, no AppHost detected, install aspireify, apphost.mts, generated .aspire/modules. DO NOT USE FOR: AppHost wiring on an existing AppHost (use aspireify), start/stop/wait (use aspire-orchestration), deploy/publish (use aspire-deployment), logs/traces (use aspire-monitoring), repo that already has an AppHost. INVOKES: aspire CLI (init, new, doctor), aspireify (handoff after skeleton drop). FOR SINGLE OPERATIONS: Run `aspire init` or `aspire new TEMPLATE` directly.",
+    "path": "category/devops-docker-cicd/aspire-init"
+  },
+  {
     "id": "assuredworkloads-frameworks-navigator",
     "name": "assuredworkloads-frameworks-navigator",
     "category": "devops-docker-cicd",
@@ -688,6 +704,22 @@
     "path": "category/devops-docker-cicd/ci-cd-pipeline-builder"
   },
   {
+    "id": "cilium-expert",
+    "name": "cilium-expert",
+    "category": "devops-docker-cicd",
+    "repository": "martinholovsky-claude-skills-generator",
+    "description": "Expert in Cilium eBPF-based networking and security for Kubernetes. Use for CNI setup, network policies (L3/L4/L7), service mesh, Hubble observability, zero-trust security, and cluster-wide network troubleshooting. Specializes in high-performance, secure cluster networking.",
+    "path": "category/devops-docker-cicd/cilium-expert"
+  },
+  {
+    "id": "clanker-plugin",
+    "name": "clanker-plugin",
+    "category": "devops-docker-cicd",
+    "repository": "okx-plugin-store",
+    "description": "Deploy and manage Clanker ERC-20 tokens on Base and Arbitrum. Trigger phrases: deploy token, launch token on Clanker, create token on Base, search Clanker tokens, list latest tokens, claim LP rewards, claim Clanker fees.",
+    "path": "category/devops-docker-cicd/clanker-plugin"
+  },
+  {
     "id": "clerk-billing",
     "name": "clerk-billing",
     "category": "devops-docker-cicd",
@@ -939,7 +971,7 @@
     "id": "container",
     "name": "container",
     "category": "devops-docker-cicd",
-    "repository": "huaweicloud-huaweicloud-skills",
+    "repository": "aliyun-alibabacloud-aiops-skills",
     "description": "",
     "path": "category/devops-docker-cicd/container"
   },
@@ -1086,6 +1118,14 @@
     "repository": "anthropics-knowledge-work",
     "description": "Structured debugging session \u2014 reproduce, isolate, diagnose, and fix. Trigger with an error message or stack trace, \"this works in staging but not prod\", \"something broke after the deploy\", or when behavior diverges from expected and the cause isn't obvious.",
     "path": "category/devops-docker-cicd/debug"
+  },
+  {
+    "id": "debug-openshell-cluster",
+    "name": "debug-openshell-cluster",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-openshell",
+    "description": "Debug why an OpenShell gateway deployment is unhealthy, unreachable, or unable to create sandboxes. Use for gateway health failures, Docker/Podman runtime issues, Helm failures, Kubernetes scheduling, TLS or auth, gateway interceptors, supervisor middleware startup or runtime failures, external compute-driver sockets, VM drivers, or sandbox startup. Trigger keywords - debug gateway, gateway failing, deployment failing, helm install failing, cluster health, gateway health, gateway not starting, health check failed, sandbox pending, docker driver, podman driver, kubernetes driver, external driver, compute driver socket, gateway interceptor, supervisor middleware, middleware failed, vm driver.",
+    "path": "category/devops-docker-cicd/debug-openshell-cluster"
   },
   {
     "id": "deliverability-qa",
@@ -1318,6 +1358,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Design and implement CI/CD pipelines, Docker configurations, deployment",
     "path": "category/devops-docker-cicd/devops-pipeline-builder"
+  },
+  {
+    "id": "devsecops-expert",
+    "name": "devsecops-expert",
+    "category": "devops-docker-cicd",
+    "repository": "martinholovsky-claude-skills-generator",
+    "description": "Expert DevSecOps engineer specializing in secure CI/CD pipelines, shift-left security, security automation, and compliance as code. Use when implementing security gates, container security, infrastructure scanning, secrets management, or building secure supply chains.",
+    "path": "category/devops-docker-cicd/devsecops-expert"
   },
   {
     "id": "devtools-react",
@@ -1886,6 +1934,14 @@
     "repository": "riekelt-principal-engineer",
     "description": "Use when starting any non-trivial change, investigating a bug, or working in unfamiliar code - before the first line is written. Also use for pure investigation with no change planned yet - \\\"dig into this\\\", \\\"figure out why\\\", \\\"sometimes the export is empty\\\", intermittent errors after a deploy. Encodes the ground-first discipline: map the real code and data, quote evidence, never guess conventions. Use whenever a change or a conclusion is about to be built from belief instead of from the tree, even under time pressure.",
     "path": "category/devops-docker-cicd/grounding-before-coding"
+  },
+  {
+    "id": "harbor-expert",
+    "name": "harbor-expert",
+    "category": "devops-docker-cicd",
+    "repository": "martinholovsky-claude-skills-generator",
+    "description": "Expert Harbor container registry administrator specializing in registry operations, vulnerability scanning with Trivy, artifact signing with Notary, RBAC, and multi-region replication. Use when managing container registries, implementing security policies, configuring image scanning, or setting up disaster recovery.",
+    "path": "category/devops-docker-cicd/harbor-expert"
   },
   {
     "id": "hardening-docker-containers-for-production",
@@ -3080,12 +3136,28 @@
     "path": "category/devops-docker-cicd/open-agent-sdk"
   },
   {
+    "id": "openai-netlify-deploy",
+    "name": "openai-netlify-deploy",
+    "category": "devops-docker-cicd",
+    "repository": "trailofbits-skills-curated",
+    "description": "Deploy web projects to Netlify using the Netlify CLI (`npx netlify`). Use when the user asks",
+    "path": "category/devops-docker-cicd/openai-netlify-deploy"
+  },
+  {
     "id": "openclaw-deployment-hardening",
     "name": "openclaw-deployment-hardening",
     "category": "devops-docker-cicd",
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Secure OpenClaw deployments with preflight hardening checks, CI/CD guardrails,",
     "path": "category/devops-docker-cicd/openclaw-deployment-hardening"
+  },
+  {
+    "id": "openshell-cli",
+    "name": "openshell-cli",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-openshell",
+    "description": "Guide agents through using the OpenShell CLI (openshell) for sandbox management, gateway registration, provider configuration and refresh, profile management, policy iteration, settings, service exposure, BYOC workflows, and attached-provider inference. Covers basic through advanced multi-step workflows. Trigger keywords - openshell, sandbox create, sandbox exec, sandbox connect, logs, provider create, profile list, profile describe, provider refresh, policy set, policy get, settings, service expose, forward, port forward, BYOC, bring your own container, inference, use openshell, run openshell, CLI usage, manage sandbox, manage provider, gateway add, gateway select.",
+    "path": "category/devops-docker-cicd/openshell-cli"
   },
   {
     "id": "operating-havoc-c2",
@@ -3422,14 +3494,6 @@
     "repository": "antigravity-awesome-skills",
     "description": "React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance pat...",
     "path": "category/devops-docker-cicd/react-best-practices"
-  },
-  {
-    "id": "react-pdf",
-    "name": "react-pdf",
-    "category": "devops-docker-cicd",
-    "repository": "vercel-labs-json-render",
-    "description": "React PDF renderer for json-render. Use when generating PDF documents from JSON specs, working with @json-render/react-pdf, or rendering specs to PDF buffers/streams/files.",
-    "path": "category/devops-docker-cicd/react-pdf"
   },
   {
     "id": "react-three-fiber",
@@ -3982,14 +4046,6 @@
     "repository": "seaxen-skills-backup",
     "description": "Build a dark-themed static SPA library site from a hierarchical content folder structure (e.g. chapters \u2192 hubs \u2192 topics with PNG + MD pairs). Produces a landing page, per-chapter sidebar SPA with topic manifest JSON, Docker nginx container, and Vercel config. Use when the user says \"make a website like [reference]\", \"show all chapters at once\", \"sidebar with topics\", \"drop-down to switch chapters\", or wants a static content library deployable in both Docker and Vercel.",
     "path": "category/devops-docker-cicd/static-spa-library-site"
-  },
-  {
-    "id": "status",
-    "name": "status",
-    "category": "devops-docker-cicd",
-    "repository": "davila7-claude-code-templates",
-    "description": "Check current Railway project status for this directory. Use when user asks \"railway status\", \"is it running\", \"what's deployed\", \"deployment status\", or about uptime. NOT for variables or configuration queries - use railway-environment skill for those.",
-    "path": "category/devops-docker-cicd/status"
   },
   {
     "id": "supply-chain-security",

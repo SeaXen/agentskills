@@ -393,6 +393,9 @@ def sync_all_upstreams(force=False):
                                     s_dst = os.path.join(target_skills_dir, s_name)
                         if not os.path.exists(s_dst): shutil.copytree(root, s_dst)
 
+                # 2b. Strip upstream dev-tooling cruft inside extracted skills (tests/, .github/, package.json, ...)
+                clean_skill_internal_junk(target_repo_dir)
+
                 # 3. Automatically purge all unnecessary files (monorepos, packages, lockfiles, CI configs)
                 for item in os.listdir(target_repo_dir):
                     lower = item.lower()
@@ -552,6 +555,82 @@ def sync_active_skills(updated_repo_ids=None):
 
 # 3. Incremental Indexing for all library repositories and Master Index
 # Clean Unnecessary Non-Skill Files
+# Junk patterns that must never live inside library/<repo>/skills/<name>/ (upstream dev cruft)
+SKILL_JUNK_LEVEL1 = {
+    '.git', '.github', '.gitignore', '.gitattributes', '.gitmodules', '.editorconfig',
+    '.gitlab-ci.yml', '.travis.yml', '.vscode', '.idea', '.venv', '.nyc_output',
+    '.env.example', '.mocharc.yml', '.mocharc.yaml', '.DS_Store', 'Thumbs.db', '.tsbuildinfo',
+    'package.json', 'package-lock.json', 'pnpm-lock.yaml', 'npm-shrinkwrap.json', 'yarn.lock',
+    'tsconfig.json', 'tsconfig.test.json', 'jest.config.js', 'jest.config.ts',
+    'vitest.config.js', 'vitest.config.ts', 'karma.conf.js',
+    'makefile', 'dockerfile', 'docker-compose.yml',
+    'tests', 'test', 'spec', '__tests__', 'dist', 'build', 'out', 'coverage',
+    'node_modules', '__pycache__',
+}
+SKILL_JUNK_ANY_DEPTH = {'node_modules', '__pycache__', '.git', '.venv', '.nyc_output', 'coverage', '.DS_Store', 'Thumbs.db'}
+
+def _is_skill_junk(name, level1):
+    """True if `name` is junk inside a skill dir. level1=True for direct children of skills/<name>/."""
+    lower = name.lower()
+    if lower in SKILL_JUNK_ANY_DEPTH:
+        return True
+    if lower.endswith('.log') or lower == '.tsbuildinfo':
+        return True
+    if level1:
+        if lower in SKILL_JUNK_LEVEL1 or name.startswith('.temp'):
+            return True
+        if lower.startswith('.mocharc') or lower.startswith('jest.config.') or lower.startswith('vitest.config.') or lower.startswith('karma.conf'):
+            return True
+    return False
+
+def clean_skill_internal_junk(repo_dir):
+    """Strip upstream dev-tooling cruft inside skills/<name>/ dirs of one library repo. Returns count removed."""
+    if not os.path.isdir(repo_dir):
+        return 0
+    skills_dir = os.path.join(repo_dir, 'skills')
+    if not os.path.isdir(skills_dir):
+        return 0
+    removed = 0
+    for s_name in os.listdir(skills_dir):
+        s_path = os.path.join(skills_dir, s_name)
+        if not os.path.isdir(s_path) or s_name.startswith('.'):
+            continue
+        # 1. Level-1 junk directly inside the skill dir
+        try:
+            entries = os.listdir(s_path)
+        except Exception:
+            continue
+        for item in entries:
+            if not _is_skill_junk(item, True):
+                continue
+            ip = os.path.join(s_path, item)
+            try:
+                if os.path.isdir(ip):
+                    shutil.rmtree(ip, onerror=remove_readonly)
+                else:
+                    os.remove(ip)
+                removed += 1
+            except Exception:
+                pass
+        # 2. Always-junk at any deeper level (node_modules, __pycache__, .git, logs, ...)
+        for root, dirs, files in os.walk(s_path):
+            for d in list(dirs):
+                if _is_skill_junk(d, False):
+                    try:
+                        shutil.rmtree(os.path.join(root, d), onerror=remove_readonly)
+                        removed += 1
+                    except Exception:
+                        pass
+                    dirs.remove(d)
+            for f in files:
+                if _is_skill_junk(f, False):
+                    try:
+                        os.remove(os.path.join(root, f))
+                        removed += 1
+                    except Exception:
+                        pass
+    return removed
+
 def clean_unnecessary_library_files(lib_path=None):
     target_lib = lib_path or library_dir
     if not os.path.exists(target_lib):
@@ -562,6 +641,8 @@ def clean_unnecessary_library_files(lib_path=None):
         rp = os.path.join(target_lib, r)
         if not os.path.isdir(rp) or r.startswith('.') or r == '__pycache__':
             continue
+        # Strip junk inside skills/<name>/ (upstream dev cruft: tests, .github, package.json, ...)
+        removed_count += clean_skill_internal_junk(rp)
         for item in os.listdir(rp):
             lower = item.lower()
             if lower in keep_exact or lower in ['readme.md', 'readme', 'readme.txt', 'readme.rst'] or lower.startswith('license'):

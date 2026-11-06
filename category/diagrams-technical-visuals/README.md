@@ -1,7 +1,7 @@
 # 📊 Technical Diagrams & Isometric SVG
 
 > **Category**: `diagrams-technical-visuals`  
-> **Total Curated Skills**: 92 skills  
+> **Total Curated Skills**: 93 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -55,6 +55,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`etetoolkit`](../../library/davila7-claude-code-templates/skills/etetoolkit) | ⚪ Reserve | `davila7-claude-code-templates` | Phylogenetic tree toolkit (ETE). Tree manipulation (Newick/NHX), evolutionary event detection, ... |
 | [`event-sponsor-prospectus`](../../library/samber-dev-event-organizer-skills/skills/event-sponsor-prospectus) | ⚪ Reserve | `samber-dev-event-organizer-skills` | Assemble a technical event's sponsorship prospectus - the published document packaging an exist... |
 | [`excalidraw-diagram-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/excalidraw-diagram-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate hand-drawn style Excalidraw diagrams from text descriptions |
+| [`figure-designer`](../../library/hkustdial-supervisor-skills/skills/figure-designer) | ⚪ Reserve | `hkustdial-supervisor-skills` | Advises on the design of the three core figures in a technical paper: the Motivated Example (Fi... |
 | [`frame-data-chart-nyt`](../../library/feimacode-open-design-agent-kit/skills/frame-data-chart-nyt) | ⚪ Reserve | `feimacode-open-design-agent-kit` | NYT-Style Data Chart Frame (Open Design) — use only when explicitly invoked, not for general de... |
 | [`generate-project-plan`](../../library/figma-mcp-server-guide/skills/generate-project-plan) | ⚪ Reserve | `figma-mcp-server-guide` | Generate a FigJam project plan board from a PRD plus codebase context. Interactive flow: resear... |
 | [`graphical-abstract-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/graphical-abstract-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Create SVG graphical abstracts for journal paper submissions |

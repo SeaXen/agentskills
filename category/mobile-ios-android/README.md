@@ -1,7 +1,7 @@
 # 📱 Mobile Development (iOS, Android, React Native)
 
 > **Category**: `mobile-ios-android`  
-> **Total Curated Skills**: 261 skills  
+> **Total Curated Skills**: 262 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -268,6 +268,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`tipkit`](../../library/dpearson2699-swift-ios-skills/skills/tipkit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Implement and review Apple TipKit feature-discovery UI for iOS 17+ apps. Use when adding or aud... |
 | [`ui-page`](../../library/sickn33-agentic-awesome-skills/skills/ui-page) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Scaffold a new mobile page/screen using the StyleSeed layout patterns |
 | [`ui-radar`](../../library/uizze-uizze/skills/ui-radar) | ⚪ Reserve | `uizze-uizze` | Find and compare real UI examples from UIZZE’s 800,000+ web and iOS screens. Use for UI inspira... |
+| [`ui-ux-expert`](../../library/martinholovsky-claude-skills-generator/skills/ui-ux-expert) | ⚪ Reserve | `martinholovsky-claude-skills-generator` | Expert UI/UX designer specializing in user-centered design, accessibility (WCAG 2.2), design sy... |
 | [`uizze-ui`](../../library/uizze-uizze/skills/uizze-ui) | ⚪ Reserve | `uizze-uizze` | The official Uizze skill for building and improving UI/UX. Work with your project's code and as... |
 | [`upgrading-expo`](../../library/antigravity-awesome-skills/skills/upgrading-expo) | ⚪ Reserve | `antigravity-awesome-skills` | Upgrade Expo SDK versions |
 | [`use-dom`](../../library/sickn33-agentic-awesome-skills/skills/use-dom) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use Expo DOM components to run web code in a webview on native and as-is on web. Migrate web co... |

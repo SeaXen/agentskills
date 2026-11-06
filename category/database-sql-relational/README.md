@@ -1,7 +1,7 @@
 # 🗄️ SQL Databases, ORMs & Indexing
 
 > **Category**: `database-sql-relational`  
-> **Total Curated Skills**: 458 skills  
+> **Total Curated Skills**: 468 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -59,6 +59,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`asset-it-management`](../../library/sickn33-agentic-awesome-skills/skills/asset-it-management) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Asset and IT register: serial, model, condition, assignee, location, purchase value, warranty e... |
 | [`atlassian-marketplace-playbook`](../../library/samber-developer-platform-skills/skills/atlassian-marketplace-playbook) | ⚪ Reserve | `samber-developer-platform-skills` | Takes a B2B SaaS vendor's Jira, Confluence or Jira Service Management app onto the Atlassian Ma... |
 | [`attendance`](../../library/sickn33-agentic-awesome-skills/skills/attendance) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Daily attendance register: check-in and check-out, hours worked, work mode, late minutes, leave... |
+| [`attio-mcp-usage`](../../library/kesslerio-attio-mcp-server/skills/attio-mcp-usage) | ⚪ Reserve | `kesslerio-attio-mcp-server` | Provides universal workflow patterns and best practices for using the Attio MCP server. Complem... |
 | [`aurora-dsql`](../../library/aws-agent-toolkit-for-aws/skills/aurora-dsql) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Provisions and manages Aurora DSQL clusters, connects via psql or DSQL Connectors, manages sche... |
 | [`authoring-mwaa-workflow`](../../library/aws-agent-toolkit-for-aws/skills/authoring-mwaa-workflow) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Authors and deploys MWAA workflow artifacts: Python Airflow DAGs for provisioned environments o... |
 | [`aws-cloudformation-rds`](../../library/giuseppe-trisciuoglio-developer-kit/skills/aws-cloudformation-rds) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides AWS CloudFormation patterns for Amazon RDS databases. Use when creating RDS instances ... |
@@ -125,6 +126,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cloud-spanner-basics`](../../library/google-skills/skills/cloud-spanner-basics) | ⚪ Reserve | `google-skills` | Assists in provisioning instances and databases, designing performant schemas, and querying dat... |
 | [`cloud-sql-basics`](../../library/davila7-claude-code-templates/skills/cloud-sql-basics) | ⚪ Reserve | `davila7-claude-code-templates` | Creates and manages Cloud SQL instances for MySQL, PostgreSQL, and SQL Server. Handles backups,... |
 | [`coda-automation`](../../library/antigravity-awesome-skills/skills/coda-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate Coda tasks via Rube MCP (Composio): manage docs, pages, tables, rows, formulas, permis... |
+| [`codex-log-guard`](../../library/majiayu000-spellbook/skills/codex-log-guard) | ⚪ Reserve | `majiayu000-spellbook` | Diagnose excessive Codex local SQLite diagnostic log writes with read-only evidence by default.... |
 | [`competitor-pages`](../../library/nowork-studio-notfair-plugin/skills/competitor-pages) | ⚪ Reserve | `nowork-studio-notfair-plugin` | Competitor page gap analysis — take a query you want to win and the pages currently outranking ... |
 | [`confluence-automation`](../../library/antigravity-awesome-skills/skills/confluence-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate Confluence page creation, content search, space management, labels, and hierarchy navi... |
 | [`connecting-to-data-source`](../../library/aws-agent-toolkit-for-aws/skills/connecting-to-data-source) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Create and troubleshoot AWS Glue connections to JDBC databases (Oracle, SQL Server, PostgreSQL,... |
@@ -142,7 +144,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`d1-migration`](../../library/jezweb-claude-skills/skills/d1-migration) | ⚪ Reserve | `jezweb-claude-skills` | Cloudflare D1 migration workflow: generate with Drizzle, inspect SQL for gotchas, apply to loca... |
 | [`data-analyst`](../../library/cline-skills/skills/data-analyst) | ⚪ Reserve | `cline-skills` | Act as an interactive data analyst for ClickHouse-backed analytics. Use when the user asks ques... |
 | [`data-migration-scripts`](../../library/aj-geddes-useful-ai-prompts/skills/data-migration-scripts) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Create safe, reversible database migration scripts with rollback capabilities, data validation,... |
-| [`database`](../../library/davila7-claude-code-templates/skills/database) | ⚪ Reserve | `davila7-claude-code-templates` | Add official Railway database services (Postgres, Redis, MySQL, MongoDB). Use when user wants t... |
 | [`database-design`](../../skills/database-design) | 🟢 Active | `active` | Database design principles and decision-making. Schema design, indexing strategy, ORM selection... |
 | [`database-designer`](../../library/alirezarezvani-claude-skills/skills/database-designer) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when the user asks to design database schemas, plan data migrations, optimize queries, choo... |
 | [`database-indexing-strategy`](../../library/aj-geddes-useful-ai-prompts/skills/database-indexing-strategy) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Design and implement database indexing strategies. Use when creating indexes, choosing index ty... |
@@ -163,8 +164,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`detecting-sql-injection-via-waf-logs`](../../library/mukul975-anthropic-cybersecurity-skills/skills/detecting-sql-injection-via-waf-logs) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Analyze WAF (ModSecurity/AWS WAF/Cloudflare) logs to detect SQL injection |
 | [`developer-docs-ai-visibility`](../../library/samber-developer-relations-skills/skills/developer-docs-ai-visibility) | ⚪ Reserve | `samber-developer-relations-skills` | Gets developer documentation cited, at the current version, in AI assistant and AI search answe... |
 | [`developing-applications-on-managed-service-for-apache-flink`](../../library/aws-agent-toolkit-for-aws/skills/developing-applications-on-managed-service-for-apache-flink) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | MANDATORY for Flink or Amazon Managed Service for Apache Flink (MSF) questions. You MUST activa... |
+| [`dial-your-context`](../../library/sanity-io-context/skills/dial-your-context) | ⚪ Reserve | `sanity-io-context` | Interactive session to create Instructions field content for the Sanity Context MCP server. Use... |
 | [`directory-build-organization`](../../library/dotnet-skills/skills/directory-build-organization) | ⚪ Reserve | `dotnet-skills` | USE ONLY for (1) two or more projects with repeated MSBuild policy, targets, or package version... |
 | [`discord-automation`](../../library/antigravity-awesome-skills/skills/discord-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate Discord tasks via Rube MCP (Composio): messages, channels, roles, webhooks, reactions.... |
+| [`django-safe-migration`](../../library/vintasoftware-django-ai-plugins/skills/django-safe-migration) | ⚪ Reserve | `vintasoftware-django-ai-plugins` | Write, review, and rewrite Django migrations for PostgreSQL with zero-downtime guarantees. Use ... |
 | [`django-security`](../../library/affaan-m-ecc/skills/django-security) | ⚪ Reserve | `affaan-m-ecc` | Django security best practices, authentication, authorization, CSRF protection, SQL injection p... |
 | [`dms-schema-conversion`](../../library/aws-agent-toolkit-for-aws/skills/dms-schema-conversion) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Handles the full DMS Schema Conversion lifecycle including creating migration projects, convert... |
 | [`docker-app-data-migration`](../../library/seaxen-skills-backup/skills/docker-app-data-migration) | ⚪ Reserve | `seaxen-skills-backup` | Use when moving a Dockerized app's persistent host data to another disk or mount point without ... |
@@ -182,6 +185,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`enterprise-data-engineering-pipeline-ssis-pyspark`](../../library/reason-machines-data-skills/skills/enterprise-data-engineering-pipeline-ssis-pyspark) | ⚪ Reserve | `reason-machines-data-skills` | End-to-end ELT pipeline using SSIS, SQL Server, and PySpark for enterprise data warehousing and... |
 | [`entity-registry`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/entity-registry) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "optimize entity presence", reconcile an entity identity, or update c... |
 | [`ethos-write`](../../library/nvidia-skills/skills/ethos-write) | ⚪ Reserve | `nvidia-skills` | Writes an AI agent's ethos.md — a durable snapshot of its purpose, intended behavior, boundarie... |
+| [`excalidraw-ai`](../../library/jiatastic-open-python-skills/skills/excalidraw-ai) | ⚪ Reserve | `jiatastic-open-python-skills` | Create professional Excalidraw diagrams by generating JSON directly. This skill provides the Ex... |
 | [`experience-cms-content-generate`](../../library/forcedotcom-sf-skills/skills/experience-cms-content-generate) | ⚪ Reserve | `forcedotcom-sf-skills` | Creates, edits, and publishes Salesforce CMS content of any kind — any domain, any topic. Singl... |
 | [`experience-cms-content-type-generate`](../../library/forcedotcom-sf-skills/skills/experience-cms-content-type-generate) | ⚪ Reserve | `forcedotcom-sf-skills` | Salesforce CMS ContentTypeBundle creation skill. Use this skill ANY TIME a user request involve... |
 | [`experience-lwc-legacy-migrate`](../../library/forcedotcom-sf-skills/skills/experience-lwc-legacy-migrate) | ⚪ Reserve | `forcedotcom-sf-skills` | Migrate legacy Salesforce UI stacks onto modern LWC — Aura → LWC conversion completeness verifi... |
@@ -275,6 +279,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`microsoft-teams-automation`](../../library/antigravity-awesome-skills/skills/microsoft-teams-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate Microsoft Teams tasks via Rube MCP (Composio): send messages, manage channels, create ... |
 | [`migrate-birp-to-urp`](../../library/unity-technologies-skills/skills/migrate-birp-to-urp) | ⚪ Reserve | `unity-technologies-skills` | Plans, executes, and troubleshoots migration from the Built-in Render Pipeline to URP. Use when... |
 | [`migrate-create`](../../library/ruvnet-ruflo/skills/migrate-create) | ⚪ Reserve | `ruvnet-ruflo` | Create a new sequentially numbered database migration with up/down SQL files |
+| [`migrate-defender-to-cre`](../../library/openzeppelin-openzeppelin-skills/skills/migrate-defender-to-cre) | ⚪ Reserve | `openzeppelin-openzeppelin-skills` | Migrate OpenZeppelin Defender Actions, Autotasks, Monitors and scheduled or Relayer-backed work... |
 | [`migrate-dotnet10-to-dotnet11`](../../library/dotnet-skills/skills/migrate-dotnet10-to-dotnet11) | ⚪ Reserve | `dotnet-skills` | Migrate a .NET 10 project or solution to .NET 11 and resolve all breaking changes. This is a MI... |
 | [`migrate-dotnet8-to-dotnet9`](../../library/dotnet-skills/skills/migrate-dotnet8-to-dotnet9) | ⚪ Reserve | `dotnet-skills` | Migrate a .NET 8 project to .NET 9 and resolve all breaking changes. USE FOR: upgrading TargetF... |
 | [`migrate-mstest-v1v2-to-v3`](../../library/dotnet-skills/skills/migrate-mstest-v1v2-to-v3) | ⚪ Reserve | `dotnet-skills` | Use this skill before answering or editing whenever an MSTest v1/v2 project is being upgraded o... |
@@ -352,6 +357,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`prompt-library-for-startups`](../../library/aws-agent-toolkit-for-aws/skills/prompt-library-for-startups) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | AWS-curated copy-paste prompts for AI coding agents (MVP scaffolding, RAG chatbot with Claude o... |
 | [`protocol-entity-registry`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/protocol-entity-registry) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "optimize entity presence", reconcile an entity identity, or update c... |
 | [`pw`](../../library/alirezarezvani-claude-skills/skills/pw) | ⚪ Reserve | `alirezarezvani-claude-skills` | Production-grade Playwright testing toolkit. Use when the user mentions Playwright tests, end-t... |
+| [`pydantic`](../../library/jiatastic-open-python-skills/skills/pydantic) | ⚪ Reserve | `jiatastic-open-python-skills` | Pydantic models and validation. Use when: (1) Defining schemas, (2) Validating input/output, (3... |
 | [`pyspark-etl`](../../library/mindrally-skills/skills/pyspark-etl) | ⚪ Reserve | `mindrally-skills` | Best practices for building performant, testable PySpark ETL pipelines with Spark SQL and Apach... |
 | [`querying-aws-cloudwatch`](../../library/aws-agent-toolkit-for-aws/skills/querying-aws-cloudwatch) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Runs SQL queries on CloudWatch Logs data exported as Apache Iceberg tables in S3 Tables. Covers... |
 | [`querying-aws-s3`](../../library/aws-agent-toolkit-for-aws/skills/querying-aws-s3) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Queries S3 object metadata, tracks bucket activity, audits object changes, searches annotations... |
@@ -428,6 +434,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`sql-queries`](../../skills/sql-queries) | 🟢 Active | `active` | Generate SQL queries from natural language descriptions. Supports BigQuery, PostgreSQL, MySQL, ... |
 | [`sql-query-optimization`](../../library/aj-geddes-useful-ai-prompts/skills/sql-query-optimization) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Analyze and optimize SQL queries for performance. Use when improving slow queries, reducing exe... |
 | [`sql-sentinel`](../../library/sickn33-agentic-awesome-skills/skills/sql-sentinel) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Audit SQL for the cost & performance anti-patterns that burn warehouse credits. Scores warehous... |
+| [`sqlite`](../../library/martinholovsky-claude-skills-generator/skills/sqlite) | ⚪ Reserve | `martinholovsky-claude-skills-generator` | Expert in SQLite embedded database development for Tauri/desktop applications with focus on SQL... |
+| [`sqlite-db`](../../library/bfollington-terma/skills/sqlite-db) | ⚪ Reserve | `bfollington-terma` | General guide for using the sqlite3 CLI to build composable knowledge databases. Use this skill... |
+| [`sqlite-notes`](../../library/bfollington-terma/skills/sqlite-notes) | ⚪ Reserve | `bfollington-terma` | Personal note-taking, thinking trails, and knowledge management using plain SQLite. Supports ca... |
 | [`sqlmap-database-pentesting`](../../library/antigravity-awesome-skills/skills/sqlmap-database-pentesting) | ⚪ Reserve | `antigravity-awesome-skills` | This skill should be used when the user asks to \"automate SQL injection testing,\" \"enumerate... |
 | [`square-automation`](../../library/antigravity-awesome-skills/skills/square-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate Square tasks via Rube MCP (Composio): payments, orders, invoices, locations. Always se... |
 | [`sshepherd`](../../library/sickn33-agentic-awesome-skills/skills/sshepherd) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Zero-knowledge SSH ops CLI — server health checks, docker/systemd control, log tailing, Postgre... |
@@ -437,6 +446,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`structured-data-validator`](../../library/sickn33-agentic-awesome-skills/skills/structured-data-validator) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Structured Data Validator. Use when working with JSON-LD, Microdata or RDFa source. |
 | [`supabase-automation`](../../library/antigravity-awesome-skills/skills/supabase-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate Supabase database queries, table management, project administration, storage, edge fun... |
 | [`supabase-postgres-best-practices`](../../skills/supabase-postgres-best-practices) | 🟢 Active | `active` | Postgres best practices maintained by Supabase, for Postgres running anywhere. Load this skill ... |
+| [`surf`](../../library/asksurf-ai-surf-skills/skills/surf) | ⚪ Reserve | `asksurf-ai-surf-skills` | Your AI agent's crypto brain. One skill, 100+ commands across 14 data domains — real-time price... |
 | [`svelte`](../../library/mindrally-skills/skills/svelte) | ⚪ Reserve | `mindrally-skills` | Modern Svelte 5 and SvelteKit development covering runes-based reactivity, snippets, SSR/SSG, a... |
 | [`swiftdata`](../../library/dpearson2699-swift-ios-skills/skills/swiftdata) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Implement, review, or improve data persistence using SwiftData. Use when defining @Model classe... |
 | [`system-prompt-lookup`](../../library/sickn33-agentic-awesome-skills/skills/system-prompt-lookup) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Checks what a shipped AI product's system prompt and tool schema actually say, by reading a dat... |

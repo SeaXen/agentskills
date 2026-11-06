@@ -1,7 +1,7 @@
 # 🔬 Scientific, Bio-Informatics & Astrophysics
 
 > **Category**: `scientific-bio-data`  
-> **Total Curated Skills**: 124 skills  
+> **Total Curated Skills**: 125 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -29,6 +29,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ask-matt`](../../library/mattpocock-skills/skills/ask-matt) | ⚪ Reserve | `mattpocock-skills` | Ask which skill or flow fits your situation. A router over the skills in this repo. |
 | [`astrophysics-data-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/astrophysics-data-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Astronomical data processing with Astropy, FITS files, and sky surveys |
 | [`astropy`](../../library/davila7-claude-code-templates/skills/astropy) | ⚪ Reserve | `davila7-claude-code-templates` | Comprehensive Python library for astronomy and astrophysics. This skill should be used when wor... |
+| [`bioinformatics`](../../library/delphine-l-claude_global/skills/bioinformatics) | ⚪ Reserve | `delphine-l-claude_global` |  |
 | [`bionemo-nvmolkit-usage`](../../library/nvidia-skills/skills/bionemo-nvmolkit-usage) | ⚪ Reserve | `nvidia-skills` | Use when writing or debugging nvMolKit Python code for GPU-accelerated RDKit fingerprints, simi... |
 | [`chemgraph-agent-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/chemgraph-agent-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Automate molecular simulations with the ChemGraph agentic framework |
 | [`chemistry`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/chemistry) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | 9 chemistry skills. Trigger: chemical structure analysis, reaction prediction, molecular modeli... |

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "debug-inference",
+    "name": "debug-inference",
+    "repository": "nvidia-openshell",
+    "category": "general",
+    "description": "Debug inference clients that use an attached provider and its native endpoint, including hosted APIs and host-local Ollama, vLLM, SGLang, TRT-LLM, LM Studio, or NIM. Use for provider attachment, endpoint policy, credential substitution, topology, and migration from the removed managed inference endpoint. Trigger keywords - debug inference, managed inference endpoint, local inference, ollama, lm studio, vllm, sglang, trtllm, NIM, inference failing, model server unreachable, credential_endpoint_mismatch, host.openshell.internal.",
+    "path": "library/nvidia-openshell/skills/debug-inference",
+    "activation_cmd": "python .agents/library/activate_skill.py activate debug-inference",
+    "link_cmd": "python .agents/library/activate_skill.py link debug-inference"
+  },
+  {
+    "id": "debug-openshell-cluster",
+    "name": "debug-openshell-cluster",
+    "repository": "nvidia-openshell",
+    "category": "general",
+    "description": "Debug why an OpenShell gateway deployment is unhealthy, unreachable, or unable to create sandboxes. Use for gateway health failures, Docker/Podman runtime issues, Helm failures, Kubernetes scheduling, TLS or auth, gateway interceptors, supervisor middleware startup or runtime failures, external compute-driver sockets, VM drivers, or sandbox startup. Trigger keywords - debug gateway, gateway failing, deployment failing, helm install failing, cluster health, gateway health, gateway not starting, health check failed, sandbox pending, docker driver, podman driver, kubernetes driver, external driver, compute driver socket, gateway interceptor, supervisor middleware, middleware failed, vm driver.",
+    "path": "library/nvidia-openshell/skills/debug-openshell-cluster",
+    "activation_cmd": "python .agents/library/activate_skill.py activate debug-openshell-cluster",
+    "link_cmd": "python .agents/library/activate_skill.py link debug-openshell-cluster"
+  },
+  {
+    "id": "generate-sandbox-policy",
+    "name": "generate-sandbox-policy",
+    "repository": "nvidia-openshell",
+    "category": "general",
+    "description": "Generate sandbox security policies from plain-language requirements and optional REST API documentation. Produces L4 or fine-grained L7 network policies and ordered network middleware configuration. Use for API access rules, middleware host selection, failure behavior, or built-in and operator-run middleware attachment. Trigger keywords - generate policy, create policy, update policy, change policy, sandbox policy, network policy, API policy, security policy, allow API, restrict API, network middleware, supervisor middleware.",
+    "path": "library/nvidia-openshell/skills/generate-sandbox-policy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate generate-sandbox-policy",
+    "link_cmd": "python .agents/library/activate_skill.py link generate-sandbox-policy"
+  },
+  {
+    "id": "openshell-cli",
+    "name": "openshell-cli",
+    "repository": "nvidia-openshell",
+    "category": "general",
+    "description": "Guide agents through using the OpenShell CLI (openshell) for sandbox management, gateway registration, provider configuration and refresh, profile management, policy iteration, settings, service exposure, BYOC workflows, and attached-provider inference. Covers basic through advanced multi-step workflows. Trigger keywords - openshell, sandbox create, sandbox exec, sandbox connect, logs, provider create, profile list, profile describe, provider refresh, policy set, policy get, settings, service expose, forward, port forward, BYOC, bring your own container, inference, use openshell, run openshell, CLI usage, manage sandbox, manage provider, gateway add, gateway select.",
+    "path": "library/nvidia-openshell/skills/openshell-cli",
+    "activation_cmd": "python .agents/library/activate_skill.py activate openshell-cli",
+    "link_cmd": "python .agents/library/activate_skill.py link openshell-cli"
+  }
+]

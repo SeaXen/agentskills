@@ -1,0 +1,1172 @@
+[
+  {
+    "id": "agent-qa-testing",
+    "name": "agent-qa-testing",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Use when a project uses agent-qa and the user asks to validate its YAML, run a selected regression test, or triage a failed/healed run with memidex evidence. For a general app feature inventory, use app-user-story-qa.",
+    "path": "library/majiayu000-spellbook/skills/agent-qa-testing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agent-qa-testing",
+    "link_cmd": "python .agents/library/activate_skill.py link agent-qa-testing"
+  },
+  {
+    "id": "agentsmd-optimize",
+    "name": "agentsmd-optimize",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Audit and organize AI coding-agent instructions, including AGENTS.md, CLAUDE.md, skills, and agent definitions. Use when the user asks to diagnose conflicting instructions, excessive approval pauses, broad skill triggers, duplicate guidance, or broken instruction references, or to clean up that instruction set. Ordinary code review, Markdown editing, or application debugging alone does not trigger this workflow. Inspection stays read-only; apply changes when authorized.",
+    "path": "library/majiayu000-spellbook/skills/agentsmd-optimize",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agentsmd-optimize",
+    "link_cmd": "python .agents/library/activate_skill.py link agentsmd-optimize"
+  },
+  {
+    "id": "agentsmd-scaffold",
+    "name": "agentsmd-scaffold",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Generate or update repository-specific AGENTS.md instruction files from real repo evidence. Use when asked to create, design, scaffold, split, or improve root or scoped AGENTS.md files for Codex/Claude/agent workflows, especially when a repo needs directory-specific rules, validation commands, generated-file boundaries, or a short agent onboarding router.",
+    "path": "library/majiayu000-spellbook/skills/agentsmd-scaffold",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agentsmd-scaffold",
+    "link_cmd": "python .agents/library/activate_skill.py link agentsmd-scaffold"
+  },
+  {
+    "id": "api-design",
+    "name": "api-design",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "REST/GraphQL/gRPC API design best practices. Use when designing APIs, defining contracts, handling versioning. Covers OpenAPI 3.2, GraphQL Federation, gRPC streaming.",
+    "path": "library/majiayu000-spellbook/skills/api-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate api-design",
+    "link_cmd": "python .agents/library/activate_skill.py link api-design"
+  },
+  {
+    "id": "app-ui-design",
+    "name": "app-ui-design",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Mobile app UI design expert for iOS and Android. Use when designing app interfaces, creating design systems, ensuring accessibility, or following platform guidelines. Covers Material Design 3, Human Interface Guidelines, color theory, typography, and 2025 trends.",
+    "path": "library/majiayu000-spellbook/skills/app-ui-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate app-ui-design",
+    "link_cmd": "python .agents/library/activate_skill.py link app-ui-design"
+  },
+  {
+    "id": "app-user-story-qa",
+    "name": "app-user-story-qa",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"End-to-end app feature inventory and user-story testing workflow with a canonical tracker. Use when the user asks to audit every feature, derive expected behavior from code, test user journeys, or explicitly fix and retest documented UX or logistical defects.\"",
+    "path": "library/majiayu000-spellbook/skills/app-user-story-qa",
+    "activation_cmd": "python .agents/library/activate_skill.py activate app-user-story-qa",
+    "link_cmd": "python .agents/library/activate_skill.py link app-user-story-qa"
+  },
+  {
+    "id": "architecture-foundation",
+    "name": "architecture-foundation",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Design architecture foundations before implementation. Use when asked to design or refactor architecture, choose Rust/Go crate, package, module, runtime, workflow, or service boundaries, compare mature project architecture, prevent stacked one-off PRs, audit migration debt in existing repos, or produce a spec before coding.",
+    "path": "library/majiayu000-spellbook/skills/architecture-foundation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate architecture-foundation",
+    "link_cmd": "python .agents/library/activate_skill.py link architecture-foundation"
+  },
+  {
+    "id": "architecture-research",
+    "name": "architecture-research",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"Evidence-driven architecture research for understanding real systems and making technical decisions. Use when doing architecture landscape studies, source-backed system archaeology, build-vs-buy or adopt/adapt/build decisions, open-source and commercial comparisons, revisiting an earlier architecture choice, or handling requests such as \u67b6\u6784\u8c03\u7814, \u67b6\u6784\u9009\u578b, \u7ade\u54c1\u67b6\u6784, \u6280\u672f\u5c3d\u8c03, \u540c\u7c7b\u65b9\u6848, \u5f00\u6e90\u66ff\u4ee3, how is X built, and what should we learn from X. Do not use for small mechanical changes, market-only discovery, or detailed design after the technology direction is already fixed.\"",
+    "path": "library/majiayu000-spellbook/skills/architecture-research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate architecture-research",
+    "link_cmd": "python .agents/library/activate_skill.py link architecture-research"
+  },
+  {
+    "id": "ascii-backdrop",
+    "name": "ascii-backdrop",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"Turn any subject into an animated ASCII backdrop behind a UI, like a dark prompt page with jellyfish drawn in drifting characters, or a swarm of colour-tile bodies that veer away from the cursor. The subject is open-ended: creatures, objects, particles, smoke, a word or logo, an image or video, a per-pixel field, a shaded 3D solid, or your own canvas draw function. Six print modes can be mixed: brightness glyphs, edge-following glyphs, shape-matched glyphs, braille dots, ordered-dither dots and colour tiles; plus cursor glow, click ripples, a CRT terminal finish, and two page helpers (text decode and image-to-ASCII dissolve). Ships a dependency-free JS engine with HTML and React wiring. Use when the user asks for an ASCII background, ASCII art animation, glyph or braille backdrop, text scramble/decode, or an ASCII image reveal, or says 'ASCII \u80cc\u666f' / '\u5b57\u7b26\u753b\u52a8\u6548'.\"",
+    "path": "library/majiayu000-spellbook/skills/ascii-backdrop",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ascii-backdrop",
+    "link_cmd": "python .agents/library/activate_skill.py link ascii-backdrop"
+  },
+  {
+    "id": "ask-opencli",
+    "name": "ask-opencli",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Ask Grok or Gemini via opencli (browser-session based, no API cost). Use when the user says \"\u95ee grok\", \"\u95ee gemini\", \"ask grok\", \"ask gemini\", \"\u7528 grok \u67e5\", \"grok \u600e\u4e48\u770b\", \"\u8ba9 gemini \u5206\u6790\", or wants a second opinion from Grok/Gemini without paying API tokens. Routes to opencli which drives the already-logged-in Chrome session.",
+    "path": "library/majiayu000-spellbook/skills/ask-opencli",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ask-opencli",
+    "link_cmd": "python .agents/library/activate_skill.py link ask-opencli"
+  },
+  {
+    "id": "auth-security",
+    "name": "auth-security",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "OAuth 2.1 + JWT authentication security best practices. Use when implementing auth, API authorization, token management. Follows RFC 9700 (2025).",
+    "path": "library/majiayu000-spellbook/skills/auth-security",
+    "activation_cmd": "python .agents/library/activate_skill.py activate auth-security",
+    "link_cmd": "python .agents/library/activate_skill.py link auth-security"
+  },
+  {
+    "id": "avoidance-coach",
+    "name": "avoidance-coach",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"Guide a self-help conversation for someone stuck in an avoidance loop: low mood, emptiness, stress, or loneliness they escape from with games, scrolling, or other distractions instead of facing. Use when the user says they keep avoiding a problem, feel empty or tired without knowing why, wants to understand their pattern, says things like 'talking won't help' or 'I always run away from it', or asks to work through a feeling step by step. Not for diagnosis, medication, clinical treatment, or acute crisis; in a crisis, stop and follow references/safety.md.\"",
+    "path": "library/majiayu000-spellbook/skills/avoidance-coach",
+    "activation_cmd": "python .agents/library/activate_skill.py activate avoidance-coach",
+    "link_cmd": "python .agents/library/activate_skill.py link avoidance-coach"
+  },
+  {
+    "id": "blender-editable-3d",
+    "name": "blender-editable-3d",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u6839\u636e\u53c2\u8003\u56fe\u3001\u5e26\u5c3a\u5bf8\u7684\u8bbe\u8ba1\u56fe\u6216\u6587\u5b57\u6982\u5ff5\uff0c\u5728 Blender \u4e2d\u5236\u4f5c\u7531\u72ec\u7acb\u547d\u540d\u96f6\u4ef6\u7ec4\u6210\u7684\u53ef\u7f16\u8f91 3D \u6a21\u578b\uff0c\u518d\u6309\u7528\u6237\u8981\u6c42\u4fee\u6539\u5c3a\u5bf8\u3001\u90e8\u4ef6\u548c\u914d\u8272\uff0c\u4ea4\u4ed8 .blend\u3001GLB \u548c\u591a\u89d2\u5ea6\u6e32\u67d3\u3002\u7528\u4e8e\u56fe\u7eb8\u8f6c\u4e09\u7ef4\u3001\u4ea7\u54c1\u6982\u5ff5\u5efa\u6a21\u548c\u98ce\u683c\u5316\u786c\u8868\u9762\u9053\u5177\uff0c\u4ee5\u53ca\u201c\u505a\u4e00\u4e2a\u540c\u6837\u7684\u6848\u4f8b\uff0c\u6362\u6210\u5766\u514b\u6216\u5176\u4ed6\u7269\u4f53\u201d\u7b49\u8bf7\u6c42\uff1b\u4e0d\u7528\u4e8e\u4eba\u7269\u89d2\u8272\u3001\u5934\u53d1\u6216\u8138\u90e8\u5efa\u6a21\uff0c\u8fd9\u4e9b\u8bf7\u6c42\u4f7f\u7528 blender-reference-to-3d\u3002\u4ee5\u53ef\u7ee7\u7eed\u4fee\u6539\u7684\u51e0\u4f55\u5de5\u7a0b\u4e3a\u6838\u5fc3\uff1b\u4e0d\u9ed8\u8ba4\u5236\u4f5c\u62c6\u89e3\u52a8\u753b\u3001\u5f55\u5c4f\u3001\u7ed1\u5b9a\u6216\u5236\u9020\u6a21\u578b\u3002",
+    "path": "library/majiayu000-spellbook/skills/blender-editable-3d",
+    "activation_cmd": "python .agents/library/activate_skill.py activate blender-editable-3d",
+    "link_cmd": "python .agents/library/activate_skill.py link blender-editable-3d"
+  },
+  {
+    "id": "blender-reference-to-3d",
+    "name": "blender-reference-to-3d",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u6839\u636e\u4eba\u7269\u53c2\u8003\u56fe\u5728 Blender \u5236\u4f5c\u3001\u4fee\u6574\u548c\u914d\u8272\u53ef\u7f16\u8f91\u89d2\u8272\uff0c\u5c24\u5176\u9002\u7528\u4e8e\u4e8c\u6b21\u5143\u5934\u90e8\u4e0e\u5934\u53d1\u3001\u9759\u6001\u591a\u89d2\u5ea6\u5c55\u793a\u3002\u8986\u76d6\u8f93\u5165\u62c6\u89e3\u3001\u8f6e\u5ed3\u4e0e\u4e94\u5b98\u6807\u6ce8\u3001\u4e5d\u89c6\u56fe\u53c2\u8003\u3001\u6a21\u677f\u9009\u578b\u3001\u51e0\u4f55\u5b9e\u73b0\u3001\u6750\u8d28\u914d\u8272\u3001\u89c6\u89c9\u68c0\u67e5\u548c\u5de5\u7a0b\u4ea4\u4ed8\uff1b\u5f53\u7528\u6237\u8981\u6c42\u56fe\u8f6c\u4e09\u7ef4\u5934\u50cf\u3001\u6309\u53c2\u8003\u5efa\u6a21\u3001\u4fee\u590d\u76f8\u4f3c\u5ea6\u3001\u5b8c\u5584\u914d\u8272\u6216\u8fd0\u884c\u5b8c\u6574\u4eba\u7269\u5236\u4f5c\u6d41\u7a0b\u65f6\u4f7f\u7528\u3002\u4ec5\u5206\u6790\u3001\u5199\u6d41\u7a0b\u6216\u5c01\u88c5\u6280\u80fd\u65f6\u4e0d\u4fee\u6539\u6a21\u578b\u3002",
+    "path": "library/majiayu000-spellbook/skills/blender-reference-to-3d",
+    "activation_cmd": "python .agents/library/activate_skill.py activate blender-reference-to-3d",
+    "link_cmd": "python .agents/library/activate_skill.py link blender-reference-to-3d"
+  },
+  {
+    "id": "build-product-demo",
+    "name": "build-product-demo",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Plan, produce, or diagnose evidence-backed product demo videos and screen-recorded promotional walkthroughs. Use when the user asks to make a product demo, launch video, feature showcase, app walkthrough, demo reel, or polished recording; wants every important capability shown without a slow feature tour; asks to remove dead time or fix narration-to-action pacing; or needs a repeatable script, capture plan, and verified final media. Do not use for fictional commercials with no real product proof, general-purpose video editing, or documentation-only tutorials that do not need a promotional narrative.",
+    "path": "library/majiayu000-spellbook/skills/build-product-demo",
+    "activation_cmd": "python .agents/library/activate_skill.py activate build-product-demo",
+    "link_cmd": "python .agents/library/activate_skill.py link build-product-demo"
+  },
+  {
+    "id": "capability-distill",
+    "name": "capability-distill",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u80fd\u529b\u84b8\u998f\u5de5\u4f5c\u6d41\u2014\u2014\u4ece\u7528\u6237\u6279\u51c6\u7684\u5f3a\u6a21\u578b\u8bbf\u8c08\u6216\u771f\u5b9e\u4efb\u52a1\u8f68\u8ff9\u4e2d\u63d0\u53d6\u975e\u663e\u7136\u7684\u5224\u65ad\u89c4\u5219\uff0c\u5f62\u6210\u53ef\u5ba1\u8ba1\u7684 judgment packet\uff0c\u518d\u4ea4\u7ed9 skill-audit \u548c skill-creator \u51b3\u5b9a\u662f\u5426\u843d\u6210\u53ef\u52a0\u8f7d skill\u3002\u5f53\u7528\u6237\u8bf4\u201c\u84b8\u998f\u8fd9\u4e2a\u6a21\u578b\u7684\u5224\u65ad\u529b\u201d\u201c\u628a\u8fd9\u6b21\u4efb\u52a1\u7684\u5173\u952e\u51b3\u7b56\u56fa\u5316\u4e0b\u6765\u201d\u201c\u6a21\u578b\u7a97\u53e3\u8981\u5173\u4e86\uff0c\u4fdd\u7559\u5b83\u5728\u67d0\u7c7b\u573a\u666f\u7684\u5224\u65ad\u201d\u65f6\u4f7f\u7528\u3002\u666e\u901a\u6d41\u7a0b\u6587\u6863\u3001\u76f4\u63a5\u5199 SKILL.md\u3001\u6cdb\u5316\u6700\u4f73\u5b9e\u8df5\u6216\u672a\u6388\u6743\u7684\u4f1a\u8bdd\u65e5\u5fd7\u626b\u63cf\u4e0d\u4f7f\u7528\u672c skill\u3002",
+    "path": "library/majiayu000-spellbook/skills/capability-distill",
+    "activation_cmd": "python .agents/library/activate_skill.py activate capability-distill",
+    "link_cmd": "python .agents/library/activate_skill.py link capability-distill"
+  },
+  {
+    "id": "clash-doctor",
+    "name": "clash-doctor",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": ">",
+    "path": "library/majiayu000-spellbook/skills/clash-doctor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate clash-doctor",
+    "link_cmd": "python .agents/library/activate_skill.py link clash-doctor"
+  },
+  {
+    "id": "clash-routes",
+    "name": "clash-routes",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": ">",
+    "path": "library/majiayu000-spellbook/skills/clash-routes",
+    "activation_cmd": "python .agents/library/activate_skill.py activate clash-routes",
+    "link_cmd": "python .agents/library/activate_skill.py link clash-routes"
+  },
+  {
+    "id": "claude-code-reverse",
+    "name": "claude-code-reverse",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u5bf9\u7528\u6237\u62e5\u6709\u6216\u660e\u786e\u83b7\u6388\u6743\u7684\u672c\u673a\u53ef\u6267\u884c\u6587\u4ef6\u3001\u5e94\u7528\u4e8c\u8fdb\u5236\u548c\u7248\u672c\u4ea7\u7269\u505a\u53ea\u8bfb\u9759\u6001\u9006\u5411\uff0c\u5305\u62ec Claude Code \u53ca\u5176\u4ed6 CLI\u3001Mach-O\u3001ELF\u3001PE\u3001Wasm \u6216\u6253\u5305\u5e94\u7528\u3002\u4ec5\u5728\u7528\u6237\u660e\u786e\u8981\u6c42\u201c\u9006\u5411\u3001\u6252\u5b9e\u73b0\u3001\u67e5\u4e8c\u8fdb\u5236\u5b57\u7b26\u4e32/\u7b26\u53f7/\u4f9d\u8d56\u3001\u9a8c\u8bc1\u5185\u90e8\u884c\u4e3a\u3001\u6bd4\u8f83\u4e24\u4e2a\u7248\u672c\u201d\u65f6\u4f7f\u7528\uff1b\u4e0d\u8981\u56e0\u666e\u901a\u63d0\u53ca\u8f6f\u4ef6\u800c\u89e6\u53d1\uff0c\u4e5f\u4e0d\u8981\u7528\u4e8e\u6267\u884c\u672a\u77e5\u6837\u672c\u3001\u7ed5\u8fc7\u6388\u6743/\u8ba1\u8d39\u3001\u7834\u89e3\u6216\u518d\u5206\u53d1\u3002",
+    "path": "library/majiayu000-spellbook/skills/claude-code-reverse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate claude-code-reverse",
+    "link_cmd": "python .agents/library/activate_skill.py link claude-code-reverse"
+  },
+  {
+    "id": "cliproxy-newapi-stack",
+    "name": "cliproxy-newapi-stack",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u5728\u5df2\u7ecf\u8fc7\u72ec\u7acb\u9a8c\u8bc1\u7684 CLIProxyAPI upstream \u4e4b\u4e0a\u90e8\u7f72 NewAPI \u8ba1\u8d39\u5c42\uff0c\u628a Codex/Claude/Gemini/Qwen \u7b49\u8ba2\u9605\u8d26\u53f7\u5305\u88c5\u6210\u53ef\u8ba1\u8d39\u7684 OpenAI \u517c\u5bb9 API\u3002\u672c Skill \u4e0d\u8d1f\u8d23\u65b0\u5efa\u88f8 CLIProxyAPI\uff1b\u8d1f\u8d23 NewAPI Docker \u90e8\u7f72\u3001\u5bb9\u5668\u5230\u5bbf\u4e3b\u6865\u63a5\u3001\u6a21\u578b\u8ba1\u8d39\u500d\u7387\u3001\u53c2\u6570\u5316\u989d\u5ea6\u4fee\u6b63\u3001\u591a\u8d26\u53f7 OAuth \u51ed\u636e\u70ed\u52a0\u8f7d\u548c\u53cc\u8def\u5f84\u9a8c\u8bc1\u3002\u5f53\u7528\u6237\u8bf4\u201c\u7ed9\u73b0\u6709 cliproxy \u52a0 NewAPI\u201d\u201c\u914d\u7f6e NewAPI \u6e20\u9053\u63a5\u5df2\u8fd0\u884c\u7684 cliproxy\u201d\u201cNewAPI \u4ef7\u683c\u4e0d\u5bf9\u201d\u201c\u7ed9\u73b0\u6709\u90e8\u7f72\u52a0\u8d26\u53f7\u201d\u201c172.17.0.1 \u5bb9\u5668\u7f51\u7edc\u201d\u6216\u201c408 \u51b7\u5374\u653e\u5927\u6545\u969c\u201d\u65f6\u89e6\u53d1\u3002",
+    "path": "library/majiayu000-spellbook/skills/cliproxy-newapi-stack",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cliproxy-newapi-stack",
+    "link_cmd": "python .agents/library/activate_skill.py link cliproxy-newapi-stack"
+  },
+  {
+    "id": "code-built-3d",
+    "name": "code-built-3d",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"\u7528\u4ee3\u7801\u4ece\u96f6\u4ef6\u642d 3D \u573a\u666f\u5e76\u80fd\u53cd\u8fc7\u6765\u62c6\u5f00\uff1a\u6bcf\u4e2a\u7269\u4ef6\u662f\u4e00\u4e2a\u5f80 Assembly \u91cc\u52a0\u96f6\u4ef6\u7684\u51fd\u6570\uff08\u76d2\u5b50\u3001\u5706\u67f1\u3001\u7403\u3001\u7ebf\uff09\uff0c\u6e32\u67d3\u6210\u6280\u672f\u63d2\u753b\uff08\u767d\u7070\u4e09\u6863\u9762\u3001\u7ec6\u9ed1\u63cf\u8fb9\u3001\u767d\u96fe\uff09\uff0c\u6b63\u4ea4\u7b49\u8ddd\u76f8\u673a\u5728\u955c\u5934\u4e4b\u95f4\u8fde\u7eed\u8fd0\u955c\uff0c\u5916\u58f3\u53ef\u4ee5\u964d\u4e0b\u53bb\u9732\u51fa\u5185\u90e8\uff0c\u9009\u4e2d\u7684\u90e8\u5206\u80fd\u7206\u70b8\u6210\u96f6\u4ef6\u5e76\u5217\u51fa\u96f6\u4ef6\u6e05\u5355\uff0c\u573a\u666f\u6309\u5757\u65e0\u9650\u751f\u6210\u3002\u96f6\u56fe\u7247\u3001\u96f6\u5916\u90e8\u8d44\u6e90\uff0cthree.js \u5df2\u5185\u7f6e\u3002\u6f14\u793a\u662f\u300c\u65e0\u5c3d\u697c\u300d\uff1a\u5411\u4e0a\u65e0\u5c3d\u7684\u516c\u5bd3\u697c\uff0c\u7535\u68af\u4e00\u76f4\u5f80\u4e0a\u8d70\uff0c\u70b9\u4efb\u610f\u4e00\u5c42\u8fdb\u53bb\u770b\u3001\u62c6\u5f00\u3002\u5f53\u7528\u6237\u8bf4\u300c\u7528\u4ee3\u7801\u642d\u4e00\u4e2a 3D \u573a\u666f\u300d\u300c\u7b49\u8ddd 3D \u57ce\u5e02\u300d\u300c\u505a\u6210 Train of Thoughts \u90a3\u79cd\u300d\u300c\u5168\u7a0b\u4ee3\u7801\u751f\u6210\u4e0d\u8981\u56fe\u7247\u300d\u300c\u80fd\u5256\u5f00 / \u53bb\u58f3 / \u7206\u70b8\u7684 3D\u300d\u300c\u65e0\u9650\u751f\u6210\u7684\u573a\u666f\u300d\u300cthree.js \u505a\u6784\u9020\u300d\u65f6\u4f7f\u7528\u3002\u53ea\u5728\u660e\u786e\u8bf7\u6c42\u65f6\u89e6\u53d1\uff0c\u5ffd\u7565\u987a\u5e26\u63d0\u53ca\u3002\"",
+    "path": "library/majiayu000-spellbook/skills/code-built-3d",
+    "activation_cmd": "python .agents/library/activate_skill.py activate code-built-3d",
+    "link_cmd": "python .agents/library/activate_skill.py link code-built-3d"
+  },
+  {
+    "id": "code-film",
+    "name": "code-film",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u7528\u7eaf\u4ee3\u7801\uff08three.js \u79bb\u7ebf\u6e32\u67d3 + \u5408\u6210\u97f3\u9891\uff09\u505a\u6709\u6545\u4e8b\u3001\u6709\u7535\u5f71\u8d28\u611f\u7684\u52a8\u753b\u77ed\u7247\u5e76\u5bfc\u51fa MP4\u3002\u5f53\u7528\u6237\u60f3\u505a\u77ed\u7247\u3001\u52a8\u753b\u7247\u3001\u5ba3\u4f20\u7247\u3001\u89d2\u8272\u52a8\u753b\u3001\u5faa\u73af\u89c6\u9891\u3001\u7247\u5934\u3001\u4ea7\u54c1\u6545\u4e8b\u7247\uff0c\u6216\u8005\u8bf4\u201c\u7528\u4ee3\u7801\u505a\u4e2a\u89c6\u9891\u201d\u201c\u505a\u4e00\u4e2a\u6709\u8da3\u7684\u77ed\u7247\u201d\u201c\u5e2e\u6211\u8bbe\u8ba1\u4e2a\u5c0f\u52a8\u753b\u201d\u201cmake a short film / animated video / motion piece with code\u201d\u65f6\u4f7f\u7528\uff0c\u5373\u4f7f\u6ca1\u63d0 three.js\u3002\u4e5f\u7528\u4e8e\u7ee7\u7eed\u4fee\u6539\u8fd9\u7c7b\u7247\u5b50\u3002\u5199\u5b9e\u771f\u4eba\u3001\u5b9e\u62cd\u611f\u3001AI \u89c6\u9891\u751f\u6210\u3001\u666e\u901a\u89c6\u9891\u526a\u8f91\u4e0d\u9002\u7528\u3002",
+    "path": "library/majiayu000-spellbook/skills/code-film",
+    "activation_cmd": "python .agents/library/activate_skill.py activate code-film",
+    "link_cmd": "python .agents/library/activate_skill.py link code-film"
+  },
+  {
+    "id": "codebase-audit",
+    "name": "codebase-audit",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"\u5168\u9762\u4ee3\u7801\u5e93\u5ba1\u8ba1 \u2014 \u81ea\u9002\u5e94\u5e76\u884c\u6df1\u5ea6\u5206\u6790\uff08\u524d\u540e\u7aef\u5951\u7ea6\u3001\u6570\u636e\u5b8c\u6574\u6027\u3001\u5f02\u5e38\u5904\u7406/\u5b89\u5168\u3001\u67b6\u6784/\u6280\u672f\u503a\u3001\u914d\u7f6e/\u7f13\u5b58\uff09\uff0c\u7ed3\u6784\u5316 findings + \u5bf9\u6297\u9a8c\u8bc1 + \u57fa\u7ebf\u5bf9\u6bd4\uff0c\u8f93\u51fa\u6309\u4e25\u91cd\u7a0b\u5ea6\u6392\u5e8f\u7684\u7edf\u4e00\u62a5\u544a\u548c\u4fee\u590d\u8def\u7ebf\u56fe\u3002\u652f\u6301 quick \u5feb\u901f\u4f53\u68c0\u6a21\u5f0f\u3002Use when user asks to audit, analyze, or review an entire codebase for design issues, find hidden bugs, check architecture health, or asks '\u5168\u9762\u5ba1\u67e5', '\u4ee3\u7801\u5e93\u5ba1\u8ba1', '\u5206\u6790\u8bbe\u8ba1\u95ee\u9898', 'audit codebase', 'health check', '\u6709\u54ea\u4e9b\u95ee\u9898', '\u5feb\u901f\u4f53\u68c0'. Also trigger when user asks to find silent degradation, data flow breakpoints, type mismatches between frontend and backend, or wants to understand technical debt across a project.\"",
+    "path": "library/majiayu000-spellbook/skills/codebase-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate codebase-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link codebase-audit"
+  },
+  {
+    "id": "codex",
+    "name": "codex",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Use when the user asks to run Codex CLI (codex exec, codex resume) or references OpenAI Codex for code analysis, refactoring, or automated editing",
+    "path": "library/majiayu000-spellbook/skills/codex",
+    "activation_cmd": "python .agents/library/activate_skill.py activate codex",
+    "link_cmd": "python .agents/library/activate_skill.py link codex"
+  },
+  {
+    "id": "codex-agent",
+    "name": "codex-agent",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Use when you want a second-opinion review via Codex CLI, cross-verification after another agent implements changes, debugging help, or alternative implementation proposals. Requires Codex CLI to be installed and authenticated.",
+    "path": "library/majiayu000-spellbook/skills/codex-agent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate codex-agent",
+    "link_cmd": "python .agents/library/activate_skill.py link codex-agent"
+  },
+  {
+    "id": "codex-fluent",
+    "name": "codex-fluent",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Use when Codex feels slow, bloated, or heavy after heavy use. Provides safe session hygiene, archive strategy, and handoff discipline to keep daily Codex usage responsive and low-friction. Always pairs with comprehensive handoffs before archiving active work.",
+    "path": "library/majiayu000-spellbook/skills/codex-fluent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate codex-fluent",
+    "link_cmd": "python .agents/library/activate_skill.py link codex-fluent"
+  },
+  {
+    "id": "codex-log-guard",
+    "name": "codex-log-guard",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Diagnose excessive Codex local SQLite diagnostic log writes with read-only evidence by default. Use when a user mentions logs_2.sqlite, logs_2.sqlite-wal, block_log_inserts, SSD/TBW wear, or explicitly asks to protect, clean up, verify, or restore Codex diagnostic logging.",
+    "path": "library/majiayu000-spellbook/skills/codex-log-guard",
+    "activation_cmd": "python .agents/library/activate_skill.py activate codex-log-guard",
+    "link_cmd": "python .agents/library/activate_skill.py link codex-log-guard"
+  },
+  {
+    "id": "codex-retrospective",
+    "name": "codex-retrospective",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Use when you want Codex to review its own recent history (last N days or specific period) and improve its behavior. Produces minimal, high-signal updates to AGENTS.md and tiny reusable skills. The goal is long-term fluency \u2014 Codex gradually becomes better at your specific style, constraints, and workflows.",
+    "path": "library/majiayu000-spellbook/skills/codex-retrospective",
+    "activation_cmd": "python .agents/library/activate_skill.py activate codex-retrospective",
+    "link_cmd": "python .agents/library/activate_skill.py link codex-retrospective"
+  },
+  {
+    "id": "comprehensive-testing",
+    "name": "comprehensive-testing",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Complete testing strategy covering TDD workflow, test pyramid, unit/integration/E2E/property testing, framework best practices (Jest, Vitest, pytest), mock strategies, and CI integration. Use when writing tests, reviewing test quality, or establishing testing standards.",
+    "path": "library/majiayu000-spellbook/skills/comprehensive-testing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate comprehensive-testing",
+    "link_cmd": "python .agents/library/activate_skill.py link comprehensive-testing"
+  },
+  {
+    "id": "config-secrets-environments",
+    "name": "config-secrets-environments",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Design, audit, and verify configuration, environment separation, secrets, BYOK flows, key rotation, config schema validation, and drift checks across local, dev, staging, and production. Use when adding env vars, changing runtime config, handling API keys or user-provided keys, diagnosing config drift, or preparing deploy/release configuration.",
+    "path": "library/majiayu000-spellbook/skills/config-secrets-environments",
+    "activation_cmd": "python .agents/library/activate_skill.py activate config-secrets-environments",
+    "link_cmd": "python .agents/library/activate_skill.py link config-secrets-environments"
+  },
+  {
+    "id": "contribution-architect",
+    "name": "contribution-architect",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Use when a contributor wants to move beyond simple bug fixes into architectural improvements, technical debt discovery, design proposals, or module ownership opportunities.",
+    "path": "library/majiayu000-spellbook/skills/contribution-architect",
+    "activation_cmd": "python .agents/library/activate_skill.py activate contribution-architect",
+    "link_cmd": "python .agents/library/activate_skill.py link contribution-architect"
+  },
+  {
+    "id": "contributor",
+    "name": "contributor",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"End-to-end open source contribution workflow: from scanning issues to submitting PRs. Use this skill whenever the user wants to contribute to an open source project, find issues to fix, submit a pull request, fork a repo to contribute, fix a GitHub issue, or mentions 'open source contribution'. Also trigger when they provide a GitHub repo URL and ask about contributing, say things like 'help me submit a PR', 'find good first issues', 'I want to contribute to X', or mention fixing bugs in someone else's project.\"",
+    "path": "library/majiayu000-spellbook/skills/contributor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate contributor",
+    "link_cmd": "python .agents/library/activate_skill.py link contributor"
+  },
+  {
+    "id": "css-debug",
+    "name": "css-debug",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Use this skill to diagnose CSS and frontend layout issues such as positioning, overflow clipping, Tailwind class conflicts, z-index stacking, and React rendering visibility problems.",
+    "path": "library/majiayu000-spellbook/skills/css-debug",
+    "activation_cmd": "python .agents/library/activate_skill.py activate css-debug",
+    "link_cmd": "python .agents/library/activate_skill.py link css-debug"
+  },
+  {
+    "id": "data-contract-migrations",
+    "name": "data-contract-migrations",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Design and verify data contracts, schema changes, migrations, rollbacks, backfills, compatibility windows, tenant isolation, and API-to-database field mapping. Use when changing database schema, event payloads, persisted documents, analytics tables, multi-tenant data boundaries, or any user-visible data contract where silent fallback or undeclared fields would be dangerous.",
+    "path": "library/majiayu000-spellbook/skills/data-contract-migrations",
+    "activation_cmd": "python .agents/library/activate_skill.py activate data-contract-migrations",
+    "link_cmd": "python .agents/library/activate_skill.py link data-contract-migrations"
+  },
+  {
+    "id": "database-patterns",
+    "name": "database-patterns",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Use when designing PostgreSQL + Redis data models, indexes, caching strategies, JSONB usage, tiered storage, or cache consistency contracts.",
+    "path": "library/majiayu000-spellbook/skills/database-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate database-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link database-patterns"
+  },
+  {
+    "id": "dev-architecture-playbook",
+    "name": "dev-architecture-playbook",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Route full software-development architecture work from product intent through design, implementation, testing, release, and operations. Use when the user asks for a complete development architecture, wants to know which Spellbook skills to combine, needs an execution path across PRD/spec/API/data/security/performance/release/SRE, or asks to turn an idea or repo into a production-ready engineering plan.",
+    "path": "library/majiayu000-spellbook/skills/dev-architecture-playbook",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dev-architecture-playbook",
+    "link_cmd": "python .agents/library/activate_skill.py link dev-architecture-playbook"
+  },
+  {
+    "id": "devops-excellence",
+    "name": "devops-excellence",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "DevOps and CI/CD expert. Use when setting up pipelines, containerizing applications, deploying to Kubernetes, or implementing release strategies. Covers GitHub Actions, Docker, K8s, Terraform, and GitOps.",
+    "path": "library/majiayu000-spellbook/skills/devops-excellence",
+    "activation_cmd": "python .agents/library/activate_skill.py activate devops-excellence",
+    "link_cmd": "python .agents/library/activate_skill.py link devops-excellence"
+  },
+  {
+    "id": "disk-cleaner",
+    "name": "disk-cleaner",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u5f53\u7528\u6237\u8981\u626b\u63cf\u78c1\u76d8\u7a7a\u95f4\u3001\u627e\u51fa\u53ef\u5b89\u5168\u5220\u9664\u7684\u7f13\u5b58/\u7f16\u8bd1\u4ea7\u7269/\u5b89\u88c5\u5305\u3001\u6216\u4ea4\u4e92\u5f0f\u91ca\u653e\u7a7a\u95f4\u65f6\u4f7f\u7528\u3002",
+    "path": "library/majiayu000-spellbook/skills/disk-cleaner",
+    "activation_cmd": "python .agents/library/activate_skill.py activate disk-cleaner",
+    "link_cmd": "python .agents/library/activate_skill.py link disk-cleaner"
+  },
+  {
+    "id": "elegant-architecture",
+    "name": "elegant-architecture",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Guides clean architecture design with strict 200-line file limits. Use when starting new features, refactoring large files, or planning module structure. Enforces modular design and real testing.",
+    "path": "library/majiayu000-spellbook/skills/elegant-architecture",
+    "activation_cmd": "python .agents/library/activate_skill.py activate elegant-architecture",
+    "link_cmd": "python .agents/library/activate_skill.py link elegant-architecture"
+  },
+  {
+    "id": "figma-to-code",
+    "name": "figma-to-code",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Extract Figma designs and generate production-ready React/Next.js components with TypeScript, Tailwind CSS, and pixel-perfect accuracy. Use when a user provides a Figma URL or asks to convert Figma designs to code.",
+    "path": "library/majiayu000-spellbook/skills/figma-to-code",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma-to-code",
+    "link_cmd": "python .agents/library/activate_skill.py link figma-to-code"
+  },
+  {
+    "id": "figma-to-react",
+    "name": "figma-to-react",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Use when the user wants to extract Figma designs into production-ready React or Next.js components with TypeScript, Tailwind CSS, and pixel-perfect accuracy.",
+    "path": "library/majiayu000-spellbook/skills/figma-to-react",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma-to-react",
+    "link_cmd": "python .agents/library/activate_skill.py link figma-to-react"
+  },
+  {
+    "id": "flowguard",
+    "name": "flowguard",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"Guard long, ambiguous, or stateful AI-agent work from drift. Use when the user asks to run or continue a multi-step task, autonomous loop, bug fix, repo change, PR readiness check, compaction handoff, resume from previous context, cost-control checkpoint, or any task likely to span many tool calls, files, sessions, agents, or verification gates.\"",
+    "path": "library/majiayu000-spellbook/skills/flowguard",
+    "activation_cmd": "python .agents/library/activate_skill.py activate flowguard",
+    "link_cmd": "python .agents/library/activate_skill.py link flowguard"
+  },
+  {
+    "id": "form-motion",
+    "name": "form-motion",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"FORM UI \u52a8\u6548\u8bcd\u5178\uff1a10 \u4e2a\u514b\u5236\u3001\u8ddf\u624b\u3001\u53ef\u8bbf\u95ee\u7684\u754c\u9762\u5fae\u4ea4\u4e92\uff0c\u6bcf\u4e2a\u90fd\u914d\u539f\u59cb\u63d0\u793a\u8bcd\u3001\u53ef\u6539\u9879\u3001\u9a8c\u6536\u6807\u51c6\u548c\u81ea\u52a8\u9a8c\u6536\u811a\u672c\u2014\u2014\u8fde\u7eed\u5f62\u53d8\u6309\u94ae\u3001\u6db2\u4f53\u6807\u7b7e\u6307\u793a\u5668\u3001\u5f39\u6027\u6ed1\u5757\u3001\u67d4\u6027\u5f00\u5173\u3001\u539f\u4f4d\u5c55\u5f00\u5361\u7247\u3001\u5c42\u53e0\u901a\u77e5\u3001\u547d\u4ee4\u9762\u677f\u3001\u62d6\u52a8\u6392\u5e8f\u3001\u8ddf\u968f\u63d0\u793a\u3001\u81ea\u7ed8\u6298\u7ebf\u56fe\u3002\u5171\u7528\u4e00\u4e2a\u4ece\u5f53\u524d\u4f4d\u7f6e\u548c\u901f\u5ea6\u91cd\u5b9a\u5411\u7684\u963b\u5c3c\u5f39\u7c27\u3002\u5f53\u7528\u6237\u8bf4\u300c\u6309\u94ae\u81ea\u5df1\u53d8\u6210\u52a0\u8f7d\u548c\u5b8c\u6210\u300d\u300c\u9009\u4e2d\u6761\u50cf\u8f6f\u7cd6\u8ffd\u8fc7\u53bb\u300d\u300c\u62d6\u5230\u5934\u8fd8\u80fd\u62fd\u4e00\u70b9\u300d\u300c\u5f00\u5173\u5706\u70b9\u62c9\u957f\u300d\u300c\u5361\u7247\u539f\u4f4d\u5c55\u5f00\u300d\u300c\u901a\u77e5\u5c42\u53e0\u300d\u300cCmd+K \u547d\u4ee4\u9762\u677f\u300d\u300c\u62d6\u52a8\u6392\u5e8f\u300d\u300c\u63d0\u793a\u8ddf\u968f\u9f20\u6807\u300d\u300c\u6298\u7ebf\u81ea\u5df1\u753b\u51fa\u6765\u300d\uff0c\u6216\u70b9\u540d FORM \u52a8\u6548\u5e93\u3001\u8981\u628a\u67d0\u4e2a\u6837\u4f8b\u7528\u5230\u81ea\u5df1\u7684\u9875\u9762\u65f6\u4f7f\u7528\u3002\u53ea\u5728\u660e\u786e\u8bf7\u6c42\u65f6\u89e6\u53d1\uff0c\u5ffd\u7565\u987a\u5e26\u63d0\u53ca\u3002\"",
+    "path": "library/majiayu000-spellbook/skills/form-motion",
+    "activation_cmd": "python .agents/library/activate_skill.py activate form-motion",
+    "link_cmd": "python .agents/library/activate_skill.py link form-motion"
+  },
+  {
+    "id": "frontend-design",
+    "name": "frontend-design",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"Create distinctive, production-grade web frontend interfaces with high design quality. Use when the user explicitly asks to build or substantially redesign a web component, page, or application. Only applies when repository inspection confirms that the visual surface is a browser-rendered web UI. Do not use for native or GPU-rendered graphics, shaders, games, terminal UIs, or other non-web visual systems. Ignore incidental mentions and traces.\"",
+    "path": "library/majiayu000-spellbook/skills/frontend-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate frontend-design",
+    "link_cmd": "python .agents/library/activate_skill.py link frontend-design"
+  },
+  {
+    "id": "gemma4-local-deploy",
+    "name": "gemma4-local-deploy",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u5728\u672c\u673a Mac \u6216 Apple Silicon \u4e0a\u90e8\u7f72 Gemma 4 12B\u3002\u672c\u5730\u5b89\u88c5/\u5347\u7ea7 llama.cpp\uff0c\u4e0b\u8f7d GGUF \u91cf\u5316\u6a21\u578b\uff0c\u7528 llama-server \u66b4\u9732 OpenAI-compatible API\uff0c\u6216\u7528 Ollama \u66b4\u9732\u672c\u5730\u6a21\u578b\u670d\u52a1\uff1b\u6309\u7528\u6237\u9700\u6c42\u5728\u9ed8\u8ba4 Q4_K_M\u300164K/128K \u957f\u4e0a\u4e0b\u6587\u3001QAT Q4_0 @ 256K\u3001\u5de6\u53f3\u5bf9\u6bd4\u6f14\u793a\u4e4b\u95f4\u9009\u62e9\uff0c\u914d\u7f6e tmux \u540e\u53f0\u8fd0\u884c\uff0c\u9a8c\u8bc1\u5065\u5eb7\u68c0\u67e5\u3001\u95ee\u7b54\u63a5\u53e3\u3001\u8d44\u6e90\u5360\u7528\u548c\u5e38\u89c1\u6545\u969c\u3002\u5f53\u7528\u6237\u8bf4\u90e8\u7f72 Gemma 4\u3001Gemma 4 12B\u3001\u672c\u5730\u5927\u6a21\u578b\u3001\u957f\u4e0a\u4e0b\u6587\u3001QAT\u3001\u91cf\u5316\u3001llama-server\u3001Ollama\u3001GGUF\u3001Mac \u672c\u5730\u6a21\u578b\u670d\u52a1\u65f6\u4f7f\u7528\u3002",
+    "path": "library/majiayu000-spellbook/skills/gemma4-local-deploy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gemma4-local-deploy",
+    "link_cmd": "python .agents/library/activate_skill.py link gemma4-local-deploy"
+  },
+  {
+    "id": "git-commit-smart",
+    "name": "git-commit-smart",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Generates meaningful, conventional commit messages automatically. Use when committing code changes. Analyzes diff to create descriptive commits following best practices.",
+    "path": "library/majiayu000-spellbook/skills/git-commit-smart",
+    "activation_cmd": "python .agents/library/activate_skill.py activate git-commit-smart",
+    "link_cmd": "python .agents/library/activate_skill.py link git-commit-smart"
+  },
+  {
+    "id": "github-trending",
+    "name": "github-trending",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "GitHub Trending \u63a2\u7d22\u4e0e\u5206\u6790\u3002\u7528\u4e8e\u53d1\u73b0\u70ed\u95e8\u5f00\u6e90\u9879\u76ee\u3001\u6280\u672f\u8d8b\u52bf\u3001\u5f00\u53d1\u8005\u504f\u597d\uff0c\u5e2e\u52a9\u7406\u89e3\u6280\u672f\u793e\u533a\u7684\u5174\u8da3\u8d70\u5411\u3002\u4f7f\u7528\u573a\u666f\u5305\u62ec\u201c\u770b\u770b\u4eca\u5929 GitHub \u4ec0\u4e48\u706b\u4e86\u201d\u3001\u201cRust \u6700\u8fd1\u70ed\u95e8\u9879\u76ee\u201d\u3001\u201cAI \u9886\u57df\u8d8b\u52bf\u65e5\u62a5\u201d\u3001\u201c\u8fd9\u4e2a\u65b9\u5411\u6709\u6ca1\u6709\u503c\u5f97\u5173\u6ce8\u7684\u5f00\u6e90\u9879\u76ee\u201d\u3001\u201c\u5e2e\u6211\u505a\u4e2a GitHub trending \u5206\u6790\u201d\u3002",
+    "path": "library/majiayu000-spellbook/skills/github-trending",
+    "activation_cmd": "python .agents/library/activate_skill.py activate github-trending",
+    "link_cmd": "python .agents/library/activate_skill.py link github-trending"
+  },
+  {
+    "id": "golang-web",
+    "name": "golang-web",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Modern Go Web application architecture guide. Use when creating new Go web projects, APIs, or microservices. Covers project structure, tech stack selection, and best practices based on Go standards.",
+    "path": "library/majiayu000-spellbook/skills/golang-web",
+    "activation_cmd": "python .agents/library/activate_skill.py activate golang-web",
+    "link_cmd": "python .agents/library/activate_skill.py link golang-web"
+  },
+  {
+    "id": "gpu-use",
+    "name": "gpu-use",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u67e5\u770b\u8fdc\u7a0b\u670d\u52a1\u5668 GPU \u4f7f\u7528\u60c5\u51b5\u3002SSH \u8fde\u63a5\u670d\u52a1\u5668\uff0c\u5c55\u793a\u6bcf\u5f20\u5361\u7684\u663e\u5b58\u5360\u7528\u3001\u8fd0\u884c\u8fdb\u7a0b\u3001\u6240\u5c5e\u5bb9\u5668\u3002\u5f53\u7528\u6237\u8bf4\u67e5\u770b GPU\u3001\u663e\u5361\u5360\u7528\u3001\u663e\u5b58\u4f7f\u7528\u65f6\u4f7f\u7528",
+    "path": "library/majiayu000-spellbook/skills/gpu-use",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gpu-use",
+    "link_cmd": "python .agents/library/activate_skill.py link gpu-use"
+  },
+  {
+    "id": "harmonyos-app",
+    "name": "harmonyos-app",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "HarmonyOS application development expert. Use when building HarmonyOS apps with ArkTS, ArkUI, Stage model, and distributed capabilities. Covers HarmonyOS NEXT (API 12+) best practices.",
+    "path": "library/majiayu000-spellbook/skills/harmonyos-app",
+    "activation_cmd": "python .agents/library/activate_skill.py activate harmonyos-app",
+    "link_cmd": "python .agents/library/activate_skill.py link harmonyos-app"
+  },
+  {
+    "id": "hud-interface",
+    "name": "hud-interface",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"\u6e38\u620f HUD \u5f0f\u754c\u9762\uff1a\u9ed1\u767d\u7eb8\u58a8\u52a0\u4e00\u4e2a\u8584\u8377\u5f3a\u8c03\u8272\uff0c\u659c\u5207\u9ed1\u6807\u7b7e\u3001\u7a7a\u5fc3\u5de8\u578b\u6570\u5b57\u3001\u7c97\u9ed1\u6c49\u5b57\u6807\u9898\u3001\u73af\u5f62\u8f6c\u52a8\u6587\u5b57\u3001\u6b6a\u7740\u6446\u7684\u7eb8\u5361\u7247\u3001\u9ed1\u8272\u5e95\u680f\u5927\u659c\u4f53\u8ba1\u6570\u548c\u6761\u5f62\u8868\uff0c\u80cc\u540e\u662f\u6d41\u52a8\u7684\u6db2\u4f53\u5927\u7406\u77f3\u7740\u8272\u5668\uff1b\u53ef\u9009\u7528 HTML-in-Canvas \u628a\u771f\u5b9e DOM \u9762\u677f\u753b\u8fdb WebGL \u518d\u505a\u73bb\u7483\u6298\u5c04\u548c\u8272\u6563\uff08Chrome \u5b9e\u9a8c\u5f00\u5173\uff0c\u4e0d\u652f\u6301\u65f6\u81ea\u52a8\u9000\u56de\u666e\u901a DOM\uff09\u3002\u5e26\u566a\u97f3\u6863\u4f4d quiet / normal / loud\uff0c\u9ed8\u8ba4 quiet\u3002\u9002\u5408\u62c6\u89e3\u53f0\u3001\u96f6\u4ef6\u6e05\u5355\u3001\u673a\u5668\u4eba\u6216\u4efb\u52a1\u63a7\u5236\u53f0\u8fd9\u7c7b\u8981\u6709\u300c\u4eea\u8868\u611f\u300d\u7684\u9875\u9762\u3002\u5f53\u7528\u6237\u8bf4\u300c\u6e38\u620f HUD \u98ce\u683c\u300d\u300c\u505a\u6210\u4eea\u8868\u677f\u90a3\u79cd\u9177\u70ab\u754c\u9762\u300d\u300cHTML-in-Canvas\u300d\u300c\u628a DOM \u753b\u8fdb WebGL\u300d\u300c\u6db2\u4f53\u5927\u7406\u77f3\u80cc\u666f\u300d\u300c\u659c\u5207\u6807\u7b7e / \u5de8\u578b\u6570\u5b57 / \u73af\u5f62\u6587\u5b57\u300d\u65f6\u4f7f\u7528\u3002\u53ea\u5728\u660e\u786e\u8bf7\u6c42\u65f6\u89e6\u53d1\uff0c\u5ffd\u7565\u987a\u5e26\u63d0\u53ca\u3002\"",
+    "path": "library/majiayu000-spellbook/skills/hud-interface",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hud-interface",
+    "link_cmd": "python .agents/library/activate_skill.py link hud-interface"
+  },
+  {
+    "id": "humanizer",
+    "name": "humanizer",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "'Remove signs of AI-generated writing from text. Use when editing or",
+    "path": "library/majiayu000-spellbook/skills/humanizer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate humanizer",
+    "link_cmd": "python .agents/library/activate_skill.py link humanizer"
+  },
+  {
+    "id": "idea-analogist",
+    "name": "idea-analogist",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u60f3\u6cd5\u7fa4\u804a\u5ba4 \u2014 \u7c7b\u6bd4\u8005\u89d2\u8272\u3002\u88ab idea-team \u4e3b\u7f16\u6392\u5668\u8c03\u7528\uff0c\u6216\u7528\u6237\u5355\u72ec\u8bf4\"\u7c7b\u6bd4\u4e00\u4e0b\"\u3001\"\u522b\u7684\u884c\u4e1a\u6709\u6ca1\u6709\"\u3001\"yes-and \u6269\u5c55\"\u3001\"X \u8ba9\u4f60\u60f3\u5230\u4ec0\u4e48\"\u3001\"\u8de8\u754c\u542f\u793a\"\u65f6\u89e6\u53d1\u3002**\u4e13\u95e8\u505a\u8de8\u754c\u7c7b\u6bd4 + yes-and \u6269\u5c55\u2014\u2014\u4e0d\u8bc4\u5224\u3001\u4e0d\u6311\u523a\u3001\u4e0d\u8981\u6c42\u4e8b\u5b9e\u8bc1\u636e**\u3002Do NOT use when \u7528\u6237\u8981\u6570\u636e\uff08\u7528 `idea-research`\uff09\u3001\u8981\u53cd\u65b9\u610f\u89c1\uff08\u7528 `idea-devils-advocate`\uff09\u3001\u6216\u8981\u4e25\u8c28\u8bba\u8bc1\uff08\u7c7b\u6bd4\u662f\u542f\u53d1\uff0c\u4e0d\u662f\u8bba\u8bc1\uff09\u3002",
+    "path": "library/majiayu000-spellbook/skills/idea-analogist",
+    "activation_cmd": "python .agents/library/activate_skill.py activate idea-analogist",
+    "link_cmd": "python .agents/library/activate_skill.py link idea-analogist"
+  },
+  {
+    "id": "idea-devils-advocate",
+    "name": "idea-devils-advocate",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u60f3\u6cd5\u7fa4\u804a\u5ba4 \u2014 \u53cd\u65b9\u89d2\u8272\u3002\u88ab idea-team \u4e3b\u7f16\u6392\u5668\u8c03\u7528\uff0c\u6216\u7528\u6237\u5355\u72ec\u8bf4\"\u53cd\u65b9\u610f\u89c1\"\u3001\"\u6311\u8fd9\u4e2a\u60f3\u6cd5\u7684\u523a\"\u3001\"\u4e3a\u4ec0\u4e48\u4f1a\u5931\u8d25\"\u3001\"\u627e\u6f0f\u6d1e / \u53cd\u4f8b\"\u3001\"devil's advocate\"\u65f6\u89e6\u53d1\u3002**\u4e13\u95e8\u6311\u6f0f\u6d1e\u3001\u627e\u9690\u85cf\u5047\u8bbe\u3001\u7ed9\u53cd\u4f8b\u2014\u2014\u4e0d\u5b89\u6170\u3001\u4e0d\"\u4e5f\u8bb8\u53ef\u4ee5\u8fd9\u6837\"\u3001\u4e0d\u5168\u76d8\u5426\u5b9a**\u3002Do NOT use when \u7528\u6237\u8981\u6570\u636e\uff08\u7528 `idea-research`\uff09\u3001\u8981\u7c7b\u6bd4\u542f\u793a\uff08\u7528 `idea-analogist`\uff09\u3001\u6216\u60f3\u8981\u6b63\u5411\u5efa\u8bae\uff08\u8fd9\u4e0d\u662f\u53cd\u65b9\u7684\u6d3b\uff09\u3002",
+    "path": "library/majiayu000-spellbook/skills/idea-devils-advocate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate idea-devils-advocate",
+    "link_cmd": "python .agents/library/activate_skill.py link idea-devils-advocate"
+  },
+  {
+    "id": "idea-research",
+    "name": "idea-research",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u60f3\u6cd5\u7fa4\u804a\u5ba4 \u2014 \u8c03\u7814\u5458\u89d2\u8272\u3002\u88ab idea-team \u4e3b\u7f16\u6392\u5668\u8c03\u7528\uff0c\u6216\u7528\u6237\u5355\u72ec\u8bf4\"\u8c03\u7814\u4e00\u4e0b X\"\u3001\"X \u7684\u73b0\u72b6/\u7ade\u54c1/\u6570\u636e\"\u3001\"\u627e 2026 \u6570\u636e\"\u3001\"\u4e8b\u5b9e\u5e95\"\u65f6\u89e6\u53d1\u3002**\u7528 WebSearch \u62c9\u771f\u5b9e 2026 \u6570\u636e\u3001\u5217\u7ade\u54c1\u3001\u5f15\u6765\u6e90\u2014\u2014\u53ea\u7ed9\u4e8b\u5b9e\uff0c\u4e0d\u8bc4\u5224\uff0c\u4e0d\u5efa\u8bae**\u3002Do NOT use when \u7528\u6237\u8981\u8bc4\u4ef7\u60f3\u6cd5\u597d\u574f\uff08\u90a3\u662f\u53cd\u65b9\uff09\u3001\u6216\u8981\u8de8\u754c\u542f\u793a\uff08\u90a3\u662f\u7c7b\u6bd4\u8005\uff09\u3001\u6216\u5df2\u6709 PRD \u5728\u8dd1\uff08\u4e0d\u9700\u8981\u8fd9\u79cd\u8c03\u7814\uff09\u3002\u63d2\u4ef6\u5185 skill \u4f1a\u7531 `idea-coach` namespace \u8def\u7531\uff1bcatalog \u7528\u6237\u76f4\u63a5\u6309 skill \u540d\u8c03\u7528\u3002",
+    "path": "library/majiayu000-spellbook/skills/idea-research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate idea-research",
+    "link_cmd": "python .agents/library/activate_skill.py link idea-research"
+  },
+  {
+    "id": "idea-team",
+    "name": "idea-team",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u60f3\u6cd5\u7fa4\u804a\u5ba4\u4e3b\u6301\u4eba \u2014 \u628a\u4e00\u53e5\u8bdd\u60f3\u6cd5\u4e22\u7ed9\u591a\u89d2\u8272 AI \u56e2\u961f\uff08\u8c03\u7814\u5458/\u53cd\u65b9/\u7c7b\u6bd4\u8005\uff09\u505a\u67e5\u6f0f\u8865\u7f3a\u3002\u6bcf\u4e2a\u89d2\u8272\u6709\u81ea\u5df1\u7684 voice\uff0c\u4ed6\u4eec\u4e92\u76f8 @ \u63a5\u8bdd\uff1b\u4f60\u968f\u65f6\u63d2\u8bdd\u3002**\u8fd9\u662f\u521b\u610f\u6269\u5c55\u5de5\u5177\uff0c\u4e0d\u6253\u5206\u3001\u4e0d\u5426\u51b3\u3001\u4e0d\u5835\u8def**\u3002Use when \u7528\u6237\u8bf4\"\u7ec4\u4e2a\u56e2\u961f\u804a\u4e00\u4e0b\"\u3001\"\u5f00\u4f1a\u8ba8\u8bba\u8fd9\u4e2a\u60f3\u6cd5\"\u3001\"\u627e\u51e0\u4e2a\u89d2\u5ea6\u770b\u770b\"\u3001\"\u7fa4\u804a\u4e00\u4e0b X\"\u3001\"team review X\"\uff0c\u6216\u8c03\u7528\u63d2\u4ef6\u547d\u4ee4 `/idea-coach:idea-team`\u3002Do NOT use when \u7528\u6237\u5df2\u51b3\u5b9a\u505a\u8fd9\u4e2a\u60f3\u6cd5\u53ea\u8981 PRD\uff08\u7528 `idea-to-product`\uff09\u3001\u6216\u7528\u6237\u8981\u5355\u72ec\u67d0\u4e2a\u89d2\u8272 skill\u3001\u6216\u7528\u6237\u53ea\u60f3\u81ea\u7531 brainstorm\uff08\u4e0d\u9700\u8981 team \u7ed3\u6784\uff09\u3002",
+    "path": "library/majiayu000-spellbook/skills/idea-team",
+    "activation_cmd": "python .agents/library/activate_skill.py activate idea-team",
+    "link_cmd": "python .agents/library/activate_skill.py link idea-team"
+  },
+  {
+    "id": "idea-to-product",
+    "name": "idea-to-product",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u7aef\u5230\u7aef\u4ea7\u54c1\u6559\u7ec3 \u2014 \u628a\u4e00\u53e5\u8bdd\u60f3\u6cd5\u8d70\u5230 PRD + \u53ef\u70b9\u51fb HTML \u539f\u578b\u3002\u4f1a\u9876\u5634\u3001\u5f3a\u5236\u780d\u529f\u80fd\u3001\u7528 Nielsen + Norman \u505a\u53cb\u597d\u6027\u786c\u68c0\u3002Use when user \u8bf4\"\u6211\u6709\u4e00\u4e2a\u60f3\u6cd5\"\u3001\"\u60f3\u505a\u4e00\u4e2a\u4ea7\u54c1\"\u3001\"\u505a MVP\"\u3001\"\u5199 PRD\"\u3001\"\u505a\u7528\u6237\u53cb\u597d\u7684\u4ea7\u54c1\"\uff0c\u6216\u8c03\u7528\u63d2\u4ef6\u547d\u4ee4 `/idea-coach:idea`\u3002Do NOT use when \u7528\u6237\u5df2\u6709\u5b8c\u6574 PRD \u5728\u8dd1\u3001\u660e\u786e\u8bf4\"\u53ea brainstorm \u4e0d\u51b3\u7b56\"\u3001\u53ea\u60f3\u8981 UI \u8bbe\u8ba1\uff08\u7528 design-shotgun\uff09\u3001\u6216\u53ea\u60f3\u8d77\u9879\u76ee\u9aa8\u67b6\uff08\u7528 /init\uff09\u3002",
+    "path": "library/majiayu000-spellbook/skills/idea-to-product",
+    "activation_cmd": "python .agents/library/activate_skill.py activate idea-to-product",
+    "link_cmd": "python .agents/library/activate_skill.py link idea-to-product"
+  },
+  {
+    "id": "illustrated-gallery",
+    "name": "illustrated-gallery",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"Art-direct complete illustrated websites and write project-specific image-generation prompts. Use when the user requests Illustrated Gallery, a gallery-inspired visual style, or $illustrated-gallery. Covers visual direction, original artwork, and page-wide composition; not a fixed website clone, standalone image task, or generic dashboard skill.\"",
+    "path": "library/majiayu000-spellbook/skills/illustrated-gallery",
+    "activation_cmd": "python .agents/library/activate_skill.py activate illustrated-gallery",
+    "link_cmd": "python .agents/library/activate_skill.py link illustrated-gallery"
+  },
+  {
+    "id": "incident-slo-runbook",
+    "name": "incident-slo-runbook",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Create or audit SLOs, SLIs, alert rules, incident response steps, escalation paths, postmortems, operational runbooks, and customer-impact communication. Use when defining production reliability, preparing launch readiness, responding to an outage, writing a runbook, tuning alerts, or closing the loop after an incident.",
+    "path": "library/majiayu000-spellbook/skills/incident-slo-runbook",
+    "activation_cmd": "python .agents/library/activate_skill.py activate incident-slo-runbook",
+    "link_cmd": "python .agents/library/activate_skill.py link incident-slo-runbook"
+  },
+  {
+    "id": "ip-check",
+    "name": "ip-check",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u68c0\u6d4b\u4e00\u4e2a IP \u6216\u4f4f\u5b85/\u673a\u623f\u4ee3\u7406\u8282\u70b9\u7684\u8d28\u91cf\u2014\u2014\u6ce8\u518c\u5e93\u3001\u5730\u7406\u5e93\u4e00\u81f4\u6027\u3001ASN/org\u3001\u98ce\u63a7\u4fe1\u8a89\u3001\u9ed1\u540d\u5355\u3001\u4f4f\u5b85\u771f\u5b9e\u6027\u3001BGP \u5ba3\u544a\u3001\u76ee\u6807\u670d\u52a1(Grok/Claude/ChatGPT)\u89e3\u9501\u4e0e\u5ef6\u8fdf\u4e09\u89d2\u6d4b\u91cf\u3002\u5224\u5b9a\u8be5 IP \u80fd\u5426\u5b89\u5168\u7528\u4e8e AI \u670d\u52a1(\u907f\u514d\u88ab\u5730\u7406\u5e93\u8bef\u5224\u5230\u522b\u56fd\u5bfc\u81f4\u533a\u57df\u9501)\u3002\u5f53\u7528\u6237\u8bf4\"\u67e5\u8fd9\u4e2a IP\"\u3001\"\u8fd9\u4e2a\u8282\u70b9\u5728\u54ea\"\u3001\"\u8fd9\u4e2a\u4ee3\u7406\u80fd\u7528\u5417\"\u3001\"IP \u8d28\u91cf\u68c0\u6d4b\"\u3001\"\u9a8c\u6536\u4f4f\u5b85 IP\"\u3001\"\u4e3a\u4ec0\u4e48\u88ab\u5224\u5b9a\u5728 X \u56fd\"\u3001\"check ip\"\u3001\u7ed9\u51fa socks5 \u4ee3\u7406\u51ed\u8bc1\u95ee\u5f52\u5c5e\u6216\u89e3\u9501\u65f6\u4f7f\u7528\u3002",
+    "path": "library/majiayu000-spellbook/skills/ip-check",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ip-check",
+    "link_cmd": "python .agents/library/activate_skill.py link ip-check"
+  },
+  {
+    "id": "loop-close",
+    "name": "loop-close",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"\u95ed\u73af\u63a8\u8fdb\u4e00\u4ef6\u4e8b\uff08\u529f\u80fd\u3001\u8c03\u7814\u3001\u6587\u6863\u3001\u589e\u957f\u6d3b\u52a8\u3001\u5f00\u6e90\u9879\u76ee\uff09\uff1a\u5b9a\u76ee\u6807\u4e0e\u5931\u8d25\u5224\u5b9a \u2192 \u8d70\u901a\u4efb\u52a1 \u2192 \u5b9a\u89c4\u5219 \u2192 \u5b9e\u73b0 \u2192 \u9a8c\u6536 \u2192 \u53d1\u5e03\u89e6\u8fbe \u2192 \u770b\u6570\u636e \u2192 \u590d\u76d8\u51b3\u7b56\uff0c\u7ed3\u8bba\u56de\u5199\u3002\u7528\u6237\u8bf4\u300c\u95ed\u73af\u300d\u300c\u529f\u80fd\u5361\u300d\u300c\u590d\u76d8\u300d\u300c\u8fd9\u4ef6\u4e8b\u600e\u4e48\u505a\u5b8c\u300d\u65f6\u4f7f\u7528\u3002\u4e00\u6b21\u6027\u5c0f\u6539\u52a8\u3001\u5355\u7eaf\u5199 PRD\uff08prd-master\uff09\u3001\u53ea\u505a\u6307\u6807\u8bbe\u8ba1\uff08product-analytics\uff09\u4e0d\u89e6\u53d1\u3002 Use when explicitly requested; ignore mentions/traces.\"",
+    "path": "library/majiayu000-spellbook/skills/loop-close",
+    "activation_cmd": "python .agents/library/activate_skill.py activate loop-close",
+    "link_cmd": "python .agents/library/activate_skill.py link loop-close"
+  },
+  {
+    "id": "model-inference-optimize",
+    "name": "model-inference-optimize",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u4f18\u5316\u5b9e\u9645\u6a21\u578b\u63a8\u7406\u94fe\u8def\uff0c\u5c06\u6b63\u786e\u6027\u5bf9\u9f50\u3001\u5206\u6bb5 profiling\u3001\u663e\u5b58\u4e0e\u6570\u636e\u642c\u8fd0\u3001TensorRT/ONNX/PyTorch \u540e\u7aef\u3001attention/kernel\u3001FP8/compile\u3001\u7f13\u5b58\u4e0e\u5c11\u6b65\u91c7\u6837\u3001\u8d28\u91cf\u56de\u5f52\u3001GPU \u6210\u672c\u548c\u670d\u52a1\u9a8c\u6536\u4e32\u6210\u540c\u4e00\u5b9e\u9a8c\u95ed\u73af\u3002\u5f53\u7528\u6237\u8981\u6c42\u63a8\u7406\u63d0\u901f\u3001\u964d\u4f4e\u663e\u5b58\u6216 GPU \u6210\u672c\u3001\u590d\u73b0\u6a21\u578b\u6548\u679c\u3001\u5b9a\u4f4d GPU \u5229\u7528\u7387\u4f4e\u3001\u4f18\u5316\u56fe\u50cf/\u89c6\u9891/\u6269\u6563\u6a21\u578b\u6216\u81ea\u6258\u7ba1 LLM \u65f6\u4f7f\u7528\uff0c\u63d0\u4f9b model inference performance optimization \u7684\u8131\u654f\u6848\u4f8b\u3002\u7eaf API \u8c03\u7528\u3001\u63d0\u793a\u8bcd\u6216 token \u7528\u91cf\u4f18\u5316\uff0c\u4ee5\u53ca\u7535\u8111\u5361\u987f\uff0c\u4e0d\u8fdb\u5165\u672c\u6280\u80fd\u7684\u6a21\u578b\u63a8\u7406\u5b9e\u9a8c\u6d41\u7a0b\u3002",
+    "path": "library/majiayu000-spellbook/skills/model-inference-optimize",
+    "activation_cmd": "python .agents/library/activate_skill.py activate model-inference-optimize",
+    "link_cmd": "python .agents/library/activate_skill.py link model-inference-optimize"
+  },
+  {
+    "id": "motion-stack",
+    "name": "motion-stack",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u7528\u4ee3\u7801\u505a\u52a8\u6548\u77ed\u7247\u7684\u901a\u7528\u5e95\u5ea7\uff1a\u6309 brief \u4ece 20 \u4e2a\u5f00\u6e90\u5e93\uff08Three.js\u3001PixiJS\u3001p5\u3001Paper\u3001Matter\u3001Rapier\u3001anime.js\u3001tsParticles\u3001OGL\u3001GL Transitions\u3001Tone.js\u3001Chatterbox\u3001faster-whisper\u3001Remotion\u3001HyperFrames\u3001FFmpeg \u7b49\uff09\u91cc\u6311\u6700\u5c0f\u7ec4\u5408\uff0c\u5199\u6210\u300c\u753b\u9762\u662f\u65f6\u95f4\u7684\u7eaf\u51fd\u6570\u300d\u7684\u573a\u666f\uff0c\u7528\u672c\u5730\u65e0\u5934\u6e32\u67d3\u5668\u51fa MP4\uff08\u53ef\u5e26\u79bb\u7ebf\u5408\u6210\u7684\u97f3\u6548\uff09\uff0c\u5e76\u81ea\u52a8\u5199\u51fa\u53ef\u590d\u73b0\u6e05\u5355\uff08\u5e93\u7248\u672c\u3001\u5b57\u4f53\u3001\u6587\u4ef6\u54c8\u5e0c\u3001\u5f15\u64ce\u7248\u672c\u3001\u547d\u4ee4\uff09\u3002\u5f53\u7528\u6237\u8bf4\u300c\u505a\u4e2a\u52a8\u6548 / motion \u77ed\u7247 / \u7269\u7406\u52a8\u753b / 3D \u52a8\u753b\u89c6\u9891 / \u7528 three.js \u505a\u4e2a\u89c6\u9891 / \u7528\u8fd9\u5957 motion stack\u300d\u65f6\u4f7f\u7528\u3002MV\u3001\u77e5\u8bc6\u89c6\u9891\u3001\u5c3a\u5bf8\u56fe\u52a8\u753b\u8d70\u5404\u81ea\u4e13\u7528 skill\u3002\u53ea\u5728\u660e\u786e\u8bf7\u6c42\u65f6\u89e6\u53d1\uff0c\u5ffd\u7565\u987a\u5e26\u63d0\u53ca\u3002",
+    "path": "library/majiayu000-spellbook/skills/motion-stack",
+    "activation_cmd": "python .agents/library/activate_skill.py activate motion-stack",
+    "link_cmd": "python .agents/library/activate_skill.py link motion-stack"
+  },
+  {
+    "id": "multi-ai-research",
+    "name": "multi-ai-research",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Parallel multi-AI cross-validation research workflow (\u5927\u7248\u672c). Dispatch N internal sub-agents + grok + gemini in parallel, automatically cross-validate findings, tier by confidence (strong consensus / partial / conflict / insufficient), generate tiered action items with arbitration. Use when user says \"\u591a AI \u8c03\u7814\", \"\u4ea4\u53c9\u9a8c\u8bc1\", \"\u72ec\u7acb\u5171\u8bc6\", \"\u4e09\u8111\u8c03\u7814\", \"multi-ai research\", \"parallel research\", \"cross-validate\", or needs deep research that benefits from internal data + external 2026 consensus. NOT for quick factual Q&A, pure code reasoning, or tasks needing deep project context.",
+    "path": "library/majiayu000-spellbook/skills/multi-ai-research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate multi-ai-research",
+    "link_cmd": "python .agents/library/activate_skill.py link multi-ai-research"
+  },
+  {
+    "id": "multi-model-orchestrator",
+    "name": "multi-model-orchestrator",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Use when coordinating complex tasks across multiple AI agents with a centralized handoff document for planning, execution tracking, and feedback fusion.",
+    "path": "library/majiayu000-spellbook/skills/multi-model-orchestrator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate multi-model-orchestrator",
+    "link_cmd": "python .agents/library/activate_skill.py link multi-model-orchestrator"
+  },
+  {
+    "id": "npm-supply-chain-check",
+    "name": "npm-supply-chain-check",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Detect known malicious npm package versions and install-time supply-chain indicators in repositories, lockfiles, and node_modules. Use when a user mentions an npm compromise, Shai-Hulud, the Keyv/cacheable incident, suspicious preinstall scripts, credential-stealing packages, or asks whether a JavaScript project was exposed to a package supply-chain attack. Do not use as a general CVE or license audit.",
+    "path": "library/majiayu000-spellbook/skills/npm-supply-chain-check",
+    "activation_cmd": "python .agents/library/activate_skill.py activate npm-supply-chain-check",
+    "link_cmd": "python .agents/library/activate_skill.py link npm-supply-chain-check"
+  },
+  {
+    "id": "observability-sre",
+    "name": "observability-sre",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Observability and SRE expert. Use when setting up monitoring, logging, tracing, defining SLOs, or managing incidents. Covers Prometheus, Grafana, OpenTelemetry, and incident response best practices.",
+    "path": "library/majiayu000-spellbook/skills/observability-sre",
+    "activation_cmd": "python .agents/library/activate_skill.py activate observability-sre",
+    "link_cmd": "python .agents/library/activate_skill.py link observability-sre"
+  },
+  {
+    "id": "optimize-network",
+    "name": "optimize-network",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Safely diagnose and improve local network speed, latency, jitter, DNS, Wi-Fi, Ethernet, macOS network services, and bufferbloat. Use this skill whenever the user asks to optimize internet/network speed, make the network faster, diagnose slow Wi-Fi, latency, packet loss, DNS delay, unstable Codex/AI tool connectivity, or asks about the viral Codex network optimization workflow. Always protect VPN/proxy tools such as Clash Verge, Mihomo, Shadowrocket, Tailscale, V2Ray, Surge, and corporate VPNs; do not modify or disable them unless the user explicitly asks for that specific change.",
+    "path": "library/majiayu000-spellbook/skills/optimize-network",
+    "activation_cmd": "python .agents/library/activate_skill.py activate optimize-network",
+    "link_cmd": "python .agents/library/activate_skill.py link optimize-network"
+  },
+  {
+    "id": "performance-capacity",
+    "name": "performance-capacity",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Plan, diagnose, and verify performance budgets, latency targets, load tests, capacity estimates, bottleneck analysis, caching strategy, query efficiency, queue throughput, and regression gates. Use when a feature may be slow, a system must scale, a performance regression is suspected, or release readiness depends on throughput, cost, memory, CPU, or response time.",
+    "path": "library/majiayu000-spellbook/skills/performance-capacity",
+    "activation_cmd": "python .agents/library/activate_skill.py activate performance-capacity",
+    "link_cmd": "python .agents/library/activate_skill.py link performance-capacity"
+  },
+  {
+    "id": "playwright-automation",
+    "name": "playwright-automation",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Browser automation and testing with Playwright. Use when testing web applications, automating browser tasks, taking screenshots, or validating UI behavior.",
+    "path": "library/majiayu000-spellbook/skills/playwright-automation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate playwright-automation",
+    "link_cmd": "python .agents/library/activate_skill.py link playwright-automation"
+  },
+  {
+    "id": "prd-master",
+    "name": "prd-master",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "PRD writing and product definition expert. Use when writing PRDs, user stories, acceptance criteria, or prioritizing features. Covers RICE/MoSCoW frameworks, agile requirements, and specification best practices.",
+    "path": "library/majiayu000-spellbook/skills/prd-master",
+    "activation_cmd": "python .agents/library/activate_skill.py activate prd-master",
+    "link_cmd": "python .agents/library/activate_skill.py link prd-master"
+  },
+  {
+    "id": "product-analytics",
+    "name": "product-analytics",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Product analytics and growth expert. Use when designing event tracking, defining metrics, running A/B tests, or analyzing retention. Covers AARRR framework, funnel analysis, cohort analysis, and experimentation.",
+    "path": "library/majiayu000-spellbook/skills/product-analytics",
+    "activation_cmd": "python .agents/library/activate_skill.py activate product-analytics",
+    "link_cmd": "python .agents/library/activate_skill.py link product-analytics"
+  },
+  {
+    "id": "product-discovery",
+    "name": "product-discovery",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Product discovery and market research expert. Use when validating product ideas, conducting market research, user interviews, competitive analysis, or opportunity assessment. Covers JTBD, Kano model, and Value Proposition Canvas.",
+    "path": "library/majiayu000-spellbook/skills/product-discovery",
+    "activation_cmd": "python .agents/library/activate_skill.py activate product-discovery",
+    "link_cmd": "python .agents/library/activate_skill.py link product-discovery"
+  },
+  {
+    "id": "product-manager-toolkit",
+    "name": "product-manager-toolkit",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Use when the user needs product management workflows such as RICE prioritization, customer interview analysis, PRD templates, discovery frameworks, go-to-market strategy, feature prioritization, research synthesis, or requirements documentation.",
+    "path": "library/majiayu000-spellbook/skills/product-manager-toolkit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate product-manager-toolkit",
+    "link_cmd": "python .agents/library/activate_skill.py link product-manager-toolkit"
+  },
+  {
+    "id": "product-ux-expert",
+    "name": "product-ux-expert",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Product interaction and UX expert. Use when reviewing UI/UX, conducting heuristic evaluations, designing user journeys, applying cognitive psychology principles, or ensuring WCAG 2.2 accessibility compliance.",
+    "path": "library/majiayu000-spellbook/skills/product-ux-expert",
+    "activation_cmd": "python .agents/library/activate_skill.py activate product-ux-expert",
+    "link_cmd": "python .agents/library/activate_skill.py link product-ux-expert"
+  },
+  {
+    "id": "project-health-auditor",
+    "name": "project-health-auditor",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Comprehensive codebase health analysis. Use when reviewing code quality, identifying technical debt, checking dependencies, or assessing project structure.",
+    "path": "library/majiayu000-spellbook/skills/project-health-auditor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate project-health-auditor",
+    "link_cmd": "python .agents/library/activate_skill.py link project-health-auditor"
+  },
+  {
+    "id": "python-project",
+    "name": "python-project",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Modern Python project architecture guide for 2025. Use when creating Python projects (APIs, CLI, data pipelines). Covers uv, Ruff, Pydantic, FastAPI, and async patterns.",
+    "path": "library/majiayu000-spellbook/skills/python-project",
+    "activation_cmd": "python .agents/library/activate_skill.py activate python-project",
+    "link_cmd": "python .agents/library/activate_skill.py link python-project"
+  },
+  {
+    "id": "react-best-practices",
+    "name": "react-best-practices",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "React and Next.js performance playbook distilled from Vercel Engineering guidance. Use when building, reviewing, or refactoring React/Next.js code for waterfalls, bundle size, rendering cost, and client/server data flow.",
+    "path": "library/majiayu000-spellbook/skills/react-best-practices",
+    "activation_cmd": "python .agents/library/activate_skill.py activate react-best-practices",
+    "link_cmd": "python .agents/library/activate_skill.py link react-best-practices"
+  },
+  {
+    "id": "react-hooks-best-practices",
+    "name": "react-hooks-best-practices",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Provides React patterns for hooks, effects, refs, and component design. Covers escape hatches, anti-patterns, and correct effect usage. Use when reading or writing React components with hooks or effects.",
+    "path": "library/majiayu000-spellbook/skills/react-hooks-best-practices",
+    "activation_cmd": "python .agents/library/activate_skill.py activate react-hooks-best-practices",
+    "link_cmd": "python .agents/library/activate_skill.py link react-hooks-best-practices"
+  },
+  {
+    "id": "recap",
+    "name": "recap",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u56de\u987e\u6700\u8fd1 N \u5929\u7684 Claude Code \u4f7f\u7528\u8bb0\u5f55\u2014\u2014\u626b\u63cf\u539f\u59cb\u4f1a\u8bdd\u6570\u636e\uff0c\u6309\u4e3b\u9898\u5206\u7ec4\u6c47\u603b\"\u6211\u90fd\u505a\u4e86\u4ec0\u4e48\"\uff0c\u5e76\u4ece\u4e2a\u4eba\u64cd\u4f5c\u7cfb\u7edf\u89c6\u89d2\u8f93\u51fa\u6a21\u5f0f\u3001\u98ce\u9669\u4e0e\u589e\u5220\u5efa\u8bae\u3002\u5f53\u7528\u6237\u8bf4 /recap\u3001\"\u770b\u770b\u6211\u8fd9\u51e0\u5929\u505a\u4e86\u4ec0\u4e48\"\u3001\"\u56de\u987e\u4e00\u4e0b\u6211\u6700\u8fd1\u7684\u4f1a\u8bdd\"\u3001\"\u8fd9\u4e24\u5929\u6211\u7528 claude \u5e72\u4e86\u5565\"\u3001\"\u6d3b\u52a8\u56de\u987e\" \u65f6\u4f7f\u7528\u3002",
+    "path": "library/majiayu000-spellbook/skills/recap",
+    "activation_cmd": "python .agents/library/activate_skill.py activate recap",
+    "link_cmd": "python .agents/library/activate_skill.py link recap"
+  },
+  {
+    "id": "release-engineering",
+    "name": "release-engineering",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Plan and verify software releases with versioning, changelogs, release branches, feature flags, canaries, migration gates, rollback, deployment checks, and release readiness. Use when preparing a release, shipping a risky PR, coordinating app/backend/database rollout, recovering from a bad deploy, or defining release policy for a repo.",
+    "path": "library/majiayu000-spellbook/skills/release-engineering",
+    "activation_cmd": "python .agents/library/activate_skill.py activate release-engineering",
+    "link_cmd": "python .agents/library/activate_skill.py link release-engineering"
+  },
+  {
+    "id": "repo-agent-context-audit",
+    "name": "repo-agent-context-audit",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Audit and recommend improvements for a repository's agent-readable context, including AGENTS.md, CLAUDE.md, WARP.md, CONTRIBUTING.md, .agents/skills, and specs/ PRODUCT.md and TECH.md contracts. Use when asked to review, score, assess, or standardize repo instructions, agent onboarding, spec workflows, or cross-repo agent-context conventions. Use agentsmd-scaffold instead when the user wants to generate or apply root/scoped AGENTS.md files.",
+    "path": "library/majiayu000-spellbook/skills/repo-agent-context-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate repo-agent-context-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link repo-agent-context-audit"
+  },
+  {
+    "id": "repo-film",
+    "name": "repo-film",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u628a\u4e00\u4e2a git \u4ed3\u5e93\u5728\u4e00\u6bb5\u65f6\u95f4\u91cc\u7684\u771f\u5b9e\u63d0\u4ea4\u505a\u6210 15\u201325 \u79d2\u7684\u70ab\u9177\u77ed\u7247\uff1a\u4e3b\u7ebf\u548c\u5404\u6761\u5206\u652f\u6309\u771f\u5b9e\u5206\u53c9\u3001\u5408\u5e76\u540c\u65f6\u751f\u957f\u6210\u6d41\u7a0b\u56fe\uff0c\u8d8a\u957f\u8d8a\u5feb\u518d\u62c9\u8fdc\u770b\u5168\u666f\uff1b\u4ed3\u5e93\u6709 you-are-here \u9879\u76ee\u5730\u56fe\u65f6\uff0c\u6574\u5f20\u7f51\u4f1a\u6536\u62e2\u6210\u5730\u56fe\u91cc\u7684\u963b\u585e\u94fe\uff0c\u518d\u6cbf\u5730\u56fe\u8bb2\u5361\u70b9\u3001\u5f53\u524d\u4f4d\u7f6e\u548c\u4e00\u53e5\u8bdd\u603b\u7ed3\uff0c\u6700\u540e\u63a5\u53ef\u6539\u7684\u7ed3\u5c3e\u5361\u7247\u3002\u4e00\u884c\u547d\u4ee4\u51fa MP4\uff0c\u57fa\u4e8e motion-stack \u6e32\u67d3\u5668\u3002\u5f53\u7528\u6237\u8bf4\u300c\u628a\u8fd9\u4e2a\u4ed3\u5e93\u8fd9\u5468 / \u6628\u665a\u505a\u7684\u4e8b\u505a\u6210\u89c6\u9891\u300d\u300c\u505a\u4e2a\u9879\u76ee\u8fdb\u5c55\u77ed\u7247\u300d\u300cgit \u8bb0\u5f55\u505a\u6210\u6d41\u7a0b\u56fe\u52a8\u753b\u300d\u300c\u7ed9 you-are-here / \u67d0\u9879\u76ee\u505a\u5ba3\u4f20\u89c6\u9891\u300d\u300c\u50cf\u4e0a\u6b21 Keepline \u90a3\u4e2a\u89c6\u9891\u4e00\u6837\u505a\u4e00\u4e2a\u300d\u65f6\u4f7f\u7528\u3002\u53ea\u5728\u660e\u786e\u8bf7\u6c42\u65f6\u89e6\u53d1\uff0c\u5ffd\u7565\u987a\u5e26\u63d0\u53ca\u3002",
+    "path": "library/majiayu000-spellbook/skills/repo-film",
+    "activation_cmd": "python .agents/library/activate_skill.py activate repo-film",
+    "link_cmd": "python .agents/library/activate_skill.py link repo-film"
+  },
+  {
+    "id": "repo-scaffold",
+    "name": "repo-scaffold",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Scaffold or standardize a production-ready repository structure with specs, source layout, tests, CI, agent context, config examples, release notes, and operational docs. Use when starting a new repo, turning a prototype into a maintainable project, adding missing repository foundations, or creating a repo skeleton before implementation. For AGENTS.md-only context scaffolding, use agentsmd-scaffold.",
+    "path": "library/majiayu000-spellbook/skills/repo-scaffold",
+    "activation_cmd": "python .agents/library/activate_skill.py activate repo-scaffold",
+    "link_cmd": "python .agents/library/activate_skill.py link repo-scaffold"
+  },
+  {
+    "id": "review-agent-harness",
+    "name": "review-agent-harness",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Review whether a repository's coding-agent harness can reliably carry work from intent through controlled execution, verification, delivery, and learning. Use when asked to assess agent readiness, repeated agent failures, Rules/Skills/Hooks/Memory effectiveness, missing validation or recovery loops, or whether a harness repair improved later outcomes. Do not use for code-only audits, AGENTS-only audits, individual skill reliability reviews, or executing the task itself.",
+    "path": "library/majiayu000-spellbook/skills/review-agent-harness",
+    "activation_cmd": "python .agents/library/activate_skill.py activate review-agent-harness",
+    "link_cmd": "python .agents/library/activate_skill.py link review-agent-harness"
+  },
+  {
+    "id": "review-gate",
+    "name": "review-gate",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"Use before an agent-produced diff is committed, pushed, opened as a PR, merged, landed, or applied to user files when explicit implementation approval is missing. Trigger for review gate, review pack, approve before landing, diff first then land, human approval, merge gate, commit gate, push gate, or PR readiness. Produces a concise review pack, records risks and verification, and blocks landing until a human explicitly approves or approves with required fixes.\"",
+    "path": "library/majiayu000-spellbook/skills/review-gate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate review-gate",
+    "link_cmd": "python .agents/library/activate_skill.py link review-gate"
+  },
+  {
+    "id": "rust-best-practices",
+    "name": "rust-best-practices",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Use when writing, modifying, or reviewing Rust code. ALWAYS invoke before Rust edits; covers Microsoft Pragmatic Rust guidance for error handling, API design, performance, and idiomatic patterns.",
+    "path": "library/majiayu000-spellbook/skills/rust-best-practices",
+    "activation_cmd": "python .agents/library/activate_skill.py activate rust-best-practices",
+    "link_cmd": "python .agents/library/activate_skill.py link rust-best-practices"
+  },
+  {
+    "id": "rust-project",
+    "name": "rust-project",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Modern Rust project architecture guide for 2025. Use when creating Rust projects (CLI, web services, libraries). Covers workspace structure, error handling, async patterns, and idiomatic Rust best practices.",
+    "path": "library/majiayu000-spellbook/skills/rust-project",
+    "activation_cmd": "python .agents/library/activate_skill.py activate rust-project",
+    "link_cmd": "python .agents/library/activate_skill.py link rust-project"
+  },
+  {
+    "id": "rustdesk-doctor",
+    "name": "rustdesk-doctor",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u8bca\u65ad RustDesk \u8fde\u63a5\u95ee\u9898\u3002\u5f53\u7528\u6237\u8bf4 RustDesk \u8fde\u4e0d\u4e0a\u3001\u65e0\u6cd5\u8fdc\u7a0b\u3001ID \u4e0d\u663e\u793a\u3001\u6ce8\u518c\u5931\u8d25\u65f6\u4f7f\u7528",
+    "path": "library/majiayu000-spellbook/skills/rustdesk-doctor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate rustdesk-doctor",
+    "link_cmd": "python .agents/library/activate_skill.py link rustdesk-doctor"
+  },
+  {
+    "id": "security-threat-model",
+    "name": "security-threat-model",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Threat-model product features, APIs, data flows, secrets, permissions, supply-chain changes, auth boundaries, and risky code paths before or during implementation. Use when touching authentication, authorization, payments, secrets, user data, uploads, webhooks, admin tools, innerHTML/eval/exec, dependency upgrades, or cross-tenant access.",
+    "path": "library/majiayu000-spellbook/skills/security-threat-model",
+    "activation_cmd": "python .agents/library/activate_skill.py activate security-threat-model",
+    "link_cmd": "python .agents/library/activate_skill.py link security-threat-model"
+  },
+  {
+    "id": "server-security",
+    "name": "server-security",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u670d\u52a1\u5668\u5b89\u5168\u5ba1\u8ba1\u4e0e\u52a0\u56fa\u3002\u626b\u63cf SSH\u3001\u9632\u706b\u5899\u3001\u7aef\u53e3\u66b4\u9732\u3001\u6587\u4ef6\u6743\u9650\u3001\u66b4\u529b\u7834\u89e3\u7b49\u5b89\u5168\u95ee\u9898\uff0c\u751f\u6210\u62a5\u544a\u5e76\u63d0\u4f9b\u4e00\u952e\u4fee\u590d\u3002\u5f53\u7528\u6237\u8bf4\u670d\u52a1\u5668\u5b89\u5168\u3001\u5b89\u5168\u5ba1\u8ba1\u3001\u5b89\u5168\u68c0\u67e5\u3001\u5b89\u5168\u52a0\u56fa\u65f6\u4f7f\u7528",
+    "path": "library/majiayu000-spellbook/skills/server-security",
+    "activation_cmd": "python .agents/library/activate_skill.py activate server-security",
+    "link_cmd": "python .agents/library/activate_skill.py link server-security"
+  },
+  {
+    "id": "skill-audit",
+    "name": "skill-audit",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"Audit, design, categorize, distribute, and measure agent skills using lessons from Anthropic's Lessons from building Claude Code: How we use skills. Use when reviewing an existing skill, deciding whether a workflow deserves a skill, planning a skill library, turning team knowledge into skills, choosing skill categories, writing trigger descriptions, designing progressive disclosure, or planning skill marketplace and usage measurement.\"",
+    "path": "library/majiayu000-spellbook/skills/skill-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-audit"
+  },
+  {
+    "id": "skill-checkup",
+    "name": "skill-checkup",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"Read-only checkup of installed agent skills across Claude Code and Codex: broken links or files, same-name copies that drifted apart, descriptions that compete or miss requests their skill already handles, and skills loaded by both agents but used by only one. Use when the user asks to check, audit or tidy their skills, compare Claude Code and Codex skills, asks why a skill did not trigger, or wants to test a reworded description against past requests. For unused Claude Code skills and token cost alone, Claude Code's /skill-doctor is enough. Not for agent config health or raw usage rankings (skill-usage-stats) or policy-driven ownership, exposure and retirement repairs (skill-ecosystem-doctor).\"",
+    "path": "library/majiayu000-spellbook/skills/skill-checkup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-checkup",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-checkup"
+  },
+  {
+    "id": "skill-creator",
+    "name": "skill-creator",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Create new skills, modify and improve existing skills, and measure skill performance. Use when users want to create a skill from scratch, update or optimize an existing skill, run evals to test a skill, benchmark skill performance with variance analysis, or optimize a skill's description for better triggering accuracy.",
+    "path": "library/majiayu000-spellbook/skills/skill-creator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-creator",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-creator"
+  },
+  {
+    "id": "skill-ecosystem-doctor",
+    "name": "skill-ecosystem-doctor",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"Audit and safely repair cross-runtime Skill governance: canonical-source ownership, divergent or duplicate projections, exposure scopes and budgets, lifecycle drift, quarantine, and retirement. Use when the user explicitly requests cross-runtime or cross-scope Skill governance; ignore project-local Skill inventory, product/runtime loading or enablement checks, usage statistics, and mentions/traces.\"",
+    "path": "library/majiayu000-spellbook/skills/skill-ecosystem-doctor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-ecosystem-doctor",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-ecosystem-doctor"
+  },
+  {
+    "id": "skill-lifeguard",
+    "name": "skill-lifeguard",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"Use when a skill is brittle, drifting, repeatedly failing, or needs a Reliable Skill Contract. Trigger for phrases like skill lifeguard, reliable skill, self-maintaining skill, negative examples, verification checkpoints, drift signals, replay hooks, or failure log to skill patch. Audits or patches skills so high-value workflows include explicit forbidden behaviors, checkpoints, machine-checkable done conditions, replay or smoke hooks, and drift detection.\"",
+    "path": "library/majiayu000-spellbook/skills/skill-lifeguard",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-lifeguard",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-lifeguard"
+  },
+  {
+    "id": "skill-usage-stats",
+    "name": "skill-usage-stats",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": ">-",
+    "path": "library/majiayu000-spellbook/skills/skill-usage-stats",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-usage-stats",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-usage-stats"
+  },
+  {
+    "id": "slides",
+    "name": "slides",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u751f\u6210\u53e3\u64ad\u89c6\u9891\u80cc\u666f PPT \u5e7b\u706f\u7247\uff0816:9 \u6a2a\u7248 PNG \u5e8f\u5217\uff09\u3002\u5f53\u7528\u6237\u9700\u8981\u505a PPT\u3001\u751f\u6210\u5e7b\u706f\u7247\u3001\u505a\u6f14\u793a\u80cc\u666f\u56fe\u65f6\u4f7f\u7528",
+    "path": "library/majiayu000-spellbook/skills/slides",
+    "activation_cmd": "python .agents/library/activate_skill.py activate slides",
+    "link_cmd": "python .agents/library/activate_skill.py link slides"
+  },
+  {
+    "id": "sol-luna-router",
+    "name": "sol-luna-router",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Route substantial coding or repository-review work through a two-stage Sol commander/verifier and separate Luna Max CLI worker. Use when the user explicitly asks Sol to direct or supervise Luna, explicitly requests this router, needs an isolated auditable Luna-owned implementation with a Sol review loop, or asks to diagnose or measure the router itself. Do not use merely because a task involves coding, verification, progress reporting, or token saving. For small or straightforward tasks, keep work in Sol unless the user explicitly requests Luna; router configuration, usage, and efficiency questions should use read-only inspection without launching a worker.",
+    "path": "library/majiayu000-spellbook/skills/sol-luna-router",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sol-luna-router",
+    "link_cmd": "python .agents/library/activate_skill.py link sol-luna-router"
+  },
+  {
+    "id": "structured-logging-lite",
+    "name": "structured-logging-lite",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Design, audit, or implement application structured logging architecture from repository evidence. Use when a user asks whether or where to add logs, how to choose or migrate a logger, how to standardize events/fields/levels/redaction, how to add HTTP access or panic logs, or why production logs cannot answer an incident question. Do not use merely to tail platform logs or to design a full metrics, tracing, SLO, and incident-management program.",
+    "path": "library/majiayu000-spellbook/skills/structured-logging-lite",
+    "activation_cmd": "python .agents/library/activate_skill.py activate structured-logging-lite",
+    "link_cmd": "python .agents/library/activate_skill.py link structured-logging-lite"
+  },
+  {
+    "id": "system-doctor",
+    "name": "system-doctor",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u7cfb\u7edf\u6027\u80fd\u8bca\u65ad\u3002\u5f53\u7528\u6237\u8bf4\u7535\u8111\u5361\u3001\u7cfb\u7edf\u6162\u3001\u67e5\u770b\u8fdb\u7a0b\u3001CPU\u5360\u7528\u9ad8\u3001\u5185\u5b58\u4e0d\u591f\u7b49\u6027\u80fd\u95ee\u9898\u65f6\u4f7f\u7528",
+    "path": "library/majiayu000-spellbook/skills/system-doctor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate system-doctor",
+    "link_cmd": "python .agents/library/activate_skill.py link system-doctor"
+  },
+  {
+    "id": "systematic-debugging",
+    "name": "systematic-debugging",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Four-phase debugging framework for any technical issue. Use when encountering bugs, errors, or unexpected behavior. Prevents random fix attempts.",
+    "path": "library/majiayu000-spellbook/skills/systematic-debugging",
+    "activation_cmd": "python .agents/library/activate_skill.py activate systematic-debugging",
+    "link_cmd": "python .agents/library/activate_skill.py link systematic-debugging"
+  },
+  {
+    "id": "technical-spec",
+    "name": "technical-spec",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Technical specification and design document expert. Use when writing design docs, RFCs, ADRs, or evaluating technology choices. Covers C4 model, system design, and architecture documentation.",
+    "path": "library/majiayu000-spellbook/skills/technical-spec",
+    "activation_cmd": "python .agents/library/activate_skill.py activate technical-spec",
+    "link_cmd": "python .agents/library/activate_skill.py link technical-spec"
+  },
+  {
+    "id": "threads",
+    "name": "threads",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Use when the user explicitly asks for $threads, Codex-native subagents, \u5f00\u51e0\u4e2a\u5b50 agent, or a GitHub issue/PR queue needing parallel lanes, worktrees, review/merge gates, and closure audit. Do not use for OS/language threads, chat/email/forum threads, or Assistants product threads unless Codex workflow orchestration is explicit.",
+    "path": "library/majiayu000-spellbook/skills/threads",
+    "activation_cmd": "python .agents/library/activate_skill.py activate threads",
+    "link_cmd": "python .agents/library/activate_skill.py link threads"
+  },
+  {
+    "id": "trip-planner",
+    "name": "trip-planner",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Use when the user wants detailed travel itineraries with activities, logistics, day-by-day schedules, vacation planning, trip organization, or travel documentation.",
+    "path": "library/majiayu000-spellbook/skills/trip-planner",
+    "activation_cmd": "python .agents/library/activate_skill.py activate trip-planner",
+    "link_cmd": "python .agents/library/activate_skill.py link trip-planner"
+  },
+  {
+    "id": "typescript-project",
+    "name": "typescript-project",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Modern TypeScript project architecture guide for 2025. Use when creating new TS projects, setting up configurations, or designing project structure. Covers tech stack selection, layered architecture, and best practices.",
+    "path": "library/majiayu000-spellbook/skills/typescript-project",
+    "activation_cmd": "python .agents/library/activate_skill.py activate typescript-project",
+    "link_cmd": "python .agents/library/activate_skill.py link typescript-project"
+  },
+  {
+    "id": "ui-design-system",
+    "name": "ui-design-system",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Use when creating or maintaining UI design systems, design tokens, component documentation, responsive calculations, quality checks, or design-dev handoff materials.",
+    "path": "library/majiayu000-spellbook/skills/ui-design-system",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ui-design-system",
+    "link_cmd": "python .agents/library/activate_skill.py link ui-design-system"
+  },
+  {
+    "id": "ui-designer",
+    "name": "ui-designer",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Extract design systems from reference UI images and generate implementation-ready UI design prompts. Use when users provide UI screenshots/mockups and want to create consistent designs, generate design systems, or build MVP UIs matching reference aesthetics.",
+    "path": "library/majiayu000-spellbook/skills/ui-designer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ui-designer",
+    "link_cmd": "python .agents/library/activate_skill.py link ui-designer"
+  },
+  {
+    "id": "ui-ux-pro-max",
+    "name": "ui-ux-pro-max",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\"Use when planning, building, designing, code review, refactor, fixing, improving, optimizing, enhancing, or checking UI/UX work. Covers product patterns, landing pages, chart choices, visual styles, palettes, typography, UX rules, and 9 stacks (React, Next.js, Vue, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui). Projects: website, landing page, dashboard, admin panel, e-commerce, SaaS, portfolio, blog, mobile app, .html, .tsx, .vue, .svelte. Elements: button, modal, navbar, sidebar, card, table, form, chart. Topics: color palette, accessibility, animation, layout, typography, font pairing, spacing, hover, shadow, gradient.\"",
+    "path": "library/majiayu000-spellbook/skills/ui-ux-pro-max",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ui-ux-pro-max",
+    "link_cmd": "python .agents/library/activate_skill.py link ui-ux-pro-max"
+  },
+  {
+    "id": "vibeguard",
+    "name": "vibeguard",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Lightweight anti-hallucination workflow for task kickoff, review prioritization, and regression retrospectives. Use when the user asks for guardrails, task contracts, risk scoring, or review templates.",
+    "path": "library/majiayu000-spellbook/skills/vibeguard",
+    "activation_cmd": "python .agents/library/activate_skill.py activate vibeguard",
+    "link_cmd": "python .agents/library/activate_skill.py link vibeguard"
+  },
+  {
+    "id": "vscode-doctor",
+    "name": "vscode-doctor",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Diagnose slow or freezing VS Code-compatible editors with evidence-first, zero-hardcoded-assumption workflow. Use when the user reports editor lag, typing delay, UI freezes, extension host stalls, file watcher noise, high editor CPU/RSS, uses VS Code/Cursor as a file browser over a large folder, or wants a safe editor performance audit.",
+    "path": "library/majiayu000-spellbook/skills/vscode-doctor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate vscode-doctor",
+    "link_cmd": "python .agents/library/activate_skill.py link vscode-doctor"
+  },
+  {
+    "id": "web-artifacts-builder",
+    "name": "web-artifacts-builder",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Use when creating elaborate, multi-component claude.ai HTML artifacts with React, Tailwind CSS, shadcn/ui, state management, routing, or complex frontend structure; not for simple single-file HTML/JSX artifacts.",
+    "path": "library/majiayu000-spellbook/skills/web-artifacts-builder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate web-artifacts-builder",
+    "link_cmd": "python .agents/library/activate_skill.py link web-artifacts-builder"
+  },
+  {
+    "id": "web-asset-generator",
+    "name": "web-asset-generator",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Generate web assets including favicons, app icons (PWA), and social media meta images (Open Graph) for Facebook, Twitter, WhatsApp, and LinkedIn. Use when users need icons, favicons, social sharing images, or Open Graph images from logos or text slogans. Handles image resizing, text-to-image generation, and provides proper HTML meta tags.",
+    "path": "library/majiayu000-spellbook/skills/web-asset-generator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate web-asset-generator",
+    "link_cmd": "python .agents/library/activate_skill.py link web-asset-generator"
+  },
+  {
+    "id": "xiaohongshu",
+    "name": "xiaohongshu",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "\u751f\u6210\u5c0f\u7ea2\u4e66\u6587\u6848\u548c\u914d\u56fe\u3002\u5f53\u7528\u6237\u9700\u8981\u5199\u5c0f\u7ea2\u4e66\u3001\u751f\u6210\u793e\u4ea4\u5a92\u4f53\u6587\u6848\u3001\u5c0f\u7ea2\u4e66\u8fd0\u8425\u5185\u5bb9\u65f6\u4f7f\u7528",
+    "path": "library/majiayu000-spellbook/skills/xiaohongshu",
+    "activation_cmd": "python .agents/library/activate_skill.py activate xiaohongshu",
+    "link_cmd": "python .agents/library/activate_skill.py link xiaohongshu"
+  },
+  {
+    "id": "xiaohongshu-netfeel-guardian",
+    "name": "xiaohongshu-netfeel-guardian",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "|",
+    "path": "library/majiayu000-spellbook/skills/xiaohongshu-netfeel-guardian",
+    "activation_cmd": "python .agents/library/activate_skill.py activate xiaohongshu-netfeel-guardian",
+    "link_cmd": "python .agents/library/activate_skill.py link xiaohongshu-netfeel-guardian"
+  },
+  {
+    "id": "xray",
+    "name": "xray",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Investigate how a concept, code path, application, network flow, system, incident, document, or local artifact actually works, then deliver a two-depth visual HTML explainer with a dead-simple big-picture first layer and source-backed technical depth behind it. Use when the user invokes $xray, asks how something works under the hood, wants a module or app behavior traced across boundaries, requests web, code, network, or safe static artifact research before explanation, or asks for an evidence-backed explainer. Do not use for answer-only definitions, general web design, full codebase audits, or invasive binary reverse engineering without explicit authorization.",
+    "path": "library/majiayu000-spellbook/skills/xray",
+    "activation_cmd": "python .agents/library/activate_skill.py activate xray",
+    "link_cmd": "python .agents/library/activate_skill.py link xray"
+  },
+  {
+    "id": "zig-project",
+    "name": "zig-project",
+    "repository": "majiayu000-spellbook",
+    "category": "general",
+    "description": "Modern Zig project architecture guide. Use when creating Zig projects (systems programming, CLI tools, game dev, high-performance services). Covers explicit allocators, comptime, error handling, and build system.",
+    "path": "library/majiayu000-spellbook/skills/zig-project",
+    "activation_cmd": "python .agents/library/activate_skill.py activate zig-project",
+    "link_cmd": "python .agents/library/activate_skill.py link zig-project"
+  }
+]

@@ -1,7 +1,7 @@
 # ☁️ Cloudflare Workers, Pages & Edge
 
 > **Category**: `cloudflare-edge`  
-> **Total Curated Skills**: 137 skills  
+> **Total Curated Skills**: 140 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -34,6 +34,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cf-cli`](../../library/cloudflare-skills/skills/cf-cli) | ⚪ Reserve | `cloudflare-skills` | Cloudflare's official cf CLI (beta) for the public Cloudflare API and Workers projects. Use for... |
 | [`chrome-extension-developer`](../../library/davila7-claude-code-templates/skills/chrome-extension-developer) | ⚪ Reserve | `davila7-claude-code-templates` | Expert in building Chrome Extensions using Manifest V3. Covers background scripts, service work... |
 | [`chrome-web-store-playbook`](../../library/samber-developer-platform-skills/skills/chrome-web-store-playbook) | ⚪ Reserve | `samber-developer-platform-skills` | Gets a B2B SaaS or developer-tools vendor's companion Chrome extension through Chrome Web Store... |
+| [`cloud-uploader`](../../library/bitwize-music-studio-claude-ai-music-skills/skills/cloud-uploader) | ⚪ Reserve | `bitwize-music-studio-claude-ai-music-skills` | Uploads promo videos and content to Cloudflare R2 or AWS S3. Use when the user wants to host pr... |
 | [`cloudflare`](../../library/cloudflare-skills/skills/cloudflare) | ⚪ Reserve | `cloudflare-skills` | Discover and choose Cloudflare products for apps, APIs, AI agents, storage, networking, and sec... |
 | [`cloudflare-automation`](../../library/composio-community-awesome-codex-skills/skills/cloudflare-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Cloudflare tasks via Rube MCP (Composio). Always search tools first for current schema... |
 | [`cloudflare-browser-rendering-automation`](../../library/composio-community-awesome-codex-skills/skills/cloudflare-browser-rendering-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Cloudflare Browser Rendering tasks via Rube MCP (Composio). Always search tools first ... |
@@ -71,6 +72,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`edge-strategy-designer`](../../library/tradermonty-claude-trading-skills/skills/edge-strategy-designer) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Convert abstract edge concepts into strategy draft variants and optional exportable ticket YAML... |
 | [`edge-strategy-reviewer`](../../library/tradermonty-claude-trading-skills/skills/edge-strategy-reviewer) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Critically review strategy drafts from edge-strategy-designer for edge plausibility, overfittin... |
 | [`edge-to-edge`](../../library/android-skills/skills/edge-to-edge) | ⚪ Reserve | `android-skills` | Use this skill to migrate your Jetpack Compose app to add adaptive edge-to-edge |
+| [`emc`](../../library/aklofas-kicad-happy/skills/emc) | ⚪ Reserve | `aklofas-kicad-happy` | EMC pre-compliance risk analysis for KiCad PCB designs — 18 check categories, 44 rule IDs cover... |
 | [`engage-subject-line-lab`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/engage-subject-line-lab) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "generate subject line variants", "pre-score my subject lines", or "w... |
 | [`evaluate-narrative-drift-monitor`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/evaluate-narrative-drift-monitor) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "check if our surfaces have drifted from the canon", "watch for compe... |
 | [`file-uploads`](../../library/antigravity-awesome-skills/skills/file-uploads) | ⚪ Reserve | `antigravity-awesome-skills` | Expert at handling file uploads and cloud storage. Covers S3, Cloudflare R2, presigned URLs, mu... |
@@ -108,6 +110,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`om-implement-feature-multi-optimized`](../../library/open-mercato-skills/skills/om-implement-feature-multi-optimized) | ⚪ Reserve | `open-mercato-skills` | Thin combined alias for om-implement-feature that uses configured implementation workers and in... |
 | [`om-implement-feature-optimized`](../../library/open-mercato-skills/skills/om-implement-feature-optimized) | ⚪ Reserve | `open-mercato-skills` | Thin worker-optimized alias for om-implement-feature that delegates bounded implementation pack... |
 | [`om-setup-agent-harness`](../../library/open-mercato-skills/skills/om-setup-agent-harness) | ⚪ Reserve | `open-mercato-skills` | Configure or diagnose the staged-only multi-model harness, including selectable implementation ... |
+| [`openai-cloudflare-deploy`](../../library/trailofbits-skills-curated/skills/openai-cloudflare-deploy) | ⚪ Reserve | `trailofbits-skills-curated` | Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform |
 | [`orchestrate`](../../library/cursor-plugins/skills/orchestrate) | ⚪ Reserve | `cursor-plugins` | Use only when the user explicitly types `/orchestrate <goal>` to decompose a large task, spawn ... |
 | [`owl`](../../skills/owl) | 🟢 Active | `active` | Activates the OWL (Optimized Workforce Learning) decoupled multi-agent pipeline: uses DeepInves... |
 | [`pixijs-environments`](../../library/pixijs-pixijs-skills/skills/pixijs-environments) | ⚪ Reserve | `pixijs-pixijs-skills` | Use this skill when running PixiJS v8 outside a standard browser: Web Workers, OffscreenCanvas,... |

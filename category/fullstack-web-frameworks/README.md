@@ -1,7 +1,7 @@
 # 🌐 Fullstack Web Frameworks & Apps
 
 > **Category**: `fullstack-web-frameworks`  
-> **Total Curated Skills**: 54 skills  
+> **Total Curated Skills**: 57 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -20,6 +20,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | Skill Name | Status | Origin Repository | Description |
 | :--- | :---: | :--- | :--- |
 | [`app-builder`](../../skills/app-builder) | 🟢 Active | `active` | Main application building orchestrator. Creates full-stack applications from natural language r... |
+| [`bklit-ui`](../../library/bklit-bklit-ui/skills/bklit-ui) | ⚪ Reserve | `bklit-bklit-ui` | Install, compose, theme, and animate Bklit UI charts (the @bklit shadcn registry) in a React / ... |
+| [`bklit-ui-migrate`](../../library/bklit-bklit-ui/skills/bklit-ui-migrate) | ⚪ Reserve | `bklit-bklit-ui` | Migrate an app's charts from Recharts or TanStack Charts to Bklit UI. Detects Recharts usage — ... |
 | [`clerk-nextjs-patterns`](../../library/clerk-skills/skills/clerk-nextjs-patterns) | ⚪ Reserve | `clerk-skills` | Advanced Next.js patterns - middleware, Server Actions, caching with |
 | [`clerk-tanstack-patterns`](../../library/clerk-skills/skills/clerk-tanstack-patterns) | ⚪ Reserve | `clerk-skills` | TanStack React Start auth patterns with @clerk/tanstack-react-start |
 | [`code-to-prd`](../../library/alirezarezvani-claude-skills/skills/code-to-prd) | ⚪ Reserve | `alirezarezvani-claude-skills` | Reverse-engineer any codebase into a complete Product Requirements Document (PRD). Analyzes rou... |
@@ -30,6 +32,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`higgsfield-websites`](../../library/higgsfield-ai-skills/skills/higgsfield-websites) | ⚪ Reserve | `higgsfield-ai-skills` | Build, edit, and deploy full-stack websites, apps and games via the Higgsfield CLI (`higgsfield... |
 | [`hunt-nextjs`](../../library/elementalsouls-claude-bughunter/skills/hunt-nextjs) | ⚪ Reserve | `elementalsouls-claude-bughunter` | Hunt Next.js specific vulnerabilities — Server Actions arbitrary function execution, Middleware... |
 | [`ink-app-builder`](../../library/android-skills/skills/ink-app-builder) | ⚪ Reserve | `android-skills` | Adds inking and freehand drawing capabilities to an Android app using |
+| [`material-ui-nextjs`](../../library/mui-material-ui/skills/material-ui-nextjs) | ⚪ Reserve | `mui-material-ui` | Integrates Material UI with Next.js App and Pages routers using @mui/material-nextjs, Emotion c... |
 | [`neon-realtime`](../../library/neondatabase-agent-skills/skills/neon-realtime) | ⚪ Reserve | `neondatabase-agent-skills` | Neon Realtime makes any SQL query live. Build realtime, reactive apps and agents on Lakebase Po... |
 | [`nextjs-action-id-extraction`](../../library/seaxen-skills-backup/skills/nextjs-action-id-extraction) | ⚪ Reserve | `seaxen-skills-backup` | Find Next.js Server Action IDs for a given site URL. |
 | [`nextjs-action-probe`](../../library/seaxen-skills-backup/skills/nextjs-action-probe) | ⚪ Reserve | `seaxen-skills-backup` | Call Next.js Server Actions via extracted action IDs. |

@@ -1,0 +1,632 @@
+[
+  {
+    "id": "aave-v2-plugin",
+    "name": "aave-v2-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Aave V2 exit tool on Ethereum, Polygon, and Avalanche - all reserves are governance-frozen. Redeem aTokens, repay debt cleanly via uint256.max sentinel, claim stkAAVE/WMATIC/WAVAX rewards. New supply/borrow rejected; redirects to aave-v3-plugin",
+    "path": "library/okx-plugin-store/skills/aave-v2-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate aave-v2-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link aave-v2-plugin"
+  },
+  {
+    "id": "aave-v3-plugin",
+    "name": "aave-v3-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Aave V3 lending and borrowing. Trigger phrases: supply to aave, deposit to aave, borrow from aave, repay aave loan, aave health factor, my aave positions, aave interest rates, enable emode, disable collateral, claim aave rewards.\"",
+    "path": "library/okx-plugin-store/skills/aave-v3-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate aave-v3-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link aave-v3-plugin"
+  },
+  {
+    "id": "aerodrome-amm-plugin",
+    "name": "aerodrome-amm-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Swap tokens and provide liquidity on Aerodrome AMM (volatile/stable pools) on Base",
+    "path": "library/okx-plugin-store/skills/aerodrome-amm-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate aerodrome-amm-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link aerodrome-amm-plugin"
+  },
+  {
+    "id": "aerodrome-slipstream-plugin",
+    "name": "aerodrome-slipstream-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Swap tokens and manage concentrated liquidity positions on Aerodrome Slipstream (CLMM) on Base. Trigger phrases: aerodrome swap, aerodrome liquidity, aerodrome slipstream, add liquidity aerodrome, remove liquidity aerodrome, aerodrome position, aerodrome CL pool, concentrated liquidity base.\"",
+    "path": "library/okx-plugin-store/skills/aerodrome-slipstream-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate aerodrome-slipstream-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link aerodrome-slipstream-plugin"
+  },
+  {
+    "id": "birdeye-plugin",
+    "name": "birdeye-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Birdeye DeFi analytics with dual live access mode (apikey full coverage, x402 supported subset).",
+    "path": "library/okx-plugin-store/skills/birdeye-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate birdeye-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link birdeye-plugin"
+  },
+  {
+    "id": "clanker-plugin",
+    "name": "clanker-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Deploy and manage Clanker ERC-20 tokens on Base and Arbitrum. Trigger phrases: deploy token, launch token on Clanker, create token on Base, search Clanker tokens, list latest tokens, claim LP rewards, claim Clanker fees.\"",
+    "path": "library/okx-plugin-store/skills/clanker-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate clanker-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link clanker-plugin"
+  },
+  {
+    "id": "clawvard-agent-eval",
+    "name": "clawvard-agent-eval",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Take the Clawvard entrance exam, report the result, and optionally save the agent identity token with explicit user confirmation.",
+    "path": "library/okx-plugin-store/skills/clawvard-agent-eval",
+    "activation_cmd": "python .agents/library/activate_skill.py activate clawvard-agent-eval",
+    "link_cmd": "python .agents/library/activate_skill.py link clawvard-agent-eval"
+  },
+  {
+    "id": "coinank-openapi",
+    "name": "coinank-openapi",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Access CoinAnk crypto derivatives market data via API key or Agent Payments Protocol/x402 pay-per-call.",
+    "path": "library/okx-plugin-store/skills/coinank-openapi",
+    "activation_cmd": "python .agents/library/activate_skill.py activate coinank-openapi",
+    "link_cmd": "python .agents/library/activate_skill.py link coinank-openapi"
+  },
+  {
+    "id": "compound-v2-plugin",
+    "name": "compound-v2-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Compound V2 (cToken) money market on Ethereum mainnet - exit tool for legacy positions (redeem, repay, claim COMP). Both supply AND borrow are governance-paused on all 6 markets. Use compound-v3-plugin for active flows.",
+    "path": "library/okx-plugin-store/skills/compound-v2-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate compound-v2-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link compound-v2-plugin"
+  },
+  {
+    "id": "compound-v3-plugin",
+    "name": "compound-v3-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Compound V3 (Comet) lending plugin: supply collateral, borrow/repay the base asset, and claim COMP rewards. Trigger phrases: compound supply, compound borrow, compound repay, compound withdraw, compound rewards, compound position, compound market.\"",
+    "path": "library/okx-plugin-store/skills/compound-v3-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate compound-v3-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link compound-v3-plugin"
+  },
+  {
+    "id": "curve-plugin",
+    "name": "curve-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Curve DEX plugin for swapping stablecoins and managing liquidity on Curve Finance. Trigger phrases: swap on Curve, Curve swap, add liquidity Curve, remove liquidity Curve, Curve pool APY, Curve pools, get Curve quote.\"",
+    "path": "library/okx-plugin-store/skills/curve-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate curve-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link curve-plugin"
+  },
+  {
+    "id": "digift-plugin",
+    "name": "digift-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"DigiFT RWA platform CLI \u2014 query products, prices, fees, calendar, whitelist, orders; build subscribe/redeem/approve transactions (outputs TxBody, does NOT sign)\"",
+    "path": "library/okx-plugin-store/skills/digift-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate digift-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link digift-plugin"
+  },
+  {
+    "id": "dolomite-plugin",
+    "name": "dolomite-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Dolomite Finance lending and borrowing on Arbitrum - supply assets to earn interest, open isolated borrow positions, and manage repay/withdraw via DolomiteMargin",
+    "path": "library/okx-plugin-store/skills/dolomite-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dolomite-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link dolomite-plugin"
+  },
+  {
+    "id": "eigencloud-plugin",
+    "name": "eigencloud-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Restake LSTs on EigenLayer to earn AVS operator yield \u2014 stake, delegate, and manage your restaking positions",
+    "path": "library/okx-plugin-store/skills/eigencloud-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate eigencloud-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link eigencloud-plugin"
+  },
+  {
+    "id": "etherfi-plugin",
+    "name": "etherfi-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": ">",
+    "path": "library/okx-plugin-store/skills/etherfi-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate etherfi-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link etherfi-plugin"
+  },
+  {
+    "id": "euler-v2-plugin",
+    "name": "euler-v2-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Supply, borrow and earn yield on Euler v2 - a modular lending protocol with isolated-risk EVK (Euler Vault Kit) vaults. Trigger phrases: supply to euler, deposit to euler vault, borrow from euler, repay euler loan, euler health factor, my euler positions, euler vault apy, claim euler rewards, list euler vaults, evk vault.\"",
+    "path": "library/okx-plugin-store/skills/euler-v2-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate euler-v2-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link euler-v2-plugin"
+  },
+  {
+    "id": "fluid-plugin",
+    "name": "fluid-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Supply collateral and borrow on Fluid Protocol's smart lending vaults on Ethereum and Arbitrum",
+    "path": "library/okx-plugin-store/skills/fluid-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate fluid-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link fluid-plugin"
+  },
+  {
+    "id": "fourmeme-plugin",
+    "name": "fourmeme-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Trade and create memecoins on Four.meme (BNB Chain). Buy/sell pre-graduate bonding-curve tokens, launch new tokens, query holdings, register as Agent. Trigger phrases: buy four meme, sell four meme token, four.meme price, fourmeme quote, my fourmeme positions, list four meme tokens, trending four meme, search four meme, create four meme token, launch memecoin on BSC, four meme login, fourmeme holdings, four meme events, agent register on four meme.\"",
+    "path": "library/okx-plugin-store/skills/fourmeme-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate fourmeme-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link fourmeme-plugin"
+  },
+  {
+    "id": "gmx-v2-plugin",
+    "name": "gmx-v2-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Trade perpetuals and spot on GMX V2 \u2014 open/close leveraged positions, place limit/stop orders, add/remove GM pool liquidity, query markets and positions. Trigger phrases: open position GMX, close position GMX, GMX trade, GMX leverage, GMX liquidity, deposit GM pool, withdraw GM pool, GMX stop loss, GMX take profit, cancel order GMX, claim funding fees GMX.\"",
+    "path": "library/okx-plugin-store/skills/gmx-v2-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gmx-v2-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link gmx-v2-plugin"
+  },
+  {
+    "id": "hyperliquid-plugin",
+    "name": "hyperliquid-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Hyperliquid DEX \u2014 trade perps & spot, deposit from Arbitrum, withdraw to Arbitrum, transfer between perp and spot accounts, manage gas on HyperEVM.",
+    "path": "library/okx-plugin-store/skills/hyperliquid-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hyperliquid-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link hyperliquid-plugin"
+  },
+  {
+    "id": "kamino-lend-plugin",
+    "name": "kamino-lend-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Supply, borrow, and manage positions on Kamino Lend \u2014 the leading Solana lending protocol",
+    "path": "library/okx-plugin-store/skills/kamino-lend-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate kamino-lend-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link kamino-lend-plugin"
+  },
+  {
+    "id": "kamino-liquidity-plugin",
+    "name": "kamino-liquidity-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Kamino Liquidity KVault earn vaults on Solana. Deposit tokens to earn yield, withdraw shares, and track positions. Trigger phrases: Kamino vault, Kamino liquidity, deposit to Kamino, Kamino earn, KVault, Kamino yield vault. Chinese: Kamino\u6d41\u52a8\u6027, Kamino\u4fdd\u9669\u5e93, \u5b58\u5165Kamino, Kamino\u8d5a\u53d6\u6536\u76ca\"",
+    "path": "library/okx-plugin-store/skills/kamino-liquidity-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate kamino-liquidity-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link kamino-liquidity-plugin"
+  },
+  {
+    "id": "lido-plugin",
+    "name": "lido-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Stake ETH with Lido liquid staking protocol to receive stETH, manage withdrawals, and track staking rewards. Supports staking, balance queries, withdrawal requests, withdrawal status, and claiming finalized withdrawals on Ethereum mainnet.",
+    "path": "library/okx-plugin-store/skills/lido-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate lido-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link lido-plugin"
+  },
+  {
+    "id": "lifi-plugin",
+    "name": "lifi-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "LI.FI cross-chain bridge & swap aggregator - list chains/tokens, get quotes, plan multi-hop routes, execute bridges/swaps, track tx status across Ethereum, Arbitrum, Base, Optimism, BSC, and Polygon.",
+    "path": "library/okx-plugin-store/skills/lifi-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate lifi-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link lifi-plugin"
+  },
+  {
+    "id": "macro-intelligence",
+    "name": "macro-intelligence",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Unified macro intelligence feed \u2014 reads 7 sources, classifies events, scores sentiment, generates AI insights, exposes signals via HTTP API",
+    "path": "library/okx-plugin-store/skills/macro-intelligence",
+    "activation_cmd": "python .agents/library/activate_skill.py activate macro-intelligence",
+    "link_cmd": "python .agents/library/activate_skill.py link macro-intelligence"
+  },
+  {
+    "id": "mainstream-spot-order",
+    "name": "mainstream-spot-order",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": ">",
+    "path": "library/okx-plugin-store/skills/mainstream-spot-order",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mainstream-spot-order",
+    "link_cmd": "python .agents/library/activate_skill.py link mainstream-spot-order"
+  },
+  {
+    "id": "market-structure-analyzer",
+    "name": "market-structure-analyzer",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "|",
+    "path": "library/okx-plugin-store/skills/market-structure-analyzer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate market-structure-analyzer",
+    "link_cmd": "python .agents/library/activate_skill.py link market-structure-analyzer"
+  },
+  {
+    "id": "meme-trench-scanner",
+    "name": "meme-trench-scanner",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": ">",
+    "path": "library/okx-plugin-store/skills/meme-trench-scanner",
+    "activation_cmd": "python .agents/library/activate_skill.py activate meme-trench-scanner",
+    "link_cmd": "python .agents/library/activate_skill.py link meme-trench-scanner"
+  },
+  {
+    "id": "meteora-plugin",
+    "name": "meteora-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Meteora DLMM plugin for Solana \u2014 search liquidity pools, get swap quotes, view user positions, execute token swaps, add and remove liquidity, quickstart wallet check\"",
+    "path": "library/okx-plugin-store/skills/meteora-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate meteora-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link meteora-plugin"
+  },
+  {
+    "id": "morpho-plugin",
+    "name": "morpho-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Supply, borrow and earn yield on Morpho \u2014 a permissionless lending protocol with $5B+ TVL. Trigger phrases: supply to morpho, deposit to morpho vault, borrow from morpho, repay morpho loan, morpho health factor, my morpho positions, morpho interest rates, claim morpho rewards, morpho markets, metamorpho vaults.\"",
+    "path": "library/okx-plugin-store/skills/morpho-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate morpho-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link morpho-plugin"
+  },
+  {
+    "id": "okx-buildx-hackathon-agent-track",
+    "name": "okx-buildx-hackathon-agent-track",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Use when participating in the OKX Build X AI Hackathon, building on X Layer with OnchainOS or Uniswap AI Skills, submitting projects to Moltbook m/buildx, or voting on hackathon submissions. Covers registration, wallet setup, project submission, voting, scoring, and prizes. Apr 1\u201315, 2026. Trigger on: hackathon, Build X, X Layer Arena, Skill Arena, OnchainOS hackathon, Uniswap AI Skills, m/buildx, ProjectSubmission.\"",
+    "path": "library/okx-plugin-store/skills/okx-buildx-hackathon-agent-track",
+    "activation_cmd": "python .agents/library/activate_skill.py activate okx-buildx-hackathon-agent-track",
+    "link_cmd": "python .agents/library/activate_skill.py link okx-buildx-hackathon-agent-track"
+  },
+  {
+    "id": "one-click-token-launch",
+    "name": "one-click-token-launch",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"One-click multi-launchpad token creation with bundled buy, IPFS metadata, MEV protection across 6 launchpads on Solana and BSC\"",
+    "path": "library/okx-plugin-store/skills/one-click-token-launch",
+    "activation_cmd": "python .agents/library/activate_skill.py activate one-click-token-launch",
+    "link_cmd": "python .agents/library/activate_skill.py link one-click-token-launch"
+  },
+  {
+    "id": "orca-plugin",
+    "name": "orca-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Concentrated liquidity AMM on Solana \u2014 swap tokens and query pools via the Whirlpools CLMM program. Trigger phrases: swap on orca, orca swap, swap tokens on solana, orca pools, get swap quote, whirlpool swap, orca dex. Chinese: Orca\u5151\u6362, \u5728Orca\u4e0a\u4ea4\u6362\u4ee3\u5e01, \u67e5\u8be2Orca\u6d41\u52a8\u6027\u6c60, \u83b7\u53d6\u5151\u6362\u62a5\u4ef7\"",
+    "path": "library/okx-plugin-store/skills/orca-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate orca-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link orca-plugin"
+  },
+  {
+    "id": "pancakeswap-clmm-plugin",
+    "name": "pancakeswap-clmm-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"PancakeSwap V3 CLMM farming plugin. Stake V3 LP NFTs into MasterChefV3 to earn CAKE rewards, harvest CAKE, collect swap fees, and view positions across BSC, Ethereum, Base, and Arbitrum. Trigger phrases: stake LP NFT, farm CAKE, harvest CAKE rewards, collect fees, unfarm position, PancakeSwap farming, view positions.\"",
+    "path": "library/okx-plugin-store/skills/pancakeswap-clmm-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pancakeswap-clmm-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link pancakeswap-clmm-plugin"
+  },
+  {
+    "id": "pancakeswap-v2-plugin",
+    "name": "pancakeswap-v2-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Swap tokens and manage liquidity on PancakeSwap V2 (xyk AMM) on BSC, Base, and Arbitrum. Triggers: swap pancakeswap v2, add/remove liquidity pancake, pcs v2 quote, check pancake pair.\"",
+    "path": "library/okx-plugin-store/skills/pancakeswap-v2-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pancakeswap-v2-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link pancakeswap-v2-plugin"
+  },
+  {
+    "id": "pancakeswap-v3-plugin",
+    "name": "pancakeswap-v3-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Swap tokens and manage liquidity on PancakeSwap V3 on Ethereum, BNB Chain, Base, Arbitrum, and Linea\"",
+    "path": "library/okx-plugin-store/skills/pancakeswap-v3-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pancakeswap-v3-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link pancakeswap-v3-plugin"
+  },
+  {
+    "id": "pendle-plugin",
+    "name": "pendle-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Pendle Finance yield tokenization plugin. Buy or sell fixed-yield PT tokens, trade YT yield tokens, provide or remove AMM liquidity, and mint or redeem PT+YT pairs. Trigger phrases: buy PT, sell PT, buy YT, sell YT, Pendle fixed yield, Pendle liquidity, add liquidity Pendle, remove liquidity Pendle, mint PT YT, redeem PT YT, Pendle positions, Pendle markets, Pendle APY. Chinese: \u8d2d\u4e70PT, \u51fa\u552ePT, \u8d2d\u4e70YT, \u51fa\u552eYT, Pendle\u56fa\u5b9a\u6536\u76ca, Pendle\u6d41\u52a8\u6027, Pendle\u6301\u4ed3, Pendle\u5e02\u573a\"",
+    "path": "library/okx-plugin-store/skills/pendle-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pendle-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link pendle-plugin"
+  },
+  {
+    "id": "plugin-store",
+    "name": "plugin-store",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"This is the main on-chain DeFi skill. Use it for ALL of the following:\\nStrategy discovery: 'how to make money on-chain', 'any profitable strategies', '\u94fe\u4e0a\u6709\u4ec0\u4e48\u8d5a\u94b1\u673a\u4f1a', '\u6709\u4ec0\u4e48\u76c8\u5229\u673a\u4f1a', '\u6709\u4ec0\u4e48\u5957\u5229\u673a\u4f1a', '\u600e\u4e48\u8d5a\u94b1', '\u6709\u4ec0\u4e48\u597d\u7684\u7b56\u7565', '\u5e2e\u6211\u7406\u8d22', '\u6709\u4ec0\u4e48\u6536\u76ca\u673a\u4f1a', 'yield opportunities', 'how to earn', 'investment strategy', 'DeFi \u7b56\u7565\u63a8\u8350', '\u6709\u4ec0\u4e48\u81ea\u52a8\u5316\u7b56\u7565', 'automated strategies', 'passive income on-chain', '\u94fe\u4e0a\u600e\u4e48\u8d5a\u5e01', '\u600e\u4e48\u73a9\u94fe\u4e0a', '\u600e\u4e48\u73a9DeFi', '\u94fe\u4e0a\u6709\u4ec0\u4e48\u73a9\u6cd5', '\u6709\u4ec0\u4e48\u8d5a\u94b1\u9879\u76ee', '\u63a8\u8350\u4e00\u4e9b\u7b56\u7565'.\\nPlugin/project discovery: 'Plugin\u5546\u5e97\u6709\u4ec0\u4e48', '\u6709\u4ec0\u4e48Plugin', '\u6709\u4ec0\u4e48\u9879\u76ee', '\u4ec0\u4e48\u9879\u76ee\u6700\u706b', '\u6700\u70ed\u95e8\u7684\u9879\u76ee', '\u6709\u54ea\u4e9b\u5de5\u5177', '\u63a8\u8350\u4e00\u4e9b\u9879\u76ee', 'what plugins are available', 'show me plugins', 'what projects are hot', 'trending projects', 'plugin marketplace', 'Plugin\u5e02\u573a', '\u6709\u4ec0\u4e48\u597d\u7528\u7684Plugin'.\\nCapability discovery: '\u4f60\u80fd\u505a\u4ec0\u4e48', '\u4f60\u6709\u4ec0\u4e48\u80fd\u529b', '\u4f60\u652f\u6301\u4ec0\u4e48', '\u6709\u4ec0\u4e48\u6280\u80fd', '\u90fd\u6709\u4ec0\u4e48\u529f\u80fd', '\u652f\u6301\u54ea\u4e9b\u7b56\u7565', '\u652f\u6301\u54ea\u4e9b skill', 'what skills are available', 'what can you do', 'what strategies do you support', 'show me all strategies', 'list all skills'.\\nDApp discovery: 'what dapps are available', 'any good dapps', '\u6709\u4ec0\u4e48\u597d\u7684dapp', '\u63a8\u8350\u4e00\u4e9bdapp', 'recommend dapps', 'show me dapps', 'which protocols can I use', '\u6709\u4ec0\u4e48\u597d\u7684\u534f\u8bae', '\u6709\u4ec0\u4e48DeFi\u534f\u8bae', '\u63a8\u8350DeFi\u9879\u76ee', '\u6709\u4ec0\u4e48\u94fe\u4e0a\u5e94\u7528'.\\nPlugin management: 'install a plugin', 'uninstall a plugin', 'list plugins', 'search plugins', 'update plugins', 'show installed', '\u5b89\u88c5Plugin', '\u5378\u8f7dPlugin', '\u66f4\u65b0Plugin'.\\nPlugin development: 'I want to create a plugin', 'how to submit a plugin', '\u6211\u60f3\u5f00\u53d1\u4e00\u4e2aPlugin', '\u600e\u4e48\u63d0\u4ea4Plugin', '\u5982\u4f55\u8d21\u732e', 'contribute a plugin', 'build a plugin', 'create a skill', '\u521b\u5efaPlugin', '\u5f00\u53d1Plugin', 'hackathon', 'submit my project', '\u63d0\u4ea4\u6211\u7684\u9879\u76ee'.\\nAlso activates when the skill has just been installed and the user has not yet chosen a direction.\"",
+    "path": "library/okx-plugin-store/skills/plugin-store",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plugin-store",
+    "link_cmd": "python .agents/library/activate_skill.py link plugin-store"
+  },
+  {
+    "id": "polymarket-plugin",
+    "name": "polymarket-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Trade prediction markets on Polymarket - buy outcome tokens (YES/NO and categorical markets), check positions, list markets, manage orders, redeem winning tokens, and deposit funds on Polygon. Trigger phrases: buy polymarket shares, sell polymarket position, check my polymarket positions, list polymarket markets, get polymarket market, cancel polymarket order, redeem polymarket tokens, polymarket yes token, polymarket no token, prediction market trade, polymarket price, get started with polymarket, just installed polymarket, how do I use polymarket, set up polymarket, polymarket quickstart, new to polymarket, polymarket setup, help me trade on polymarket, place a bet on, buy prediction market, bet on, trade on prediction markets, prediction trading, place a prediction market bet, i want to bet on, deposit, top up, fund, transfer in, add funds, fund polymarket, top up polymarket, add funds to polymarket, recharge polymarket, deposit usdc, deposit eth, polymarket deposit, BTC 5-minute, ETH 5-minute, 5-minute market, 5min market, short-term market, list 5-minute, BTC up or down, find 5-minute, view 5-minute, 5m updown, crypto 5m, 5-minute up-down, updown market, BTC 5min, ETH 5min, SOL 5min, 5-minute prediction.\"",
+    "path": "library/okx-plugin-store/skills/polymarket-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate polymarket-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link polymarket-plugin"
+  },
+  {
+    "id": "puffer-plugin",
+    "name": "puffer-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": ">",
+    "path": "library/okx-plugin-store/skills/puffer-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate puffer-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link puffer-plugin"
+  },
+  {
+    "id": "pump-fun-plugin",
+    "name": "pump-fun-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Interact with pump.fun bonding curves on Solana: buy tokens, sell tokens, and check prices/bonding progress. Trigger phrases: buy pump.fun token, sell pump.fun token, check pump.fun price, pump.fun bonding curve. Chinese: \u8d2d\u4e70pump.fun\u4ee3\u5e01, \u51fa\u552epump.fun\u4ee3\u5e01, \u67e5\u8be2pump.fun\u4ef7\u683c\"",
+    "path": "library/okx-plugin-store/skills/pump-fun-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pump-fun-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link pump-fun-plugin"
+  },
+  {
+    "id": "quickswap-plugin",
+    "name": "quickswap-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Swap tokens on QuickSwap V3 (Algebra Protocol CLMM) on Polygon",
+    "path": "library/okx-plugin-store/skills/quickswap-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate quickswap-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link quickswap-plugin"
+  },
+  {
+    "id": "raydium-plugin",
+    "name": "raydium-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"Raydium AMM plugin for token swaps, price queries, and pool info on Solana. Trigger phrases: swap on raydium, raydium swap, raydium price, raydium pool, get swap quote raydium. Chinese: \u5728Raydium\u4e0a\u5151\u6362\u4ee3\u5e01, \u67e5\u8be2Raydium\u4ef7\u683c, \u67e5\u8be2Raydium\u6d41\u52a8\u6c60\"",
+    "path": "library/okx-plugin-store/skills/raydium-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate raydium-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link raydium-plugin"
+  },
+  {
+    "id": "relay-plugin",
+    "name": "relay-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Fast cross-chain transfers using Relay Protocol's intent-based bridge",
+    "path": "library/okx-plugin-store/skills/relay-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate relay-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link relay-plugin"
+  },
+  {
+    "id": "rootdata-crypto-plugin",
+    "name": "rootdata-crypto-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"RootData is a leading Web3 data platform covering crypto projects, investors, funding data, and personnel movements. This skill is the OKX-dedicated integration, isolated from the standard RootData skill with its own API key namespace and endpoints.\"",
+    "path": "library/okx-plugin-store/skills/rootdata-crypto-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate rootdata-crypto-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link rootdata-crypto-plugin"
+  },
+  {
+    "id": "rwa-alpha",
+    "name": "rwa-alpha",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": ">",
+    "path": "library/okx-plugin-store/skills/rwa-alpha",
+    "activation_cmd": "python .agents/library/activate_skill.py activate rwa-alpha",
+    "link_cmd": "python .agents/library/activate_skill.py link rwa-alpha"
+  },
+  {
+    "id": "smart-money-signal-copy-trade",
+    "name": "smart-money-signal-copy-trade",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": ">",
+    "path": "library/okx-plugin-store/skills/smart-money-signal-copy-trade",
+    "activation_cmd": "python .agents/library/activate_skill.py activate smart-money-signal-copy-trade",
+    "link_cmd": "python .agents/library/activate_skill.py link smart-money-signal-copy-trade"
+  },
+  {
+    "id": "sorin-skill",
+    "name": "sorin-skill",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Use when the user asks crypto-related questions about a token, pool, chain, protocol, or project and the agent should answer with Sorin's DeFi gateway using clear, data-backed analysis.",
+    "path": "library/okx-plugin-store/skills/sorin-skill",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sorin-skill",
+    "link_cmd": "python .agents/library/activate_skill.py link sorin-skill"
+  },
+  {
+    "id": "spark-savings-plugin",
+    "name": "spark-savings-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Spark Savings - earn Sky Savings Rate (SSR) on USDS via the sUSDS yield-bearing vault. Deposit USDS or upgrade DAI 1:1, redeem any time, no collateral, no liquidation. Supports Ethereum (ERC-4626 vault), Base & Arbitrum (Spark PSM).",
+    "path": "library/okx-plugin-store/skills/spark-savings-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate spark-savings-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link spark-savings-plugin"
+  },
+  {
+    "id": "sparklend-plugin",
+    "name": "sparklend-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "SparkLend lending and borrowing on Ethereum Mainnet via OnchaionOS",
+    "path": "library/okx-plugin-store/skills/sparklend-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sparklend-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link sparklend-plugin"
+  },
+  {
+    "id": "stablecoin-chain-explorer",
+    "name": "stablecoin-chain-explorer",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": ">",
+    "path": "library/okx-plugin-store/skills/stablecoin-chain-explorer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate stablecoin-chain-explorer",
+    "link_cmd": "python .agents/library/activate_skill.py link stablecoin-chain-explorer"
+  },
+  {
+    "id": "stablecoin-depeg-monitor",
+    "name": "stablecoin-depeg-monitor",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": ">",
+    "path": "library/okx-plugin-store/skills/stablecoin-depeg-monitor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate stablecoin-depeg-monitor",
+    "link_cmd": "python .agents/library/activate_skill.py link stablecoin-depeg-monitor"
+  },
+  {
+    "id": "stablecoin-market-brief",
+    "name": "stablecoin-market-brief",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": ">",
+    "path": "library/okx-plugin-store/skills/stablecoin-market-brief",
+    "activation_cmd": "python .agents/library/activate_skill.py activate stablecoin-market-brief",
+    "link_cmd": "python .agents/library/activate_skill.py link stablecoin-market-brief"
+  },
+  {
+    "id": "stablecoin-risk-check",
+    "name": "stablecoin-risk-check",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": ">",
+    "path": "library/okx-plugin-store/skills/stablecoin-risk-check",
+    "activation_cmd": "python .agents/library/activate_skill.py activate stablecoin-risk-check",
+    "link_cmd": "python .agents/library/activate_skill.py link stablecoin-risk-check"
+  },
+  {
+    "id": "stablecoin-yield-radar",
+    "name": "stablecoin-yield-radar",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": ">",
+    "path": "library/okx-plugin-store/skills/stablecoin-yield-radar",
+    "activation_cmd": "python .agents/library/activate_skill.py activate stablecoin-yield-radar",
+    "link_cmd": "python .agents/library/activate_skill.py link stablecoin-yield-radar"
+  },
+  {
+    "id": "stablecoin-yield-vs-tradfi",
+    "name": "stablecoin-yield-vs-tradfi",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": ">",
+    "path": "library/okx-plugin-store/skills/stablecoin-yield-vs-tradfi",
+    "activation_cmd": "python .agents/library/activate_skill.py activate stablecoin-yield-vs-tradfi",
+    "link_cmd": "python .agents/library/activate_skill.py link stablecoin-yield-vs-tradfi"
+  },
+  {
+    "id": "starter-coach",
+    "name": "starter-coach",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": ">",
+    "path": "library/okx-plugin-store/skills/starter-coach",
+    "activation_cmd": "python .agents/library/activate_skill.py activate starter-coach",
+    "link_cmd": "python .agents/library/activate_skill.py link starter-coach"
+  },
+  {
+    "id": "sushiswap-v3-plugin",
+    "name": "sushiswap-v3-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Swap tokens and manage concentrated liquidity positions on SushiSwap V3 across Ethereum, Arbitrum, Base, Polygon, and Optimism",
+    "path": "library/okx-plugin-store/skills/sushiswap-v3-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sushiswap-v3-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link sushiswap-v3-plugin"
+  },
+  {
+    "id": "top-rank-tokens-sniper",
+    "name": "top-rank-tokens-sniper",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": ">",
+    "path": "library/okx-plugin-store/skills/top-rank-tokens-sniper",
+    "activation_cmd": "python .agents/library/activate_skill.py activate top-rank-tokens-sniper",
+    "link_cmd": "python .agents/library/activate_skill.py link top-rank-tokens-sniper"
+  },
+  {
+    "id": "uniswap-ai",
+    "name": "uniswap-ai",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "\"AI-powered Uniswap developer tools: trading, hooks, drivers, and on-chain analysis across V2/V3/V4\"",
+    "path": "library/okx-plugin-store/skills/uniswap-ai",
+    "activation_cmd": "python .agents/library/activate_skill.py activate uniswap-ai",
+    "link_cmd": "python .agents/library/activate_skill.py link uniswap-ai"
+  },
+  {
+    "id": "velodrome-v2-plugin",
+    "name": "velodrome-v2-plugin",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": "Swap tokens and manage classic AMM (volatile/stable) LP positions on Velodrome V2 on Optimism (chain 10). Supports swap, quote, pools, positions, add-liquidity, remove-liquidity, claim-rewards.",
+    "path": "library/okx-plugin-store/skills/velodrome-v2-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate velodrome-v2-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link velodrome-v2-plugin"
+  },
+  {
+    "id": "wallet-tracker-mcap",
+    "name": "wallet-tracker-mcap",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": ">",
+    "path": "library/okx-plugin-store/skills/wallet-tracker-mcap",
+    "activation_cmd": "python .agents/library/activate_skill.py activate wallet-tracker-mcap",
+    "link_cmd": "python .agents/library/activate_skill.py link wallet-tracker-mcap"
+  },
+  {
+    "id": "yield-strategy-advisor",
+    "name": "yield-strategy-advisor",
+    "repository": "okx-plugin-store",
+    "category": "general",
+    "description": ">",
+    "path": "library/okx-plugin-store/skills/yield-strategy-advisor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate yield-strategy-advisor",
+    "link_cmd": "python .agents/library/activate_skill.py link yield-strategy-advisor"
+  }
+]

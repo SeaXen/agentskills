@@ -1,0 +1,112 @@
+[
+  {
+    "id": "bom",
+    "name": "bom",
+    "repository": "aklofas-kicad-happy",
+    "category": "general",
+    "description": "BOM (Bill of Materials) management for electronics projects \u2014 the workflow skill that coordinates DigiKey, Mouser, LCSC, element14, JLCPCB, PCBWay, and KiCad skills around a unified BOM lifecycle. Create, update, and maintain BOMs with part numbers, costs, quantities stored as KiCad symbol properties. ALWAYS trigger this skill for any task involving component sourcing, pricing, ordering, distributor searches, BOM export, or fabrication preparation \u2014 even if the user names a specific distributor or fab house (e.g. \"search DigiKey for...\", \"generate JLCPCB BOM\", \"order from Mouser\"). This skill analyzes the schematic for sourcing gaps, recommends which distributor/fab skills to call for each gap, and writes results back as symbol properties \u2014 the agent (or user) performs the actual searches via the called skills. Also trigger on phrases like \"what parts do I need\", \"order components\", \"how much will this cost\", \"export for JLCPCB\", \"find parts for this board\", \"compare pricing\", or \"check stock\".",
+    "path": "library/aklofas-kicad-happy/skills/bom",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bom",
+    "link_cmd": "python .agents/library/activate_skill.py link bom"
+  },
+  {
+    "id": "datasheets",
+    "name": "datasheets",
+    "repository": "aklofas-kicad-happy",
+    "category": "general",
+    "description": "Extract structured specifications from electronic component datasheet PDFs \u2014 pinouts, electrical characteristics, peripherals, topology, and features. Cache extractions per project for consumption by schematic and PCB analyzers. Primary consumer infrastructure for `kicad`, `emc`, `spice`, and `thermal` analyzers. Use this skill whenever the user asks to extract, verify, or read specs from a component datasheet; when analyzers need verified IC knowledge (EN pin thresholds, PG presence, USB peripheral speed); or when a review mentions datasheet coverage, extraction quality, or per-MPN specifications. Also triggers on \"extract this datasheet\", \"what are the specs for MPN X\", \"verify datasheet extraction\", or \"check pin functions for part Y\".",
+    "path": "library/aklofas-kicad-happy/skills/datasheets",
+    "activation_cmd": "python .agents/library/activate_skill.py activate datasheets",
+    "link_cmd": "python .agents/library/activate_skill.py link datasheets"
+  },
+  {
+    "id": "digikey",
+    "name": "digikey",
+    "repository": "aklofas-kicad-happy",
+    "category": "general",
+    "description": ">-",
+    "path": "library/aklofas-kicad-happy/skills/digikey",
+    "activation_cmd": "python .agents/library/activate_skill.py activate digikey",
+    "link_cmd": "python .agents/library/activate_skill.py link digikey"
+  },
+  {
+    "id": "element14",
+    "name": "element14",
+    "repository": "aklofas-kicad-happy",
+    "category": "general",
+    "description": "Search Newark, Farnell, and element14 for electronic components \u2014 find parts by MPN or distributor part number, check pricing/stock, download datasheets, analyze specifications. One unified API covers all three storefronts (Newark for US, Farnell for UK/EU, element14 for APAC). Free API key, simple query-parameter auth, no OAuth. Datasheets download directly from farnell.com CDN with no bot protection. Sync and maintain a local datasheets directory for a KiCad project, or use batch MPN-list seeding (`--mpn-list`) for bulk workflows without a project. Use this skill when the user mentions Newark, Farnell, element14, needs parts from a non-US distributor, wants to compare pricing across regions, or needs datasheets from a source that doesn't require complex API auth. For package cross-reference tables and BOM workflow, see the `bom` skill.",
+    "path": "library/aklofas-kicad-happy/skills/element14",
+    "activation_cmd": "python .agents/library/activate_skill.py activate element14",
+    "link_cmd": "python .agents/library/activate_skill.py link element14"
+  },
+  {
+    "id": "emc",
+    "name": "emc",
+    "repository": "aklofas-kicad-happy",
+    "category": "general",
+    "description": ">-",
+    "path": "library/aklofas-kicad-happy/skills/emc",
+    "activation_cmd": "python .agents/library/activate_skill.py activate emc",
+    "link_cmd": "python .agents/library/activate_skill.py link emc"
+  },
+  {
+    "id": "jlcpcb",
+    "name": "jlcpcb",
+    "repository": "aklofas-kicad-happy",
+    "category": "general",
+    "description": "JLCPCB PCB fabrication and assembly \u2014 BOM/CPL generation, basic vs extended parts, assembly constraints, design rules, ordering workflow. Use with KiCad for JLCPCB manufacturing. Use this skill when the user mentions JLCPCB, wants to order PCBs or assembled boards, needs prototype bare PCBs and stencils, wants to know JLCPCB design rules and capabilities, or is asking about PCB manufacturing costs or turnaround times. For gerber/CPL export, stencil ordering, and BOM management, see the `bom` skill.",
+    "path": "library/aklofas-kicad-happy/skills/jlcpcb",
+    "activation_cmd": "python .agents/library/activate_skill.py activate jlcpcb",
+    "link_cmd": "python .agents/library/activate_skill.py link jlcpcb"
+  },
+  {
+    "id": "kicad",
+    "name": "kicad",
+    "repository": "aklofas-kicad-happy",
+    "category": "general",
+    "description": ">-",
+    "path": "library/aklofas-kicad-happy/skills/kicad",
+    "activation_cmd": "python .agents/library/activate_skill.py activate kicad",
+    "link_cmd": "python .agents/library/activate_skill.py link kicad"
+  },
+  {
+    "id": "lcsc",
+    "name": "lcsc",
+    "repository": "aklofas-kicad-happy",
+    "category": "general",
+    "description": "Search LCSC Electronics for electronic components \u2014 find parts by LCSC number (Cxxxxx) or MPN, check stock/pricing, download datasheets, analyze specifications. Sister company to JLCPCB, same parts library. Sync and maintain a local datasheets directory for a KiCad project, or use batch MPN-list seeding (`--mpn-list`) for bulk workflows without a project. No API key needed \u2014 uses the free jlcsearch community API. Use this skill when the user mentions LCSC, JLCPCB parts library, JLCPCB assembly parts, production sourcing, Cxxxxx part numbers, needs to find LCSC equivalents for parts, is preparing a BOM for JLCPCB assembly, or wants to download datasheets and LCSC is available. For package cross-reference tables and BOM workflow, see the `bom` skill.",
+    "path": "library/aklofas-kicad-happy/skills/lcsc",
+    "activation_cmd": "python .agents/library/activate_skill.py activate lcsc",
+    "link_cmd": "python .agents/library/activate_skill.py link lcsc"
+  },
+  {
+    "id": "mouser",
+    "name": "mouser",
+    "repository": "aklofas-kicad-happy",
+    "category": "general",
+    "description": "Search Mouser Electronics for electronic components \u2014 secondary source for prototype orders. Find parts, check pricing/stock, download datasheets, analyze specifications. Use with KiCad for BOM creation and part selection. Also supports batch MPN-list seeding (`--mpn-list`) for bulk datasheet workflows without a KiCad project. Use this skill when the user specifically mentions Mouser, when DigiKey is out of stock or has worse pricing, when comparing prices across distributors, or when searching for parts that DigiKey doesn't carry. For package cross-reference tables and BOM workflow, see the `bom` skill.",
+    "path": "library/aklofas-kicad-happy/skills/mouser",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mouser",
+    "link_cmd": "python .agents/library/activate_skill.py link mouser"
+  },
+  {
+    "id": "pcbway",
+    "name": "pcbway",
+    "repository": "aklofas-kicad-happy",
+    "category": "general",
+    "description": "PCBWay PCB fabrication and assembly \u2014 turnkey/consigned assembly, design rules, ordering workflow. Alternative to JLCPCB for manufacturing. Use with KiCad. Use this skill when the user mentions PCBWay, needs turnkey assembly (PCBWay sources parts by MPN), has parts not available on LCSC, needs assembled boards with non-LCSC components, wants to compare PCBWay vs JLCPCB, or needs assembly with parts sourced globally rather than from LCSC only. For gerber/CPL export, stencil ordering, and BOM management, see the `bom` skill.",
+    "path": "library/aklofas-kicad-happy/skills/pcbway",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pcbway",
+    "link_cmd": "python .agents/library/activate_skill.py link pcbway"
+  },
+  {
+    "id": "spice",
+    "name": "spice",
+    "repository": "aklofas-kicad-happy",
+    "category": "general",
+    "description": ">-",
+    "path": "library/aklofas-kicad-happy/skills/spice",
+    "activation_cmd": "python .agents/library/activate_skill.py activate spice",
+    "link_cmd": "python .agents/library/activate_skill.py link spice"
+  }
+]

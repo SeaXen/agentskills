@@ -1,7 +1,7 @@
 # 👁️ Visual Taste, Critique & Typography
 
 > **Category**: `frontend-visual-taste`  
-> **Total Curated Skills**: 168 skills  
+> **Total Curated Skills**: 169 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -28,6 +28,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`anime-style`](../../library/arjun988-blender-skills/skills/anime-style) | ⚪ Reserve | `arjun988-blender-skills` | Anime and cel-shaded art direction for Blender with hard color breaks, toon shaders, clean silh... |
 | [`anti-slop`](../../library/miqdadbadjuber-anti-slop/skills/anti-slop) | ⚪ Reserve | `miqdadbadjuber-anti-slop` | A collection of filters for AI agents to remove generic comments, refine prose, and enforce hig... |
 | [`anti-slop-design`](../../library/sickn33-agentic-awesome-skills/skills/anti-slop-design) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Autonomous Principal Design Technologist. Cures vibe-coded software from AI frontend slop using... |
+| [`app-ui-design`](../../library/majiayu000-spellbook/skills/app-ui-design) | ⚪ Reserve | `majiayu000-spellbook` | Mobile app UI design expert for iOS and Android. Use when designing app interfaces, creating de... |
 | [`artistic`](../../library/bergside-awesome-design-skills/skills/artistic) | ⚪ Reserve | `bergside-awesome-design-skills` | High-contrast, expressive style with creative typography and bold color choices for visually st... |
 | [`audit`](../../library/pbakaus-impeccable/skills/audit) | ⚪ Reserve | `pbakaus-impeccable` | a user-authored audit skill |
 | [`audit-ai-design-slop`](../../library/mengto-skills/skills/audit-ai-design-slop) | ⚪ Reserve | `mengto-skills` | Audit websites, apps, screenshots, mockups, and design code for harmful AI-design clichés, gene... |

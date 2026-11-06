@@ -1,7 +1,7 @@
 # 🧊 3D Web Experiences & Three.js
 
 > **Category**: `3d-web-threejs`  
-> **Total Curated Skills**: 44 skills  
+> **Total Curated Skills**: 49 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -35,9 +35,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`build-hybrid-game-assets`](../../library/mengto-skills/skills/build-hybrid-game-assets) | ⚪ Reserve | `mengto-skills` | Plan, create, integrate, or audit a hybrid asset pipeline for a Three.js or web game. Use when ... |
 | [`build-vesperfall-review-assets`](../../library/mengto-skills/skills/build-vesperfall-review-assets) | ⚪ Reserve | `mengto-skills` | Build truthful Vesperfall asset-library review pairs from transparent PNG references and live T... |
 | [`build-wireframe-scan-reveal`](../../library/mengto-skills/skills/build-wireframe-scan-reveal) | ⚪ Reserve | `mengto-skills` | Reveal Three.js geometry with an expanding world-space scan whose wire cage leads the solid sur... |
+| [`code-built-3d`](../../library/majiayu000-spellbook/skills/code-built-3d) | ⚪ Reserve | `majiayu000-spellbook` | 用代码从零件搭 3D 场景并能反过来拆开：每个物件是一个往 Assembly 里加零件的函数（盒子、圆柱、球、线），渲染成技术插画（白灰三档面、细黑描边、白雾），正交等距相机在镜头之间连续运... |
 | [`design-game-encounters`](../../library/mengto-skills/skills/design-game-encounters) | ⚪ Reserve | `mengto-skills` | Design, implement, tune, or test Three.js action-game encounters. Use for arena layout, enemy c... |
 | [`fire-smoke-skill-vfx`](../../library/mengto-skills/skills/fire-smoke-skill-vfx) | ⚪ Reserve | `mengto-skills` | Build the effects of a fire skill as one visual language in Three.js. Flames that read as fire,... |
 | [`globe-particles`](../../library/mengto-skills/skills/globe-particles) | ⚪ Reserve | `mengto-skills` | Create a globe-like 3D particle visualization with a dense luminous spherical core and thinner ... |
+| [`glsl`](../../library/martinholovsky-claude-skills-generator/skills/glsl) | ⚪ Reserve | `martinholovsky-claude-skills-generator` | GLSL shader programming for JARVIS holographic effects |
 | [`lightning-energy-skill-vfx`](../../library/mengto-skills/skills/lightning-energy-skill-vfx) | ⚪ Reserve | `mengto-skills` | Build the effects of a close-combat energy skill as one visual language in Three.js. Lightning ... |
 | [`makepad-shaders`](../../library/sickn33-agentic-awesome-skills/skills/makepad-shaders) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | CRITICAL: Use for Makepad shader system. Triggers on: makepad shader, makepad draw_bg, Sdf2d, m... |
 | [`melonjs-renderables`](../../library/melonjs-melonjs/skills/melonjs-renderables) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when subclassing Renderable, writing a custom draw() method, handling pointer or... |
@@ -45,6 +47,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`premium-3d-website`](../../library/sickn33-agentic-awesome-skills/skills/premium-3d-website) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Guidelines for building premium 3D websites, focusing on custom WebGL shaders, post-processing,... |
 | [`shader-graph-create-custom-node`](../../library/unity-technologies-skills/skills/shader-graph-create-custom-node) | ⚪ Reserve | `unity-technologies-skills` | Generates custom Shader Graph nodes from HLSL code. Use when the user wants a new Shader Graph ... |
 | [`shader-programming-glsl`](../../library/sickn33-agentic-awesome-skills/skills/shader-programming-glsl) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Expert guide for writing efficient GLSL shaders (Vertex/Fragment) for web and game engines, cov... |
+| [`shadertoy`](../../library/bfollington-terma/skills/shadertoy) | ⚪ Reserve | `bfollington-terma` | This skill should be used when working with Shadertoy shaders, GLSL fragment shaders, or creati... |
 | [`skills-optimize-web`](../../library/unity-technologies-skills/skills/skills-optimize-web) | ⚪ Reserve | `unity-technologies-skills` | Optimizes Unity WebGL and WebGPU builds for smaller downloads, faster loading, and smoother bro... |
 | [`skills-shader-graph-create-custom-node`](../../library/unity-technologies-skills/skills/skills-shader-graph-create-custom-node) | ⚪ Reserve | `unity-technologies-skills` | Generates custom Shader Graph nodes from HLSL code. Use when the user wants a new Shader Graph ... |
 | [`threejs`](../../library/feimacode-open-design-agent-kit/skills/threejs) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Three.js skills for creating 3D elements and interactive experiences in the browser — scenes, m... |
@@ -55,8 +58,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`threejs-loaders`](../../library/cloudai-x-threejs-skills/skills/threejs-loaders) | ⚪ Reserve | `cloudai-x-threejs-skills` | Loading three.js assets: glTF with Draco, meshopt and KTX2 compression, other model formats, te... |
 | [`threejs-shaders`](../../library/cloudai-x-threejs-skills/skills/threejs-shaders) | ⚪ Reserve | `cloudai-x-threejs-skills` | Custom GLSL vertex and fragment shaders: uniforms, varyings, shader chunks, extending built-in ... |
 | [`threejs-skills`](../../library/antigravity-awesome-skills/skills/threejs-skills) | ⚪ Reserve | `antigravity-awesome-skills` | Create 3D scenes, interactive experiences, and visual effects using Three.js. Use when user req... |
+| [`threejs-tresjs`](../../library/martinholovsky-claude-skills-generator/skills/threejs-tresjs) | ⚪ Reserve | `martinholovsky-claude-skills-generator` | 3D HUD rendering with Three.js and TresJS for JARVIS AI Assistant |
 | [`threejs-weather`](../../library/mengto-skills/skills/threejs-weather) | ⚪ Reserve | `mengto-skills` | Put weather into a Three.js scene that reads as weather — rain anchored inside the frustum, a s... |
 | [`vantajs`](../../library/mengto-skills/skills/vantajs) | ⚪ Reserve | `mengto-skills` | Use when adding animated WebGL background effects with Vanta.js (setup, parameters, resizing, p... |
+| [`webgl`](../../library/martinholovsky-claude-skills-generator/skills/webgl) | ⚪ Reserve | `martinholovsky-claude-skills-generator` | WebGL shaders and effects for JARVIS 3D HUD |
 | [`webgl-aurora-veil`](../../library/feimacode-open-design-agent-kit/skills/webgl-aurora-veil) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A self-contained WebGL2 hero: layered aurora light curtains warped over a night sky scattered w... |
 | [`webgl-caustic-pool`](../../library/feimacode-open-design-agent-kit/skills/webgl-caustic-pool) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A self-contained WebGL2 hero: animated water caustics woven from domain-warped ripples; click t... |
 | [`webgl-holographic-foil`](../../library/feimacode-open-design-agent-kit/skills/webgl-holographic-foil) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A self-contained WebGL2 hero: thin-film interference over a crushed-foil surface whose palette ... |

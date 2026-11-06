@@ -1,0 +1,172 @@
+[
+  {
+    "id": "catch-up",
+    "name": "catch-up",
+    "repository": "petekp-claude-code-setup",
+    "category": "general",
+    "description": ">-",
+    "path": "library/petekp-claude-code-setup/skills/catch-up",
+    "activation_cmd": "python .agents/library/activate_skill.py activate catch-up",
+    "link_cmd": "python .agents/library/activate_skill.py link catch-up"
+  },
+  {
+    "id": "clean-copy",
+    "name": "clean-copy",
+    "repository": "petekp-claude-code-setup",
+    "category": "general",
+    "description": "Cut interface copy that should not exist. Captions that restate a label, hints that pre-empt a worry the user never had, warnings that are scar tissue from a fixed bug. Use when writing or reviewing any user-facing string (labels, hints, empty states, toasts, confirmations, button text), or when asked to clean up or tighten copy.",
+    "path": "library/petekp-claude-code-setup/skills/clean-copy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate clean-copy",
+    "link_cmd": "python .agents/library/activate_skill.py link clean-copy"
+  },
+  {
+    "id": "code-comments",
+    "name": "code-comments",
+    "repository": "petekp-claude-code-setup",
+    "category": "general",
+    "description": "Write, review, or remove code comments. Use when adding comments or doc comments, reviewing the comments in a diff, or cleaning up or removing comments.",
+    "path": "library/petekp-claude-code-setup/skills/code-comments",
+    "activation_cmd": "python .agents/library/activate_skill.py activate code-comments",
+    "link_cmd": "python .agents/library/activate_skill.py link code-comments"
+  },
+  {
+    "id": "deep-research",
+    "name": "deep-research",
+    "repository": "petekp-claude-code-setup",
+    "category": "general",
+    "description": "\"Investigate a question that requires sustained research across sources and produce cited findings. Use for deep research requests; skip ordinary lookups and single-document reviews.\"",
+    "path": "library/petekp-claude-code-setup/skills/deep-research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate deep-research",
+    "link_cmd": "python .agents/library/activate_skill.py link deep-research"
+  },
+  {
+    "id": "discernment-nudge",
+    "name": "discernment-nudge",
+    "repository": "petekp-claude-code-setup",
+    "category": "general",
+    "description": "\"Suggest a few specific follow-up questions when consequential advice depends on unresolved assumptions. Skip reviews, simple explanations, and requests for brevity.\"",
+    "path": "library/petekp-claude-code-setup/skills/discernment-nudge",
+    "activation_cmd": "python .agents/library/activate_skill.py activate discernment-nudge",
+    "link_cmd": "python .agents/library/activate_skill.py link discernment-nudge"
+  },
+  {
+    "id": "exhaustive-systems-analysis",
+    "name": "exhaustive-systems-analysis",
+    "repository": "petekp-claude-code-setup",
+    "category": "general",
+    "description": "|",
+    "path": "library/petekp-claude-code-setup/skills/exhaustive-systems-analysis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate exhaustive-systems-analysis",
+    "link_cmd": "python .agents/library/activate_skill.py link exhaustive-systems-analysis"
+  },
+  {
+    "id": "frame-check",
+    "name": "frame-check",
+    "repository": "petekp-claude-code-setup",
+    "category": "general",
+    "description": "\"Check whether the stated problem is the right problem before work commits to it. Walks a problem statement back down to what was actually observed, names where the inference leapt, and returns competing frames plus the cheapest observation that would tell them apart. Use when the user asks \\\"is this the right problem\\\", \\\"frame check\\\", \\\"what if the real problem is something else\\\", \\\"are we sure that's the cause\\\", \\\"reframe this\\\", or questions a diagnosis. Also use proactively at the moments where solving the wrong problem is most likely and most expensive: a bug that keeps coming back after being fixed, a PRD or project whose problem statement is asserted rather than evidenced, a post-incident review, or the start of a large effort whose direction rests on an unexamined diagnosis. Do not use to pressure-test a plan whose problem is already settled, and do not use on small well-specified tasks where the frame is not in doubt.\"",
+    "path": "library/petekp-claude-code-setup/skills/frame-check",
+    "activation_cmd": "python .agents/library/activate_skill.py activate frame-check",
+    "link_cmd": "python .agents/library/activate_skill.py link frame-check"
+  },
+  {
+    "id": "herdr-names",
+    "name": "herdr-names",
+    "repository": "petekp-claude-code-setup",
+    "category": "general",
+    "description": "\"Rename Herdr tabs, panes, and agents so each sidebar entry says in a few words what that session is doing. Use whenever the user mentions Herdr and wants tab, pane, or agent names renamed, relabeled, cleaned up, tidied, or made clearer; says a tab or agent name is confusing, meaningless, stale, or just a number; asks what a tab is; or wants the sidebar readable at a glance, even if they only say 'fix the names' or 'label these'. Reads each pane's recent output and names the task, not the project and never the auto-generated terminal title. Needs to run inside Herdr (HERDR_ENV=1). Not for naming things in code, git branches, tmux or terminal windows, or Claude Code sessions outside Herdr.\"",
+    "path": "library/petekp-claude-code-setup/skills/herdr-names",
+    "activation_cmd": "python .agents/library/activate_skill.py activate herdr-names",
+    "link_cmd": "python .agents/library/activate_skill.py link herdr-names"
+  },
+  {
+    "id": "latent-potential",
+    "name": "latent-potential",
+    "repository": "petekp-claude-code-setup",
+    "category": "general",
+    "description": "'First-principles, team-of-experts assessment of a software project that surfaces latent potential; underexploited assets, a sharper north star, missing high-leverage capabilities, better framing and messaging. Produces a prioritized, evidence-grounded report with cheap probes, a reframe candidate, a stop-doing list, and an honest skeptic''s case. Use whenever the user wants fresh eyes on a project they have built: \"what am I sitting on\", \"what could this become\", \"is there a bigger play here\", \"how do I make this valuable or impactful\", \"assess this project\", \"strategic review\", \"where should this go next\", \"is this worth pursuing\", \"what''s the potential here\", or when they point at a repo and ask what to do with it, even if they never say \"assessment\" or \"potential\". Not for routine code review, debugging, or performance audits.'",
+    "path": "library/petekp-claude-code-setup/skills/latent-potential",
+    "activation_cmd": "python .agents/library/activate_skill.py activate latent-potential",
+    "link_cmd": "python .agents/library/activate_skill.py link latent-potential"
+  },
+  {
+    "id": "plain",
+    "name": "plain",
+    "repository": "petekp-claude-code-setup",
+    "category": "general",
+    "description": "\"Restate dense text in plain language. Use when the user asks for a simpler explanation or signals confusion.\"",
+    "path": "library/petekp-claude-code-setup/skills/plain",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plain",
+    "link_cmd": "python .agents/library/activate_skill.py link plain"
+  },
+  {
+    "id": "pr-description",
+    "name": "pr-description",
+    "repository": "petekp-claude-code-setup",
+    "category": "general",
+    "description": "\"Write or update a GitHub PR description a teammate understands in one quick read: clear before/after behavior, useful visual evidence, and plain sentences grounded in the diff and real verification. Use when opening a PR or editing its description.\"",
+    "path": "library/petekp-claude-code-setup/skills/pr-description",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pr-description",
+    "link_cmd": "python .agents/library/activate_skill.py link pr-description"
+  },
+  {
+    "id": "pr-screenshot-comparison",
+    "name": "pr-screenshot-comparison",
+    "repository": "petekp-claude-code-setup",
+    "category": "general",
+    "description": "\"Create clear, polished before-and-after screenshots from the actual running product for a GitHub pull request. Use when a UI change needs visual proof: capture matching product states, crop to the relevant UI, stitch and caption one comparison image, attach it natively to the PR, and keep the image out of the repository.\"",
+    "path": "library/petekp-claude-code-setup/skills/pr-screenshot-comparison",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pr-screenshot-comparison",
+    "link_cmd": "python .agents/library/activate_skill.py link pr-screenshot-comparison"
+  },
+  {
+    "id": "pr-self-review",
+    "name": "pr-self-review",
+    "repository": "petekp-claude-code-setup",
+    "category": "general",
+    "description": "\"Draft explanatory author-context comments for the user's own PR or local diff. Use for self-review or reviewer context, not a formal review submission. Posting requires approval.\"",
+    "path": "library/petekp-claude-code-setup/skills/pr-self-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pr-self-review",
+    "link_cmd": "python .agents/library/activate_skill.py link pr-self-review"
+  },
+  {
+    "id": "refine-prose",
+    "name": "refine-prose",
+    "repository": "petekp-claude-code-setup",
+    "category": "general",
+    "description": ">-",
+    "path": "library/petekp-claude-code-setup/skills/refine-prose",
+    "activation_cmd": "python .agents/library/activate_skill.py activate refine-prose",
+    "link_cmd": "python .agents/library/activate_skill.py link refine-prose"
+  },
+  {
+    "id": "release-notes",
+    "name": "release-notes",
+    "repository": "petekp-claude-code-setup",
+    "category": "general",
+    "description": "\"Write release notes or a changelog entry that tell existing users what they will notice after updating, with the technical detail after it. Use when publishing a release, writing a changelog, or editing release notes.\"",
+    "path": "library/petekp-claude-code-setup/skills/release-notes",
+    "activation_cmd": "python .agents/library/activate_skill.py activate release-notes",
+    "link_cmd": "python .agents/library/activate_skill.py link release-notes"
+  },
+  {
+    "id": "spike",
+    "name": "spike",
+    "repository": "petekp-claude-code-setup",
+    "category": "general",
+    "description": "\"Run a disposable experiment to resolve a specific feasibility question. Use for an explicit spike or when inspection cannot resolve an implementation-blocking uncertainty.\"",
+    "path": "library/petekp-claude-code-setup/skills/spike",
+    "activation_cmd": "python .agents/library/activate_skill.py activate spike",
+    "link_cmd": "python .agents/library/activate_skill.py link spike"
+  },
+  {
+    "id": "vignette-todo-run",
+    "name": "vignette-todo-run",
+    "repository": "petekp-claude-code-setup",
+    "category": "general",
+    "description": "Run a batch of Vignette TODO items as a multi-agent worktree run. Use when Pete asks to \"run the TODOs\", \"run items N to M\", \"do a todo run\", or hands over queued items from docs/TODOS.md in the Vignette repo. The orchestrator plans, briefs, and reviews; delegated coding agents do every code change and every verification, each in its own worktree with its own scratch settings; an integrator merges, a reviewer attacks the merge, and the branch is handed to Pete unmerged. Not for a single small fix in the checkout, and not for a repo other than Vignette.",
+    "path": "library/petekp-claude-code-setup/skills/vignette-todo-run",
+    "activation_cmd": "python .agents/library/activate_skill.py activate vignette-todo-run",
+    "link_cmd": "python .agents/library/activate_skill.py link vignette-todo-run"
+  }
+]

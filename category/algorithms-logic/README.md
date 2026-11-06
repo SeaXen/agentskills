@@ -1,7 +1,7 @@
 # 🧮 Algorithms, Logic & Math
 
 > **Category**: `algorithms-logic`  
-> **Total Curated Skills**: 233 skills  
+> **Total Curated Skills**: 239 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -51,6 +51,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`backtesting-frameworks`](../../library/antigravity-awesome-skills/skills/backtesting-frameworks) | ⚪ Reserve | `antigravity-awesome-skills` | Build robust backtesting systems for trading strategies with proper handling of look-ahead bias... |
 | [`baoyu-diagram`](../../library/jimliu-baoyu-skills/skills/baoyu-diagram) | ⚪ Reserve | `jimliu-baoyu-skills` | Create professional diagrams with configurable dark/light theme via CSS custom properties. Use ... |
 | [`baoyu-markdown-to-html`](../../library/jimliu-baoyu-skills/skills/baoyu-markdown-to-html) | ⚪ Reserve | `jimliu-baoyu-skills` | Converts Markdown to styled HTML with WeChat-compatible themes. Supports code highlighting, mat... |
+| [`benchmark-paper-template`](../../library/hkustdial-supervisor-skills/skills/benchmark-paper-template) | ⚪ Reserve | `hkustdial-supervisor-skills` | Structures Benchmark and Evaluation papers using the five-pillar framework (Research Gap, Const... |
 | [`bid-strategy-planner`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/bid-strategy-planner) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "pick a bid strategy", "set a tCPA/tROAS target", or "plan the learni... |
 | [`bigquery-observability`](../../library/google-skills/skills/bigquery-observability) | ⚪ Reserve | `google-skills` | Provides data-retrieval best practices, tool selection guidance, and performant SQL query synta... |
 | [`bluesky-dev-playbook`](../../library/samber-developer-relations-skills/skills/bluesky-dev-playbook) | ⚪ Reserve | `samber-developer-relations-skills` | Runs a devtool vendor's, developer advocate's or open-source maintainer's presence on Bluesky -... |
@@ -69,6 +70,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`code-polish`](../../library/sickn33-agentic-awesome-skills/skills/code-polish) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Rewrites unprofessional code comments into clear ones and performs non-semantic cleanup. Use to... |
 | [`complexity-cuts`](../../library/sickn33-agentic-awesome-skills/skills/complexity-cuts) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Lower Big-O on existing code via a one-transformation-at-a-time playbook with verify-revert-sto... |
 | [`consumer-goods-accruals-datakit-deploy`](../../library/forcedotcom-sf-skills/skills/consumer-goods-accruals-datakit-deploy) | ⚪ Reserve | `forcedotcom-sf-skills` | Use this skill to deploy the TPM Liability Accruals data kit end to end to a Salesforce org. In... |
+| [`continuous-claude-v3`](../../library/parcadei-continuous-claude-v3/skills/continuous-claude-v3) | ⚪ Reserve | `parcadei-continuous-claude-v3` | 155 agent skills from parcadei/continuous-claude-v3 — including discovery-interview, premortem,... |
 | [`cost-aware-llm-pipeline`](../../library/affaan-m-ecc/skills/cost-aware-llm-pipeline) | ⚪ Reserve | `affaan-m-ecc` | Cost optimization patterns for LLM API usage — model routing by task complexity, budget trackin... |
 | [`crap-score`](../../library/dotnet-skills/skills/crap-score) | ⚪ Reserve | `dotnet-skills` | Calculates CRAP (Change Risk Anti-Patterns) for a named .NET method, class, or file. USE FOR: e... |
 | [`ctf-reverse`](../../library/ljagiello-ctf-skills/skills/ctf-reverse) | ⚪ Reserve | `ljagiello-ctf-skills` | Provides reverse engineering techniques for CTF challenges. Use when the main job is to underst... |
@@ -88,6 +90,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`dynamic-pricing-ecommerce`](../../library/nexscope-ai-ecommerce-skills/skills/dynamic-pricing-ecommerce) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Design a controlled dynamic-pricing or repricing system for ecommerce products. Use when a sell... |
 | [`ebay-seo`](../../library/nexscope-ai-ecommerce-skills/skills/ebay-seo) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Optimize eBay listings for Cassini search algorithm. Master item specifics, title optimization,... |
 | [`ecommerce-email-marketing-builder`](../../library/nexscope-ai-ecommerce-skills/skills/ecommerce-email-marketing-builder) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | E-commerce email marketing system builder. Creates complete email automation flows with full co... |
+| [`email-best-practices`](../../library/resend-email-best-practices/skills/email-best-practices) | ⚪ Reserve | `resend-email-best-practices` | Use when building email features, emails going to spam, high bounce rates, setting up SPF/DKIM/... |
 | [`emerging-techniques-model-merging`](../../library/davila7-claude-code-templates/skills/emerging-techniques-model-merging) | ⚪ Reserve | `davila7-claude-code-templates` | Merge multiple fine-tuned models using mergekit to combine capabilities without retraining. Use... |
 | [`etsy-pricing-strategy`](../../library/nexscope-ai-ecommerce-skills/skills/etsy-pricing-strategy) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Etsy pricing — cost calculation, competitor pricing, perceived value, shipping cost integration... |
 | [`evaluating-startup-ideas`](../../library/refoundai-lenny-skills/skills/evaluating-startup-ideas) | ⚪ Reserve | `refoundai-lenny-skills` | Help users distinguish between deceptive tarpit ideas and high-potential opportunities by apply... |
@@ -119,6 +122,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`launch-retro-analyzer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/launch-retro-analyzer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "run a launch retro / post-mortem", "compare launch results vs target... |
 | [`lemmaly`](../../library/sickn33-agentic-awesome-skills/skills/lemmaly) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Algorithm-first discipline: state Big-O, data structure, and algorithm family BEFORE writing lo... |
 | [`lifi-stablecoin-swap`](../../library/internet-court-internet-court-skill/skills/lifi-stablecoin-swap) | ⚪ Reserve | `internet-court-internet-court-skill` | Build a production 1:1 stablecoin swap with LI.FI Intents — an interface or backend where the a... |
+| [`logic-analyzer`](../../library/leokemp223-embed-ai-tool/skills/logic-analyzer) | ⚪ Reserve | `leokemp223-embed-ai-tool` | 当需要用 Saleae 逻辑分析仪在线采集数字波形并解码 I2C/SPI/UART/CAN 时使用，通过 Logic 2 自动化服务驱动硬件采集、添加协议解码器并导出数据。 |
 | [`logic-diff`](../../library/sickn33-agentic-awesome-skills/skills/logic-diff) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Compare two code versions for semantic equivalence via semi-formal tracing of both versions sid... |
 | [`logic-explain`](../../library/sickn33-agentic-awesome-skills/skills/logic-explain) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Explain what a specific piece of code actually does for a given input by producing a step-by-st... |
 | [`logic-fix-all`](../../library/sickn33-agentic-awesome-skills/skills/logic-fix-all) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Autonomous repository-wide audit-and-fix pipeline: health → review → locate/explain → fix → dif... |
@@ -134,6 +138,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`melonjs-20-migration`](../../library/melonjs-melonjs/skills/melonjs-20-migration) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when writing melonJS code that may be based on pre-20.x knowledge, when migratin... |
 | [`melonjs-3d`](../../library/melonjs-melonjs/skills/melonjs-3d) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for anything 3D or 2.5D in melonJS — Camera3d, Mesh, InstancedMesh, Sprite3d bil... |
 | [`melonjs-math`](../../library/melonjs-melonjs/skills/melonjs-math) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for vector and matrix maths in melonJS — Vector2d, Vector3d, their observable va... |
+| [`modern-css`](../../library/ccheney-robust-skills/skills/modern-css) | ⚪ Reserve | `ccheney-robust-skills` | Implement or debug CSS layouts, responsive styles, themes, and motion. Use when choosing native... |
 | [`msw-scripting`](../../library/msw-git-msw-ai-coding-plugins-official/skills/msw-scripting) | ⚪ Reserve | `msw-git-msw-ai-coding-plugins-official` | Authoring MSW scripts (.mlua) plus integrated playtest and debugging. Covers mlua syntax, annot... |
 | [`narrative-building`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/narrative-building) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Draft scientific introductions: argument logic, framing, multi-experiment coherence. |
 | [`neuropixels-analysis`](../../library/davila7-claude-code-templates/skills/neuropixels-analysis) | ⚪ Reserve | `davila7-claude-code-templates` | Neuropixels neural recording analysis. Load SpikeGLX/OpenEphys data, preprocess, motion correct... |
@@ -227,6 +232,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`sumo-logic`](../../library/membranedev-application-skills/skills/sumo-logic) | ⚪ Reserve | `membranedev-application-skills` | Sumo Logic integration. Manage Connectionses, Contents, Users, Roles. Use when the user wants t... |
 | [`tao-run-automl`](../../library/nvidia-skills/skills/tao-run-automl) | ⚪ Reserve | `nvidia-skills` | Run container-backed AutoML / hyperparameter optimization (HPO) for NVIDIA TAO networks using A... |
 | [`tax-prep`](../../library/anthropics-knowledge-work/skills/tax-prep) | ⚪ Reserve | `anthropics-knowledge-work` | Prepares tax materials as a two-link chain — month-end-prep confirms the books are closed and r... |
+| [`tech-paper-template`](../../library/hkustdial-supervisor-skills/skills/tech-paper-template) | ⚪ Reserve | `hkustdial-supervisor-skills` | Structures a technical paper's full logical skeleton using a thinking-template table (research ... |
 | [`telegram-channel-ads`](../../library/sickn33-agentic-awesome-skills/skills/telegram-channel-ads) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Vet and price ad posts in Telegram channels: reach benchmarks by size, topic and language, ad-n... |
 | [`testing-for-business-logic-vulnerabilities`](../../library/mukul975-anthropic-cybersecurity-skills/skills/testing-for-business-logic-vulnerabilities) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Manually identifies flaws in application business logic - price manipulation, |
 | [`testing-for-json-web-token-vulnerabilities`](../../library/mukul975-anthropic-cybersecurity-skills/skills/testing-for-json-web-token-vulnerabilities) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Tests JWT implementations for algorithm confusion, "none" algorithm bypass, |

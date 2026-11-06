@@ -1,7 +1,7 @@
 # 📈 Sales Outreach, Leads & CRM
 
 > **Category**: `business-sales-crm`  
-> **Total Curated Skills**: 575 skills  
+> **Total Curated Skills**: 583 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -51,6 +51,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ask-human-expert`](../../library/sickn33-agentic-awesome-skills/skills/ask-human-expert) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Ask real executives and domain experts a question through Instant Expert for a written answer o... |
 | [`attio`](../../library/membranedev-application-skills/skills/attio) | ⚪ Reserve | `membranedev-application-skills` | Attio integration. Manage crm data, records, and workflows. Use when the user wants to interact... |
 | [`attio-automation`](../../library/composio-community-awesome-codex-skills/skills/attio-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Attio CRM operations -- search records, query contacts and companies with advanced fil... |
+| [`attio-skill-generator`](../../library/kesslerio-attio-mcp-server/skills/attio-skill-generator) | ⚪ Reserve | `kesslerio-attio-mcp-server` | Generate use-case-specific Attio workflow skills from templates. Use when creating new skills f... |
 | [`audience-segment-builder`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/audience-segment-builder) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "build audience segments from my customer list", "make value-based / ... |
 | [`autoplan`](../../library/garrytan-gstack/skills/autoplan) | ⚪ Reserve | `garrytan-gstack` | Auto-review pipeline — reads the full CEO, design, eng, and DX review skills from disk and runs... |
 | [`autoresearchclaw-autonomous-research`](../../library/reason-machines-trending-skills/skills/autoresearchclaw-autonomous-research) | ⚪ Reserve | `reason-machines-trending-skills` | Fully autonomous research pipeline that turns a topic idea into a complete academic paper with ... |
@@ -276,6 +277,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`improve-app`](../../library/wondelai-skills/skills/improve-app) | ⚪ Reserve | `wondelai-skills` | Guided journey from a shipped app that works but feels rough to a product that fits the job, fl... |
 | [`inbox-sweep`](../../library/anthropics-knowledge-work/skills/inbox-sweep) | ⚪ Reserve | `anthropics-knowledge-work` | Batch-process unread customer emails - classify, prioritize, and draft replies. Use when the us... |
 | [`incident-response-smart-fix`](../../library/antigravity-awesome-skills/skills/incident-response-smart-fix) | ⚪ Reserve | `antigravity-awesome-skills` | [Extended thinking: This workflow implements a sophisticated debugging and resolution pipeline ... |
+| [`incident-slo-runbook`](../../library/majiayu000-spellbook/skills/incident-slo-runbook) | ⚪ Reserve | `majiayu000-spellbook` | Create or audit SLOs, SLIs, alert rules, incident response steps, escalation paths, postmortems... |
 | [`influence-and-negotiation`](../../library/samber-cc-skills/skills/influence-and-negotiation) | ⚪ Reserve | `samber-cc-skills` | Influence and negotiation toolkit for any interaction needing another person's agreement, even ... |
 | [`influence-psychology`](../../library/wondelai-skills/skills/influence-psychology) | ⚪ Reserve | `wondelai-skills` | Apply the seven principles of ethical persuasion (reciprocity, commitment, social proof, author... |
 | [`influencer-campaign-brief`](../../library/mbfinotti-partnerships-skills/skills/influencer-campaign-brief) | ⚪ Reserve | `mbfinotti-partnerships-skills` | Draft the creative campaign brief a brand hands to an already-signed influencer or creator for ... |
@@ -320,6 +322,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`linkedin-cli`](../../library/sickn33-agentic-awesome-skills/skills/linkedin-cli) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use when automating LinkedIn via CLI: fetch profiles, search people/companies, send messages, m... |
 | [`linkedin-engagement`](../../library/alirezarezvani-claude-skills/skills/linkedin-engagement) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when someone wants to grow reach through comments, replies, groups, or outreach on LinkedIn... |
 | [`linkedin-skills`](../../library/alirezarezvani-claude-skills/skills/linkedin-skills) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when someone wants to grow an organic LinkedIn presence — a content strategy for a career c... |
+| [`linkfox-amazon-store-customer-feedback`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-amazon-store-customer-feedback) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 亚马逊商品与类目买家反馈洞察，支持查询评论主题、主题提及量、星级影响、评论趋势、退货主题及退货趋势，用于产品口碑、差评原因和类目问题分析。适用于按 ASIN 或类目查看聚合好评、差评和退货问... |
+| [`linkfox-junglescout-sales-estimates`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-junglescout-sales-estimates) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 查询 Jungle Scout 的亚马逊 ASIN 每日销售估算和最近已知价格，覆盖美国、英国、德国、日本等 10 个站点。适用于指定时间范围内的竞品销量监控、日均销量与趋势分析、季节性判断... |
+| [`linkfox-shopee-store-add-on-deal`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-shopee-store-add-on-deal) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 管理已授权 Shopee（虾皮）店铺的加购优惠 Add-On Deal，支持创建、查询、更新、删除和提前结束活动，以及维护主商品与加购商品。适用于主商品加购、满额加购等活动管理；不适用于店铺... |
+| [`linkfox-shopee-store-bundle-deal`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-shopee-store-bundle-deal) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 管理已授权 Shopee（虾皮）店铺的套装优惠 Bundle Deal，支持创建、查询、修改、提前结束和删除活动，以及添加、查询、更新和移除参与商品。适用于套装优惠、组合促销和满件优惠活动维... |
 | [`list-growth-designer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/list-growth-designer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "grow my email list", "design a lead magnet / signup incentive", "set... |
 | [`list-segment-builder`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/list-segment-builder) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "build email segments from my list", "make engaged / lapsed / RFM seg... |
 | [`literature-survey-generator`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/literature-survey-generator) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate a complete academic literature survey from scratch using multi-agent orchestration. Se... |
@@ -474,6 +480,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`shortform-format-library`](../../library/ericosiu-ai-marketing-skills/skills/shortform-format-library) | ⚪ Reserve | `ericosiu-ai-marketing-skills` | Build and maintain a visual short-form format library, evaluate supplied content spikes, and ma... |
 | [`signup`](../../library/coreyhaines31-marketingskills/skills/signup) | ⚪ Reserve | `coreyhaines31-marketingskills` | When the user wants to optimize signup, registration, account creation, or trial activation flo... |
 | [`signup-flow-cro`](../../library/alirezarezvani-claude-skills/skills/signup-flow-cro) | ⚪ Reserve | `alirezarezvani-claude-skills` | When the user wants to optimize signup, registration, account creation, or trial activation flo... |
+| [`simplify-and-harden`](../../library/pskoett-pskoett-ai-skills/skills/simplify-and-harden) | ⚪ Reserve | `pskoett-pskoett-ai-skills` | Post-completion self-review for coding agents that runs simplify, harden, re-verification, and ... |
 | [`skill-idea-miner`](../../library/tradermonty-claude-trading-skills/skills/skill-idea-miner) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Mine Claude Code session logs for skill idea candidates. Use when running the weekly skill gene... |
 | [`skills-account-context`](../../library/anthropics-knowledge-work/skills/skills-account-context) | ⚪ Reserve | `anthropics-knowledge-work` | 360-degree view of an account - CRM data, recent email threads, docs, transcripts, and internal... |
 | [`skills-account-plan`](../../library/anthropics-knowledge-work/skills/skills-account-plan) | ⚪ Reserve | `anthropics-knowledge-work` | Build or refresh a strategic account plan - current state, goals, stakeholder coverage, opportu... |
@@ -511,6 +518,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-log-activity`](../../library/anthropics-knowledge-work/skills/skills-log-activity) | ⚪ Reserve | `anthropics-knowledge-work` | Log a call, meeting, or email exchange to the CRM after the fact as a completed activity on the... |
 | [`skills-monday-brief`](../../library/anthropics-knowledge-work/skills/skills-monday-brief) | ⚪ Reserve | `anthropics-knowledge-work` | Runs the owner's Monday morning briefing as a two-link chain — business-pulse for the cross-con... |
 | [`skills-nature-literature-pipeline`](../../library/yuan1z0825-nature-skills/skills/skills-nature-literature-pipeline) | ⚪ Reserve | `yuan1z0825-nature-skills` | Complete automated literature discovery pipeline: multi-source search → six-dimension scoring →... |
+| [`skills-okx-guide`](../../library/okx-onchainos-skills/skills/skills-okx-guide) | ⚪ Reserve | `okx-onchainos-skills` | Guide users through installing or updating Onchain OS, getting started, OKX.AI introduction and... |
 | [`skills-om-apply-upgrade-notes`](../../library/open-mercato-skills/skills/skills-om-apply-upgrade-notes) | ⚪ Reserve | `open-mercato-skills` | Apply the skills collection's UPGRADE_NOTES.md after an upgrade. Re-syncs installed tracker and... |
 | [`skills-om-help`](../../library/open-mercato-skills/skills/skills-om-help) | ⚪ Reserve | `open-mercato-skills` | Read-only router for "which skill should I use?", "what do I do next?", "how do I do X here?". ... |
 | [`skills-om-pipeline-retro`](../../library/open-mercato-skills/skills/skills-om-pipeline-retro) | ⚪ Reserve | `open-mercato-skills` | Classify finished pipeline runs from the configured tracker — clean single pass, hard recovery,... |

@@ -1,0 +1,302 @@
+[
+  {
+    "id": "authoring-skills",
+    "name": "authoring-skills",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Use when writing, revising, or judging a skill. A skill is a packet of wisdom that changes how a situation is seen, not a procedure to follow \u2014 dense, composable, and worth loading. Trigger on creating a new skill, editing an existing one, deciding whether something should be a skill at all, or reviewing a set of skills for bloat and overlap. Do NOT use for the mechanics of the skill file format, or for ordinary documentation.",
+    "path": "library/bfollington-terma/skills/authoring-skills",
+    "activation_cmd": "python .agents/library/activate_skill.py activate authoring-skills",
+    "link_cmd": "python .agents/library/activate_skill.py link authoring-skills"
+  },
+  {
+    "id": "bevy",
+    "name": "bevy",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "This skill should be used when working on Bevy game engine projects. It provides specialized knowledge for Bevy's Entity Component System (ECS) architecture, component-driven design patterns, system ordering, UI development, build strategies, and common pitfalls. Use this skill when implementing game features, debugging Bevy code, designing component architectures, or working with Bevy's UI system.",
+    "path": "library/bfollington-terma/skills/bevy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bevy",
+    "link_cmd": "python .agents/library/activate_skill.py link bevy"
+  },
+  {
+    "id": "claude-plugins",
+    "name": "claude-plugins",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Reference for building and distributing Claude Code plugins \u2014 plugin.json and marketplace.json structure, bundling commands, agents, skills and hooks, versioning, and publishing a marketplace. Use when creating or packaging a plugin, setting up a marketplace, or debugging why a plugin's components are not loading.",
+    "path": "library/bfollington-terma/skills/claude-plugins",
+    "activation_cmd": "python .agents/library/activate_skill.py activate claude-plugins",
+    "link_cmd": "python .agents/library/activate_skill.py link claude-plugins"
+  },
+  {
+    "id": "code-review",
+    "name": "code-review",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Use when reviewing written code \u2014 your own or someone else's. Concerns finding what the code will cost later rather than what it violates now, and saying it in a way that can be acted on. Trigger on requests to review, critique, or give feedback on an implementation, and before handing off work you wrote. Do NOT use for debugging behaviour or for deciding what to build.",
+    "path": "library/bfollington-terma/skills/code-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate code-review",
+    "link_cmd": "python .agents/library/activate_skill.py link code-review"
+  },
+  {
+    "id": "concurrent-change",
+    "name": "concurrent-change",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Use when work is about to be split across multiple agents, or when deciding whether it should be. Concurrency is a property of the change, not a scheduling decision \u2014 what can proceed at once is determined by what the pieces have to agree on. Trigger on any request to parallelise, fan out, delegate to subagents, or run work concurrently, and whenever a plan has more than one independent-looking piece. Do NOT use for single-threaded work, or for splitting purely to appear fast.",
+    "path": "library/bfollington-terma/skills/concurrent-change",
+    "activation_cmd": "python .agents/library/activate_skill.py activate concurrent-change",
+    "link_cmd": "python .agents/library/activate_skill.py link concurrent-change"
+  },
+  {
+    "id": "convergent-planning",
+    "name": "convergent-planning",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Use when planning any multi-step change, or when a plan already exists and is about to be executed. A plan is a sequence of ambiguity collapses, not a list of tasks \u2014 each step must end at a state that can be checked, and the checks must be capable of failing. Trigger on requests to plan, sequence, break down, stage, or scope work, and on any plan that reads as a list of things to do. Do NOT use for single-step changes, or where the outcome is already known and only the typing remains.",
+    "path": "library/bfollington-terma/skills/convergent-planning",
+    "activation_cmd": "python .agents/library/activate_skill.py activate convergent-planning",
+    "link_cmd": "python .agents/library/activate_skill.py link convergent-planning"
+  },
+  {
+    "id": "decomposition",
+    "name": "decomposition",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Use when deciding where the boundaries in a system go \u2014 what becomes a module, a service, a process, a package; what gets extracted, merged, or left duplicated. Concerns which cut isolates change rather than which cut looks tidy. Trigger on refactors, restructuring, \"this file is too big\", extracting shared code, and designing the shape of something new. Do NOT use for local code style, or for naming and modelling the domain itself.",
+    "path": "library/bfollington-terma/skills/decomposition",
+    "activation_cmd": "python .agents/library/activate_skill.py activate decomposition",
+    "link_cmd": "python .agents/library/activate_skill.py link decomposition"
+  },
+  {
+    "id": "domain-driven-design",
+    "name": "domain-driven-design",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "This skill should be used whenever domain modeling is taking place. It provides specialized guidance for type-driven and data-driven design based on Rich Hickey and Scott Wlaschin's principles. The skill helps contextualize current modeling within the existing domain model, identifies inconsistencies, builds ubiquitous language, and creates visualizations (Mermaid, Graphviz/DOT, ASCII diagrams) to communicate domain concepts clearly. Use this skill when designing types, modeling business domains, refactoring domain logic, or ensuring domain consistency across a codebase.",
+    "path": "library/bfollington-terma/skills/domain-driven-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate domain-driven-design",
+    "link_cmd": "python .agents/library/activate_skill.py link domain-driven-design"
+  },
+  {
+    "id": "domain-modeling",
+    "name": "domain-modeling",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Use when deciding what the concepts in a system are and what they are called \u2014 the types, the boundaries between contexts, the vocabulary. Concerns whether the model tells the truth about the problem and reads as a story a human can follow. Trigger on designing or changing types, naming things, modelling a business domain, or when the code's words and the problem's words have drifted apart. Do NOT use for local implementation style or for planning work.",
+    "path": "library/bfollington-terma/skills/domain-modeling",
+    "activation_cmd": "python .agents/library/activate_skill.py activate domain-modeling",
+    "link_cmd": "python .agents/library/activate_skill.py link domain-modeling"
+  },
+  {
+    "id": "godot",
+    "name": "godot",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "This skill should be used when working on Godot Engine projects. It provides specialized knowledge of Godot's file formats (.gd, .tscn, .tres), architecture patterns (component-based, signal-driven, resource-based), common pitfalls, validation tools, code templates, and CLI workflows. The `godot` command is available for running the game, validating scripts, importing resources, and exporting builds. Use this skill for tasks involving Godot game development, debugging scene/resource files, implementing game systems, or creating new Godot components.",
+    "path": "library/bfollington-terma/skills/godot",
+    "activation_cmd": "python .agents/library/activate_skill.py activate godot",
+    "link_cmd": "python .agents/library/activate_skill.py link godot"
+  },
+  {
+    "id": "godot-interactive",
+    "name": "godot-interactive",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "\"Interact with a running Godot game via MCP \u2014 launch, screenshot, click, inspect scene tree, get/set properties, call methods, run dev-console commands. Powered by godot-mcp + the GodotMCPBridge autoload (protocol v4.0).\"",
+    "path": "library/bfollington-terma/skills/godot-interactive",
+    "activation_cmd": "python .agents/library/activate_skill.py activate godot-interactive",
+    "link_cmd": "python .agents/library/activate_skill.py link godot-interactive"
+  },
+  {
+    "id": "idea-to-prototype",
+    "name": "idea-to-prototype",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Use when an idea needs to become something buildable, or needs to die honestly before anything is built. Concerns the alternation between opening a possibility up and closing it down, and finding the fastest thing that would settle whether it is worth doing. Trigger when someone arrives with a concept rather than a specification, or on requests to explore, pitch, spec, or prototype. Do NOT use when what to build is already settled and only the plan remains.",
+    "path": "library/bfollington-terma/skills/idea-to-prototype",
+    "activation_cmd": "python .agents/library/activate_skill.py activate idea-to-prototype",
+    "link_cmd": "python .agents/library/activate_skill.py link idea-to-prototype"
+  },
+  {
+    "id": "ideate",
+    "name": "ideate",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Use when thinking needs to open rather than close \u2014 generating possibilities, breaking out of a stuck frame, reading the state of a creative process, or noticing that a session has gone flat, cynical, or circular. A deck of moves for the infinite game of ideation, where good thinking is playing the right card at the right time. Trigger on brainstorming, exploring possibilities, being stuck, or when the current framing has stopped producing anything. Do NOT use when converging on a decision or executing something already chosen.",
+    "path": "library/bfollington-terma/skills/ideate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ideate",
+    "link_cmd": "python .agents/library/activate_skill.py link ideate"
+  },
+  {
+    "id": "implement",
+    "name": "implement",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Use when carrying out a change that is already decided \u2014 building the thing rather than choosing it. Concerns staying oriented while the code is in motion \u2014 knowing how far from the last checkpoint, noticing when the plan has stopped matching what is being found, and stopping rather than compensating. Trigger on executing a plan or building a defined feature. Do NOT use for deciding what to build, or for restructuring code that already works.",
+    "path": "library/bfollington-terma/skills/implement",
+    "activation_cmd": "python .agents/library/activate_skill.py activate implement",
+    "link_cmd": "python .agents/library/activate_skill.py link implement"
+  },
+  {
+    "id": "investigate-debug",
+    "name": "investigate-debug",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Use when something is wrong and the cause is not yet known \u2014 failures, regressions, flaky behaviour, performance problems, incidents, or a user report that does not match what the code appears to do. Concerns holding the difference between what is observed and what is believed, and spending each action on the question that most divides the possibilities. Trigger on any debugging or investigation where the answer is not already obvious. Do NOT use when the cause is already known and only the fix remains.",
+    "path": "library/bfollington-terma/skills/investigate-debug",
+    "activation_cmd": "python .agents/library/activate_skill.py activate investigate-debug",
+    "link_cmd": "python .agents/library/activate_skill.py link investigate-debug"
+  },
+  {
+    "id": "map-the-space",
+    "name": "map-the-space",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Explore a problem space before committing to a direction. Use this whenever the user is circling an idea rather than executing one \u2014 thinking out loud, asking \"what's interesting here\", \"I've been wondering about X\", \"is this worth doing\", \"how should I think about this\", or describing an itch without a plan. Also use when a request arrives already framed as a task but the framing looks inherited or unexamined. The output is a map of the space with terminology joined to prior art, NOT a plan. Concluding that the user should not proceed is a success condition, not a failure.",
+    "path": "library/bfollington-terma/skills/map-the-space",
+    "activation_cmd": "python .agents/library/activate_skill.py activate map-the-space",
+    "link_cmd": "python .agents/library/activate_skill.py link map-the-space"
+  },
+  {
+    "id": "orient",
+    "name": "orient",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Use when arriving in an unfamiliar codebase, or returning to one after long enough that its shape has been forgotten. Concerns building a working model of what the system is and where its decisions live, before touching anything. Trigger at the start of work in a new repository, or when a change is about to be made somewhere not yet understood. Do NOT use for a codebase already held in mind, or for answering one specific question \u2014 that is research.",
+    "path": "library/bfollington-terma/skills/orient",
+    "activation_cmd": "python .agents/library/activate_skill.py activate orient",
+    "link_cmd": "python .agents/library/activate_skill.py link orient"
+  },
+  {
+    "id": "pattrns",
+    "name": "pattrns",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Guide for creating generative, emergent music with Pattrns, the Lua-based pattern sequencing engine for Renoise. Use when composing algorithmic patterns, generating evolving breakbeats/rhythms, creating generative melodies/harmonies, designing textures, or working with euclidean rhythms and live coding patterns. Covers breakbeat/jungle/DnB, IDM/experimental, jazz, industrial/trip-hop, and ambient styles.",
+    "path": "library/bfollington-terma/skills/pattrns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pattrns",
+    "link_cmd": "python .agents/library/activate_skill.py link pattrns"
+  },
+  {
+    "id": "plan",
+    "name": "plan",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Entry point for planning work \u2014 routes to the skills that own the substance. Use when the user asks to plan, sequence, or scope something and it is not yet clear which kind of planning is needed.",
+    "path": "library/bfollington-terma/skills/plan",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plan",
+    "link_cmd": "python .agents/library/activate_skill.py link plan"
+  },
+  {
+    "id": "research",
+    "name": "research",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Use when a specific question must be answered before work can sensibly proceed \u2014 how something currently works, whether an approach is viable, what already exists, what a change would touch. Concerns answering the question that was actually asked, at a confidence level stated honestly. Trigger on investigation requests and on discovering that a decision rests on something unverified. Do NOT use for building a general model of an unfamiliar codebase \u2014 that is orient.",
+    "path": "library/bfollington-terma/skills/research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate research",
+    "link_cmd": "python .agents/library/activate_skill.py link research"
+  },
+  {
+    "id": "shadertoy",
+    "name": "shadertoy",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "This skill should be used when working with Shadertoy shaders, GLSL fragment shaders, or creating procedural graphics for the web. Use when writing .glsl files, implementing visual effects, creating generative art, or working with WebGL shader code. This skill provides GLSL ES syntax reference, common shader patterns, and Shadertoy-specific conventions.",
+    "path": "library/bfollington-terma/skills/shadertoy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shadertoy",
+    "link_cmd": "python .agents/library/activate_skill.py link shadertoy"
+  },
+  {
+    "id": "skill-improver",
+    "name": "skill-improver",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Use at a checkpoint after real friction \u2014 a task where something was repeatedly confusing, a skill misfired or failed to fire, or a workaround was invented that should not have been needed. Concerns turning friction into a change to the skills themselves, and knowing when the right change is to cut rather than add. Trigger at session end after substantial work, or when the same problem has now happened more than once. Do NOT use reflexively after routine tasks, or mid-task.",
+    "path": "library/bfollington-terma/skills/skill-improver",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-improver",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-improver"
+  },
+  {
+    "id": "skill-management",
+    "name": "skill-management",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Create, update, and manage Claude Code skills. Use when working with SKILL.md files, slash commands, or extending Claude's capabilities.",
+    "path": "library/bfollington-terma/skills/skill-management",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-management",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-management"
+  },
+  {
+    "id": "sqlite-db",
+    "name": "sqlite-db",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "General guide for using the sqlite3 CLI to build composable knowledge databases. Use this skill when creating SQLite databases, designing schemas, querying data, managing relationships, or building new sqlite-based domain skills. Provides the foundational patterns that all specialized sqlite skills build upon.",
+    "path": "library/bfollington-terma/skills/sqlite-db",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sqlite-db",
+    "link_cmd": "python .agents/library/activate_skill.py link sqlite-db"
+  },
+  {
+    "id": "sqlite-notes",
+    "name": "sqlite-notes",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Personal note-taking, thinking trails, and knowledge management using plain SQLite. Supports capture-heavy workflows with clear provenance tracking, AI-generated thinking snapshots (breadcrumbs), and synthesis into permanent knowledge. Uses the sqlite3 CLI directly with SQL schemas for notes, resources, clippings, reflections, and breadcrumbs.",
+    "path": "library/bfollington-terma/skills/sqlite-notes",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sqlite-notes",
+    "link_cmd": "python .agents/library/activate_skill.py link sqlite-notes"
+  },
+  {
+    "id": "strudel",
+    "name": "strudel",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "This skill should be used when working with Strudel.cc, a live-coding music environment. Use when creating musical patterns, drum sequences, melodies, basslines, or generative compositions. The user will always want to run Strudel code in the browser, either by copy-pasting or by providing a clickable URL with the code encoded in base64.",
+    "path": "library/bfollington-terma/skills/strudel",
+    "activation_cmd": "python .agents/library/activate_skill.py activate strudel",
+    "link_cmd": "python .agents/library/activate_skill.py link strudel"
+  },
+  {
+    "id": "surface-forks",
+    "name": "surface-forks",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Use during any implementation, design, refactor, or debugging task, in any language or codebase. Before changing anything that touches an existing domain concept, rule, type, or invariant, find what the change collides with and name the routes through it \u2014 instead of letting the first workable route settle the question silently. Trigger on any request to build, change, model, extend, or restructure, including small changes and including when the user says nothing about design. Do NOT use for purely additive isolated code, pure explanation, or review with no change proposed.",
+    "path": "library/bfollington-terma/skills/surface-forks",
+    "activation_cmd": "python .agents/library/activate_skill.py activate surface-forks",
+    "link_cmd": "python .agents/library/activate_skill.py link surface-forks"
+  },
+  {
+    "id": "writing-code",
+    "name": "writing-code",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Use when writing or restructuring code in any language. Concerns the shape of the code itself \u2014 what is data and what is function, where effects live, what the names say, when a module has stopped having one subject. Trigger on any implementation task, and on review of code that works but reads badly. Do NOT use for choosing what to build, planning sequence, or debugging behaviour.",
+    "path": "library/bfollington-terma/skills/writing-code",
+    "activation_cmd": "python .agents/library/activate_skill.py activate writing-code",
+    "link_cmd": "python .agents/library/activate_skill.py link writing-code"
+  },
+  {
+    "id": "writing-commits",
+    "name": "writing-commits",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Use when writing a commit message. Concerns writing for the reader who finds the commit months later through blame, bisect or log, with no access to the session that produced it. Gives a default PROBLEM / SOLUTION form for repositories without a convention, and a width check. Do NOT use for PR descriptions or other prose (writing-prose covers those), or for code comments (writing-code).",
+    "path": "library/bfollington-terma/skills/writing-commits",
+    "activation_cmd": "python .agents/library/activate_skill.py activate writing-commits",
+    "link_cmd": "python .agents/library/activate_skill.py link writing-commits"
+  },
+  {
+    "id": "writing-prose",
+    "name": "writing-prose",
+    "repository": "bfollington-terma",
+    "category": "general",
+    "description": "Use when writing prose that someone else will read \u2014 a reply, a report, a review, a proposal, documentation, a message about ideas or design, a prompt or a tool description. Concerns the stance to write from \u2014 picture the reader at the moment they find the text, and write for that moment, so that the meaning arrives intact. Optimises for clarity and legibility, not for brevity, simple words or short sentences. Trigger on any prose longer than a few sentences. Do NOT use for commit messages (writing-commits covers those) or for the code itself (writing-code). Do NOT use to convert a text into a controlled language such as ASD-STE100.",
+    "path": "library/bfollington-terma/skills/writing-prose",
+    "activation_cmd": "python .agents/library/activate_skill.py activate writing-prose",
+    "link_cmd": "python .agents/library/activate_skill.py link writing-prose"
+  }
+]

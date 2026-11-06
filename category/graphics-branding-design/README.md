@@ -1,7 +1,7 @@
 # 🎨 Visual Design, Branding & Graphics
 
 > **Category**: `graphics-branding-design`  
-> **Total Curated Skills**: 118 skills  
+> **Total Curated Skills**: 122 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -76,6 +76,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`founder-brand`](../../library/jakeschincariol-founder-skill/skills/founder-brand) | ⚪ Reserve | `jakeschincariol-founder-skill` | Your brand designer. Names the business (with the trademark, domain and handle checks to run be... |
 | [`frame-logo-outro`](../../library/feimacode-open-design-agent-kit/skills/frame-logo-outro) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Logo Outro Frame (Open Design) — use only when explicitly invoked, not for general design reque... |
 | [`frame-macos-notification`](../../library/feimacode-open-design-agent-kit/skills/frame-macos-notification) | ⚪ Reserve | `feimacode-open-design-agent-kit` | macOS Notification Banner (Open Design) — use only when explicitly invoked, not for general des... |
+| [`hairline-adopt`](../../library/lucasmarkes-hairline/skills/hairline-adopt) | ⚪ Reserve | `lucasmarkes-hairline` | Use when someone has an SVG (an icon, a logo, an illustration) and wants it as a Hairline figur... |
 | [`image-outpainting`](../../library/gencraft-labs-skills/skills/image-outpainting) | ⚪ Reserve | `gencraft-labs-skills` | Image outpainting on RunComfy via the `runcomfy` CLI — extend a still beyond its original canva... |
 | [`image-processing`](../../library/jezweb-claude-skills/skills/image-processing) | ⚪ Reserve | `jezweb-claude-skills` | Process images for web development — resize, crop, trim whitespace, convert formats (PNG/WebP/J... |
 | [`json-canvas`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/json-canvas) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use whe... |
@@ -84,6 +85,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`lean-ux-canvas`](../../library/deanpeters-product-manager-skills/skills/lean-ux-canvas) | ⚪ Reserve | `deanpeters-product-manager-skills` | Guide teams through Lean UX Canvas v2. Use when framing a business problem, surfacing assumptio... |
 | [`library-curator`](../../library/feimacode-open-design-agent-kit/skills/library-curator) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Search the OD Library (the global asset registry) and apply matching assets into the current pr... |
 | [`linkedin-profile`](../../library/alirezarezvani-claude-skills/skills/linkedin-profile) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when someone wants their LinkedIn profile audited or rewritten — headline, About section, e... |
+| [`linkfox-ruiguan-text-trademark-detection`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-ruiguan-text-trademark-detection) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 检测电商商品标题、描述、五点描述及关键词中的文字商标风险，返回匹配商标、风险评分、注册信息、权利人和黑白名单。适用于上架前 Listing 商标筛查、品牌词风险检查、多地区文字商标查询和知识... |
+| [`linkfox-ruiguan-trademark-graphic-detection`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-ruiguan-trademark-graphic-detection) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 检测产品图片中的图形商标与 Logo，搜索多个国家和地区的相似注册商标，展示相似度、商标状态、权利人、尼斯分类和雷达风险信息。适用于上架前图片商标筛查、图形商标相似度分析及指定地区风险排查，... |
+| [`logo-creator`](../../library/resciencelab-opc-skills/skills/logo-creator) | ⚪ Reserve | `resciencelab-opc-skills` | Create logos using AI image generation. Discuss style/ratio, generate variations, iterate with ... |
 | [`logo-design-guide`](../../library/101-skills-superpowers/skills/logo-design-guide) | ⚪ Reserve | `101-skills-superpowers` | Logo design principles and AI image generation best practices for creating logos. Covers logo t... |
 | [`logo-dev-automation`](../../library/composio-community-awesome-codex-skills/skills/logo-dev-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Logo Dev tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | [`logo-generator-skill`](../../library/reason-machines-trending-skills/skills/logo-generator-skill) | ⚪ Reserve | `reason-machines-trending-skills` | name: logo-generator-skill |

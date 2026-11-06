@@ -1,0 +1,32 @@
+[
+  {
+    "id": "create-agent-with-sanity-context",
+    "name": "create-agent-with-sanity-context",
+    "repository": "sanity-io-context",
+    "category": "general",
+    "description": "Build AI agents with structured access to Sanity content via Sanity Context. Use when setting up a Sanity-powered chatbot, connecting an AI assistant to Sanity content, or adding client-side tools to an agent. Covers MCP endpoint setup in the Context app or with the Sanity CLI (GROQ mode over a dataset, or Knowledge Base mode), agent implementation, Insights, and advanced patterns. Always use this skill when users mention building a chatbot with Sanity, creating an AI assistant for their content, setting up the Sanity Context MCP server, integrating Sanity with Claude/GPT/any LLM, making content searchable by AI, implementing semantic search over Sanity data, or connecting their CMS to an AI agent.",
+    "path": "library/sanity-io-context/skills/create-agent-with-sanity-context",
+    "activation_cmd": "python .agents/library/activate_skill.py activate create-agent-with-sanity-context",
+    "link_cmd": "python .agents/library/activate_skill.py link create-agent-with-sanity-context"
+  },
+  {
+    "id": "dial-your-context",
+    "name": "dial-your-context",
+    "repository": "sanity-io-context",
+    "category": "general",
+    "description": "Interactive session to create Instructions field content for the Sanity Context MCP server. Use this skill whenever users mention tuning agent context, improving agent responses to Sanity data, configuring MCP instructions, setting up content filters, or when their agent gives wrong results from Sanity queries. Also trigger when users say their agent is confused about schema relationships, needs data-specific guidance, or wants to optimize which content the agent can access.",
+    "path": "library/sanity-io-context/skills/dial-your-context",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dial-your-context",
+    "link_cmd": "python .agents/library/activate_skill.py link dial-your-context"
+  },
+  {
+    "id": "shape-your-agent",
+    "name": "shape-your-agent",
+    "repository": "sanity-io-context",
+    "category": "general",
+    "description": "Interactive session to craft a system prompt for an AI agent powered by the Sanity Context MCP server. Use this skill when users want to define agent personality, set tone/voice, establish boundaries and guardrails, configure refusal behaviors, or control how their agent communicates. Trigger when users mention their agent sounds wrong, needs to refuse certain requests, has the wrong tone, or they want to set communication rules and policies.",
+    "path": "library/sanity-io-context/skills/shape-your-agent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shape-your-agent",
+    "link_cmd": "python .agents/library/activate_skill.py link shape-your-agent"
+  }
+]

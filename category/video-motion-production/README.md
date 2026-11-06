@@ -1,7 +1,7 @@
 # 🎬 Video Creation & Generative Motion
 
 > **Category**: `video-motion-production`  
-> **Total Curated Skills**: 212 skills  
+> **Total Curated Skills**: 231 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -38,7 +38,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`aws-media-services`](../../library/aws-agent-toolkit-for-aws/skills/aws-media-services) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Designs, deploys, reviews, evaluates, audits, and troubleshoots video streaming workflows acros... |
 | [`azure-ai-contentunderstanding-py`](../../library/antigravity-awesome-skills/skills/azure-ai-contentunderstanding-py) | ⚪ Reserve | `antigravity-awesome-skills` | Azure AI Content Understanding SDK for Python. Use for multimodal content extraction from docum... |
 | [`beatra-ai-video-studio`](../../library/sickn33-agentic-awesome-skills/skills/beatra-ai-video-studio) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Install and use the official Beatra AI Video Studio package, pinned by digest, for paid text-to... |
+| [`bibi-vision`](../../library/jimmylv-bibigpt-skill/skills/bibi-vision) | ⚪ Reserve | `jimmylv-bibigpt-skill` | Extract visual content from a BibiGPT video (slides, OCR, on-screen text) and generate a mind m... |
 | [`brag`](../../library/latent-spaces-brag/skills/brag) | ⚪ Reserve | `latent-spaces-brag` | Turn the current project website into a short, polished, shareable launch video using Hyperfram... |
+| [`build-product-demo`](../../library/majiayu000-spellbook/skills/build-product-demo) | ⚪ Reserve | `majiayu000-spellbook` | Plan, produce, or diagnose evidence-backed product demo videos and screen-recorded promotional ... |
 | [`canopy-part-title`](../../library/heygen-hyperframes/skills/canopy-part-title) | ⚪ Reserve | `heygen-hyperframes` | Leaves sweep through the frame and part to reveal the headline. HyperFrames block, 1920×1080, 1... |
 | [`captions-overlay`](../../library/heygen-hyperframes/skills/captions-overlay) | ⚪ Reserve | `heygen-hyperframes` | Overlay doctrine for captions in HyperFrames videos — the caption MODEL (drop / rail / embed) a... |
 | [`cdf-autonomous-vehicle-dataset-generation`](../../library/nvidia-skills/skills/cdf-autonomous-vehicle-dataset-generation) | ⚪ Reserve | `nvidia-skills` | Prepare payloads, run and monitor the Autonomous Vehicle Dataset Generation Airflow workflow, a... |
@@ -78,11 +80,13 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`film-crew`](../../library/sickn33-agentic-awesome-skills/skills/film-crew) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Turn a one-line AI video idea into a shot list and per-shot, model-ready prompts via a film cre... |
 | [`frame-light-leak-cinema`](../../library/feimacode-open-design-agent-kit/skills/frame-light-leak-cinema) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Light-Leak Cinematic Frame (Open Design) — use only when explicitly invoked, not for general de... |
 | [`frost-sequence-camera-orbit`](../../library/heygen-hyperframes/skills/frost-sequence-camera-orbit) | ⚪ Reserve | `heygen-hyperframes` | An orbiting camera follows an ice logo as it breaks apart, reforms into two text moments, and f... |
+| [`generative-media-skills`](../../library/samuraigpt-generative-media-skills/skills/generative-media-skills) | ⚪ Reserve | `samuraigpt-generative-media-skills` | 60 agent skills from samuraigpt/generative-media-skills — including muapi-cinema-director, muap... |
 | [`glass-shard-title`](../../library/heygen-hyperframes/skills/glass-shard-title) | ⚪ Reserve | `heygen-hyperframes` | Glass shards fly in through fog and tile themselves into the headline. HyperFrames block, 1920×... |
 | [`google-veo`](../../library/101-skills-superpowers/skills/google-veo) | ⚪ Reserve | `101-skills-superpowers` | Generate videos with Google Veo models via inference.sh CLI. Models: Veo 3.1, Veo 3.1 Fast, Veo... |
 | [`googlemeet-automation`](../../library/composio-community-awesome-codex-skills/skills/googlemeet-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Google Meet tasks via Rube MCP (Composio): create Meet spaces, schedule video conferen... |
 | [`happy-horse-video-generator`](../../library/reason-machines-trending-skills/skills/happy-horse-video-generator) | ⚪ Reserve | `reason-machines-trending-skills` | name: happy-horse-video-generator |
 | [`happyhorse`](../../library/101-skills-superpowers/skills/happyhorse) | ⚪ Reserve | `101-skills-superpowers` | Generate and edit videos with Alibaba HappyHorse 1.0 models via inference.sh CLI. Models: Happy... |
+| [`head-of-content`](../../library/bradautomates-head-of-content/skills/head-of-content) | ⚪ Reserve | `bradautomates-head-of-content` | 6 agent skills from bradautomates/head-of-content — including instagram-research, tiktok-resear... |
 | [`heygen`](../../library/membranedev-application-skills/skills/heygen) | ⚪ Reserve | `membranedev-application-skills` | HeyGen integration. Manage Videos, Avatars, Templates. Use when the user wants to interact with... |
 | [`higgsfield-faceless-video`](../../library/higgsfield-ai-skills/skills/higgsfield-faceless-video) | ⚪ Reserve | `higgsfield-ai-skills` | Create a finished faceless explainer, documentary, illustrated story or children's music video,... |
 | [`higgsfield-video-explainer`](../../library/higgsfield-ai-skills/skills/higgsfield-video-explainer) | ⚪ Reserve | `higgsfield-ai-skills` | Compatibility entry for the former video explainer skill. Use when: the user explicitly invokes... |
@@ -107,6 +111,20 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`lanshu-create-ai-presenter-video`](../../library/sickn33-agentic-awesome-skills/skills/lanshu-create-ai-presenter-video) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Turn a topic or script into a publish-ready explainer video, led by an AI presenter or performe... |
 | [`lemo-opuscar`](../../library/lemomo-opuscar/skills/lemo-opuscar) | ⚪ Reserve | `lemomo-opuscar` | Direct and produce a short film made entirely in code, in one of the styles of the Lemo-Opuscar... |
 | [`leveling-up-content-engine`](../../library/ericosiu-ai-marketing-skills/skills/leveling-up-content-engine) | ⚪ Reserve | `ericosiu-ai-marketing-skills` | Diagnose and transform any authorized video URL, upload, recording, transcript, podcast, interv... |
+| [`linkfox-aigc-image-to-video`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-aigc-image-to-video) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 通过单图或多图生成视频，支持参考视频、商品展示模板、尾帧和声音等模型能力，并查询任务、下载成品。适用于图转视频、商品展示视频和 image to video；不适用于通用图像生成、视频编辑、... |
+| [`linkfox-aigc-sales-video`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-aigc-sales-video) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 根据口播脚本和商品参考图生成带货视频，支持素材准备、异步任务进度查询、任务恢复与结果下载。适用于商品卖点讲解、电商上新、活动促销和详情页视频素材；不适用于通用图像生成、其他视频创作或视频编辑... |
+| [`linkfox-aigc-video-edit`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-aigc-video-edit) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 按编辑指令修改已有视频，支持背景替换、主体保持、服装颜色调整与风格修改，可结合参考图片，等待生成结果并交付本地视频。适用于视频编辑、video editing 和已有视频的定向修改；不适用于... |
+| [`linkfox-aigc-video-reclone`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-aigc-video-reclone) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 结合参考视频与商品图复刻商品视频，支持销售国家、目标语言和自定义提示词，并完成素材准备、生成状态跟踪与结果交付。适用于商品视频复刻、品牌二创和商品短视频制作；不适用于通用图像生成、视频翻译、... |
+| [`linkfox-aigc-video-translate`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-aigc-video-translate) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 将已有视频中的语音翻译为目标语言，可同步口型，支持素材准备、异步任务跟进和翻译视频交付。适用于视频翻译、跨语言视频本地化和口型同步；不适用于通用图片生成、无源视频创作或其他视频编辑。 |
+| [`linkfox-aigc-videogen-multi`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-aigc-videogen-multi) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 根据多张参考图和提示词生成视频，支持查询当前开放模型并选择时长、声音、画面比例和分辨率，等待生成完成后交付本地视频。适用于多图生视频、多参考图视频、商品多角度展示和 multiple ima... |
+| [`linkfox-chuhaijiang-tiktok-video`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-chuhaijiang-tiktok-video) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 使用出海匠（Chuhaijiang）研究 TikTok 公开视频，支持多条件视频搜索、单视频详情、带货商品和评论钻取。用户点名出海匠时使用；未指定数据源时，仅在需要视频评论或视频到带货商品的... |
+| [`linkfox-echotik-batch-video-detail`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-echotik-batch-video-detail) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 批量查询已知 TikTok 视频的详情和表现，支持视频 ID 或视频链接，返回视频文案、播放与点赞总量及近 1/7/30 天增量、评论、分享、收藏、估算销量与 GMV、视频规格、发布日期、达... |
+| [`linkfox-echotik-get-video-download-url`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-echotik-get-video-download-url) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 解析指定 TikTok 视频链接，获取无水印或含水印下载地址、播放地址及静态和动态封面，适用于保存带货视频素材、离线分析、视频预览和封面提取。用户已有具体 TikTok 视频链接，希望下载、... |
+| [`linkfox-echotik-list-video`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-echotik-list-video) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 搜索和分析 TikTok 视频，按站点、达人、关联商品、类目、播放量、时长、发布时间及带货、投流、AI 类型筛选，展示互动、视频销量与 GMV 估算和视频资料，覆盖 16 个 TikTok ... |
+| [`linkfox-echotik-list-video-rank`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-echotik-list-video-rank) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 查询 EchoTik 的 TikTok 视频日榜、周榜和月榜，按站点及播放量或视频销量发现热门视频，展示播放、互动、估算销量与 GMV、达人和关联商品信息，覆盖 16 个 TikTok Sh... |
+| [`linkfox-echotik-product-video`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-echotik-product-video) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 查询 TikTok Shop 商品关联的带货视频，查看播放、点赞、评论、分享、收藏、估算销量与 GMV，支持按达人和发布时间筛选并分析视频营销表现。适用于查看某个商品有哪些推广视频、哪些内容... |
+| [`linkfox-kalodata-tiktok-video`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-kalodata-tiktok-video) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 通过 Kalodata 查看 TikTok Shop 热门带货视频榜单和单个视频详情，支持按市场、统计区间、GMV 范围筛选榜单及按 GMV 排序，分析播放、互动、销售额、GPM、广告表现和... |
+| [`linkfox-shopee-store-video`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-shopee-store-video) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 管理已授权 Shopee（虾皮）店铺的视频，支持封面选择、发布、列表与详情查询、编辑和删除，以及整体与单视频的效果、指标趋势、观众画像和商品表现分析。适用于店铺视频维护与效果复盘；不适用于店... |
 | [`macos`](../../library/anthropics-knowledge-work/skills/macos) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Video SDK for macOS native desktop apps. Use when building custom macOS video sessions wit... |
 | [`manim-video`](../../library/affaan-m-ecc/skills/manim-video) | ⚪ Reserve | `affaan-m-ecc` | Build reusable Manim explainers for technical concepts, graphs, system diagrams, and product wa... |
 | [`marketing-campaign`](../../library/affaan-m-ecc/skills/marketing-campaign) | ⚪ Reserve | `affaan-m-ecc` | End-to-end marketing campaign planning and execution. Covers audience research, positioning, ca... |
@@ -211,6 +229,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`video-sdk-macos`](../../library/anthropics-knowledge-work/skills/video-sdk-macos) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Video SDK for macOS native desktop apps. Use when building custom macOS video sessions wit... |
 | [`video-sdk-unity`](../../library/anthropics-knowledge-work/skills/video-sdk-unity) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Video SDK for Unity wrapper integrations. Use when building custom Unity-based video sessi... |
 | [`video-sdk-windows`](../../library/anthropics-knowledge-work/skills/video-sdk-windows) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Video SDK for Windows - C++ integration for video sessions, raw audio/video capture, scree... |
+| [`video-spec-builder`](../../library/feicaiclub-video-spec-builder/skills/video-spec-builder) | ⚪ Reserve | `feicaiclub-video-spec-builder` | 当用户说想做一个视频、宣传片、产品演示、动画短片、抖音/YouTube 内容，或者说要改分镜、调节奏、换镜头、调字幕、加配音、改转场时使用。通过苏格拉底式追问收集视频需求，主动激发渲染层的全... |
 | [`video-use-editor`](../../library/reason-machines-trending-skills/skills/video-use-editor) | ⚪ Reserve | `reason-machines-trending-skills` | name: video-use-editor |
 | [`videodb`](../../library/affaan-m-ecc/skills/videodb) | ⚪ Reserve | `affaan-m-ecc` | Ingest, index, search, edit, and monitor video and audio with the VideoDB Python SDK — upload f... |
 | [`videodb-skills`](../../library/sickn33-agentic-awesome-skills/skills/videodb-skills) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Upload, stream, search, edit, transcribe, and generate AI video and audio using the VideoDB SDK... |

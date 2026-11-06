@@ -1,7 +1,7 @@
 # ⚔️ Core Antigravity Kit Protocols
 
 > **Category**: `core-antigravity-protocols`  
-> **Total Curated Skills**: 34 skills  
+> **Total Curated Skills**: 35 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -35,6 +35,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`competitive-intel-watch`](../../library/deanpeters-product-manager-skills/skills/competitive-intel-watch) | ⚪ Reserve | `deanpeters-product-manager-skills` | Scheduled delta monitoring against a prior competitive snapshot. Use when tracking competitors ... |
 | [`context-optimization`](../../library/antigravity-awesome-skills/skills/context-optimization) | ⚪ Reserve | `antigravity-awesome-skills` | Apply compaction, masking, and caching strategies |
 | [`context-status`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/context-status) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Show current session status and context health for the sewage project. Use to check context usa... |
+| [`flowguard`](../../library/majiayu000-spellbook/skills/flowguard) | ⚪ Reserve | `majiayu000-spellbook` | Guard long, ambiguous, or stateful AI-agent work from drift. Use when the user asks to run or c... |
 | [`genre-shooter`](../../library/arjun988-blender-skills/skills/genre-shooter) | ⚪ Reserve | `arjun988-blender-skills` | Art direction for FPS, TPS, shooter, battle royale, and extraction-shooter maps and props in Bl... |
 | [`incident-commander`](../../library/alirezarezvani-claude-skills/skills/incident-commander) | ⚪ Reserve | `alirezarezvani-claude-skills` | Comprehensive incident response framework from detection through resolution and post-incident r... |
 | [`infinite-gratitude`](../../library/antigravity-awesome-skills/skills/infinite-gratitude) | ⚪ Reserve | `antigravity-awesome-skills` | Multi-agent research skill for parallel research execution (10 agents, battle-tested with real ... |

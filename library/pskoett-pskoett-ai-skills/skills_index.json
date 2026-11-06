@@ -1,0 +1,212 @@
+[
+  {
+    "id": "context-decay",
+    "name": "context-decay",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": ">",
+    "path": "library/pskoett-pskoett-ai-skills/skills/context-decay",
+    "activation_cmd": "python .agents/library/activate_skill.py activate context-decay",
+    "link_cmd": "python .agents/library/activate_skill.py link context-decay"
+  },
+  {
+    "id": "context-surfing",
+    "name": "context-surfing",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": ">",
+    "path": "library/pskoett-pskoett-ai-skills/skills/context-surfing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate context-surfing",
+    "link_cmd": "python .agents/library/activate_skill.py link context-surfing"
+  },
+  {
+    "id": "control-session-orchestrator",
+    "name": "control-session-orchestrator",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": ">",
+    "path": "library/pskoett-pskoett-ai-skills/skills/control-session-orchestrator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate control-session-orchestrator",
+    "link_cmd": "python .agents/library/activate_skill.py link control-session-orchestrator"
+  },
+  {
+    "id": "eval-creator",
+    "name": "eval-creator",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": "\"[Beta] Creates permanent eval cases from promoted learnings and runs regression checks against them. Turns failures into test cases that prevent silent regression. This is the outer loop's regress-test step. Use when a learning is promoted and has a clear pass/fail condition, or on cadence to verify promoted rules still hold.\"",
+    "path": "library/pskoett-pskoett-ai-skills/skills/eval-creator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate eval-creator",
+    "link_cmd": "python .agents/library/activate_skill.py link eval-creator"
+  },
+  {
+    "id": "eval-creator-ci",
+    "name": "eval-creator-ci",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": "\"[Beta] CI-only eval regression runner using gh-aw (GitHub Agentic Workflows). Runs all eval cases in .evals/ on a schedule or per-PR, reports pass/fail results, and can block merges on regressions. Also creates new eval cases from promoted patterns flagged by learning-aggregator-ci. Use when: you want automated regression testing of promoted rules in CI/headless pipelines. For interactive eval creation and runs, use eval-creator.\"",
+    "path": "library/pskoett-pskoett-ai-skills/skills/eval-creator-ci",
+    "activation_cmd": "python .agents/library/activate_skill.py activate eval-creator-ci",
+    "link_cmd": "python .agents/library/activate_skill.py link eval-creator-ci"
+  },
+  {
+    "id": "intent-framed-agent",
+    "name": "intent-framed-agent",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": "\"Frames coding-agent work sessions with explicit intent capture and drift monitoring. Use when a session transitions from planning/Q&A to implementation for coding tasks, refactors, feature builds, bug fixes, or other multi-step execution where scope drift is a risk.\"",
+    "path": "library/pskoett-pskoett-ai-skills/skills/intent-framed-agent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate intent-framed-agent",
+    "link_cmd": "python .agents/library/activate_skill.py link intent-framed-agent"
+  },
+  {
+    "id": "learning-aggregator",
+    "name": "learning-aggregator",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": "\"[Beta] Cross-session analysis of accumulated .learnings/ files. Reads all entries, groups by pattern_key, computes recurrence across sessions, and outputs ranked promotion candidates. This is the outer loop's inspect step \u2014 it turns raw learning data into actionable gap reports. Use on a regular cadence (weekly, before major tasks, or at session start for critical projects). Can be invoked manually or scheduled.\"",
+    "path": "library/pskoett-pskoett-ai-skills/skills/learning-aggregator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate learning-aggregator",
+    "link_cmd": "python .agents/library/activate_skill.py link learning-aggregator"
+  },
+  {
+    "id": "learning-aggregator-ci",
+    "name": "learning-aggregator-ci",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": "\"[Beta] CI-only learning aggregation workflow using gh-aw (GitHub Agentic Workflows). Scans .learnings/ files on a schedule, groups entries by pattern_key, identifies promotion-ready patterns, and posts a gap report as a PR or issue comment. Use when: you want automated cross-session pattern detection in CI/headless pipelines without interactive prompts. For interactive use, use learning-aggregator.\"",
+    "path": "library/pskoett-pskoett-ai-skills/skills/learning-aggregator-ci",
+    "activation_cmd": "python .agents/library/activate_skill.py activate learning-aggregator-ci",
+    "link_cmd": "python .agents/library/activate_skill.py link learning-aggregator-ci"
+  },
+  {
+    "id": "plan-interview",
+    "name": "plan-interview",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": "|",
+    "path": "library/pskoett-pskoett-ai-skills/skills/plan-interview",
+    "activation_cmd": "python .agents/library/activate_skill.py activate plan-interview",
+    "link_cmd": "python .agents/library/activate_skill.py link plan-interview"
+  },
+  {
+    "id": "pre-flight-check",
+    "name": "pre-flight-check",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": "\"[Beta] Session-start scan that surfaces relevant learnings, recent errors, and eval status before work begins. Bridges the outer loop back into the inner loop by making accumulated knowledge visible at task start. Activated via SessionStart hook or manually before major tasks.\"",
+    "path": "library/pskoett-pskoett-ai-skills/skills/pre-flight-check",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pre-flight-check",
+    "link_cmd": "python .agents/library/activate_skill.py link pre-flight-check"
+  },
+  {
+    "id": "self-healing",
+    "name": "self-healing",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": "\"Active runtime recovery for coding agents: when something breaks mid-task, diagnose the root cause, write a fix, VERIFY by re-running the broken thing, then file a `HEAL-` entry to `.learnings/HEALS.md` with proof. Use whenever a command, test, build, or lint fails or exits non-zero; on missing tooling, dependency/lockfile mismatch, wrong runtime version, venv or permission errors, port conflicts, dirty git state, or a missing `.env`; when the agent needs a helper or one-off script that doesn't exist yet; when an external API, tool, or MCP errors or rate-limits; or when a test flakes. Search `HEALS.md` by `Pattern-Key` first \u2014 most heals are recurrences, so increment `Recurrence-Count` instead of duplicating. Verify is mandatory: mark `pending-verify` honestly if sandboxed, `abandoned` if the fix can't be made to work. Pairs with `self-improvement` (which promotes recurring heals to durable memory) but owns the verify-before-persist discipline self-improvement doesn't.\"",
+    "path": "library/pskoett-pskoett-ai-skills/skills/self-healing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate self-healing",
+    "link_cmd": "python .agents/library/activate_skill.py link self-healing"
+  },
+  {
+    "id": "self-healing-ci",
+    "name": "self-healing-ci",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": "\"CI-only self-healing workflow using gh-aw (GitHub Agentic Workflows) for active runtime recovery on pull requests and scheduled runs. When a CI check fails (test, build, lint, deploy, scan), this skill diagnoses the failure from CI logs, proposes a verified patch as a PR comment or follow-up commit, and commits a HEAL entry to `.learnings/HEALS.md`. Verify-before-persist discipline preserved: a HEAL is only `verified` if a re-run check passes in the same workflow; otherwise it ships as `pending-verify` for human follow-up. Recurrent heal patterns across PRs accumulate `Recurrence-Count` and append a `Handoff` block at \u22653 to flag promotion via self-improvement-ci. Use this skill when: you want headless heal-loop execution in CI/scheduled pipelines, you want recurring failure patterns captured automatically, or you want PRs that surface non-obvious environmental / tooling fixes without human triage. For interactive/local sessions, use `self-healing` instead.\"",
+    "path": "library/pskoett-pskoett-ai-skills/skills/self-healing-ci",
+    "activation_cmd": "python .agents/library/activate_skill.py activate self-healing-ci",
+    "link_cmd": "python .agents/library/activate_skill.py link self-healing-ci"
+  },
+  {
+    "id": "self-improvement",
+    "name": "self-improvement",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": "\"Captures learnings, errors, corrections, and feature requests to enable continuous improvement. Use when: (1) User corrects Claude ('No, that's wrong...', 'Actually...'), (2) User requests a capability that doesn't exist, (3) Claude realizes its knowledge is outdated or incorrect, (4) A better approach is discovered for a recurring task, (5) Receiving a Handoff block from self-healing (a recurring verified heal with Recurrence-Count at least 3) to distill into a memory file or new skill. For ACTIVE runtime failures where the agent needs to apply and verify a fix mid-task, use `self-healing` instead (it files HEAL- entries with proof; self-improvement promotes accumulated patterns). Also review learnings before major tasks. For CI-only/headless learning capture, use self-improvement-ci.\"",
+    "path": "library/pskoett-pskoett-ai-skills/skills/self-improvement",
+    "activation_cmd": "python .agents/library/activate_skill.py activate self-improvement",
+    "link_cmd": "python .agents/library/activate_skill.py link self-improvement"
+  },
+  {
+    "id": "self-improvement-ci",
+    "name": "self-improvement-ci",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": "\"CI-only self-improvement workflow using gh-aw (GitHub Agentic Workflows). Captures recurring failure patterns and quality signals from pull request checks, emits structured learning candidates, and proposes durable prevention rules without interactive prompts. Use when: you want automated learning capture in CI/headless pipelines.\"",
+    "path": "library/pskoett-pskoett-ai-skills/skills/self-improvement-ci",
+    "activation_cmd": "python .agents/library/activate_skill.py activate self-improvement-ci",
+    "link_cmd": "python .agents/library/activate_skill.py link self-improvement-ci"
+  },
+  {
+    "id": "session-context",
+    "name": "session-context",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": "\"[Beta] Retrieves task-relevant prior sessions and returns a short, cited brief of decisions, corrections, failed approaches, and unresolved work. Use after the initial intent frame and before finalizing the approach, when asked to find related work, or when a concrete history gap could change the approach.\"",
+    "path": "library/pskoett-pskoett-ai-skills/skills/session-context",
+    "activation_cmd": "python .agents/library/activate_skill.py activate session-context",
+    "link_cmd": "python .agents/library/activate_skill.py link session-context"
+  },
+  {
+    "id": "simplify-and-harden",
+    "name": "simplify-and-harden",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": "\"Post-completion self-review for coding agents that runs simplify, harden, re-verification, and micro-documentation passes on non-trivial code or high-impact configuration changes. Use when a task is complete in a general agent session and you want a bounded quality and security sweep before signaling done. For CI pipeline execution, use simplify-and-harden-ci.\"",
+    "path": "library/pskoett-pskoett-ai-skills/skills/simplify-and-harden",
+    "activation_cmd": "python .agents/library/activate_skill.py activate simplify-and-harden",
+    "link_cmd": "python .agents/library/activate_skill.py link simplify-and-harden"
+  },
+  {
+    "id": "simplify-and-harden-ci",
+    "name": "simplify-and-harden-ci",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": "\"CI-only Simplify & Harden workflow for pull requests using gh-aw (GitHub Agentic Workflows). Runs headless scan-and-report checks for simplify/harden/document, posts structured findings, and can block merges on critical or advisory classes. Use when: you want automated quality/security review in CI without interactive approvals.\"",
+    "path": "library/pskoett-pskoett-ai-skills/skills/simplify-and-harden-ci",
+    "activation_cmd": "python .agents/library/activate_skill.py activate simplify-and-harden-ci",
+    "link_cmd": "python .agents/library/activate_skill.py link simplify-and-harden-ci"
+  },
+  {
+    "id": "skill-pipeline",
+    "name": "skill-pipeline",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": ">",
+    "path": "library/pskoett-pskoett-ai-skills/skills/skill-pipeline",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-pipeline",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-pipeline"
+  },
+  {
+    "id": "skill-tester",
+    "name": "skill-tester",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": "\"Validates all interactive skills in this repo against the Agent Skills spec, project conventions, and structural requirements. Runs quick_validate.py, checks line limits, verifies cross-references, and tests hook scripts. Use when skills have been added or modified and you want to verify everything passes before committing or submitting.\"",
+    "path": "library/pskoett-pskoett-ai-skills/skills/skill-tester",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-tester",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-tester"
+  },
+  {
+    "id": "skill-tester-ci",
+    "name": "skill-tester-ci",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": "\"Validates all CI skills in this repo. Checks Agent Skills spec compliance, gh-aw workflow compilation, permission correctness, and structural conventions. Use when CI skills have been added or modified and you want to verify they compile and conform before committing.\"",
+    "path": "library/pskoett-pskoett-ai-skills/skills/skill-tester-ci",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skill-tester-ci",
+    "link_cmd": "python .agents/library/activate_skill.py link skill-tester-ci"
+  },
+  {
+    "id": "verify-gate",
+    "name": "verify-gate",
+    "repository": "pskoett-pskoett-ai-skills",
+    "category": "general",
+    "description": "\"Runs project compile, test, and lint commands between implementation and quality review. Gates simplify-and-harden behind machine verification. If checks fail, routes back to implementation with diagnostics for a fix loop. If checks pass, signals ready for the quality pass. Use after any implementation work completes and before simplify-and-harden. Essential for the inner loop's verify step.\"",
+    "path": "library/pskoett-pskoett-ai-skills/skills/verify-gate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate verify-gate",
+    "link_cmd": "python .agents/library/activate_skill.py link verify-gate"
+  }
+]

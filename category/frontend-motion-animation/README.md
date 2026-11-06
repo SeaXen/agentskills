@@ -1,7 +1,7 @@
 # ✨ UI Motion, Animations & Polish
 
 > **Category**: `frontend-motion-animation`  
-> **Total Curated Skills**: 263 skills  
+> **Total Curated Skills**: 271 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -69,6 +69,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cinematic-scroll-storytelling`](../../library/mengto-skills/skills/cinematic-scroll-storytelling) | ⚪ Reserve | `mengto-skills` | Create cinematic scroll-driven landing pages with Lenis smooth scrolling, GSAP ScrollTrigger, s... |
 | [`claude-motion-design`](../../library/howseen-ai-claude-motion-design/skills/claude-motion-design) | ⚪ Reserve | `howseen-ai-claude-motion-design` | Specialized trending agent skill. |
 | [`cmux-cua`](../../library/manaflow-ai-cmux/skills/cmux-cua) | ⚪ Reserve | `manaflow-ai-cmux` | Use only after the user explicitly asks for cmux Computer Use through the cmux-cua skill: drive... |
+| [`code-film`](../../library/majiayu000-spellbook/skills/code-film) | ⚪ Reserve | `majiayu000-spellbook` | 用纯代码（three.js 离线渲染 + 合成音频）做有故事、有电影质感的动画短片并导出 MP4。当用户想做短片、动画片、宣传片、角色动画、循环视频、片头、产品故事片，或者说“用代码做个视频... |
 | [`codeart2d`](../../library/0x0funky-agent-sprite-forge/skills/codeart2d) | ⚪ Reserve | `0x0funky-agent-sprite-forge` | Explicit-only last resort. Draws game art from code, with no image model - pixel sprites from a... |
 | [`commercial-skills`](../../library/alirezarezvani-claude-skills/skills/commercial-skills) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when reviewing, approving, or designing commercial motion — pricing models, deal review, di... |
 | [`controlnet-pose`](../../library/gencraft-labs-skills/skills/controlnet-pose) | ⚪ Reserve | `gencraft-labs-skills` | Pose-conditioned generation on RunComfy via the `runcomfy` CLI. Routes across Kling 2-6 Motion ... |
@@ -105,6 +106,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`fire-paper-loader`](../../library/mengto-skills/skills/fire-paper-loader) | ⚪ Reserve | `mengto-skills` | Build a burning-paper ring loader whose GLSL flame is drawn by a Worker on an OffscreenCanvas s... |
 | [`firecrawl-interact`](../../library/firecrawl-cli/skills/firecrawl-interact) | ⚪ Reserve | `firecrawl-cli` | Drive a live browser on a scraped page: click, fill forms, log in, paginate, infinite-scroll. U... |
 | [`flutter-animating-apps`](../../library/feimacode-open-design-agent-kit/skills/flutter-animating-apps) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Implement animated effects, transitions, and motion in Flutter apps. Useful for native iOS/Andr... |
+| [`form-motion`](../../library/majiayu000-spellbook/skills/form-motion) | ⚪ Reserve | `majiayu000-spellbook` | FORM UI 动效词典：10 个克制、跟手、可访问的界面微交互，每个都配原始提示词、可改项、验收标准和自动验收脚本——连续形变按钮、液体标签指示器、弹性滑块、柔性开关、原位展开卡片、层叠通... |
 | [`founder-sales`](../../library/refoundai-lenny-skills/skills/founder-sales) | ⚪ Reserve | `refoundai-lenny-skills` | Help users master the transition from product development to active selling by leveraging their... |
 | [`framer-motion`](../../library/mindrally-skills/skills/framer-motion) | ⚪ Reserve | `mindrally-skills` | Expert guidelines for building performant animations with Framer Motion/Motion library in React... |
 | [`full-page-screenshot`](../../library/alirezarezvani-claude-skills/skills/full-page-screenshot) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when the user asks to capture a full-page screenshot, long screenshot, or complete page cap... |
@@ -118,6 +120,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`gpt-taste`](../../library/sickn33-agentic-awesome-skills/skills/gpt-taste) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use when generating elite GSAP-heavy frontend pages with strict AIDA structure, wide hero typog... |
 | [`gpt-tasteskill`](../../library/feimacode-open-design-agent-kit/skills/gpt-tasteskill) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Elite UX/UI & Advanced GSAP Motion Engineer. Enforces Python-driven true randomization for layo... |
 | [`gradient`](../../library/bergside-awesome-design-skills/skills/gradient) | ⚪ Reserve | `bergside-awesome-design-skills` | Smooth color transitions and gradient-rich surfaces for modern, playful interfaces with visual ... |
+| [`gsap`](../../library/martinholovsky-claude-skills-generator/skills/gsap) | ⚪ Reserve | `martinholovsky-claude-skills-generator` | GSAP animations for JARVIS HUD transitions and effects |
 | [`gsap-performance`](../../library/feimacode-open-design-agent-kit/skills/gsap-performance) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Official GSAP skill for performance — prefer transforms, avoid layout thrashing, will-change, b... |
 | [`gsap-plugins`](../../library/feimacode-open-design-agent-kit/skills/gsap-plugins) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Official GSAP skill for GSAP plugins — registration, ScrollToPlugin, ScrollSmoother, Flip, Drag... |
 | [`gsap-react`](../../library/feimacode-open-design-agent-kit/skills/gsap-react) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Official GSAP skill for React — useGSAP hook, refs, gsap.context(), cleanup. Use when the user ... |
@@ -135,7 +138,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`image-to-video`](../../library/101-skills-superpowers/skills/image-to-video) | ⚪ Reserve | `101-skills-superpowers` | Still-to-video conversion guide: model selection, motion prompting, and camera movement. Covers... |
 | [`immersive`](../../library/bergside-awesome-design-skills/skills/immersive) | ⚪ Reserve | `bergside-awesome-design-skills` | An immersive, interactive, exhibit-style interface that blends storytelling, animation, and gam... |
 | [`impeccable`](../../skills/impeccable) | 🟢 Active | `active` | Use when the user wants to design, redesign, shape, critique, audit, polish, simplify, harden, ... |
+| [`implement`](../../library/bfollington-terma/skills/implement) | ⚪ Reserve | `bfollington-terma` | Use when carrying out a change that is already decided — building the thing rather than choosin... |
 | [`improve-animations`](../../library/emilkowalski-skills/skills/improve-animations) | ⚪ Reserve | `emilkowalski-skills` | Survey a codebase's animation and motion code as a senior motion advisor, then produce a priori... |
+| [`intent-framed-agent`](../../library/pskoett-pskoett-ai-skills/skills/intent-framed-agent) | ⚪ Reserve | `pskoett-pskoett-ai-skills` | Frames coding-agent work sessions with explicit intent capture and drift monitoring. Use when a... |
 | [`interaction-design`](../../library/aj-geddes-useful-ai-prompts/skills/interaction-design) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Design meaningful interactions and microinteractions. Create delightful user experiences throug... |
 | [`interfaces-that-feel`](../../library/owl-listener-designer-skills/skills/interfaces-that-feel) | ⚪ Reserve | `owl-listener-designer-skills` | Apply an emotional resonance lens to a UI that is technically correct but flat, prescribing cha... |
 | [`joint-gtm-planning`](../../library/mbfinotti-partnerships-skills/skills/joint-gtm-planning) | ⚪ Reserve | `mbfinotti-partnerships-skills` | Plan one joint go-to-market motion with one already-chosen partner - the joint value propositio... |
@@ -171,6 +176,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`motion-foundations`](../../library/affaan-m-ecc/skills/motion-foundations) | ⚪ Reserve | `affaan-m-ecc` | Motion tokens, spring presets, performance rules, device adaptation, accessibility enforcement,... |
 | [`motion-patterns`](../../library/affaan-m-ecc/skills/motion-patterns) | ⚪ Reserve | `affaan-m-ecc` | Production-ready animation patterns for React / Next.js — button, modal, toast, stagger, page t... |
 | [`motion-showreel`](../../library/nateherkai-herk-edit-kit/skills/motion-showreel) | ⚪ Reserve | `nateherkai-herk-edit-kit` | Design and build a 10-30 second motion-design showreel or brand reel in the style of Nate's Opu... |
+| [`motion-stack`](../../library/majiayu000-spellbook/skills/motion-stack) | ⚪ Reserve | `majiayu000-spellbook` | 用代码做动效短片的通用底座：按 brief 从 20 个开源库（Three.js、PixiJS、p5、Paper、Matter、Rapier、anime.js、tsParticles、OGL... |
 | [`motion-system`](../../library/owl-listener-designer-skills/skills/motion-system) | ⚪ Reserve | `owl-listener-designer-skills` | Define motion tokens — durations, easing vocabulary, and reduced-motion handling — for consiste... |
 | [`msw-avatar`](../../library/msw-git-msw-ai-coding-plugins-official/skills/msw-avatar) | ⚪ Reserve | `msw-git-msw-ai-coding-plugins-official` | MSW avatar management — costume (CostumeManagerComponent, 17 slots) + animation 3-layer pipelin... |
 | [`msw-combat-system`](../../library/msw-git-msw-ai-coding-plugins-official/skills/msw-combat-system) | ⚪ Reserve | `msw-git-msw-ai-coding-plugins-official` | MSW combat system integration guide. Covers the Attack→Hit pipeline, damage model, i-frame, kno... |
@@ -198,6 +204,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`remotion-motion-graphics`](../../library/haidrrrry-claude-remotion-skill/skills/remotion-motion-graphics) | ⚪ Reserve | `haidrrrry-claude-remotion-skill` | Create and edit professional motion graphics videos with Remotion (React-based video). Use this... |
 | [`remotion-video-creation`](../../library/affaan-m-ecc/skills/remotion-video-creation) | ⚪ Reserve | `affaan-m-ecc` | Best practices for Remotion - Video creation in React. 29 domain-specific rules covering 3D, an... |
 | [`remove-animations`](../../library/emilkowalski-skills/skills/remove-animations) | ⚪ Reserve | `emilkowalski-skills` | Find the animations an interface doesn't need and remove them — motion on keyboard actions, hig... |
+| [`repo-film`](../../library/majiayu000-spellbook/skills/repo-film) | ⚪ Reserve | `majiayu000-spellbook` | 把一个 git 仓库在一段时间里的真实提交做成 15–25 秒的炫酷短片：主线和各条分支按真实分叉、合并同时生长成流程图，越长越快再拉远看全景；仓库有 you-are-here 项目地图时，... |
 | [`responsiveness-check`](../../library/jezweb-claude-skills/skills/responsiveness-check) | ⚪ Reserve | `jezweb-claude-skills` | Test website responsiveness across viewport widths using browser automation. Resizes a single s... |
 | [`retopology`](../../library/arjun988-blender-skills/skills/retopology) | ⚪ Reserve | `arjun988-blender-skills` | Production retopology for animation-ready, low-poly, quad-dominant meshes with proper edge loop... |
 | [`review-animations`](../../library/emilkowalski-skills/skills/review-animations) | ⚪ Reserve | `emilkowalski-skills` | Reviews animation and motion code against a high craft bar derived from Emil Kowalski's design ... |
@@ -257,6 +264,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`top-design`](../../library/wondelai-skills/skills/top-design) | ⚪ Reserve | `wondelai-skills` | Create award-winning, immersive web experiences at the level of Awwwards-featured agencies. Use... |
 | [`trader-memory-core`](../../library/tradermonty-claude-trading-skills/skills/trader-memory-core) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Track investment theses across their lifecycle — from screening idea to closed position with po... |
 | [`transcript-intelligence`](../../library/scrapecreators-social-media-research-skills/skills/transcript-intelligence) | ⚪ Reserve | `scrapecreators-social-media-research-skills` | Use when the user wants to summarize, analyze, or repurpose transcripts from TikTok, Instagram,... |
+| [`transitions-polish`](../../library/jakubantalik-transitions-dev/skills/transitions-polish) | ⚪ Reserve | `jakubantalik-transitions-dev` | Polish and refine existing motion against the transitions.dev motion-token scale — duration, di... |
 | [`ui-animation`](../../library/nexu-io-open-design/skills/ui-animation) | ⚪ Reserve | `nexu-io-open-design` | Implement, review, and measure UI motion. Reconstruct easing, springs and gestures from a recor... |
 | [`ui-toolkit-web`](../../library/zoom-ui-toolkit-web/skills/ui-toolkit-web) | ⚪ Reserve | `zoom-ui-toolkit-web` | Reference skill for Zoom Video SDK UI Toolkit. Use after routing to a web video workflow when y... |
 | [`ui-ux-pro-max`](../../skills/ui-ux-pro-max) | 🟢 Active | `active` | UI/UX design intelligence for web, mobile, and desktop. This skill should be used when designin... |

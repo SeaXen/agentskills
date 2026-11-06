@@ -1,7 +1,7 @@
 # 💰 Financial Modeling, Tax & Accounting
 
 > **Category**: `business-finance-accounting`  
-> **Total Curated Skills**: 260 skills  
+> **Total Curated Skills**: 269 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -68,6 +68,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cro-review`](../../library/alirezarezvani-claude-skills/skills/cro-review) | ⚪ Reserve | `alirezarezvani-claude-skills` | /c-level-agents:cro-review [plan] — Pipeline-paranoid interrogation of revenue, win rate, NRR, ... |
 | [`cs-financial-analyst`](../../library/alirezarezvani-claude-skills/skills/cs-financial-analyst) | ⚪ Reserve | `alirezarezvani-claude-skills` | ../../../agents/finance/cs-financial-analyst.md |
 | [`csv-formula-injection`](../../library/yaklang-hack-skills/skills/csv-formula-injection) | ⚪ Reserve | `yaklang-hack-skills` | CSV/spreadsheet formula injection (DDE, Excel/LibreOffice, Google Sheets IMPORT*). Use when exp... |
+| [`curve-plugin`](../../library/okx-plugin-store/skills/curve-plugin) | ⚪ Reserve | `okx-plugin-store` | Curve DEX plugin for swapping stablecoins and managing liquidity on Curve Finance. Trigger phra... |
 | [`customer-billing-ops`](../../library/affaan-m-ecc/skills/customer-billing-ops) | ⚪ Reserve | `affaan-m-ecc` | Operate customer billing workflows such as subscriptions, refunds, churn triage, billing-portal... |
 | [`customer-success-manager`](../../library/alirezarezvani-claude-skills/skills/customer-success-manager) | ⚪ Reserve | `alirezarezvani-claude-skills` | Monitors customer health, predicts churn risk, and identifies expansion opportunities using wei... |
 | [`data-fetcher`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/data-fetcher) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Fetch economic data from FRED, World Bank, BLS, OECD, and Yahoo Finance |
@@ -77,6 +78,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`developer-champions`](../../library/samber-developer-relations-skills/skills/developer-champions) | ⚪ Reserve | `samber-developer-relations-skills` | Designs an unpaid, perks-only developer champions or ambassador program end to end  -  readines... |
 | [`devtools-business-model`](../../library/samber-developer-relations-skills/skills/devtools-business-model) | ⚪ Reserve | `samber-developer-relations-skills` | Chooses the business model for a developer tool - proprietary SaaS, open core, hosted open sour... |
 | [`doc-chaser-lite`](../../library/davila7-claude-code-templates/skills/doc-chaser-lite) | ⚪ Reserve | `davila7-claude-code-templates` | Free lite skill — drafts one friendly (level-1) client document-request email for a single tax ... |
+| [`dolomite-plugin`](../../library/okx-plugin-store/skills/dolomite-plugin) | ⚪ Reserve | `okx-plugin-store` | Dolomite Finance lending and borrowing on Arbitrum - supply assets to earn interest, open isola... |
 | [`domain-fintech`](../../library/actionbook-rust-skills/skills/domain-fintech) | ⚪ Reserve | `actionbook-rust-skills` | Use when building fintech apps. Keywords: fintech, trading, decimal, currency, financial, money... |
 | [`earnings-recap`](../../library/himself65-finance-skills/skills/earnings-recap) | ⚪ Reserve | `himself65-finance-skills` | Analyze a company's most recent (or a specified past) earnings report from Yahoo Finance data (... |
 | [`ecommerce-ab-testing`](../../library/nexscope-ai-ecommerce-skills/skills/ecommerce-ab-testing) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Master A/B testing for e-commerce across all platforms. Test product pages, pricing, ads, email... |
@@ -110,6 +112,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`financial-statement-analysis`](../../library/genspark-ai-genoffice/skills/financial-statement-analysis) | ⚪ Reserve | `genspark-ai-genoffice` | Analyse the three financial statements for profitability, solvency, efficiency and cash-flow ra... |
 | [`financial-statements`](../../library/anthropics-knowledge-work/skills/financial-statements) | ⚪ Reserve | `anthropics-knowledge-work` | Generate financial statements (income statement, balance sheet, cash flow) with period-over-per... |
 | [`formula-derivation`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/formula-derivation) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Structure and derive research formulas when the user wants to 推导公式, derive a theory line, build... |
+| [`frame-check`](../../library/petekp-claude-code-setup/skills/frame-check) | ⚪ Reserve | `petekp-claude-code-setup` | Check whether the stated problem is the right problem before work commits to it. Walks a proble... |
 | [`freshbooks-automation`](../../library/composio-community-awesome-codex-skills/skills/freshbooks-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | FreshBooks Automation: manage businesses, projects, time tracking, and billing in FreshBooks cl... |
 | [`fxmacrodata`](../../library/sickn33-agentic-awesome-skills/skills/fxmacrodata) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Query FXMacroData for official-source macro indicators, release calendars, central-bank policy ... |
 | [`government-bond-analysis`](../../library/nomadamas-k-skill/skills/government-bond-analysis) | ⚪ Reserve | `nomadamas-k-skill` | 한국·미국 국채시장을 공식 금리 데이터로 분석하고 커브 변화, 한·미 금리차, 확인된 국채 입찰·통화정책 일정을 같은 형식으로 정리한다. 국고채·미국 국채 금리 비교, 최... |
@@ -144,6 +147,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`landing-page-conversion-audit`](../../library/autonnel-autonnel-skills/skills/landing-page-conversion-audit) | ⚪ Reserve | `autonnel-autonnel-skills` | Audit a landing page, sales page or checkout page for conversion leaks and return a fix list or... |
 | [`lean-startup`](../../library/wondelai-skills/skills/lean-startup) | ⚪ Reserve | `wondelai-skills` | Design MVPs, validated learning experiments, and pivot-or-persevere decisions using Build-Measu... |
 | [`linkedin-reader`](../../library/himself65-finance-skills/skills/linkedin-reader) | ⚪ Reserve | `himself65-finance-skills` | Read LinkedIn for financial research through opencli: the user's feed, and job search with loca... |
+| [`linkfox-temu-tax-eu`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-temu-tax-eu) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 管理 Temu 欧洲站店铺的电商税务资料，支持月度税务报表导出与下载、文件上传签名、发票摘要和明细查询、发票 PDF 下载以及发票和贷项通知单上传。适用于 EU 店铺发票核对、VAT 明细查... |
 | [`ljg-think`](../../library/lijigang-ljg-skills/skills/ljg-think) | ⚪ Reserve | `lijigang-ljg-skills` | 追本之箭——纵向深钻思维工具。给一个观点、现象或问题，像箭一样一路向下钻到不可再分的本质。Use when user says '想透', '追本', '本质是什么', '为什么会这样', ... |
 | [`longbridge-fundamentals`](../../library/longbridge-skills/skills/longbridge-fundamentals) | ⚪ Reserve | `longbridge-skills` | Financial statements, business segments, dividends, valuation multiples (PE/PB/PS), industry co... |
 | [`longbridge-value-investing`](../../library/longbridge-skills/skills/longbridge-value-investing) | ⚪ Reserve | `longbridge-skills` | Value investing analysis using Graham (NCAV/net-net/defensive-investor) and Buffett (economic m... |
@@ -155,6 +159,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`monetization`](../../library/sickn33-agentic-awesome-skills/skills/monetization) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Estrategia e implementacao de monetizacao para produtos digitais - Stripe, subscriptions, prici... |
 | [`monetization-strategy`](../../library/appeeky-aso-skills/skills/monetization-strategy) | ⚪ Reserve | `appeeky-aso-skills` | When the user wants to design or optimize their app's monetization — pricing, paywalls, subscri... |
 | [`month-end-close`](../../library/alirezarezvani-claude-skills/skills/month-end-close) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when running, planning or speeding up a month-end (or quarter-end) close — building or revi... |
+| [`moolaski-financial-analyst`](../../library/looskis-moolaski/skills/moolaski-financial-analyst) | ⚪ Reserve | `looskis-moolaski` | A financial analyst that answers money questions with a working Excel model. It pins down the q... |
 | [`multi-asset-morning-briefing`](../../library/nomadamas-k-skill/skills/multi-asset-morning-briefing) | ⚪ Reserve | `nomadamas-k-skill` | 글로벌 주식·금리·외환·원자재·변동성과 한국시장 전달 경로를 연결해 근거 링크가 있는 7개 섹션의 멀티에셋 모닝 브리핑을 작성한다. Use when the user ask... |
 | [`n8n-code-python`](../../library/antigravity-awesome-skills/skills/n8n-code-python) | ⚪ Reserve | `antigravity-awesome-skills` | Write Python code in n8n Code nodes. Use when writing Python in n8n, using _input/_json/_node s... |
 | [`nav-tieout`](../../library/anthropics-financial-services/skills/nav-tieout) | ⚪ Reserve | `anthropics-financial-services` | Tie an LP statement to the fund's NAV pack — recompute the LP's capital account from the NAV co... |
@@ -176,6 +181,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`payroll-prep`](../../library/anthropics-knowledge-work/skills/payroll-prep) | ⚪ Reserve | `anthropics-knowledge-work` | Gets payroll ready to run without anyone getting shorted: pulls timesheets from Gusto, QuickBoo... |
 | [`pdf-converter`](../../library/claude-office-skills-skills/skills/pdf-converter) | ⚪ Reserve | `claude-office-skills-skills` | Convert PDF files to and from Word, Excel, Image, and other formats |
 | [`pdf-fill-studio`](../../library/davila7-claude-code-templates/skills/pdf-fill-studio) | ⚪ Reserve | `davila7-claude-code-templates` | Fill any PDF locally and place each value precisely in a visual editor. Use when the user wants... |
+| [`pendle-plugin`](../../library/okx-plugin-store/skills/pendle-plugin) | ⚪ Reserve | `okx-plugin-store` | Pendle Finance yield tokenization plugin. Buy or sell fixed-yield PT tokens, trade YT yield tok... |
 | [`personal-finance`](../../library/genspark-ai-genoffice/skills/personal-finance) | ⚪ Reserve | `genspark-ai-genoffice` | Turn income, spending and goals into a monthly budget and savings plan with actionable adjustme... |
 | [`pipeline-stage-definition-audit`](../../library/mbfinotti-revops-skills/skills/pipeline-stage-definition-audit) | ⚪ Reserve | `mbfinotti-revops-skills` | Audit existing sales pipeline stage definitions against buyer-verifiable milestones and flag th... |
 | [`pitch-deck`](../../library/anthropics-financial-services/skills/pitch-deck) | ⚪ Reserve | `anthropics-financial-services` | Populates investment banking pitch deck templates with data from source files. Use when: user p... |
@@ -187,6 +193,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`pricing-strategy`](../../library/alirezarezvani-claude-skills/skills/pricing-strategy) | ⚪ Reserve | `alirezarezvani-claude-skills` | Design, optimize, and communicate SaaS pricing — tier structure, value metrics, pricing pages, ... |
 | [`problem-statement`](../../library/deanpeters-product-manager-skills/skills/problem-statement) | ⚪ Reserve | `deanpeters-product-manager-skills` | Write a user-centered problem statement with who is blocked, what they are trying to do, why it... |
 | [`product-vision`](../../library/phuryn-pm-skills/skills/product-vision) | ⚪ Reserve | `phuryn-pm-skills` | Brainstorm an inspiring, achievable, and emotional product vision that motivates teams and alig... |
+| [`puffer-plugin`](../../library/okx-plugin-store/skills/puffer-plugin) | ⚪ Reserve | `okx-plugin-store` | Liquid restaking on Puffer Finance (Ethereum). Deposit ETH into PufferVault to mint pufETH (ERC... |
 | [`purchase-accounting`](../../library/sickn33-agentic-awesome-skills/skills/purchase-accounting) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Purchase register: supplier, invoice, gross amount, VAT and TDS, net payable, ledger account an... |
 | [`quantitative-finance-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/quantitative-finance-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Quantitative methods for financial modeling, derivatives pricing, and risk an... |
 | [`quickbooks`](../../library/membranedev-application-skills/skills/quickbooks) | ⚪ Reserve | `membranedev-application-skills` | Quickbooks integration. Manage accounting data, records, and workflows. Use when the user wants... |
@@ -198,6 +205,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`report-writing`](../../library/elementalsouls-claude-bughunter/skills/report-writing) | ⚪ Reserve | `elementalsouls-claude-bughunter` | Bug bounty report writing for H1/Bugcrowd/Intigriti/Immunefi — report templates, human tone gui... |
 | [`research-finance`](../../library/alirezarezvani-claude-skills/skills/research-finance) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when managing the money for an internal R&D program or portfolio — building a multi-period ... |
 | [`research-ops-skills`](../../library/alirezarezvani-claude-skills/skills/research-ops-skills) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when planning, funding, scoping, or synthesizing enterprise research across workstreams — c... |
+| [`revenue-centric-design`](../../library/heliocosta-dev-revenue-centric-design/skills/revenue-centric-design) | ⚪ Reserve | `heliocosta-dev-revenue-centric-design` | Playbook for designing SaaS and startup products that convert, retain, and monetize — landing p... |
 | [`revenue-data-governance-strategy`](../../library/mbfinotti-revops-skills/skills/revenue-data-governance-strategy) | ⚪ Reserve | `mbfinotti-revops-skills` | Set org-wide revenue data governance policy - which system is source of truth per object class ... |
 | [`revenue-intelligence`](../../library/ericosiu-ai-marketing-skills/skills/revenue-intelligence) | ⚪ Reserve | `ericosiu-ai-marketing-skills` | python3 telemetry/version_check.py 2>/dev/null // true |
 | [`revenue-leakage`](../../library/mbfinotti-revops-skills/skills/revenue-leakage) | ⚪ Reserve | `mbfinotti-revops-skills` | Trace where deals and revenue silently exit one specific funnel and size the loss in recoverabl... |
@@ -241,6 +249,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`stata-accounting-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/stata-accounting-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | STATA code for empirical accounting and financial economics research |
 | [`stata-accounting-research`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/stata-accounting-research) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | STATA code patterns for empirical accounting and finance research |
 | [`stock-analysis`](../../library/alirezarezvani-claude-skills/skills/stock-analysis) | ⚪ Reserve | `alirezarezvani-claude-skills` | Produce a rigorous, sector-relative, multi-factor fundamental analysis of a publicly listed com... |
+| [`stock-checker`](../../library/gracefullight-stock-checker/skills/stock-checker) | ⚪ Reserve | `gracefullight-stock-checker` | 69 agent skills from gracefullight/stock-checker — including stock-analysis, yahoo-finance, tra... |
 | [`stock-correlation`](../../library/himself65-finance-skills/skills/stock-correlation) | ⚪ Reserve | `himself65-finance-skills` | Analyze how stocks move together using Yahoo Finance price history (yfinance): find correlated ... |
 | [`stock-liquidity`](../../library/himself65-finance-skills/skills/stock-liquidity) | ⚪ Reserve | `himself65-finance-skills` | Analyze how liquid a stock is using Yahoo Finance data (yfinance): bid-ask spreads, volume and ... |
 | [`stocks`](../../library/nousresearch-hermes-optional-skills/skills/stocks) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Stock quotes, history, search, compare, crypto via Yahoo. |

@@ -1,7 +1,7 @@
 # 🧠 NousResearch Hermes Agent Skills
 
 > **Category**: `autonomous-agents-hermes`  
-> **Total Curated Skills**: 183 skills  
+> **Total Curated Skills**: 182 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -39,7 +39,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`autonomous-agent-harness`](../../library/affaan-m-ecc/skills/autonomous-agent-harness) | ⚪ Reserve | `affaan-m-ecc` | Transform Claude Code into a fully autonomous agent system with persistent memory, scheduled op... |
 | [`awesome-hermes-agent`](../../library/reason-machines-trending-skills/skills/awesome-hermes-agent) | ⚪ Reserve | `reason-machines-trending-skills` | name: awesome-hermes-agent |
 | [`axolotl`](../../library/nousresearch-hermes-optional-skills/skills/axolotl) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Axolotl: YAML LLM fine-tuning (LoRA, DPO, GRPO). |
-| [`bioinformatics`](../../library/nousresearch-hermes-optional-skills/skills/bioinformatics) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Gateway to 400+ genomics and computational biology skills. |
 | [`blackbox`](../../library/nousresearch-hermes-optional-skills/skills/blackbox) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Delegate coding tasks to the Blackbox AI multi-model CLI. |
 | [`blocked-page-recovery`](../../library/nousresearch-hermes-skills/skills/blocked-page-recovery) | ⚪ Reserve | `nousresearch-hermes-skills` | Use when a fetch fails: 403/429, paywall, WAF, bot wall. |
 | [`blogwatcher`](../../library/nousresearch-hermes-optional-skills/skills/blogwatcher) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool. |

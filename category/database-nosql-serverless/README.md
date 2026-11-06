@@ -1,7 +1,7 @@
 # ⚡ NoSQL, Serverless & Vector DBs
 
 > **Category**: `database-nosql-serverless`  
-> **Total Curated Skills**: 123 skills  
+> **Total Curated Skills**: 126 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -40,14 +40,17 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`caching-strategy`](../../library/aj-geddes-useful-ai-prompts/skills/caching-strategy) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Implement efficient caching strategies using Redis, Memcached, CDN, and cache invalidation patt... |
 | [`cdf-augmentation`](../../library/nvidia-skills/skills/cdf-augmentation) | ⚪ Reserve | `nvidia-skills` | Use when authoring or validating Cosmos Data Factory (CDF) augmentation YAML configs, or runnin... |
 | [`cdf-curation-and-retrieval`](../../library/nvidia-skills/skills/cdf-curation-and-retrieval) | ⚪ Reserve | `nvidia-skills` | NVIDIA CDF curation and retrieval. Cosmos Curator video and image pipelines (split, dedup, shar... |
+| [`celery-expert`](../../library/martinholovsky-claude-skills-generator/skills/celery-expert) | ⚪ Reserve | `martinholovsky-claude-skills-generator` | Expert Celery distributed task queue engineer specializing in async task processing, workflow o... |
 | [`chunking-strategy`](../../library/giuseppe-trisciuoglio-developer-kit/skills/chunking-strategy) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides chunking strategies for RAG systems. Generates chunk size recommendations (256-1024 to... |
 | [`cloud-firebase-basics`](../../library/google-skills/skills/cloud-firebase-basics) | ⚪ Reserve | `google-skills` | Provides foundational Firebase CLI setup, CLI installation, version checks (`firebase-tools@lat... |
 | [`cosmos-vulnerability-scanner`](../../library/trailofbits-skills/skills/cosmos-vulnerability-scanner) | ⚪ Reserve | `trailofbits-skills` | Scans Cosmos SDK blockchain modules and CosmWasm contracts for consensus-critical vulnerabiliti... |
 | [`cosmosdb-best-practices`](../../library/cline-skills/skills/cosmosdb-best-practices) | ⚪ Reserve | `cline-skills` | Azure Cosmos DB performance optimization and best practices guidelines for NoSQL, partitioning,... |
 | [`cost-analysis`](../../library/microsoft-azure-skills/skills/cost-analysis) | ⚪ Reserve | `microsoft-azure-skills` | Analyze actual Azure spend, bill changes, and AKS or AI costs. WHEN: \"Azure cost breakdown\", ... |
 | [`crash-analytics`](../../library/appeeky-aso-skills/skills/crash-analytics) | ⚪ Reserve | `appeeky-aso-skills` | When the user wants to monitor, triage, or reduce their app's crash rate — including setting up... |
+| [`database-patterns`](../../library/majiayu000-spellbook/skills/database-patterns) | ⚪ Reserve | `majiayu000-spellbook` | Use when designing PostgreSQL + Redis data models, indexes, caching strategies, JSONB usage, ti... |
 | [`debug-buttercup`](../../library/sickn33-agentic-awesome-skills/skills/debug-buttercup) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | All pods run in namespace crs. Use when pods in the crs namespace are in CrashLoopBackOff, OOMK... |
 | [`deep-searcher-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/deep-searcher-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Open deep research alternative for private data with vector search |
+| [`deepeval-tracing`](../../library/confident-ai-deepeval/skills/deepeval-tracing) | ⚪ Reserve | `confident-ai-deepeval` | Instrument an AI application with DeepEval's native tracing so its behavior is visible in Confi... |
 | [`deploy-pipeline`](../../library/composio-community-awesome-codex-skills/skills/deploy-pipeline) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Run end-to-end deploy pipelines across Stripe, Supabase, and Vercel using the Composio CLI. Pro... |
 | [`doca-aes-gcm`](../../library/nvidia-skills/skills/doca-aes-gcm) | ⚪ Reserve | `nvidia-skills` | Use this skill when the user is doing hands-on DOCA AES-GCM work on a BlueField DPU or ConnectX... |
 | [`evaluation-methodology`](../../library/wshobson-agents/skills/evaluation-methodology) | ⚪ Reserve | `wshobson-agents` | PluginEval quality methodology, covering dimensions, rubrics, and scoring formulas. Use this sk... |

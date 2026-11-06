@@ -1,0 +1,71 @@
+#!/usr/bin/env python3
+"""
+SP Targets Update - linkfox-amazon-ads-manager
+=============================================
+
+PUT sp/targets (Amazon Ads).
+
+Usage:
+  python update_targets.py '<JSON params>'
+
+Required:
+  profileId (number), region (NA/EU/FE), payload (Amazon-native body)
+
+payload structure:
+  {"targetingClauses":[{"targetId":123,"bid":0.8}]}
+"""
+
+import json
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from _common import (  # noqa: E402
+    ensure_auth_skill_available,
+    mutate_entity,
+    parse_argv_params,
+    require_fields,
+    emit_result,
+    lf_inline_flag,
+)
+
+ENTITY_PATH = "sp/targets"
+CONTENT_TYPE = "application/vnd.spTargetingClause.v3+json"
+METHOD = "PUT"
+
+
+def main() -> None:
+    params = parse_argv_params(__doc__)
+
+    if not params.get("skipDepCheck"):
+        ensure_auth_skill_available()
+
+    require_fields(params, ["profileId", "region", "payload"])
+
+    profile_id = int(params["profileId"])
+    region = params["region"]
+
+    result = mutate_entity(
+        region=region,
+        profile_id=profile_id,
+        path=ENTITY_PATH,
+        method=METHOD,
+        content_type=CONTENT_TYPE,
+        payload=params["payload"],
+    )
+
+    if "error" in result:
+        emit_result(result, inline=lf_inline_flag())
+        sys.exit(1)
+
+    inline = lf_inline_flag()
+    emit_result(result, inline=inline)
+    print(
+        f"\n\u2713 {METHOD} {ENTITY_PATH} \u2014 HTTP {result.get('httpStatus', '?')}",
+        file=sys.stderr,
+    )
+
+
+if __name__ == "__main__":
+    main()
