@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'python-patterns' (D:\Repo\.agents\skills\python-patterns\SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'python-patterns' (skills/python-patterns\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---

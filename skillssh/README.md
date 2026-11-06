@@ -98,7 +98,7 @@ python skillssh.py --check --json
 ## 📁 File Structure
 
 ```text
-D:/Repo/.agents/skillssh/
+skillssh/
 ├── skillssh.py               # Core Python engine
 ├── skillssh.bat              # Windows Command Prompt launcher
 ├── skillssh.ps1              # Windows PowerShell launcher

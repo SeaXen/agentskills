@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'vercel-react-view-transitions' (D:\Repo\.agents\skills\vercel-react-view-transitions\README.md).
+﻿<!-- Absorbed from the sibling skill 'vercel-react-view-transitions' (skills/vercel-react-view-transitions\README.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # React View Transitions Skill

@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'mobile-design' (D:\Repo\.agents\skills\mobile-design\mobile-navigation.md).
+﻿<!-- Absorbed from the sibling skill 'mobile-design' (skills/mobile-design\mobile-navigation.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # Mobile Navigation Reference

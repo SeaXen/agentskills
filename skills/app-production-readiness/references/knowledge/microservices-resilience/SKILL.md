@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'microservices-resilience' (D:\Repo\.agents\skills\microservices-resilience\SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'microservices-resilience' (skills/microservices-resilience\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---

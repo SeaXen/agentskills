@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'ai-debt-detector' (D:\Repo\.agents\skills\ai-debt-detector\SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'ai-debt-detector' (skills/ai-debt-detector\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---

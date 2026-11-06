@@ -91,7 +91,7 @@
 
 - **Total Installs**: `30.8M`
 - **Skills Bundled**: `55` skills
-- **Local Library Vault**: [`library/mattpocock-skills`](file:///D:/Repo/.agents/library/mattpocock-skills)
+- **Local Library Vault**: [`library/mattpocock-skills`](library/mattpocock-skills)
 - **Skills.sh URL**: [https://www.skills.sh/mattpocock/skills](https://www.skills.sh/mattpocock/skills)
 - **GitHub URL**: [https://github.com/mattpocock/skills](https://github.com/mattpocock/skills)
 - **CLI Install Command**:
@@ -104,7 +104,7 @@
 
 - **Total Installs**: `16.0M`
 - **Skills Bundled**: `52` skills
-- **Local Library Vault**: [`library/heygen-com-hyperframes`](file:///D:/Repo/.agents/library/heygen-com-hyperframes)
+- **Local Library Vault**: [`library/heygen-com-hyperframes`](library/heygen-com-hyperframes)
 - **Skills.sh URL**: [https://www.skills.sh/heygen-com/hyperframes](https://www.skills.sh/heygen-com/hyperframes)
 - **GitHub URL**: [https://github.com/heygen-com/hyperframes](https://github.com/heygen-com/hyperframes)
 - **CLI Install Command**:
@@ -117,7 +117,7 @@
 
 - **Total Installs**: `14.4M`
 - **Skills Bundled**: `58` skills
-- **Local Library Vault**: [`library/microsoft-azure-skills`](file:///D:/Repo/.agents/library/microsoft-azure-skills)
+- **Local Library Vault**: [`library/microsoft-azure-skills`](library/microsoft-azure-skills)
 - **Skills.sh URL**: [https://www.skills.sh/microsoft/azure-skills](https://www.skills.sh/microsoft/azure-skills)
 - **GitHub URL**: [https://github.com/microsoft/azure-skills](https://github.com/microsoft/azure-skills)
 - **CLI Install Command**:
@@ -130,7 +130,7 @@
 
 - **Total Installs**: `12.1M`
 - **Skills Bundled**: `34` skills
-- **Local Library Vault**: [`library/larksuite-cli`](file:///D:/Repo/.agents/library/larksuite-cli)
+- **Local Library Vault**: [`library/larksuite-cli`](library/larksuite-cli)
 - **Skills.sh URL**: [https://www.skills.sh/larksuite/cli](https://www.skills.sh/larksuite/cli)
 - **GitHub URL**: [https://github.com/larksuite/cli](https://github.com/larksuite/cli)
 - **CLI Install Command**:
@@ -143,7 +143,7 @@
 
 - **Total Installs**: `11.8M`
 - **Skills Bundled**: `30` skills
-- **Local Library Vault**: [`library/prime-skills-runcomfy-agent-skills`](file:///D:/Repo/.agents/library/prime-skills-runcomfy-agent-skills)
+- **Local Library Vault**: [`library/prime-skills-runcomfy-agent-skills`](library/prime-skills-runcomfy-agent-skills)
 - **Skills.sh URL**: [https://www.skills.sh/prime-skills/runcomfy-agent-skills](https://www.skills.sh/prime-skills/runcomfy-agent-skills)
 - **GitHub URL**: [https://github.com/prime-skills/runcomfy-agent-skills](https://github.com/prime-skills/runcomfy-agent-skills)
 - **CLI Install Command**:
@@ -156,7 +156,7 @@
 
 - **Total Installs**: `6.0M`
 - **Skills Bundled**: `31` skills
-- **Local Library Vault**: [`library/coreyhaines31-marketingskills`](file:///D:/Repo/.agents/library/coreyhaines31-marketingskills)
+- **Local Library Vault**: [`library/coreyhaines31-marketingskills`](library/coreyhaines31-marketingskills)
 - **Skills.sh URL**: [https://www.skills.sh/coreyhaines31/marketingskills](https://www.skills.sh/coreyhaines31/marketingskills)
 - **GitHub URL**: [https://github.com/coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills)
 - **CLI Install Command**:
@@ -169,7 +169,7 @@
 
 - **Total Installs**: `5.5M`
 - **Skills Bundled**: `16` skills
-- **Local Library Vault**: [`library/taste-skill`](file:///D:/Repo/.agents/library/taste-skill)
+- **Local Library Vault**: [`library/taste-skill`](library/taste-skill)
 - **Skills.sh URL**: [https://www.skills.sh/leonxlnx/taste-skill](https://www.skills.sh/leonxlnx/taste-skill)
 - **GitHub URL**: [https://github.com/leonxlnx/taste-skill](https://github.com/leonxlnx/taste-skill)
 - **CLI Install Command**:
@@ -182,7 +182,7 @@
 
 - **Total Installs**: `5.0M`
 - **Skills Bundled**: `86` skills
-- **Local Library Vault**: [`library/101-skills-superpowers`](file:///D:/Repo/.agents/library/101-skills-superpowers)
+- **Local Library Vault**: [`library/101-skills-superpowers`](library/101-skills-superpowers)
 - **Skills.sh URL**: [https://www.skills.sh/101-skills/superpowers](https://www.skills.sh/101-skills/superpowers)
 - **GitHub URL**: [https://github.com/101-skills/superpowers](https://github.com/101-skills/superpowers)
 - **CLI Install Command**:
@@ -195,7 +195,7 @@
 
 - **Total Installs**: `4.5M`
 - **Skills Bundled**: `25` skills
-- **Local Library Vault**: [`library/juliusbrussee-caveman`](file:///D:/Repo/.agents/library/juliusbrussee-caveman)
+- **Local Library Vault**: [`library/juliusbrussee-caveman`](library/juliusbrussee-caveman)
 - **Skills.sh URL**: [https://www.skills.sh/juliusbrussee/caveman](https://www.skills.sh/juliusbrussee/caveman)
 - **GitHub URL**: [https://github.com/juliusbrussee/caveman](https://github.com/juliusbrussee/caveman)
 - **CLI Install Command**:
@@ -208,7 +208,7 @@
 
 - **Total Installs**: `4.4M`
 - **Skills Bundled**: `86` skills
-- **Local Library Vault**: [`library/magentosh-superpowers`](file:///D:/Repo/.agents/library/magentosh-superpowers)
+- **Local Library Vault**: [`library/magentosh-superpowers`](library/magentosh-superpowers)
 - **Skills.sh URL**: [https://www.skills.sh/magentosh/superpowers](https://www.skills.sh/magentosh/superpowers)
 - **GitHub URL**: [https://github.com/magentosh/superpowers](https://github.com/magentosh/superpowers)
 - **CLI Install Command**:
@@ -221,7 +221,7 @@
 
 - **Total Installs**: `4.3M`
 - **Skills Bundled**: `12` skills
-- **Local Library Vault**: [`library/lllllllama-rigorpilot-skills`](file:///D:/Repo/.agents/library/lllllllama-rigorpilot-skills)
+- **Local Library Vault**: [`library/lllllllama-rigorpilot-skills`](library/lllllllama-rigorpilot-skills)
 - **Skills.sh URL**: [https://www.skills.sh/lllllllama/rigorpilot-skills](https://www.skills.sh/lllllllama/rigorpilot-skills)
 - **GitHub URL**: [https://github.com/lllllllama/rigorpilot-skills](https://github.com/lllllllama/rigorpilot-skills)
 - **CLI Install Command**:
@@ -234,7 +234,7 @@
 
 - **Total Installs**: `4.1M`
 - **Skills Bundled**: `3` skills
-- **Local Library Vault**: [`library/vercel-labs-skills`](file:///D:/Repo/.agents/library/vercel-labs-skills)
+- **Local Library Vault**: [`library/vercel-labs-skills`](library/vercel-labs-skills)
 - **Skills.sh URL**: [https://www.skills.sh/vercel-labs/skills](https://www.skills.sh/vercel-labs/skills)
 - **GitHub URL**: [https://github.com/vercel-labs/skills](https://github.com/vercel-labs/skills)
 - **CLI Install Command**:
@@ -247,7 +247,7 @@
 
 - **Total Installs**: `3.7M`
 - **Skills Bundled**: `7` skills
-- **Local Library Vault**: [`library/google-agents-cli`](file:///D:/Repo/.agents/library/google-agents-cli)
+- **Local Library Vault**: [`library/google-agents-cli`](library/google-agents-cli)
 - **Skills.sh URL**: [https://www.skills.sh/google/agents-cli](https://www.skills.sh/google/agents-cli)
 - **GitHub URL**: [https://github.com/google/agents-cli](https://github.com/google/agents-cli)
 - **CLI Install Command**:
@@ -260,7 +260,7 @@
 
 - **Total Installs**: `3.7M`
 - **Skills Bundled**: `15` skills
-- **Local Library Vault**: [`library/obra-superpowers`](file:///D:/Repo/.agents/library/obra-superpowers)
+- **Local Library Vault**: [`library/obra-superpowers`](library/obra-superpowers)
 - **Skills.sh URL**: [https://www.skills.sh/obra/superpowers](https://www.skills.sh/obra/superpowers)
 - **GitHub URL**: [https://github.com/obra/superpowers](https://github.com/obra/superpowers)
 - **CLI Install Command**:
@@ -273,7 +273,7 @@
 
 - **Total Installs**: `3.6M`
 - **Skills Bundled**: `21` skills
-- **Local Library Vault**: [`library/anthropics-skills`](file:///D:/Repo/.agents/library/anthropics-skills)
+- **Local Library Vault**: [`library/anthropics-skills`](library/anthropics-skills)
 - **Skills.sh URL**: [https://www.skills.sh/anthropics/skills](https://www.skills.sh/anthropics/skills)
 - **GitHub URL**: [https://github.com/anthropics/skills](https://github.com/anthropics/skills)
 - **CLI Install Command**:
@@ -286,7 +286,7 @@
 
 - **Total Installs**: `3.6M`
 - **Skills Bundled**: `10` skills
-- **Local Library Vault**: [`library/prisma-skills`](file:///D:/Repo/.agents/library/prisma-skills)
+- **Local Library Vault**: [`library/prisma-skills`](library/prisma-skills)
 - **Skills.sh URL**: [https://www.skills.sh/prisma/skills](https://www.skills.sh/prisma/skills)
 - **GitHub URL**: [https://github.com/prisma/skills](https://github.com/prisma/skills)
 - **CLI Install Command**:
@@ -299,7 +299,7 @@
 
 - **Total Installs**: `3.4M`
 - **Skills Bundled**: `113` skills
-- **Local Library Vault**: [`library/googleworkspace-cli`](file:///D:/Repo/.agents/library/googleworkspace-cli)
+- **Local Library Vault**: [`library/googleworkspace-cli`](library/googleworkspace-cli)
 - **Skills.sh URL**: [https://www.skills.sh/googleworkspace/cli](https://www.skills.sh/googleworkspace/cli)
 - **GitHub URL**: [https://github.com/googleworkspace/cli](https://github.com/googleworkspace/cli)
 - **CLI Install Command**:
@@ -312,7 +312,7 @@
 
 - **Total Installs**: `3.2M`
 - **Skills Bundled**: `15` skills
-- **Local Library Vault**: [`library/remotion-dev-skills`](file:///D:/Repo/.agents/library/remotion-dev-skills)
+- **Local Library Vault**: [`library/remotion-dev-skills`](library/remotion-dev-skills)
 - **Skills.sh URL**: [https://www.skills.sh/remotion-dev/skills](https://www.skills.sh/remotion-dev/skills)
 - **GitHub URL**: [https://github.com/remotion-dev/skills](https://github.com/remotion-dev/skills)
 - **CLI Install Command**:
@@ -325,7 +325,7 @@
 
 - **Total Installs**: `3.2M`
 - **Skills Bundled**: `86` skills
-- **Local Library Vault**: [`library/qu-skills-superpowers`](file:///D:/Repo/.agents/library/qu-skills-superpowers)
+- **Local Library Vault**: [`library/qu-skills-superpowers`](library/qu-skills-superpowers)
 - **Skills.sh URL**: [https://www.skills.sh/qu-skills/superpowers](https://www.skills.sh/qu-skills/superpowers)
 - **GitHub URL**: [https://github.com/qu-skills/superpowers](https://github.com/qu-skills/superpowers)
 - **CLI Install Command**:
@@ -338,7 +338,7 @@
 
 - **Total Installs**: `3.1M`
 - **Skills Bundled**: `16` skills
-- **Local Library Vault**: [`library/vercel-labs-agent-skills`](file:///D:/Repo/.agents/library/vercel-labs-agent-skills)
+- **Local Library Vault**: [`library/vercel-labs-agent-skills`](library/vercel-labs-agent-skills)
 - **Skills.sh URL**: [https://www.skills.sh/vercel-labs/agent-skills](https://www.skills.sh/vercel-labs/agent-skills)
 - **GitHub URL**: [https://github.com/vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills)
 - **CLI Install Command**:
@@ -351,7 +351,7 @@
 
 - **Total Installs**: `2.8M`
 - **Skills Bundled**: `16` skills
-- **Local Library Vault**: [`library/emilkowalski-skills`](file:///D:/Repo/.agents/library/emilkowalski-skills)
+- **Local Library Vault**: [`library/emilkowalski-skills`](library/emilkowalski-skills)
 - **Skills.sh URL**: [https://www.skills.sh/emilkowalski/skills](https://www.skills.sh/emilkowalski/skills)
 - **GitHub URL**: [https://github.com/emilkowalski/skills](https://github.com/emilkowalski/skills)
 - **CLI Install Command**:
@@ -364,7 +364,7 @@
 
 - **Total Installs**: `2.7M`
 - **Skills Bundled**: `86` skills
-- **Local Library Vault**: [`library/skills-shell-superpowers`](file:///D:/Repo/.agents/library/skills-shell-superpowers)
+- **Local Library Vault**: [`library/skills-shell-superpowers`](library/skills-shell-superpowers)
 - **Skills.sh URL**: [https://www.skills.sh/skills-shell/superpowers](https://www.skills.sh/skills-shell/superpowers)
 - **GitHub URL**: [https://github.com/skills-shell/superpowers](https://github.com/skills-shell/superpowers)
 - **CLI Install Command**:
@@ -377,7 +377,7 @@
 
 - **Total Installs**: `2.5M`
 - **Skills Bundled**: `185` skills
-- **Local Library Vault**: [`library/wshobson-agents`](file:///D:/Repo/.agents/library/wshobson-agents)
+- **Local Library Vault**: [`library/wshobson-agents`](library/wshobson-agents)
 - **Skills.sh URL**: [https://www.skills.sh/wshobson/agents](https://www.skills.sh/wshobson/agents)
 - **GitHub URL**: [https://github.com/wshobson/agents](https://github.com/wshobson/agents)
 - **CLI Install Command**:
@@ -390,7 +390,7 @@
 
 - **Total Installs**: `2.4M`
 - **Skills Bundled**: `86` skills
-- **Local Library Vault**: [`library/its-a-skill-issue-superpowers`](file:///D:/Repo/.agents/library/its-a-skill-issue-superpowers)
+- **Local Library Vault**: [`library/its-a-skill-issue-superpowers`](library/its-a-skill-issue-superpowers)
 - **Skills.sh URL**: [https://www.skills.sh/its-a-skill-issue/superpowers](https://www.skills.sh/its-a-skill-issue/superpowers)
 - **GitHub URL**: [https://github.com/its-a-skill-issue/superpowers](https://github.com/its-a-skill-issue/superpowers)
 - **CLI Install Command**:
@@ -403,7 +403,7 @@
 
 - **Total Installs**: `2.4M`
 - **Skills Bundled**: `476` skills
-- **Local Library Vault**: [`library/github-awesome-copilot`](file:///D:/Repo/.agents/library/github-awesome-copilot)
+- **Local Library Vault**: [`library/github-awesome-copilot`](library/github-awesome-copilot)
 - **Skills.sh URL**: [https://www.skills.sh/github/awesome-copilot](https://www.skills.sh/github/awesome-copilot)
 - **GitHub URL**: [https://github.com/github/awesome-copilot](https://github.com/github/awesome-copilot)
 - **CLI Install Command**:
@@ -416,7 +416,7 @@
 
 - **Total Installs**: `2.3M`
 - **Skills Bundled**: `86` skills
-- **Local Library Vault**: [`library/bankai-skills-superpowers`](file:///D:/Repo/.agents/library/bankai-skills-superpowers)
+- **Local Library Vault**: [`library/bankai-skills-superpowers`](library/bankai-skills-superpowers)
 - **Skills.sh URL**: [https://www.skills.sh/bankai-skills/superpowers](https://www.skills.sh/bankai-skills/superpowers)
 - **GitHub URL**: [https://github.com/bankai-skills/superpowers](https://github.com/bankai-skills/superpowers)
 - **CLI Install Command**:
@@ -429,7 +429,7 @@
 
 - **Total Installs**: `2.1M`
 - **Skills Bundled**: `23` skills
-- **Local Library Vault**: [`library/firebase-agent-skills`](file:///D:/Repo/.agents/library/firebase-agent-skills)
+- **Local Library Vault**: [`library/firebase-agent-skills`](library/firebase-agent-skills)
 - **Skills.sh URL**: [https://www.skills.sh/firebase/agent-skills](https://www.skills.sh/firebase/agent-skills)
 - **GitHub URL**: [https://github.com/firebase/agent-skills](https://github.com/firebase/agent-skills)
 - **CLI Install Command**:
@@ -442,7 +442,7 @@
 
 - **Total Installs**: `1.9M`
 - **Skills Bundled**: `24` skills
-- **Local Library Vault**: [`library/pbakaus-impeccable`](file:///D:/Repo/.agents/library/pbakaus-impeccable)
+- **Local Library Vault**: [`library/pbakaus-impeccable`](library/pbakaus-impeccable)
 - **Skills.sh URL**: [https://www.skills.sh/pbakaus/impeccable](https://www.skills.sh/pbakaus/impeccable)
 - **GitHub URL**: [https://github.com/pbakaus/impeccable](https://github.com/pbakaus/impeccable)
 - **CLI Install Command**:
@@ -455,7 +455,7 @@
 
 - **Total Installs**: `1.8M`
 - **Skills Bundled**: `46` skills
-- **Local Library Vault**: [`library/convex-agent-skills`](file:///D:/Repo/.agents/library/convex-agent-skills)
+- **Local Library Vault**: [`library/convex-agent-skills`](library/convex-agent-skills)
 - **Skills.sh URL**: [https://www.skills.sh/convex/agent-skills](https://www.skills.sh/convex/agent-skills)
 - **GitHub URL**: [https://github.com/convex/agent-skills](https://github.com/convex/agent-skills)
 - **CLI Install Command**:
@@ -468,7 +468,7 @@
 
 - **Total Installs**: `1.8M`
 - **Skills Bundled**: `46` skills
-- **Local Library Vault**: [`library/samber-cc-skills-golang`](file:///D:/Repo/.agents/library/samber-cc-skills-golang)
+- **Local Library Vault**: [`library/samber-cc-skills-golang`](library/samber-cc-skills-golang)
 - **Skills.sh URL**: [https://www.skills.sh/samber/cc-skills-golang](https://www.skills.sh/samber/cc-skills-golang)
 - **GitHub URL**: [https://github.com/samber/cc-skills-golang](https://github.com/samber/cc-skills-golang)
 - **CLI Install Command**:
@@ -481,7 +481,7 @@
 
 - **Total Installs**: `1.7M`
 - **Skills Bundled**: `33` skills
-- **Local Library Vault**: [`library/gencraft-labs-skills`](file:///D:/Repo/.agents/library/gencraft-labs-skills)
+- **Local Library Vault**: [`library/gencraft-labs-skills`](library/gencraft-labs-skills)
 - **Skills.sh URL**: [https://www.skills.sh/gencraft-labs/skills](https://www.skills.sh/gencraft-labs/skills)
 - **GitHub URL**: [https://github.com/gencraft-labs/skills](https://github.com/gencraft-labs/skills)
 - **CLI Install Command**:
@@ -494,7 +494,7 @@
 
 - **Total Installs**: `1.6M`
 - **Skills Bundled**: `25` skills
-- **Local Library Vault**: [`library/addyosmani-agent-skills`](file:///D:/Repo/.agents/library/addyosmani-agent-skills)
+- **Local Library Vault**: [`library/addyosmani-agent-skills`](library/addyosmani-agent-skills)
 - **Skills.sh URL**: [https://www.skills.sh/addyosmani/agent-skills](https://www.skills.sh/addyosmani/agent-skills)
 - **GitHub URL**: [https://github.com/addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)
 - **CLI Install Command**:
@@ -507,7 +507,7 @@
 
 - **Total Installs**: `1.5M`
 - **Skills Bundled**: `22` skills
-- **Local Library Vault**: [`library/cloudflare-skills`](file:///D:/Repo/.agents/library/cloudflare-skills)
+- **Local Library Vault**: [`library/cloudflare-skills`](library/cloudflare-skills)
 - **Skills.sh URL**: [https://www.skills.sh/cloudflare/skills](https://www.skills.sh/cloudflare/skills)
 - **GitHub URL**: [https://github.com/cloudflare/skills](https://github.com/cloudflare/skills)
 - **CLI Install Command**:
@@ -520,7 +520,7 @@
 
 - **Total Installs**: `1.4M`
 - **Skills Bundled**: `330` skills
-- **Local Library Vault**: [`library/affaan-m-ecc`](file:///D:/Repo/.agents/library/affaan-m-ecc)
+- **Local Library Vault**: [`library/affaan-m-ecc`](library/affaan-m-ecc)
 - **Skills.sh URL**: [https://www.skills.sh/affaan-m/ecc](https://www.skills.sh/affaan-m/ecc)
 - **GitHub URL**: [https://github.com/affaan-m/ecc](https://github.com/affaan-m/ecc)
 - **CLI Install Command**:
@@ -533,7 +533,7 @@
 
 - **Total Installs**: `1.3M`
 - **Skills Bundled**: `4` skills
-- **Local Library Vault**: [`library/vercel-labs-agent-browser`](file:///D:/Repo/.agents/library/vercel-labs-agent-browser)
+- **Local Library Vault**: [`library/vercel-labs-agent-browser`](library/vercel-labs-agent-browser)
 - **Skills.sh URL**: [https://www.skills.sh/vercel-labs/agent-browser](https://www.skills.sh/vercel-labs/agent-browser)
 - **GitHub URL**: [https://github.com/vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser)
 - **CLI Install Command**:
@@ -546,7 +546,7 @@
 
 - **Total Installs**: `1.3M`
 - **Skills Bundled**: `11` skills
-- **Local Library Vault**: [`library/higgsfield-ai-skills`](file:///D:/Repo/.agents/library/higgsfield-ai-skills)
+- **Local Library Vault**: [`library/higgsfield-ai-skills`](library/higgsfield-ai-skills)
 - **Skills.sh URL**: [https://www.skills.sh/higgsfield-ai/skills](https://www.skills.sh/higgsfield-ai/skills)
 - **GitHub URL**: [https://github.com/higgsfield-ai/skills](https://github.com/higgsfield-ai/skills)
 - **CLI Install Command**:
@@ -559,7 +559,7 @@
 
 - **Total Installs**: `1.2M`
 - **Skills Bundled**: `1` skills
-- **Local Library Vault**: [`library/flowkit-labs-skills`](file:///D:/Repo/.agents/library/flowkit-labs-skills)
+- **Local Library Vault**: [`library/flowkit-labs-skills`](library/flowkit-labs-skills)
 - **Skills.sh URL**: [https://www.skills.sh/flowkit-labs/skills](https://www.skills.sh/flowkit-labs/skills)
 - **GitHub URL**: [https://github.com/flowkit-labs/skills](https://github.com/flowkit-labs/skills)
 - **CLI Install Command**:
@@ -572,7 +572,7 @@
 
 - **Total Installs**: `1.1M`
 - **Skills Bundled**: `1` skills
-- **Local Library Vault**: [`library/designed-by-ai-skills`](file:///D:/Repo/.agents/library/designed-by-ai-skills)
+- **Local Library Vault**: [`library/designed-by-ai-skills`](library/designed-by-ai-skills)
 - **Skills.sh URL**: [https://www.skills.sh/designed-by-ai/skills](https://www.skills.sh/designed-by-ai/skills)
 - **GitHub URL**: [https://github.com/designed-by-ai/skills](https://github.com/designed-by-ai/skills)
 - **CLI Install Command**:
@@ -585,7 +585,7 @@
 
 - **Total Installs**: `1.1M`
 - **Skills Bundled**: `47` skills
-- **Local Library Vault**: [`library/expo-skills`](file:///D:/Repo/.agents/library/expo-skills)
+- **Local Library Vault**: [`library/expo-skills`](library/expo-skills)
 - **Skills.sh URL**: [https://www.skills.sh/expo/skills](https://www.skills.sh/expo/skills)
 - **GitHub URL**: [https://github.com/expo/skills](https://github.com/expo/skills)
 - **CLI Install Command**:
@@ -598,7 +598,7 @@
 
 - **Total Installs**: `1.0M`
 - **Skills Bundled**: `18` skills
-- **Local Library Vault**: [`library/stablyai-orca`](file:///D:/Repo/.agents/library/stablyai-orca)
+- **Local Library Vault**: [`library/stablyai-orca`](library/stablyai-orca)
 - **Skills.sh URL**: [https://www.skills.sh/stablyai/orca](https://www.skills.sh/stablyai/orca)
 - **GitHub URL**: [https://github.com/stablyai/orca](https://github.com/stablyai/orca)
 - **CLI Install Command**:
@@ -611,7 +611,7 @@
 
 - **Total Installs**: `968.9K`
 - **Skills Bundled**: `193` skills
-- **Local Library Vault**: [`library/google-skills`](file:///D:/Repo/.agents/library/google-skills)
+- **Local Library Vault**: [`library/google-skills`](library/google-skills)
 - **Skills.sh URL**: [https://www.skills.sh/google/skills](https://www.skills.sh/google/skills)
 - **GitHub URL**: [https://github.com/google/skills](https://github.com/google/skills)
 - **CLI Install Command**:
@@ -624,7 +624,7 @@
 
 - **Total Installs**: `897.6K`
 - **Skills Bundled**: `406` skills
-- **Local Library Vault**: [`library/forcedotcom-sf-skills`](file:///D:/Repo/.agents/library/forcedotcom-sf-skills)
+- **Local Library Vault**: [`library/forcedotcom-sf-skills`](library/forcedotcom-sf-skills)
 - **Skills.sh URL**: [https://www.skills.sh/forcedotcom/sf-skills](https://www.skills.sh/forcedotcom/sf-skills)
 - **GitHub URL**: [https://github.com/forcedotcom/sf-skills](https://github.com/forcedotcom/sf-skills)
 - **CLI Install Command**:
@@ -637,7 +637,7 @@
 
 - **Total Installs**: `876.9K`
 - **Skills Bundled**: `19` skills
-- **Local Library Vault**: [`library/ui-ux-pro-max-skill`](file:///D:/Repo/.agents/library/ui-ux-pro-max-skill)
+- **Local Library Vault**: [`library/ui-ux-pro-max-skill`](library/ui-ux-pro-max-skill)
 - **Skills.sh URL**: [https://www.skills.sh/nextlevelbuilder/ui-ux-pro-max-skill](https://www.skills.sh/nextlevelbuilder/ui-ux-pro-max-skill)
 - **GitHub URL**: [https://github.com/nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)
 - **CLI Install Command**:
@@ -650,7 +650,7 @@
 
 - **Total Installs**: `835.3K`
 - **Skills Bundled**: `143` skills
-- **Local Library Vault**: [`library/nomadamas-k-skill`](file:///D:/Repo/.agents/library/nomadamas-k-skill)
+- **Local Library Vault**: [`library/nomadamas-k-skill`](library/nomadamas-k-skill)
 - **Skills.sh URL**: [https://www.skills.sh/nomadamas/k-skill](https://www.skills.sh/nomadamas/k-skill)
 - **GitHub URL**: [https://github.com/nomadamas/k-skill](https://github.com/nomadamas/k-skill)
 - **CLI Install Command**:
@@ -663,7 +663,7 @@
 
 - **Total Installs**: `817.4K`
 - **Skills Bundled**: `3` skills
-- **Local Library Vault**: [`library/supabase-agent-skills`](file:///D:/Repo/.agents/library/supabase-agent-skills)
+- **Local Library Vault**: [`library/supabase-agent-skills`](library/supabase-agent-skills)
 - **Skills.sh URL**: [https://www.skills.sh/supabase/agent-skills](https://www.skills.sh/supabase/agent-skills)
 - **GitHub URL**: [https://github.com/supabase/agent-skills](https://github.com/supabase/agent-skills)
 - **CLI Install Command**:
@@ -676,7 +676,7 @@
 
 - **Total Installs**: `810.5K`
 - **Skills Bundled**: `89` skills
-- **Local Library Vault**: [`library/flutter-agent-plugins`](file:///D:/Repo/.agents/library/flutter-agent-plugins)
+- **Local Library Vault**: [`library/flutter-agent-plugins`](library/flutter-agent-plugins)
 - **Skills.sh URL**: [https://www.skills.sh/flutter/agent-plugins](https://www.skills.sh/flutter/agent-plugins)
 - **GitHub URL**: [https://github.com/flutter/agent-plugins](https://github.com/flutter/agent-plugins)
 - **CLI Install Command**:
@@ -689,7 +689,7 @@
 
 - **Total Installs**: `794.6K`
 - **Skills Bundled**: `27` skills
-- **Local Library Vault**: [`library/mbfinotti-sales-skills`](file:///D:/Repo/.agents/library/mbfinotti-sales-skills)
+- **Local Library Vault**: [`library/mbfinotti-sales-skills`](library/mbfinotti-sales-skills)
 - **Skills.sh URL**: [https://www.skills.sh/mbfinotti/sales-skills](https://www.skills.sh/mbfinotti/sales-skills)
 - **GitHub URL**: [https://github.com/mbfinotti/sales-skills](https://github.com/mbfinotti/sales-skills)
 - **CLI Install Command**:
@@ -702,7 +702,7 @@
 
 - **Total Installs**: `764.2K`
 - **Skills Bundled**: `17` skills
-- **Local Library Vault**: [`library/firecrawl-cli`](file:///D:/Repo/.agents/library/firecrawl-cli)
+- **Local Library Vault**: [`library/firecrawl-cli`](library/firecrawl-cli)
 - **Skills.sh URL**: [https://www.skills.sh/firecrawl/cli](https://www.skills.sh/firecrawl/cli)
 - **GitHub URL**: [https://github.com/firecrawl/cli](https://github.com/firecrawl/cli)
 - **CLI Install Command**:
@@ -715,7 +715,7 @@
 
 - **Total Installs**: `760.0K`
 - **Skills Bundled**: `2025` skills
-- **Local Library Vault**: [`library/dontbesilent2025-dbskill`](file:///D:/Repo/.agents/library/dontbesilent2025-dbskill)
+- **Local Library Vault**: [`library/dontbesilent2025-dbskill`](library/dontbesilent2025-dbskill)
 - **Skills.sh URL**: [https://www.skills.sh/dontbesilent2025/dbskill](https://www.skills.sh/dontbesilent2025/dbskill)
 - **GitHub URL**: [https://github.com/dontbesilent2025/dbskill](https://github.com/dontbesilent2025/dbskill)
 - **CLI Install Command**:
@@ -728,7 +728,7 @@
 
 - **Total Installs**: `730.4K`
 - **Skills Bundled**: `13` skills
-- **Local Library Vault**: [`library/neondatabase-agent-skills`](file:///D:/Repo/.agents/library/neondatabase-agent-skills)
+- **Local Library Vault**: [`library/neondatabase-agent-skills`](library/neondatabase-agent-skills)
 - **Skills.sh URL**: [https://www.skills.sh/neondatabase/agent-skills](https://www.skills.sh/neondatabase/agent-skills)
 - **GitHub URL**: [https://github.com/neondatabase/agent-skills](https://github.com/neondatabase/agent-skills)
 - **CLI Install Command**:
@@ -741,7 +741,7 @@
 
 - **Total Installs**: `725.8K`
 - **Skills Bundled**: `137` skills
-- **Local Library Vault**: [`library/claude-office-skills-skills`](file:///D:/Repo/.agents/library/claude-office-skills-skills)
+- **Local Library Vault**: [`library/claude-office-skills-skills`](library/claude-office-skills-skills)
 - **Skills.sh URL**: [https://www.skills.sh/claude-office-skills/skills](https://www.skills.sh/claude-office-skills/skills)
 - **GitHub URL**: [https://github.com/claude-office-skills/skills](https://github.com/claude-office-skills/skills)
 - **CLI Install Command**:
@@ -754,7 +754,7 @@
 
 - **Total Installs**: `715.9K`
 - **Skills Bundled**: `31` skills
-- **Local Library Vault**: [`library/mbfinotti-advertising-skills`](file:///D:/Repo/.agents/library/mbfinotti-advertising-skills)
+- **Local Library Vault**: [`library/mbfinotti-advertising-skills`](library/mbfinotti-advertising-skills)
 - **Skills.sh URL**: [https://www.skills.sh/mbfinotti/advertising-skills](https://www.skills.sh/mbfinotti/advertising-skills)
 - **GitHub URL**: [https://github.com/mbfinotti/advertising-skills](https://github.com/mbfinotti/advertising-skills)
 - **CLI Install Command**:
@@ -767,7 +767,7 @@
 
 - **Total Installs**: `680.9K`
 - **Skills Bundled**: `52` skills
-- **Local Library Vault**: [`library/caffeinelabs-skills`](file:///D:/Repo/.agents/library/caffeinelabs-skills)
+- **Local Library Vault**: [`library/caffeinelabs-skills`](library/caffeinelabs-skills)
 - **Skills.sh URL**: [https://www.skills.sh/caffeinelabs/skills](https://www.skills.sh/caffeinelabs/skills)
 - **GitHub URL**: [https://github.com/caffeinelabs/skills](https://github.com/caffeinelabs/skills)
 - **CLI Install Command**:
@@ -780,7 +780,7 @@
 
 - **Total Installs**: `661.4K`
 - **Skills Bundled**: `78` skills
-- **Local Library Vault**: [`library/samber-developer-relations-skills`](file:///D:/Repo/.agents/library/samber-developer-relations-skills)
+- **Local Library Vault**: [`library/samber-developer-relations-skills`](library/samber-developer-relations-skills)
 - **Skills.sh URL**: [https://www.skills.sh/samber/developer-relations-skills](https://www.skills.sh/samber/developer-relations-skills)
 - **GitHub URL**: [https://github.com/samber/developer-relations-skills](https://github.com/samber/developer-relations-skills)
 - **CLI Install Command**:
@@ -793,7 +793,7 @@
 
 - **Total Installs**: `647.6K`
 - **Skills Bundled**: `6` skills
-- **Local Library Vault**: [`library/autonnel-autonnel-skills`](file:///D:/Repo/.agents/library/autonnel-autonnel-skills)
+- **Local Library Vault**: [`library/autonnel-autonnel-skills`](library/autonnel-autonnel-skills)
 - **Skills.sh URL**: [https://www.skills.sh/autonnel/autonnel-skills](https://www.skills.sh/autonnel/autonnel-skills)
 - **GitHub URL**: [https://github.com/autonnel/autonnel-skills](https://github.com/autonnel/autonnel-skills)
 - **CLI Install Command**:
@@ -806,7 +806,7 @@
 
 - **Total Installs**: `646.7K`
 - **Skills Bundled**: `155` skills
-- **Local Library Vault**: [`library/aws-agent-toolkit-for-aws`](file:///D:/Repo/.agents/library/aws-agent-toolkit-for-aws)
+- **Local Library Vault**: [`library/aws-agent-toolkit-for-aws`](library/aws-agent-toolkit-for-aws)
 - **Skills.sh URL**: [https://www.skills.sh/aws/agent-toolkit-for-aws](https://www.skills.sh/aws/agent-toolkit-for-aws)
 - **GitHub URL**: [https://github.com/aws/agent-toolkit-for-aws](https://github.com/aws/agent-toolkit-for-aws)
 - **CLI Install Command**:
@@ -819,7 +819,7 @@
 
 - **Total Installs**: `642.2K`
 - **Skills Bundled**: `29` skills
-- **Local Library Vault**: [`library/warpdotdev-common-skills`](file:///D:/Repo/.agents/library/warpdotdev-common-skills)
+- **Local Library Vault**: [`library/warpdotdev-common-skills`](library/warpdotdev-common-skills)
 - **Skills.sh URL**: [https://www.skills.sh/warpdotdev/common-skills](https://www.skills.sh/warpdotdev/common-skills)
 - **GitHub URL**: [https://github.com/warpdotdev/common-skills](https://github.com/warpdotdev/common-skills)
 - **CLI Install Command**:
@@ -832,7 +832,7 @@
 
 - **Total Installs**: `615.6K`
 - **Skills Bundled**: `22` skills
-- **Local Library Vault**: [`library/clerk-skills`](file:///D:/Repo/.agents/library/clerk-skills)
+- **Local Library Vault**: [`library/clerk-skills`](library/clerk-skills)
 - **Skills.sh URL**: [https://www.skills.sh/clerk/skills](https://www.skills.sh/clerk/skills)
 - **GitHub URL**: [https://github.com/clerk/skills](https://github.com/clerk/skills)
 - **CLI Install Command**:
@@ -845,7 +845,7 @@
 
 - **Total Installs**: `606.8K`
 - **Skills Bundled**: `25` skills
-- **Local Library Vault**: [`library/jimliu-baoyu-skills`](file:///D:/Repo/.agents/library/jimliu-baoyu-skills)
+- **Local Library Vault**: [`library/jimliu-baoyu-skills`](library/jimliu-baoyu-skills)
 - **Skills.sh URL**: [https://www.skills.sh/jimliu/baoyu-skills](https://www.skills.sh/jimliu/baoyu-skills)
 - **GitHub URL**: [https://github.com/jimliu/baoyu-skills](https://github.com/jimliu/baoyu-skills)
 - **CLI Install Command**:
@@ -858,7 +858,7 @@
 
 - **Total Installs**: `602.1K`
 - **Skills Bundled**: `282` skills
-- **Local Library Vault**: [`library/anthropics-knowledge-work-plugins`](file:///D:/Repo/.agents/library/anthropics-knowledge-work-plugins)
+- **Local Library Vault**: [`library/anthropics-knowledge-work-plugins`](library/anthropics-knowledge-work-plugins)
 - **Skills.sh URL**: [https://www.skills.sh/anthropics/knowledge-work-plugins](https://www.skills.sh/anthropics/knowledge-work-plugins)
 - **GitHub URL**: [https://github.com/anthropics/knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins)
 - **CLI Install Command**:
@@ -871,7 +871,7 @@
 
 - **Total Installs**: `578.0K`
 - **Skills Bundled**: `33` skills
-- **Local Library Vault**: [`library/sickn33-agentic-awesome-skills`](file:///D:/Repo/.agents/library/sickn33-agentic-awesome-skills)
+- **Local Library Vault**: [`library/sickn33-agentic-awesome-skills`](library/sickn33-agentic-awesome-skills)
 - **Skills.sh URL**: [https://www.skills.sh/sickn33/agentic-awesome-skills](https://www.skills.sh/sickn33/agentic-awesome-skills)
 - **GitHub URL**: [https://github.com/sickn33/agentic-awesome-skills](https://github.com/sickn33/agentic-awesome-skills)
 - **CLI Install Command**:
@@ -884,7 +884,7 @@
 
 - **Total Installs**: `569.8K`
 - **Skills Bundled**: `8` skills
-- **Local Library Vault**: [`library/greensock-gsap-skills`](file:///D:/Repo/.agents/library/greensock-gsap-skills)
+- **Local Library Vault**: [`library/greensock-gsap-skills`](library/greensock-gsap-skills)
 - **Skills.sh URL**: [https://www.skills.sh/greensock/gsap-skills](https://www.skills.sh/greensock/gsap-skills)
 - **GitHub URL**: [https://github.com/greensock/gsap-skills](https://github.com/greensock/gsap-skills)
 - **CLI Install Command**:
@@ -897,7 +897,7 @@
 
 - **Total Installs**: `525.4K`
 - **Skills Bundled**: `78` skills
-- **Local Library Vault**: [`library/gamedev-skills-awesome-gamedev-agent-skills`](file:///D:/Repo/.agents/library/gamedev-skills-awesome-gamedev-agent-skills)
+- **Local Library Vault**: [`library/gamedev-skills-awesome-gamedev-agent-skills`](library/gamedev-skills-awesome-gamedev-agent-skills)
 - **Skills.sh URL**: [https://www.skills.sh/gamedev-skills/awesome-gamedev-agent-skills](https://www.skills.sh/gamedev-skills/awesome-gamedev-agent-skills)
 - **GitHub URL**: [https://github.com/gamedev-skills/awesome-gamedev-agent-skills](https://github.com/gamedev-skills/awesome-gamedev-agent-skills)
 - **CLI Install Command**:
@@ -910,7 +910,7 @@
 
 - **Total Installs**: `516.2K`
 - **Skills Bundled**: `19` skills
-- **Local Library Vault**: [`library/firecrawl-firecrawl-workflows`](file:///D:/Repo/.agents/library/firecrawl-firecrawl-workflows)
+- **Local Library Vault**: [`library/firecrawl-firecrawl-workflows`](library/firecrawl-firecrawl-workflows)
 - **Skills.sh URL**: [https://www.skills.sh/firecrawl/firecrawl-workflows](https://www.skills.sh/firecrawl/firecrawl-workflows)
 - **GitHub URL**: [https://github.com/firecrawl/firecrawl-workflows](https://github.com/firecrawl/firecrawl-workflows)
 - **CLI Install Command**:

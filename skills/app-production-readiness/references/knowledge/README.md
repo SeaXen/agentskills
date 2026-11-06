@@ -5,7 +5,7 @@ so that `app-production-readiness` can review an app on its own. Every file carr
 ("Absorbed from the sibling skill '<name>' ...").
 
 **The sibling skills themselves were not deleted.** The copies are additive: if you remove
-`D:\Repo\.agents\skills\<name>`, this skill keeps working (the copies are the source of truth here).
+`skills/<name>`, this skill keeps working (the copies are the source of truth here).
 
 `MANIFEST.json` lists every copied file with its source skill, the original path and the size.
 

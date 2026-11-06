@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'sentry-cli' (D:\Repo\.agents\skills\sentry-cli\references\event.md).
+﻿<!-- Absorbed from the sibling skill 'sentry-cli' (skills/sentry-cli\references\event.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---

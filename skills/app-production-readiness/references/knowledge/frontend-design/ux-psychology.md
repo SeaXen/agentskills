@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'frontend-design' (D:\Repo\.agents\skills\frontend-design\ux-psychology.md).
+﻿<!-- Absorbed from the sibling skill 'frontend-design' (skills/frontend-design\ux-psychology.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # UX Psychology Reference

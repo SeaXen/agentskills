@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'vercel-composition-patterns' (D:\Repo\.agents\skills\vercel-composition-patterns\rules\patterns-children-over-render-props.md).
+﻿<!-- Absorbed from the sibling skill 'vercel-composition-patterns' (skills/vercel-composition-patterns\rules\patterns-children-over-render-props.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---

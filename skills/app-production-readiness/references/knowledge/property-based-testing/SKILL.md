@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'property-based-testing' (D:\Repo\.agents\skills\property-based-testing\SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'property-based-testing' (skills/property-based-testing\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---

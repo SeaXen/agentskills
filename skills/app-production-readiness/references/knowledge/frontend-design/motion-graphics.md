@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'frontend-design' (D:\Repo\.agents\skills\frontend-design\motion-graphics.md).
+﻿<!-- Absorbed from the sibling skill 'frontend-design' (skills/frontend-design\motion-graphics.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # Motion Graphics Reference

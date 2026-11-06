@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'observability-and-instrumentation' (D:\Repo\.agents\skills\observability-and-instrumentation\SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'observability-and-instrumentation' (skills/observability-and-instrumentation\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---

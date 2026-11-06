@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'security-hardened-api' (D:\Repo\.agents\skills\security-hardened-api\SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'security-hardened-api' (skills/security-hardened-api\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---

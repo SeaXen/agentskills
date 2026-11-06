@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'api-contract-testing' (D:\Repo\.agents\skills\api-contract-testing\SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'api-contract-testing' (skills/api-contract-testing\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---

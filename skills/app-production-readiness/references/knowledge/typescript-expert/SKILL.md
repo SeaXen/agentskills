@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'typescript-expert' (D:\Repo\.agents\skills\typescript-expert\SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'typescript-expert' (skills/typescript-expert\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---

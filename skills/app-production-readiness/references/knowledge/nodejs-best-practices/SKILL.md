@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'nodejs-best-practices' (D:\Repo\.agents\skills\nodejs-best-practices\SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'nodejs-best-practices' (skills/nodejs-best-practices\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---

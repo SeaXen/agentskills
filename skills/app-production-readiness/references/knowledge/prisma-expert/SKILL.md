@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'prisma-expert' (D:\Repo\.agents\skills\prisma-expert\SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'prisma-expert' (skills/prisma-expert\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---

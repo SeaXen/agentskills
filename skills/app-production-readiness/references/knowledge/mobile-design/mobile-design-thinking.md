@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'mobile-design' (D:\Repo\.agents\skills\mobile-design\mobile-design-thinking.md).
+﻿<!-- Absorbed from the sibling skill 'mobile-design' (skills/mobile-design\mobile-design-thinking.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # Mobile Design Thinking

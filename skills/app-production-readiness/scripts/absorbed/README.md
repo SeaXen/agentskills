@@ -1,12 +1,12 @@
 # Absorbed scripts
 
 These scripts were **copied verbatim** from sibling skills in
-`D:\Repo\.agents\skills` so that `app-production-readiness` can run them on its own.
+`skills` so that `app-production-readiness` can run them on its own.
 They are not re-implementations: every file here is byte-identical to its
 original (the sha256 of each is recorded in `MANIFEST.json`).
 
 **The sibling skills are optional.**  Everything in this folder is a copy: if
-`D:\Repo\.agents\skills` is deleted, every gate of `app-production-readiness` still
+`skills` is deleted, every gate of `app-production-readiness` still
 runs unchanged.  `verify_manifest.py` reports *"original not found (kept the
 absorbed copy)"* in that case, which is a healthy state, not drift.
 

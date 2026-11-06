@@ -62,7 +62,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `30.8M`
 - **Skills Bundled**: `55` skills
-- **Local Library Vault**: [`library/mattpocock-skills`](file:///D:/Repo/.agents/library/mattpocock-skills)
+- **Local Library Vault**: [`library/mattpocock-skills`](library/mattpocock-skills)
 - **Skills.sh URL**: [https://www.skills.sh/mattpocock/skills](https://www.skills.sh/mattpocock/skills)
 - **GitHub URL**: [https://github.com/mattpocock/skills](https://github.com/mattpocock/skills)
 - **Installation Command**:
@@ -75,7 +75,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `16.0M`
 - **Skills Bundled**: `52` skills
-- **Local Library Vault**: [`library/heygen-com-hyperframes`](file:///D:/Repo/.agents/library/heygen-com-hyperframes)
+- **Local Library Vault**: [`library/heygen-com-hyperframes`](library/heygen-com-hyperframes)
 - **Skills.sh URL**: [https://www.skills.sh/heygen-com/hyperframes](https://www.skills.sh/heygen-com/hyperframes)
 - **GitHub URL**: [https://github.com/heygen-com/hyperframes](https://github.com/heygen-com/hyperframes)
 - **Installation Command**:
@@ -88,7 +88,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `14.4M`
 - **Skills Bundled**: `58` skills
-- **Local Library Vault**: [`library/microsoft-azure-skills`](file:///D:/Repo/.agents/library/microsoft-azure-skills)
+- **Local Library Vault**: [`library/microsoft-azure-skills`](library/microsoft-azure-skills)
 - **Skills.sh URL**: [https://www.skills.sh/microsoft/azure-skills](https://www.skills.sh/microsoft/azure-skills)
 - **GitHub URL**: [https://github.com/microsoft/azure-skills](https://github.com/microsoft/azure-skills)
 - **Installation Command**:
@@ -101,7 +101,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `12.1M`
 - **Skills Bundled**: `34` skills
-- **Local Library Vault**: [`library/larksuite-cli`](file:///D:/Repo/.agents/library/larksuite-cli)
+- **Local Library Vault**: [`library/larksuite-cli`](library/larksuite-cli)
 - **Skills.sh URL**: [https://www.skills.sh/larksuite/cli](https://www.skills.sh/larksuite/cli)
 - **GitHub URL**: [https://github.com/larksuite/cli](https://github.com/larksuite/cli)
 - **Installation Command**:
@@ -114,7 +114,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `11.8M`
 - **Skills Bundled**: `30` skills
-- **Local Library Vault**: [`library/prime-skills-runcomfy-agent-skills`](file:///D:/Repo/.agents/library/prime-skills-runcomfy-agent-skills)
+- **Local Library Vault**: [`library/prime-skills-runcomfy-agent-skills`](library/prime-skills-runcomfy-agent-skills)
 - **Skills.sh URL**: [https://www.skills.sh/prime-skills/runcomfy-agent-skills](https://www.skills.sh/prime-skills/runcomfy-agent-skills)
 - **GitHub URL**: [https://github.com/prime-skills/runcomfy-agent-skills](https://github.com/prime-skills/runcomfy-agent-skills)
 - **Installation Command**:
@@ -127,7 +127,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `6.0M`
 - **Skills Bundled**: `72` skills
-- **Local Library Vault**: [`library/coreyhaines31-marketingskills`](file:///D:/Repo/.agents/library/coreyhaines31-marketingskills)
+- **Local Library Vault**: [`library/coreyhaines31-marketingskills`](library/coreyhaines31-marketingskills)
 - **Skills.sh URL**: [https://www.skills.sh/coreyhaines31/marketingskills](https://www.skills.sh/coreyhaines31/marketingskills)
 - **GitHub URL**: [https://github.com/coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills)
 - **Installation Command**:
@@ -140,7 +140,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `5.5M`
 - **Skills Bundled**: `16` skills
-- **Local Library Vault**: [`library/taste-skill`](file:///D:/Repo/.agents/library/taste-skill)
+- **Local Library Vault**: [`library/taste-skill`](library/taste-skill)
 - **Skills.sh URL**: [https://www.skills.sh/leonxlnx/taste-skill](https://www.skills.sh/leonxlnx/taste-skill)
 - **GitHub URL**: [https://github.com/leonxlnx/taste-skill](https://github.com/leonxlnx/taste-skill)
 - **Installation Command**:
@@ -153,7 +153,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `5.0M`
 - **Skills Bundled**: `86` skills
-- **Local Library Vault**: [`library/101-skills-superpowers`](file:///D:/Repo/.agents/library/101-skills-superpowers)
+- **Local Library Vault**: [`library/101-skills-superpowers`](library/101-skills-superpowers)
 - **Skills.sh URL**: [https://www.skills.sh/101-skills/superpowers](https://www.skills.sh/101-skills/superpowers)
 - **GitHub URL**: [https://github.com/101-skills/superpowers](https://github.com/101-skills/superpowers)
 - **Installation Command**:
@@ -166,7 +166,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `4.5M`
 - **Skills Bundled**: `25` skills
-- **Local Library Vault**: [`library/juliusbrussee-caveman`](file:///D:/Repo/.agents/library/juliusbrussee-caveman)
+- **Local Library Vault**: [`library/juliusbrussee-caveman`](library/juliusbrussee-caveman)
 - **Skills.sh URL**: [https://www.skills.sh/juliusbrussee/caveman](https://www.skills.sh/juliusbrussee/caveman)
 - **GitHub URL**: [https://github.com/juliusbrussee/caveman](https://github.com/juliusbrussee/caveman)
 - **Installation Command**:
@@ -179,7 +179,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `4.4M`
 - **Skills Bundled**: `86` skills
-- **Local Library Vault**: [`library/magentosh-superpowers`](file:///D:/Repo/.agents/library/magentosh-superpowers)
+- **Local Library Vault**: [`library/magentosh-superpowers`](library/magentosh-superpowers)
 - **Skills.sh URL**: [https://www.skills.sh/magentosh/superpowers](https://www.skills.sh/magentosh/superpowers)
 - **GitHub URL**: [https://github.com/magentosh/superpowers](https://github.com/magentosh/superpowers)
 - **Installation Command**:
@@ -192,7 +192,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `4.3M`
 - **Skills Bundled**: `12` skills
-- **Local Library Vault**: [`library/lllllllama-rigorpilot-skills`](file:///D:/Repo/.agents/library/lllllllama-rigorpilot-skills)
+- **Local Library Vault**: [`library/lllllllama-rigorpilot-skills`](library/lllllllama-rigorpilot-skills)
 - **Skills.sh URL**: [https://www.skills.sh/lllllllama/rigorpilot-skills](https://www.skills.sh/lllllllama/rigorpilot-skills)
 - **GitHub URL**: [https://github.com/lllllllama/rigorpilot-skills](https://github.com/lllllllama/rigorpilot-skills)
 - **Installation Command**:
@@ -205,7 +205,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `4.1M`
 - **Skills Bundled**: `3` skills
-- **Local Library Vault**: [`library/vercel-labs-skills`](file:///D:/Repo/.agents/library/vercel-labs-skills)
+- **Local Library Vault**: [`library/vercel-labs-skills`](library/vercel-labs-skills)
 - **Skills.sh URL**: [https://www.skills.sh/vercel-labs/skills](https://www.skills.sh/vercel-labs/skills)
 - **GitHub URL**: [https://github.com/vercel-labs/skills](https://github.com/vercel-labs/skills)
 - **Installation Command**:
@@ -218,7 +218,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `3.7M`
 - **Skills Bundled**: `7` skills
-- **Local Library Vault**: [`library/google-agents-cli`](file:///D:/Repo/.agents/library/google-agents-cli)
+- **Local Library Vault**: [`library/google-agents-cli`](library/google-agents-cli)
 - **Skills.sh URL**: [https://www.skills.sh/google/agents-cli](https://www.skills.sh/google/agents-cli)
 - **GitHub URL**: [https://github.com/google/agents-cli](https://github.com/google/agents-cli)
 - **Installation Command**:
@@ -231,7 +231,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `3.7M`
 - **Skills Bundled**: `15` skills
-- **Local Library Vault**: [`library/obra-superpowers`](file:///D:/Repo/.agents/library/obra-superpowers)
+- **Local Library Vault**: [`library/obra-superpowers`](library/obra-superpowers)
 - **Skills.sh URL**: [https://www.skills.sh/obra/superpowers](https://www.skills.sh/obra/superpowers)
 - **GitHub URL**: [https://github.com/obra/superpowers](https://github.com/obra/superpowers)
 - **Installation Command**:
@@ -244,7 +244,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `3.6M`
 - **Skills Bundled**: `21` skills
-- **Local Library Vault**: [`library/anthropics-skills`](file:///D:/Repo/.agents/library/anthropics-skills)
+- **Local Library Vault**: [`library/anthropics-skills`](library/anthropics-skills)
 - **Skills.sh URL**: [https://www.skills.sh/anthropics/skills](https://www.skills.sh/anthropics/skills)
 - **GitHub URL**: [https://github.com/anthropics/skills](https://github.com/anthropics/skills)
 - **Installation Command**:
@@ -257,7 +257,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `3.6M`
 - **Skills Bundled**: `10` skills
-- **Local Library Vault**: [`library/prisma-skills`](file:///D:/Repo/.agents/library/prisma-skills)
+- **Local Library Vault**: [`library/prisma-skills`](library/prisma-skills)
 - **Skills.sh URL**: [https://www.skills.sh/prisma/skills](https://www.skills.sh/prisma/skills)
 - **GitHub URL**: [https://github.com/prisma/skills](https://github.com/prisma/skills)
 - **Installation Command**:
@@ -270,7 +270,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `3.4M`
 - **Skills Bundled**: `113` skills
-- **Local Library Vault**: [`library/googleworkspace-cli`](file:///D:/Repo/.agents/library/googleworkspace-cli)
+- **Local Library Vault**: [`library/googleworkspace-cli`](library/googleworkspace-cli)
 - **Skills.sh URL**: [https://www.skills.sh/googleworkspace/cli](https://www.skills.sh/googleworkspace/cli)
 - **GitHub URL**: [https://github.com/googleworkspace/cli](https://github.com/googleworkspace/cli)
 - **Installation Command**:
@@ -283,7 +283,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `3.2M`
 - **Skills Bundled**: `15` skills
-- **Local Library Vault**: [`library/remotion-dev-skills`](file:///D:/Repo/.agents/library/remotion-dev-skills)
+- **Local Library Vault**: [`library/remotion-dev-skills`](library/remotion-dev-skills)
 - **Skills.sh URL**: [https://www.skills.sh/remotion-dev/skills](https://www.skills.sh/remotion-dev/skills)
 - **GitHub URL**: [https://github.com/remotion-dev/skills](https://github.com/remotion-dev/skills)
 - **Installation Command**:
@@ -296,7 +296,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `3.2M`
 - **Skills Bundled**: `86` skills
-- **Local Library Vault**: [`library/qu-skills-superpowers`](file:///D:/Repo/.agents/library/qu-skills-superpowers)
+- **Local Library Vault**: [`library/qu-skills-superpowers`](library/qu-skills-superpowers)
 - **Skills.sh URL**: [https://www.skills.sh/qu-skills/superpowers](https://www.skills.sh/qu-skills/superpowers)
 - **GitHub URL**: [https://github.com/qu-skills/superpowers](https://github.com/qu-skills/superpowers)
 - **Installation Command**:
@@ -309,7 +309,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `3.1M`
 - **Skills Bundled**: `16` skills
-- **Local Library Vault**: [`library/vercel-labs-agent-skills`](file:///D:/Repo/.agents/library/vercel-labs-agent-skills)
+- **Local Library Vault**: [`library/vercel-labs-agent-skills`](library/vercel-labs-agent-skills)
 - **Skills.sh URL**: [https://www.skills.sh/vercel-labs/agent-skills](https://www.skills.sh/vercel-labs/agent-skills)
 - **GitHub URL**: [https://github.com/vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills)
 - **Installation Command**:
@@ -322,7 +322,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `2.8M`
 - **Skills Bundled**: `16` skills
-- **Local Library Vault**: [`library/emilkowalski-skills`](file:///D:/Repo/.agents/library/emilkowalski-skills)
+- **Local Library Vault**: [`library/emilkowalski-skills`](library/emilkowalski-skills)
 - **Skills.sh URL**: [https://www.skills.sh/emilkowalski/skills](https://www.skills.sh/emilkowalski/skills)
 - **GitHub URL**: [https://github.com/emilkowalski/skills](https://github.com/emilkowalski/skills)
 - **Installation Command**:
@@ -335,7 +335,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `2.7M`
 - **Skills Bundled**: `86` skills
-- **Local Library Vault**: [`library/skills-shell-superpowers`](file:///D:/Repo/.agents/library/skills-shell-superpowers)
+- **Local Library Vault**: [`library/skills-shell-superpowers`](library/skills-shell-superpowers)
 - **Skills.sh URL**: [https://www.skills.sh/skills-shell/superpowers](https://www.skills.sh/skills-shell/superpowers)
 - **GitHub URL**: [https://github.com/skills-shell/superpowers](https://github.com/skills-shell/superpowers)
 - **Installation Command**:
@@ -348,7 +348,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `2.5M`
 - **Skills Bundled**: `185` skills
-- **Local Library Vault**: [`library/wshobson-agents`](file:///D:/Repo/.agents/library/wshobson-agents)
+- **Local Library Vault**: [`library/wshobson-agents`](library/wshobson-agents)
 - **Skills.sh URL**: [https://www.skills.sh/wshobson/agents](https://www.skills.sh/wshobson/agents)
 - **GitHub URL**: [https://github.com/wshobson/agents](https://github.com/wshobson/agents)
 - **Installation Command**:
@@ -361,7 +361,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `2.4M`
 - **Skills Bundled**: `86` skills
-- **Local Library Vault**: [`library/its-a-skill-issue-superpowers`](file:///D:/Repo/.agents/library/its-a-skill-issue-superpowers)
+- **Local Library Vault**: [`library/its-a-skill-issue-superpowers`](library/its-a-skill-issue-superpowers)
 - **Skills.sh URL**: [https://www.skills.sh/its-a-skill-issue/superpowers](https://www.skills.sh/its-a-skill-issue/superpowers)
 - **GitHub URL**: [https://github.com/its-a-skill-issue/superpowers](https://github.com/its-a-skill-issue/superpowers)
 - **Installation Command**:
@@ -374,7 +374,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `2.4M`
 - **Skills Bundled**: `476` skills
-- **Local Library Vault**: [`library/github-awesome-copilot`](file:///D:/Repo/.agents/library/github-awesome-copilot)
+- **Local Library Vault**: [`library/github-awesome-copilot`](library/github-awesome-copilot)
 - **Skills.sh URL**: [https://www.skills.sh/github/awesome-copilot](https://www.skills.sh/github/awesome-copilot)
 - **GitHub URL**: [https://github.com/github/awesome-copilot](https://github.com/github/awesome-copilot)
 - **Installation Command**:
@@ -387,7 +387,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `2.3M`
 - **Skills Bundled**: `86` skills
-- **Local Library Vault**: [`library/bankai-skills-superpowers`](file:///D:/Repo/.agents/library/bankai-skills-superpowers)
+- **Local Library Vault**: [`library/bankai-skills-superpowers`](library/bankai-skills-superpowers)
 - **Skills.sh URL**: [https://www.skills.sh/bankai-skills/superpowers](https://www.skills.sh/bankai-skills/superpowers)
 - **GitHub URL**: [https://github.com/bankai-skills/superpowers](https://github.com/bankai-skills/superpowers)
 - **Installation Command**:
@@ -400,7 +400,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `2.1M`
 - **Skills Bundled**: `23` skills
-- **Local Library Vault**: [`library/firebase-agent-skills`](file:///D:/Repo/.agents/library/firebase-agent-skills)
+- **Local Library Vault**: [`library/firebase-agent-skills`](library/firebase-agent-skills)
 - **Skills.sh URL**: [https://www.skills.sh/firebase/agent-skills](https://www.skills.sh/firebase/agent-skills)
 - **GitHub URL**: [https://github.com/firebase/agent-skills](https://github.com/firebase/agent-skills)
 - **Installation Command**:
@@ -413,7 +413,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `1.9M`
 - **Skills Bundled**: `24` skills
-- **Local Library Vault**: [`library/pbakaus-impeccable`](file:///D:/Repo/.agents/library/pbakaus-impeccable)
+- **Local Library Vault**: [`library/pbakaus-impeccable`](library/pbakaus-impeccable)
 - **Skills.sh URL**: [https://www.skills.sh/pbakaus/impeccable](https://www.skills.sh/pbakaus/impeccable)
 - **GitHub URL**: [https://github.com/pbakaus/impeccable](https://github.com/pbakaus/impeccable)
 - **Installation Command**:
@@ -426,7 +426,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `1.8M`
 - **Skills Bundled**: `46` skills
-- **Local Library Vault**: [`library/convex-agent-skills`](file:///D:/Repo/.agents/library/convex-agent-skills)
+- **Local Library Vault**: [`library/convex-agent-skills`](library/convex-agent-skills)
 - **Skills.sh URL**: [https://www.skills.sh/convex/agent-skills](https://www.skills.sh/convex/agent-skills)
 - **GitHub URL**: [https://github.com/convex/agent-skills](https://github.com/convex/agent-skills)
 - **Installation Command**:
@@ -439,7 +439,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `1.8M`
 - **Skills Bundled**: `46` skills
-- **Local Library Vault**: [`library/samber-cc-skills-golang`](file:///D:/Repo/.agents/library/samber-cc-skills-golang)
+- **Local Library Vault**: [`library/samber-cc-skills-golang`](library/samber-cc-skills-golang)
 - **Skills.sh URL**: [https://www.skills.sh/samber/cc-skills-golang](https://www.skills.sh/samber/cc-skills-golang)
 - **GitHub URL**: [https://github.com/samber/cc-skills-golang](https://github.com/samber/cc-skills-golang)
 - **Installation Command**:
@@ -452,7 +452,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `1.7M`
 - **Skills Bundled**: `33` skills
-- **Local Library Vault**: [`library/gencraft-labs-skills`](file:///D:/Repo/.agents/library/gencraft-labs-skills)
+- **Local Library Vault**: [`library/gencraft-labs-skills`](library/gencraft-labs-skills)
 - **Skills.sh URL**: [https://www.skills.sh/gencraft-labs/skills](https://www.skills.sh/gencraft-labs/skills)
 - **GitHub URL**: [https://github.com/gencraft-labs/skills](https://github.com/gencraft-labs/skills)
 - **Installation Command**:
@@ -465,7 +465,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `1.6M`
 - **Skills Bundled**: `25` skills
-- **Local Library Vault**: [`library/addyosmani-agent-skills`](file:///D:/Repo/.agents/library/addyosmani-agent-skills)
+- **Local Library Vault**: [`library/addyosmani-agent-skills`](library/addyosmani-agent-skills)
 - **Skills.sh URL**: [https://www.skills.sh/addyosmani/agent-skills](https://www.skills.sh/addyosmani/agent-skills)
 - **GitHub URL**: [https://github.com/addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)
 - **Installation Command**:
@@ -478,7 +478,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `1.5M`
 - **Skills Bundled**: `22` skills
-- **Local Library Vault**: [`library/cloudflare-skills`](file:///D:/Repo/.agents/library/cloudflare-skills)
+- **Local Library Vault**: [`library/cloudflare-skills`](library/cloudflare-skills)
 - **Skills.sh URL**: [https://www.skills.sh/cloudflare/skills](https://www.skills.sh/cloudflare/skills)
 - **GitHub URL**: [https://github.com/cloudflare/skills](https://github.com/cloudflare/skills)
 - **Installation Command**:
@@ -491,7 +491,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `1.4M`
 - **Skills Bundled**: `330` skills
-- **Local Library Vault**: [`library/affaan-m-ecc`](file:///D:/Repo/.agents/library/affaan-m-ecc)
+- **Local Library Vault**: [`library/affaan-m-ecc`](library/affaan-m-ecc)
 - **Skills.sh URL**: [https://www.skills.sh/affaan-m/ecc](https://www.skills.sh/affaan-m/ecc)
 - **GitHub URL**: [https://github.com/affaan-m/ecc](https://github.com/affaan-m/ecc)
 - **Installation Command**:
@@ -504,7 +504,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `1.3M`
 - **Skills Bundled**: `4` skills
-- **Local Library Vault**: [`library/vercel-labs-agent-browser`](file:///D:/Repo/.agents/library/vercel-labs-agent-browser)
+- **Local Library Vault**: [`library/vercel-labs-agent-browser`](library/vercel-labs-agent-browser)
 - **Skills.sh URL**: [https://www.skills.sh/vercel-labs/agent-browser](https://www.skills.sh/vercel-labs/agent-browser)
 - **GitHub URL**: [https://github.com/vercel-labs/agent-browser](https://github.com/vercel-labs/agent-browser)
 - **Installation Command**:
@@ -517,7 +517,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `1.3M`
 - **Skills Bundled**: `11` skills
-- **Local Library Vault**: [`library/higgsfield-ai-skills`](file:///D:/Repo/.agents/library/higgsfield-ai-skills)
+- **Local Library Vault**: [`library/higgsfield-ai-skills`](library/higgsfield-ai-skills)
 - **Skills.sh URL**: [https://www.skills.sh/higgsfield-ai/skills](https://www.skills.sh/higgsfield-ai/skills)
 - **GitHub URL**: [https://github.com/higgsfield-ai/skills](https://github.com/higgsfield-ai/skills)
 - **Installation Command**:
@@ -530,7 +530,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `1.2M`
 - **Skills Bundled**: `1` skills
-- **Local Library Vault**: [`library/flowkit-labs-skills`](file:///D:/Repo/.agents/library/flowkit-labs-skills)
+- **Local Library Vault**: [`library/flowkit-labs-skills`](library/flowkit-labs-skills)
 - **Skills.sh URL**: [https://www.skills.sh/flowkit-labs/skills](https://www.skills.sh/flowkit-labs/skills)
 - **GitHub URL**: [https://github.com/flowkit-labs/skills](https://github.com/flowkit-labs/skills)
 - **Installation Command**:
@@ -543,7 +543,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `1.1M`
 - **Skills Bundled**: `1` skills
-- **Local Library Vault**: [`library/designed-by-ai-skills`](file:///D:/Repo/.agents/library/designed-by-ai-skills)
+- **Local Library Vault**: [`library/designed-by-ai-skills`](library/designed-by-ai-skills)
 - **Skills.sh URL**: [https://www.skills.sh/designed-by-ai/skills](https://www.skills.sh/designed-by-ai/skills)
 - **GitHub URL**: [https://github.com/designed-by-ai/skills](https://github.com/designed-by-ai/skills)
 - **Installation Command**:
@@ -556,7 +556,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `1.1M`
 - **Skills Bundled**: `47` skills
-- **Local Library Vault**: [`library/expo-skills`](file:///D:/Repo/.agents/library/expo-skills)
+- **Local Library Vault**: [`library/expo-skills`](library/expo-skills)
 - **Skills.sh URL**: [https://www.skills.sh/expo/skills](https://www.skills.sh/expo/skills)
 - **GitHub URL**: [https://github.com/expo/skills](https://github.com/expo/skills)
 - **Installation Command**:
@@ -569,7 +569,7 @@ Total Repositories Found: **40** repositories (All 100% Ingested in Library)
 
 - **Total Installs**: `1.0M`
 - **Skills Bundled**: `18` skills
-- **Local Library Vault**: [`library/stablyai-orca`](file:///D:/Repo/.agents/library/stablyai-orca)
+- **Local Library Vault**: [`library/stablyai-orca`](library/stablyai-orca)
 - **Skills.sh URL**: [https://www.skills.sh/stablyai/orca](https://www.skills.sh/stablyai/orca)
 - **GitHub URL**: [https://github.com/stablyai/orca](https://github.com/stablyai/orca)
 - **Installation Command**:

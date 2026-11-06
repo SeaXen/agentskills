@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'web-design-guidelines' (D:\Repo\.agents\skills\web-design-guidelines\SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'web-design-guidelines' (skills/web-design-guidelines\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---

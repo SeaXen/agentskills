@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'incident-postmortem' (D:\Repo\.agents\skills\incident-postmortem\SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'incident-postmortem' (skills/incident-postmortem\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---

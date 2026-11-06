@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'tailwind-patterns' (D:\Repo\.agents\skills\tailwind-patterns\SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'tailwind-patterns' (skills/tailwind-patterns\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---

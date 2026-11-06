@@ -7,7 +7,7 @@ the hashes so a drift (or an accidental edit) is caught instead of silently
 changing what the skill runs.
 
 Usage:
-  python scripts/absorbed/verify_manifest.py [--source-root D:/Repo/.agents/skills]
+  python scripts/absorbed/verify_manifest.py [--source-root skills]
   python scripts/absorbed/verify_manifest.py --json
 
 Exit 0 = every file matches, 1 = mismatch/missing, 2 = manifest missing.
@@ -21,7 +21,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 MANIFEST = HERE / "MANIFEST.json"
-DEFAULT_SOURCE_ROOT = Path(r"D:\Repo\.agents\skills")
+DEFAULT_SOURCE_ROOT = Path(r"skills")
 
 
 def sha256(path: Path) -> str:

@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'red-team-tactics' (D:\Repo\.agents\skills\red-team-tactics\SKILL.md).
+﻿<!-- Absorbed from the sibling skill 'red-team-tactics' (skills/red-team-tactics\SKILL.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 ---

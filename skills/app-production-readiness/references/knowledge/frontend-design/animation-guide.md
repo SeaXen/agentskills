@@ -1,4 +1,4 @@
-﻿<!-- Absorbed from the sibling skill 'frontend-design' (D:\Repo\.agents\skills\frontend-design\animation-guide.md).
+﻿<!-- Absorbed from the sibling skill 'frontend-design' (skills/frontend-design\animation-guide.md).
      Kept verbatim so this review skill stays self-contained.
      The sibling skill itself was NOT deleted. -->
 # Animation Guidelines Reference
