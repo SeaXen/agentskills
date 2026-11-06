@@ -1,7 +1,7 @@
 # 🧪 Unit Testing, TDD & Verification
 
 > **Category**: `testing-unit-tdd`  
-> **Total Curated Skills**: 632 skills  
+> **Total Curated Skills**: 640 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -48,6 +48,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`agent-qa-debug-fix`](../../library/sickn33-agentic-awesome-skills/skills/agent-qa-debug-fix) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Debug, patch, and verify failed Agent QA runs from MCP evidence, artifacts, logs, and local cod... |
 | [`agent-qa-result-triage`](../../library/sickn33-agentic-awesome-skills/skills/agent-qa-result-triage) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Triage failed Agent QA runs with MCP evidence, artifacts, logs, fixed failure categories, confi... |
 | [`agent-security-hardening`](../../library/affaan-m-ecc/skills/agent-security-hardening) | ⚪ Reserve | `affaan-m-ecc` | Security hardening guidance for AI agent frameworks that process untrusted content, invoke tool... |
+| [`agentcontrol-configs-create`](../../library/launchdarkly-ai-tooling/skills/agentcontrol-configs-create) | ⚪ Reserve | `launchdarkly-ai-tooling` | Create and configure configs in LaunchDarkly. Helps you choose between agent vs completion mode... |
+| [`agentcontrol-configs-variations`](../../library/launchdarkly-ai-tooling/skills/agentcontrol-configs-variations) | ⚪ Reserve | `launchdarkly-ai-tooling` | Experiment with configs by creating and managing variations. Helps you test different models, p... |
 | [`agentforce-observe`](../../library/forcedotcom-sf-skills/skills/agentforce-observe) | ⚪ Reserve | `forcedotcom-sf-skills` | Analyze production Agentforce agent behavior using session traces and Data Cloud, and manage Ag... |
 | [`agentic-test-audit`](../../library/sickn33-agentic-awesome-skills/skills/agentic-test-audit) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Audit a pytest suite: surviving mutants and untested code, flaky, order-dependent and slow test... |
 | [`agentic-verify`](../../library/sickn33-agentic-awesome-skills/skills/agentic-verify) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Check that a Python change is caught by tests: run every mutant of the changed lines and write ... |
@@ -159,6 +161,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cro-methodology`](../../library/wondelai-skills/skills/cro-methodology) | ⚪ Reserve | `wondelai-skills` | Audit websites and landing pages for conversion issues and design evidence-based A/B tests. Use... |
 | [`crossframe-debate`](../../library/sickn33-agentic-awesome-skills/skills/crossframe-debate) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use when CrossFrame Suite routes explicit Chinese proposition testing, debate analysis, hidden-... |
 | [`ctr-predictor`](../../library/sickn33-agentic-awesome-skills/skills/ctr-predictor) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | CTR Predictor. Use when working with impressions and an explicitly supplied CTR assumption or h... |
+| [`ctx-upgrade`](../../library/mksglu-context-mode/skills/ctx-upgrade) | ⚪ Reserve | `mksglu-context-mode` | Update context-mode to the latest release. |
 | [`cypress`](../../library/mindrally-skills/skills/cypress) | ⚪ Reserve | `mindrally-skills` | Cypress end-to-end testing best practices for web applications, covering test structure, comman... |
 | [`d4`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/d4) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Agent D4 - Measurement Instrument Developer - Scale construction and psychometric validation. C... |
 | [`darkmoon-pentest`](../../library/sickn33-agentic-awesome-skills/skills/darkmoon-pentest) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Start, follow and triage authorized autonomous AI pentest runs on a self-hosted Darkmoon Pro in... |
@@ -225,6 +228,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`experiment-readout-growth-console`](../../library/feimacode-open-design-agent-kit/skills/experiment-readout-growth-console) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Hypothesis, metrics, results, interpretation and decision: turns an A/B test or product experim... |
 | [`experiment-readout-product-readout`](../../library/feimacode-open-design-agent-kit/skills/experiment-readout-product-readout) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Hypothesis, metrics, results, interpretation and decision: turns an A/B test or product experim... |
 | [`experimental-design`](../../library/k-dense-ai-scientific-agent-skills/skills/experimental-design) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Designs experiments and studies BEFORE data is collected — choosing a design, randomizing, bloc... |
+| [`experiments-launchdarkly-experiment-guide`](../../library/launchdarkly-ai-tooling/skills/experiments-launchdarkly-experiment-guide) | ⚪ Reserve | `launchdarkly-ai-tooling` | Guide a developer from 'I don't know what to test' to a ready-to-create LaunchDarkly experiment... |
 | [`exploiting-broken-link-hijacking`](../../library/mukul975-anthropic-cybersecurity-skills/skills/exploiting-broken-link-hijacking) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Discovers and exploits broken link hijacking by spidering a site (Burp Suite Spider, Scrapy, cu... |
 | [`exploiting-deeplink-vulnerabilities`](../../library/mukul975-anthropic-cybersecurity-skills/skills/exploiting-deeplink-vulnerabilities) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Tests and exploits deep link (URL scheme and App Link) vulnerabilities |
 | [`exploiting-http-request-smuggling`](../../library/mukul975-anthropic-cybersecurity-skills/skills/exploiting-http-request-smuggling) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Detects and exploits HTTP request smuggling caused by Content-Length/Transfer-Encoding parsing ... |
@@ -474,6 +478,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ruby`](../../library/mindrally-skills/skills/ruby) | ⚪ Reserve | `mindrally-skills` | Ruby development guidelines covering idiomatic code style, Ruby 3.x features, testing with RSpe... |
 | [`ruby-rails`](../../library/mindrally-skills/skills/ruby-rails) | ⚪ Reserve | `mindrally-skills` | Conventions and best practices for building web applications with Ruby on Rails. Use when scaff... |
 | [`run-deep-swe`](../../library/sickn33-agentic-awesome-skills/skills/run-deep-swe) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Run reproducible DeepSWE coding-agent benchmark evaluations through OpenRouter and mini-swe-age... |
+| [`runpod-lifecycle-crud`](../../library/runpod-runpod-plugins-official/skills/runpod-lifecycle-crud) | ⚪ Reserve | `runpod-runpod-plugins-official` | Create, verify by read-back, and manage the lifecycle of Runpod''s reusable plumbing (templates... |
 | [`ruzzy`](../../library/trailofbits-skills/skills/ruzzy) | ⚪ Reserve | `trailofbits-skills` | Sets up and runs Ruzzy, Trail of Bits' coverage-guided Ruby fuzzer and the only production-read... |
 | [`safety-stock-review`](../../library/davila7-claude-code-templates/skills/safety-stock-review) | ⚪ Reserve | `davila7-claude-code-templates` | Size or audit safety stock with assumption checks - the z*sigma*sqrt(LT) formula plus an empiri... |
 | [`salary-benchmarking`](../../library/sickn33-agentic-awesome-skills/skills/salary-benchmarking) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Salary benchmark register: role, department and grade against market and internal minimum, medi... |
@@ -486,8 +491,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`sbom-supply-chain`](../../library/sickn33-agentic-awesome-skills/skills/sbom-supply-chain) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Generate, sign, and verify SBOMs and provenance attestations to secure |
 | [`sbti-personality-test`](../../library/reason-machines-trending-skills/skills/sbti-personality-test) | ⚪ Reserve | `reason-machines-trending-skills` | name: sbti-personality-test |
 | [`scaffold-dotnet-test-project`](../../library/dotnet-skills/skills/scaffold-dotnet-test-project) | ⚪ Reserve | `dotnet-skills` | MUST USE when an existing .NET test project was excluded from a .slnf/CI solution filter, disap... |
+| [`scenario-model-comparison`](../../library/scenario-labs-skills/skills/scenario-model-comparison) | ⚪ Reserve | `scenario-labs-skills` | Use when comparing Scenario models on the same brief through MCP: a bake-off with shared prompt... |
+| [`scenario-refine-loop`](../../library/scenario-labs-skills/skills/scenario-refine-loop) | ⚪ Reserve | `scenario-labs-skills` | Use when a Scenario output must be checked and improved rather than accepted first roll: iterat... |
 | [`scenario-war-room`](../../library/alirezarezvani-claude-skills/skills/scenario-war-room) | ⚪ Reserve | `alirezarezvani-claude-skills` | Cross-functional what-if modeling for cascading multi-variable scenarios. Unlike single-assumpt... |
 | [`screenshot-optimization`](../../library/appeeky-aso-skills/skills/screenshot-optimization) | ⚪ Reserve | `appeeky-aso-skills` | When the user wants to design, optimize, or evaluate App Store screenshots and preview videos. ... |
+| [`sdk-install-apply`](../../library/launchdarkly-ai-tooling/skills/sdk-install-apply) | ⚪ Reserve | `launchdarkly-ai-tooling` | Apply LaunchDarkly SDK onboarding: install dependency (or dual-SDK pair), configure env and sec... |
 | [`selenium-automation`](../../library/mindrally-skills/skills/selenium-automation) | ⚪ Reserve | `mindrally-skills` | Expert guidance for browser automation and web testing using Selenium WebDriver with best pract... |
 | [`semgrep-rule-variant-creator`](../../library/sickn33-agentic-awesome-skills/skills/semgrep-rule-variant-creator) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Creates language variants of existing Semgrep rules. Use when porting a Semgrep rule to specifi... |
 | [`send-experiment-designer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/send-experiment-designer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "design an email A/B test", "set up a multivariate subject/CTA test",... |

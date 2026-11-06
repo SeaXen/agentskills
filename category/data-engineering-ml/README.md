@@ -1,7 +1,7 @@
 # 📊 Data Pipelines, BigQuery & Machine Learning
 
 > **Category**: `data-engineering-ml`  
-> **Total Curated Skills**: 3245 skills  
+> **Total Curated Skills**: 3250 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -752,6 +752,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`data-replication-setup`](../../library/aj-geddes-useful-ai-prompts/skills/data-replication-setup) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Set up database replication for high availability and disaster recovery. Use when configuring m... |
 | [`data-report`](../../library/feimacode-open-design-agent-kit/skills/data-report) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Data Visualization Report (Open Design) — use only when explicitly invoked, not for general des... |
 | [`data-scientist`](../../library/antigravity-awesome-skills/skills/data-scientist) | ⚪ Reserve | `antigravity-awesome-skills` | Expert data scientist for advanced analytics, machine learning, and |
+| [`data-structures`](../../library/upstash-redis-js/skills/data-structures) | ⚪ Reserve | `upstash-redis-js` |  |
 | [`data-validate`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/data-validate) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Run declarative data quality checks and generate a codebook. Checks completeness, distributions... |
 | [`data247`](../../library/membranedev-application-skills/skills/data247) | ⚪ Reserve | `membranedev-application-skills` | Data247 integration. Manage Organizations, Activities, Notes, Files, Pipelines, Users and more.... |
 | [`database-admin`](../../library/antigravity-awesome-skills/skills/database-admin) | ⚪ Reserve | `antigravity-awesome-skills` | Expert database administrator specializing in modern cloud |
@@ -1012,6 +1013,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`expedy`](../../library/membranedev-application-skills/skills/expedy) | ⚪ Reserve | `membranedev-application-skills` | Expedy integration. Manage Organizations, Pipelines, Users, Filters. Use when the user wants to... |
 | [`expensify`](../../library/membranedev-application-skills/skills/expensify) | ⚪ Reserve | `membranedev-application-skills` | Expensify integration. Manage data, records, and automate workflows. Use when the user wants to... |
 | [`experiment-readout-lab-notebook`](../../library/feimacode-open-design-agent-kit/skills/experiment-readout-lab-notebook) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Hypothesis, metrics, results, interpretation and decision: turns an A/B test or product experim... |
+| [`experiments-launchdarkly-experiment-setup`](../../library/launchdarkly-ai-tooling/skills/experiments-launchdarkly-experiment-setup) | ⚪ Reserve | `launchdarkly-ai-tooling` | Set up and run experiments in LaunchDarkly. Create experiments with metrics, treatments, and fl... |
 | [`expertai`](../../library/membranedev-application-skills/skills/expertai) | ⚪ Reserve | `membranedev-application-skills` | Expert.ai integration. Manage data, records, and automate workflows. Use when the user wants to... |
 | [`exploratory-data-analysis`](../../library/aj-geddes-useful-ai-prompts/skills/exploratory-data-analysis) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Discover patterns, distributions, and relationships in data through visualization, summary stat... |
 | [`explore-data`](../../library/anthropics-knowledge-work/skills/explore-data) | ⚪ Reserve | `anthropics-knowledge-work` | Profile and explore a dataset to understand its shape, quality, and patterns. Use when encounte... |
@@ -1957,6 +1959,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`nyckel`](../../library/membranedev-application-skills/skills/nyckel) | ⚪ Reserve | `membranedev-application-skills` | Nyckel integration. Manage data, records, and automate workflows. Use when the user wants to in... |
 | [`nylas`](../../library/membranedev-application-skills/skills/nylas) | ⚪ Reserve | `membranedev-application-skills` | Nylas integration. Manage data, records, and automate workflows. Use when the user wants to int... |
 | [`observability-and-instrumentation`](../../library/addyosmani-agent-skills/skills/observability-and-instrumentation) | ⚪ Reserve | `addyosmani-agent-skills` | Instruments code so production behavior is visible and diagnosable. Use when adding logging, me... |
+| [`observability-create-graph`](../../library/launchdarkly-ai-tooling/skills/observability-create-graph) | ⚪ Reserve | `launchdarkly-ai-tooling` | Creates observability dashboards and graphs from logs, traces, errors, sessions, metrics, and e... |
+| [`observability-investigate`](../../library/launchdarkly-ai-tooling/skills/observability-investigate) | ⚪ Reserve | `launchdarkly-ai-tooling` | Finds the root cause of a production problem from observability data (logs, traces, errors, ses... |
 | [`obsidian-bases`](../../library/agricidaniel-claude-obsidian/skills/obsidian-bases) | ⚪ Reserve | `agricidaniel-claude-obsidian` | Explain, draft, and validate Obsidian Bases .base files with filters, formulas, properties, sum... |
 | [`occasion`](../../library/membranedev-application-skills/skills/occasion) | ⚪ Reserve | `membranedev-application-skills` | Occasion integration. Manage Events, Venues, Users, Orders, Reports. Use when the user wants to... |
 | [`ocr-web-service`](../../library/membranedev-application-skills/skills/ocr-web-service) | ⚪ Reserve | `membranedev-application-skills` | OCR Web Service integration. Manage Documents. Use when the user wants to interact with OCR Web... |
@@ -2469,6 +2473,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`scaleway`](../../library/membranedev-application-skills/skills/scaleway) | ⚪ Reserve | `membranedev-application-skills` | Scaleway integration. Manage data, records, and automate workflows. Use when the user wants to ... |
 | [`scalr`](../../library/membranedev-application-skills/skills/scalr) | ⚪ Reserve | `membranedev-application-skills` | Scalr integration. Manage Organizations, Users, Goals. Use when the user wants to interact with... |
 | [`scanpy`](../../library/davila7-claude-code-templates/skills/scanpy) | ⚪ Reserve | `davila7-claude-code-templates` | Single-cell RNA-seq analysis. Load .h5ad/10X data, QC, normalization, PCA/UMAP/t-SNE, Leiden cl... |
+| [`scenario-asset-analysis`](../../library/scenario-labs-skills/skills/scenario-asset-analysis) | ⚪ Reserve | `scenario-labs-skills` | Use when finished Scenario assets have to give something back: a caption for a dataset or alt t... |
 | [`schoology`](../../library/membranedev-application-skills/skills/schoology) | ⚪ Reserve | `membranedev-application-skills` | Schoology integration. Manage data, records, and automate workflows. Use when the user wants to... |
 | [`scikit-bio`](../../library/davila7-claude-code-templates/skills/scikit-bio) | ⚪ Reserve | `davila7-claude-code-templates` | Biological data toolkit. Sequence analysis, alignments, phylogenetic trees, diversity metrics (... |
 | [`scikit-survival`](../../library/davila7-claude-code-templates/skills/scikit-survival) | ⚪ Reserve | `davila7-claude-code-templates` | Comprehensive toolkit for survival analysis and time-to-event modeling in Python using scikit-s... |

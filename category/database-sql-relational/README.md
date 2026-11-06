@@ -1,7 +1,7 @@
 # 🗄️ SQL Databases, ORMs & Indexing
 
 > **Category**: `database-sql-relational`  
-> **Total Curated Skills**: 457 skills  
+> **Total Curated Skills**: 458 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -35,6 +35,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`agent-platform-eval-flywheel`](../../library/google-skills/skills/agent-platform-eval-flywheel) | ⚪ Reserve | `google-skills` | Measures and improves the quality of AI models and agents on Google Cloud using the Eval Qualit... |
 | [`agent-platform-rag-engine-management`](../../library/google-skills/skills/agent-platform-rag-engine-management) | ⚪ Reserve | `google-skills` | Manage and query Agent Platform RAG Engine Corpora and retrieve grounded contexts using the Goo... |
 | [`agent-qa-authoring`](../../library/sickn33-agentic-awesome-skills/skills/agent-qa-authoring) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Create, edit, validate, and run Agent QA tests, suites, and hooks through MCP or CLI while pres... |
+| [`agentcontrol-migrate`](../../library/launchdarkly-ai-tooling/skills/agentcontrol-migrate) | ⚪ Reserve | `launchdarkly-ai-tooling` | Migrate an application with hardcoded LLM prompts to a full LaunchDarkly AgentControl implement... |
 | [`agentforce-bot-upgrade`](../../library/forcedotcom-sf-skills/skills/agentforce-bot-upgrade) | ⚪ Reserve | `forcedotcom-sf-skills` | Use this skill to Upgrade Einstein Bots into Agentforce agents end-to-end in a single pass, orc... |
 | [`agents-build`](../../library/aws-agent-toolkit-for-aws/skills/agents-build) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Use to extend an existing agent project with memory, app integration, VPC, multi-agent, migrati... |
 | [`agents-get-started`](../../library/aws-agent-toolkit-for-aws/skills/agents-get-started) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Use when a developer wants to create a new agent project or get started with AgentCore. Handles... |

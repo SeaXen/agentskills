@@ -14,7 +14,7 @@ allowed-tools: Bash(claude mcp:*)
 compatibility: Linux, macOS, Windows
 metadata:
   author: runpod
-  version: "1.8.0" # x-release-please-version
+  version: "2.0.0" # x-release-please-version
   concepts: [runpod-platform, pod, serverless-endpoint, job, template, network-volume, registry-credential, gpu-type, log-stream, api-key, api-rate-limit, hub-repo]
 license: Apache-2.0
 ---
@@ -26,16 +26,16 @@ MCP-capable agent can manage infrastructure without shelling out. It is the same
 REST API that `runpodctl` uses. Pick MCP when its tools are connected (typed params,
 structured errors, no shell quoting).
 
-This skill does three things: it connects the server, routes each request to the
-journey skill that carries its procedure ([Route by intent](#route-by-intent)), and owns
-the **answer contract** below, which every reply follows.
+This skill owns the MCP side: it connects and authenticates the server, sets the
+tool-use rules, routes each request to the journey skill that carries its procedure
+([Route by intent](#route-by-intent)), and owns the **answer contract** below, which every
+reply follows. Lane choice (MCP vs runpodctl vs flash) belongs to the
+[router](../runpod/SKILL.md).
 
-**For a multi-step job, read the worked example before calling tools.** Tool calls are
-easy to issue and easy to issue in the wrong order. The verified end-to-end sequences
-live in [runpod/golden-paths/README.md](../runpod/golden-paths/README.md) (image →
-template → endpoint, pod → volume → serverless, multi-region, autoscaling, monitoring).
-The journey skills cover procedure within one journey; the paths cover what order to do
-a whole job in.
+**For a multi-step job, read the worked example before calling tools**: tool calls are
+easy to issue in the wrong order. The golden paths
+([index](../runpod/golden-paths/README.md)) cover what order to do a whole job in; the
+journey skills cover procedure within one journey.
 
 ## Connect
 
@@ -74,11 +74,16 @@ Once connected, read the server. Do not reason about its tools from memory.
    connected server: `/mcp` in Claude Code, or `tools/list`. Each tool carries its
    own parameter descriptions, generated from Runpod's REST v2 contract. Check there
    before concluding a capability exists *or* doesn't. When a journey skill's tool
-   binding disagrees with the live tool list, the live list wins.
+   binding disagrees with the live tool list, the live list wins. Some large
+   create/update tools (`create-pod`, `create-endpoint`, `create-template` and others;
+   the listing says so) list only their call shape: call `describe-tool` with the tool
+   name for the full argument schema before the first use.
 2. **The server serves these same skills** from this plugin's release: `read-guide`
    (start with `read-guide runpod-mcp`) and the `runpod://guides/<id>` resources. With
    this plugin installed, the journey skills below are the procedure; the server's
-   guides are the same text for an agent without the plugin.
+   guides are the same text for an agent without the plugin. A skill's
+   `reference/<name>.md` link is guide id `<skill>/<name>` (e.g.
+   `runpod-serverless-deploy/error-handling`).
 3. **The wire contract** is the Runpod v2 OpenAPI document at
    `https://api.runpod.io/v2/openapi.json`, for fields beyond the tool surface.
 
@@ -87,40 +92,47 @@ For concepts (pods vs serverless, GPU selection, storage), read `../runpod-usage
 ## Use MCP vs runpodctl
 
 - **Use this lane** for infra CRUD, browsing/deploying an existing Hub listing,
-  or a serverless job call the connected server exposes. Choose the lane using the
-  [router capability matrix](../runpod/SKILL.md#runpod-mcp-vs-runpodctl-the-overlap).
-  Cap large job/log output to a file.
-- **Use runpodctl instead** for: **`send`/`receive`** file transfer, **SSH** key
-  management, **`doctor`** setup, **model cache**, or any shell-only agent, or
-  when the user wants a reproducible command.
-- **Pin the CUDA floor on every GPU create.** `create-pod` and `create-endpoint` take
-  `gpu.minCudaVersion` (`"12.8"` by default, `"13.0"` only for a CUDA-13 image);
-  `create-template` takes `allowedCudaVersions`. Without a floor the create accepts any
-  host CUDA version, and a modern image can land on a host too old to run it. Why 12.8
-  and when to use 13.0:
-  [`runpod-usage` gpu-selection](../runpod-usage/reference/gpu-selection.md#step-3-pin-the-cuda-floor).
-- **Hand pod creation to runpodctl** for a **multi-GPU priority list** (v2 `create-pod`
-  takes one GPU type; check the live schema before assuming, and watch for a `_warning`
-  on an otherwise-successful create), or for a **template + CPU** pod together, which
-  v2 does not express. Each alone is fine in MCP: `templateId` (each field you pass
-  replaces the template's whole value rather than merging) or `computeType: "CPU"`.
+  or a serverless job call the connected server exposes; the
+  [router capability matrix](../runpod/SKILL.md#runpod-mcp-vs-runpodctl-the-overlap) picks
+  the lane per operation. Cap large job/log output to a file.
+- **Use runpodctl instead** for what these tools lack (see
+  [Capability boundaries](#capability-boundaries--state-them-never-fake-them)), for any
+  shell-only agent, or when the user wants a reproducible command.
+- **Pin the CUDA floor on every GPU create**: `gpu.minCudaVersion` on `create-pod` and
+  `create-endpoint` (`"12.8"` by default, `"13.0"` only for a CUDA-13 image),
+  `allowedCudaVersions` on `create-template`. Without a floor a modern image can land on a
+  host too old to run it ([why](../runpod-usage/reference/gpu-selection.md#step-3-pin-the-cuda-floor)).
+- **Set `timeout` (ms) on every `create-endpoint`**: omitted, v2 returns `"timeout": 0`
+  (live-verified 2026-10-29). After `deploy-hub-repo`, read `timeout` back and set it with
+  `update-endpoint` if it is 0
+  ([details](../runpod-usage/reference/gotchas.md#endpoint-timeout-comes-back-0)).
+- **Pod creates:** `create-pod` takes one GPU type (`gpu.id`; check the live schema
+  before assuming, and watch for a `_warning` on an otherwise-successful create), so a
+  multi-GPU priority list means one create per type, retried in order on a capacity
+  error. A CPU pod sends a `cpu` object (`{id, vcpuCount}` from `list-cpu-types`) in
+  place of `gpu`. `templateId` works for GPU and CPU pods: each field you pass replaces
+  the template's value (fields you omit come from it: image, args, ports and disk in the
+  2026-10-29 run), except `env`, which merges per key with yours winning; the pod
+  keeps no template link, and a CPU pod skips the template's persistent mount and CUDA constraint (template + CPU live-verified
+  2026-10-29, even with an NVIDIA-category template). The CLI issues this same v2
+  call, so switching to it does not help.
 - **Not this lane:** authoring a template project or Hub listing files
   (→ [runpod-build-template](../runpod-build-template/SKILL.md)); writing/deploying
-  your own Python with Flash (→ flash); downloading models or building/pushing
-  images (→ companion-clis).
+  your own Python with Flash (→ runpod-flash); downloading models or building/pushing
+  images (→ runpod-companion-clis).
 
 ## Route by intent
 
 | The user wants to… | Journey skill |
 | --- | --- |
-| Know what GPUs/workers/endpoints exist, what fits a model, what it costs | **discovery** |
-| Create/inspect/update/delete pods, endpoints, templates, volumes, account secrets, SSH keys, clusters; inventory of the account | **lifecycle-crud** |
-| Stand up a serverless endpoint for a model/workload and verify it with a real job | **serverless-deploy** |
-| Host a ComfyUI workflow (workflow.json, custom Civitai models/LoRAs) as an endpoint | **serverless-deploy**, then its [ComfyUI reference](../serverless-deploy/reference/comfyui-serverless.md) |
-| Rent/configure an interactive GPU pod; create a pod then pause/stop it for later | **pod-deploy** |
-| Diagnose a broken/misbehaving pod (0 GPUs, CUDA, crashes, 502s) | **pod-doctor** |
-| Operate an existing endpoint: jobs, scaling, workers, logs | **endpoint-ops** |
-| Understand or reduce spend; billing breakdowns | **cost-audit** |
+| Know what GPUs/workers/endpoints exist, what fits a model, what it costs | **runpod-discovery** |
+| Create/inspect/update/delete pods, endpoints, templates, network or global volumes, account secrets, SSH keys, clusters; inventory of the account; who changed what (audit log) or who is in the organization | **runpod-lifecycle-crud** |
+| Stand up a serverless endpoint for a model/workload and verify it with a real job | **runpod-serverless-deploy** |
+| Host a ComfyUI workflow (workflow.json, custom Civitai models/LoRAs) as an endpoint | **runpod-serverless-deploy**, then its [ComfyUI reference](../runpod-serverless-deploy/reference/comfyui-serverless.md) |
+| Rent/configure an interactive GPU pod; create a pod then pause/stop it for later | **runpod-pod-deploy** |
+| Diagnose a broken/misbehaving pod (0 GPUs, CUDA, crashes, 502s) | **runpod-pod-doctor** |
+| Operate an existing endpoint: jobs, scaling, workers, logs | **runpod-endpoint-ops** |
+| Understand or reduce spend; billing breakdowns | **runpod-cost-audit** |
 | Something the tools may not cover (file transfer, a command inside a Pod) | [Capability boundaries](#capability-boundaries--state-them-never-fake-them) below |
 
 ## Capability boundaries — state them, never fake them
@@ -129,10 +141,10 @@ This interface manages infra through the Runpod MCP tools. It does NOT do:
 SSH sessions, file transfer to/from pods, local image builds, model downloads
 to volumes, or interactive terminals. When a task needs one of those, say
 that it is not available through these tools and name the lane that does it:
-`runpodctl` for file transfer (`send`/`receive`), SSH setup and model
-uploads; SSH or the console web terminal for commands inside a Pod; the Flash
-SDK for code-first Serverless deploys; the console for Pod migration. Never
-improvise a fake capability or silently drop that part of the task.
+`runpodctl` for file transfer (`send`/`receive`), SSH key setup, `doctor` setup,
+model cache and model uploads; SSH or the console web terminal for commands inside
+a Pod; the Flash SDK for code-first Serverless deploys; the console for Pod
+migration. Never improvise a fake capability or silently drop that part of the task.
 
 Check the served tool list before calling anything a gap: account secrets and
 Instant Clusters were console-only once and are served tools now. The workaround

@@ -128,8 +128,20 @@ def load_skills():
             pass
     return {}
 
+def count_hot_set_skills():
+    """Union of active skill names across the vault workspace and the parent workspace.
+    Mirrors Skill.Sea/scripts/build-catalog.js lines 12-13 (activeHotSetCount = 130)."""
+    names = set()
+    parent_ws = os.path.join(os.path.dirname(agents_dir.rstrip("\\/")), ".agent", "skills")
+    for base in (skills_dir, parent_ws):
+        if os.path.exists(base):
+            for d in os.listdir(base):
+                if os.path.isdir(os.path.join(base, d)) and not d.startswith("."):
+                    names.add(d)
+    return len(names)
+
 def show_about():
-    installed_cnt = len([s for s in os.listdir(skills_dir) if os.path.isdir(os.path.join(skills_dir, s)) and not s.startswith('.')]) if os.path.exists(skills_dir) else 0
+    installed_cnt = count_hot_set_skills()
     lib_repos = [d for d in os.listdir(library_dir) if os.path.isdir(os.path.join(library_dir, d)) and not d.startswith('.') and d != '__pycache__'] if os.path.exists(library_dir) else []
     lib_cnt = len(lib_repos)
     
@@ -360,10 +372,25 @@ def sync_all_upstreams(force=False):
                         if s_name in ['skills', 'plugins', '.curated', '.system']: continue
                         s_dst = os.path.join(target_skills_dir, s_name)
                         if os.path.exists(s_dst):
-                            parent = os.path.basename(os.path.dirname(root))
-                            if parent and parent not in [repo_id, '.', '']:
-                                s_name = f"{parent}-{s_name}"
-                                s_dst = os.path.join(target_skills_dir, s_name)
+                            # Upstream nests this skill but we store it flat, so a same-named
+                            # dir already exists. If SKILL.md is unchanged, refresh in place;
+                            # only fall back to the parent-prefix when contents genuinely differ
+                            # (two distinct skills sharing a basename), so re-runs never create
+                            # junk duplicates like skills/agp-agp-9-upgrade.
+                            same = False
+                            try:
+                                with open(os.path.join(root, 'SKILL.md'), 'r', encoding='utf-8', errors='ignore') as f: a = f.read()
+                                with open(os.path.join(s_dst, 'SKILL.md'), 'r', encoding='utf-8', errors='ignore') as f: b = f.read()
+                                same = (a == b)
+                            except Exception:
+                                same = False
+                            if same:
+                                shutil.rmtree(s_dst, onerror=remove_readonly)
+                            else:
+                                parent = os.path.basename(os.path.dirname(root))
+                                if parent and parent not in [repo_id, '.', '']:
+                                    s_name = f"{parent}-{s_name}"
+                                    s_dst = os.path.join(target_skills_dir, s_name)
                         if not os.path.exists(s_dst): shutil.copytree(root, s_dst)
 
                 # 3. Automatically purge all unnecessary files (monorepos, packages, lockfiles, CI configs)
@@ -398,7 +425,7 @@ def sync_all_upstreams(force=False):
             with open(commit_file, 'w', encoding='utf-8') as cf:
                 cf.write(f"{watermark}\n")
             print(f"  ✓ {repo_id:32}: preserved existing skills & updated watermark", flush=True)
-            return True
+            return False
 
         print(f"  ⚠️ Error syncing {repo_id}", flush=True)
         return False
@@ -421,7 +448,8 @@ def sync_active_skills(updated_repo_ids=None):
 
     workspaces = [
         ("Vault (.agents)", agents_dir),
-        ("Managment (.agents)", r"D:\Gravity\Managment\.agents")
+        ("Managment (.agents)", r"D:\Gravity\Managment\.agents"),
+        ("Parent workspace (.agent)", os.path.join(os.path.dirname(agents_dir.rstrip("\\/")), ".agent"))
     ]
 
     updated_set = set(updated_repo_ids or [])
@@ -435,7 +463,36 @@ def sync_active_skills(updated_repo_ids=None):
     for ws_name, ws_path in workspaces:
         s_dir = os.path.join(ws_path, "skills")
         lock_file = os.path.join(ws_path, "skills-lock.json")
-        if not os.path.exists(s_dir) or not os.path.exists(lock_file):
+        if not os.path.exists(s_dir):
+            continue
+
+        if not os.path.exists(lock_file):
+            # Lockfile-less workspace (e.g. the parent workspace outside this repo):
+            # match each active skill by NAME against the repos that received real
+            # commits this run, and only update when exactly one repo provides it.
+            active_names = [
+                d for d in os.listdir(s_dir)
+                if os.path.isdir(os.path.join(s_dir, d)) and not d.startswith(".")
+            ]
+            ws_updated = 0
+            for s_name in active_names:
+                candidates = [
+                    rf for rf in lib_repo_list
+                    if rf in updated_set and os.path.isdir(os.path.join(library_dir, rf, "skills", s_name))
+                ]
+                if len(candidates) == 1:
+                    src = os.path.join(library_dir, candidates[0], "skills", s_name)
+                    dst = os.path.join(s_dir, s_name)
+                    if os.path.exists(dst):
+                        shutil.rmtree(dst, onerror=remove_readonly)
+                    shutil.copytree(src, dst)
+                    ws_updated += 1
+                    total_synced += 1
+                    print(f"  ✓ {ws_name}: Updated active skill '{s_name}' from fresh upstream commit in {candidates[0]}", flush=True)
+                elif len(candidates) > 1:
+                    print(f"  ⚠️ {ws_name}: Skill '{s_name}' exists in multiple updated repos ({', '.join(candidates)}) — skipped to avoid overwriting.", flush=True)
+            if ws_updated > 0:
+                print(f"  ✓ {ws_name}: Synchronized {ws_updated} active skills from updated upstream commits.", flush=True)
             continue
 
         try:
@@ -658,7 +715,7 @@ def sync_documentation_metrics(agents_dir):
     total_categories = len(cat_data.get("categories", {})) or 38
 
     skills_dir = os.path.join(agents_dir, "skills")
-    active_skills = len([d for d in os.listdir(skills_dir) if os.path.isdir(os.path.join(skills_dir, d)) and not d.startswith(".")])
+    active_skills = count_hot_set_skills()
 
     agents_count = len([f for f in os.listdir(os.path.join(agents_dir, "agents")) if f.endswith(".md")])
     workflows_count = len([f for f in os.listdir(os.path.join(agents_dir, "workflows")) if f.endswith(".md")])
@@ -801,23 +858,110 @@ def rebuild_skill_sea_catalog(has_changes=False, force=False, deploy=False):
                 print(f"⚠️ Cloudflare R2 sync notice: {e}", flush=True)
 
         try:
-            print("🚀 Deploying Skill.Sea frontend to Cloudflare Pages (skill-sea)...", flush=True)
-            subprocess.run(['npx', 'wrangler', 'pages', 'deploy', '.', '--project-name=skill-sea'], cwd=os.path.join(agents_dir, 'Skill.Sea'), check=False, shell=True)
+            print("🚀 Deploying Skill.Sea frontend to Cloudflare Worker (skill-sea)...", flush=True)
+            subprocess.run(['npx', 'wrangler', 'deploy'], cwd=os.path.join(agents_dir, 'Skill.Sea'), check=False, shell=True)
         except Exception as e:
-            print(f"⚠️ Cloudflare Pages deploy notice: {e}", flush=True)
+            print(f"⚠️ Cloudflare Worker deploy notice: {e}", flush=True)
 
 # 6. Git Commit & Push
 def git_commit_and_push():
     print("\n[6/6] Checking Git status and pushing updates...", flush=True)
-    status = subprocess.run(['git', 'status', '--short'], cwd=agents_dir, capture_output=True, text=True).stdout.strip()
-    if not status:
+    status = subprocess.run(['git', 'status', '--porcelain', '--untracked-files=all'], cwd=agents_dir, capture_output=True, text=True).stdout
+    if not status.strip():
         print("✓ Working tree clean. Everything is already up to date on Git.", flush=True)
         return
 
-    print("Pending changes detected. Committing and pushing to origin main...", flush=True)
-    subprocess.run(['git', 'add', '-A'], cwd=agents_dir, check=True)
+    # Explicit staging only — NEVER `git add -A`: library/ holds hundreds of untracked
+    # junk extraction dirs (flat parent-prefixed duplicates) that must not be committed.
+    index_prefixes = set()
+    idx_p = os.path.join(library_dir, 'skills_index.json')
+    if os.path.exists(idx_p):
+        try:
+            with open(idx_p, 'r', encoding='utf-8') as f:
+                idx_data = json.load(f)
+            recs = idx_data if isinstance(idx_data, list) else list(idx_data.values())
+            for r in recs:
+                if isinstance(r, dict) and r.get('path'):
+                    ip = r['path'].replace('\\', '/')
+                    parts = ip.split('/')
+                    for i in range(1, len(parts) + 1):
+                        index_prefixes.add('/'.join(parts[:i]))
+        except Exception:
+            pass
+
+    to_stage, skipped = [], 0
+    for line in status.splitlines():
+        if not line.strip():
+            continue
+        p = line[3:].strip().strip('"').replace('\\', '/')
+        if ' -> ' in p:
+            p = p.split(' -> ')[-1]
+        stage = False
+        if line[:2] != '??':
+            stage = True  # tracked modification/deletion/rename
+        elif p.startswith(('skills/', 'category/', 'Skill.Sea/data/')):
+            stage = True
+        elif p in ('README.md', 'ARCHITECTURE.md', 'PRODUCT.md', 'AGENTS.md', 'SKILLS_PROVENANCE.md', 'skills-lock.json'):
+            stage = True
+        elif p in ('library/skills_index.json', 'library/upstreams.json', 'library/opt_out.json'):
+            stage = True
+        elif re.match(r'^library/[^/]+/(README\.md|LICENSE|\.upstream_commit|skills_index\.json)$', p, re.I):
+            stage = True  # repo-root files of updated/new repos
+        else:
+            parts = p.split('/')
+            for i in range(len(parts), 0, -1):
+                if '/'.join(parts[:i]) in index_prefixes:
+                    stage = True
+                    break
+        if stage:
+            to_stage.append(p)
+        else:
+            skipped += 1
+
+    if not to_stage:
+        print("✓ No committable changes (all pending entries are ignored junk).", flush=True)
+        return
+
+    def _git_run(args):
+        """Run a git command; auto-clear a STALE .git/index.lock (no live git process) and retry once."""
+        res = subprocess.run(args, cwd=agents_dir, capture_output=True, text=True, encoding='utf-8', errors='replace')
+        if res.returncode != 0 and 'index.lock' in (res.stderr or ''):
+            lock_path = os.path.join(agents_dir, '.git', 'index.lock')
+            if os.path.exists(lock_path):
+                proc = subprocess.run(['tasklist', '/FI', 'IMAGENAME eq git.exe', '/NH'], capture_output=True, text=True)
+                if 'git.exe' not in (proc.stdout or ''):
+                    print("⚠️ Stale .git/index.lock detected (no git process running) — removing and retrying.", flush=True)
+                    try:
+                        os.remove(lock_path)
+                        res = subprocess.run(args, cwd=agents_dir, capture_output=True, text=True, encoding='utf-8', errors='replace')
+                    except Exception as e:
+                        print(f"⚠️ Could not remove stale lock: {e}", flush=True)
+        return res
+
+    staged = 0
+    for i in range(0, len(to_stage), 200):  # chunked to stay under Windows cmd limits
+        chunk = to_stage[i:i + 200]
+        res = _git_run(['git', 'add', '--'] + chunk)
+        if res.returncode != 0:
+            print(f"⚠️ git add chunk failed: {res.stderr}", flush=True)
+        else:
+            staged += len(chunk)
+    print(f"Staged {staged} paths ({skipped} untracked junk entries skipped).", flush=True)
+
+    if staged == 0:
+        print("⚠️ Nothing could be staged — skipping commit.", flush=True)
+        return
+
     ts = datetime.now().strftime('%Y-%m-%d %H:%M')
-    subprocess.run(['git', 'commit', '-m', f"chore(skills): automated update of skills & library ({ts})"], cwd=agents_dir, check=True)
+    commit_res = _git_run(['git', 'commit', '-m', f"chore(skills): automated update of skills & library ({ts})"])
+    if commit_res.returncode != 0:
+        if 'nothing to commit' in (commit_res.stdout or '') + (commit_res.stderr or '').lower() or 'nothing added to commit' in ((commit_res.stdout or '') + (commit_res.stderr or '')).lower():
+            print("✓ Nothing to commit — working tree already up to date.", flush=True)
+            return
+        print(f"❌ Commit failed: {commit_res.stderr}", flush=True)
+        return
+    if commit_res.stdout:
+        print(commit_res.stdout, flush=True)
     push_res = subprocess.run(['git', 'push', 'origin', 'main'], cwd=agents_dir, capture_output=True, text=True, encoding='utf-8', errors='replace')
     if push_res.stdout:
         print(push_res.stdout, flush=True)
@@ -826,7 +970,9 @@ def git_commit_and_push():
     print("🎉 SUCCESS: All repos, new skills, categories, and docs updated and pushed!", flush=True)
 
 def show_help():
-    print("""
+    repo_count = len([d for d in os.listdir(library_dir) if os.path.isdir(os.path.join(library_dir, d)) and not d.startswith('.') and d != '__pycache__']) if os.path.exists(library_dir) else 0
+    cat_count = len([d for d in os.listdir(os.path.join(agents_dir, 'category')) if os.path.isdir(os.path.join(agents_dir, 'category', d))]) if os.path.exists(os.path.join(agents_dir, 'category')) else 38
+    print(f"""
 ================================================================================
 ⚡ AGENTSKILLS VAULT — UNIFIED AUTOMATED UPDATER & INTEGRATED SUITE
 ================================================================================
@@ -835,8 +981,8 @@ USAGE:
   python update.py [OPTIONS]
 
 CORE VAULT COMMANDS:
-  python update.py                   Run full upstream sync across all 364 repositories
-  python update.py --reindex         Rebuild all indexes, 38 categories, & sync R2
+  python update.py                   Run full upstream sync across all {repo_count} repositories
+  python update.py --reindex         Rebuild all indexes, {cat_count} categories, & sync R2
   python update.py --about           Show vault inventory stats & counts
   python update.py --tags            List available skill functional domain tags
   python update.py --tag <name>      Search skills by domain tag (e.g. frontend, backend)
@@ -925,7 +1071,7 @@ if __name__ == '__main__':
     updated_repos = sync_all_upstreams(force=force_run) or []
     has_changes = len(updated_repos) > 0 or force_run
 
-    sync_active_skills(updated_ids)
+    sync_active_skills(updated_repos)
     rebuild_all_indexes(updated_repo_ids=updated_repos, force=force_run)
     sync_lockfiles()
     deploy_run = '--deploy' in args

@@ -1,7 +1,7 @@
 # 🧮 Algorithms, Logic & Math
 
 > **Category**: `algorithms-logic`  
-> **Total Curated Skills**: 231 skills  
+> **Total Curated Skills**: 233 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -27,6 +27,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`aer-preregistration`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/aer-preregistration) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Use when the project collects primary data or runs a field, lab, or survey experiment, before t... |
 | [`agent-graphs`](../../library/launchdarkly-ai-tooling/skills/agent-graphs) | ⚪ Reserve | `launchdarkly-ai-tooling` | Create and manage agent graphs — directed graphs of configs connected by edges with handoff log... |
 | [`agent-sort`](../../library/affaan-m-ecc/skills/agent-sort) | ⚪ Reserve | `affaan-m-ecc` | Build an evidence-backed ECC install plan for a specific repo by sorting skills, commands, rule... |
+| [`agentcontrol-agent-graphs`](../../library/launchdarkly-ai-tooling/skills/agentcontrol-agent-graphs) | ⚪ Reserve | `launchdarkly-ai-tooling` | Create and manage agent graphs — directed graphs of configs connected by edges with handoff log... |
 | [`airsuphq-machine-skill`](../../library/airsuphq-machine-skill/skills/airsuphq-machine-skill) | ⚪ Reserve | `airsuphq-machine-skill` | Turn one line ("a turbofan jet engine", "a mechanical watch", "an LVAD heart pump") into a phot... |
 | [`alert-logic`](../../library/membranedev-application-skills/skills/alert-logic) | ⚪ Reserve | `membranedev-application-skills` | Alert Logic integration. Manage data, records, and automate workflows. Use when the user wants ... |
 | [`algorithm-designer`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/algorithm-designer) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Design and document statistical algorithms with pseudocode and complexity analysis |
@@ -46,6 +47,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`audit-xls`](../../library/anthropics-financial-services/skills/audit-xls) | ⚪ Reserve | `anthropics-financial-services` | Audit a spreadsheet for formula accuracy, errors, and common mistakes. Scopes to a selected ran... |
 | [`authbypass-authentication-flaws`](../../library/yaklang-hack-skills/skills/authbypass-authentication-flaws) | ⚪ Reserve | `yaklang-hack-skills` | Authentication bypass testing playbook. Use when assessing login flows, password reset logic, a... |
 | [`aws-networking`](../../library/aws-agent-toolkit-for-aws/skills/aws-networking) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Routes AWS networking requests to the correct service skill for implementation. Covers Route 53... |
+| [`awwwards-animations-skill`](../../library/devmartinese-awwwards-animations-skill/skills/awwwards-animations-skill) | ⚪ Reserve | `devmartinese-awwwards-animations-skill` | Professional React animation skill for creating Awwwards/FWA-level animations using GSAP (useGS... |
 | [`backtesting-frameworks`](../../library/antigravity-awesome-skills/skills/backtesting-frameworks) | ⚪ Reserve | `antigravity-awesome-skills` | Build robust backtesting systems for trading strategies with proper handling of look-ahead bias... |
 | [`baoyu-diagram`](../../library/jimliu-baoyu-skills/skills/baoyu-diagram) | ⚪ Reserve | `jimliu-baoyu-skills` | Create professional diagrams with configurable dark/light theme via CSS custom properties. Use ... |
 | [`baoyu-markdown-to-html`](../../library/jimliu-baoyu-skills/skills/baoyu-markdown-to-html) | ⚪ Reserve | `jimliu-baoyu-skills` | Converts Markdown to styled HTML with WeChat-compatible themes. Supports code highlighting, mat... |

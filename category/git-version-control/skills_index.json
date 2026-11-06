@@ -256,6 +256,14 @@
     "path": "category/git-version-control/aws-deployment"
   },
   {
+    "id": "aws-devops-agent-experiment-orchestration",
+    "name": "aws-devops-agent-experiment-orchestration",
+    "category": "git-version-control",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Takes a product goal through a LaunchDarkly experiment and, if it wins, a guarded rollout (or a regular rollout on plans without guarded rollouts). Uses GitHub for the code change and deployment when it is connected to the agent space; otherwise hands those steps to a person.",
+    "path": "category/git-version-control/aws-devops-agent-experiment-orchestration"
+  },
+  {
     "id": "aws-marketplace-playbook",
     "name": "aws-marketplace-playbook",
     "category": "git-version-control",
@@ -1094,6 +1102,30 @@
     "repository": "builderio-skills",
     "description": "Experimental workflow for configuring an autonomous software delivery factory. Use when choosing feedback sources, schedules, worktree behavior, autonomy gates, or host automations.",
     "path": "category/git-version-control/factory"
+  },
+  {
+    "id": "feature-flags-flag-and-release-change",
+    "name": "feature-flags-flag-and-release-change",
+    "category": "git-version-control",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Drive a pull request's change end to end: decide it's flag-worthy, create the guarding flag, wire the new code path behind it on the PR branch, and record an automated release so the change ships safely when the PR merges. A portable orchestrator that composes should-flag-change, launchdarkly-flag-create, and flag-release. Keywords: flag a PR, wrap change in a flag, dark launch, kill switch, auto-release, automated rollout, end-to-end flag workflow.",
+    "path": "category/git-version-control/feature-flags-flag-and-release-change"
+  },
+  {
+    "id": "feature-flags-flag-release",
+    "name": "feature-flags-flag-release",
+    "category": "git-version-control",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Record an automated rollout for an existing LaunchDarkly flag that guards a pull request's change, so the change releases safely when the PR merges. Honors a stated release intent (release now / hold / notBefore / segment / prerequisite) and defers per-environment to the project's release policies. Use as the release step once the guarding flag exists and its code is wired. Keywords: record release, automated rollout, release policy, guarded rollout, staged rollout, immediate vs policy, release intent, hold release, dark launch.",
+    "path": "category/git-version-control/feature-flags-flag-release"
+  },
+  {
+    "id": "feature-flags-should-flag-change",
+    "name": "feature-flags-should-flag-change",
+    "category": "git-version-control",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Decide whether a given code change should be placed behind a LaunchDarkly feature flag. Use when a developer asks whether a change should be behind a flag, when reviewing a diff or pull request, or when running in CI on a PR. Reads the diff and surrounding code, then emits a structured advisory recommendation. Read-only: it never creates or modifies flags.",
+    "path": "category/git-version-control/feature-flags-should-flag-change"
   },
   {
     "id": "field-service-scheduling-policy-designer-query",
@@ -2568,6 +2600,14 @@
     "path": "category/git-version-control/om-verify-in-repo"
   },
   {
+    "id": "onboarding-mcp-configure",
+    "name": "onboarding-mcp-configure",
+    "category": "git-version-control",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Configure the LaunchDarkly hosted MCP server during onboarding. Use when the parent LaunchDarkly onboarding skill reaches the MCP offer, after the first flag works. Supports Cursor, Claude Code, Windsurf, GitHub Copilot, and other MCP-compatible agents. OAuth authentication; no API keys for the hosted server.",
+    "path": "category/git-version-control/onboarding-mcp-configure"
+  },
+  {
     "id": "open-design-publish",
     "name": "open-design-publish",
     "category": "git-version-control",
@@ -2984,6 +3024,22 @@
     "path": "category/git-version-control/readout"
   },
   {
+    "id": "release-autopilot-launchdarkly-release-autopilot-onboarding",
+    "name": "release-autopilot-launchdarkly-release-autopilot-onboarding",
+    "category": "git-version-control",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Step-by-step onboarding wizard for LaunchDarkly Release Autopilot: pick capabilities (auto-flagging, auto-releasing, auto-cleanup, auto-archival), connect the GitHub App, map repositories to projects, choose which AI model account runs the agents (LaunchDarkly's by default, or your own Anthropic or OpenAI key), review release policies (release plans by GA), and turn on scheduled flag cleanup and archival. Use when the user wants to set up, onboard to, preview, or continue setting up Release Autopilot. For a single settings change or 'why didn't my PR get classified?', use launchdarkly-release-autopilot-settings instead.",
+    "path": "category/git-version-control/release-autopilot-launchdarkly-release-autopilot-onboarding"
+  },
+  {
+    "id": "release-autopilot-launchdarkly-release-autopilot-settings",
+    "name": "release-autopilot-launchdarkly-release-autopilot-settings",
+    "category": "git-version-control",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Configure LaunchDarkly Release Autopilot settings (GitHub App auto-flagging and auto-releasing) via the hosted MCP, or diagnose why a pull request was not classified / auto-flagged. Use when the user wants to turn on auto-flagging, map a GitHub repo to a LaunchDarkly project, change Release Autopilot account defaults, unmap a repo, or asks why Release Autopilot did not classify their PR. For first-time setup (pick capabilities, connect GitHub, choose inference, review release policies), use launchdarkly-release-autopilot-onboarding instead.",
+    "path": "category/git-version-control/release-autopilot-launchdarkly-release-autopilot-settings"
+  },
+  {
     "id": "release-skills",
     "name": "release-skills",
     "category": "git-version-control",
@@ -3076,8 +3132,16 @@
     "name": "runpod-build-template",
     "category": "git-version-control",
     "repository": "runpod-runpod-plugins-official",
-    "description": "Create or improve a complete Runpod template project from an application request, local code, or GitHub repository, with a documented Dockerfile and app-specific files for Pods or queue/load-balanced Serverless. Use runpod-templates for finding or operating existing official templates, runpod-mcp/runpodctl to register an already-built image as a template, flash for its code-first workflow, and companion-clis for standalone image build/push commands.",
+    "description": "Create or improve a complete Runpod template project from an application request, local code, or GitHub repository, with a documented Dockerfile and app-specific files for Pods or queue/load-balanced Serverless. Use runpod-templates for finding or operating existing official templates, runpod-mcp/runpodctl to register an already-built image as a template, runpod-flash for its code-first workflow, and runpod-companion-clis for standalone image build/push commands.",
     "path": "category/git-version-control/runpod-build-template"
+  },
+  {
+    "id": "runpod-companion-clis",
+    "name": "runpod-companion-clis",
+    "category": "git-version-control",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Companion CLIs for Runpod workflows \u2014 HuggingFace, GitHub, Docker, and AWS. Use runpod-build-template for complete template project authoring, and the ComfyUI model-repair guide in runpod-templates for imported workflows lacking model download metadata.",
+    "path": "category/git-version-control/runpod-companion-clis"
   },
   {
     "id": "rust-review",
@@ -3126,6 +3190,14 @@
     "repository": "mukul975-anthropic-cybersecurity-skills",
     "description": "Scans container images, filesystems, and SBOMs for known CVEs with Anchore Grype, matching Syft-generated SBOM packages against NVD, GitHub Advisories, and OS-specific feeds with configurable severity thresholds and failure gates. Use when Grype or Syft is the chosen toolchain, when scanning an existing SBOM rather than an image, or when gating a build on severity. Keywords: Grype, Syft, SBOM, NVD, GitHub Advisory, --fail-on, severity threshold. Do not use when the toolchain is Trivy - use scanning-docker-images-with-trivy.",
     "path": "category/git-version-control/scanning-container-images-with-grype"
+  },
+  {
+    "id": "scenario-report",
+    "name": "scenario-report",
+    "category": "git-version-control",
+    "repository": "scenario-labs-skills",
+    "description": "Use when a Scenario user wants to report a bug or request a change, on the public tracker at github.com/scenario-labs/skills or by email to support@scenario.com: turning a failed generation, MCP tool error, or unclear skill into a reproducible report, collecting trace ids with diagnostics_run, stripping keys, signed asset URLs, and personal data, asking before sharing a team or project id, or building a prefilled issue URL. Keywords: file an issue, feature request, feedback.",
+    "path": "category/git-version-control/scenario-report"
   },
   {
     "id": "search-first",

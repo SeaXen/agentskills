@@ -1,7 +1,7 @@
 # 🔒 Auth, Hardening & Compliance
 
 > **Category**: `security-compliance-auth`  
-> **Total Curated Skills**: 396 skills  
+> **Total Curated Skills**: 398 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -320,6 +320,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`rig-lifecycle`](../../library/mvschwarz-openrig/skills/rig-lifecycle) | ⚪ Reserve | `mvschwarz-openrig` | Use when reasoning about the rig lifecycle operations family (create / start / stop / resume / ... |
 | [`salesforce-appexchange-playbook`](../../library/samber-developer-platform-skills/skills/salesforce-appexchange-playbook) | ⚪ Reserve | `samber-developer-platform-skills` | Takes a B2B SaaS product onto Salesforce AppExchange (increasingly AgentExchange) as an ISV - p... |
 | [`santa-method`](../../library/affaan-m-ecc/skills/santa-method) | ⚪ Reserve | `affaan-m-ecc` | Multi-agent adversarial verification: two independent reviewers with the same rubric must both ... |
+| [`scenario`](../../library/scenario-labs-skills/skills/scenario) | ⚪ Reserve | `scenario-labs-skills` | Use when connecting an AI agent to Scenario (scenario.com) through MCP, or when a task involves... |
+| [`scenario-quality-gate`](../../library/scenario-labs-skills/skills/scenario-quality-gate) | ⚪ Reserve | `scenario-labs-skills` | Use when a generated Scenario image needs a quality check or a brand-brief compliance verdict b... |
 | [`scribe`](../../library/anthropics-knowledge-work/skills/scribe) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom AI Services Scribe. Use after routing to a transcription workflow when... |
 | [`securing-aws-iam-permissions`](../../library/mukul975-anthropic-cybersecurity-skills/skills/securing-aws-iam-permissions) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Hardens AWS IAM configurations to enforce least-privilege access, covering |
 | [`securing-aws-lambda-execution-roles`](../../library/mukul975-anthropic-cybersecurity-skills/skills/securing-aws-lambda-execution-roles) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Hardens AWS Lambda execution roles by writing least-privilege IAM policies, |

@@ -1,7 +1,7 @@
 # 🎬 Video Creation & Generative Motion
 
 > **Category**: `video-motion-production`  
-> **Total Curated Skills**: 198 skills  
+> **Total Curated Skills**: 212 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -149,6 +149,20 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`remotion-upgrade`](../../library/remotion-dev-skills/skills/remotion-upgrade) | ⚪ Reserve | `remotion-dev-skills` | Upgrade Remotion, and related packages |
 | [`repurpose-into-a-post`](../../library/sickn33-agentic-awesome-skills/skills/repurpose-into-a-post) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Turn an article, newsletter, transcript or video into a Twitter/X or LinkedIn post that stands ... |
 | [`rtms`](../../library/anthropics-knowledge-work/skills/rtms) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom RTMS. Use after routing to a live-media workflow when processing real-... |
+| [`scenario-3d-worlds`](../../library/scenario-labs-skills/skills/scenario-3d-worlds) | ⚪ Reserve | `scenario-labs-skills` | Use when generating navigable 3D worlds or Gaussian splat scenes on Scenario via MCP: text-to-w... |
+| [`scenario-audio`](../../library/scenario-labs-skills/skills/scenario-audio) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or handling audio on Scenario via MCP. Triggers include music tracks, full-... |
+| [`scenario-caption-studio`](../../library/scenario-labs-skills/skills/scenario-caption-studio) | ⚪ Reserve | `scenario-labs-skills` | Use when a video needs its spoken words on screen through Scenario via MCP: burned-in styled ca... |
+| [`scenario-consistency`](../../library/scenario-labs-skills/skills/scenario-consistency) | ⚪ Reserve | `scenario-labs-skills` | Use when one look must hold across Scenario generations: one character across scenes, a turnaro... |
+| [`scenario-fan-cam`](../../library/scenario-labs-skills/skills/scenario-fan-cam) | ⚪ Reserve | `scenario-labs-skills` | Use when putting a person from a photo into live-broadcast crowd footage with Scenario: a stadi... |
+| [`scenario-formats`](../../library/scenario-labs-skills/skills/scenario-formats) | ⚪ Reserve | `scenario-labs-skills` | Use when one approved visual, image or video, must ship at many sizes or placements through Sce... |
+| [`scenario-minimax-video`](../../library/scenario-labs-skills/skills/scenario-minimax-video) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or editing video with MiniMax Hailuo models on Scenario via MCP: text-to-vi... |
+| [`scenario-patina-retexture`](../../library/scenario-labs-skills/skills/scenario-patina-retexture) | ⚪ Reserve | `scenario-labs-skills` | Use when retexturing an existing 3D asset with PATINA PBR materials through the Scenario MCP se... |
+| [`scenario-reel-recast`](../../library/scenario-labs-skills/skills/scenario-reel-recast) | ⚪ Reserve | `scenario-labs-skills` | Use when recreating a trending reel, TikTok or Short with a different performer: the same dance... |
+| [`scenario-seedance-drafts`](../../library/scenario-labs-skills/skills/scenario-seedance-drafts) | ⚪ Reserve | `scenario-labs-skills` | Use when exploring several Seedance video takes before paying for a final: cheap 480p previews,... |
+| [`scenario-seedance-music-video`](../../library/scenario-labs-skills/skills/scenario-seedance-music-video) | ⚪ Reserve | `scenario-labs-skills` | Use when turning a song, track, or audio master into a finished music video with Scenario and S... |
+| [`scenario-sonilo`](../../library/scenario-labs-skills/skills/scenario-sonilo) | ⚪ Reserve | `scenario-labs-skills` | Use when adding sound to a video or generating standalone audio with Sonilo models on Scenario ... |
+| [`scenario-text-overlay`](../../library/scenario-labs-skills/skills/scenario-text-overlay) | ⚪ Reserve | `scenario-labs-skills` | Use when text must appear letter-perfect on generated media: taglines, CTAs, prices, legal supe... |
+| [`scenario-thumbnails`](../../library/scenario-labs-skills/skills/scenario-thumbnails) | ⚪ Reserve | `scenario-labs-skills` | Use when creating or revising finished video thumbnails or cover images with Scenario: game tra... |
 | [`seam-craft`](../../library/heygen-hyperframes/skills/seam-craft) | ⚪ Reserve | `heygen-hyperframes` | Render-correctness doctrine for scene-to-scene seams in HyperFrames launch videos — the prerequ... |
 | [`seedance`](../../library/101-skills-superpowers/skills/seedance) | ⚪ Reserve | `101-skills-superpowers` | Generate videos with ByteDance Seedance 2.0 via inference.sh CLI. Unified model for text-to-vid... |
 | [`seek-and-analyze-video`](../../library/sickn33-agentic-awesome-skills/skills/seek-and-analyze-video) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Seek and analyze video content using Memories.ai Large Visual Memory Model for persistent video... |

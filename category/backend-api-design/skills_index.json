@@ -904,6 +904,22 @@
     "path": "category/backend-api-design/api-gateway-mcp-server"
   },
   {
+    "id": "api-gateway-openapi-spec-authoring",
+    "name": "api-gateway-openapi-spec-authoring",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Writes, migrates, and fixes OpenAPI specs for Google Cloud API Gateway. Use when converting an OpenAPI 2.0 (Swagger) spec to OpenAPI 3.x, writing a new OpenAPI 3.x spec, or fixing a failed \"gcloud api-gateway api-configs create\", such as \"extension is only supported in OpenAPI 2.x\". Also use when quotas set with x-google-quota are never enforced, or when a backend receives path parameters as query parameters. Don't use for adding or debugging MCP tools (use api-gateway-mcp-server), backend lockdown or HTTP 429 tuning (use api-gateway-backend-security-and-rate-limiting), Cloud Endpoints, Apigee, or GKE Gateway API.",
+    "path": "category/backend-api-design/api-gateway-openapi-spec-authoring"
+  },
+  {
+    "id": "api-gateway-troubleshooting",
+    "name": "api-gateway-troubleshooting",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Diagnoses failing requests and deployment errors on Google Cloud API Gateway. Use when calls through a gateway return 4xx or 5xx errors, including 429 and other quota errors, time out, or fail a CORS preflight; when `api-configs create` fails with a service account, concurrency, or limit error, or `gateways create` or `gateways update` fails; when a custom domain, load balancer, or TLS finding involves a gateway; or when the user asks if Google is at fault. Don't use for Apigee, Cloud Endpoints, or GKE Gateway API. For OpenAPI errors from `api-configs create`, use api-gateway-openapi-spec-authoring; for setting up or changing API keys, JWTs, or quotas, use api-gateway-backend-security-and-rate-limiting; for MCP `/mcp` errors, use api-gateway-mcp-server.",
+    "path": "category/backend-api-design/api-gateway-troubleshooting"
+  },
+  {
     "id": "api-idempotency-retry",
     "name": "api-idempotency-retry",
     "category": "backend-api-design",
@@ -4372,7 +4388,7 @@
     "name": "extension-oql",
     "category": "backend-api-design",
     "repository": "caffeinelabs-skills",
-    "description": "Make a canister's data queryable by the Caffeine Data Intelligence agent. Use whenever an app stores structured data (Maps/Lists/arrays of records) that should be answerable in natural language \u2014 \"top customers\", \"revenue by region\", \"active projects\". Adds a discoverable `schema()` and a JSON `execute()` query endpoint via the `caffeineai-oql` mops package's `Expose` mixin.",
+    "description": "Make a canister's data queryable by the Caffeine Data Intelligence agent and by the user's own AI assistant (Claude or ChatGPT through the ICP MCP connector, which reads app data only through OQL). Use whenever an app stores structured data (Maps/Lists/arrays of records) that should be answerable in natural language \u2014 \"top customers\", \"revenue by region\", \"active projects\". Adds a discoverable `schema()` and a JSON `execute()` query endpoint via the `caffeineai-oql` mops package's `Expose` mixin.",
     "path": "category/backend-api-design/extension-oql"
   },
   {
@@ -9056,6 +9072,22 @@
     "path": "category/backend-api-design/running-release-tests"
   },
   {
+    "id": "runpod-endpoint-ops",
+    "name": "runpod-endpoint-ops",
+    "category": "backend-api-design",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Operate a Serverless endpoint that already exists: diagnose queued jobs and dying workers,",
+    "path": "category/backend-api-design/runpod-endpoint-ops"
+  },
+  {
+    "id": "runpod-flash",
+    "name": "runpod-flash",
+    "category": "backend-api-design",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Code-first serverless with the Runpod Python SDK (`runpod` 2.0): define a `runpod.App` with `@app.queue` / `@app.api` / `@app.task`, iterate on remote GPUs/CPUs with `rp flash dev`, ship with `rp flash deploy`, and maintain or migrate legacy `runpod-flash` projects (`from runpod_flash import Endpoint`). Use runpod-build-template for explicit Dockerfile/template project authoring, and runpodctl/runpod-mcp for infrastructure management.",
+    "path": "category/backend-api-design/runpod-flash"
+  },
+  {
     "id": "runpod-migrate",
     "name": "runpod-migrate",
     "category": "backend-api-design",
@@ -9110,6 +9142,22 @@
     "repository": "codewithmukesh-dotnet-claude-kit",
     "description": "Scalar API documentation UI for .NET 10 applications. Covers setup, themes, authentication prefill, multiple documents, layout options, and security. A modern replacement for Swagger UI. Load this skill when setting up API documentation UI, or when the user mentions \"Scalar\", \"MapScalarApiReference\", \"API reference\", \"Swagger UI replacement\", \"API documentation UI\", \"Scalar theme\", \"interactive API docs\", or \"Try It\".",
     "path": "category/backend-api-design/scalar"
+  },
+  {
+    "id": "scenario-admin-analytics",
+    "name": "scenario-admin-analytics",
+    "category": "backend-api-design",
+    "repository": "scenario-labs-skills",
+    "description": "Use when answering Scenario admin analytics questions about Creative Unit consumption, most-used models, usage by user or project, AI adoption observability, cached usage data, CSV exports, enterprise PDF reports with charts, or a local analytics dashboard. Keywords: usage API, CU, analytics, adoption, reporting, consumption, cache.",
+    "path": "category/backend-api-design/scenario-admin-analytics"
+  },
+  {
+    "id": "scenario-team-admin",
+    "name": "scenario-team-admin",
+    "category": "backend-api-design",
+    "repository": "scenario-labs-skills",
+    "description": "Use when administering a Scenario team from an agent through MCP: restricting which models a team or project can run (model access control, allowlist, blocklist), inviting or removing team and project members, changing roles, capping a member's Creative Unit spend, creating or deleting projects, auditing API keys and their roles or scopes, or attributing consumption per user or model. Keywords: governance, model control, consumption cap, spend limit, API key hygiene, team admin, enterprise.",
+    "path": "category/backend-api-design/scenario-team-admin"
   },
   {
     "id": "scielo-api",
@@ -10934,6 +10982,14 @@
     "repository": "stripe-ai",
     "description": "Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mobile SDKs",
     "path": "category/backend-api-design/upgrade-stripe"
+  },
+  {
+    "id": "upload-post-skill",
+    "name": "upload-post-skill",
+    "category": "backend-api-design",
+    "repository": "upload-post-upload-post-skill",
+    "description": "Upload content to social media platforms via Upload-Post API. Use when posting videos, photos, text, or documents to TikTok, Instagram, YouTube, LinkedIn, Facebook, X (Twitter), Threads, Pinterest, Reddit, or Bluesky. Supports scheduling, analytics, FFmpeg processing, and upload history.",
+    "path": "category/backend-api-design/upload-post-skill"
   },
   {
     "id": "upstash-ratelimit",

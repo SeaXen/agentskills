@@ -23,7 +23,7 @@ The honest answer *is* the deliverable here. Do not invent a file-transfer call,
 
 ## Served now — route, don't refuse
 
-Two operations that were console-only for a long time are served tools on this server. They are normal lifecycle journeys: hand them to **lifecycle-crud** and run them:
+Two operations that were console-only for a long time are served tools on this server. They are normal lifecycle journeys: hand them to **runpod-lifecycle-crud** and run them:
 
 - **Account secrets** — `create-secret`, `list-secrets`, `get-secret`, `update-secret`, `delete-secret`. A secret's value is write-only: no read returns it, and it is consumed by setting an env var on a pod, endpoint, or template to `{{ RUNPOD_SECRET_<name> }}`, which Runpod substitutes at boot. The console route still exists; it is no longer the only one.
 - **Instant Clusters** — `create-cluster`, `list-clusters`, `get-cluster`, `update-cluster` (rename only), `delete-cluster`, `list-cluster-pods`, with `list-cluster-billing` for the spend read.
@@ -43,7 +43,7 @@ Two operations that were console-only for a long time are served tools on this s
 | Create/store a secret | `create-secret`, `list-secrets`, `get-secret`, `update-secret`, `delete-secret` |
 | Create an Instant Cluster | `create-cluster`, `list-clusters`, `get-cluster`, `update-cluster`, `delete-cluster`, `list-cluster-pods` |
 | Read Instant Cluster billing | `list-cluster-billing` |
-| Transfer files to/from a Pod/volume | *(no MCP tool — the runpodctl CLI: `send`/`receive`, the volume S3 API, cloud-sync, SSH)* |
+| Transfer files to/from a Pod/volume | *(no MCP tool — the runpodctl CLI: `send`/`receive`, `network-volume upload`/`download`; the volume S3 API, cloud-sync, SSH)* |
 | Run a command inside a Pod | *(no MCP tool — SSH or the console web terminal)* |
 | Ground account facts (reads) | `list-pods`, `get-pod`, `list-network-volumes`, `get-network-volume`, `list-endpoints` |
 

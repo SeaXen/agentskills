@@ -1,7 +1,7 @@
 # 👁️ Visual Taste, Critique & Typography
 
 > **Category**: `frontend-visual-taste`  
-> **Total Curated Skills**: 161 skills  
+> **Total Curated Skills**: 168 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -144,6 +144,13 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`s1dashu-ip-as-logo`](../../library/s1dashu-ip-as-logo-skill/skills/s1dashu-ip-as-logo) | ⚪ Reserve | `s1dashu-ip-as-logo-skill` | Generate extremely simple, cute, personified square character images with rounded heavy forms, ... |
 | [`s1dashu-ip-as-logo-skill`](../../library/s1dashu-ip-as-logo-skill/skills/s1dashu-ip-as-logo-skill) | ⚪ Reserve | `s1dashu-ip-as-logo-skill` | Generate extremely simple, cute, personified square character images with rounded heavy forms, ... |
 | [`saas-landing`](../../library/feimacode-open-design-agent-kit/skills/saas-landing) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Single-page SaaS landing with hero, features, social proof, pricing, and CTA. Respects the acti... |
+| [`scenario-brand-kit`](../../library/scenario-labs-skills/skills/scenario-brand-kit) | ⚪ Reserve | `scenario-labs-skills` | Use when building a visual identity or brand kit with Scenario: a logo, wordmark, or icon as ed... |
+| [`scenario-grok-imagine-image`](../../library/scenario-labs-skills/skills/scenario-grok-imagine-image) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or editing images with Grok Imagine models on Scenario via MCP: text-to-ima... |
+| [`scenario-ideogram`](../../library/scenario-labs-skills/skills/scenario-ideogram) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or editing images with Ideogram models on Scenario via MCP: posters, logos,... |
+| [`scenario-image-editing`](../../library/scenario-labs-skills/skills/scenario-image-editing) | ⚪ Reserve | `scenario-labs-skills` | Use when editing an existing image on Scenario through MCP with a tool model, not a new generat... |
+| [`scenario-mai-image`](../../library/scenario-labs-skills/skills/scenario-mai-image) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or editing images with Microsoft MAI Image models on Scenario via MCP: phot... |
+| [`scenario-video-color-grade`](../../library/scenario-labs-skills/skills/scenario-video-color-grade) | ⚪ Reserve | `scenario-labs-skills` | Use when color grading, color correcting, or relighting an existing video or still with determi... |
+| [`scenario-video-editing`](../../library/scenario-labs-skills/skills/scenario-video-editing) | ⚪ Reserve | `scenario-labs-skills` | Use when editing footage already on Scenario through MCP with a tool model, not a new generatio... |
 | [`site-specification`](../../library/cline-skills/skills/site-specification) | ⚪ Reserve | `cline-skills` | Extract comprehensive site specifications from simple descriptions. Use when analyzing a user's... |
 | [`skills-accessibility-review`](../../library/anthropics-knowledge-work/skills/skills-accessibility-review) | ⚪ Reserve | `anthropics-knowledge-work` | Run a WCAG 2.1 AA accessibility audit on a design or page. Trigger with "audit accessibility", ... |
 | [`skills-brand-style`](../../library/anthropics-knowledge-work/skills/skills-brand-style) | ⚪ Reserve | `anthropics-knowledge-work` | Sets and updates the owner's brand look and output preferences, which every page and document t... |

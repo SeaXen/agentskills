@@ -1,7 +1,7 @@
 # 🎨 Frontend Components & Design Systems
 
 > **Category**: `frontend-ui-components`  
-> **Total Curated Skills**: 1806 skills  
+> **Total Curated Skills**: 1809 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -1409,6 +1409,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`satuit`](../../library/membranedev-application-skills/skills/satuit) | ⚪ Reserve | `membranedev-application-skills` | Satuit integration. Manage data, records, and automate workflows. Use when the user wants to in... |
 | [`scaffold-project`](../../library/plugin87-ux-ui-agent-skills/skills/scaffold-project) | ⚪ Reserve | `plugin87-ux-ui-agent-skills` | Scaffold a new design-product project that matches the recommended Claude Code layout (the refe... |
 | [`scale-fatigue-frequency-manager`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/scale-fatigue-frequency-manager) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "is my ad fatiguing", "why is CTR dropping at scale", or "should I ro... |
+| [`scenario-inspiration`](../../library/scenario-labs-skills/skills/scenario-inspiration) | ⚪ Reserve | `scenario-labs-skills` | Use when a creative task has no direction yet: finding inspiration, exploring looks or styles, ... |
+| [`scenario-orbit-views`](../../library/scenario-labs-skills/skills/scenario-orbit-views) | ⚪ Reserve | `scenario-labs-skills` | Use when a single image of a character, creature, prop, vehicle, or building must be seen from ... |
+| [`scenario-skyboxes`](../../library/scenario-labs-skills/skills/scenario-skyboxes) | ⚪ Reserve | `scenario-labs-skills` | Use when a task involves generating or iterating on skyboxes, 360 panoramas, equirectangular im... |
 | [`scoping-changes`](../../library/riekelt-principal-engineer/skills/scoping-changes) | ⚪ Reserve | `riekelt-principal-engineer` | Use when deciding how big a fix should be, when scope is drifting mid-task, when a plan is bein... |
 | [`scoping-review-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/scoping-review-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Scoping review methodology for broad evidence mapping |
 | [`scout-influencer-discovery`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/scout-influencer-discovery) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "find influencers", "build an influencer list", or "discover creators... |

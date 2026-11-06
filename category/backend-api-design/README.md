@@ -1,7 +1,7 @@
 # ⚡ Backend Systems, REST & Microservices
 
 > **Category**: `backend-api-design`  
-> **Total Curated Skills**: 1465 skills  
+> **Total Curated Skills**: 1472 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -132,6 +132,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`api-gateway-backend-security-and-rate-limiting`](../../library/google-skills/skills/api-gateway-backend-security-and-rate-limiting) | ⚪ Reserve | `google-skills` | Secures and rate limits backend services behind Google Cloud API Gateway across OpenAPI 2.0 and... |
 | [`api-gateway-configuration`](../../library/aj-geddes-useful-ai-prompts/skills/api-gateway-configuration) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Configure API gateways for routing, authentication, rate limiting, and request/response transfo... |
 | [`api-gateway-mcp-server`](../../library/google-skills/skills/api-gateway-mcp-server) | ⚪ Reserve | `google-skills` | Configures Google Cloud API Gateway to act as a remote Model Context Protocol (MCP) server (Pub... |
+| [`api-gateway-openapi-spec-authoring`](../../library/google-skills/skills/api-gateway-openapi-spec-authoring) | ⚪ Reserve | `google-skills` | Writes, migrates, and fixes OpenAPI specs for Google Cloud API Gateway. Use when converting an ... |
+| [`api-gateway-troubleshooting`](../../library/google-skills/skills/api-gateway-troubleshooting) | ⚪ Reserve | `google-skills` | Diagnoses failing requests and deployment errors on Google Cloud API Gateway. Use when calls th... |
 | [`api-idempotency-retry`](../../library/samber-developer-platform-skills/skills/api-idempotency-retry) | ⚪ Reserve | `samber-developer-platform-skills` | Design idempotency-key support and client retry guidance for a public API so integrators retry ... |
 | [`api-integration`](../../library/sickn33-agentic-awesome-skills/skills/api-integration) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Designs event-driven architectures, webhook systems, API chaining flows, ETL pipelines, and int... |
 | [`api-integration-architect`](../../library/sickn33-agentic-awesome-skills/skills/api-integration-architect) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Design, implement, debug, and optimize API integrations with expert-level |
@@ -565,7 +567,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`extension-core-infrastructure`](../../library/caffeinelabs-skills/skills/extension-core-infrastructure) | ⚪ Reserve | `caffeinelabs-skills` | Core infrastructure providing backend connection configuration, storage client, and React app e... |
 | [`extension-http-outcalls`](../../library/caffeinelabs-skills/skills/extension-http-outcalls) | ⚪ Reserve | `caffeinelabs-skills` | HTTP outcalls performed by the backend canister (not in the frontend), including mandatory loca... |
 | [`extension-mcp-server`](../../library/caffeinelabs-skills/skills/extension-mcp-server) | ⚪ Reserve | `caffeinelabs-skills` | Let users connect the app to Claude (or any MCP client such as Claude Code or Cursor) as a cust... |
-| [`extension-oql`](../../library/caffeinelabs-skills/skills/extension-oql) | ⚪ Reserve | `caffeinelabs-skills` | Make a canister's data queryable by the Caffeine Data Intelligence agent. Use whenever an app s... |
+| [`extension-oql`](../../library/caffeinelabs-skills/skills/extension-oql) | ⚪ Reserve | `caffeinelabs-skills` | Make a canister's data queryable by the Caffeine Data Intelligence agent and by the user's own ... |
 | [`extension-querying-oql`](../../library/caffeinelabs-skills/skills/extension-querying-oql) | ⚪ Reserve | `caffeinelabs-skills` | Quick reference for the Caffeine Data Intelligence agent to query an OQL-exposing canister (sch... |
 | [`facebook-ads-library-search`](../../library/browser-act-skills/skills/facebook-ads-library-search) | ⚪ Reserve | `browser-act-skills` | Searches Meta Ad Library (Facebook/Instagram/WhatsApp ads) by keyword or Facebook page ID and e... |
 | [`facebook-groups-scrape-posts`](../../library/browser-act-skills/skills/facebook-groups-scrape-posts) | ⚪ Reserve | `browser-act-skills` | Scrapes posts from a Facebook group given a group URL, sort order, and desired count — returns ... |
@@ -1151,6 +1153,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`run-without-you`](../../library/alirezarezvani-claude-skills/skills/run-without-you) | ⚪ Reserve | `alirezarezvani-claude-skills` | Phase 4 of building a Claude Managed Agent — make it run without you. Turn a graded agent into ... |
 | [`runaway-guard`](../../library/sickn33-agentic-awesome-skills/skills/runaway-guard) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Cost-safety discipline for paid AI / inference APIs: treat $-cost as a third complexity dimensi... |
 | [`running-release-tests`](../../library/aws-agent-toolkit-for-aws/skills/running-release-tests) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Run automated release testing (UI or API) via the AWS DevOps Agent using a pre-configured test ... |
+| [`runpod-endpoint-ops`](../../library/runpod-runpod-plugins-official/skills/runpod-endpoint-ops) | ⚪ Reserve | `runpod-runpod-plugins-official` | Operate a Serverless endpoint that already exists: diagnose queued jobs and dying workers, |
+| [`runpod-flash`](../../library/runpod-runpod-plugins-official/skills/runpod-flash) | ⚪ Reserve | `runpod-runpod-plugins-official` | Code-first serverless with the Runpod Python SDK (`runpod` 2.0): define a `runpod.App` with `@a... |
 | [`runpod-migrate`](../../library/runpod-runpod-plugins-official/skills/runpod-migrate) | ⚪ Reserve | `runpod-runpod-plugins-official` | Migrate a codebase from the Runpod GraphQL API or REST v1 to REST v2 — inventory which parts us... |
 | [`saas-economics-efficiency-metrics`](../../library/deanpeters-product-manager-skills/skills/saas-economics-efficiency-metrics) | ⚪ Reserve | `deanpeters-product-manager-skills` | Evaluate SaaS unit economics and capital efficiency. Use when deciding whether the business can... |
 | [`safety-scan`](../../library/ruvnet-ruflo/skills/safety-scan) | ⚪ Reserve | `ruvnet-ruflo` | Scan inputs for prompt injection, unsafe content, and adversarial attacks using AIDefence. Use ... |
@@ -1158,6 +1162,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`salesforce-development`](../../library/antigravity-awesome-skills/skills/salesforce-development) | ⚪ Reserve | `antigravity-awesome-skills` | Expert patterns for Salesforce platform development including Lightning Web Components (LWC), A... |
 | [`sap-fiori-app-development`](../../library/sap-open-ux-tools/skills/sap-fiori-app-development) | ⚪ Reserve | `sap-open-ux-tools` | Guidelines for SAP Fiori app development for CAP and standalone projects. Use when creating or ... |
 | [`scalar`](../../library/codewithmukesh-dotnet-claude-kit/skills/scalar) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Scalar API documentation UI for .NET 10 applications. Covers setup, themes, authentication pref... |
+| [`scenario-admin-analytics`](../../library/scenario-labs-skills/skills/scenario-admin-analytics) | ⚪ Reserve | `scenario-labs-skills` | Use when answering Scenario admin analytics questions about Creative Unit consumption, most-use... |
+| [`scenario-team-admin`](../../library/scenario-labs-skills/skills/scenario-team-admin) | ⚪ Reserve | `scenario-labs-skills` | Use when administering a Scenario team from an agent through MCP: restricting which models a te... |
 | [`scielo-api`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/scielo-api) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Access Latin American and developing world research via SciELO API |
 | [`scientific-db-pubmed-database`](../../library/affaan-m-ecc/skills/scientific-db-pubmed-database) | ⚪ Reserve | `affaan-m-ecc` | Direct PubMed and NCBI E-utilities search workflows for biomedical literature, MeSH queries, PM... |
 | [`scrape`](../../library/davila7-claude-code-templates/skills/scrape) | ⚪ Reserve | `davila7-claude-code-templates` | Scrape any webpage as clean markdown via Bright Data Web Unlocker API. Bypasses bot detection a... |
@@ -1386,6 +1392,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`upbit`](../../library/starchild-ai-agent-official-skills/skills/upbit) | ⚪ Reserve | `starchild-ai-agent-official-skills` | Use upbit CLI for Upbit REST API — spot orders, market data, withdrawals, deposits, travel rule... |
 | [`update-swiftui-apis`](../../library/avdlee-swiftui-agent-skill/skills/update-swiftui-apis) | ⚪ Reserve | `avdlee-swiftui-agent-skill` | Scan Apple's SwiftUI documentation for deprecated APIs and update the SwiftUI Expert Skill with... |
 | [`upgrade-stripe`](../../library/stripe-ai/skills/upgrade-stripe) | ⚪ Reserve | `stripe-ai` | Guide for upgrading Stripe API versions, webhook endpoints, server-side SDKs, Stripe.js, and mo... |
+| [`upload-post-skill`](../../library/upload-post-upload-post-skill/skills/upload-post-skill) | ⚪ Reserve | `upload-post-upload-post-skill` | Upload content to social media platforms via Upload-Post API. Use when posting videos, photos, ... |
 | [`upstash-ratelimit`](../../library/sickn33-agentic-awesome-skills/skills/upstash-ratelimit) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Add rate limiting to API routes, middleware, and edge functions with @upstash/ratelimit: slidin... |
 | [`upstash-redis-kv`](../../library/intellectronica-agent-skills/skills/upstash-redis-kv) | ⚪ Reserve | `intellectronica-agent-skills` | Read and write to Upstash Redis-compatible key-value store via REST API. Use when there is a ne... |
 | [`uptrend-analyzer`](../../library/tradermonty-claude-trading-skills/skills/uptrend-analyzer) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Analyzes market breadth using Monty's Uptrend Ratio Dashboard data to diagnose the current mark... |

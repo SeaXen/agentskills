@@ -1,7 +1,7 @@
 # 🌐 Fullstack Web Frameworks & Apps
 
 > **Category**: `fullstack-web-frameworks`  
-> **Total Curated Skills**: 53 skills  
+> **Total Curated Skills**: 54 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -54,6 +54,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`react-vite-dashboard`](../../library/google-labs-code-stitch-skills/skills/react-vite-dashboard) | ⚪ Reserve | `google-labs-code-stitch-skills` | Convert Stitch designs into production React + Vite dashboards with TanStack Query, accessible ... |
 | [`reference-design-contract`](../../library/feimacode-open-design-agent-kit/skills/reference-design-contract) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Turn vague taste, screenshots, URLs, product notes, or "make it feel like this" references into... |
 | [`rtx-remix-modding`](../../library/nvidia-skills/skills/rtx-remix-modding) | ⚪ Reserve | `nvidia-skills` | Mod or remaster a game with RTX Remix - open and edit projects, swap textures and models. Conne... |
+| [`scenario-reve`](../../library/scenario-labs-skills/skills/scenario-reve) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or editing images with Reve models on Scenario via MCP: text-to-image from ... |
 | [`sentry-nextjs-sdk`](../../library/getsentry-sentry-for-ai/skills/sentry-nextjs-sdk) | ⚪ Reserve | `getsentry-sentry-for-ai` | Full Sentry SDK setup for Next.js. Use when asked to "add Sentry to Next.js", "install @sentry/... |
 | [`sentry-react-sdk`](../../library/getsentry-sentry-for-ai/skills/sentry-react-sdk) | ⚪ Reserve | `getsentry-sentry-for-ai` | Full Sentry SDK setup for React. Use when asked to "add Sentry to React", "install @sentry/reac... |
 | [`sentry-tanstack-start-sdk`](../../library/getsentry-sentry-for-ai/skills/sentry-tanstack-start-sdk) | ⚪ Reserve | `getsentry-sentry-for-ai` | Full Sentry SDK setup for TanStack Start React. Use when asked to "add Sentry to TanStack Start... |

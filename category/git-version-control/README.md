@@ -1,7 +1,7 @@
 # 🐙 Git, Worktrees & PR Workflows
 
 > **Category**: `git-version-control`  
-> **Total Curated Skills**: 508 skills  
+> **Total Curated Skills**: 517 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -51,6 +51,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`autoresearch-agent`](../../library/alirezarezvani-claude-skills/skills/autoresearch-agent) | ⚪ Reserve | `alirezarezvani-claude-skills` | Autonomous experiment loop that optimizes any file by a measurable metric. Inspired by Karpathy... |
 | [`aws-cloudformation-task-ecs-deploy-gh`](../../library/giuseppe-trisciuoglio-developer-kit/skills/aws-cloudformation-task-ecs-deploy-gh) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides patterns to deploy ECS tasks and services with GitHub Actions CI/CD. Use when building... |
 | [`aws-deployment`](../../library/aws-agent-toolkit-for-aws/skills/aws-deployment) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Configures CI/CD pipelines using AWS CodePipeline, CodeBuild, CodeDeploy, CodeConnections, and ... |
+| [`aws-devops-agent-experiment-orchestration`](../../library/launchdarkly-ai-tooling/skills/aws-devops-agent-experiment-orchestration) | ⚪ Reserve | `launchdarkly-ai-tooling` | Takes a product goal through a LaunchDarkly experiment and, if it wins, a guarded rollout (or a... |
 | [`aws-marketplace-playbook`](../../library/samber-developer-platform-skills/skills/aws-marketplace-playbook) | ⚪ Reserve | `samber-developer-platform-skills` | Takes a B2B SaaS vendor onto AWS Marketplace as the ISV seller - whether to list, irreversible ... |
 | [`babysit-pr`](../../library/sickn33-agentic-awesome-skills/skills/babysit-pr) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Babysit a pull request through its bot review rounds: verify, fix, reply, |
 | [`bankr-error-handling`](../../library/buzzbysolcex-buzz-bd-agent/skills/bankr-error-handling) | ⚪ Reserve | `buzzbysolcex-buzz-bd-agent` | Self-healing diagnostics for Bankr API errors. Handles 401s, timeouts, rate limits, and configu... |
@@ -156,6 +157,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`explore-code`](../../library/lllllllama-rigorpilot-skills/skills/explore-code) | ⚪ Reserve | `lllllllama-rigorpilot-skills` | Rigor Improve implementation leaf skill for auditable candidate implementation in deep learning... |
 | [`extension-http-endpoints`](../../library/caffeinelabs-skills/skills/extension-http-endpoints) | ⚪ Reserve | `caffeinelabs-skills` | Serve inbound HTTP from a Motoko canister (webhooks, curl POST/GET, bot callbacks, ingest/healt... |
 | [`factory`](../../library/builderio-skills/skills/factory) | ⚪ Reserve | `builderio-skills` | Experimental workflow for configuring an autonomous software delivery factory. Use when choosin... |
+| [`feature-flags-flag-and-release-change`](../../library/launchdarkly-ai-tooling/skills/feature-flags-flag-and-release-change) | ⚪ Reserve | `launchdarkly-ai-tooling` | Drive a pull request's change end to end: decide it's flag-worthy, create the guarding flag, wi... |
+| [`feature-flags-flag-release`](../../library/launchdarkly-ai-tooling/skills/feature-flags-flag-release) | ⚪ Reserve | `launchdarkly-ai-tooling` | Record an automated rollout for an existing LaunchDarkly flag that guards a pull request's chan... |
+| [`feature-flags-should-flag-change`](../../library/launchdarkly-ai-tooling/skills/feature-flags-should-flag-change) | ⚪ Reserve | `launchdarkly-ai-tooling` | Decide whether a given code change should be placed behind a LaunchDarkly feature flag. Use whe... |
 | [`field-service-scheduling-policy-designer-query`](../../library/forcedotcom-sf-skills/skills/field-service-scheduling-policy-designer-query) | ⚪ Reserve | `forcedotcom-sf-skills` | Designs the four policy-level settings for a Salesforce Field Service scheduling policy — name,... |
 | [`file-pr`](../../library/t3dotgg-tstack/skills/file-pr) | ⚪ Reserve | `t3dotgg-tstack` | File a concise pull request. Use when the user asks to file, open, or create a PR. |
 | [`find-security-vulnerabilities-in-code`](../../library/usestrix-strix/skills/find-security-vulnerabilities-in-code) | ⚪ Reserve | `usestrix-strix` | Find security vulnerabilities in a codebase or repository with Strix — a white-box AI security ... |
@@ -340,6 +344,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`om-setup-agent-pipeline`](../../library/open-mercato-skills/skills/om-setup-agent-pipeline) | ⚪ Reserve | `open-mercato-skills` | One-time pipeline configurator. Inspects the repo (default branch, validation scripts, labels),... |
 | [`om-smart-test`](../../library/open-mercato-skills/skills/om-smart-test) | ⚪ Reserve | `open-mercato-skills` | Run only the tests a change can affect — diffs the branch against its base, maps changed files ... |
 | [`om-verify-in-repo`](../../library/open-mercato-skills/skills/om-verify-in-repo) | ⚪ Reserve | `open-mercato-skills` | Read-only triage gate for an autofix chain. Decides whether a tracker issue is a real, still-un... |
+| [`onboarding-mcp-configure`](../../library/launchdarkly-ai-tooling/skills/onboarding-mcp-configure) | ⚪ Reserve | `launchdarkly-ai-tooling` | Configure the LaunchDarkly hosted MCP server during onboarding. Use when the parent LaunchDarkl... |
 | [`open-design-publish`](../../library/feimacode-open-design-agent-kit/skills/open-design-publish) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Share an Open Design artifact as a live link (a temporary no-account link, or your own Netlify,... |
 | [`open-source-marketing`](../../library/sickn33-agentic-awesome-skills/skills/open-source-marketing) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | When the user wants to market an open source project authentically. Trigger phrases include "op... |
 | [`open-standards-strategy`](../../library/samber-developer-relations-skills/skills/open-standards-strategy) | ⚪ Reserve | `samber-developer-relations-skills` | Decides how a company engages a named open standard or protocol - ignore it, consume it, certif... |
@@ -392,6 +397,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`react-performance`](../../library/affaan-m-ecc/skills/react-performance) | ⚪ Reserve | `affaan-m-ecc` | React and Next.js performance optimization patterns adapted from Vercel Engineering's React Bes... |
 | [`readme-optimization`](../../library/samber-developer-relations-skills/skills/readme-optimization) | ⚪ Reserve | `samber-developer-relations-skills` | Audits and rewrites a repository README so a developer who has never seen the project can tell ... |
 | [`readout`](../../library/warpdotdev-common-skills/skills/readout) | ⚪ Reserve | `warpdotdev-common-skills` | Produce a polished, self-contained HTML "readout" document under ~/.readouts (with an auto-main... |
+| [`release-autopilot-launchdarkly-release-autopilot-onboarding`](../../library/launchdarkly-ai-tooling/skills/release-autopilot-launchdarkly-release-autopilot-onboarding) | ⚪ Reserve | `launchdarkly-ai-tooling` | Step-by-step onboarding wizard for LaunchDarkly Release Autopilot: pick capabilities (auto-flag... |
+| [`release-autopilot-launchdarkly-release-autopilot-settings`](../../library/launchdarkly-ai-tooling/skills/release-autopilot-launchdarkly-release-autopilot-settings) | ⚪ Reserve | `launchdarkly-ai-tooling` | Configure LaunchDarkly Release Autopilot settings (GitHub App auto-flagging and auto-releasing)... |
 | [`release-skills`](../../library/jimliu-baoyu-design/skills/release-skills) | ⚪ Reserve | `jimliu-baoyu-design` | Universal release workflow. Auto-detects version files and changelogs. Supports Node.js, Python... |
 | [`replication-package`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/replication-package) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Scaffold or audit a social-science replication package at a target directory. Generates folder ... |
 | [`repo-scan`](../../library/affaan-m-ecc/skills/repo-scan) | ⚪ Reserve | `affaan-m-ecc` | Bootstrap pointer that installs the external repo-scan skill from a pinned, reviewable commit. ... |
@@ -404,12 +411,14 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`review-pr`](../../library/trailofbits-skills/skills/review-pr) | ⚪ Reserve | `trailofbits-skills` | Reviews the current branch's changes against its base branch as a pull request: correctness of ... |
 | [`run-qa`](../../library/momentic-ai-skills/skills/run-qa) | ⚪ Reserve | `momentic-ai-skills` | Bug bash a deployed web app or GitHub PR with Mo. Follow sessions, answer questions, review and... |
 | [`runpod-build-template`](../../library/runpod-runpod-plugins-official/skills/runpod-build-template) | ⚪ Reserve | `runpod-runpod-plugins-official` | Create or improve a complete Runpod template project from an application request, local code, o... |
+| [`runpod-companion-clis`](../../library/runpod-runpod-plugins-official/skills/runpod-companion-clis) | ⚪ Reserve | `runpod-runpod-plugins-official` | Companion CLIs for Runpod workflows — HuggingFace, GitHub, Docker, and AWS. Use runpod-build-te... |
 | [`rust-review`](../../library/morganlinton-beautifulrust/skills/rust-review) | ⚪ Reserve | `morganlinton-beautifulrust` | Review existing Rust code for idiom, API design, error handling, safety, and maintainability, a... |
 | [`sales-discovery-questions`](../../library/mbfinotti-sales-skills/skills/sales-discovery-questions) | ⚪ Reserve | `mbfinotti-sales-skills` | Builds a sequenced sales discovery question set - pain, root cause, impact, urgency - for a spe... |
 | [`sales-enablement-kit`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/sales-enablement-kit) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "build battle cards", "prep the sales team for launch", or "write the... |
 | [`sales-forecast-diagnostic`](../../library/mbfinotti-revops-skills/skills/sales-forecast-diagnostic) | ⚪ Reserve | `mbfinotti-revops-skills` | Diagnose why an existing sales forecast is unreliable and recommend fixes - stage inflation and... |
 | [`sample-app-strategy`](../../library/samber-developer-platform-skills/skills/sample-app-strategy) | ⚪ Reserve | `samber-developer-platform-skills` | Decide a developer platform's sample-code portfolio - which quickstart repos, reference apps, s... |
 | [`scanning-container-images-with-grype`](../../library/mukul975-anthropic-cybersecurity-skills/skills/scanning-container-images-with-grype) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Scans container images, filesystems, and SBOMs for known CVEs with Anchore Grype, matching Syft... |
+| [`scenario-report`](../../library/scenario-labs-skills/skills/scenario-report) | ⚪ Reserve | `scenario-labs-skills` | Use when a Scenario user wants to report a bug or request a change, on the public tracker at gi... |
 | [`search-first`](../../library/affaan-m-ecc/skills/search-first) | ⚪ Reserve | `affaan-m-ecc` | Research-before-coding workflow: search npm/PyPI, MCP servers, skills, and GitHub for existing ... |
 | [`second-opinion`](../../library/trailofbits-skills/skills/second-opinion) | ⚪ Reserve | `trailofbits-skills` | Gets independent code reviews from Codex or Antigravity for uncommitted changes, branch diffs, ... |
 | [`secrets-in-git-history`](../../library/useosint-skills/skills/secrets-in-git-history) | ⚪ Reserve | `useosint-skills` | Mine GitHub, GitLab and git history for identities, infrastructure and leaked credentials using... |

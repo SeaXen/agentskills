@@ -1,7 +1,7 @@
 # 📋 Business Strategy, Legal & HR
 
 > **Category**: `business-strategy-legal`  
-> **Total Curated Skills**: 318 skills  
+> **Total Curated Skills**: 320 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -202,6 +202,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`landing-optimizer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/landing-optimizer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "optimize our landing page for influencer traffic", "fix our promo-co... |
 | [`lark-event`](../../library/larksuite-cli/skills/lark-event) | ⚪ Reserve | `larksuite-cli` | Lark/Feishu real-time event listening / subscribing / consuming: stream events as NDJSON via `l... |
 | [`launch-checklist`](../../library/donchitos-claude-code-game-studios/skills/launch-checklist) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Launch readiness across every department: code, content, store, marketing, community, infrastru... |
+| [`launchdarkly-experiment-hypothesis-builder`](../../library/launchdarkly-ai-tooling/skills/launchdarkly-experiment-hypothesis-builder) | ⚪ Reserve | `launchdarkly-ai-tooling` | Help a user turn a rough idea into a strong, testable experiment hypothesis, or grade one they ... |
 | [`legal-agent-skills-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/legal-agent-skills-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Agent skills collection for legal research and automation |
 | [`legal-nlp-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/legal-nlp-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | NLP techniques for legal text analysis, case law mining, and contracts |
 | [`legal-response`](../../library/anthropics-knowledge-work/skills/legal-response) | ⚪ Reserve | `anthropics-knowledge-work` | Generate a response to a common legal inquiry using configured templates, with built-in escalat... |
@@ -280,6 +281,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`roadmap-prioritization`](../../library/refoundai-lenny-skills/skills/roadmap-prioritization) | ⚪ Reserve | `refoundai-lenny-skills` | Help users move from reactive feature-building to strategic resource allocation by applying rig... |
 | [`roadmap-update`](../../library/anthropics-knowledge-work/skills/roadmap-update) | ⚪ Reserve | `anthropics-knowledge-work` | Update, create, or reprioritize your product roadmap. Use when adding a new initiative and deci... |
 | [`saas-pricing-strategist`](../../library/sickn33-agentic-awesome-skills/skills/saas-pricing-strategist) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Design, optimize, and test pricing strategies for SaaS products using |
+| [`scenario-identity-library`](../../library/scenario-labs-skills/skills/scenario-identity-library) | ⚪ Reserve | `scenario-labs-skills` | Use when a named character or prop must become a reusable identity in Scenario: creating a char... |
 | [`screen-adverse-media`](../../library/sickn33-agentic-awesome-skills/skills/screen-adverse-media) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Screen a person or organisation for adverse media coverage, PEP status, and sanctions exposure ... |
 | [`screenshot-feature-extractor`](../../library/davila7-claude-code-templates/skills/screenshot-feature-extractor) | ⚪ Reserve | `davila7-claude-code-templates` | Analyze product screenshots to extract feature lists and generate development task checklists. ... |
 | [`sdk-install`](../../library/launchdarkly-ai-tooling/skills/sdk-install) | ⚪ Reserve | `launchdarkly-ai-tooling` | Install and initialize the correct LaunchDarkly SDK during onboarding by running nested skills ... |

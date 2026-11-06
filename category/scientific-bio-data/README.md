@@ -1,7 +1,7 @@
 # 🔬 Scientific, Bio-Informatics & Astrophysics
 
 > **Category**: `scientific-bio-data`  
-> **Total Curated Skills**: 121 skills  
+> **Total Curated Skills**: 124 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -54,6 +54,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`dicom-series-to-volume`](../../library/nvidia-skills/skills/dicom-series-to-volume) | ⚪ Reserve | `nvidia-skills` | Used for converting one CT DICOM series folder to a HU NIfTI volume with affine evidence. Not f... |
 | [`diffdock`](../../library/davila7-claude-code-templates/skills/diffdock) | ⚪ Reserve | `davila7-claude-code-templates` | Diffusion-based molecular docking. Predict protein-ligand binding poses from PDB/SMILES, confid... |
 | [`falsify`](../../library/sickn33-agentic-awesome-skills/skills/falsify) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | The scientific thinking protocol for AI agents. Use when facing complex, ambiguous, or high-sta... |
+| [`feature-flags-launchdarkly-flag-create`](../../library/launchdarkly-ai-tooling/skills/feature-flags-launchdarkly-flag-create) | ⚪ Reserve | `launchdarkly-ai-tooling` | Create and configure LaunchDarkly feature flags in a way that fits the existing codebase. Use w... |
 | [`firecrawl-deep-research`](../../library/firecrawl-firecrawl-workflows/skills/firecrawl-deep-research) | ⚪ Reserve | `firecrawl-firecrawl-workflows` | Produce an intensive, cited analytical report: executive summary, multi-angle findings, contrar... |
 | [`fortran`](../../library/mindrally-skills/skills/fortran) | ⚪ Reserve | `mindrally-skills` | Best practices for modern Fortran (2003/2008+) scientific and numerical computing, covering mod... |
 | [`get-available-resources`](../../library/davila7-claude-code-templates/skills/get-available-resources) | ⚪ Reserve | `davila7-claude-code-templates` | This skill should be used at the start of any computationally intensive scientific task to dete... |
@@ -104,6 +105,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`research-engineer`](../../library/antigravity-awesome-skills/skills/research-engineer) | ⚪ Reserve | `antigravity-awesome-skills` | An uncompromising Academic Research Engineer. Operates with absolute scientific rigor, objectiv... |
 | [`resilience-program-design`](../../library/aws-agent-toolkit-for-aws/skills/resilience-program-design) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Designs a resilience program: how to structure and standardize resilience policies across an or... |
 | [`results-analysis`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/results-analysis) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | This skill should be used when the user asks to "analyze experimental results", "run strict sta... |
+| [`runpod-discovery`](../../library/runpod-runpod-plugins-official/skills/runpod-discovery) | ⚪ Reserve | `runpod-runpod-plugins-official` | Answer what is available, what fits and the price against Runpod''s catalogs: GPU and CPU |
+| [`scenario-walkable-room`](../../library/scenario-labs-skills/skills/scenario-walkable-room) | ⚪ Reserve | `scenario-labs-skills` | Use when one interior photo, uploaded or generated on Scenario, should become a room a visitor ... |
 | [`scientific-article-pdf`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/scientific-article-pdf) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate publication-ready scientific article PDFs from templates |
 | [`scientific-brainstorming`](../../library/davila7-claude-code-templates/skills/scientific-brainstorming) | ⚪ Reserve | `davila7-claude-code-templates` | Research ideation partner. Generate hypotheses, explore interdisciplinary connections, challeng... |
 | [`scientific-critical-thinking`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/scientific-critical-thinking) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Evaluate research rigor. Assess methodology, experimental design, statistical validity, biases,... |

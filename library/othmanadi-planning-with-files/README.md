@@ -1,3 +1,73 @@
+<div align="center">
+<img src="media/pwf-banner-v5.webp" alt="PWF: Every task. Every step. Three planning files on a brass-inlaid base beneath an engraved arch" width="100%">
+</div>
+
+<h1 align="center">
+  Planning with Files&nbsp;&nbsp;&nbsp;<a href="https://trendshift.io/repositories/17191" title="Trendshift: #1 daily across all languages, January 6, 2026"><img src="https://trendshift.io/api/badge/trendshift/repositories/17191/daily" alt="Trendshift: #1 Repository of the Day across all languages" width="250" height="55" align="middle"></a>
+</h1>
+
+<p align="center">
+  <strong>The planning skill your agent cannot ignore.</strong><br>
+  Not a prompt it might follow. A hook that fires every turn, a plan on disk that survives <code>/clear</code>, and 3 out of 3 blind A/B wins to show it works.
+</p>
+
+<!-- sponsor:evomi:start -->
+### Sponsor
+
+<p align="center">
+  <a href="https://scrape.ly/?utm_source=github&amp;utm_medium=readme&amp;utm_campaign=planning-with-files&amp;utm_content=v2-banner"><img src="https://scrape.ly/brand/sponsor/cta-06d-07b-2x.png" width="520" alt="Scrape.ly by evomi: get structured data from Google, LinkedIn, Instagram, TikTok, Reddit and 500+ more. Connect to your Agent now."></a>
+</p>
+
+**Your agent keeps the plan. Scrape.ly brings the web data.**
+
+Connect the [Scrape.ly MCP server](https://scrape.ly/?utm_source=github&utm_medium=readme&utm_campaign=planning-with-files&utm_content=v2-text) to Claude Code, Cursor or any MCP client: your agent searches the Store, runs a scraper and reads structured results, without leaving the task.
+<!-- sponsor:evomi:end -->
+
+---
+
+<!-- oss-support:coderabbit:start -->
+**OSS code review support**<br>
+Provided through [CodeRabbit’s open-source program](https://www.coderabbit.ai/oss).
+<!-- oss-support:coderabbit:end -->
+
+---
+
+<p align="center">
+  <em>Your agent's context window dies. The plan does not.</em>
+</p>
+
+<p align="center">
+Persistent file-based planning for AI coding agents and long-running agent tasks: the skill keeps <code>task_plan.md</code>, <code>findings.md</code>, and <code>progress.md</code> on disk. Activated lifecycle hooks inject selected project planning context, so the plan survives context loss, <code>/clear</code>, crashes, and compaction. Automatic recovery reads project files only. Reading same-project local agent session records for aggregate counts or bounded replay requires an explicit catchup mode. Installs across 60+ agents via the Agent Skills standard, with native plugins for Claude Code, Codex CLI, Qoder CLI, Pi, Hermes Agent, OpenCode and DeepSeek Harness.
+</p>
+
+<p align="center">
+  <a href="https://github.com/OthmanAdi/planning-with-files/stargazers"><img src="https://img.shields.io/github/stars/OthmanAdi/planning-with-files?style=flat&color=yellow" alt="Stars"></a>
+  <a href="https://github.com/OthmanAdi/planning-with-files/releases"><img src="https://img.shields.io/github/v/release/OthmanAdi/planning-with-files?style=flat&label=release" alt="Latest release"></a>
+  <a href="https://skills.sh/othmanadi/planning-with-files"><img src="https://skills.sh/b/othmanadi/planning-with-files" alt="skills.sh installs"></a>
+  <a href="https://skillsplayground.com/skills/othmanadi-planning-with-files-planning-with-files/"><img src="https://skillsplayground.com/badges/installs/othmanadi-planning-with-files-planning-with-files.svg" alt="Skills Playground installs"></a>
+  <a href="https://skill-history.com/othmanadi/planning-with-files"><img src="https://skill-history.com/badge/othmanadi/planning-with-files.svg" alt="Downloads"></a>
+  <a href="https://github.com/OthmanAdi/planning-with-files/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed/OthmanAdi/planning-with-files?color=success" alt="Closed issues"></a>
+  <a href="https://github.com/OthmanAdi/planning-with-files/pulls?q=is%3Apr+is%3Aclosed"><img src="https://img.shields.io/github/issues-pr-closed/OthmanAdi/planning-with-files?color=success" alt="Closed PRs"></a>
+</p>
+
+<p align="center">
+  <a href="docs/evals.md"><img src="https://img.shields.io/badge/benchmark-96.7%25_pass_(29%2F30)-2da44e?style=flat" alt="Benchmark: 96.7 percent assertion pass rate with skill"></a>
+  <a href="docs/evals.md"><img src="https://img.shields.io/badge/blind_A%2FB-3%2F3_wins-2da44e?style=flat" alt="Blind A/B: 3 of 3 wins"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/OthmanAdi/planning-with-files?style=flat" alt="MIT license"></a>
+</p>
+
+<p align="center">
+  <a href="#readme-nav-before-clear"><strong>See it survive /clear</strong></a> ·
+  <a href="#readme-nav-quick-install"><strong>Install</strong></a> ·
+  <a href="#readme-nav-long-running">Long-running tasks</a> ·
+  <a href="#readme-nav-hosts">First-class hosts</a>
+</p>
+
+<p align="center">
+  <sub>Open the Commands, Multi-agent runs, Benchmarks &amp; more section below for the reference · <a href="docs/installation.md">Full install guide</a></sub>
+</p>
+
+
 ## Contributors
 
 Code, documentation, and issue contributors. Select a portrait to open a GitHub profile or archived credit. [Full credits](CONTRIBUTORS.md).
@@ -162,55 +232,6 @@ Code, documentation, and issue contributors. Select a portrait to open a GitHub 
 Full list of everyone who made this project better: [CONTRIBUTORS.md](./CONTRIBUTORS.md).
 
 </details>
-
-
-<div align="center">
-<img src="media/pwf-banner-v5.webp" alt="PWF: Every task. Every step. Three planning files on a brass-inlaid base beneath an engraved arch" width="100%">
-</div>
-
-<h1 align="center">
-  Planning with Files&nbsp;&nbsp;&nbsp;<a href="https://trendshift.io/repositories/17191" title="Trendshift: #1 daily across all languages, January 6, 2026"><img src="https://trendshift.io/api/badge/trendshift/repositories/17191/daily" alt="Trendshift: #1 Repository of the Day across all languages" width="250" height="55" align="middle"></a>
-</h1>
-
-<p align="center">
-  <strong>The planning skill your agent cannot ignore.</strong><br>
-  Not a prompt it might follow. A hook that fires every turn, a plan on disk that survives <code>/clear</code>, and 3 out of 3 blind A/B wins to show it works.
-</p>
-
-<p align="center">
-  <em>Your agent's context window dies. The plan does not.</em>
-</p>
-
-<p align="center">
-Persistent file-based planning for AI coding agents and long-running agent tasks: the skill keeps <code>task_plan.md</code>, <code>findings.md</code>, and <code>progress.md</code> on disk. Activated lifecycle hooks inject selected project planning context, so the plan survives context loss, <code>/clear</code>, crashes, and compaction. Automatic recovery reads project files only. Reading same-project local agent session records for aggregate counts or bounded replay requires an explicit catchup mode. Installs across 60+ agents via the Agent Skills standard, with native plugins for Claude Code, Codex CLI, Qoder CLI, Pi, Hermes Agent, OpenCode and DeepSeek Harness.
-</p>
-
-<p align="center">
-  <a href="https://github.com/OthmanAdi/planning-with-files/stargazers"><img src="https://img.shields.io/github/stars/OthmanAdi/planning-with-files?style=flat&color=yellow" alt="Stars"></a>
-  <a href="https://github.com/OthmanAdi/planning-with-files/releases"><img src="https://img.shields.io/github/v/release/OthmanAdi/planning-with-files?style=flat&label=release" alt="Latest release"></a>
-  <a href="https://skills.sh/othmanadi/planning-with-files"><img src="https://skills.sh/b/othmanadi/planning-with-files" alt="skills.sh installs"></a>
-  <a href="https://skillsplayground.com/skills/othmanadi-planning-with-files-planning-with-files/"><img src="https://skillsplayground.com/badges/installs/othmanadi-planning-with-files-planning-with-files.svg" alt="Skills Playground installs"></a>
-  <a href="https://skill-history.com/othmanadi/planning-with-files"><img src="https://skill-history.com/badge/othmanadi/planning-with-files.svg" alt="Downloads"></a>
-  <a href="https://github.com/OthmanAdi/planning-with-files/issues?q=is%3Aissue+is%3Aclosed"><img src="https://img.shields.io/github/issues-closed/OthmanAdi/planning-with-files?color=success" alt="Closed issues"></a>
-  <a href="https://github.com/OthmanAdi/planning-with-files/pulls?q=is%3Apr+is%3Aclosed"><img src="https://img.shields.io/github/issues-pr-closed/OthmanAdi/planning-with-files?color=success" alt="Closed PRs"></a>
-</p>
-
-<p align="center">
-  <a href="docs/evals.md"><img src="https://img.shields.io/badge/benchmark-96.7%25_pass_(29%2F30)-2da44e?style=flat" alt="Benchmark: 96.7 percent assertion pass rate with skill"></a>
-  <a href="docs/evals.md"><img src="https://img.shields.io/badge/blind_A%2FB-3%2F3_wins-2da44e?style=flat" alt="Blind A/B: 3 of 3 wins"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/OthmanAdi/planning-with-files?style=flat" alt="MIT license"></a>
-</p>
-
-<p align="center">
-  <a href="#readme-nav-before-clear"><strong>See it survive /clear</strong></a> ·
-  <a href="#readme-nav-quick-install"><strong>Install</strong></a> ·
-  <a href="#readme-nav-long-running">Long-running tasks</a> ·
-  <a href="#readme-nav-hosts">First-class hosts</a>
-</p>
-
-<p align="center">
-  <sub>Open the Commands, Multi-agent runs, Benchmarks &amp; more section below for the reference · <a href="docs/installation.md">Full install guide</a></sub>
-</p>
 
 
 <a id="readme-nav-quick-install"></a>
@@ -396,7 +417,7 @@ They are complementary stages, not alternatives. Plan mode is where you design a
 
 ### What happens to the plan files after a task is complete?
 
-They are working memory, not a tracked deliverable. `task_plan.md`, `findings.md`, `progress.md`, and the `.planning/` directory are gitignored by default and are not archived automatically: the next task overwrites the root plan, and a slug directory just stops being active. Anything worth keeping should be promoted into code, a commit, or a doc. See [After Completion: What Happens to the Plan Files](docs/workflow.md#after-completion-what-happens-to-the-plan-files) for the full lifecycle and how to retain a completed plan. This is a deliberate default, not a missing feature; a completion-triggered archive step is a welcome opt-in extension.
+They are working memory, not a tracked deliverable. `task_plan.md`, `findings.md`, `progress.md`, and the `.planning/` directory are gitignored by default and are not archived automatically: the next task overwrites the root plan, and a slug directory stays in `.planning/`. Anything worth keeping should be promoted into code, a commit, or a doc. To set a finished named plan aside, `set-active-plan.sh --archive <slug>` previews the move to `.planning/.archive/<slug>/` and `--yes` applies it; `--restore <slug>` previews the move back and `--yes` applies it the same way. With one named plan left, hooks select it automatically again. See [After Completion: What Happens to the Plan Files](docs/workflow.md#after-completion-what-happens-to-the-plan-files) for the full lifecycle and how to retain a completed plan.
 
 ### How fast are the hooks?
 
@@ -411,6 +432,7 @@ One hook fire measures 289ms wall-clock since the v3.6.0 optimization, down from
 
 | Version | Highlights |
 |---------|------------|
+| **v3.28.0** | Adds opt-in archive and restore for finished named plans (`--archive` / `--restore`, preview first, nothing deleted), so hooks select the remaining plan again; the multiple-plans notice names the command; fixes inventory timestamps, locked files, long paths, hidden folders and PowerShell output on Windows (#355). |
 | **v3.27.0** | Adds optional agent-readable plan inventory (`--list --json` / `-List -Json`) with paths, phase metadata, selection uncertainty and bounded paging; aligns Claude plugin commands with selected-plan and initializer contracts (#349, #350, PR #351). |
 | **v3.26.0** | Adds opt-in Claude Code subagent tool-hook isolation (`PWF_SKIP_SUBAGENTS=1`); fixes Codex setup, Copilot PreToolUse output and Gemini lifecycle opt-out (PRs #345, #346, #347; #348). |
 | **v3.25.2** | Plan creation through the initializer and explicit format validation; Copilot context schema and Cursor selection/install fixes; optional skill-lens resume evaluation (PRs #338, #340, #341, #342). |
@@ -649,6 +671,8 @@ The contract and the `.mode` tokens are specified in the skill itself ([SKILL.md
 To find a saved plan, run the installed `scripts/set-active-plan.sh --list` helper from your project directory, or `scripts/set-active-plan.ps1 -List` in PowerShell. It lists named plans under that project's `.planning/` directory, with phase counts for the shipped English and translated templates. `[active]` marks the shared default pointer. Listing does not select a plan or attach a session; use the displayed ID as `PLAN_ID` before starting a concurrent task. Kiro's separate `.kiro/plan` layout is not part of this inventory.
 
 For agent-readable paths and state, add `--json` (PowerShell: `-Json`). The read-only response includes root and named triplets, missing/unreadable files, phase parse status, and the shared default separately from process-visible selection. Results are paged and capped at 16 KiB; this query does not run during ordinary activation. See the [inventory schema and worker handoff](skills/planning-with-files/plan-inventory.md).
+
+To set a finished named plan aside, run `set-active-plan.sh --archive <id>` (PowerShell: `-Archive <id>`). It previews the move to `.planning/.archive/<id>/`; `--yes` (`-Yes`) applies it. `--restore <id>` previews the move back and applies it with `--yes` the same way. Nothing is deleted and nothing is archived automatically. Once one named plan remains, hooks select it again without `PLAN_ID`. `--list --archived` shows archived plans.
 
 ## How It Works
 

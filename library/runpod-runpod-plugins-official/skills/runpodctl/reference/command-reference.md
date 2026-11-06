@@ -105,8 +105,23 @@ that same `PATCH` and `{"gpu":{"pools":[...]}}`.
 **runpodctl ≥ v2.4.0**; data does not sync between volumes automatically — golden path
 [10](../../runpod/golden-paths/10-multi-region-ha-serverless.md).
 
+`serverless update --model-reference` includes the server-resolved `modelReferences` in
+JSON/YAML output; `--clear-models` returns `modelReferences: []`. Other updates do not fetch
+model references; use `serverless model-status <id>` to inspect them.
+
 ⚠️ `serverless get --include-workers` returns raw v1 worker records **including
 `RUNPOD_AI_API_KEY`/`RUNPOD_ENDPOINT_SECRET` in `env`** — don't paste its output into a ticket.
+
+### CPU endpoints and REST v1
+
+Verified evidence for why REST v1 must not be used for a CPU endpoint (the create
+instruction is in [SKILL.md](../SKILL.md)): 2026-07-14,
+`POST https://rest.runpod.io/v1/endpoints` with `"computeType":"CPU"` silently returned a GPU
+endpoint (`gpuCount:1`, `cpuFlavorIds:null`), while `runpodctl --compute-type CPU` correctly
+returned `computeType:"CPU"` with `instanceIds:["cpu3g-4-16"]`. The separate
+**runtime/invoke** API `https://api.runpod.ai/v2/<endpoint-id>/…`
+(health/run/runsync/openai) is a different v2 and works fine; the v1-vs-v2 caveat is only
+about the **control/management** REST.
 
 ### Error codes worth branching on
 
@@ -215,7 +230,33 @@ pre-compress the source. **Agent flow (one side sends, the other receives):**
 
 To push local files to a pod: get `ssh info <pod-id>`, start `send` locally (capture the
 code), then `ssh` to the pod and run `receive <code>` there. For large/library-style data, a
-network volume or the S3 API is often simpler than `send`/`receive`.
+network volume is often simpler than `send`/`receive`.
+
+### Network volume upload and download (v3.1.0+)
+
+`network-volume upload <volume-id> <local-path> [remote-path]` and
+`network-volume download <volume-id> <remote-path> [local-path]` move a file or a folder
+through the volume's S3 API, with no pod running. `"/"` downloads the whole volume.
+
+- **Keys:** S3 API keys, separate from the API key: `RUNPOD_S3_ACCESS_KEY` /
+  `RUNPOD_S3_SECRET_KEY`, `--s3-access-key` / `--s3-secret-key`, or `s3AccessKey` /
+  `s3SecretKey` in `~/.runpod/config.toml`. They are created in the console (Settings > S3
+  API Keys); missing keys are `no_credentials`. The API key looks up the volume's data
+  center unless `--data-center-id` is passed; a data center without the
+  [S3 API](https://docs.runpod.io/storage/s3-api) is `usage_error`.
+- **Resume:** on `transfer_incomplete`, run the same command again. Files whose
+  destination has the same size and is not older are skipped. Files over 64 MB upload as
+  multipart, and a rerun reuses every part whose MD5 matches the local bytes. Files over
+  64 MB download in chunks into `<name>.rpdownload` (finished chunks listed in
+  `<name>.rpdownload.json`), and the file appears under its real name only once complete.
+- **`--force`** sends every file, for a same-size edit that kept an older mtime (`cp -p`,
+  `rsync -a`, `tar x`), which the skip rule would pass over.
+- **Retries:** 429, 5xx (including 524) and dropped connections are retried inside the
+  command; `transfer_incomplete` means those ran out. `volume_full`: grow the volume with
+  `network-volume update --size`, then rerun. Parts of an upload that is never rerun stay
+  in the volume's hidden `.s3compat_uploads/` folder and count toward its size.
+- **Prefer it over `send`/`receive`** for anything big that should land on a volume. For
+  other S3 tools against the same API, see `runpod-companion-clis` (`aws`).
 
 ## Hub, templates, volumes, registry, info, utilities
 

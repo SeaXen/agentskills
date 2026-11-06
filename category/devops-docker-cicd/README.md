@@ -1,7 +1,7 @@
 # 🚀 DevOps, Containers & Deployment
 
 > **Category**: `devops-docker-cicd`  
-> **Total Curated Skills**: 544 skills  
+> **Total Curated Skills**: 546 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -457,6 +457,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`replica-deploy`](../../library/jakeschincariol-replica-skill/skills/replica-deploy) | ⚪ Reserve | `jakeschincariol-replica-skill` | Ships an app clone live on the user's own domain: a preflight gate (tests green, parity must-ha... |
 | [`reproducible-pipelines`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/reproducible-pipelines) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | This skill covers reproducible research pipelines and replication packages. Use when the user i... |
 | [`run-experiment`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/run-experiment) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Deploy and run ML experiments on local or remote GPU servers. Use when user says \"run experime... |
+| [`runpod-pod-deploy`](../../library/runpod-runpod-plugins-official/skills/runpod-pod-deploy) | ⚪ Reserve | `runpod-runpod-plugins-official` | Provision a Runpod Pod for interactive, development or training use and tell the user exactly |
+| [`runpod-serverless-deploy`](../../library/runpod-runpod-plugins-official/skills/runpod-serverless-deploy) | ⚪ Reserve | `runpod-runpod-plugins-official` | Bring any source (a HuggingFace repo, a ComfyUI workflow, a Hub release, a custom container |
 | [`runpod-templates`](../../library/runpod-runpod-plugins-official/skills/runpod-templates) | ⚪ Reserve | `runpod-runpod-plugins-official` | Find, use, and troubleshoot official Runpod Pod templates, including ComfyUI workflow model met... |
 | [`safety-alignment-llamaguard`](../../library/davila7-claude-code-templates/skills/safety-alignment-llamaguard) | ⚪ Reserve | `davila7-claude-code-templates` | Meta's 7-8B specialized moderation model for LLM input/output filtering. 6 safety categories - ... |
 | [`salesforce-developer`](../../library/jeffallan-claude-skills/skills/salesforce-developer) | ⚪ Reserve | `jeffallan-claude-skills` | Writes and debugs Apex code, builds Lightning Web Components, optimizes SOQL queries, implement... |

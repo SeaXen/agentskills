@@ -66,8 +66,8 @@ pod still bills for disk and any volume.
 Find a data center that has both your GPU and (for co-location) your volume with
 `runpodctl datacenter list` — its output includes per-DC GPU availability.
 
-(MCP's `create-pod` also sets `ports`/`env`; use runpodctl when you need a
-template, CPU pod, or multi-GPU list — see the router.)
+(MCP's `create-pod` also takes `templateId`, a `cpu` object, `ports` and `env`; a
+multi-GPU priority list is one create per type in either lane — see the router.)
 
 ## 3. Connect (the control channel)
 
@@ -135,7 +135,7 @@ does, read the service log on the volume to diagnose.
 
 Re-run setup/service commands over the same SSH channel. Logs and artifacts on the
 volume survive restarts. Use a framework's hot-reload/dev mode when it has one
-(e.g. `flash dev` in the flash lane).
+(e.g. `rp flash dev` in the flash lane).
 
 ## 8. Escalate on manual steps
 

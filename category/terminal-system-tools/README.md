@@ -1,7 +1,7 @@
 # 💻 Terminal, Shell & System Automation
 
 > **Category**: `terminal-system-tools`  
-> **Total Curated Skills**: 425 skills  
+> **Total Curated Skills**: 427 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -178,6 +178,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`experience-ui-bundle-salesforce-data-access`](../../library/forcedotcom-sf-skills/skills/experience-ui-bundle-salesforce-data-access) | ⚪ Reserve | `forcedotcom-sf-skills` | MUST activate whenever a uiBundles/*/src/ project reads, writes, or displays Salesforce data — ... |
 | [`exploiting-api-injection-vulnerabilities`](../../library/mukul975-anthropic-cybersecurity-skills/skills/exploiting-api-injection-vulnerabilities) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Tests API parameters, headers, and request bodies for injection flaws — SQL injection, NoSQL in... |
 | [`feature-flags-architect`](../../library/alirezarezvani-claude-skills/skills/feature-flags-architect) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when adding, retiring, or auditing feature flags. Triggers on "add a flag", "ship behind a ... |
+| [`feature-flags-launchdarkly-flag-command`](../../library/launchdarkly-ai-tooling/skills/feature-flags-launchdarkly-flag-command) | ⚪ Reserve | `launchdarkly-ai-tooling` | Resolve `/flag` style requests into the right LaunchDarkly flag lookup flow. Use when the user ... |
 | [`fedora-hyprland-installer`](../../library/sickn33-agentic-awesome-skills/skills/fedora-hyprland-installer) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Install, configure, verify, repair, update, and uninstall Hyprland on Fedora Linux with GPU-awa... |
 | [`feishu`](../../library/nano-muse-nanomuse/skills/feishu) | ⚪ Reserve | `nano-muse-nanomuse` | The user's 飞书 / Lark through its command-line tool (lark-cli): agenda, people and groups, readi... |
 | [`fieldtheory-cli-bookmarks`](../../library/reason-machines-trending-skills/skills/fieldtheory-cli-bookmarks) | ⚪ Reserve | `reason-machines-trending-skills` | Sync, search, classify, and query X/Twitter bookmarks locally using the Field Theory CLI |
@@ -369,6 +370,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`safe-browser`](../../library/browserbase-skills/skills/safe-browser) | ⚪ Reserve | `browserbase-skills` | Build local constrained-browser agents with a safe_browser tool that owns CDP, enforces a domai... |
 | [`safe-debug`](../../library/lllllllama-rigorpilot-skills/skills/safe-debug) | ⚪ Reserve | `lllllllama-rigorpilot-skills` | Rigor Debug / Rigor Audit skill for deep learning research work. Use when the user pastes a tra... |
 | [`sap-fiori-create-cli`](../../library/sap-open-ux-tools/skills/sap-fiori-create-cli) | ⚪ Reserve | `sap-open-ux-tools` | Invokes the @sap-ux/create CLI — generate, add, convert, remove, update, change, list, get comm... |
+| [`scenario-blender`](../../library/scenario-labs-skills/skills/scenario-blender) | ⚪ Reserve | `scenario-labs-skills` | Use when an agent works in an open Blender scene through the Scenario for Blender extension's l... |
 | [`sentry`](../../library/getsentry-skills/skills/sentry) | ⚪ Reserve | `getsentry-skills` | Use when the user asks to inspect Sentry issues or events, summarize recent production errors, ... |
 | [`sentry-cli`](../../library/cline-skills/skills/sentry-cli) | ⚪ Reserve | `cline-skills` | Guide for using the Sentry CLI to interact with Sentry from the command line. Use when the user... |
 | [`sentry-flutter-sdk`](../../library/getsentry-sentry-for-ai/skills/sentry-flutter-sdk) | ⚪ Reserve | `getsentry-sentry-for-ai` | Full Sentry SDK setup for Flutter and Dart. Use when asked to "add Sentry to Flutter", "install... |

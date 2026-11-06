@@ -1,7 +1,7 @@
 # 📈 Sales Outreach, Leads & CRM
 
 > **Category**: `business-sales-crm`  
-> **Total Curated Skills**: 574 skills  
+> **Total Curated Skills**: 575 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -453,6 +453,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`salesforce`](../../library/membranedev-application-skills/skills/salesforce) | ⚪ Reserve | `membranedev-application-skills` | Salesforce integration. Manage crm and marketing automation data, records, and workflows. Use w... |
 | [`salesforce-automation`](../../library/antigravity-awesome-skills/skills/salesforce-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate Salesforce tasks via Rube MCP (Composio): leads, contacts, accounts, opportunities, SO... |
 | [`salesloft`](../../library/membranedev-application-skills/skills/salesloft) | ⚪ Reserve | `membranedev-application-skills` | Salesloft integration. Manage sales data, records, and workflows. Use when the user wants to in... |
+| [`scenario-workflows`](../../library/scenario-labs-skills/skills/scenario-workflows) | ⚪ Reserve | `scenario-labs-skills` | Use when a task involves running a Scenario workflow through MCP, including anything the user c... |
 | [`schedule-meeting`](../../library/anthropics-knowledge-work/skills/schedule-meeting) | ⚪ Reserve | `anthropics-knowledge-work` | Find a time, draft the invite, and book the meeting on Google Calendar or Outlook - then log it... |
 | [`scorecard-marketing`](../../library/wondelai-skills/skills/scorecard-marketing) | ⚪ Reserve | `wondelai-skills` | Build quiz and assessment funnels that generate qualified leads at 30-50% conversion. Use when ... |
 | [`scout-fit-scorer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/scout-fit-scorer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "score this influencer", "rank these creators for our campaign", or "... |

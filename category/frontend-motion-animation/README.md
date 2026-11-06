@@ -1,7 +1,7 @@
 # ✨ UI Motion, Animations & Polish
 
 > **Category**: `frontend-motion-animation`  
-> **Total Curated Skills**: 242 skills  
+> **Total Curated Skills**: 263 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -64,6 +64,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`character-artist`](../../library/arjun988-blender-skills/skills/character-artist) | ⚪ Reserve | `arjun988-blender-skills` | AAA character modeling for human anatomy, stylization, facial topology, clothing, hair, and ani... |
 | [`character-design-sheet`](../../library/101-skills-superpowers/skills/character-design-sheet) | ⚪ Reserve | `101-skills-superpowers` | Character consistency across AI-generated images with reference sheets and LoRA techniques. Cov... |
 | [`chat-motion-overlay`](../../library/feimacode-open-design-agent-kit/skills/chat-motion-overlay) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Generate configurable chat motion overlays from a transcript or screenshot, including plain bub... |
+| [`choreograph`](../../library/emilkowalski-skills/skills/choreograph) | ⚪ Reserve | `emilkowalski-skills` | Coordinate several elements that animate together — decide what moves, in what order, how much ... |
 | [`cinematic-gsap-lenis-motion-system`](../../library/mengto-skills/skills/cinematic-gsap-lenis-motion-system) | ⚪ Reserve | `mengto-skills` | Create premium cinematic web motion systems with GSAP, ScrollTrigger, and Lenis. Use for luxury... |
 | [`cinematic-scroll-storytelling`](../../library/mengto-skills/skills/cinematic-scroll-storytelling) | ⚪ Reserve | `mengto-skills` | Create cinematic scroll-driven landing pages with Lenis smooth scrolling, GSAP ScrollTrigger, s... |
 | [`claude-motion-design`](../../library/howseen-ai-claude-motion-design/skills/claude-motion-design) | ⚪ Reserve | `howseen-ai-claude-motion-design` | Specialized trending agent skill. |
@@ -109,7 +110,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`full-page-screenshot`](../../library/alirezarezvani-claude-skills/skills/full-page-screenshot) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when the user asks to capture a full-page screenshot, long screenshot, or complete page cap... |
 | [`game-art`](../../library/davila7-claude-code-templates/skills/game-art) | ⚪ Reserve | `davila7-claude-code-templates` | Game art principles. Visual style selection, asset pipeline, animation workflow. |
 | [`game-dev-combat-animation`](../../library/mengto-skills/skills/game-dev-combat-animation) | ⚪ Reserve | `mengto-skills` | Build, fix and review character combat animations (melee strikes, bow shots, spell casts, skill... |
-| [`gemini-omni-flash-api`](../../library/google-gemini-gemini-skills/skills/gemini-omni-flash-api) | ⚪ Reserve | `google-gemini-gemini-skills` | Use this skill for generative video editing, text-to-video, image-referenced video generation, ... |
+| [`gemini-omni-flash-api`](../../library/google-gemini-gemini-skills/skills/gemini-omni-flash-api) | ⚪ Reserve | `google-gemini-gemini-skills` | Use this skill for generative video editing, text-to-video, image- and video-referenced video g... |
 | [`generate-console-theme`](../../library/ruvnet-ruflo/skills/generate-console-theme) | ⚪ Reserve | `ruvnet-ruflo` | Generate a data-only animated theme preset for Ruflo Console Theme Studio. Use when the user re... |
 | [`generate2dsprite`](../../library/0x0funky-agent-sprite-forge/skills/generate2dsprite) | ⚪ Reserve | `0x0funky-agent-sprite-forge` | Make game-ready 2D characters, creatures, props, icons and FX as master stills, sprite sheets o... |
 | [`godot-export`](../../library/arjun988-blender-skills/skills/godot-export) | ⚪ Reserve | `arjun988-blender-skills` | Godot-specific Blender export favoring GLTF/GLB with correct scale, materials, animation clips,... |
@@ -204,6 +205,26 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`sales-kickoff`](../../library/mbfinotti-sales-skills/skills/sales-kickoff) | ⚪ Reserve | `mbfinotti-sales-skills` | Before starting any sales project, and before answering a sales request that spans more than on... |
 | [`sales-motion`](../../library/mbfinotti-sales-skills/skills/sales-motion) | ⚪ Reserve | `mbfinotti-sales-skills` | Chooses and designs the company-level sales motion at VP Sales / CRO altitude - product-led gro... |
 | [`sales-org-structure`](../../library/mbfinotti-sales-skills/skills/sales-org-structure) | ⚪ Reserve | `mbfinotti-sales-skills` | Designs a sales organization's structure for its current stage - role mix (SDR, AE, AM/CS), top... |
+| [`scenario-3d`](../../library/scenario-labs-skills/skills/scenario-3d) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or handling 3D assets through the Scenario MCP server, including text-to-3D... |
+| [`scenario-blender-2d-animation`](../../library/scenario-labs-skills/skills/scenario-blender-2d-animation) | ⚪ Reserve | `scenario-labs-skills` | Use when a 2D side-scroller shot, platformer cutscene, game trailer or parallax animation has t... |
+| [`scenario-chatgpt-pet-create`](../../library/scenario-labs-skills/skills/scenario-chatgpt-pet-create) | ⚪ Reserve | `scenario-labs-skills` | Use when creating a ChatGPT pet or Codex pet with Scenario: hatching an animated companion from... |
+| [`scenario-chatgpt-pet-update`](../../library/scenario-labs-skills/skills/scenario-chatgpt-pet-update) | ⚪ Reserve | `scenario-labs-skills` | Use when changing an existing ChatGPT pet or Codex pet sprite sheet with Scenario: fixing a bro... |
+| [`scenario-game-assets`](../../library/scenario-labs-skills/skills/scenario-game-assets) | ⚪ Reserve | `scenario-labs-skills` | Use when creating game art through Scenario MCP: sprites, sprite sheets, icons, props, loot, ti... |
+| [`scenario-kinetic-music-video`](../../library/scenario-labs-skills/skills/scenario-kinetic-music-video) | ⚪ Reserve | `scenario-labs-skills` | Use when turning a song into a kinetic-typography or motion-design music video, lyric video, vi... |
+| [`scenario-kling`](../../library/scenario-labs-skills/skills/scenario-kling) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or editing video with Kling models on Scenario via MCP: text-to-video, imag... |
+| [`scenario-luma-video`](../../library/scenario-labs-skills/skills/scenario-luma-video) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or editing video with Luma Ray models on Scenario via MCP: cinematic text-t... |
+| [`scenario-meshy`](../../library/scenario-labs-skills/skills/scenario-meshy) | ⚪ Reserve | `scenario-labs-skills` | Use when creating or refining 3D assets with Meshy models on Scenario via MCP: image-to-3D from... |
+| [`scenario-motion-loops`](../../library/scenario-labs-skills/skills/scenario-motion-loops) | ⚪ Reserve | `scenario-labs-skills` | Use when someone wants seamless looping motion graphics for video in their own brand colors: an... |
+| [`scenario-runway`](../../library/scenario-labs-skills/skills/scenario-runway) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or editing video with Runway models on Scenario via MCP: text-to-video or i... |
+| [`scenario-seedance`](../../library/scenario-labs-skills/skills/scenario-seedance) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or editing video with Seedance models on Scenario via MCP: text-to-video, i... |
+| [`scenario-seedance-storyboard`](../../library/scenario-labs-skills/skills/scenario-seedance-storyboard) | ⚪ Reserve | `scenario-labs-skills` | Use when a Seedance video must hold continuous movement across shots: dance choreography, fight... |
+| [`scenario-sprite-animation`](../../library/scenario-labs-skills/skills/scenario-sprite-animation) | ⚪ Reserve | `scenario-labs-skills` | Use when animating 2D game art with Scenario: walk, idle or attack cycles in 4 or 8 directions,... |
+| [`scenario-veo`](../../library/scenario-labs-skills/skills/scenario-veo) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or extending video with Google Veo models on Scenario via MCP: text-to-vide... |
+| [`scenario-video`](../../library/scenario-labs-skills/skills/scenario-video) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or editing video on Scenario via MCP: text-to-video, a music video from a s... |
+| [`scenario-video-assembly`](../../library/scenario-labs-skills/skills/scenario-video-assembly) | ⚪ Reserve | `scenario-labs-skills` | Use when generated clips must become a finished video on Scenario via MCP: cutting a shot list ... |
+| [`scenario-video-to-motion`](../../library/scenario-labs-skills/skills/scenario-video-to-motion) | ⚪ Reserve | `scenario-labs-skills` | Use when turning a reference video into 3D character animation through the Scenario MCP: marker... |
+| [`scenario-vidu`](../../library/scenario-labs-skills/skills/scenario-vidu) | ⚪ Reserve | `scenario-labs-skills` | Use when generating video with Vidu models on Scenario via MCP: text-to-video, image-to-video f... |
+| [`scenario-wan`](../../library/scenario-labs-skills/skills/scenario-wan) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or editing video with Wan models on Scenario via MCP: text-to-video, image-... |
 | [`scenekit`](../../library/dpearson2699-swift-ios-skills/skills/scenekit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Maintain and extend existing SceneKit 3D scenes and visualizations. Use when working with SCNVi... |
 | [`scroll-craft`](../../library/nateherkai-scroll-craft/skills/scroll-craft) | ⚪ Reserve | `nateherkai-scroll-craft` | Develops high-end, scroll-animated landing pages using dimensional hero compositions and planne... |
 | [`scroll-experience`](../../library/antigravity-awesome-skills/skills/scroll-experience) | ⚪ Reserve | `antigravity-awesome-skills` | Expert in building immersive scroll-driven experiences - parallax storytelling, scroll animatio... |

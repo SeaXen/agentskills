@@ -1,7 +1,7 @@
 # 📱 Mobile Development (iOS, Android, React Native)
 
 > **Category**: `mobile-ios-android`  
-> **Total Curated Skills**: 260 skills  
+> **Total Curated Skills**: 261 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -52,7 +52,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`app-store-optimization`](../../library/alirezarezvani-claude-skills/skills/app-store-optimization) | ⚪ Reserve | `alirezarezvani-claude-skills` | App Store Optimization (ASO) toolkit for researching keywords, analyzing competitor rankings, g... |
 | [`app-store-preflight-skills`](../../library/reason-machines-trending-skills/skills/app-store-preflight-skills) | ⚪ Reserve | `reason-machines-trending-skills` | name: app-store-preflight-skills |
 | [`app-store-screenshots`](../../library/101-skills-superpowers/skills/app-store-screenshots) | ⚪ Reserve | `101-skills-superpowers` | App Store and Google Play screenshot creation with exact platform specs. Covers iOS/Android dim... |
-| [`appfunctions`](../../library/android-skills/skills/appfunctions) | ⚪ Reserve | `android-skills` | Analyzes Android apps to identify key user workflows for AppFunctions |
+| [`appfunctions`](../../library/android-skills/skills/appfunctions) | ⚪ Reserve | `android-skills` | Analyzes Android apps to find user workflows to expose as AppFunctions, |
 | [`apple-crash-symbolication`](../../library/dotnet-skills/skills/apple-crash-symbolication) | ⚪ Reserve | `dotnet-skills` | Symbolicate .NET runtime frames in Apple platform .ips crash logs (iOS, tvOS, Mac Catalyst, mac... |
 | [`apple-hig`](../../library/feimacode-open-design-agent-kit/skills/apple-hig) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Apple Human Interface Guidelines as 14 agent skills covering platforms, foundations, components... |
 | [`apple-shortcuts`](../../library/claude-office-skills-skills/skills/apple-shortcuts) | ⚪ Reserve | `claude-office-skills-skills` | Create and trigger Apple Shortcuts for iOS/macOS automation and cross-platform workflows |
@@ -227,6 +227,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`reverse-engineering-android-malware-with-jadx`](../../library/mukul975-anthropic-cybersecurity-skills/skills/reverse-engineering-android-malware-with-jadx) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Reverse engineers malicious Android APK files using the JADX decompiler |
 | [`reverse-engineering-ios-app-with-frida`](../../library/mukul975-anthropic-cybersecurity-skills/skills/reverse-engineering-ios-app-with-frida) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Reverse engineers iOS applications using Frida dynamic instrumentation |
 | [`scenario-analyzer`](../../library/tradermonty-claude-trading-skills/skills/scenario-analyzer) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Skill that analyzes 18-month scenarios from a news headline. Runs the primary analysis with the... |
+| [`scenario-video-ads`](../../library/scenario-labs-skills/skills/scenario-video-ads) | ⚪ Reserve | `scenario-labs-skills` | Use when producing a video ad with Scenario from a product shot or brand assets: a mobile 9:16 ... |
 | [`sentry-cocoa-sdk`](../../library/getsentry-sentry-for-ai/skills/sentry-cocoa-sdk) | ⚪ Reserve | `getsentry-sentry-for-ai` | Full Sentry SDK setup for Apple platforms (iOS, macOS, tvOS, watchOS, visionOS). Use when asked... |
 | [`sentry-react-native-sdk`](../../library/getsentry-sentry-for-ai/skills/sentry-react-native-sdk) | ⚪ Reserve | `getsentry-sentry-for-ai` | Full Sentry SDK setup for React Native and Expo. Use when asked to "add Sentry to React Native"... |
 | [`serve-sim-apple-simulator`](../../library/reason-machines-trending-skills/skills/serve-sim-apple-simulator) | ⚪ Reserve | `reason-machines-trending-skills` | Host Apple iOS Simulators in the browser with MJPEG streaming, touch/gesture control, and AI ag... |

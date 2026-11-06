@@ -1,7 +1,7 @@
 # 📐 Programming Languages & Type Systems
 
 > **Category**: `programming-languages-core`  
-> **Total Curated Skills**: 373 skills  
+> **Total Curated Skills**: 376 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -162,6 +162,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`expression-language-injection`](../../library/yaklang-hack-skills/skills/expression-language-injection) | ⚪ Reserve | `yaklang-hack-skills` | Expression Language injection playbook. Use when Java EL, SpEL, OGNL, or MVEL expressions may e... |
 | [`fastify`](../../library/mcollina-skills/skills/fastify) | ⚪ Reserve | `mcollina-skills` | Guides development of Fastify Node.js backend servers and REST APIs using TypeScript or JavaScr... |
 | [`fastify-typescript`](../../library/mindrally-skills/skills/fastify-typescript) | ⚪ Reserve | `mindrally-skills` | Guidelines for building high-performance APIs with Fastify and TypeScript, covering validation,... |
+| [`feature-flags-launchdarkly-flag-qualitative-feedback-setup`](../../library/launchdarkly-ai-tooling/skills/feature-flags-launchdarkly-flag-qualitative-feedback-setup) | ⚪ Reserve | `launchdarkly-ai-tooling` | Integrate LaunchDarkly qualitative user feedback into a JavaScript/TypeScript codebase. Guides ... |
 | [`firebase-development`](../../library/mindrally-skills/skills/firebase-development) | ⚪ Reserve | `mindrally-skills` | Firebase development guidelines for Firestore, Authentication, Functions, and Storage with Type... |
 | [`fix-errors`](../../library/warpdotdev-common-skills/skills/fix-errors) | ⚪ Reserve | `warpdotdev-common-skills` | Fix compilation errors, linting issues, and test failures in the warp Rust codebase. Covers pre... |
 | [`fp-backend`](../../library/sickn33-agentic-awesome-skills/skills/fp-backend) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Functional programming patterns for Node.js/Deno backend development using fp-ts, ReaderTaskEit... |
@@ -245,6 +246,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`langchain4j-testing-strategies`](../../library/giuseppe-trisciuoglio-developer-kit/skills/langchain4j-testing-strategies) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides unit test, integration test, and mock AI patterns for LangChain4j applications. Create... |
 | [`langgraph-typescript-quickstart`](../../library/langchain-ai-langchain-skills/skills/langgraph-typescript-quickstart) | ⚪ Reserve | `langchain-ai-langchain-skills` | Scaffold a minimal local LangGraph agent in TypeScript by following the official quickstart. Us... |
 | [`launchdarkly-flag-qualitative-feedback-setup`](../../library/launchdarkly-ai-tooling/skills/launchdarkly-flag-qualitative-feedback-setup) | ⚪ Reserve | `launchdarkly-ai-tooling` | Integrate LaunchDarkly qualitative user feedback into a JavaScript/TypeScript codebase. Guides ... |
+| [`limrun-access-tokens`](../../library/limrun-inc-skills/skills/limrun-access-tokens) | ⚪ Reserve | `limrun-inc-skills` | Create and revoke Limrun access tokens through the CLI or TypeScript SDK. Use when delegating t... |
 | [`local-llm-expert`](../../library/sickn33-agentic-awesome-skills/skills/local-llm-expert) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Master local LLM inference, model selection, VRAM optimization, and local deployment using Olla... |
 | [`m14-mental-model`](../../library/actionbook-rust-skills/skills/m14-mental-model) | ⚪ Reserve | `actionbook-rust-skills` | Use when learning Rust concepts. Keywords: mental model, how to think about ownership, understa... |
 | [`m365-agents-ts`](../../library/antigravity-awesome-skills/skills/m365-agents-ts) | ⚪ Reserve | `antigravity-awesome-skills` | Microsoft 365 Agents SDK for TypeScript/Node.js. Build multichannel agents for Teams/M365/Copil... |
@@ -269,6 +271,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`mppx`](../../library/internet-court-internet-court-skill/skills/mppx) | ⚪ Reserve | `internet-court-internet-court-skill` | TypeScript SDK for the Payment HTTP Authentication Scheme. Handles 402 Payment Required flows w... |
 | [`msbuild-modernization`](../../library/dotnet-skills/skills/msbuild-modernization) | ⚪ Reserve | `dotnet-skills` | Guide for modernizing and migrating MSBuild project files to SDK-style format. USE FOR: convert... |
 | [`mybatis-patterns`](../../library/affaan-m-ecc/skills/mybatis-patterns) | ⚪ Reserve | `affaan-m-ecc` | MyBatis and MyBatis-Spring patterns for mapper design, XML and annotation SQL, result mapping, ... |
+| [`native-sdk`](../../library/vercel-labs-native/skills/native-sdk) | ⚪ Reserve | `vercel-labs-native` | Discovery skill for the Native SDK, the complete toolkit for building native desktop applicatio... |
 | [`near-api-js`](../../library/internet-court-internet-court-skill/skills/near-api-js) | ⚪ Reserve | `internet-court-internet-court-skill` | Guide for developing with near-api-js v7 - the JavaScript/TypeScript library for NEAR blockchai... |
 | [`near-kit`](../../library/internet-court-internet-court-skill/skills/near-kit) | ⚪ Reserve | `internet-court-internet-court-skill` | TypeScript library for NEAR Protocol blockchain interaction. Use this skill when writing code t... |
 | [`near-smart-contracts`](../../library/internet-court-internet-court-skill/skills/near-smart-contracts) | ⚪ Reserve | `internet-court-internet-court-skill` | NEAR Protocol smart contract development in Rust. Use when writing, reviewing, or deploying NEA... |

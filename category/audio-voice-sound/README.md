@@ -1,7 +1,7 @@
 # 🎙️ Audio, Voice Cloning & Sound Design
 
 > **Category**: `audio-voice-sound`  
-> **Total Curated Skills**: 192 skills  
+> **Total Curated Skills**: 194 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -149,6 +149,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`runapi-cli`](../../library/sickn33-agentic-awesome-skills/skills/runapi-cli) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Generate AI images, videos, and music/audio from agents using the RunAPI CLI. |
 | [`sag`](../../library/openclaw-openclaw/skills/sag) | ⚪ Reserve | `openclaw-openclaw` | ElevenLabs text-to-speech with mac-style say UX. |
 | [`save-to-spotify`](../../library/cline-skills/skills/save-to-spotify) | ⚪ Reserve | `cline-skills` | Create polished audio content and save to Spotify. Produces episodes with TTS narration, a rich... |
+| [`scenario-ace-step`](../../library/scenario-labs-skills/skills/scenario-ace-step) | ⚪ Reserve | `scenario-labs-skills` | Use when creating or editing music with ACE-Step models on Scenario via MCP: text-to-music song... |
+| [`scenario-model-training`](../../library/scenario-labs-skills/skills/scenario-model-training) | ⚪ Reserve | `scenario-labs-skills` | Use when generated assets must keep a consistent style, character, or product look and referenc... |
 | [`scout-audience-mapper`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/scout-audience-mapper) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "analyze my target audience", "build an audience profile for influenc... |
 | [`screen-reader-testing`](../../library/antigravity-awesome-skills/skills/screen-reader-testing) | ⚪ Reserve | `antigravity-awesome-skills` | Test web applications with screen readers including VoiceOver, NVDA, and JAWS. Use when validat... |
 | [`screenpipe`](../../library/thedotmack-claude-mem/skills/screenpipe) | ⚪ Reserve | `thedotmack-claude-mem` | Search screen and audio history recorded by Screenpipe and optionally save selected context int... |

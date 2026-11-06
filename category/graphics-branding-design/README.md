@@ -1,7 +1,7 @@
 # 🎨 Visual Design, Branding & Graphics
 
 > **Category**: `graphics-branding-design`  
-> **Total Curated Skills**: 117 skills  
+> **Total Curated Skills**: 118 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -114,6 +114,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`recommendation-canvas`](../../library/deanpeters-product-manager-skills/skills/recommendation-canvas) | ⚪ Reserve | `deanpeters-product-manager-skills` | Evaluate an AI product idea across outcomes, hypotheses, risks, and positioning. Use when decid... |
 | [`replica-brand`](../../library/jakeschincariol-replica-skill/skills/replica-brand) | ⚪ Reserve | `jakeschincariol-replica-skill` | Names and rebrands an app clone so it is the user's own: name candidates with the trademark, do... |
 | [`research-positioning-mapper`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/research-positioning-mapper) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "map our positioning", "name our competitive alternatives", or "pick ... |
+| [`scenario-product-shots`](../../library/scenario-labs-skills/skills/scenario-product-shots) | ⚪ Reserve | `scenario-labs-skills` | Use when producing product photography with Scenario from a real product photo: e-commerce pack... |
 | [`service-concierge-portal-generate`](../../library/forcedotcom-sf-skills/skills/service-concierge-portal-generate) | ⚪ Reserve | `forcedotcom-sf-skills` | Deploys an Agentforce Concierge portal on an LWR Experience Cloud site: provisions the site, co... |
 | [`shop-pack`](../../library/feimacode-open-design-agent-kit/skills/shop-pack) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Everything a small online shop needs from one product list and the seller's own photos: square ... |
 | [`skills-ad-manager`](../../library/anthropics-knowledge-work/skills/skills-ad-manager) | ⚪ Reserve | `anthropics-knowledge-work` | The ads consultant that becomes an ads agent. Reads paid-ad performance natively through the Ti... |

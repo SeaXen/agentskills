@@ -1,7 +1,7 @@
 # 💬 Prompt Engineering, LLMs & RAG
 
 > **Category**: `prompt-llm-engineering`  
-> **Total Curated Skills**: 509 skills  
+> **Total Curated Skills**: 523 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -32,6 +32,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`agent-regression-evals`](../../library/alirezarezvani-claude-skills/skills/agent-regression-evals) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when an agent, prompt, model or tool change needs proof it did not make the agent worse — s... |
 | [`agent-tool-builder`](../../library/antigravity-awesome-skills/skills/agent-tool-builder) | ⚪ Reserve | `antigravity-awesome-skills` | Tools are how AI agents interact with the world. A well-designed tool is the difference between... |
 | [`agent-wallet`](../../library/internet-court-internet-court-skill/skills/agent-wallet) | ⚪ Reserve | `internet-court-internet-court-skill` | Give the AI agent its own EVM wallet with admin-controlled policies the agent CANNOT bypass eve... |
+| [`agentcontrol-online-evals`](../../library/launchdarkly-ai-tooling/skills/agentcontrol-online-evals) | ⚪ Reserve | `launchdarkly-ai-tooling` | Attach judges to config variations for automatic LLM-as-a-judge evaluation. Create custom judge... |
+| [`agentcontrol-snippets`](../../library/launchdarkly-ai-tooling/skills/agentcontrol-snippets) | ⚪ Reserve | `launchdarkly-ai-tooling` | Create and manage prompt snippets — reusable text blocks referenced inside config variation pro... |
 | [`agentforce-offline-experimentation-run`](../../library/forcedotcom-sf-skills/skills/agentforce-offline-experimentation-run) | ⚪ Reserve | `forcedotcom-sf-skills` | Use this skill when users want to execute this workflow when a user wants to test how a differe... |
 | [`agentic-ai-prompt-research`](../../library/reason-machines-trending-skills/skills/agentic-ai-prompt-research) | ⚪ Reserve | `reason-machines-trending-skills` | name: agentic-ai-prompt-research |
 | [`agentic-engineering`](../../library/affaan-m-ecc/skills/agentic-engineering) | ⚪ Reserve | `affaan-m-ecc` | Operate as an agentic engineer using eval-first execution, decomposition, and cost-aware model ... |
@@ -444,6 +446,18 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ruflo`](../../library/ruvnet-ruflo/skills/ruflo) | ⚪ Reserve | `ruvnet-ruflo` | Ruflo is a multi-agent orchestration platform for AI coding agents (Claude Code, Cursor, Codex,... |
 | [`runai-get-utilization-overview`](../../library/nvidia-skills/skills/runai-get-utilization-overview) | ⚪ Reserve | `nvidia-skills` | GPU efficiency check for a Run:ai cluster: are the GPUs that projects, departments, and node po... |
 | [`safety-alignment-nemo-guardrails`](../../library/davila7-claude-code-templates/skills/safety-alignment-nemo-guardrails) | ⚪ Reserve | `davila7-claude-code-templates` | NVIDIA's runtime safety framework for LLM applications. Features jailbreak detection, input/out... |
+| [`scenario-elevenlabs`](../../library/scenario-labs-skills/skills/scenario-elevenlabs) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or transforming audio with ElevenLabs models on Scenario via MCP: text-to-s... |
+| [`scenario-gemini-image`](../../library/scenario-labs-skills/skills/scenario-gemini-image) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or editing images with Google's Gemini image models (Nano Banana) on Scenar... |
+| [`scenario-gemini-omni`](../../library/scenario-labs-skills/skills/scenario-gemini-omni) | ⚪ Reserve | `scenario-labs-skills` | Use when generating, extending, or editing video with Gemini Omni models on Scenario via MCP: t... |
+| [`scenario-gpt-image`](../../library/scenario-labs-skills/skills/scenario-gpt-image) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or editing images with OpenAI's GPT Image models on Scenario via MCP: text-... |
+| [`scenario-grok-imagine-video`](../../library/scenario-labs-skills/skills/scenario-grok-imagine-video) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or editing video with Grok Imagine models on Scenario via MCP: text-to-vide... |
+| [`scenario-image`](../../library/scenario-labs-skills/skills/scenario-image) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or editing images with Scenario through MCP: text-to-image, image-to-image,... |
+| [`scenario-luma-image`](../../library/scenario-labs-skills/skills/scenario-luma-image) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or editing images with Luma Uni-1 models on Scenario via MCP: text-to-image... |
+| [`scenario-minimax-music`](../../library/scenario-labs-skills/skills/scenario-minimax-music) | ⚪ Reserve | `scenario-labs-skills` | Use when generating music with MiniMax models on Scenario via MCP: full songs with vocals from ... |
+| [`scenario-moderation`](../../library/scenario-labs-skills/skills/scenario-moderation) | ⚪ Reserve | `scenario-labs-skills` | Use when a Scenario generation is blocked, refused, or returns a moderation or sensitive-conten... |
+| [`scenario-rodin`](../../library/scenario-labs-skills/skills/scenario-rodin) | ⚪ Reserve | `scenario-labs-skills` | Use when generating 3D assets with Rodin Hyper3D models on Scenario via MCP: image-to-3D from u... |
+| [`scenario-ugc`](../../library/scenario-labs-skills/skills/scenario-ugc) | ⚪ Reserve | `scenario-labs-skills` | Use when producing UGC-style creator video with Scenario: a talking-head ad or testimonial from... |
+| [`scenario-workflow-authoring`](../../library/scenario-labs-skills/skills/scenario-workflow-authoring) | ⚪ Reserve | `scenario-labs-skills` | Use when a task involves creating or editing a Scenario workflow graph through MCP: building an... |
 | [`scientific-schematics`](../../library/davila7-claude-code-templates/skills/scientific-schematics) | ⚪ Reserve | `davila7-claude-code-templates` | Create publication-quality scientific diagrams using Nano Banana Pro AI with smart iterative re... |
 | [`score-eval`](../../library/neondatabase-agent-skills/skills/score-eval) | ⚪ Reserve | `neondatabase-agent-skills` | name: score-eval |
 | [`secure-workflow-guide`](../../library/trailofbits-skills/skills/secure-workflow-guide) | ⚪ Reserve | `trailofbits-skills` | Guides through Trail of Bits' 5-step secure development workflow. Runs Slither scans, checks sp... |

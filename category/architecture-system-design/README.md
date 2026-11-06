@@ -1,7 +1,7 @@
 # 🏛️ Architecture, System Design & Patterns
 
 > **Category**: `architecture-system-design`  
-> **Total Curated Skills**: 655 skills  
+> **Total Curated Skills**: 657 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -19,6 +19,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 
 | Skill Name | Status | Origin Repository | Description |
 | :--- | :---: | :--- | :--- |
+| [`.temp_upstream_clones-eugeniughelbur-obsidian-second-brain`](../../library/eugeniughelbur-obsidian-second-brain/skills/.temp_upstream_clones-eugeniughelbur-obsidian-second-brain) | ⚪ Reserve | `eugeniughelbur-obsidian-second-brain` | Operate any Obsidian vault as a living, self-rewriting second brain (an evolution of Karpathy's... |
 | [`0-autoresearch-skill`](../../library/orchestra-research-ai-research-skills/skills/0-autoresearch-skill) | ⚪ Reserve | `orchestra-research-ai-research-skills` | Orchestrates end-to-end autonomous AI research projects using a two-loop architecture. The inne... |
 | [`academic-plotting`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/academic-plotting) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generates publication-quality figures for ML papers from research context. Given a paper sectio... |
 | [`adhd`](../../library/uditakhourii-adhd/skills/adhd) | ⚪ Reserve | `uditakhourii-adhd` | Parallel divergent ideation for coding agents. Spawns isolated branches under cognitive frames,... |
@@ -38,6 +39,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`agent-platform-architecture`](../../library/google-skills/skills/agent-platform-architecture) | ⚪ Reserve | `google-skills` | Designs, engineers, and validates enterprise Gemini platform architectures. Use when designing ... |
 | [`agent-skills-for-context-engineering`](../../library/muratcankoylan-agent-skills-for-context-engineering/skills/agent-skills-for-context-engineering) | ⚪ Reserve | `muratcankoylan-agent-skills-for-context-engineering` | A comprehensive collection of Agent Skills for context engineering, harness engineering, multi-... |
 | [`agent-workflow-designer`](../../library/alirezarezvani-claude-skills/skills/agent-workflow-designer) | ⚪ Reserve | `alirezarezvani-claude-skills` | Design production-grade multi-agent workflows with clear pattern choice (sequential, parallel, ... |
+| [`agentcontrol-projects`](../../library/launchdarkly-ai-tooling/skills/agentcontrol-projects) | ⚪ Reserve | `launchdarkly-ai-tooling` | Guide for setting up LaunchDarkly projects in your codebase. Helps you assess your stack, choos... |
 | [`agentdb-query`](../../library/ruvnet-ruflo/skills/agentdb-query) | ⚪ Reserve | `ruvnet-ruflo` | Query AgentDB through the controller bridge -- semantic routing, hierarchical recall, causal gr... |
 | [`agentforce-architecture-analyze`](../../library/forcedotcom-sf-skills/skills/agentforce-architecture-analyze) | ⚪ Reserve | `forcedotcom-sf-skills` | Declared architecture snapshot for one Agentforce agent: planner, topics, actions, flows, Apex,... |
 | [`agentforce-d360-analyze`](../../library/forcedotcom-sf-skills/skills/agentforce-d360-analyze) | ⚪ Reserve | `forcedotcom-sf-skills` | Data Cloud 360° view of a single Agentforce session. TRIGGER when user asks to trace, inspect, ... |
@@ -183,7 +185,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`connector-tmdb`](../../library/caffeinelabs-skills/skills/connector-tmdb) | ⚪ Reserve | `caffeinelabs-skills` | MANDATORY recipe for every Caffeine build that reads movie, TV or people data from a canister. ... |
 | [`connector-twilio`](../../library/caffeinelabs-skills/skills/connector-twilio) | ⚪ Reserve | `caffeinelabs-skills` | EXPERIMENTAL, NOT YET VERIFIED AGAINST LIVE TWILIO, and it spends real money — every message is... |
 | [`connector-weatherapi`](../../library/caffeinelabs-skills/skills/connector-weatherapi) | ⚪ Reserve | `caffeinelabs-skills` | MANDATORY recipe for every Caffeine build that reads weather data from a canister. The supporte... |
-| [`connector-x`](../../library/caffeinelabs-skills/skills/connector-x) | ⚪ Reserve | `caffeinelabs-skills` | MANDATORY recipe for every Caffeine build that posts to X (Twitter) from a canister. The suppor... |
+| [`connector-x`](../../library/caffeinelabs-skills/skills/connector-x) | ⚪ Reserve | `caffeinelabs-skills` | MANDATORY recipe for every Caffeine build that posts to or reads from X (Twitter) from a canist... |
 | [`content-hash-cache-pattern`](../../library/affaan-m-ecc/skills/content-hash-cache-pattern) | ⚪ Reserve | `affaan-m-ecc` | Cache expensive file processing results using SHA-256 content hashes — path-independent, auto-i... |
 | [`context-and-decisions`](../../library/affaan-m-ecc/skills/context-and-decisions) | ⚪ Reserve | `affaan-m-ecc` | Govern stable domain context with a narrowly scoped CONTEXT.md when needed, and route hard-to-r... |
 | [`context-architecture`](../../library/davila7-claude-code-templates/skills/context-architecture) | ⚪ Reserve | `davila7-claude-code-templates` | Audit a codebase and bind every claim it makes about itself to a mechanism that fails when the ... |

@@ -1,7 +1,7 @@
 # 🧹 Code Quality, Refactoring & Clean Code
 
 > **Category**: `code-quality-refactoring`  
-> **Total Curated Skills**: 4779 skills  
+> **Total Curated Skills**: 4818 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -136,6 +136,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ads-photoshoot`](../../library/agricidaniel-claude-ads/skills/ads-photoshoot) | ⚪ Reserve | `agricidaniel-claude-ads` | Generate rights-cleared paid-ad product photography variants from an authorized source image an... |
 | [`ads-validate`](../../library/agricidaniel-claude-ads/skills/ads-validate) | ⚪ Reserve | `agricidaniel-claude-ads` | Validate Claude Ads contracts, scoring inputs, run bundles, capabilities, source freshness, saf... |
 | [`adspy-analytics-intelligence`](../../library/reason-machines-data-skills/skills/adspy-analytics-intelligence) | ⚪ Reserve | `reason-machines-data-skills` | Analytics platform for tracking and analyzing sponsored advertisements across multiple networks... |
+| [`advanced-features`](../../library/upstash-redis-js/skills/advanced-features) | ⚪ Reserve | `upstash-redis-js` |  |
 | [`adversarial-reviewer`](../../library/alirezarezvani-claude-skills/skills/adversarial-reviewer) | ⚪ Reserve | `alirezarezvani-claude-skills` | Adversarial code review that breaks the self-review monoculture. Use when you want a genuinely ... |
 | [`advertising-skills-ai-agents`](../../library/reason-machines-trending-skills/skills/advertising-skills-ai-agents) | ⚪ Reserve | `reason-machines-trending-skills` | name: advertising-skills-ai-agents |
 | [`advisor`](../../library/cursor-plugins/skills/advisor) | ⚪ Reserve | `cursor-plugins` | Advisor mode. Consult a stronger (or different) model at key checkpoints: before major decision... |
@@ -180,6 +181,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`agent-squad`](../../library/sickn33-agentic-awesome-skills/skills/agent-squad) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Main agent orchestrator that coordinates a specialized squad of agents |
 | [`agent-starters`](../../library/mvschwarz-openrig/skills/agent-starters) | ⚪ Reserve | `mvschwarz-openrig` | Use when creating, refreshing, packaging, inspecting, promoting, or deprecating a named per-sea... |
 | [`agentcontrol`](../../library/launchdarkly-ai-tooling/skills/agentcontrol) | ⚪ Reserve | `launchdarkly-ai-tooling` |  |
+| [`agentcontrol-configs-targeting`](../../library/launchdarkly-ai-tooling/skills/agentcontrol-configs-targeting) | ⚪ Reserve | `launchdarkly-ai-tooling` | Configure config targeting rules to control which variations serve to different users. Enable p... |
+| [`agentcontrol-configs-update`](../../library/launchdarkly-ai-tooling/skills/agentcontrol-configs-update) | ⚪ Reserve | `launchdarkly-ai-tooling` | Update, retire, and delete LaunchDarkly configs and their variations. Use when you need to modi... |
+| [`agentcontrol-custom-metrics`](../../library/launchdarkly-ai-tooling/skills/agentcontrol-custom-metrics) | ⚪ Reserve | `launchdarkly-ai-tooling` | Create, track, retrieve, update, and delete custom business metrics for configs. Covers full li... |
+| [`agentcontrol-tools`](../../library/launchdarkly-ai-tooling/skills/agentcontrol-tools) | ⚪ Reserve | `launchdarkly-ai-tooling` | Give your agents capabilities through tools (function calling). Helps you identify what your ag... |
 | [`agentfolio`](../../library/sickn33-agentic-awesome-skills/skills/agentfolio) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Skill for discovering and researching autonomous AI agents, tools, and ecosystems using the Age... |
 | [`agentic`](../../library/bergside-awesome-design-skills/skills/agentic) | ⚪ Reserve | `bergside-awesome-design-skills` | Conversational AI-first interface with minimal controls, clear outcomes, and delegated task flo... |
 | [`agentic-stack-portable-brain`](../../library/reason-machines-trending-skills/skills/agentic-stack-portable-brain) | ⚪ Reserve | `reason-machines-trending-skills` | name: agentic-stack-portable-brain |
@@ -1157,6 +1162,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`css`](../../library/mindrally-skills/skills/css) | ⚪ Reserve | `mindrally-skills` | Best practices for CSS development including modern layout techniques, naming conventions, them... |
 | [`css-architecture`](../../library/aj-geddes-useful-ai-prompts/skills/css-architecture) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Organize CSS using BEM, SMACSS, and CSS-in-JS patterns. Use when building scalable, maintainabl... |
 | [`csv-manual-export`](../../library/sickn33-agentic-awesome-skills/skills/csv-manual-export) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | CSV Manual Export: a UTF-8 CSV template from a confirmed field list, empty by default, with no ... |
+| [`ctx-doctor`](../../library/mksglu-context-mode/skills/ctx-doctor) | ⚪ Reserve | `mksglu-context-mode` | Check that context-mode is installed and working, as a table. |
+| [`ctx-stats`](../../library/mksglu-context-mode/skills/ctx-stats) | ⚪ Reserve | `mksglu-context-mode` | Show how much context context-mode saved, as a detailed report. |
 | [`cults-automation`](../../library/composio-community-awesome-codex-skills/skills/cults-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Cults tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | [`culture-index`](../../library/antigravity-awesome-skills/skills/culture-index) | ⚪ Reserve | `antigravity-awesome-skills` | Index and search culture documentation |
 | [`culture-retention`](../../library/sickn33-agentic-awesome-skills/skills/culture-retention) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Employee survey and retention register: engagement, growth, happiness, work-life balance and ma... |
@@ -1231,6 +1238,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`dbs-theory-grounding`](../../library/dontbesilent2025-dbskill/skills/dbs-theory-grounding) | ⚪ Reserve | `dontbesilent2025-dbskill` | 理论溯源与案例重释。审查 PPT、课程、文案或方法论中的经验判断，先判断命题是否成立，再匹配并核实可信理论，用该理论重释案例并标明边界。适用于给自创理论找依据、给 PPT 补理论来源、判断一... |
 | [`dbs-title-cover-intro`](../../library/dontbesilent2025-dbskill/skills/dbs-title-cover-intro) | ⚪ Reserve | `dontbesilent2025-dbskill` | 为短视频、图文和文章生成或修改文字标题、封面文字和视频开头。先按稿件与拍摄状态把素材扩展成面向不同人群的选题供用户挑选，并询问能让观众相信作者的经历或数字，再一屏交付小红书、B 站、抖音、视... |
 | [`dbs-update`](../../library/dontbesilent2025-dbskill/skills/dbs-update) | ⚪ Reserve | `dontbesilent2025-dbskill` | 更新官方 dbskill，并保留其他 Skill 与用户存档。用户要求更新、升级、检查 dbskill 版本，或在更新提醒后回复 1 时使用。 |
+| [`dcc`](../../library/scenario-labs-skills/skills/dcc) | ⚪ Reserve | `scenario-labs-skills` |  |
 | [`ddd-context`](../../library/ruvnet-ruflo/skills/ddd-context) | ⚪ Reserve | `ruvnet-ruflo` | Create and manage a DDD bounded context with standard directory structure. Use when starting a ... |
 | [`ddd-validate`](../../library/ruvnet-ruflo/skills/ddd-validate) | ⚪ Reserve | `ruvnet-ruflo` | Validate domain boundaries -- detect cross-context import violations and aggregate invariant is... |
 | [`de-ai-writer`](../../library/sickn33-agentic-awesome-skills/skills/de-ai-writer) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Chinese AI-smell removal engine: 35 Chinese AI-tell patterns (赋能/闭环), AI-smell scoring, de-AI r... |
@@ -1379,6 +1387,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`digital-forensics`](../../library/sickn33-agentic-awesome-skills/skills/digital-forensics) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Authorized digital forensics: memory dumps, disk timelines, PCAP investigation, artifact triage... |
 | [`digital-ocean-automation`](../../library/composio-community-awesome-codex-skills/skills/digital-ocean-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate DigitalOcean tasks via Rube MCP (Composio). Always search tools first for current sche... |
 | [`dimensionality-reduction`](../../library/aj-geddes-useful-ai-prompts/skills/dimensionality-reduction) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Reduce feature dimensionality using PCA, t-SNE, and feature selection for feature reduction, vi... |
+| [`dingtalk-skills`](../../library/breath57-dingtalk-skills/skills/dingtalk-skills) | ⚪ Reserve | `breath57-dingtalk-skills` | 10 agent skills from breath57/dingtalk-skills — including dingtalk-document, dingtalk-message, ... |
 | [`dip_buy_decision_skill`](../../library/wind-alice-alicemarket/skills/dip_buy_decision_skill) | ⚪ Reserve | `wind-alice-alicemarket` | 判断下跌或回调中的个股是否值得承接，并给出观察区、试错条件、分批节奏与放弃标准。适用于趋势回踩、事件后回落、震荡低吸与左侧谨慎试错场景。 |
 | [`directives`](../../library/vercel-labs-json-render/skills/directives) | ⚪ Reserve | `vercel-labs-json-render` | Pre-built custom directives for json-render — formatting, math, string manipulation, and i18n. ... |
 | [`disabled-skill`](../../library/everyinc-compound-engineering-plugin/skills/disabled-skill) | ⚪ Reserve | `everyinc-compound-engineering-plugin` | A skill with model invocation disabled |
@@ -1708,6 +1717,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`feathery-automation`](../../library/composio-community-awesome-codex-skills/skills/feathery-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Feathery tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | [`feature-engineering`](../../library/aj-geddes-useful-ai-prompts/skills/feature-engineering) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Create and transform features using encoding, scaling, polynomial features, and domain-specific... |
 | [`feature-flags`](../../library/launchdarkly-ai-tooling/skills/feature-flags) | ⚪ Reserve | `launchdarkly-ai-tooling` |  |
+| [`feature-flags-launchdarkly-flag-cleanup`](../../library/launchdarkly-ai-tooling/skills/feature-flags-launchdarkly-flag-cleanup) | ⚪ Reserve | `launchdarkly-ai-tooling` | Safely remove a feature flag from code while preserving production behavior. Use when the user ... |
+| [`feature-flags-launchdarkly-flag-discovery`](../../library/launchdarkly-ai-tooling/skills/feature-flags-launchdarkly-flag-discovery) | ⚪ Reserve | `launchdarkly-ai-tooling` | Audit your LaunchDarkly feature flags to understand the landscape, find stale or launched flags... |
+| [`feature-flags-launchdarkly-flag-drift`](../../library/launchdarkly-ai-tooling/skills/feature-flags-launchdarkly-flag-drift) | ⚪ Reserve | `launchdarkly-ai-tooling` | Detect and reconcile drift between a feature flag's in-code SDK fallback default and its Launch... |
+| [`feature-flags-launchdarkly-flag-targeting`](../../library/launchdarkly-ai-tooling/skills/feature-flags-launchdarkly-flag-targeting) | ⚪ Reserve | `launchdarkly-ai-tooling` | Control LaunchDarkly feature flag targeting including toggling flags on/off, percentage rollout... |
+| [`feature-flags-launchdarkly-guarded-rollout`](../../library/launchdarkly-ai-tooling/skills/feature-flags-launchdarkly-guarded-rollout) | ⚪ Reserve | `launchdarkly-ai-tooling` | Configure guarded rollouts with progressive traffic increases, metric monitoring, and automatic... |
 | [`feature-tracking`](../../library/sickn33-agentic-awesome-skills/skills/feature-tracking) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Maintain durable feature-level memory across AI coding sessions with lightweight Markdown track... |
 | [`featured-snippet-optimizer`](../../library/sickn33-agentic-awesome-skills/skills/featured-snippet-optimizer) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Featured Snippet Optimizer. Use when working with target question and existing passage. |
 | [`federation-init`](../../library/ruvnet-ruflo/skills/federation-init) | ⚪ Reserve | `ruvnet-ruflo` | Initialize federation on this node — generate keypair and configure peers |
@@ -1815,6 +1829,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`gagelist-automation`](../../library/composio-community-awesome-codex-skills/skills/gagelist-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Gagelist tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | [`game-design`](../../library/davila7-claude-code-templates/skills/game-design) | ⚪ Reserve | `davila7-claude-code-templates` | Game design principles. GDD structure, balancing, player psychology, progression. |
 | [`game-development`](../../library/antigravity-awesome-skills/skills/game-development) | ⚪ Reserve | `antigravity-awesome-skills` | Game development orchestrator. Routes to platform-specific skills based on project needs. |
+| [`game-engines`](../../library/scenario-labs-skills/skills/game-engines) | ⚪ Reserve | `scenario-labs-skills` |  |
 | [`gamification-engine`](../../library/sickn33-agentic-awesome-skills/skills/gamification-engine) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Gamification points register: player and department, points balance and points earned this mont... |
 | [`gamma-automation`](../../library/composio-community-awesome-codex-skills/skills/gamma-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Gamma tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | [`gan-ai-automation`](../../library/composio-community-awesome-codex-skills/skills/gan-ai-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Gan AI tasks via Rube MCP (Composio). Always search tools first for current schemas. |
@@ -2156,6 +2171,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`hyperframes`](../../library/feimacode-open-design-agent-kit/skills/hyperframes) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Create video compositions, animations, title cards, overlays, captions, voiceovers, audio-react... |
 | [`hyperise-automation`](../../library/composio-community-awesome-codex-skills/skills/hyperise-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Hyperise tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | [`hystruct-automation`](../../library/composio-community-awesome-codex-skills/skills/hystruct-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Hystruct tasks via Rube MCP (Composio). Always search tools first for current schemas. |
+| [`i18n-planning-with-files-ar`](../../library/othmanadi-planning-with-files/skills/i18n-planning-with-files-ar) | ⚪ Reserve | `othmanadi-planning-with-files` | name: planning-with-files-ar |
+| [`i18n-planning-with-files-de`](../../library/othmanadi-planning-with-files/skills/i18n-planning-with-files-de) | ⚪ Reserve | `othmanadi-planning-with-files` | name: planning-with-files-de |
+| [`i18n-planning-with-files-es`](../../library/othmanadi-planning-with-files/skills/i18n-planning-with-files-es) | ⚪ Reserve | `othmanadi-planning-with-files` | name: planning-with-files-es |
+| [`i18n-planning-with-files-zh`](../../library/othmanadi-planning-with-files/skills/i18n-planning-with-files-zh) | ⚪ Reserve | `othmanadi-planning-with-files` | name: planning-with-files-zh |
+| [`i18n-planning-with-files-zht`](../../library/othmanadi-planning-with-files/skills/i18n-planning-with-files-zht) | ⚪ Reserve | `othmanadi-planning-with-files` | name: planning-with-files-zht |
 | [`i18n-sync`](../../library/affaan-m-ecc/skills/i18n-sync) | ⚪ Reserve | `affaan-m-ecc` | Translate and synchronize application JSON locale files using source-key usage, project termino... |
 | [`i4h-workflow-create`](../../library/nvidia-skills/skills/i4h-workflow-create) | ⚪ Reserve | `nvidia-skills` | Create a minimal blank Workflow scaffold with a Scene containing ground and light plus an idle ... |
 | [`i4h-workflow-train-rl`](../../library/nvidia-skills/skills/i4h-workflow-train-rl) | ⚪ Reserve | `nvidia-skills` | Use when training, evaluating, or exporting Workflow policies with online RSL-RL or RLinf, incl... |
@@ -2730,6 +2750,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`methods-communicator`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/methods-communicator) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Effective communication strategies for statistical methods |
 | [`methods-reporting`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/methods-reporting) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Check methods reporting against CONSORT, JARS, DA-RT standards. |
 | [`metrics-definition`](../../library/owl-listener-designer-skills/skills/metrics-definition) | ⚪ Reserve | `owl-listener-designer-skills` | Define UX metrics and KPIs that connect design decisions to measurable outcomes. Use when choos... |
+| [`metrics-launchdarkly-metric-choose`](../../library/launchdarkly-ai-tooling/skills/metrics-launchdarkly-metric-choose) | ⚪ Reserve | `launchdarkly-ai-tooling` | Choose the right metrics for a LaunchDarkly experiment, guarded rollout, or release policy. Use... |
+| [`metrics-launchdarkly-metric-create`](../../library/launchdarkly-ai-tooling/skills/metrics-launchdarkly-metric-create) | ⚪ Reserve | `launchdarkly-ai-tooling` | Create a LaunchDarkly metric that measures what matters for an experiment or rollout. Use when ... |
+| [`metrics-launchdarkly-metric-instrument`](../../library/launchdarkly-ai-tooling/skills/metrics-launchdarkly-metric-instrument) | ⚪ Reserve | `launchdarkly-ai-tooling` | Instrument a LaunchDarkly metric event in a codebase by adding a track() call. Use when the use... |
 | [`metrics-review`](../../library/anthropics-knowledge-work/skills/metrics-review) | ⚪ Reserve | `anthropics-knowledge-work` | Review and analyze product metrics with trend analysis and actionable insights. Use when runnin... |
 | [`mezmo-automation`](../../library/composio-community-awesome-codex-skills/skills/mezmo-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Mezmo tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | [`mfds-food-safety`](../../library/nomadamas-k-skill/skills/mfds-food-safety) | ⚪ Reserve | `nomadamas-k-skill` | 식약처/식품안전나라 공개 표면을 k-skill-proxy 경유로 조회하기 전에 증상·섭취상황을 반드시 되묻는 인터뷰형 식품 안전 체크 스킬. |
@@ -2743,6 +2766,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`migrate-to-factory`](../../library/warpdotdev-common-skills/skills/migrate-to-factory) | ⚪ Reserve | `warpdotdev-common-skills` | Migrates user-specified skills and their supporting scripts, references, assets, and workflow i... |
 | [`migrate-validate`](../../library/ruvnet-ruflo/skills/migrate-validate) | ⚪ Reserve | `ruvnet-ruflo` | Validate pending migrations for foreign key consistency, rollback safety, and best practices |
 | [`migrationom`](../../library/huaweicloud-huaweicloud-skills/skills/migrationom) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` |  |
+| [`migrations`](../../library/upstash-redis-js/skills/migrations) | ⚪ Reserve | `upstash-redis-js` |  |
 | [`milestone-review`](../../library/donchitos-claude-code-game-studios/skills/milestone-review) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Milestone progress review — completeness, quality metrics, risk, go/no-go recommendation. At ch... |
 | [`millers-law`](../../library/owl-listener-designer-skills/skills/millers-law) | ⚪ Reserve | `owl-listener-designer-skills` | Apply Miller's Law — chunk information into groups of about four to fit working memory. Use whe... |
 | [`minecraft-bukkit-pro`](../../library/antigravity-awesome-skills/skills/minecraft-bukkit-pro) | ⚪ Reserve | `antigravity-awesome-skills` | Master Minecraft server plugin development with Bukkit, Spigot, and |
@@ -2950,6 +2974,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`obliteratus-abliteration`](../../library/reason-machines-trending-skills/skills/obliteratus-abliteration) | ⚪ Reserve | `reason-machines-trending-skills` | One-click model liberation toolkit for removing refusal behaviors from LLMs via surgical ablite... |
 | [`obra-superpowers-agentic-workflow`](../../library/reason-machines-trending-skills/skills/obra-superpowers-agentic-workflow) | ⚪ Reserve | `reason-machines-trending-skills` | name: obra-superpowers-agentic-workflow |
 | [`observability`](../../library/elastic-agent-skills/skills/observability) | ⚪ Reserve | `elastic-agent-skills` |  |
+| [`observability-alert-investigation`](../../library/launchdarkly-ai-tooling/skills/observability-alert-investigation) | ⚪ Reserve | `launchdarkly-ai-tooling` | Investigates a firing or recently fired observability alert: finds the firing and replays the v... |
 | [`observability-designer`](../../library/alirezarezvani-claude-skills/skills/observability-designer) | ⚪ Reserve | `alirezarezvani-claude-skills` | Design production-ready observability strategies combining metrics, logs, and traces. Includes ... |
 | [`observability-monitoring-monitor-setup`](../../library/antigravity-awesome-skills/skills/observability-monitoring-monitor-setup) | ⚪ Reserve | `antigravity-awesome-skills` | You are a monitoring and observability expert specializing in implementing comprehensive monito... |
 | [`observe`](../../library/plugin87-ux-ui-agent-skills/skills/observe) | ⚪ Reserve | `plugin87-ux-ui-agent-skills` | Show whether the agent followed the kit''s rules in recent sessions: pages edited and measured,... |
@@ -3132,6 +3157,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`patent-review`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/patent-review) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Get an external patent examiner review of a patent application. Use when user says \"专利审查\", \"... |
 | [`path-traversal-lfi`](../../library/yaklang-hack-skills/skills/path-traversal-lfi) | ⚪ Reserve | `yaklang-hack-skills` |  |
 | [`pathfinder`](../../library/thedotmack-claude-mem/skills/pathfinder) | ⚪ Reserve | `thedotmack-claude-mem` | Map a codebase into feature-grouped flowcharts, identify duplicated concerns across features, a... |
+| [`patterns`](../../library/upstash-redis-js/skills/patterns) | ⚪ Reserve | `upstash-redis-js` |  |
 | [`payhip-automation`](../../library/composio-community-awesome-codex-skills/skills/payhip-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Payhip tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | [`payment-integration`](../../library/antigravity-awesome-skills/skills/payment-integration) | ⚪ Reserve | `antigravity-awesome-skills` | Integrate Stripe, PayPal, and payment processors. Handles checkout |
 | [`pc-games`](../../library/davila7-claude-code-templates/skills/pc-games) | ⚪ Reserve | `davila7-claude-code-templates` | PC and console game development principles. Engine selection, platform features, optimization s... |
@@ -3583,13 +3609,17 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`reports-analytics`](../../library/sickn33-agentic-awesome-skills/skills/reports-analytics) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Report register: type, source modules, owner, audience, frequency, last and next run and report... |
 | [`reproduce-bug`](../../library/trailofbits-skills/skills/reproduce-bug) | ⚪ Reserve | `trailofbits-skills` | Use when a named runtime or compiler bug in a local repository needs independent reproduction. |
 | [`research-and-web`](../../library/davidondrej-skills/skills/research-and-web) | ⚪ Reserve | `davidondrej-skills` |  |
+| [`research-codex-en`](../../library/weizhena-deep-research-skills/skills/research-codex-en) | ⚪ Reserve | `weizhena-deep-research-skills` |  |
+| [`research-codex-zh`](../../library/weizhena-deep-research-skills/skills/research-codex-zh) | ⚪ Reserve | `weizhena-deep-research-skills` |  |
 | [`research-director`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/research-director) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Strategic research leadership for designing high-impact research agendas, coordinating teams, a... |
+| [`research-en`](../../library/weizhena-deep-research-skills/skills/research-en) | ⚪ Reserve | `weizhena-deep-research-skills` |  |
 | [`research-grants`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/research-grants) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Write competitive research proposals for NSF, NIH, DOE, and DARPA. Agency-specific formatting, ... |
 | [`research-lookup`](../../library/davila7-claude-code-templates/skills/research-lookup) | ⚪ Reserve | `davila7-claude-code-templates` | Look up current research information using Perplexity's Sonar Pro Search or Sonar Reasoning Pro... |
 | [`research-polymarket`](../../library/seaxen-skills-backup/skills/research-polymarket) | ⚪ Reserve | `seaxen-skills-backup` | Query Polymarket: markets, prices, orderbooks, history. |
 | [`research-proposal`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/research-proposal) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate academic research proposals for PhD applications. Use when user asks to "write a resea... |
 | [`research-synthesize`](../../library/ruvnet-ruflo/skills/research-synthesize) | ⚪ Reserve | `ruvnet-ruflo` | Synthesize research findings from memory into structured reports with evidence grading, contrad... |
 | [`research-workflow-automation`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/research-workflow-automation) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Automate repetitive research tasks with pipelines, schedulers, and scripting |
+| [`research-zh`](../../library/weizhena-deep-research-skills/skills/research-zh) | ⚪ Reserve | `weizhena-deep-research-skills` |  |
 | [`resend-automation`](../../library/composio-community-awesome-codex-skills/skills/resend-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Resend tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | [`reset-cursor-acp`](../../library/davidondrej-skills/skills/reset-cursor-acp) | ⚪ Reserve | `davidondrej-skills` | Reset a stuck Cursor ACP thread in your chat app and reload its configuration. Use only when th... |
 | [`resilience-hub-failure-mode-assessment`](../../library/aws-agent-toolkit-for-aws/skills/resilience-hub-failure-mode-assessment) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Runs and interprets AWS Resilience Hub v2 failure mode assessments. Covers starting assessments... |
@@ -3684,6 +3714,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`running-meetings`](../../library/refoundai-lenny-skills/skills/running-meetings) | ⚪ Reserve | `refoundai-lenny-skills` | Help users master the art of facilitating productive, decision-oriented meetings that unblock t... |
 | [`running-placebo-analysis`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/running-placebo-analysis) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Performs placebo-in-time sensitivity analysis with hierarchical null model and optional Bayesia... |
 | [`runpod`](../../library/runpod-runpod-plugins-official/skills/runpod) | ⚪ Reserve | `runpod-runpod-plugins-official` | The router. |
+| [`runpod-cost-audit`](../../library/runpod-runpod-plugins-official/skills/runpod-cost-audit) | ⚪ Reserve | `runpod-runpod-plugins-official` | Read-only Runpod spend audit: find idle spend, explain serverless billing when nothing seems |
+| [`runpod-pod-doctor`](../../library/runpod-runpod-plugins-official/skills/runpod-pod-doctor) | ⚪ Reserve | `runpod-runpod-plugins-official` | Diagnose a Runpod Pod that is unreachable, GPU-blind or stuck, and perform a recovery action |
 | [`rust-best-practices`](../../library/morganlinton-beautifulrust/skills/rust-best-practices) | ⚪ Reserve | `morganlinton-beautifulrust` | Write idiomatic, robust, maintainable Rust. Use this skill whenever you write, review, refactor... |
 | [`rust-refactor-helper`](../../library/actionbook-rust-skills/skills/rust-refactor-helper) | ⚪ Reserve | `actionbook-rust-skills` | Safe Rust refactoring with LSP analysis. Triggers on: /refactor, rename symbol, move function, ... |
 | [`s2b-notice-search`](../../library/nomadamas-k-skill/skills/s2b-notice-search) | ⚪ Reserve | `nomadamas-k-skill` | S2B 학교장터 공개 고객 공고/견적요청 목록을 브라우저 우선으로 조회하고 fixture HTML을 파싱해 공고 메타데이터를 정리한다. 돌쇠에서는 가능한 가장 가까운 합법... |
@@ -3714,6 +3746,13 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`scanning-network-with-nmap-advanced`](../../library/mukul975-anthropic-cybersecurity-skills/skills/scanning-network-with-nmap-advanced) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Performs advanced network recon using Nmap''s Scripting Engine (NSE), |
 | [`scarcity-urgency-psychologist`](../../library/sickn33-agentic-awesome-skills/skills/scarcity-urgency-psychologist) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Design honest scarcity and urgency messaging when verified inventory, capacity, or deadlines ju... |
 | [`scarf-single-cell`](../../library/sickn33-agentic-awesome-skills/skills/scarf-single-cell) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Analyze single-cell RNA-seq at million-cell scale with Scarf: out-of-core Zarr stores on disk o... |
+| [`scenario-ad-variants`](../../library/scenario-labs-skills/skills/scenario-ad-variants) | ⚪ Reserve | `scenario-labs-skills` | Use when making multiple independent ad or campaign edits from existing footage with Scenario: ... |
+| [`scenario-multi-reference`](../../library/scenario-labs-skills/skills/scenario-multi-reference) | ⚪ Reserve | `scenario-labs-skills` | Use when one image must be composed from several reference pictures through the Scenario MCP se... |
+| [`scenario-seedream`](../../library/scenario-labs-skills/skills/scenario-seedream) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or editing images with Seedream models on Scenario via MCP: text-to-image, ... |
+| [`scenario-side-view-game-kit`](../../library/scenario-labs-skills/skills/scenario-side-view-game-kit) | ⚪ Reserve | `scenario-labs-skills` | Use when making the art for a side-scroller or 2D platformer: side-view pixel-art sprite sheets... |
+| [`scenario-sparc3d`](../../library/scenario-labs-skills/skills/scenario-sparc3d) | ⚪ Reserve | `scenario-labs-skills` | Use when turning images or photos into 3D meshes with Sparc3D models on Scenario via MCP: singl... |
+| [`scenario-storyboards`](../../library/scenario-labs-skills/skills/scenario-storyboards) | ⚪ Reserve | `scenario-labs-skills` | Use when a story must unfold across a sequence of Scenario images: a comic page or strip, manga... |
+| [`scenario-textures`](../../library/scenario-labs-skills/skills/scenario-textures) | ⚪ Reserve | `scenario-labs-skills` | Use when a task involves game textures or materials through the Scenario MCP: seamless or tilea... |
 | [`scene-assembly`](../../library/arjun988-blender-skills/skills/scene-assembly) | ⚪ Reserve | `arjun988-blender-skills` | Large scene layout in Blender with collections, linking, overrides, streaming-friendly organiza... |
 | [`scheduled-report-refresh`](../../library/amplitude-mcp-marketplace/skills/scheduled-report-refresh) | ⚪ Reserve | `amplitude-mcp-marketplace` | Refreshes recurring reports (daily briefings, WBRs, experiment briefs) from saved Amplitude con... |
 | [`sci-fi-punk-worlds`](../../library/arjun988-blender-skills/skills/sci-fi-punk-worlds) | ⚪ Reserve | `arjun988-blender-skills` | Sci-fi and punk world art direction for Blender including hard sci-fi, space, cyberpunk, steamp... |
