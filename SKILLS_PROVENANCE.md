@@ -1,7 +1,7 @@
 # 🏛️ Complete Repository Provenance & Upstream Registry
 
 > **Active Reserve Libraries**: 484 repositories  
-> **Total Skills in Reserve**: 26,842 skills  
+> **Total Skills in Reserve**: 26,852 skills  
 > **Source Registry**: [`library/upstreams.json`](library/upstreams.json)  
 > **Format Standard**: Pure isolated repositories (`['skills', 'README.md', 'skills_index.json']`), 0 `.git` directories.
 
@@ -273,7 +273,7 @@
 | `mahanaicoach-google-maps-scraper-kit` | [Mahanaicoach/google-maps-scraper-kit](https://github.com/Mahanaicoach/google-maps-scraper-kit) | **1** | `python .agents/library/activate_skill.py activate google-maps-scraper` |
 | `majiayu000-spellbook` | [majiayu000-spellbook](https://github.com/majiayu000-spellbook) | **117** | `python .agents/library/activate_skill.py activate agent-qa-testing` |
 | `makenotion-claude-code-notion-plugin` | [makenotion-claude-code-notion-plugin](https://github.com/makenotion-claude-code-notion-plugin) | **1** | `python .agents/library/activate_skill.py activate notion` |
-| `makenotion-notion-cookbook` | [makenotion/notion-cookbook](https://github.com/makenotion/notion-cookbook) | **65** | `python .agents/library/activate_skill.py activate auth-guide` |
+| `makenotion-notion-cookbook` | [makenotion/notion-cookbook](https://github.com/makenotion/notion-cookbook) | **75** | `python .agents/library/activate_skill.py activate auth-guide` |
 | `manaflow-ai-cmux` | [manaflow-ai/cmux](https://github.com/manaflow-ai/cmux) | **25** | `python .agents/library/activate_skill.py activate cmux` |
 | `markdown-viewer-skills` | [markdown-viewer/skills](https://github.com/markdown-viewer/skills) | **1** | `python .agents/library/activate_skill.py activate documd-visuals` |
 | `martinholovsky-claude-skills-generator` | [martinholovsky-claude-skills-generator](https://github.com/martinholovsky-claude-skills-generator) | **65** | `python .agents/library/activate_skill.py activate accessibility-wcag` |

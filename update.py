@@ -800,6 +800,12 @@ def sync_frontend_doc_numbers():
     except Exception:
         pass
     mb = f"{cat_mb:.2f}"
+    repo_mb = 0.0
+    try:
+        repo_mb = os.path.getsize(os.path.join(agents_dir, 'Skill.Sea', 'data', 'repositories.json')) / (1024 * 1024)
+    except Exception:
+        pass
+    rmb = f"{repo_mb:.2f}"
 
     # (relative path, [(regex, replacement), ...]) — number-agnostic patterns, work forever after first fix
     RULES = {
@@ -808,12 +814,16 @@ def sync_frontend_doc_numbers():
              f'Verified {today}: **{s} skills · {C} categories · {r} repositories · {H} hot-set**'),
             (r'`README\.md` \([^)]*\), `update\.py --help` \("[^"]*"\), and this file',
              '`README.md`, `update.py --help`, and this file'),
+            (r'(repositories\.json\s+# )[\d,]+ repository cards', r'\g<1>' + r + ' repository cards'),
         ],
         'README.md': [
             (r'Search [\d,]+\+ skills', f'Search {s}+ skills'),
+            (r'\([\d,]+ remotes', f'({r} remotes'),
         ],
         'PRODUCT.md': [
             (r'catalog\.json` \([\d.]+ MB, [\d,]+ validated items\)', f'catalog.json` ({mb} MB, {s} validated items)'),
+            (r'\d+ Categories, [\d,]+ Git Repositories', f'{C} Categories, {r} Git Repositories'),
+            (r'(repositories\.json`?) \([\d.]+ MB, [\d,]+ indexed repositories\)', r'\g<1> ' + f'({rmb} MB, {r} indexed repositories)'),
         ],
         'Skill.Sea/README.md': [
             (r'[\d,]+\+ AI Agent Skills across \d+ functional disciplines from [\d,]+ open repositories',
@@ -866,6 +876,11 @@ def sync_frontend_doc_numbers():
             (r'any of the [\d,]+\+ curated agent skills', f'any of the {s}+ curated agent skills'),
             (r'All [\d,]+\+ Skills<', f'All {s}+ Skills<'),
             (r'view all [\d,]+ repositories with skill counts', f'view all {r} repositories with skill counts'),
+            (r'View [\d,]+ git origin repositories', f'View {r} git origin repositories'),
+            (r'Library: All \([\d,]+\)', f'Library: All ({r})'),
+            (r'\([\d,]+ Vaults\)', f'({r} Vaults)'),
+            (r'Includes all \d+ categories, [\d,]+ curated repositories', f'Includes all {C} categories, {r} curated repositories'),
+            (r'[\d,]+ Verified Libraries', f'{r} Verified Libraries'),
         ],
     }
     changed = []

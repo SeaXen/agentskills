@@ -1,6 +1,6 @@
 # 🗂️ AgentSkills Functional Categories Directory
 
-> **Total Unique Skills**: 21506 standalone modular skills  
+> **Total Unique Skills**: 21515 standalone modular skills  
 > **Granular Categories**: 38 specialized domain folders  
 > **Architecture**: **100% Real folders & files** (No symlinks, fully portable across all operating systems).  
 > **Purpose**: Cleanly categorizes all skills into focused, human-sized collections.
@@ -27,7 +27,7 @@
 | **[`security-compliance-auth`](./security-compliance-auth)** | 🔒 Auth, Hardening & Compliance | **409** | [Open Catalog](./security-compliance-auth/README.md) |
 | **[`programming-languages-core`](./programming-languages-core)** | 📐 Programming Languages & Type Systems | **400** | [Open Catalog](./programming-languages-core/README.md) |
 | **[`business-strategy-legal`](./business-strategy-legal)** | 📋 Business Strategy, Legal & HR | **340** | [Open Catalog](./business-strategy-legal/README.md) |
-| **[`productivity-workspace-tools`](./productivity-workspace-tools)** | 🚀 Productivity, Slack, Notion & Linear | **294** | [Open Catalog](./productivity-workspace-tools/README.md) |
+| **[`productivity-workspace-tools`](./productivity-workspace-tools)** | 🚀 Productivity, Slack, Notion & Linear | **303** | [Open Catalog](./productivity-workspace-tools/README.md) |
 | **[`frontend-motion-animation`](./frontend-motion-animation)** | ✨ UI Motion, Animations & Polish | **271** | [Open Catalog](./frontend-motion-animation/README.md) |
 | **[`business-finance-accounting`](./business-finance-accounting)** | 💰 Financial Modeling, Tax & Accounting | **269** | [Open Catalog](./business-finance-accounting/README.md) |
 | **[`mobile-ios-android`](./mobile-ios-android)** | 📱 Mobile Development (iOS, Android, React Native) | **262** | [Open Catalog](./mobile-ios-android/README.md) |
