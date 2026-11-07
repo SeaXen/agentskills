@@ -393,6 +393,7 @@ for (const [catSlug, catObj] of Object.entries(categoriesData)) {
     // Universal 1-Click Install commands
     const npxCmd = upstreamUrl ? `npx skills add ${upstreamUrl}` : `npx skills add https://github.com/SeaXen/agentskills`;
     const myRepoNpxCmd = `npx skills add https://github.com/SeaXen/agentskills`;
+    const myRepoSkillCmd = `npx skills add https://github.com/SeaXen/agentskills --skill ${skillName}`;
     const activationCmd = libMatch.activation_cmd || `python .agents/library/activate_skill.py activate ${skillName}`;
     const linkCmd = libMatch.link_cmd || `python .agents/library/activate_skill.py link ${skillName}`;
     const relativePath = fsInfo?.relPath || libMatch.path || `category/${catSlug}/${skillName}`;
@@ -426,6 +427,7 @@ for (const [catSlug, catObj] of Object.entries(categoriesData)) {
         isActive: isActive,
         npxCmd: npxCmd,
         myRepoNpxCmd: myRepoNpxCmd,
+        myRepoSkillCmd: myRepoSkillCmd,
         activationCmd: activationCmd,
         linkCmd: linkCmd,
         path: relativePath,

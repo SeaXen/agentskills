@@ -1321,19 +1321,25 @@
           <code>${escapeHtml(item.myRepoNpxCmd || 'npx skills add https://github.com/SeaXen/agentskills')}</code>
         </div>
 
-        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">3. AgentSkills Python CLI (Local Workspace Activation):</p>
+        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">3. NPX Install (My Repo — This Skill Only):</p>
+        <div class="code-snippet-box">
+          <button type="button" class="copy-pill" aria-label="Copy My Repo single-skill NPX command" onclick="copyCommand('${escapeHtml(item.myRepoSkillCmd || ('npx skills add https://github.com/SeaXen/agentskills --skill ' + item.name))}')">Copy</button>
+          <code>${escapeHtml(item.myRepoSkillCmd || ('npx skills add https://github.com/SeaXen/agentskills --skill ' + item.name))}</code>
+        </div>
+
+        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">4. AgentSkills Python CLI (Local Workspace Activation):</p>
         <div class="code-snippet-box">
           <button type="button" class="copy-pill" aria-label="Copy Python CLI command" onclick="copyCommand('${escapeHtml(item.activationCmd)}')">Copy</button>
           <code>${escapeHtml(item.activationCmd)}</code>
         </div>
 
-        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">4. Zero-Disk Symlink / Junction (Instant Link):</p>
+        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">5. Zero-Disk Symlink / Junction (Instant Link):</p>
         <div class="code-snippet-box">
           <button type="button" class="copy-pill" aria-label="Copy Zero-Disk symlink command" onclick="copyCommand('${escapeHtml(item.linkCmd)}')">Copy</button>
           <code>${escapeHtml(item.linkCmd)}</code>
         </div>
 
-        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">5. Remote cURL Quick-Launch (Linux/macOS/Codespaces):</p>
+        <p style="font-size:11.5px;color:var(--text-muted);margin-bottom:4px">6. Remote cURL Quick-Launch (Linux/macOS/Codespaces):</p>
         <div class="code-snippet-box">
           <button type="button" class="copy-pill" aria-label="Copy remote cURL command" onclick="copyCommand('${escapeHtml(curlCommand)}')">Copy</button>
           <code>${escapeHtml(curlCommand)}</code>
