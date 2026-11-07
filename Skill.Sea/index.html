@@ -394,6 +394,7 @@
               <button type="button" class="guide-nav-pill" onclick="document.getElementById('guide-lifecycle').scrollIntoView({behavior:'smooth'})"><i class="ti ti-refresh"></i> 5. Activate & Update</button>
               <button type="button" class="guide-nav-pill" onclick="document.getElementById('guide-cloud').scrollIntoView({behavior:'smooth'})"><i class="ti ti-cloud-upload"></i> 6. Cloud & R2</button>
               <button type="button" class="guide-nav-pill" onclick="document.getElementById('guide-attribution').scrollIntoView({behavior:'smooth'})"><i class="ti ti-shield-check"></i> 7. Attribution & Rights</button>
+              <button type="button" class="guide-nav-pill" onclick="document.getElementById('guide-troubleshooting').scrollIntoView({behavior:'smooth'})"><i class="ti ti-livesupport"></i> 8. Troubleshooting</button>
             </div>
           </div>
 
@@ -481,7 +482,7 @@
               </div>
 
               <div class="guide-notes">
-                Tip: You can click the 1-click install box on any row in the Skill Hub table for instant copying!
+                Tip: You can click the 1-click install box on any row in the Skill Hub table for instant copying! Replace <code>&lt;name&gt;</code> with any real skill name — for example <code>--skill agentskillupdater</code> installs this very skill from the vault.
               </div>
             </div>
 
@@ -552,7 +553,7 @@
                   <span class="guide-copy-btn" onclick="copyCommand('npx skills add https://github.com/cline/skills', event)"><i class="ti ti-copy"></i> Copy</span>
                 </div>
                 <div class="guide-code-box" onclick="copyCommand('npx skills add https://github.com/cline/skills', event)">
-                  <code>npx skills add &lt;upstream_github_url&gt;</code>
+                  <code>npx skills add https://github.com/cline/skills</code>
                 </div>
               </div>
 
@@ -571,8 +572,8 @@
                   <span>Clone Upstream to Local Library:</span>
                   <span class="guide-copy-btn" onclick="copyCommand('git clone <upstream_url>.git .agents/library/<repo-name>', event)"><i class="ti ti-copy"></i> Copy</span>
                 </div>
-                <div class="guide-code-box" onclick="copyCommand('git clone <upstream_url>.git .agents/library/<repo-name>', event)">
-                  <code>git clone &lt;upstream_url&gt;.git .agents/library/&lt;repo&gt;</code>
+                <div class="guide-code-box" onclick="copyCommand('git clone https://github.com/cline/skills.git .agents/library/cline-skills', event)">
+                  <code>git clone https://github.com/cline/skills.git .agents/library/cline-skills</code>
                 </div>
               </div>
 
@@ -625,7 +626,7 @@
               </div>
 
               <div class="guide-notes">
-                Tip: Deactivating a skill safely removes it from active prompt context while preserving it in your offline reserve library.
+                Tip: Deactivating a skill safely removes it from active prompt context while preserving it in your offline reserve library. For the full pipeline (upstream sync, catalog rebuild, deployment), see the <code>agentskillupdater</code> skill in the Skill Hub.
               </div>
             </div>
 
@@ -722,6 +723,51 @@
                 <div class="guide-code-box">
                   <code>Registry: library/opt_out.json &bull; Contact: drpelagik@gmail.com</code>
                 </div>
+              </div>
+            </div>
+
+            <!-- CARD 8: TROUBLESHOOTING & PREREQUISITES -->
+            <div class="guide-card" id="guide-troubleshooting">
+              <div class="guide-card-hd">
+                <div class="guide-card-title">
+                  <i class="ti ti-livesupport" style="color:var(--teal)"></i>
+                  <span>8. Troubleshooting &amp; Prerequisites</span>
+                </div>
+                <span class="guide-card-badge">Quick Fixes</span>
+              </div>
+              <div class="guide-card-desc">
+                Common setup requirements and fixes for the activation pipeline.
+              </div>
+
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>Prerequisites — install these first:</span>
+                </div>
+                <div class="guide-code-box">
+                  <code>Node.js 18+ (for npx) &bull; Python 3.10+ &bull; Git 2.30+</code>
+                </div>
+              </div>
+
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>If <code>python</code> is not found on your PATH, use <code>python3</code>:</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('python3 .agents/library/activate_skill.py activate <name>', event)">
+                  <code>python3 .agents/library/activate_skill.py activate &lt;name&gt;</code>
+                </div>
+              </div>
+
+              <div class="guide-code-block">
+                <div class="guide-code-lbl">
+                  <span>Clone into a folder named exactly <code>.agents</code> so the CLI resolves paths:</span>
+                </div>
+                <div class="guide-code-box" onclick="copyCommand('git clone https://github.com/SeaXen/agentskills.git .agents', event)">
+                  <code>git clone https://github.com/SeaXen/agentskills.git .agents</code>
+                </div>
+              </div>
+
+              <div class="guide-notes">
+                Tip: The Python CLI works fully offline from a local clone — no network required. On Windows, <code>link</code> creates a directory junction (no admin rights needed); on macOS/Linux it creates a symlink.
               </div>
             </div>
 
