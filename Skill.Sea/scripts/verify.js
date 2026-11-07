@@ -62,6 +62,43 @@ requiredFiles.forEach(f => {
   assert(fs.existsSync(p), `File exists: ${f}`);
 });
 
+// 1b. Zero External Runtime Dependencies (CDN link guard — enforces the zero-dep invariant)
+console.log('\n1b. Enforcing Zero External Runtime Dependencies');
+try {
+  const allowedHosts = ['skill.drsea.top', 'skill.drsea.eu.org', 'skill-sea.drsea.workers.dev'];
+  const scanTargets = ['index.html', 'manifest.json', 'sw.js', 'worker.js', 'server.js'];
+  const srcDir = path.join(ROOT, 'src');
+  if (fs.existsSync(srcDir)) {
+    for (const f of fs.readdirSync(srcDir)) {
+      if (f.endsWith('.js')) scanTargets.push('src/' + f);
+    }
+  }
+  const externalLoads = [];
+  const patterns = [
+    /<link[^>]+href\s*=\s*["'](https?:\/\/[^"']+)["']/gi,
+    /<script[^>]+src\s*=\s*["'](https?:\/\/[^"']+)["']/gi,
+    /(?:^|[^.\w])fetch\s*\(\s*["'](https?:\/\/[^"']+)["']/gi,
+    /(?:^|[^.\w])import\s*\(\s*["'](https?:\/\/[^"']+)["']/gi,
+  ];
+  for (const rel of scanTargets) {
+    const fp = path.join(ROOT, rel);
+    if (!fs.existsSync(fp)) continue;
+    const text = fs.readFileSync(fp, 'utf8');
+    for (const re of patterns) {
+      let m;
+      while ((m = re.exec(text)) !== null) {
+        let host;
+        try { host = new URL(m[1]).hostname; } catch { host = m[1]; }
+        if (!allowedHosts.includes(host)) externalLoads.push(`${rel} -> ${m[1]}`);
+      }
+    }
+  }
+  assert(externalLoads.length === 0,
+    `No external CDN/runtime dependencies loaded by the SPA${externalLoads.length ? ' — FOUND: ' + externalLoads.join(', ') : ''}`);
+} catch (e) {
+  assert(false, `Zero-dependency scan completed: ${e.message}`);
+}
+
 // 2. Validate Catalog JSON & Schema Uniformity
 console.log('\n2. Validating Catalog Data Integrity & Schema');
 try {
@@ -105,7 +142,7 @@ try {
 
   assert(indexHtml.includes('class="skip-link"'), 'Skip-link present for keyboard users');
   assert(indexHtml.includes('id="main-content"'), 'Main landmark has #main-content target');
-  assert(indexHtml.includes('rel="preconnect" href="https://cdn.jsdelivr.net"'), 'CDN preconnect link present for fast font/icon loading');
+  assert(!indexHtml.includes('cdn.jsdelivr.net'), 'No CDN preconnect links (fonts self-hosted)');
   assert(indexHtml.includes('viewport-fit=cover'), 'Mobile-native viewport-fit=cover present for iPhone notch/Dynamic Island');
   assert(indexHtml.includes('rel="manifest" href="manifest.json"'), 'Web App Manifest link present for PWA installation');
   assert(indexHtml.includes('role="dialog"') && indexHtml.includes('aria-modal="true"'), 'Modal drawer has role="dialog" and aria-modal="true"');
