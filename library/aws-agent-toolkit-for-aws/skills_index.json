@@ -1570,6 +1570,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link skills-azure-to-aws"
   },
   {
+    "id": "skills-bedrock-migration-assessment",
+    "name": "skills-bedrock-migration-assessment",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Source-cloud-neutral assessment of AI/LLM usage for a migration to Amazon Bedrock. Use when the user wants to find which OpenAI (direct or Azure OpenAI), Anthropic, Google/Gemini, or OpenRouter calls their code makes, or already has a provider-neutral ai-workload-profile.json (schema 1.0 or 1.1), and wants to answer the AI migration questions. It scans the code or validates the profile, then runs Clarify, and needs no infrastructure skill installed. This release stops after Clarify: it does not design, estimate, generate artifacts, or rewrite code. To rewrite SDK calls to Bedrock and get a branch, use llm-to-bedrock; for infrastructure migrations use gcp-to-aws, azure-to-aws, or heroku-to-aws.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-bedrock-migration-assessment",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-bedrock-migration-assessment",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-bedrock-migration-assessment"
+  },
+  {
     "id": "skills-gcp-to-aws",
     "name": "skills-gcp-to-aws",
     "repository": "aws-agent-toolkit-for-aws",

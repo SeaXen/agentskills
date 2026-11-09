@@ -4,7 +4,7 @@
     "name": "business-event-formats",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Choose which company-run event shape to run - invite-only dinner, executive summit, single-city user conference, multi-city roadshow, or a floor-primary trade-show event - plus how its program is sourced and what shape its floor takes. Also owns the business-oriented activity layer any conference can run beside its program for sponsors (hiring corner, hands-on product feedback session, opt-in demo space, matchmaking). Use whenever a company weighs a user conference against a roadshow or a summit, asks what kind of event to put on for developers, customers or partners, or asks whether to run its own floor or exhibit on someone else's, or an organizer asks what to offer sponsors beyond talks, even if they only say \"we want to do an event\". Format catalog only. Do NOT use for track count or session mix - use samber/dev-event-organizer-skills@event-format-selection; for floor operations use samber/dev-event-organizer-skills@event-booth-experience; for goals and budget use samber/dev-event-organizer-skills@corporate-event-strategy.",
     "path": "library/samber-dev-event-organizer-skills/skills/business-event-formats",
     "activation_cmd": "python .agents/library/activate_skill.py activate business-event-formats",
     "link_cmd": "python .agents/library/activate_skill.py link business-event-formats"
@@ -14,7 +14,7 @@
     "name": "corporate-event-strategy",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Decide what a company-run technical event is funded to accomplish, before anyone plans it - the goal mix (ecosystem goodwill, developer adoption, customer retention, sales pipeline, or a blend), who owns the budget line and which functions co-fund it, and the measurement commitment written before registration opens. Use whenever a company asks why it is running a user conference, community day, developer summit or roadshow, which goal to optimise, who should pay for it, or how to prove it worked to the people funding it, even when they only say \"what is the ROI of our conference\". Strategy layer only. Do NOT use to pick the event shape - use samber/dev-event-organizer-skills@business-event-formats - or to model the P&L - use samber/dev-event-organizer-skills@event-budget.",
     "path": "library/samber-dev-event-organizer-skills/skills/corporate-event-strategy",
     "activation_cmd": "python .agents/library/activate_skill.py activate corporate-event-strategy",
     "link_cmd": "python .agents/library/activate_skill.py link corporate-event-strategy"
@@ -24,7 +24,7 @@
     "name": "cross-event-promotion",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Set up reciprocal promotion between independent technical events run by different organizers - partner-event scoring, the swap-format menu (community-calendar cross-listing, newsletter or social mention swaps, ticket-discount code swaps, speaker-pipeline sharing, joint inter-meetup events, conference-week co-location), the organizer-to-organizer ask, a lightweight swap agreement, and delivery measurement on both sides. Use whenever asked to cross-promote with another event, arrange a promo or ticket-code swap, run a joint event with another meetup, co-locate with a bigger conference, or coordinate speakers across a circuit of independent events. Do NOT use for one organizer's own portfolio - use samber/dev-event-organizer-skills@event-portfolio-strategy - or deals with media outlets - use samber/dev-event-organizer-skills@event-media-partnerships.",
     "path": "library/samber-dev-event-organizer-skills/skills/cross-event-promotion",
     "activation_cmd": "python .agents/library/activate_skill.py activate cross-event-promotion",
     "link_cmd": "python .agents/library/activate_skill.py link cross-event-promotion"
@@ -34,7 +34,7 @@
     "name": "dev-event-career",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Plans a tech-event-organizing career from the candidate side - producer/manager/coordinator roles, and the community-manager-shaped end of the field. States plainly that no universal title ladder exists, gives the one real named ladder and CMX's community-management ladder as the closest dev-event-adjacent counterpart. Covers the volunteer-to-paid entry path, interview prep (portfolio review, scenario questions, CMX's five-competency loop, the paid mini-audit work sample), named practitioner quotes including Google I/O's own executive producer, and compensation across in-house, agency and non-profit contexts. Use when the user asks how to break into event organizing, prep for a producer or community-manager interview, or evaluate an offer. Do NOT use for hiring (samber/dev-event-organizer-skills@dev-event-hiring) or team org design (samber/dev-event-organizer-skills@event-team-structure).",
     "path": "library/samber-dev-event-organizer-skills/skills/dev-event-career",
     "activation_cmd": "python .agents/library/activate_skill.py activate dev-event-career",
     "link_cmd": "python .agents/library/activate_skill.py link dev-event-career"
@@ -44,7 +44,7 @@
     "name": "dev-event-hiring",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Employer-side hiring for tech-event-organizing roles - producer/manager/coordinator, and the community-manager-shaped end of the field. Calibrates the scorecard to operating context (in-house, agency, non-profit/community, or a standing conference business), builds the loop from the general event-planner sequence plus CMX's five-competency set and paid mini-audit work sample, flags the \"one hire owns sponsorship, content and production\" consolidation pattern seen in postings, sources candidates from general event-industry boards since no tech-specific one exists, and gates compensation on named sources (PCMA, BLS, Glassdoor) rather than a blended figure. Use when the user asks how to hire an event producer or manager, write a posting, design a loop, or hire an event community manager. Do NOT use for candidate prep (samber/dev-event-organizer-skills@dev-event-career) or team org design (samber/dev-event-organizer-skills@event-team-structure).",
     "path": "library/samber-dev-event-organizer-skills/skills/dev-event-hiring",
     "activation_cmd": "python .agents/library/activate_skill.py activate dev-event-hiring",
     "link_cmd": "python .agents/library/activate_skill.py link dev-event-hiring"
@@ -54,7 +54,7 @@
     "name": "dev-event-kickoff",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Before answering any event-organizing request that opens a new project or a new session, run this router first - it maps the task onto the 72-skill samber/dev-event-organizer-skills collection, or says plainly that none fits, and bootstraps or resumes the project's shared context so the next session starts warm. This fires on a conversational state, not on a subject - invoke it at every event project start even when the collection's skills are already in daily use on another event, at every recurring check-in on the same project, and whenever routing between siblings is unclear. Covers conference, meetup and hackathon kickoffs, \"which event skill do I need\", \"where do I start organizing this event\", event organizer skill routing, and recurring event check-ins. Use this whenever someone describes an event-organizing problem without naming a skill, even if they never say \"kickoff\", \"routing\" or \"start\".",
     "path": "library/samber-dev-event-organizer-skills/skills/dev-event-kickoff",
     "activation_cmd": "python .agents/library/activate_skill.py activate dev-event-kickoff",
     "link_cmd": "python .agents/library/activate_skill.py link dev-event-kickoff"
@@ -64,7 +64,7 @@
     "name": "event-accessibility-inclusion",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Decide which accessibility and inclusion provisions a technical event commits to - the physical, sensory, dietary, economic and digital-access set, at what depth, sized for whom, funded from where - plus the public declaration of it and the data-handling posture for accommodation requests. Use whenever asked what accessibility a conference should offer, whether to caption talks, whether to run a quiet room, childcare or travel grants, whether to staff an identifiable inclusion team, how to write an accessibility page, or how to answer an accommodation request, even if the user never says \"accessibility\". Decides the bar, not delivery. Do NOT use for the code of conduct - use samber/dev-event-organizer-skills@event-code-of-conduct. Not legal advice; access duties vary by jurisdiction.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-accessibility-inclusion",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-accessibility-inclusion",
     "link_cmd": "python .agents/library/activate_skill.py link event-accessibility-inclusion"
@@ -74,7 +74,7 @@
     "name": "event-attendee-email-sequences",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Design and write the attendee email arc for a technical event - the sequence, the cadence, and the actual copy. Covers the dated arc from announcement to post-event follow-up, a sourced reminder cadence with per-segment caps rather than a SaaS drip, the know-before-you-go email, role and registration-state segmentation, consent and list hygiene, and a humanizer pass before anything sends. Use whenever asked to write an event announcement email, registration confirmation, week-before or day-before reminder, know-before-you-go, day-of or post-event follow-up, or to decide how many emails to send and when. Do NOT use for overbooking, waitlists or seat release - use samber/dev-event-organizer-skills@event-no-show-management.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-attendee-email-sequences",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-attendee-email-sequences",
     "link_cmd": "python .agents/library/activate_skill.py link event-attendee-email-sequences"
@@ -84,7 +84,7 @@
     "name": "event-attendee-experience",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Design the general-attendee on-site journey for a technical event  -  check-in desk and badge pickup, the badge's privacy and scanning posture, wayfinding and signage, the quiet room and other facilities, meal and dietary mechanics, the help path, first-time-attendee orientation, and a walkthrough audit of the finished design. Use whenever asked how to run conference check-in, whether to put a QR code on a badge, where the quiet room goes, how to sign a venue so people find rooms, how to hand out dietary-restricted meals, what a help desk should cover, or how a first-timer finds their feet. Starts at the door. Do NOT use for registration or no-show mechanics  -  use samber/dev-event-organizer-skills@event-no-show-management; speakers, sponsors and volunteers have their own journey skills.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-attendee-experience",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-attendee-experience",
     "link_cmd": "python .agents/library/activate_skill.py link event-attendee-experience"
@@ -94,7 +94,7 @@
     "name": "event-b2b-matchmaking",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Design a technical event's structured 1:1 business meeting program - whether to run one at all, how the two sides are matched (directory, brokering, mutual opt-in, scored ranking), how slots get booked inside the grid, what meeting quota a sponsor package may honestly commit to, how a booked-meeting no-show is absorbed, and what to measure. Use whenever asked to set up scheduled 1:1 meetings at an event, run buyer-seller or founder-investor matchmaking, promise a sponsor a number of meetings, or build a booked-meeting timetable. Matches two populations for business conversations. Do NOT use for hackathon build-team formation - use samber/dev-event-organizer-skills@hackathon-team-formation - or the expo floor - use samber/dev-event-organizer-skills@event-booth-experience.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-b2b-matchmaking",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-b2b-matchmaking",
     "link_cmd": "python .agents/library/activate_skill.py link event-b2b-matchmaking"
@@ -104,7 +104,7 @@
     "name": "event-booth-experience",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Design a technical event's expo floor once per edition, organizer-side - the layout and traffic pattern carrying attendees past every booth, the tier-to-physical-spec catalog turning \"floor presence, Gold\" into table size, power, height and signage rules, the master setup and teardown schedule, per-booth power and WiFi distribution, booth staffing and conduct rules, and a floor-wide traffic mechanic such as a passport card. Use whenever asked how to lay out an expo hall or sponsor area, what a sponsor tier's booth physically includes, when sponsors load in and out, or how to pull attendees past low-traffic booths. Do NOT use for per-sponsor day-of execution - use samber/dev-event-organizer-skills@event-sponsor-fulfillment - or for how a company runs its own booth.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-booth-experience",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-booth-experience",
     "link_cmd": "python .agents/library/activate_skill.py link event-booth-experience"
@@ -114,7 +114,7 @@
     "name": "event-budget",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Build the budget and P&L for a technical event - every cost line split into fixed and per-head, the revenue mix against the funding model, a Good/Better/Best scope-tier ladder so break-even has three answers instead of one, a contingency sized as a stacked floor, pad and downgrade ladder whose cuts also price lost sponsor reach, a cross-edition reserve policy, annual funding decoupled from single events, and outflows scheduled against the dates sponsor and ticket money actually lands. Use whenever asked to build an event budget, model conference or hackathon costs, find break-even, size a contingency reserve, set a reserve or surplus policy across editions, fund a recurring meetup series annually, plan event cash flow, or decide what to cut when revenue falls short. Consumes prices and real vendor quotes, never sets them. Do NOT use to set ticket or sponsor prices - use samber/dev-event-organizer-skills@event-ticket-pricing or samber/dev-event-organizer-skills@event-sponsor-pricing.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-budget",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-budget",
     "link_cmd": "python .agents/library/activate_skill.py link event-budget"
@@ -124,7 +124,7 @@
     "name": "event-cfp-design",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Design a technical event's call for papers - the published call, not the selection behind it. Covers the CFP open/close timeline worked back from the event date, submission form fields, which session formats the call offers, the anonymization posture (named, opt-in, or mandatory blind review), review criteria published in the call itself, stated speaker benefits, per-person submission caps, first-time-speaker support, and the CFP tooling capabilities to look for. Use whenever asked to open or write a CFP, set a CFP deadline, design a talk submission form, decide on blind review, or state speaker perks in a call for proposals. Do NOT use to review or score submissions - use samber/dev-event-organizer-skills@event-talk-selection.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-cfp-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-cfp-design",
     "link_cmd": "python .agents/library/activate_skill.py link event-cfp-design"
@@ -134,7 +134,7 @@
     "name": "event-code-of-conduct",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Write a technical event's code of conduct and build the enforcement pipeline behind it - what the policy has to say, who and which spaces it binds (attendees, speakers, volunteers, sponsor and booth staff, satellite events), the reporting channels including an anonymous path, response-team composition and rehearsal, the on-site incident runbook and its response clock, the sanctions ladder, which rungs carry an appeal, and the transparency report. Use whenever asked to write or review an event or conference code of conduct, set up incident reporting, staff or train a CoC response team, decide a sanction for an attendee, or handle an on-site incident. Do NOT use for accessibility provisions - use samber/dev-event-organizer-skills@event-accessibility-inclusion. Not legal advice.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-code-of-conduct",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-code-of-conduct",
     "link_cmd": "python .agents/library/activate_skill.py link event-code-of-conduct"
@@ -144,7 +144,7 @@
     "name": "event-comms-channels",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Design the attendee-facing communication channel architecture for one edition of a technical event - which channels exist, who is on each, which class of message routes to which channel, how several writers stay consistent executing a register set elsewhere, and how every channel is wound down once the event ends. Use whenever asked whether an event needs a chat space, an app or a status page, where a room change or schedule slip should be announced, how to stop attendees missing announcements, who may post in the event's name, or what to do with the event's channels after it is over. Do NOT use for mailing-list copy and consent - use samber/dev-event-organizer-skills@event-attendee-email-sequences - or social copy - use samber/dev-event-organizer-skills@event-social-media.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-comms-channels",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-comms-channels",
     "link_cmd": "python .agents/library/activate_skill.py link event-comms-channels"
@@ -154,7 +154,7 @@
     "name": "event-community-building",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Animate one recurring technical event's own audience in the gaps between editions - the cadence posture for the standing space, the conversion of attendees into returning participants and contributors, keeping a local cohort of the same event's fans warm, and handing the community asset over when organizers change. Use whenever asked how to keep an event's community alive between editions, what to post in the quiet months, whether a between-editions space should stay dormant or be programmed, how to make attendees come back next year, or who takes over the community platform when an organizer leaves. Do NOT use to decide whether that space belongs in the team's property set at all - use samber/dev-event-organizer-skills@event-portfolio-strategy.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-community-building",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-community-building",
     "link_cmd": "python .agents/library/activate_skill.py link event-community-building"
@@ -164,7 +164,7 @@
     "name": "event-content-repurposing",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Turn one edition's already-captured material into derivative published artifacts after the event - which formats get made, on what cadence, under which licence, and what speakers are asked to amplify. Covers publishing latency (dump, batched, drip, evergreen), the rights gate on third-party slide material and attendee photos, and the inventory handed up to the next edition's campaign. Use whenever asked what to do with talk recordings after a conference, how to turn an event into clips, write-ups or transcripts, when to release them, or whether footage can be republished at all. Do NOT use for capturing or editing the master recording - use samber/dev-event-organizer-skills@event-production - or the event's own channels - use samber/dev-event-organizer-skills@event-social-media.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-content-repurposing",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-content-repurposing",
     "link_cmd": "python .agents/library/activate_skill.py link event-content-repurposing"
@@ -174,7 +174,7 @@
     "name": "event-continuous-improvement",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Turn several editions of a recurring technical event's debrief logs into operational trends and deliberate changes  -  a signal gate separating a one-off from a reproducible pattern, themes grouping differently-worded findings, recurrence counts across editions, a learning log persisted so it survives organizer turnover, an audit so it never grows unexamined, and a route from each resulting change to the sibling that owns it. Use whenever asked what keeps going wrong every year, how to stop relearning the same lessons, how to keep institutional memory across a team that turns over, or what several editions of evidence say to change next. Do NOT use for one edition's retrospective  -  use samber/dev-event-organizer-skills@event-debrief.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-continuous-improvement",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-continuous-improvement",
     "link_cmd": "python .agents/library/activate_skill.py link event-continuous-improvement"
@@ -184,7 +184,7 @@
     "name": "event-cultural-identity",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Design and audit the lived culture of a technical event - the register (hacker, corporate, design, business) and its consistent expression across venue, catering, swag, dress code, stage production, MC and hosting tone, opening and closing ceremonies, and the values a code of conduct puts in the room. Use whenever asked to define an event's vibe or cultural identity, design a signature tradition or ritual, script an opening or closing, brief an MC or organizer-hosts, choose a swag posture, or audit an event whose stated values and on-site experience contradict each other. Embodiment only. Do NOT use for what the event stands for - use samber/dev-event-organizer-skills@event-positioning - or CoC policy and enforcement - use samber/dev-event-organizer-skills@event-code-of-conduct.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-cultural-identity",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-cultural-identity",
     "link_cmd": "python .agents/library/activate_skill.py link event-cultural-identity"
@@ -194,7 +194,7 @@
     "name": "event-date-selection",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Pick the date a technical event runs on - the decision every other plan hangs off. Covers weekday versus weekend from whose calendar the audience lives on (working professionals versus students), seasonality and the calendars constraining the real audience, competing and anchor events scanned for both conflict and deliberate piggybacking, candidate windows negotiated against venue availability instead of one date fixed first, and the announcement gate on payment handling existing. Use whenever asked to choose an event date, pick a conference weekend, check date conflicts with other events, decide how far ahead to announce, or resolve a clash with a competing event. Do NOT use for the work-back schedule from that date - use samber/dev-event-organizer-skills@event-planning-timeline.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-date-selection",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-date-selection",
     "link_cmd": "python .agents/library/activate_skill.py link event-date-selection"
@@ -204,7 +204,7 @@
     "name": "event-debrief",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Run the organizing team's own internal retrospective on one finished edition of a technical event - the blameless frame, the reconstructed timeline, what went well split from what went poorly, what fired reconciled against the risk register, budget plan and run of show, team-health findings, and dated lessons-learned entries each carrying an owner and a due date. Use whenever asked to run a post-event debrief, a post-mortem or a retrospective after a conference, meetup or hackathon, review an edition against the goals the team set, build a lessons-learned log, or publish a public recap. Do NOT use to collect participant feedback - use samber/dev-event-organizer-skills@event-feedback - or for trends across editions - use samber/dev-event-organizer-skills@event-continuous-improvement.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-debrief",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-debrief",
     "link_cmd": "python .agents/library/activate_skill.py link event-debrief"
@@ -214,7 +214,7 @@
     "name": "event-feedback",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Design and run participant-feedback collection for one edition of a technical event - what gets asked, who answers it, through which channel, when it goes out, and what goes back to respondents. Covers format-adapted question sets (meetup pulse, conference satisfaction and return intent, hackathon team dynamics, mentors, judging fairness, project continuation), attendee, speaker and sponsor segmentation, in-room versus emailed collection against real response-rate data, survey length, anonymity and free text. Use whenever asked what to put in a post-event survey, when to send it, how to fix a response rate nobody answered, how to survey a hackathon, or what to do with the answers. Do NOT use for the team's own retrospective - use samber/dev-event-organizer-skills@event-debrief.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-feedback",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-feedback",
     "link_cmd": "python .agents/library/activate_skill.py link event-feedback"
@@ -224,7 +224,7 @@
     "name": "event-first-edition",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Launch the first edition of a tech event (conference, hackathon, large meetup) from zero - a minimum viable edition 1, scope discipline against the full vision, the first cross-organization team, the decision-to-doors-open reverse timeline, and a pre-mortem of first-edition-specific risks with written go/no-go dates. Use whenever asked to start a new conference or hackathon, plan a first edition, scope a minimum viable event, form a founding organizer team, or set a launch timeline for an event with no track record. Strategy layer for edition 1 only. Do NOT use to validate demand first - use samber/dev-event-organizer-skills@event-market-fit - or to grow an established event - use samber/dev-event-organizer-skills@event-growth-strategy.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-first-edition",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-first-edition",
     "link_cmd": "python .agents/library/activate_skill.py link event-first-edition"
@@ -234,7 +234,7 @@
     "name": "event-format-selection",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Choose a technical event's structure before anything is scheduled - the event shape (recurring meetup, hackathon, unconference day, single-day or multi-day conference), one program or several (single versus multi-track), workshop-day ratios, the session-format mix (curated talks, workshops, open space, ignite, fireside chats, panels), delivery mode (in-person, virtual, hybrid), and hackathon demo/judging structure. Use whenever asked to pick an event format or concept, decide single-track versus multi-track, weigh hybrid or virtual delivery, compose a session mix, or graduate a meetup into a conference. Structural choice only. Do NOT use for schedule grids, clash avoidance or room-capacity matching - use samber/dev-event-organizer-skills@event-schedule-design.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-format-selection",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-format-selection",
     "link_cmd": "python .agents/library/activate_skill.py link event-format-selection"
@@ -244,7 +244,7 @@
     "name": "event-growth-strategy",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Grow an established technical event edition over edition, or decide not to - the demand-headroom read, one discrete lever per edition (venue squeeze, track or day addition, venue step-up, price-led growth), the contract-risk gate on venue moves (deposits, attrition penalties, F&B minimums, long lead times), the pricing posture before scaling, and deliberate non-growth (caps, lotteries, shrinking back down) as a real strategy. Use whenever asked whether a conference or hackathon should grow, how to scale capacity, whether to add a track, a day or a venue, or how to stay small under excess demand. Do NOT use for a first launch - use samber/dev-event-organizer-skills@event-first-edition - or multi-event portfolios - use samber/dev-event-organizer-skills@event-portfolio-strategy.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-growth-strategy",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-growth-strategy",
     "link_cmd": "python .agents/library/activate_skill.py link event-growth-strategy"
@@ -254,7 +254,7 @@
     "name": "event-hospitality",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Decide the food, drink and social provision every population at a technical event shares - the catering service style and the dietary counts it has to carry, what a scheduled break contains, the event's alcohol posture, and whether an evening or social programme exists and in what form. Use whenever asked what format to feed a conference in, how catering should cover dietary restrictions across a whole event, what to put in a coffee break, whether to serve alcohol or run the event dry, or what to do on the evening of a conference day. Sets the shared floor only. Do NOT use for how many social occasions run - use samber/dev-event-organizer-skills@event-official-social-program - or which dietary needs the event commits to - use samber/dev-event-organizer-skills@event-accessibility-inclusion.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-hospitality",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-hospitality",
     "link_cmd": "python .agents/library/activate_skill.py link event-hospitality"
@@ -264,7 +264,7 @@
     "name": "event-landing-page",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Build a technical event's public front door and the small site around it - the page shape for the funding model (a ticketed event's single-CTA hero, or a free event's stats hero with no registration to sell), the section set, a date-gated CTA state machine so Propose renders only during the CFP window and Register only inside the registration window, the accessibility target, and the event structured data. Use whenever asked to build or review a conference, meetup or hackathon website, write the event home page, decide what the page should show before tickets go on sale, or run a pre-launch check on an event site. Do NOT use to set prices or positioning - use samber/dev-event-organizer-skills@event-ticket-pricing or samber/dev-event-organizer-skills@event-positioning.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-landing-page",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-landing-page",
     "link_cmd": "python .agents/library/activate_skill.py link event-landing-page"
@@ -274,7 +274,7 @@
     "name": "event-learning-expedition-design",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Decide whether to take a technical audience into an organization the organizer does not control, and on what terms  -  when a host's own premises, operation and staff are the programme rather than a room rented and filled by the organizer. Sets the host-dependency posture (host speaker hosted in-house, one host site host-led or to a negotiated agenda, a multi-host circuit) and the access posture, meaning what the host lets attendees see and repeat afterwards. Use whenever asked to design a learning expedition, company tour, field trip, site-visit programme or executive immersion. Do NOT use for catering  -  use samber/dev-event-organizer-skills@event-hospitality  -  or multi-venue logistics  -  use samber/dev-event-organizer-skills@event-production. States no legal threshold or instrument.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-learning-expedition-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-learning-expedition-design",
     "link_cmd": "python .agents/library/activate_skill.py link event-learning-expedition-design"
@@ -284,7 +284,7 @@
     "name": "event-market-fit",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Read whether a technical event's concept, audience and price combination actually meets demand - before launch (community baseline, CFP oversubscription, saturation mapping), mid-sale (checkpoint ladder and pace index against expected sales), and after an edition (attendee return, sponsor renewal, sellout-speed trend) - composed into a go, hold, pivot or stop call. Use whenever asked to validate demand for a conference, hackathon or a meetup-to-conference jump, judge whether ticket sales are on pace, decide whether an event should recur or scale, or diagnose why an edition underperformed. Reads signals only. Do NOT use for launch scoping - use samber/dev-event-organizer-skills@event-first-edition - or growth levers - use samber/dev-event-organizer-skills@event-growth-strategy.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-market-fit",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-market-fit",
     "link_cmd": "python .agents/library/activate_skill.py link event-market-fit"
@@ -294,7 +294,7 @@
     "name": "event-marketing-plan",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Build the attendee-acquisition plan for a technical event - audience segments mapped to channels, the campaign-calendar spine (a ticketed event's percent-of-ticket-sales ladder or a free event's percent-of-attendance-goal curve), campaign moments pinned to pricing and program dates fixed elsewhere, budget allocated across the channel mix, funnel targets per phase, and each channel routed to the sibling that executes it. Use whenever asked to plan how to fill an event, run a ticket-sales or registration campaign, choose promotion channels, split promotion budget, or set registration targets by date. Do NOT use for the email copy itself - use samber/dev-event-organizer-skills@event-attendee-email-sequences - or ticket prices - use samber/dev-event-organizer-skills@event-ticket-pricing.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-marketing-plan",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-marketing-plan",
     "link_cmd": "python .agents/library/activate_skill.py link event-marketing-plan"
@@ -304,7 +304,7 @@
     "name": "event-media-partnerships",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Set up barter media and community partnerships for a technical event - visibility-for-visibility deals with newsletters, podcasts, online communities and developer-ambassador programs, where no cash changes hands. Covers deal classes, partner types, the exchange format (calendar listing, logo-and-social swap, newsletter mention swap, podcast exchange, full media-partner tier), the deal terms, and both sides' delivery tracking. Use whenever asked to find media partners, set up a community-sponsor tier, trade newsletter mentions or podcast slots for event visibility, or formalize a logo-for-promotion deal. Do NOT use for earned press - use samber/dev-event-organizer-skills@event-press-relations - or swaps with other events - use samber/dev-event-organizer-skills@cross-event-promotion.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-media-partnerships",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-media-partnerships",
     "link_cmd": "python .agents/library/activate_skill.py link event-media-partnerships"
@@ -314,7 +314,7 @@
     "name": "event-no-show-management",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Reduce and absorb no-shows at a technical event - an overbooking ratio against the room's real capacity and a stated ceiling, the waitlist and what triggers a promotion off it, the day-of walk-in lane, and the expected-show-up number handed to catering instead of the registration count. Use whenever asked how many registrations to accept for a free event, whether to overbook, how to run an event waitlist, why half the RSVPs did not turn up, or how many people to order food for. Do NOT use for reminder email copy - use samber/dev-event-organizer-skills@event-attendee-email-sequences - the check-in desk - use samber/dev-event-organizer-skills@event-attendee-experience - or the demand verdict behind a low show-up rate - use samber/dev-event-organizer-skills@event-market-fit.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-no-show-management",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-no-show-management",
     "link_cmd": "python .agents/library/activate_skill.py link event-no-show-management"
@@ -324,7 +324,7 @@
     "name": "event-official-social-program",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Decide how many official social occasions a technical event runs and how they sit against each other one occasion, two on separate slots, or a themed multi-activity track - plus the inclusion floor a whole slate must clear rather than each activity separately. Use whenever asked whether to run more than one social activity, whether two social activities can run in the same hours, how to publish a social track, or which activity a caregiver or a non-drinker can be in. Do NOT use for a single occasion's format, food, drink or alcohol posture - use samber/dev-event-organizer-skills@event-hospitality - third-party satellites - use samber/dev-event-organizer-skills@event-side-event-coordination - or invite-only gatherings - use samber/dev-event-organizer-skills@event-vip-social-program.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-official-social-program",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-official-social-program",
     "link_cmd": "python .agents/library/activate_skill.py link event-official-social-program"
@@ -334,7 +334,7 @@
     "name": "event-planning-timeline",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Build the months-long work-back plan for a tech event, any edition - the doors-open anchor date, parallel tracks (venue, program/CFP, sponsors, marketing, ticketing) each worked back from that date, cross-track dependency gates, a buffer policy through latest-safe commitment dates, and replanning checkpoints that cut scope instead of moving the date. Use whenever asked to build an event planning timeline, conference retroplanning, a work-back or reverse schedule, event milestone sequencing, or to replan an event running behind schedule. Scheduling mechanics only. Do NOT use to pick the date itself - use samber/dev-event-organizer-skills@event-date-selection - or for the day-of run of show - use samber/dev-event-organizer-skills@event-run-of-show.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-planning-timeline",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-planning-timeline",
     "link_cmd": "python .agents/library/activate_skill.py link event-planning-timeline"
@@ -344,7 +344,7 @@
     "name": "event-portfolio-strategy",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Shape one organizing team's set of event properties - flagship conference, meetup series, hackathon, podcast or always-on online space - into a portfolio where each one feeds the others. Covers what each property is for, the funnel path between them, cadence collisions against one team and audience, how much brand, audience list, team and sponsors are shared, the allocation posture, add/kill criteria written before they are needed, and the dated change-the-recipe, merge or retire call when attendance falls. Use whenever asked whether to add a second event or format, how a meetup feeds a conference, how to keep momentum between editions, whether to merge overlapping meetups, or which property to retire. Do NOT use for growing one event - use samber/dev-event-organizer-skills@event-growth-strategy - or swaps with other organizers' events - use samber/dev-event-organizer-skills@cross-event-promotion.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-portfolio-strategy",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-portfolio-strategy",
     "link_cmd": "python .agents/library/activate_skill.py link event-portfolio-strategy"
@@ -354,7 +354,7 @@
     "name": "event-positioning",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Define a technical event's positioning - what it stands for, against which alternatives, for which audience identity. Covers the governance axis (community-run, foundation, media-run, vendor-owned), competitive-alternative mapping, best-fit attendee and sponsor segments (and when a conference may serve several targets), the business-oriented layer sponsors buy, market-category strategy (head-to-head, subcategory, new category and its education tax), the positioning statement, contrast-not-attack anti-positioning, and the rebrand gate. Use whenever asked to position a conference, meetup or hackathon, differentiate it from neighboring events, decide who it is for, write a positioning statement, weigh a vendor-neutrality claim, or judge an event rename. Strategy only. Do NOT use for on-site embodiment - use samber/dev-event-organizer-skills@event-cultural-identity.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-positioning",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-positioning",
     "link_cmd": "python .agents/library/activate_skill.py link event-positioning"
@@ -364,7 +364,7 @@
     "name": "event-press-relations",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Run earned press coverage for a technical event - a one-way ask, not a barter deal. Covers whether to pursue press at all (most community events correctly do not), a two-lane accreditation policy for editorial journalists and independent bloggers or creators, the ungated media page, announcements pegged to the CFP, lineup, programme, on-sale and wrap-up beats, the embargo posture, the on-site press operation and interview logistics, and the single spokesperson designated before an incident needs one. Use whenever asked about press accreditation, a press kit or media page, pitching journalists about an event, embargoed announcements, a press room, or who speaks to reporters. Do NOT use for barter media partnerships - use samber/dev-event-organizer-skills@event-media-partnerships.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-press-relations",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-press-relations",
     "link_cmd": "python .agents/library/activate_skill.py link event-press-relations"
@@ -374,7 +374,7 @@
     "name": "event-production",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Engineer the technical AV production of a technical event once the format and session grid are fixed - capture tiers from a single smartphone to multi-camera vision mixing, signal-path architecture separating room display from recorded output and crew monitor, redundancy against named recorded-audio failure modes, AV crew roles, the written technical spec handed to venue sourcing, the Media budget line, rehearsal, and the publication pipeline. Use whenever the user mentions conference AV, recording or livestreaming talks, cameras, microphones, an AV supplier brief, or a backup plan for a technical failure - even if they never say \"production\". Do NOT use to decide whether to run hybrid or virtual at all - use samber/dev-event-organizer-skills@event-format-selection instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-production",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-production",
     "link_cmd": "python .agents/library/activate_skill.py link event-production"
@@ -384,7 +384,7 @@
     "name": "event-registration-forecast",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Forecast final registrations for a technical event from its sign-up pace curve, with a bundled Python 3 script, while registration is still open - prior-edition or generic reference curves aligned on days-out, a low/mid/high band, milestone tripwires declared in advance, the commit figure at each contract lock date, when the forecast crosses capacity, and attendance by ticket type. Use whenever asked how many people will end up registering or attending, to project this year from last year's curve, what headcount to commit before sign-ups close, or when registration will hit its cap. Do NOT use for the demand verdict - use samber/dev-event-organizer-skills@event-market-fit - or overbooking ratios and food counts once sign-ups close - use samber/dev-event-organizer-skills@event-no-show-management.\"",
     "path": "library/samber-dev-event-organizer-skills/skills/event-registration-forecast",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-registration-forecast",
     "link_cmd": "python .agents/library/activate_skill.py link event-registration-forecast"
@@ -394,7 +394,7 @@
     "name": "event-risk-management",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Build and maintain the standing risk register for a technical event - risks named by category, scored on a likelihood x impact matrix adapted to a dated one-shot deliverable, split into prevention, contingency or insurance, the insurance stack including the communicable-disease buy-back, internal go/no-go decision dates set against the venue's escalating cancellation-fee curve, and the on-site emergency plan. Use whenever the user mentions event insurance, cancelling or postponing an event, a go/no-go call, an emergency or evacuation plan, weather or speaker-dropout contingency, or a risk register - even if they never say \"risk\". Not legal or insurance advice. Do NOT use for day-of live incident handling - use samber/dev-event-organizer-skills@event-run-of-show instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-risk-management",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-risk-management",
     "link_cmd": "python .agents/library/activate_skill.py link event-risk-management"
@@ -404,7 +404,7 @@
     "name": "event-run-of-show",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Write and run the day-of run of show for a technical event once the schedule is published - the minute-by-minute playbook staff execute from, day-of role assignment (MC, speaker introducers, room leads, the organizer on duty), cue sheets at every transition, an organizer-only comm channel kept separate from attendee-facing ones, the escalation path and live incident response, shift rotation with verified handoffs, and closeout. Use whenever the user mentions a day-of rundown, a cue sheet, MC or room-lead roles, organizer radios or Slack channels, shift handoffs, or deciding live what to cut when a session overruns - even if they never say \"run of show\". Do NOT use to build the grid itself - use samber/dev-event-organizer-skills@event-schedule-design instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-run-of-show",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-run-of-show",
     "link_cmd": "python .agents/library/activate_skill.py link event-run-of-show"
@@ -414,7 +414,7 @@
     "name": "event-schedule-design",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Lay a technical event's already-selected talks into a published session grid - session-length standardization, room and capacity matching, the four clash types with multi-speaker intersection, break and lunch placement, buffer sizing, keynote and plenary placement as re-sync points, synchronized versus staggered track starts, energy-curve pacing, and speaker travel windows against slot assignment. Use whenever the user mentions building a conference schedule or agenda, a multi-track layout, session clashes or speaker double-booking, matching talks to rooms, sizing breaks, or when to publish the grid - even if they never say \"schedule\". Do NOT use to decide the track count or session-format mix - use samber/dev-event-organizer-skills@event-format-selection instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-schedule-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-schedule-design",
     "link_cmd": "python .agents/library/activate_skill.py link event-schedule-design"
@@ -424,7 +424,7 @@
     "name": "event-side-event-coordination",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Approve and coordinate third-party-run satellite events around a technical event - the vetting gate, calendar deconfliction against the published grid, name and logo usage rules, and the disclaimer stating what the main event does not vouch for. Use whenever a user group, sponsor or attendee wants to run a party, meetup, dinner, workshop or afterparty during the event's dates, when someone is already using the event's name on their own page, or when fringe events collide with the main programme - even if they never say \"side event\". Approving nothing is often the right answer; routes trademark and liability exposure to counsel. Do NOT use for the organizer's own evening programme - use samber/dev-event-organizer-skills@event-official-social-program instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-side-event-coordination",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-side-event-coordination",
     "link_cmd": "python .agents/library/activate_skill.py link event-side-event-coordination"
@@ -434,7 +434,7 @@
     "name": "event-social-media",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Run a technical event's own social presence inside the weight, phase and dates the marketing plan already fixed - platform selection, the campaign versus community hashtag, posts mapped onto campaign phases (announcement, CFP, speaker reveal, final push, live), speaker and sponsor amplification asks, and day-of coverage. Use whenever the user mentions event social media, a conference or hackathon content calendar, speaker-announcement posts, which platforms an event should post on, an event hashtag, or briefing a volunteer on live posting - even if they never say \"social media\". Do NOT use for channel weight and budget - use samber/dev-event-organizer-skills@event-marketing-plan; mining talk recordings afterwards is samber/dev-event-organizer-skills@event-content-repurposing.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-social-media",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-social-media",
     "link_cmd": "python .agents/library/activate_skill.py link event-social-media"
@@ -444,7 +444,7 @@
     "name": "event-speaker-coaching",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "'Designs and runs the coaching program an event organizer offers accepted speakers: the coaching offer, mentor pairing, the review and dry-run calendar, a feedback protocol that improves a talk without crushing the speaker, cutting to time, nerves, Q&A and slide accessibility. Use whenever an organizer mentions coaching or mentoring their speakers, first-time or underrepresented speakers after acceptance, speaker dry runs, feedback on a speaker''s talk or slides, or a speaker who runs long, even without saying \"coaching\". Do NOT use for a speaker preparing their own talk (samber/developer-relations-skills@tech-talk-outline), before acceptance (samber/dev-event-organizer-skills@event-cfp-design), or for travel and the tech check (samber/dev-event-organizer-skills@event-speaker-experience).'",
     "path": "library/samber-dev-event-organizer-skills/skills/event-speaker-coaching",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-speaker-coaching",
     "link_cmd": "python .agents/library/activate_skill.py link event-speaker-coaching"
@@ -454,7 +454,7 @@
     "name": "event-speaker-cold-outreach",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Write and sequence the cold invitation to a speaker a shortlist already picked - the message, not the search. Covers what a first invitation must disclose up front (event basics, honest budget and travel terms, the answer deadline, how you found them), personalization built from the shortlist's own \"why\", ranked first-touch channels, follow-up cadences that add a new angle instead of bumping, and the fee conversation where speakers have no rate card. Use whenever the user mentions writing a speaker invitation, pitching a keynote candidate, following up on an unanswered invitation, or a speaker who asks for a fee - even if they never say \"outreach\". Do NOT use to find or qualify candidates - use samber/dev-event-organizer-skills@event-speaker-sourcing instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-speaker-cold-outreach",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-speaker-cold-outreach",
     "link_cmd": "python .agents/library/activate_skill.py link event-speaker-cold-outreach"
@@ -464,7 +464,7 @@
     "name": "event-speaker-experience",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Run the speaker-side experience from the moment a speaker confirms through to the thank-you after their talk - collecting bio, headshot, A/V needs and travel details against a deadline ladder, a single named point of contact, the pre-event briefing and slide deadline, tech check and green room, documented recording consent and its per-format opt-out asymmetry, and post-event follow-up. Use whenever the user mentions what to send an accepted speaker, a green room, speaker travel or hotel, a tech check, recording consent, a speakers' dinner, or a first-time speaker's care - even if they never say \"speaker experience\". Do NOT use before acceptance (samber/dev-event-organizer-skills@event-speaker-cold-outreach) or for dry runs and talk feedback (samber/dev-event-organizer-skills@event-speaker-coaching).",
     "path": "library/samber-dev-event-organizer-skills/skills/event-speaker-experience",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-speaker-experience",
     "link_cmd": "python .agents/library/activate_skill.py link event-speaker-experience"
@@ -474,7 +474,7 @@
     "name": "event-speaker-sourcing",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Find and qualify speakers for a technical event outside the open call for papers - the proactive channel running alongside or instead of a CFP. Covers program gaps worth filling by invitation, sourcing channels (referral asks, expert and speaker directories, prior-talk review, community scouting), international sourcing by region and language, evidence-based Hot/Warm/Cold/Skip qualification, and a ranked shortlist carrying the \"why\" behind each name. Use whenever the user mentions finding speakers, a keynote or invited-speaker shortlist, sourcing international or under-represented speakers, or a programme a CFP did not fill - even if they never say \"sourcing\". Do NOT use to write the invitation - use samber/dev-event-organizer-skills@event-speaker-cold-outreach instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-speaker-sourcing",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-speaker-sourcing",
     "link_cmd": "python .agents/library/activate_skill.py link event-speaker-sourcing"
@@ -484,7 +484,7 @@
     "name": "event-sponsor-agreement",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Turn a sold event sponsorship into a term sheet a lawyer can review - never a signable contract or legal advice. Covers the clause checklist an organizer hands to counsel - a deliverables schedule mirroring the sold tier, payment and late-fee terms, sponsor-withdrawal refunds plus the narrower organizer-cancels remedy, a force-majeure remedy, category exclusivity bounded by published caps, liability and insurance, a code-of-conduct clause with an ejection right, an editorial-independence clause denying sponsors program control, mutual logo licensing, term and renewal. Use whenever the user mentions a sponsorship agreement or contract, sponsor payment or cancellation terms, exclusivity, or a force-majeure clause - even if they never say \"agreement\". Do NOT use to set prices - use samber/dev-event-organizer-skills@event-sponsor-pricing.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-sponsor-agreement",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-sponsor-agreement",
     "link_cmd": "python .agents/library/activate_skill.py link event-sponsor-agreement"
@@ -494,7 +494,7 @@
     "name": "event-sponsor-fulfillment",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Deliver everything a signed event sponsor was promised, from countersignature to the post-event report - the tier-by-perk fulfillment matrix built from the signed agreement, payment-gated perk release, sponsor asset collection against deadlines, the day-of sponsor experience (setup, shipping, staffing, A/V), consented lead capture such as an opt-in raffle, and the post-event sponsor report that anchors the renewal ask. Use whenever the user mentions onboarding a signed sponsor, tracking sponsor deliverables, booth logistics, sponsor logo placement, or a post-event sponsor report or recap - even without saying \"fulfillment\". Do NOT use for the sale - use samber/dev-event-organizer-skills@event-sponsor-outreach; use samber/dev-event-organizer-skills@event-sponsor-renewal for the renewal ask.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-sponsor-fulfillment",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-sponsor-fulfillment",
     "link_cmd": "python .agents/library/activate_skill.py link event-sponsor-fulfillment"
@@ -504,7 +504,7 @@
     "name": "event-sponsor-outreach",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Run the sponsor sales motion for a technical event, from target list to signed yes - target list building and scoring, outreach timed against sponsor fiscal-year budget lock-in, first-touch channel choice (warm intro, referral ask, cold email), the needs-discovery exploratory call, capped follow-up cadences, objection handling, pipeline tracking, and sponsors released by renewal or absent a full edition re-entering as net-new. Use whenever the user mentions finding sponsors, a sponsor outreach email, pitching a sponsorship, a sponsor objection, or a prospect gone silent - even if they never say \"outreach\". Do NOT use for the rate card - use samber/dev-event-organizer-skills@event-sponsor-pricing; use samber/dev-event-organizer-skills@event-sponsor-renewal to renew last edition's sponsors.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-sponsor-outreach",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-sponsor-outreach",
     "link_cmd": "python .agents/library/activate_skill.py link event-sponsor-outreach"
@@ -514,7 +514,7 @@
     "name": "event-sponsor-pricing",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Build the sponsorship rate card for a technical event - the revenue target taken from the budget, an inventory of sellable surfaces, cost-recovery, market-comp and value-based price setting, a 2-4 tier ladder with anchoring and a sane top-to-floor ratio, add-on and exclusivity premiums, in-kind valuation, and the discount and negotiation policy written before the first sponsor call, and annual sponsorship decoupled from events for a recurring series. Use whenever the user mentions sponsorship tier prices, a sponsor rate card, sponsor package pricing, or choosing between a published ladder, quote-gated pricing and no ladder at all - even if they never say \"pricing\". Do NOT use for attendee ticket prices - use samber/dev-event-organizer-skills@event-ticket-pricing; the deck is samber/dev-event-organizer-skills@event-sponsor-prospectus.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-sponsor-pricing",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-sponsor-pricing",
     "link_cmd": "python .agents/library/activate_skill.py link event-sponsor-pricing"
@@ -524,7 +524,7 @@
     "name": "event-sponsor-prospectus",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Assemble a technical event's sponsorship prospectus - the published document packaging an existing sponsor value proposition and rate card into a credibility-before-price section anatomy, a checkmark tier table with real disclosed caps, named per-tier perks and add-on packages, an audience-demographics evidence section, and a distribution format (web page or PDF kit) refreshed every edition. Use whenever the user mentions a sponsor deck, a sponsorship kit, a sponsor packages document, a prospectus, or a sponsor page for a conference, meetup or hackathon - even if they never say \"prospectus\". Never prints guarantees, invented scarcity, or lead-list benefits the event cannot deliver. Do NOT use to set prices - use samber/dev-event-organizer-skills@event-sponsor-pricing instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-sponsor-prospectus",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-sponsor-prospectus",
     "link_cmd": "python .agents/library/activate_skill.py link event-sponsor-prospectus"
@@ -534,7 +534,7 @@
     "name": "event-sponsor-renewal",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Wins back last edition's tech event sponsors after the post-event report: the sponsor debrief call and renewal ask timed to budget locks, non-discount early-renewal offers, telling returning sponsors about a price increase, tier changes, rescuing an at-risk sponsor or one whose champion left after the event, and renewal rate. Use whenever an organizer mentions renewing sponsors, a renewal pitch, a lapsing sponsor, or sponsor retention. Do NOT use for the report itself - use samber/dev-event-organizer-skills@event-sponsor-fulfillment; use samber/dev-event-organizer-skills@event-sponsor-pricing to set prices; use samber/dev-event-organizer-skills@event-sponsor-outreach for new sponsors; use samber/developer-relations-skills@developer-event-sponsorship when the user is the sponsor.\"",
     "path": "library/samber-dev-event-organizer-skills/skills/event-sponsor-renewal",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-sponsor-renewal",
     "link_cmd": "python .agents/library/activate_skill.py link event-sponsor-renewal"
@@ -544,7 +544,7 @@
     "name": "event-sponsor-value-proposition",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Discover what each sponsor of a technical conference actually needs, then articulate what it genuinely gets and why each sponsor segment buys - brand exposure, product feedback, recruiting, community goodwill, and (vendor-run events only) pipeline - one segment at a time through a six-part jobs-to-be-done template, bounded by what the event type can honestly promise and backed by proof points a diligent sponsor will check. Use whenever the user mentions why a company should sponsor an event, sponsor benefits or motivations, or building the value story before a prospectus or rate card exists - even if they never say \"value proposition\". Sponsorship never buys talks, judging results, or roadmap influence. Do NOT use to package or price it - use samber/dev-event-organizer-skills@event-sponsor-prospectus instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-sponsor-value-proposition",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-sponsor-value-proposition",
     "link_cmd": "python .agents/library/activate_skill.py link event-sponsor-value-proposition"
@@ -554,7 +554,7 @@
     "name": "event-sustainability-plan",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Plans, measures and reports the environmental footprint of a technical event the user organizes, and writes its public sustainability page without greenwashing, from a screening estimate of attendee travel (usually the dominant line) and ranked reduction levers to offset-free claim wording. Use whenever an organizer mentions a conference or meetup carbon footprint, a green or low-carbon event, conference waste, an event sustainability page or report, an event's carbon-neutral or offset claims, or ISO 20121 - even without saying 'sustainability'. Not for a company's own business-travel inventory or product claims. Do NOT use for financial or organizer-burnout sustainability - use samber/dev-event-organizer-skills@event-budget or samber/dev-event-organizer-skills@event-team-structure.\"",
     "path": "library/samber-dev-event-organizer-skills/skills/event-sustainability-plan",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-sustainability-plan",
     "link_cmd": "python .agents/library/activate_skill.py link event-sustainability-plan"
@@ -564,7 +564,7 @@
     "name": "event-talk-selection",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Run the review and selection process on CFP submissions a technical event already collected - committee composition, how blind review executes (platform hiding versus a dedicated anonymizer role) and what it cannot fix, scoring rubrics, multi-round score-to-shortlist-to-program-fit cascades, conflict-of-interest recusal, diversity and first-time-speaker balancing, acceptance-rate management, and accept/decline/waitlist communication. Use whenever the user mentions a program committee, a talk rating grid, blind CFP review, choosing which submitted talks make the programme, reviewer conflicts of interest, or acceptance and rejection emails - even if they never say \"selection\". Do NOT use to design the call itself - use samber/dev-event-organizer-skills@event-cfp-design.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-talk-selection",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-talk-selection",
     "link_cmd": "python .agents/library/activate_skill.py link event-talk-selection"
@@ -574,7 +574,7 @@
     "name": "event-team-structure",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Design the standing organizing team of a recurring technical event - the structure that persists between editions. Covers legal-entity posture (none, fiscal sponsorship, own non-profit), decision-rights shape (board-plus-organizers split, domain-lead federation, consensus committee), the role taxonomy, succession and bus-factor planning, burnout guardrails, organizer conflict of interest, a voluntary peer network of independent local communities, and the volunteer-to-paid-staff hiring gate. Use whenever the user mentions structuring or governing an organizing team, forming an association or non-profit for an event, splitting decision rights, organizer succession or rotation, organizer burnout, finding co-organizers, organizers doing business through the event, several independent meetups cooperating as a network, or hiring the first paid staff - even if they never say \"team structure\". Do NOT use for day-of staffing - use samber/dev-event-organizer-skills@event-volunteers instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-team-structure",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-team-structure",
     "link_cmd": "python .agents/library/activate_skill.py link event-team-structure"
@@ -584,7 +584,7 @@
     "name": "event-ticket-pricing",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Set attendee ticket prices for a technical event - free, nominal or priced against the funding model, comps subtracted from capacity, a ladder split by who pays (employer-funded, self-funded, student), gating on a date or a ticket count, the need-gated scholarship rung, group and invoicing mechanics, and the refund and transfer policy written before tickets go on sale. Use whenever the user mentions ticket prices, early-bird tiers, free versus paid entry, student, diversity or group rates, invoicing an employer, or a ticket refund policy - even if they never say \"pricing\". Do NOT use for sponsor tiers - use samber/dev-event-organizer-skills@event-sponsor-pricing; no-shows are samber/dev-event-organizer-skills@event-no-show-management.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-ticket-pricing",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-ticket-pricing",
     "link_cmd": "python .agents/library/activate_skill.py link event-ticket-pricing"
@@ -594,7 +594,7 @@
     "name": "event-vendor-sourcing",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Source, vet and contract the suppliers a venue does not include - caterers, AV and production suppliers, security firms, insurance brokers, swag and print. Covers the venue-exclusivity check that precedes any evaluation, one identical brief per category, sourcing posture and quote-comparison depth, contract red flags and the certificate-of-insurance ask, ordering lead times, delivery buffers, and day-of coordination. Use whenever the user mentions finding a caterer, comparing supplier quotes, briefing an AV or security supplier, ordering swag or t-shirts, or reading a vendor contract before signing - even if they never say \"vendor\". Refuses to invent supplier prices. Do NOT use to write the AV technical spec - use samber/dev-event-organizer-skills@event-production instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-vendor-sourcing",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-vendor-sourcing",
     "link_cmd": "python .agents/library/activate_skill.py link event-vendor-sourcing"
@@ -604,7 +604,7 @@
     "name": "event-venue-sourcing",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Find and negotiate the venue for a technical event. Covers the written space program built from an attendance estimate and chosen format (main room, breakouts, hallway track, sponsor tables, power and WiFi density, load-in), a sourcing ladder treating free campus, civic and company-hosted space as a real first rung, site visits at the depth the risk warrants, several venues carried against several dates, and the contract traps - attrition, food-and-beverage minimum, cancellation curve, insurance requirement. Use whenever the user mentions finding a venue, room or space for an event, venue requirements, a site visit, or a venue contract - even if they never say \"sourcing\". Do NOT use for non-venue suppliers - use samber/dev-event-organizer-skills@event-vendor-sourcing instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-venue-sourcing",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-venue-sourcing",
     "link_cmd": "python .agents/library/activate_skill.py link event-venue-sourcing"
@@ -614,7 +614,7 @@
     "name": "event-vip-management",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Receive named guests who are neither speaking nor sponsoring but whose presence creates escort, protocol, security or discretion obligations the general attendee flow cannot absorb - public officials, dignitaries, major funders, executives with no booth duty. Covers the qualification test (obligation, never status), the identification roster, escort depth, and a visibility posture that meets the obligation without building a status tier attendees can read. Use whenever the user mentions receiving a minister, mayor, funder or visiting executive, VIP badges or reserved seating, escorting a dignitary, or coordinating with a guest's own security detail - even if they never say \"VIP\". Do NOT use for speakers - use samber/dev-event-organizer-skills@event-speaker-experience instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-vip-management",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-vip-management",
     "link_cmd": "python .agents/library/activate_skill.py link event-vip-management"
@@ -624,7 +624,7 @@
     "name": "event-vip-social-program",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Run the private gathering alongside a public technical event, once a named-guest programme already exists - how the seat list is assembled when sponsors, speakers and the organizer all put names forward, how invitations and the door work without publishing a tier, and where the gathering sits against the public programme. Use whenever the user mentions a private dinner or reception at a conference, refusing a sponsor's seat request, an invite-only room without a VIP badge, or when to schedule one - even if they never say \"VIP\". Folding it into the general evening is the default answer. Do NOT use to decide whether a guest qualifies - use samber/dev-event-organizer-skills@event-vip-management; food is samber/dev-event-organizer-skills@event-hospitality.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-vip-social-program",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-vip-social-program",
     "link_cmd": "python .agents/library/activate_skill.py link event-vip-social-program"
@@ -634,7 +634,7 @@
     "name": "event-volunteer-experience",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Design what a volunteer gets when they are not standing at a post, and how one edition closes with them - off-duty time they can actually use, the volunteer-specific hospitality top-up on the event's general standard, recognition not tied to a shift, a public thank-you, and the past-volunteer list next edition's recruitment starts from. Use whenever the user mentions looking after volunteers beyond their shift, whether volunteers get to see a talk, a volunteer lounge or volunteer meal, thanking volunteers after the event, or bringing the same volunteers back next edition - even if they never say \"volunteer experience\". Do NOT use for recruitment, roles, shifts or briefing - use samber/dev-event-organizer-skills@event-volunteers instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-volunteer-experience",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-volunteer-experience",
     "link_cmd": "python .agents/library/activate_skill.py link event-volunteer-experience"
@@ -644,7 +644,7 @@
     "name": "event-volunteers",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Recruit and organize the volunteer workforce that staffs one edition of a technical event - roster sizing built bottom-up from the posts the schedule needs standing, role definitions with real fit criteria, shift plans with arrival buffers, sign-up and confirmation, the briefing including the code-of-conduct escalation script, a named replacement protocol holding coverage, and recognition for the people who showed up. Use whenever the user mentions how many volunteers an event needs, recruiting or signing up volunteers, volunteer roles or a shift schedule, briefing volunteers, or a volunteer who does not turn up - even if they never say \"volunteers\". Do NOT use for volunteer care and retention - use samber/dev-event-organizer-skills@event-volunteer-experience instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/event-volunteers",
     "activation_cmd": "python .agents/library/activate_skill.py activate event-volunteers",
     "link_cmd": "python .agents/library/activate_skill.py link event-volunteers"
@@ -654,7 +654,7 @@
     "name": "hackathon-brief-design",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Write the hackathon challenge document teams read before they build - problem statements sized to the time box, thematic challenge tracks, the published rules and eligibility text, the submission-artifact checklist, sponsor-challenge framing, and naming (never weighting) the evaluation categories. Use whenever the user mentions a hackathon brief, challenge or track prompts, hackathon rules or eligibility, submission guidelines, or turning a sponsor's API into a challenge - even if they never say \"brief\". Challenge tracks here are thematic categories a team enters, not parallel session streams. Do NOT use for rubric weights and judging mechanics - use samber/dev-event-organizer-skills@hackathon-judging instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/hackathon-brief-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate hackathon-brief-design",
     "link_cmd": "python .agents/library/activate_skill.py link hackathon-brief-design"
@@ -664,7 +664,7 @@
     "name": "hackathon-cash-prize",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Structure what a hackathon actually awards - cash versus non-cash medium including no monetary prize at all, total pool size inside the event budget's prizes line, how that pool splits across places and sponsor tracks, and who may legally receive a payout. Use whenever the user mentions hackathon prize amounts, cash versus hardware or credits, splitting a prize pool across tracks, prize eligibility for minors, sponsor employees or cross-border winners, or how winners actually get paid - even if they never say \"prize\". Names the contest-law, tax and cross-border exposure categories and routes them to counsel or a fiscal host, never stating a threshold or a form name. Do NOT use to rank the projects - use samber/dev-event-organizer-skills@hackathon-judging instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/hackathon-cash-prize",
     "activation_cmd": "python .agents/library/activate_skill.py activate hackathon-cash-prize",
     "link_cmd": "python .agents/library/activate_skill.py link hackathon-cash-prize"
@@ -674,7 +674,7 @@
     "name": "hackathon-judging",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Design the rubric and the scoring process for judging projects built during a hackathon - evaluation criteria and their weights, the scoring scale, judge coverage and the allocation arithmetic that fits the judging window, cross-judge score normalization, tie-breaking, sponsor and judge conflict-of-interest handling, judge recruitment and briefing, and results announcement including a contested result. Use whenever the user mentions a hackathon judging rubric, criteria weights, how many judges a team count needs, briefing a jury, a sponsor judging its own challenge track, or tie-break and dispute rules - even if they never say \"judging\". Do NOT use for prize amounts and payout law - use samber/dev-event-organizer-skills@hackathon-cash-prize instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/hackathon-judging",
     "activation_cmd": "python .agents/library/activate_skill.py activate hackathon-judging",
     "link_cmd": "python .agents/library/activate_skill.py link hackathon-judging"
@@ -684,7 +684,7 @@
     "name": "hackathon-mentoring",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Design the mentor programme for one hackathon edition - coverage depth sized against the challenge tracks rather than a headcount, recruitment through community and sponsor channels, expertise tagging matched to the brief's tracks and any sponsor API, the request mechanic a stuck team uses to reach a mentor, the mentor briefing including the help-versus-build boundary, and rotation by expertise across shifts. Use whenever the user mentions how many mentors a hackathon needs, recruiting or briefing mentors, how a stuck team reaches help during the hacking window, or what a mentor may touch in a team's repository - even if they never say \"mentoring\". Do NOT use for generic shift and roster mechanics - use samber/dev-event-organizer-skills@event-volunteers instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/hackathon-mentoring",
     "activation_cmd": "python .agents/library/activate_skill.py activate hackathon-mentoring",
     "link_cmd": "python .agents/library/activate_skill.py link hackathon-mentoring"
@@ -694,7 +694,7 @@
     "name": "hackathon-team-formation",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Decide how participants at a hackathon end up on teams - the published team-size rule including whether solo entry is allowed, the matchmaking mechanic that runs on the day, what happens to someone still unteamed after it, when membership freezes relative to the opening, and any track-conditioned team-composition rule. Use whenever the user mentions hackathon team size, a pitch-and-join or team-matching session, whether solo hackers are permitted, a participant nobody picked, or teams changing mid-event - even if they never say \"team formation\". Do NOT use to match a stuck team to expertise - use samber/dev-event-organizer-skills@hackathon-mentoring; the rules text is samber/dev-event-organizer-skills@hackathon-brief-design.",
     "path": "library/samber-dev-event-organizer-skills/skills/hackathon-team-formation",
     "activation_cmd": "python .agents/library/activate_skill.py activate hackathon-team-formation",
     "link_cmd": "python .agents/library/activate_skill.py link hackathon-team-formation"
@@ -704,7 +704,7 @@
     "name": "hybrid-event-design",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Design a technical event serving an in-room and a remote audience at once, after the format decision has already chosen hybrid - which sessions the remote audience gets, how far a remote attendee's voice reaches the stage, the cue track the stream needs beside the room's, and the crew split between them. Use whenever the user mentions streaming talks to a remote audience, remote Q&A, staffing the remote side, or running a day for two audiences at once - even if they never say \"hybrid\". Do NOT use to decide whether to run hybrid at all - use samber/dev-event-organizer-skills@event-format-selection; an event with no room is samber/dev-event-organizer-skills@virtual-event-production.",
     "path": "library/samber-dev-event-organizer-skills/skills/hybrid-event-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate hybrid-event-design",
     "link_cmd": "python .agents/library/activate_skill.py link hybrid-event-design"
@@ -714,7 +714,7 @@
     "name": "startup-pitch-contest",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Run a startup pitch contest or demo day inside a technical event - the pre-event application and selection funnel, the pitch format and the time it costs, the rubric dimensions an investor judge actually scores, the conflict of interest of a judge who may invest in the company just ranked, and a prize the winner can use - introductions, committed slots or equity-free cash. Use whenever the user mentions a pitch competition or demo day, opening applications for startups, picking a slate, briefing an investor jury, pitch time limits, or what the winner gets - even if they never say \"pitch contest\". Routes securities and contest-law questions to counsel. Do NOT use for projects built during the event - use samber/dev-event-organizer-skills@hackathon-judging instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/startup-pitch-contest",
     "activation_cmd": "python .agents/library/activate_skill.py activate startup-pitch-contest",
     "link_cmd": "python .agents/library/activate_skill.py link startup-pitch-contest"
@@ -724,7 +724,7 @@
     "name": "tech-podcast-youtube-channel",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Run an organizer's own standing podcast or video channel as a cross-edition media property - whether to sustain a channel at all, the cadence commitment and its named owner in the quiet months, guest sourcing from the speaker pool outward, the two-way feed with the event cycle, and the wind-down or handover when organizers change. Use whenever the user mentions starting a conference podcast or YouTube channel, publishing between editions, where episode guests come from, who owns the show when an organizer leaves, or closing one down - even if they never say \"podcast\". Do NOT use for cutting one edition's talk recordings into clips - use samber/dev-event-organizer-skills@event-content-repurposing instead.",
     "path": "library/samber-dev-event-organizer-skills/skills/tech-podcast-youtube-channel",
     "activation_cmd": "python .agents/library/activate_skill.py activate tech-podcast-youtube-channel",
     "link_cmd": "python .agents/library/activate_skill.py link tech-podcast-youtube-channel"
@@ -734,7 +734,7 @@
     "name": "virtual-event-production",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Run the technical and audience-facing delivery of a fully-remote technical event once the format decision has already chosen virtual - the platform that replaces the venue, remote-speaker connectivity and local backup recordings, live chat and Q&A moderation staffing, and the failure drills an event with no physical room needs. Use whenever the user mentions a virtual event platform, an online or remote-only conference or meetup, preparing remote speakers, staffing chat and Q&A moderation, or what happens when the stream dies - even if they never say \"virtual\". Do NOT use when a physical room exists - the room's signal path is samber/dev-event-organizer-skills@event-production and two audiences at once is samber/dev-event-organizer-skills@hybrid-event-design.",
     "path": "library/samber-dev-event-organizer-skills/skills/virtual-event-production",
     "activation_cmd": "python .agents/library/activate_skill.py activate virtual-event-production",
     "link_cmd": "python .agents/library/activate_skill.py link virtual-event-production"
@@ -744,7 +744,7 @@
     "name": "workshop-program-design",
     "repository": "samber-dev-event-organizer-skills",
     "category": "general",
-    "description": "",
+    "description": "Design how a hands-on technical workshop at a developer event or conference runs, once the format decision has committed hours to it - facilitator coverage, participant prerequisites and setup, capacity ceilings, session length, materials, and what breaks when a room of laptops cannot reach the network. Use whenever the user mentions planning sessions inside a workshop day, how many helpers a conference lab needs, a workshop's prerequisites, capping workshop seats, bring-your-own-laptop versus a provisioned environment, or WiFi for a room of participant laptops. Not for product docs or quickstarts. Do NOT use to place sessions in the grid - use samber/dev-event-organizer-skills@event-schedule-design; nor for hackathon mentors - use samber/dev-event-organizer-skills@hackathon-mentoring.",
     "path": "library/samber-dev-event-organizer-skills/skills/workshop-program-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate workshop-program-design",
     "link_cmd": "python .agents/library/activate_skill.py link workshop-program-design"

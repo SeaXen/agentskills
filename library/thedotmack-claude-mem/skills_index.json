@@ -280,6 +280,126 @@
     "link_cmd": "python .agents/library/activate_skill.py link screenpipe"
   },
   {
+    "id": "skills-childhood",
+    "name": "skills-childhood",
+    "repository": "thedotmack-claude-mem",
+    "category": "general",
+    "description": "Babysit a shipped release after merge, publication, or deployment. Verify published packages, production behavior, installed plugins, and late CI or user reports until the observation window is clean; use babysit for PR readiness before release.",
+    "path": "library/thedotmack-claude-mem/skills/skills-childhood",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-childhood",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-childhood"
+  },
+  {
+    "id": "skills-do",
+    "name": "skills-do",
+    "repository": "thedotmack-claude-mem",
+    "category": "general",
+    "description": "Execute a phased implementation plan using subagents. Use when asked to execute, run, or carry out a plan \u2014 especially one created by make-plan.",
+    "path": "library/thedotmack-claude-mem/skills/skills-do",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-do",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-do"
+  },
+  {
+    "id": "skills-how-it-works",
+    "name": "skills-how-it-works",
+    "repository": "thedotmack-claude-mem",
+    "category": "general",
+    "description": "Explain how claude-mem captures observations, when memory injection kicks in, and where data lives. Use when the user asks \"how does claude-mem work?\" or \"what is this thing doing?\".",
+    "path": "library/thedotmack-claude-mem/skills/skills-how-it-works",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-how-it-works",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-how-it-works"
+  },
+  {
+    "id": "skills-install",
+    "name": "skills-install",
+    "repository": "thedotmack-claude-mem",
+    "category": "general",
+    "description": ">-",
+    "path": "library/thedotmack-claude-mem/skills/skills-install",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-install",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-install"
+  },
+  {
+    "id": "skills-make-plan",
+    "name": "skills-make-plan",
+    "repository": "thedotmack-claude-mem",
+    "category": "general",
+    "description": "Create a detailed, phased implementation plan with documentation discovery. Use when asked to plan a feature, task, or multi-step implementation \u2014 especially before executing with do.",
+    "path": "library/thedotmack-claude-mem/skills/skills-make-plan",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-make-plan",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-make-plan"
+  },
+  {
+    "id": "skills-mem-search",
+    "name": "skills-mem-search",
+    "repository": "thedotmack-claude-mem",
+    "category": "general",
+    "description": ">-",
+    "path": "library/thedotmack-claude-mem/skills/skills-mem-search",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-mem-search",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-mem-search"
+  },
+  {
+    "id": "skills-mem-setup",
+    "name": "skills-mem-setup",
+    "repository": "thedotmack-claude-mem",
+    "category": "general",
+    "description": ">",
+    "path": "library/thedotmack-claude-mem/skills/skills-mem-setup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-mem-setup",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-mem-setup"
+  },
+  {
+    "id": "skills-oh-my-issues",
+    "name": "skills-oh-my-issues",
+    "repository": "thedotmack-claude-mem",
+    "category": "general",
+    "description": "Cluster a GitHub issue backlog by root cause into a small set of plan-master issues, redirect children with a standardized comment, and bundle architectural-fix PRs that close clusters atomically. Use when an issue tracker has accumulated dozens of reports that share underlying defects, when asked to triage / consolidate / cluster / dedupe issues, when asked to build a plan series or roadmap from open issues, or when routing a new incoming bug into an existing plan.",
+    "path": "library/thedotmack-claude-mem/skills/skills-oh-my-issues",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-oh-my-issues",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-oh-my-issues"
+  },
+  {
+    "id": "skills-owner-goals",
+    "name": "skills-owner-goals",
+    "repository": "thedotmack-claude-mem",
+    "category": "general",
+    "description": "Map what the owner wants from the prompts they typed themselves (prompts an agent wrote are left out), then sort it into focus areas, asks and rules, each with dated quotes, and save them to My Work (areas as My Focus suggestions, rules as My Rules suggestions). Use when asked for \"owner goals\", \"my goals\", \"what do I want\", \"what am I asking for\", \"map my prompts\", or to refresh Goals in My Work.",
+    "path": "library/thedotmack-claude-mem/skills/skills-owner-goals",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-owner-goals",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-owner-goals"
+  },
+  {
+    "id": "skills-request-progress",
+    "name": "skills-request-progress",
+    "repository": "thedotmack-claude-mem",
+    "category": "general",
+    "description": "Group recent conversations into overall requests, review each one's progress from memory, sort each into one of the owner's focus areas, and write the build story, so My Work shows progress meters, shipping velocity and learned working preferences. Use when asked to \"group requests\", \"group by overall request\", \"review request progress\", \"refresh progress\", \"build story\", \"shipping velocity\", or \"how do I like to work with agents\".",
+    "path": "library/thedotmack-claude-mem/skills/skills-request-progress",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-request-progress",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-request-progress"
+  },
+  {
+    "id": "skills-smart-explore",
+    "name": "skills-smart-explore",
+    "repository": "thedotmack-claude-mem",
+    "category": "general",
+    "description": "Token-optimized structural code search using tree-sitter AST parsing. Use instead of reading full files when you need to understand code structure, find functions, or explore a codebase efficiently.",
+    "path": "library/thedotmack-claude-mem/skills/skills-smart-explore",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-smart-explore",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-smart-explore"
+  },
+  {
+    "id": "skills-version-bump",
+    "name": "skills-version-bump",
+    "repository": "thedotmack-claude-mem",
+    "category": "general",
+    "description": "Maintainer release workflow for the thedotmack/claude-mem repository only. Handles version increments across package.json, marketplace.json, plugin.json manifests, build verification, git tagging, GitHub releases, and changelog generation. npm publishing is done by the tag-triggered GitHub Actions workflow through npm trusted publishing. Does not apply to any other repository or npm package.",
+    "path": "library/thedotmack-claude-mem/skills/skills-version-bump",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-version-bump",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-version-bump"
+  },
+  {
     "id": "smart-explore",
     "name": "smart-explore",
     "repository": "thedotmack-claude-mem",

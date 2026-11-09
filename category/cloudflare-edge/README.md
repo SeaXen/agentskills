@@ -1,7 +1,7 @@
 # ☁️ Cloudflare Workers, Pages & Edge
 
 > **Category**: `cloudflare-edge`  
-> **Total Curated Skills**: 142 skills  
+> **Total Curated Skills**: 149 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -36,6 +36,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`chrome-web-store-playbook`](../../library/samber-developer-platform-skills/skills/chrome-web-store-playbook) | ⚪ Reserve | `samber-developer-platform-skills` | Gets a B2B SaaS or developer-tools vendor's companion Chrome extension through Chrome Web Store... |
 | [`cloud-uploader`](../../library/bitwize-music-studio-claude-ai-music-skills/skills/cloud-uploader) | ⚪ Reserve | `bitwize-music-studio-claude-ai-music-skills` | Uploads promo videos and content to Cloudflare R2 or AWS S3. Use when the user wants to host pr... |
 | [`cloudflare`](../../library/cloudflare-skills/skills/cloudflare) | ⚪ Reserve | `cloudflare-skills` | Discover and choose Cloudflare products for apps, APIs, AI agents, storage, networking, and sec... |
+| [`cloudflare-app-bootstrap`](../../library/cloudflare-skills/skills/cloudflare-app-bootstrap) | ⚪ Reserve | `cloudflare-skills` | Get a Cloudflare Workers app to a working local request by connecting its bindings, secrets, an... |
 | [`cloudflare-automation`](../../library/composio-community-awesome-codex-skills/skills/cloudflare-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Cloudflare tasks via Rube MCP (Composio). Always search tools first for current schema... |
 | [`cloudflare-browser-rendering-automation`](../../library/composio-community-awesome-codex-skills/skills/cloudflare-browser-rendering-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Cloudflare Browser Rendering tasks via Rube MCP (Composio). Always search tools first ... |
 | [`cloudflare-deploy`](../../skills/cloudflare-deploy) | 🟢 Active | `active` | Deploy applications and infrastructure to Cloudflare using Workers, Pages, and related platform... |
@@ -77,6 +78,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`evaluate-narrative-drift-monitor`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/evaluate-narrative-drift-monitor) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "check if our surfaces have drifted from the canon", "watch for compe... |
 | [`file-uploads`](../../library/antigravity-awesome-skills/skills/file-uploads) | ⚪ Reserve | `antigravity-awesome-skills` | Expert at handling file uploads and cloud storage. Covers S3, Cloudflare R2, presigned URLs, mu... |
 | [`find-exposed-servers`](../../library/useosint-skills/skills/find-exposed-servers) | ⚪ Reserve | `useosint-skills` | Find internet-exposed hosts, ports, services and devices using third-party internet-scan data i... |
+| [`frameworks-on-cloudflare`](../../library/cloudflare-skills/skills/frameworks-on-cloudflare) | ⚪ Reserve | `cloudflare-skills` | Build, migrate, and deploy web-framework applications on Cloudflare Workers. Use when a framewo... |
 | [`frontend-data-contracts`](../../library/sickn33-agentic-awesome-skills/skills/frontend-data-contracts) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | A portable, framework-agnostic discipline for type safety at the network edge of any React or R... |
 | [`gateway-workers`](../../library/cloudflare-skills/skills/gateway-workers) | ⚪ Reserve | `cloudflare-skills` | Build, debug, or review Cloudflare Workers invoked by the Forward action in Gateway HTTP polici... |
 | [`gmgn-wallet-analysis`](../../library/gmgnai-gmgn-skills/skills/gmgn-wallet-analysis) | ⚪ Reserve | `gmgnai-gmgn-skills` | The trader's decision dossier on a wallet — four pass/fail gates (is the record real, is the ed... |
@@ -127,11 +129,15 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`sandbox-migrate-to-next`](../../library/cloudflare-skills/skills/sandbox-migrate-to-next) | ⚪ Reserve | `cloudflare-skills` | Migrate Cloudflare Sandbox apps from stable @cloudflare/sandbox to @cloudflare/sandbox@next (SD... |
 | [`sandbox-next`](../../library/cloudflare-skills/skills/sandbox-next) | ⚪ Reserve | `cloudflare-skills` | Build or maintain Cloudflare Sandbox apps on @cloudflare/sandbox@next (SDK 1.0 preview). Use sa... |
 | [`sandbox-stable`](../../library/cloudflare-skills/skills/sandbox-stable) | ⚪ Reserve | `cloudflare-skills` | Build or maintain Cloudflare Sandbox apps on the stable @cloudflare/sandbox package. Use sandbo... |
+| [`scenario-unity-world-building`](../../library/scenario-labs-skills/skills/scenario-unity-world-building) | ⚪ Reserve | `scenario-labs-skills` | Use when building a Unity 6.3 level or open world: terrain from code or heightmaps, procedural ... |
+| [`scenario-unreal-materials`](../../library/scenario-labs-skills/skills/scenario-unreal-materials) | ⚪ Reserve | `scenario-labs-skills` | Use when a UE5 task involves materials or textures: a master material and instances for a kit, ... |
 | [`self-hosted-funnel-launch`](../../library/autonnel-autonnel-skills/skills/self-hosted-funnel-launch) | ⚪ Reserve | `autonnel-autonnel-skills` | Deploy a self-hosted funnel builder, take a funnel from empty install to published - landing pa... |
 | [`sentry-cloudflare-sdk`](../../library/getsentry-sentry-for-ai/skills/sentry-cloudflare-sdk) | ⚪ Reserve | `getsentry-sentry-for-ai` | Full Sentry SDK setup for Cloudflare Workers and Pages. Use when asked to "add Sentry to Cloudf... |
 | [`sentry-instrument`](../../library/getsentry-sentry-for-ai/skills/sentry-instrument) | ⚪ Reserve | `getsentry-sentry-for-ai` | Instrument an application with Sentry — detect the platform, install and initialize the SDK if ... |
 | [`signal-postmortem`](../../library/tradermonty-claude-trading-skills/skills/signal-postmortem) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Record and analyze post-trade outcomes for signals generated by edge pipeline and other skills.... |
 | [`skills-build-parallelism`](../../library/dotnet-skills/skills/skills-build-parallelism) | ⚪ Reserve | `dotnet-skills` | Analyze MSBuild scheduling across at least two distinct projects in a solution/filter/Build.pro... |
+| [`skills-cloudflare`](../../library/cloudflare-skills/skills/skills-cloudflare) | ⚪ Reserve | `cloudflare-skills` | Discover and choose Cloudflare products for apps, APIs, AI agents, storage, networking, and sec... |
+| [`skills-cloudflare-one`](../../library/cloudflare-skills/skills/skills-cloudflare-one) | ⚪ Reserve | `cloudflare-skills` | Design, configure, troubleshoot, or review Cloudflare One Zero Trust and SASE deployments. Use ... |
 | [`skills-code-review`](../../library/anthropics-knowledge-work/skills/skills-code-review) | ⚪ Reserve | `anthropics-knowledge-work` | Review code changes for security, performance, and correctness. Trigger with a PR URL or diff, ... |
 | [`skills-mirrord-propagation-discovery`](../../library/metalbear-co-mirrord/skills/skills-mirrord-propagation-discovery) | ⚪ Reserve | `metalbear-co-mirrord` | Scans a live Kubernetes environment with `mirrord dump` to find an identifier mirrord can filte... |
 | [`skills-om-fix-issue-multi-optimized`](../../library/open-mercato-skills/skills/skills-om-fix-issue-multi-optimized) | ⚪ Reserve | `open-mercato-skills` | Thin combined alias for om-fix-issue that uses configured implementation workers and independen... |
@@ -158,6 +164,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`web-perf`](../../library/cloudflare-skills/skills/web-perf) | ⚪ Reserve | `cloudflare-skills` | Audit, diagnose, or optimize website loading and interaction performance, Core Web Vitals, and ... |
 | [`workday-automation`](../../library/composio-community-awesome-codex-skills/skills/workday-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate HR operations in Workday -- manage workers, time off requests, absence balances, and e... |
 | [`workers-best-practices`](../../skills/workers-best-practices) | 🟢 Active | `active` | Cloudflare Workers best practices for production applications. Use when writing, reviewing, or ... |
+| [`workers-development`](../../library/cloudflare-skills/skills/workers-development) | ⚪ Reserve | `cloudflare-skills` | Run, inspect, and debug Cloudflare Workers during local development with cf dev, wrangler dev, ... |
 | [`workers-profiling`](../../library/cloudflare-skills/skills/workers-profiling) | ⚪ Reserve | `cloudflare-skills` | Profile or debug CPU usage and memory allocation in deployed Cloudflare Workers and Durable Obj... |
 | [`wrangler`](../../library/cloudflare-skills/skills/wrangler) | ⚪ Reserve | `cloudflare-skills` | Run or troubleshoot Wrangler CLI commands in projects that have a wrangler.jsonc, wrangler.json... |
 | [`wycheproof`](../../library/trailofbits-skills/skills/wycheproof) | ⚪ Reserve | `trailofbits-skills` | Validates cryptographic implementations against Project Wycheproof's test vectors, which encode... |

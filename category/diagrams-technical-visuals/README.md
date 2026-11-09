@@ -1,7 +1,7 @@
 # 📊 Technical Diagrams & Isometric SVG
 
 > **Category**: `diagrams-technical-visuals`  
-> **Total Curated Skills**: 93 skills  
+> **Total Curated Skills**: 98 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -95,9 +95,14 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`root-cause-pareto`](../../library/davila7-claude-code-templates/skills/root-cause-pareto) | ⚪ Reserve | `davila7-claude-code-templates` | Build a decision-grade Pareto for downtime, defects, complaints or delays - with unit-of-measur... |
 | [`sap-fiori-add-visual-filter`](../../library/cline-skills/skills/sap-fiori-add-visual-filter) | ⚪ Reserve | `cline-skills` | Add visual filters (chart-based) to SAP Fiori Elements filter bar/value help using CAP or ABAP ... |
 | [`sap-fiori-analytical-chart`](../../library/sap-open-ux-tools/skills/sap-fiori-analytical-chart) | ⚪ Reserve | `sap-open-ux-tools` | Add analytical chart (chart + table hybrid) to SAP Fiori Elements List Report using aggregated ... |
+| [`scenario-zbrush-character-creature`](../../library/scenario-labs-skills/skills/scenario-zbrush-character-creature) | ⚪ Reserve | `scenario-labs-skills` | Use when sculpting a realistic head, face, portrait, body or creature in ZBrush (anatomy, landm... |
+| [`skills-codex-mermaid-diagram`](../../library/wanshuiyin-auto-claude-code-research-in-sleep/skills/skills-codex-mermaid-diagram) | ⚪ Reserve | `wanshuiyin-auto-claude-code-research-in-sleep` | Generate Mermaid diagrams from user requirements. Save .mmd and .md files to figures/ with synt... |
+| [`skills-codex-pixel-art`](../../library/wanshuiyin-auto-claude-code-research-in-sleep/skills/skills-codex-pixel-art) | ⚪ Reserve | `wanshuiyin-auto-claude-code-research-in-sleep` | Generate pixel art SVG illustrations for READMEs, docs, or slides. Use when user says \"\u753b\... |
 | [`skills-create-viz`](../../library/anthropics-knowledge-work/skills/skills-create-viz) | ⚪ Reserve | `anthropics-knowledge-work` | Create publication-quality visualizations with Python. Use when turning query results or a Data... |
+| [`skills-diagram-design`](../../library/diagram-design/skills/skills-diagram-design) | ⚪ Reserve | `diagram-design` | Create branded architecture, architecture delta, IT current-state, flowchart, sequence, state m... |
 | [`skills-nature-image2ppt`](../../library/yuan1z0825-nature-skills/skills/skills-nature-image2ppt) | ⚪ Reserve | `yuan1z0825-nature-skills` | Reconstruct slide images, screenshots, scanned PDFs, or image-only PPTX files as object-level e... |
 | [`skills-sketch`](../../library/makenotion-notion-cookbook/skills/skills-sketch) | ⚪ Reserve | `makenotion-notion-cookbook` | Sketch an App workflow as a reviewable flow diagram when planning or iterating on its design wi... |
+| [`skills-stack-diagram`](../../library/caru-ini-stack-diagram/skills/skills-stack-diagram) | ⚪ Reserve | `caru-ini-stack-diagram` | Create cloud-architecture-style diagrams of tech stacks, system architectures, infra layouts, a... |
 | [`stack-diagram`](../../library/caru-ini-stack-diagram/skills/stack-diagram) | ⚪ Reserve | `caru-ini-stack-diagram` | Create cloud-architecture-style diagrams of tech stacks, system architectures, infra layouts, a... |
 | [`summarize-interview`](../../library/owl-listener-designer-skills/skills/summarize-interview) | ⚪ Reserve | `owl-listener-designer-skills` | Turn one interview transcript into themes, supporting quotes, and action items. Use immediately... |
 | [`technical-analyst`](../../library/tradermonty-claude-trading-skills/skills/technical-analyst) | ⚪ Reserve | `tradermonty-claude-trading-skills` | This skill should be used when analyzing weekly price charts for stocks, stock indices, cryptoc... |

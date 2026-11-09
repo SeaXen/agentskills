@@ -1,7 +1,7 @@
 # 🎭 Playwright & Browser Automation
 
 > **Category**: `testing-playwright-e2e`  
-> **Total Curated Skills**: 154 skills  
+> **Total Curated Skills**: 166 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -83,6 +83,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`google-maps-contact-extract`](../../library/browser-act-skills/skills/google-maps-contact-extract) | ⚪ Reserve | `browser-act-skills` | Extracts business contact details from Google Maps search results and place detail pages, then ... |
 | [`google-scholar-scraper`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/google-scholar-scraper) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Ethical Google Scholar data collection techniques and best practices |
 | [`headless-testing`](../../library/membranedev-application-skills/skills/headless-testing) | ⚪ Reserve | `membranedev-application-skills` | Headless Testing integration. Manage Tests, Projects, Environments, Users, Roles. Use when the ... |
+| [`huawei-cloud-waf-false-alarm-diagnosis`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-waf-false-alarm-diagnosis) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Diagnose Huawei Cloud WAF (Web Application Firewall) false positive blocks step by step. Use wh... |
 | [`i4h-workflow-e2e`](../../library/nvidia-skills/skills/i4h-workflow-e2e) | ⚪ Reserve | `nvidia-skills` | Run the maintained workflow data-to-policy pipeline from recording through checkpoint validatio... |
 | [`indeed-job-search`](../../library/browser-act-skills/skills/indeed-job-search) | ⚪ Reserve | `browser-act-skills` | Scrape job listings from Indeed.com by keyword, location, and country. Returns job title, compa... |
 | [`instagram-profile-posts`](../../library/browser-act-skills/skills/instagram-profile-posts) | ⚪ Reserve | `browser-act-skills` | Scrapes posts from an Instagram user's profile feed including captions, media URLs, like/commen... |
@@ -112,6 +113,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`playwright-interactive`](../../skills/playwright-interactive) | 🟢 Active | `active` | Persistent browser and Electron interaction through `js_repl` for fast iterative UI debugging. |
 | [`playwright-skill`](../../library/antigravity-awesome-skills/skills/playwright-skill) | ⚪ Reserve | `antigravity-awesome-skills` | Complete browser automation with Playwright. Auto-detects dev servers, writes clean test script... |
 | [`pptx-author`](../../library/anthropics-financial-services/skills/pptx-author) | ⚪ Reserve | `anthropics-financial-services` | Produce a .pptx file on disk (headless) instead of driving a live PowerPoint document — for man... |
+| [`print3d`](../../library/earthtojake-text-to-cad/skills/print3d) | ⚪ Reserve | `earthtojake-text-to-cad` | Prints a part - slices an `.stl`, `.3mf` or `.obj` into printer-ready G-code with OrcaSlicer, h... |
 | [`prismic-automation`](../../library/composio-community-awesome-codex-skills/skills/prismic-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate headless CMS operations in Prismic -- query documents, search content, retrieve custom... |
 | [`provider-oracles`](../../library/wiltodelta-remove-ai-watermarks/skills/provider-oracles) | ⚪ Reserve | `wiltodelta-remove-ai-watermarks` | Run hash-bound Google, OpenAI, Microsoft, or Meta watermark-oracle checks for this repository. ... |
 | [`puppeteer-automation`](../../library/mindrally-skills/skills/puppeteer-automation) | ⚪ Reserve | `mindrally-skills` | Expert guidance for browser automation using Puppeteer with best practices for web scraping, te... |
@@ -122,6 +124,12 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`reverse-browser-automation`](../../library/sickn33-agentic-awesome-skills/skills/reverse-browser-automation) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Automate browsers (Playwright) and Windows desktop applications (UI automation) for reverse-eng... |
 | [`robots-txt-validator`](../../library/sickn33-agentic-awesome-skills/skills/robots-txt-validator) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Robots.txt Validator. Use when working with robots.txt text, crawler and URLs to test. |
 | [`run-smoke-tests`](../../library/cursor-plugins/skills/run-smoke-tests) | ⚪ Reserve | `cursor-plugins` | Run Playwright smoke tests, debug failures, and verify fixes |
+| [`scenario-blender-geometry-nodes`](../../library/scenario-labs-skills/skills/scenario-blender-geometry-nodes) | ⚪ Reserve | `scenario-labs-skills` | Use when building or debugging Geometry Nodes, headless or live: procedural modeling, scatterin... |
+| [`scenario-blender-hair`](../../library/scenario-labs-skills/skills/scenario-blender-hair) | ⚪ Reserve | `scenario-labs-skills` | Use when grooming hair or fur in Blender with hair curves, such as a character hairstyle, anima... |
+| [`scenario-blender-sculpting`](../../library/scenario-labs-skills/skills/scenario-blender-sculpting) | ⚪ Reserve | `scenario-labs-skills` | Use when sculpting in Blender through Python: sculpt a head, face or bust, a stylized or cartoo... |
+| [`scenario-godot-gameplay`](../../library/scenario-labs-skills/skills/scenario-godot-gameplay) | ⚪ Reserve | `scenario-labs-skills` | Use when building gameplay systems in Godot 4.7: enemy AI that patrols, chases and attacks, sta... |
+| [`scenario-godot-multiplayer`](../../library/scenario-labs-skills/skills/scenario-godot-multiplayer) | ⚪ Reserve | `scenario-labs-skills` | Use when a Godot 4 game goes online or co-op: host and join with ENet, WebSocket for a web buil... |
+| [`scenario-playable-ads`](../../library/scenario-labs-skills/skills/scenario-playable-ads) | ⚪ Reserve | `scenario-labs-skills` | Use when a mobile game's gameplay recording, screenshots or existing art and sound should becom... |
 | [`screenshots`](../../library/antigravity-awesome-skills/skills/screenshots) | ⚪ Reserve | `antigravity-awesome-skills` | Generate marketing screenshots of your app using Playwright. Use when the user wants to create ... |
 | [`screenshots-marketing`](../../library/feimacode-open-design-agent-kit/skills/screenshots-marketing) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Generate marketing screenshots with Playwright. Useful for landing-page hero shots, App Store s... |
 | [`screenstudio-alt`](../../library/sickn33-agentic-awesome-skills/skills/screenstudio-alt) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Open-source headless Screen Studio alternative: auto speed-up of idle, auto-zoom on click clust... |
@@ -132,9 +140,13 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`service-itsm-agentic-setup-uel-user-create`](../../library/forcedotcom-sf-skills/skills/service-itsm-agentic-setup-uel-user-create) | ⚪ Reserve | `forcedotcom-sf-skills` | Provision and enable a Unified Employee License (UEL) user in Salesforce with the full entity c... |
 | [`setup-browser-cookies`](../../library/garrytan-gstack/skills/setup-browser-cookies) | ⚪ Reserve | `garrytan-gstack` | Import cookies from your real Chromium browser into the headless browse session. (gstack) |
 | [`skills-clerk-testing`](../../library/clerk-skills/skills/skills-clerk-testing) | ⚪ Reserve | `clerk-skills` | E2E testing for Clerk apps. Use with Playwright or Cypress for auth flow |
+| [`skills-momentic-mobile-test`](../../library/momentic-ai-skills/skills/skills-momentic-mobile-test) | ⚪ Reserve | `momentic-ai-skills` | Create, run, and maintain Momentic mobile E2E tests and modules for Android and iOS. |
+| [`skills-momentic-test`](../../library/momentic-ai-skills/skills/skills-momentic-test) | ⚪ Reserve | `momentic-ai-skills` | Create, run, and maintain Momentic browser E2E tests and modules stored as *.test.yaml and *.mo... |
 | [`skills-om-integration-tests`](../../library/open-mercato-skills/skills/skills-om-integration-tests) | ⚪ Reserve | `open-mercato-skills` | Run and create integration/E2E tests by exploring the live app with the configured browser prov... |
 | [`skills-playwright-cli`](../../library/microsoft-playwright-cli/skills/skills-playwright-cli) | ⚪ Reserve | `microsoft-playwright-cli` | Automate browser interactions, test web pages and work with Playwright tests. |
 | [`skills-run-smoke-tests`](../../library/cursor-plugins/skills/skills-run-smoke-tests) | ⚪ Reserve | `cursor-plugins` | Run Playwright smoke tests, debug failures, and verify fixes |
+| [`skills-tdd-workflow`](../../library/affaan-m-ecc/skills/skills-tdd-workflow) | ⚪ Reserve | `affaan-m-ecc` | Usar este skill al escribir nuevas funcionalidades, corregir bugs o refactorizar código. Aplica... |
+| [`skills-windows-desktop-e2e`](../../library/affaan-m-ecc/skills/skills-windows-desktop-e2e) | ⚪ Reserve | `affaan-m-ecc` | E2E testing for Windows native desktop apps (WPF, WinForms, Win32/MFC, Qt) using pywinauto and ... |
 | [`skyvern-browser-automation`](../../library/sickn33-agentic-awesome-skills/skills/skyvern-browser-automation) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | AI-powered browser automation — navigate sites, fill forms, extract structured data, log in wit... |
 | [`smartui-skill`](../../library/sickn33-agentic-awesome-skills/skills/smartui-skill) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Generates SmartUI visual regression test configurations for screenshot comparison on TestMu AI ... |
 | [`social-listening-instagram-profile-posts`](../../library/browser-act-skills/skills/social-listening-instagram-profile-posts) | ⚪ Reserve | `browser-act-skills` | Scrapes posts from an Instagram user's profile feed including captions, media URLs, like/commen... |

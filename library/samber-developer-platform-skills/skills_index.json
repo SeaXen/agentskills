@@ -4,7 +4,7 @@
     "name": "agent-integration-surfaces",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Plans how a SaaS or developer platform opens itself to AI agents, provider side - which agent classes may reach which surface, how an agent proves its identity and acts for a user (Web Bot Auth, delegated tokens, provision-then-claim signup), which execution path each gets, where agents find it (Context7, api-catalog) and how agent usage is counted. Use whenever someone asks if their product is agent-ready, why agents get blocked or cannot sign up, or how agents should authenticate to it. Do NOT use for MCP tool design (samber/developer-platform-skills@mcp-server-offering), surface build order (samber/developer-platform-skills@api-integration-surface-strategy) or agent-readable docs (samber/developer-relations-skills@coding-agent-docs-optimization).\"",
     "path": "library/samber-developer-platform-skills/skills/agent-integration-surfaces",
     "activation_cmd": "python .agents/library/activate_skill.py activate agent-integration-surfaces",
     "link_cmd": "python .agents/library/activate_skill.py link agent-integration-surfaces"
@@ -14,7 +14,7 @@
     "name": "agent-skill-offering",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Ships an Agent Skill (SKILL.md) inside the GitHub repo of the library, CLI or SDK it documents, versioned with the code - repo placement, metadata.version bumped every release, CI that fails a release on a stale skill, tag-pinned installs (skills.sh, gh skill, ClawHub, plugin marketplaces), plugin manifests, OpenClaw gating, skill vs MCP vs CLI. Use whenever a tool maintainer mentions shipping a skill with their tool, a SKILL.md for their library, keeping a skill in sync with releases, or plugin.json versions for a skill beside code - even if they never say \"agent skill\". Not for standalone skill collections. Do NOT use for CLI command or --json design - use samber/developer-platform-skills@cli-interface-design; nor for MCP servers - use samber/developer-platform-skills@mcp-server-offering.",
     "path": "library/samber-developer-platform-skills/skills/agent-skill-offering",
     "activation_cmd": "python .agents/library/activate_skill.py activate agent-skill-offering",
     "link_cmd": "python .agents/library/activate_skill.py link agent-skill-offering"
@@ -24,7 +24,7 @@
     "name": "api-auth-key-management",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design the API-key authentication surface a platform issues to its own API consumers - key format with prefix+checksum conventions, hashed (irretrievable) vs encrypted (retrievable) storage, zero-downtime rotation with dual-key overlap, least-privilege scoping, individual vs org vs service-account ownership, self-service key dashboard behavior, and SOC 2 / PCI-DSS 4.0 lifecycle governance. Use whenever the user mentions API keys, secret keys, key prefixes, key rotation, key scoping, or revoking keys after an employee departure - even if they never say \"API key management\". Provider side only, not consuming another vendor's API. Do NOT use for OAuth authorization-server design - use samber/developer-platform-skills@oauth2-provider-design instead.",
     "path": "library/samber-developer-platform-skills/skills/api-auth-key-management",
     "activation_cmd": "python .agents/library/activate_skill.py activate api-auth-key-management",
     "link_cmd": "python .agents/library/activate_skill.py link api-auth-key-management"
@@ -34,7 +34,7 @@
     "name": "api-beta-program",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/samber-developer-platform-skills/skills/api-beta-program",
     "activation_cmd": "python .agents/library/activate_skill.py activate api-beta-program",
     "link_cmd": "python .agents/library/activate_skill.py link api-beta-program"
@@ -44,7 +44,7 @@
     "name": "api-changelog-automation",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Designs the provider-side pipeline that turns contract diffs of an API you publish (OpenAPI, GraphQL SDL, protobuf, AsyncAPI) into a breaking-change CI gate and a traced, per-version API changelog feed, classified by your own policy. Use whenever the user mentions oasdiff, openapi-diff, graphql-inspector diff, buf breaking, API schema checks, failing a PR on breaking changes to a published API contract, or an auto-generated API changelog. Do NOT use for release-note prose (samber/developer-relations-skills@changelog-writing), consumer-side upgrades (samber/developer-relations-skills@version-migration-guide), deprecation policy (samber/developer-platform-skills@api-versioning-policy) or callers of deprecated endpoints (samber/developer-platform-skills@integration-health-monitoring).\"",
     "path": "library/samber-developer-platform-skills/skills/api-changelog-automation",
     "activation_cmd": "python .agents/library/activate_skill.py activate api-changelog-automation",
     "link_cmd": "python .agents/library/activate_skill.py link api-changelog-automation"
@@ -54,7 +54,7 @@
     "name": "api-error-design",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design the error surface of a public API so integrators self-serve fixes - a machine-readable error-code taxonomy (flat catalog, code/subcode, Google-style domain/reason), the RFC 9457 problem-details envelope with extension members, actionable error messages, retryability signaling (retryable flag, Retry-After), and per-endpoint error documentation with request-ID tracking. Use whenever the user mentions API error codes, an error taxonomy, RFC 9457, application/problem+json, 4xx/5xx response bodies, or confusing API error messages - even if they never say \"error design\". Do NOT use for client-side retry mechanics - use samber/developer-platform-skills@api-idempotency-retry - nor for incident and status-page communication - use samber/developer-platform-skills@api-status-communication instead.",
     "path": "library/samber-developer-platform-skills/skills/api-error-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate api-error-design",
     "link_cmd": "python .agents/library/activate_skill.py link api-error-design"
@@ -64,7 +64,7 @@
     "name": "api-idempotency-retry",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design idempotency-key support and client retry guidance for a public API so integrators retry safely - key derivation and per-caller scoping, storage TTL and replay windows, atomic claim mechanisms (DB unique constraint, SERIALIZABLE row lock, conditional writes), payload-mismatch rejection, in-flight duplicate handling, exponential backoff with jitter, retry budgets, timeout propagation, and SDK retry defaults. Use whenever the user mentions an Idempotency-Key header, duplicate or double-submitted requests, safe POST retries, backoff, or jitter - even if they never say \"idempotency\". Do NOT use for what the error response signals (samber/developer-platform-skills@api-error-design) or webhook delivery retries (samber/developer-platform-skills@webhook-platform-design).",
     "path": "library/samber-developer-platform-skills/skills/api-idempotency-retry",
     "activation_cmd": "python .agents/library/activate_skill.py activate api-idempotency-retry",
     "link_cmd": "python .agents/library/activate_skill.py link api-idempotency-retry"
@@ -74,7 +74,7 @@
     "name": "api-integration-surface-strategy",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Decide which integration surfaces a platform offers external developers and AI agents - REST, GraphQL, gRPC, SQL access, bulk data sharing, webhooks, SDKs, CLI, MCP, embedded components - and in what build order, sequenced by reversal cost and audience rather than novelty. Use whenever the user mentions which API to build first, adding a GraphQL or MCP layer, an integration-surface roadmap, API-first vs embedded-first, or a missing surface blocking deals - even if they never say \"integration surface\". Umbrella strategy only - once a surface is chosen, per-surface design belongs to siblings such as samber/developer-platform-skills@webhook-platform-design and samber/developer-platform-skills@sdk-portfolio-strategy.",
     "path": "library/samber-developer-platform-skills/skills/api-integration-surface-strategy",
     "activation_cmd": "python .agents/library/activate_skill.py activate api-integration-surface-strategy",
     "link_cmd": "python .agents/library/activate_skill.py link api-integration-surface-strategy"
@@ -84,7 +84,7 @@
     "name": "api-rate-limit-policy",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design the rate-limit policy a public API publishes to its consumers - the metering model per paradigm (REST request counting vs GraphQL cost points), tier and quota-vs-burst numbers, multi-tenant fairness, rate-limit headers (legacy X-RateLimit-* vs IETF RateLimit fields), 429 and Retry-After behavior, enterprise and partner overrides, and change-notice rules. Use whenever the user mentions rate limits, quotas, throttling tiers, 429 responses, noisy neighbors, or limit-increase requests - even if they never say \"rate-limit policy\". Policy layer only, not gateway configuration. Do NOT use for the 429 error envelope - use samber/developer-platform-skills@api-error-design instead.",
     "path": "library/samber-developer-platform-skills/skills/api-rate-limit-policy",
     "activation_cmd": "python .agents/library/activate_skill.py activate api-rate-limit-policy",
     "link_cmd": "python .agents/library/activate_skill.py link api-rate-limit-policy"
@@ -94,7 +94,7 @@
     "name": "api-reference-quality",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Audit a published API reference at the endpoint level against its spec surface - every operation, parameter, response code, and error documented, request/response examples present, per-language code snippets in parity, try-it affordances working - and install the source-of-truth gates that stop reference drift (spec-driven generation, OpenAPI lint, contract tests, snippet parity in CI). Use whenever the user mentions API reference docs, OpenAPI docs completeness, undocumented endpoints or error codes, stale or drifting docs, or docs CI gates - even if they never say \"reference quality\". Endpoint-level reference only. Do NOT use for portal IA and onboarding - use samber/developer-platform-skills@developer-portal-design instead.",
     "path": "library/samber-developer-platform-skills/skills/api-reference-quality",
     "activation_cmd": "python .agents/library/activate_skill.py activate api-reference-quality",
     "link_cmd": "python .agents/library/activate_skill.py link api-reference-quality"
@@ -104,7 +104,7 @@
     "name": "api-status-communication",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design how an API platform communicates status and incidents to external consumers - status-page modeling (the four-stage incident lifecycle, degraded/partial/major component semantics, component granularity), monitoring-driven status instead of a hand-flipped green light, pull and push channels, incident-update cadence and templates, public postmortems for a developer audience, public SLA/SLO reporting, and maintenance-window notices. Use whenever the user mentions a status page, Statuspage, incident updates, uptime or SLA reporting, postmortems, or scheduled maintenance - even if they never say \"status communication\". Do NOT use for deprecation and breaking-change notices - use samber/developer-platform-skills@api-versioning-policy instead.",
     "path": "library/samber-developer-platform-skills/skills/api-status-communication",
     "activation_cmd": "python .agents/library/activate_skill.py activate api-status-communication",
     "link_cmd": "python .agents/library/activate_skill.py link api-status-communication"
@@ -114,7 +114,7 @@
     "name": "api-test-mode-design",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design the test/sandbox mode of a public API platform so external integrators build and validate without touching real money, messages, or data - isolation architecture (soft test-mode toggle vs hard separate-copy sandbox), test-key prefixing, magic test values, simulated objects and personas, on-demand test events, deterministic time manipulation, reset and seeding, sandbox quotas, abuse controls, and graduation to live. Use whenever the user mentions a sandbox, test mode, test API keys, magic or dummy test values, simulated webhook events, or demo data - even if they never say \"test mode\". Not code-execution sandboxing or unit-test mocking. Do NOT use for partner sandbox provisioning - use samber/developer-platform-skills@partner-app-onboarding instead.",
     "path": "library/samber-developer-platform-skills/skills/api-test-mode-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate api-test-mode-design",
     "link_cmd": "python .agents/library/activate_skill.py link api-test-mode-design"
@@ -124,7 +124,7 @@
     "name": "api-versioning-policy",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Define the versioning and deprecation policy for an API - version scheme choice (URI path, header, date-based account-pinned, or deliberate no-versioning), a written breaking-change definition, deprecation notice windows by audience, sunset communication (RFC 9745 Deprecation and RFC 8594 Sunset headers), enforcement at the sunset date (fall-forward vs hard cutoff), and breaking-change governance, with REST version-and-sunset and GraphQL continuous schema evolution treated as separate policies. Use whenever the user mentions API versioning, /v2, breaking changes, deprecation, sunset dates, or migration windows - even if they never say \"versioning policy\". Client SDK versioning is plain SemVer and belongs to samber/developer-platform-skills@sdk-portfolio-strategy.",
     "path": "library/samber-developer-platform-skills/skills/api-versioning-policy",
     "activation_cmd": "python .agents/library/activate_skill.py activate api-versioning-policy",
     "link_cmd": "python .agents/library/activate_skill.py link api-versioning-policy"
@@ -134,7 +134,7 @@
     "name": "app-marketplace-launch-marketing",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design a B2B SaaS marketplace operator's launch and ongoing app co-marketing program - sizing and gating the founding launch cohort, the keynote-anchored reveal and partner embargoes, featured-placement and app-of-the-month spotlight governance, and the budget split between marketplace-wide demand generation and rationed per-partner co-marketing (MDF, paid catalogs, tier gates). Use whenever the user mentions launching an app marketplace, picking launch partners, featured apps, partner spotlights, MDF, or a joint launch announcement - even if they never say \"marketplace launch\". Operator side only. Do NOT use for a vendor optimizing its own listing elsewhere - use samber/developer-platform-skills@integration-listing-optimization instead.",
     "path": "library/samber-developer-platform-skills/skills/app-marketplace-launch-marketing",
     "activation_cmd": "python .agents/library/activate_skill.py activate app-marketplace-launch-marketing",
     "link_cmd": "python .agents/library/activate_skill.py link app-marketplace-launch-marketing"
@@ -144,7 +144,7 @@
     "name": "app-marketplace-listing-standards",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Write the listing-content rulebook for the operator of a B2B SaaS app marketplace - the standard every third-party listing must meet, covering required fields with objective reject criteria, screenshot and video specs, description quality bars, category taxonomy design, localization posture, badge display rules, and staleness/decay enforcement. Use whenever the user mentions listing standards, a listing rubric or marketplace quality bar, screenshot or media requirements, marketplace categories, rejection criteria, or delisting stale listings - even if they never say \"listing standards\". Operator side only. Do NOT use for optimizing a vendor's own listing - use samber/developer-platform-skills@integration-listing-optimization instead.",
     "path": "library/samber-developer-platform-skills/skills/app-marketplace-listing-standards",
     "activation_cmd": "python .agents/library/activate_skill.py activate app-marketplace-listing-standards",
     "link_cmd": "python .agents/library/activate_skill.py link app-marketplace-listing-standards"
@@ -154,7 +154,7 @@
     "name": "app-marketplace-monetization-model",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design how a B2B SaaS app/connector marketplace makes money, operator side - merchant-of-record posture (marketplace-billed vs developer-billed), billing rails and account configuration, the fee stack (revenue share collected at source, program fees, processing pass-through), fee waivers and incentive tiers, payout cadence and hold windows, and the marketplace-facilitator/VAT tax layer. Use whenever the user mentions charging for apps, rev-share collection, paid-app billing or billing APIs, developer payouts, fee waivers, or merchant of record - even if they never say \"marketplace monetization\". Mechanics layer only. Do NOT use for take-rate level and tiers - use samber/developer-platform-skills@connector-marketplace-strategy instead.",
     "path": "library/samber-developer-platform-skills/skills/app-marketplace-monetization-model",
     "activation_cmd": "python .agents/library/activate_skill.py activate app-marketplace-monetization-model",
     "link_cmd": "python .agents/library/activate_skill.py link app-marketplace-monetization-model"
@@ -164,7 +164,7 @@
     "name": "app-marketplace-review",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design the operator-side review and approval process for third-party apps on a B2B SaaS marketplace - review-pipeline shape scaled to data sensitivity, permission and data-access audit checkpoints, automated pre-screening with human triage, objective re-review-on-update triggers, publish-channel hardening against supply-chain attacks, appeal paths, and a severity-tiered revocation policy. Use whenever the user mentions app review, marketplace approval criteria, third-party app permission audits, re-review after an app update, rejection appeals, or delisting and revocation - even if they never say \"app review\". Operator side only. Do NOT use for submitter onboarding - use samber/developer-platform-skills@partner-app-onboarding instead.",
     "path": "library/samber-developer-platform-skills/skills/app-marketplace-review",
     "activation_cmd": "python .agents/library/activate_skill.py activate app-marketplace-review",
     "link_cmd": "python .agents/library/activate_skill.py link app-marketplace-review"
@@ -174,7 +174,7 @@
     "name": "atlassian-marketplace-playbook",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/samber-developer-platform-skills/skills/atlassian-marketplace-playbook",
     "activation_cmd": "python .agents/library/activate_skill.py activate atlassian-marketplace-playbook",
     "link_cmd": "python .agents/library/activate_skill.py link atlassian-marketplace-playbook"
@@ -184,7 +184,7 @@
     "name": "aws-marketplace-playbook",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Takes a B2B SaaS vendor onto AWS Marketplace as the ISV seller - whether to list, irreversible account and pricing model choices, going public, private offers, CPPO resale authorizations, EDP/PPA commit drawdown, and co-selling through ACE and ISV Accelerate. Use whenever a vendor mentions AWS Marketplace, a private offer, CPPO, burning a customer's AWS commit, the Deployed on AWS badge, or ACE, ISV Accelerate or FTR for its listing, even if they only ask how to sell through AWS. ISV side only: not buyers, not resellers. Do NOT use for listing copy or search rank (use samber/developer-platform-skills@integration-listing-optimization), for your own marketplace's billing (use samber/developer-platform-skills@app-marketplace-monetization-model), or for metering code.\"",
     "path": "library/samber-developer-platform-skills/skills/aws-marketplace-playbook",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-marketplace-playbook",
     "link_cmd": "python .agents/library/activate_skill.py link aws-marketplace-playbook"
@@ -194,7 +194,7 @@
     "name": "bulk-data-sharing-design",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design bulk file and lake export as a B2B product surface - the two-camp choice between Parquet file-drops on object storage and native warehouse/lake sharing (Snowflake shares, Delta Sharing, linked datasets), the partitioning and schema-evolution contract across batches, delivery cadence and freshness commitments (full dump vs incremental vs CDC vs streaming), shared-bucket security with per-recipient credentials, egress cost allocation, and cross-border data residency. Use whenever the user mentions bulk export, data dumps to S3, Parquet, Snowflake shares, Delta Sharing, or export freshness SLAs - even if they never say \"bulk data sharing\". Do NOT use for live SQL endpoints - use samber/developer-platform-skills@sql-jdbc-access-design instead.",
     "path": "library/samber-developer-platform-skills/skills/bulk-data-sharing-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate bulk-data-sharing-design",
     "link_cmd": "python .agents/library/activate_skill.py link bulk-data-sharing-design"
@@ -204,7 +204,7 @@
     "name": "chrome-web-store-playbook",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/samber-developer-platform-skills/skills/chrome-web-store-playbook",
     "activation_cmd": "python .agents/library/activate_skill.py activate chrome-web-store-playbook",
     "link_cmd": "python .agents/library/activate_skill.py link chrome-web-store-playbook"
@@ -214,7 +214,7 @@
     "name": "cli-interface-design",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design the public CLI that wraps a developer platform's API - which commands exist (curated commands plus a raw api escape hatch, not a 1:1 REST mirror), grammar, flag/env/config precedence, a frozen --json and exit-code contract, TTY behavior, login and CI tokens, pagination and --wait, errors, help, flag deprecation, telemetry, and safe use by scripts and coding agents. Use whenever the user mentions designing or reviewing a CLI for their API, CLI command naming, --json output, exit codes, CLI login, or an agent-friendly CLI - even without saying \"CLI design\". Not for API-less tools or parser code. Do NOT use for whether to offer a CLI (samber/developer-platform-skills@api-integration-surface-strategy) or a skill shipped with it (samber/developer-platform-skills@agent-skill-offering).",
     "path": "library/samber-developer-platform-skills/skills/cli-interface-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate cli-interface-design",
     "link_cmd": "python .agents/library/activate_skill.py link cli-interface-design"
@@ -224,7 +224,7 @@
     "name": "connector-certification-program",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "'Design the certification program a platform operator runs for connectors partners build on it - go/no-go, ownership-first labels, measurable criteria, test kit, telemetry gates, support routing, renewal, decertification. Use whenever the user mentions connector certification, a certified or verified badge for partner-built connectors, a partner integration test suite, certification renewal or expiry, decertification, or certified-vs-community labels - even without saying \"certification\". Do NOT use for app admission security review (samber/developer-platform-skills@app-marketplace-review), earning a badge on someone else''s platform (samber/developer-platform-skills@etl-connector-strategy), or certifying people (samber/developer-relations-skills@developer-certification-program).'",
     "path": "library/samber-developer-platform-skills/skills/connector-certification-program",
     "activation_cmd": "python .agents/library/activate_skill.py activate connector-certification-program",
     "link_cmd": "python .agents/library/activate_skill.py link connector-certification-program"
@@ -234,7 +234,7 @@
     "name": "connector-marketplace-strategy",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Decide whether and when a SaaS should build its own app/connector marketplace, versus joining others' marketplaces or buying embedded iPaaS, and design its operating model - curation level, partner mix, governance rules, take-rate, and seeding sequence. Use whenever the user mentions building an app store or integration marketplace, ecosystem readiness, marketplace revenue share or take-rate, curated vs open admission, third-party app governance, or seeding a two-sided developer ecosystem - even if they never say \"marketplace strategy\". Strategy layer only. Do NOT use for billing and payout mechanics (samber/developer-platform-skills@app-marketplace-monetization-model) or for being a connector on others' data platforms (samber/developer-platform-skills@etl-connector-strategy).",
     "path": "library/samber-developer-platform-skills/skills/connector-marketplace-strategy",
     "activation_cmd": "python .agents/library/activate_skill.py activate connector-marketplace-strategy",
     "link_cmd": "python .agents/library/activate_skill.py link connector-marketplace-strategy"
@@ -244,7 +244,7 @@
     "name": "developer-platform-career",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Plans a developer-platform career from the candidate side - API Product Manager, Platform Engineer/Architect, Partner/Integration Engineer. Disambiguates \"platform engineer\" first - the term overwhelmingly means internal developer platforms (Kubernetes, Backstage, golden paths) elsewhere in the industry; this skill covers only the external/public-API-platform track. States the key finding that splits this track from DevRel's - platform compensation rides the general engineering/PM ladder, not a separate undersurveyed one. Covers GitLab's real Partner Engineer ladder, the API-design-vs-system-design interview split, and RFC/design-doc portfolio signals. Use when the user asks how to break into platform/API product work, prep for a platform or API-PM interview, or evaluate an offer. Do NOT use for hiring (samber/developer-platform-skills@developer-platform-hiring) or advocate/community/educator roles (samber/developer-relations-skills@devrel-career).",
     "path": "library/samber-developer-platform-skills/skills/developer-platform-career",
     "activation_cmd": "python .agents/library/activate_skill.py activate developer-platform-career",
     "link_cmd": "python .agents/library/activate_skill.py link developer-platform-career"
@@ -254,7 +254,7 @@
     "name": "developer-platform-hiring",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Employer-side hiring for developer-platform roles - API Product Manager, Platform Engineer/Architect, Partner/Integration Engineer. Disambiguates \"platform engineer\" first, since the term overwhelmingly means internal developer platforms elsewhere in the industry. Calibrates the scorecard to company archetype (infra/API-first, bolt-on public API, enterprise partner ecosystem), flags a scope-collapse pattern distinct from DevRel's gatekeeper/pit-trap taxonomy, sources from apidays, not PlatformCon's internal-IDP audience, builds the loop from the API-design-vs-system-design interview split, and benchmarks compensation against the general engineering/PM ladder rather than a bespoke platform title. Use when the user asks how to hire a platform engineer, API product manager, or partner/integration engineer, write a posting, or design a loop. Do NOT use for candidate prep (samber/developer-platform-skills@developer-platform-career) or DevRel hiring (samber/developer-relations-skills@devrel-hiring).",
     "path": "library/samber-developer-platform-skills/skills/developer-platform-hiring",
     "activation_cmd": "python .agents/library/activate_skill.py activate developer-platform-hiring",
     "link_cmd": "python .agents/library/activate_skill.py link developer-platform-hiring"
@@ -264,7 +264,7 @@
     "name": "developer-platform-kickoff",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Before starting any developer-platform, public-API, or integration work - or whenever no other platform skill has been chosen - route the task to the right skill in samber/developer-platform-skills, or say plainly that none fits, then bootstrap or resume the project's shared platform context. Fires at every API or platform project start, at each recurring platform review, and whenever routing is unclear. Use whenever the user mentions a developer platform kickoff, a new public API program, an integration-surface roadmap, \"which platform skill do I need\", \"where do I start with our public API\", platform skill routing, or a recurring platform check-in - even if they never name a skill or ask to be routed. It spans REST, GraphQL and gRPC design, webhooks, SDKs, MCP, OAuth and API keys, rate limits, versioning, developer portals, docs, sandboxes, marketplaces, and partner strategy, so an ambiguous platform question belongs here first. Outputs a short-list and an ordered skill chain, never the design itself.",
     "path": "library/samber-developer-platform-skills/skills/developer-platform-kickoff",
     "activation_cmd": "python .agents/library/activate_skill.py activate developer-platform-kickoff",
     "link_cmd": "python .agents/library/activate_skill.py link developer-platform-kickoff"
@@ -274,7 +274,7 @@
     "name": "developer-portal-design",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design an external developer portal as a product surface, not a documentation site - information architecture for business evaluators and integrating engineers, the signup-to-first-call onboarding path governed by time to first call (TTFC), placement of each self-service surface (key dashboard, request logs, sandbox, usage metering, docs entry points), portal search with an AI answer assistant, RBAC and multi-tenant hierarchy, and the build-vs-buy platform decision. Use whenever the user mentions a developer portal, developer console, API dashboard, developer onboarding, or time to first call - even if they never say \"portal\". External API-consumer portals only, not internal service catalogs.",
     "path": "library/samber-developer-platform-skills/skills/developer-portal-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate developer-portal-design",
     "link_cmd": "python .agents/library/activate_skill.py link developer-portal-design"
@@ -284,7 +284,7 @@
     "name": "etl-connector-strategy",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Plan a SaaS vendor's presence as a source connector on third-party ETL/ELT platforms - demand validation before any build, platform selection from where customers' data stacks run, a build-path menu (platform-managed listing, vendor-maintained SDK connector, custom open-source tap) ranked by who absorbs the maintenance tax, an extraction-readiness audit of the product API, honest CDC scoping (API sources ship pseudo-CDC, never log-based), certification targets, and a funded maintenance plan. Use whenever the user mentions an ETL or ELT catalog listing, a source connector, data-pipeline integration, or adding CDC - even if they never say \"connector strategy\". Do NOT use for the vendor's own inbound marketplace - use samber/developer-platform-skills@connector-marketplace-strategy instead.",
     "path": "library/samber-developer-platform-skills/skills/etl-connector-strategy",
     "activation_cmd": "python .agents/library/activate_skill.py activate etl-connector-strategy",
     "link_cmd": "python .agents/library/activate_skill.py link etl-connector-strategy"
@@ -294,7 +294,7 @@
     "name": "github-action-offering",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Ships a vendor's official GitHub Action customers run in CI to call its product - setup vs task action, composite vs JavaScript vs container, action.yml as a frozen contract, major tags plus immutable releases, OIDC instead of long-lived keys, hardening against injection and tag hijack, Marketplace listing, ports to GitLab components, CircleCI orbs and other CI. Use whenever a vendor team mentions an official action, action.yml, a setup-<tool> action, moving the v1 tag, or an orb or GitLab component - even if they only say \\\"customers want us in CI\\\". Not for pinning third-party actions, internal-only actions or OIDC to clouds. Do NOT use for CLI design - use samber/developer-platform-skills@cli-interface-design; nor registry publishing - use samber/developer-platform-skills@sdk-package-publishing.\"",
     "path": "library/samber-developer-platform-skills/skills/github-action-offering",
     "activation_cmd": "python .agents/library/activate_skill.py activate github-action-offering",
     "link_cmd": "python .agents/library/activate_skill.py link github-action-offering"
@@ -304,7 +304,7 @@
     "name": "github-engagement-playbook",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Plans a repository's post-launch engagement on GitHub as a social platform - stars, watchers and release notifications, Discussions, topics, labels, Trending, the home feed and traffic tracking - with ready-to-paste issue, PR and release templates. Use whenever GitHub stars are flat, someone asks how to grow engagement on a repo or SDK, set up Discussions Q&A or a label scheme, get a Release seen by watchers, or whether to buy or trade stars, even if they only say nobody notices the repo. Not a launch - use samber/developer-relations-skills@oss-launch. Not README copy - use samber/developer-relations-skills@readme-optimization. Not cross-channel cadence - use samber/developer-relations-skills@oss-distribution-strategy. Not license choice - use samber/developer-relations-skills@oss-license-strategy.\"",
     "path": "library/samber-developer-platform-skills/skills/github-engagement-playbook",
     "activation_cmd": "python .agents/library/activate_skill.py activate github-engagement-playbook",
     "link_cmd": "python .agents/library/activate_skill.py link github-engagement-playbook"
@@ -314,7 +314,7 @@
     "name": "github-marketplace-playbook",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/samber-developer-platform-skills/skills/github-marketplace-playbook",
     "activation_cmd": "python .agents/library/activate_skill.py activate github-marketplace-playbook",
     "link_cmd": "python .agents/library/activate_skill.py link github-marketplace-playbook"
@@ -324,7 +324,7 @@
     "name": "google-workspace-marketplace-playbook",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/samber-developer-platform-skills/skills/google-workspace-marketplace-playbook",
     "activation_cmd": "python .agents/library/activate_skill.py activate google-workspace-marketplace-playbook",
     "link_cmd": "python .agents/library/activate_skill.py link google-workspace-marketplace-playbook"
@@ -334,7 +334,7 @@
     "name": "graphql-federation-offering",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Design how a platform lets outside partners and third-party apps contribute fields or data to its own public GraphQL graph - the extension ladder from app-owned custom fields and platform-run connectors up to partner-hosted subgraphs, what partner SDL may claim (@override, @requires), what the router forwards to a partner, blast radius, and offboarding. Use whenever the user mentions partner subgraphs, letting partner apps add fields to their schema, a partner-extensible supergraph, or stitching partner APIs into the graph they publish - even without saying federation. Not for consuming third-party APIs in your own client, or building an app on another platform. Do NOT use for a single-owner schema or internal federation - use samber/developer-platform-skills@public-graphql-api-design instead.\"",
     "path": "library/samber-developer-platform-skills/skills/graphql-federation-offering",
     "activation_cmd": "python .agents/library/activate_skill.py activate graphql-federation-offering",
     "link_cmd": "python .agents/library/activate_skill.py link graphql-federation-offering"
@@ -344,7 +344,7 @@
     "name": "hubspot-marketplace-playbook",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/samber-developer-platform-skills/skills/hubspot-marketplace-playbook",
     "activation_cmd": "python .agents/library/activate_skill.py activate hubspot-marketplace-playbook",
     "link_cmd": "python .agents/library/activate_skill.py link hubspot-marketplace-playbook"
@@ -354,7 +354,7 @@
     "name": "huggingface-playbook",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/samber-developer-platform-skills/skills/huggingface-playbook",
     "activation_cmd": "python .agents/library/activate_skill.py activate huggingface-playbook",
     "link_cmd": "python .agents/library/activate_skill.py link huggingface-playbook"
@@ -364,7 +364,7 @@
     "name": "ide-extension-offering",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Decides whether a developer platform should ship an official IDE extension (VS Code, JetBrains), and runs it: job versus cheaper surfaces, IDE families and forks, a thin shell over the CLI, shared login, publishing to VS Code Marketplace, Open VSX and JetBrains Marketplace, telemetry obeying the IDE setting, deprecation. Use whenever a vendor mentions building or maintaining a VS Code extension or JetBrains plugin for their product, vsce, ovsx, Open VSX, or \\\"developers want us in the editor\\\" - even without saying \\\"IDE extension\\\". Not for internal or personal extensions, writing extension or language-server code, or choosing extensions to install. Do NOT use for CLI design - use samber/developer-platform-skills@cli-interface-design; nor agent tools - use samber/developer-platform-skills@mcp-server-offering.\"",
     "path": "library/samber-developer-platform-skills/skills/ide-extension-offering",
     "activation_cmd": "python .agents/library/activate_skill.py activate ide-extension-offering",
     "link_cmd": "python .agents/library/activate_skill.py link ide-extension-offering"
@@ -374,7 +374,7 @@
     "name": "integration-error-observability",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design how a platform surfaces integration failures to the external developers and partners who built against it - per-integration request/event/delivery logs with replay, correlation IDs that survive from response header to support ticket, error-rate aggregation per API key or app split by 4xx/5xx/429, proactive partner notification with cooldowns against alert fatigue, and a provider-side fleet view of which integrations are breaking. Use whenever the user mentions a developer-facing error dashboard, exposing request logs to integrators, alerting partners about broken integrations, or cutting integration support tickets - even if they never say \"observability\". Do NOT use for platform-wide incident comms - use samber/developer-platform-skills@api-status-communication instead.",
     "path": "library/samber-developer-platform-skills/skills/integration-error-observability",
     "activation_cmd": "python .agents/library/activate_skill.py activate integration-error-observability",
     "link_cmd": "python .agents/library/activate_skill.py link integration-error-observability"
@@ -384,7 +384,7 @@
     "name": "integration-health-monitoring",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Find third-party integrations on your platform that will break on a known date - version drift, deprecated-endpoint usage, SDK end of life, expiring or dormant credentials - reach their owners, and decide when a deprecated surface is safe to turn off. Use whenever the user mentions version drift, who still calls a deprecated endpoint, partners on old API versions, chasing integrations before a sunset, brownouts, or retiring an API surface third parties call, even without saying \\\"integration health\\\". Not for migrating off another vendor's API. Do NOT use for live error dashboards (samber/developer-platform-skills@integration-error-observability), deprecation policy (samber/developer-platform-skills@api-versioning-policy) or key expiry design (samber/developer-platform-skills@api-auth-key-management).\"",
     "path": "library/samber-developer-platform-skills/skills/integration-health-monitoring",
     "activation_cmd": "python .agents/library/activate_skill.py activate integration-health-monitoring",
     "link_cmd": "python .agents/library/activate_skill.py link integration-health-monitoring"
@@ -394,7 +394,7 @@
     "name": "integration-listing-optimization",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Optimize a B2B SaaS vendor's own listing on a third-party app marketplace - Salesforce AppExchange, HubSpot, Atlassian, Shopify, Slack or similar. Covers the view-to-install funnel, keyword placement, screenshot and demo-video order, category choice, compliant review velocity, badge pursuit and rank decay. Use whenever the user mentions an AppExchange listing, marketplace listing conversion, marketplace search rank, app installs or app reviews - even without saying \"listing optimization\". Do NOT use for the operator's own rulebook (use samber/developer-platform-skills@app-marketplace-listing-standards), AppExchange packaging or security review (samber/developer-platform-skills@salesforce-appexchange-playbook), or Slack app review (samber/developer-platform-skills@slack-app-directory-playbook).",
     "path": "library/samber-developer-platform-skills/skills/integration-listing-optimization",
     "activation_cmd": "python .agents/library/activate_skill.py activate integration-listing-optimization",
     "link_cmd": "python .agents/library/activate_skill.py link integration-listing-optimization"
@@ -404,7 +404,7 @@
     "name": "integration-partnership-strategy",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Select which technology partners a B2B SaaS vendor integrates with and how deep each partnership goes - demand-data partner prioritization (deal-attached revenue, retention lift, competitive necessity), the referral-to-OEM depth ladder with graduation gates, joint-roadmap and co-build governance, certification-program joins with budgeted renewals, sourced-vs-influenced pipeline attribution, and where the technology-partnerships function reports. Use whenever the user mentions integration partners, ISV alliances, technology partnerships, partner tiers, certification programs, or partner-pipeline attribution - even if they never say \"partnership strategy\". Strategy layer only. Do NOT use for ETL-platform listings - use samber/developer-platform-skills@etl-connector-strategy instead.",
     "path": "library/samber-developer-platform-skills/skills/integration-partnership-strategy",
     "activation_cmd": "python .agents/library/activate_skill.py activate integration-partnership-strategy",
     "link_cmd": "python .agents/library/activate_skill.py link integration-partnership-strategy"
@@ -414,7 +414,7 @@
     "name": "mcp-server-offering",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design a SaaS product's MCP server as a product surface AI agents operate - sizing the build investment, curating a 5-15 workflow-tool agent surface instead of mirroring API endpoints, MCP Apps interactive UI, named write-tool safety patterns (scoped credentials, read-only lockdown, human-in-the-loop approval, risk-tiered server-side gates, dry-run preflight, idempotency and spend caps), remote hosting with OAuth 2.1, versioning the tool surface, MCP registry discoverability, and measuring agent adoption. Use whenever the user mentions MCP, Model Context Protocol, an agent-facing tool surface, exposing a product to AI agents or coding assistants, or MCP write-tool safety - even if they never say \"MCP server\". Design layer only - code-generation MCP builder skills scaffold what this specifies.",
     "path": "library/samber-developer-platform-skills/skills/mcp-server-offering",
     "activation_cmd": "python .agents/library/activate_skill.py activate mcp-server-offering",
     "link_cmd": "python .agents/library/activate_skill.py link mcp-server-offering"
@@ -424,7 +424,7 @@
     "name": "microsoft-appsource-playbook",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/samber-developer-platform-skills/skills/microsoft-appsource-playbook",
     "activation_cmd": "python .agents/library/activate_skill.py activate microsoft-appsource-playbook",
     "link_cmd": "python .agents/library/activate_skill.py link microsoft-appsource-playbook"
@@ -434,7 +434,7 @@
     "name": "oauth2-provider-design",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design the OAuth2 authorization-server surface a B2B SaaS offers third-party apps - the OAuth 2.1 protocol baseline (PKCE for every client, no implicit or password grants, exact redirect matching), token TTL and refresh-rotation policy, scope taxonomy and granularity, consent-screen design with partial and incremental grants, client registration posture, and the tiered app-verification program. Use whenever the user mentions OAuth, \"Sign in with X\", access and refresh tokens, scopes, consent screens, PKCE, or third-party apps acting on a customer's behalf - even if they never say \"OAuth provider\". Issuer side only, not integrating against someone else's OAuth. Do NOT use for API-key design - use samber/developer-platform-skills@api-auth-key-management instead.",
     "path": "library/samber-developer-platform-skills/skills/oauth2-provider-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate oauth2-provider-design",
     "link_cmd": "python .agents/library/activate_skill.py link oauth2-provider-design"
@@ -444,7 +444,7 @@
     "name": "partner-app-onboarding",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design the partner-developer onboarding journey on a B2B SaaS platform - from partner signup through dev-account and sandbox provisioning, docs, education and certification posture, and support channels, to the first submitted app. Use whenever the user mentions partner developer onboarding, developer program entry, self-service vs application-gated registration, sandbox tenancy for partners, certification gating submission, partner support channels, or time-to-first-submitted-app - even if they never say \"onboarding\". Journey design only. Do NOT use for review-gate mechanics (samber/developer-platform-skills@app-marketplace-review) or sandbox isolation architecture (samber/developer-platform-skills@api-test-mode-design).",
     "path": "library/samber-developer-platform-skills/skills/partner-app-onboarding",
     "activation_cmd": "python .agents/library/activate_skill.py activate partner-app-onboarding",
     "link_cmd": "python .agents/library/activate_skill.py link partner-app-onboarding"
@@ -454,7 +454,7 @@
     "name": "public-api-design-review",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Audit an existing or proposed public REST API surface as a checklist-driven design review - resource and URI naming, HTTP method and status-code correctness, field-naming consistency, pagination pattern choice, filtering/sorting/field-selection conventions, one consistent error envelope, and Hyrum's-Law backward-compatibility risk - every finding bucketed Must-change or Improvement against a cited rule, plus the standing review program (audience, lifecycle triggers, reviewer authority, linting, federation). Use whenever the user mentions an API design review, REST API consistency, endpoint naming, pagination style, or API design governance - even if they never say \"design review\". Do NOT use for GraphQL schemas - use samber/developer-platform-skills@public-graphql-api-design instead.",
     "path": "library/samber-developer-platform-skills/skills/public-api-design-review",
     "activation_cmd": "python .agents/library/activate_skill.py activate public-api-design-review",
     "link_cmd": "python .agents/library/activate_skill.py link public-api-design-review"
@@ -464,7 +464,7 @@
     "name": "public-graphql-api-design",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design a public GraphQL API for third-party developers - the GraphQL-or-not gate, schema conventions (naming, nullability, Node interface, input/payload types), Relay cursor-connection pagination, union/interface error result types, depth and complexity ceilings as design decisions, the federation trust boundary (only the router is ever public), and a persisted-query policy that allowlists first-party traffic only. Use whenever the user mentions GraphQL, a public schema, Relay connections, query depth limits, persisted queries, federation, or GraphQL vs REST - even if they never say \"GraphQL API design\". Design layer only. Do NOT use for a REST surface review - use samber/developer-platform-skills@public-api-design-review instead.",
     "path": "library/samber-developer-platform-skills/skills/public-graphql-api-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate public-graphql-api-design",
     "link_cmd": "python .agents/library/activate_skill.py link public-graphql-api-design"
@@ -474,7 +474,7 @@
     "name": "public-grpc-api-design",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design a public gRPC surface for external developers - the when-gRPC-at-all gate (most platforms keep gRPC internal and publish REST or transcoded JSON), AIP proto package and versioning conventions, buf breaking-change gates and their google.api.http blind spot, unary-by-default streaming decisions, the google.rpc.Status error model with its HTTP-mapping traps, transcoding and gateway architecture (Connect-RPC, grpc-gateway, Envoy), and external auth and TLS. Use whenever the user mentions gRPC, protobuf or .proto files, buf, Connect-RPC, grpc-gateway, or gRPC-JSON transcoding at a public edge - even if they never say \"gRPC API design\". Design layer only, not language-specific server implementation.",
     "path": "library/samber-developer-platform-skills/skills/public-grpc-api-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate public-grpc-api-design",
     "link_cmd": "python .agents/library/activate_skill.py link public-grpc-api-design"
@@ -484,7 +484,7 @@
     "name": "public-roadmap-strategy",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/samber-developer-platform-skills/skills/public-roadmap-strategy",
     "activation_cmd": "python .agents/library/activate_skill.py activate public-roadmap-strategy",
     "link_cmd": "python .agents/library/activate_skill.py link public-roadmap-strategy"
@@ -494,7 +494,7 @@
     "name": "salesforce-appexchange-playbook",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/samber-developer-platform-skills/skills/salesforce-appexchange-playbook",
     "activation_cmd": "python .agents/library/activate_skill.py activate salesforce-appexchange-playbook",
     "link_cmd": "python .agents/library/activate_skill.py link salesforce-appexchange-playbook"
@@ -504,7 +504,7 @@
     "name": "sample-app-strategy",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Decide a developer platform's sample-code portfolio - which quickstart repos, reference apps, starter and deploy templates, and hosted playgrounds exist, for which developer job, in which languages, owned by whom, kept fresh by what CI, and archived by what rule. Use whenever the user mentions their sample apps or example repos as a set, a samples GitHub org, too many or broken sample repos, which samples to keep or archive, sample ownership, a sample gallery, or reference app vs quickstart choices - even if they never say \"portfolio\". Not for building one sample app. Do NOT use for snippets inside docs pages - use samber/developer-relations-skills@docs-code-sample-standards; or for which SDK languages exist - use samber/developer-platform-skills@sdk-portfolio-strategy.",
     "path": "library/samber-developer-platform-skills/skills/sample-app-strategy",
     "activation_cmd": "python .agents/library/activate_skill.py activate sample-app-strategy",
     "link_cmd": "python .agents/library/activate_skill.py link sample-app-strategy"
@@ -514,7 +514,7 @@
     "name": "sdk-package-publishing",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/samber-developer-platform-skills/skills/sdk-package-publishing",
     "activation_cmd": "python .agents/library/activate_skill.py activate sdk-package-publishing",
     "link_cmd": "python .agents/library/activate_skill.py link sdk-package-publishing"
@@ -524,7 +524,7 @@
     "name": "sdk-portfolio-strategy",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Decide a public API's language-SDK portfolio - which languages get official SDKs and in what order, generated vs handwritten build model, official and community support tiers with a promotion gate, SDK deprecation and end-of-life, and decoupling SDK SemVer from API versioning and release cadence. Use whenever the user mentions client libraries, SDKs, which languages to support first, an SDK generator (Stainless, Fern, OpenAPI Generator), community SDKs, or sunsetting an SDK - even if they never say \"SDK portfolio\". Portfolio strategy only, not single-SDK ergonomics or registry publishing. Do NOT use for whether to offer SDKs as a surface at all - use samber/developer-platform-skills@api-integration-surface-strategy instead.",
     "path": "library/samber-developer-platform-skills/skills/sdk-portfolio-strategy",
     "activation_cmd": "python .agents/library/activate_skill.py activate sdk-portfolio-strategy",
     "link_cmd": "python .agents/library/activate_skill.py link sdk-portfolio-strategy"
@@ -534,7 +534,7 @@
     "name": "shopify-app-store-playbook",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/samber-developer-platform-skills/skills/shopify-app-store-playbook",
     "activation_cmd": "python .agents/library/activate_skill.py activate shopify-app-store-playbook",
     "link_cmd": "python .agents/library/activate_skill.py link shopify-app-store-playbook"
@@ -544,7 +544,7 @@
     "name": "slack-app-directory-playbook",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/samber-developer-platform-skills/skills/slack-app-directory-playbook",
     "activation_cmd": "python .agents/library/activate_skill.py activate slack-app-directory-playbook",
     "link_cmd": "python .agents/library/activate_skill.py link slack-app-directory-playbook"
@@ -554,7 +554,7 @@
     "name": "sql-jdbc-access-design",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design customer-facing SQL access to a product's data - a JDBC/ODBC endpoint, warehouse share, or hosted query surface. Covers the architecture gate by scan frequency (zero-copy share, replicated copy, per-tenant compute isolation), engine-level tenant isolation with secure views and row-level security, an additive-only schema-stability contract enforced in CI, BI-tool connectivity and driver certification, query governance and cost caps, short-lived credential issuance, and the pricing shape. Use whenever the user mentions JDBC, ODBC, SQL access for customers, connecting Tableau or Power BI to product data, or pricing a SQL add-on - even if they never say \"SQL access\". Do NOT use for bulk file delivery - use samber/developer-platform-skills@bulk-data-sharing-design instead.",
     "path": "library/samber-developer-platform-skills/skills/sql-jdbc-access-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate sql-jdbc-access-design",
     "link_cmd": "python .agents/library/activate_skill.py link sql-jdbc-access-design"
@@ -564,7 +564,7 @@
     "name": "stackoverflow-playbook",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/samber-developer-platform-skills/skills/stackoverflow-playbook",
     "activation_cmd": "python .agents/library/activate_skill.py activate stackoverflow-playbook",
     "link_cmd": "python .agents/library/activate_skill.py link stackoverflow-playbook"
@@ -574,7 +574,7 @@
     "name": "terraform-provider-offering",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Decides whether a SaaS or API platform should ship its own Terraform/OpenTofu provider, then builds and maintains it - API readiness gate, adopting a community provider, resources vs data sources, secrets, import and drift, state upgrades, sandbox acceptance tests, signed releases on the Terraform and OpenTofu registries, versioning and deprecation. Use whenever a vendor mentions building or maintaining a Terraform provider, OpenTofu provider, terraform-plugin-framework, publishing a provider, perpetual diffs in a provider they maintain, or customers wanting to manage the product as infrastructure as code. Not for using or upgrading a third-party provider, nor for modules. Do NOT use for SDK package registries - use samber/developer-platform-skills@sdk-package-publishing.\"",
     "path": "library/samber-developer-platform-skills/skills/terraform-provider-offering",
     "activation_cmd": "python .agents/library/activate_skill.py activate terraform-provider-offering",
     "link_cmd": "python .agents/library/activate_skill.py link terraform-provider-offering"
@@ -584,7 +584,7 @@
     "name": "webhook-platform-design",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": "Design a provider-side outbound webhook platform - event taxonomy and catalog, payload envelope and schema versioning, an HMAC signing scheme (Standard Webhooks), at-least-once delivery with retry/backoff and dead-letter policy, subscription lifecycle states, and the developer-facing debugging surface (delivery logs, replay, test-event triggering). Use whenever the user mentions webhooks, event callbacks, push events to customer endpoints, webhook signatures, delivery retries, or a webhook consumer portal - even if they never say \"webhook platform\". Provider side only. Do NOT use for consumer-side retry mechanics - use samber/developer-platform-skills@api-idempotency-retry instead.",
     "path": "library/samber-developer-platform-skills/skills/webhook-platform-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate webhook-platform-design",
     "link_cmd": "python .agents/library/activate_skill.py link webhook-platform-design"
@@ -594,7 +594,7 @@
     "name": "wordpress-plugin-directory-playbook",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/samber-developer-platform-skills/skills/wordpress-plugin-directory-playbook",
     "activation_cmd": "python .agents/library/activate_skill.py activate wordpress-plugin-directory-playbook",
     "link_cmd": "python .agents/library/activate_skill.py link wordpress-plugin-directory-playbook"
@@ -604,7 +604,7 @@
     "name": "zapier-integration-playbook",
     "repository": "samber-developer-platform-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/samber-developer-platform-skills/skills/zapier-integration-playbook",
     "activation_cmd": "python .agents/library/activate_skill.py activate zapier-integration-playbook",
     "link_cmd": "python .agents/library/activate_skill.py link zapier-integration-playbook"

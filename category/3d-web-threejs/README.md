@@ -1,7 +1,7 @@
 # 🧊 3D Web Experiences & Three.js
 
 > **Category**: `3d-web-threejs`  
-> **Total Curated Skills**: 49 skills  
+> **Total Curated Skills**: 50 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -45,6 +45,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`melonjs-renderables`](../../library/melonjs-melonjs/skills/melonjs-renderables) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when subclassing Renderable, writing a custom draw() method, handling pointer or... |
 | [`optimize-web`](../../library/unity-technologies-skills/skills/optimize-web) | ⚪ Reserve | `unity-technologies-skills` | Optimizes Unity WebGL and WebGPU builds for smaller downloads, faster loading, and smoother bro... |
 | [`premium-3d-website`](../../library/sickn33-agentic-awesome-skills/skills/premium-3d-website) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Guidelines for building premium 3D websites, focusing on custom WebGL shaders, post-processing,... |
+| [`scenario-unity-performance`](../../library/scenario-labs-skills/skills/scenario-unity-performance) | ⚪ Reserve | `scenario-labs-skills` | Use when a Unity 6.3 game is slow or stutters: low fps, frame spikes, hitches when entering are... |
 | [`shader-graph-create-custom-node`](../../library/unity-technologies-skills/skills/shader-graph-create-custom-node) | ⚪ Reserve | `unity-technologies-skills` | Generates custom Shader Graph nodes from HLSL code. Use when the user wants a new Shader Graph ... |
 | [`shader-programming-glsl`](../../library/sickn33-agentic-awesome-skills/skills/shader-programming-glsl) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Expert guide for writing efficient GLSL shaders (Vertex/Fragment) for web and game engines, cov... |
 | [`shadertoy`](../../library/bfollington-terma/skills/shadertoy) | ⚪ Reserve | `bfollington-terma` | This skill should be used when working with Shadertoy shaders, GLSL fragment shaders, or creati... |

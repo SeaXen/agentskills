@@ -2976,6 +2976,14 @@
     "path": "category/backend-api-design/commercevault-edd-ecommerce-orchestrator"
   },
   {
+    "id": "common-huawei-cloud-skill-tester",
+    "name": "common-huawei-cloud-skill-tester",
+    "category": "backend-api-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "End-to-end functional testing framework for Huawei Cloud skills \u2014 three-tier pipeline covering single-skill unit testing, multi-skill orchestration, and end-to-end full flow testing. Each phase produces structured JSON output with chain verification. Supports skill installation validation, functional analysis, CLI\u2192SDK\u2192API feasibility research, test case generation, real-environment execution with resource lifecycle, resource cleanup, multi-skill scenario orchestration, trigger-conflict detection, and consolidated reporting. Triggers include: \u6d4b\u8bd5\u6280\u80fd, \u6267\u884c\u6280\u80fd\u6d4b\u8bd5, \u8dd1\u6d4b\u8bd5\u6d41\u7a0b, \u6280\u80fd\u56de\u5f52\u6d4b\u8bd5, skill test, run skill tests, test huawei cloud skill, verify skill, \u6d4b\u8bd5\u534e\u4e3a\u4e91skill, \u5168\u6d41\u7a0b\u6d4b\u8bd5, \u7f16\u6392\u6d4b\u8bd5, \u6280\u80fd\u5b8c\u6574\u6027\u68c0\u67e5, skill-tester, \u8dd1\u6d4b\u8bd5, \u56de\u5f52\u6d4b\u8bd5, \u7ec4\u5408\u6d4b\u8bd5, \u591askill\u7f16\u6392, verification, e2e.",
+    "path": "category/backend-api-design/common-huawei-cloud-skill-tester"
+  },
+  {
     "id": "conducting-api-security-testing",
     "name": "conducting-api-security-testing",
     "category": "backend-api-design",
@@ -3368,6 +3376,14 @@
     "path": "category/backend-api-design/ctf-web"
   },
   {
+    "id": "cuml",
+    "name": "cuml",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "Use when writing, running, debugging or upgrading Python code that uses NVIDIA cuML (GPU machine learning), cuml.accel (zero-code-change GPU acceleration of scikit-learn, umap-learn and hdbscan), or GPU UMAP/HDBSCAN/RandomForest/KMeans/SVC, including through libraries that wrap cuML (BERTopic, rapids-singlecell). Covers APIs removed or renamed in 2025-2026 releases, verifying code really ran on the GPU, large-data UMAP/HDBSCAN memory recipes, and exporting trained models. Not for cuDF-only dataframe work, PyTorch or XGBoost.",
+    "path": "category/backend-api-design/cuml"
+  },
+  {
     "id": "cuopt-numerical-optimization-api",
     "name": "cuopt-numerical-optimization-api",
     "category": "backend-api-design",
@@ -3758,6 +3774,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "Expert DevOps troubleshooter specializing in rapid incident",
     "path": "category/backend-api-design/devops-troubleshooter"
+  },
+  {
+    "id": "dew-huawei-cloud-dew-key-management",
+    "name": "dew-huawei-cloud-dew-key-management",
+    "category": "backend-api-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Use when managing secrets, credentials, encryption keys, certificates, or any sensitive data on Huawei Cloud. Covers CSMS (Cloud Secret Management Service) for secret lifecycle management, KMS (Key Management Service) for encryption key management, rotation diagnosis, and KMS key usage auditing via CTS (Cloud Trace Service). Service keywords: dew, kms, csms, cts, secretsmanager, secrets manager, cloud secret management service, key management service, data encryption workshop, data encryption service, DEW service, KooCLI, \u6570\u636e\u52a0\u5bc6\u670d\u52a1, \u5bc6\u94a5\u7ba1\u7406\u670d\u52a1, \u51ed\u636e\u7ba1\u7406\u670d\u52a1, DEW, KMS, CSMS, CTS, \u5bc6\u94a5, \u51ed\u636e, \u52a0\u5bc6, \u8f6e\u8f6c. Provides 10 huawei_* actions: huawei_list_csms_secrets, huawei_describe_csms_secret, huawei_list_csms_secret_versions, huawei_list_kms_keys, huawei_analyze_dew_rotation, huawei_analyze_dew_key_usage, huawei_create_kms_key, huawei_enable_csms_secret_rotation, huawei_update_csms_secret_version, huawei_delete_kms_key. Triggers include: \"secret\",\"credential\",\"API key\",\"token\",\"password\",\"encrypt\",\"decrypt\",\"KMS\",\"CSMS\",\"DEW\",\"secretsmanager\",\"certificate\",\"CSR\",\"rotation\",\"\u5bc6\u94a5\",\"\u51ed\u636e\",\"\u52a0\u5bc6\",\"\u8f6e\u8f6c\",\"\u6570\u636e\u52a0\u5bc6\",\"\u8bbf\u95ee\u5bc6\u94a5\",\"\u52a0\u5bc6\u5bc6\u94a5\". Activates for ANY task involving secrets or credentials \u2014 load this skill before touching secrets.",
+    "path": "category/backend-api-design/dew-huawei-cloud-dew-key-management"
   },
   {
     "id": "dictionary-api-automation",
@@ -4536,6 +4560,14 @@
     "path": "category/backend-api-design/extension-querying-oql"
   },
   {
+    "id": "extensions-huawei-cloud-openviking-embedding-switch",
+    "name": "extensions-huawei-cloud-openviking-embedding-switch",
+    "category": "backend-api-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Switch OpenViking's embedding model to a local llama-server (or any OpenAI-compatible embedding endpoint) running inside a bwrap sandbox managed by job-env-manager. Handles the full lifecycle: detect current config, validate the target embedding endpoint, modify ov.conf, delete incompatible vectordb index when dimension changes, restart the openviking-server process in the sandbox, and verify the new collection dimension. Use this skill when the user wants to: (1) switch the OpenViking embedding model, (2) change the embedding dimension, (3) fix EmbeddingRebuildRequiredError after a dimension mismatch, (4) rebuild the vectordb index after an embedding model change, (5) use a local llama-server for OpenViking embeddings. Trigger words: \"\u5207\u6362OpenViking embedding\", \"OpenViking embedding\u6a21\u578b\", \"OpenViking\u5411\u91cf\u5316\u6a21\u578b\", \"openviking embedding switch\", \"change openviking embedding model\", \"\u914d\u7f6eopenviking embedding\", \"openviking llama embedding\", \"bge embedding openviking\", \"\u5207\u6362\u5411\u91cf\u5316\u6a21\u578b\", \"OpenViking\u6a21\u578b\u5207\u6362\".",
+    "path": "category/backend-api-design/extensions-huawei-cloud-openviking-embedding-switch"
+  },
+  {
     "id": "facebook-ads-library-search",
     "name": "facebook-ads-library-search",
     "category": "backend-api-design",
@@ -5102,6 +5134,14 @@
     "repository": "composio-community-awesome-codex-skills",
     "description": "Automate Geoapify tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/backend-api-design/geoapify-automation"
+  },
+  {
+    "id": "gepa-optimize-anything",
+    "name": "gepa-optimize-anything",
+    "category": "backend-api-design",
+    "repository": "gepa-ai-gepa",
+    "description": "Automatically improve any text artifact that can be scored \u2014 prompts, programs/code, configs, specs, regex/SQL/schemas, agent scaffolds, or encoded search solutions \u2014 with optimize_anything, an LLM-driven optimization API: a search backend repeatedly proposes better versions from execution feedback and an evaluator you provide assigns the score (an objective metric or an LLM-as-judge for subjective tasks). optimize_anything is one interface across several optimizer backends \u2014 GEPA (reflective evolutionary search, the default), AutoResearch, MetaHarness \u2014 plus a best-of-N baseline: write the evaluator once and switch backend with a single argument. Use whenever a task needs auto-optimizing, tuning, or searching over text with any quality signal (accuracy, pass rate, latency, cost, judge rating); when building an evaluator + proposer loop; when running GEPA; or when comparing optimizers. The candidate can be any string an evaluator can grade, scored on one problem or generalized across many.",
+    "path": "category/backend-api-design/gepa-optimize-anything"
   },
   {
     "id": "gif-sticker-maker",
@@ -5840,6 +5880,14 @@
     "path": "category/backend-api-design/huawei-cloud-apig-instance-management"
   },
   {
+    "id": "huawei-cloud-bss-voucher-query",
+    "name": "huawei-cloud-bss-voucher-query",
+    "category": "backend-api-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Query Huawei Cloud BSS (\u8d39\u7528\u4e2d\u5fc3) vouchers / coupons with enterprise-project (\u4f01\u4e1a\u9879\u76ee) filtering. Reads the account's coupon list via KooCLI `hcloud BSS ListSubCustomerCoupons` (read-only GET /v2/promotions/benefits/coupons, with SDK fallback). Supports listing by project ID (`--project-id`, attributed through the customer order => enterprise-project linkage because the coupon API carries no project_id), status (`--status available/used/expired`), name, coupon-id, coupon-type, near-expiry/expired views (`--expiring` / `--expired`) and a per-project usage-rate analysis (`--usage-analysis`). Strictly read-only. Triggers include: \"\u4ee3\u91d1\u5238\u76d8\u70b9\", \"\u6309\u9879\u76ee\u67e5\u8be2\u4ee3\u91d1\u5238\", \"\u4f01\u4e1a\u9879\u76ee\u4ee3\u91d1\u5238\", \"\u67e5\u8be2\u4ee3\u91d1\u5238\", \"\u4f18\u60e0\u5238\u5217\u8868\", \"\u6309\u9879\u76eeID\u7b5b\u9009\u4ee3\u91d1\u5238\", \"\u4ee3\u91d1\u5238\u5230\u671f\", \"\u4ee3\u91d1\u5238\u4f7f\u7528\u7387\", \"\u4ee3\u91d1\u5238\u4f59\u989d\", \"\u8d39\u7528\u7ba1\u7406\", \"list BSS coupons\", \"query vouchers by project\", \"coupon inventory\", \"voucher list by enterprise project\", \"enterprise project voucher query\", \"billing voucher query\", \"\u534e\u4e3a\u4e91\u4ee3\u91d1\u5238\".",
+    "path": "category/backend-api-design/huawei-cloud-bss-voucher-query"
+  },
+  {
     "id": "huawei-cloud-cce-cluster-management",
     "name": "huawei-cloud-cce-cluster-management",
     "category": "backend-api-design",
@@ -5918,6 +5966,22 @@
     "repository": "huaweicloud-huaweicloud-skills",
     "description": "Query Huawei Cloud MaaS (Model as a Service) tokens usage statistics, including total tokens, prompt tokens, completion tokens, total requests, and total errors. Supports preset service, my service, and custom endpoint with time range queries (last 7/14/30 days or custom). Data source is MaaS ShowStatistics API, consistent with console. Use this skill when the user wants to: (1) query MaaS token consumption statistics, (2) check MaaS service request counts and error rates, (3) analyze token usage for preset service or my service, (4) monitor MaaS usage over a specific time period. Trigger: user mentions \"MaaS\", \"Model as a Service\", \"tokens usage\", \"token consumption\", \"request count\", \"error count\", \"MaaS usage\", \"preset service usage\", \"completion tokens\", \"prompt tokens\", \"MaaS statistics\", \"\u6a21\u578b\u670d\u52a1\", \"\u4ee4\u724c\u7528\u91cf\", \"token\u7edf\u8ba1\", \"token\u7528\u91cf\", \"\u8bcd\u5143\u7528\u91cf\", \"\u8bf7\u6c42\u6b21\u6570\", \"MaaS\u76d1\u63a7\", \"\u534e\u4e3a\u4e91MaaS",
     "path": "category/backend-api-design/huawei-cloud-maas-tokens-usage"
+  },
+  {
+    "id": "huawei-cloud-mgc-migration-ecs-gcp-to-hw",
+    "name": "huawei-cloud-mgc-migration-ecs-gcp-to-hw",
+    "category": "backend-api-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Execute and troubleshoot Huawei Cloud server migration in this repository. Supports both the current batch existing-target SMS workflow (`terraform apply` + `scripts/mgc_sms_existing_target_batch.py`) and the single-source SMS/rsync workflow (`scripts/mgc_migrate.py`), orchestrated by Terraform against the Huawei Cloud SMS/ECS/VPC/EVS/IAM REST APIs. Use when the user asks to migrate ECS/on-prem VMware/external GCP/AWS sources, run migration in `ap-southeast-3`/`la-*`, resume after pause from `out/resume_checkpoint_latest.json`, monitor tasks in `out/task_poll_latest.json`, repair a broken boot disk with `scripts/repair_boot_via_helper.py`, or diagnose SMS/MGC errors such as SMS.0202, SMS.1404, SMS.0515, SMS.6504, SMS.6602, SMS.6603, SMS.6617, SMS.7605, SMS.7703, SMS.8115, stale SMS-Agent process, or missing `disk_id` in target disk mapping. Trigger words: migrate, migration, SMS, MGC, batch migration, boot repair, GRUB repair, \u8de8\u533a\u57df\u8fc1\u79fb, MGC/SMS \u8fc1\u79fb\u6d41\u7a0b, \u6279\u91cf\u8fc1\u79fb\u6062\u590d, \u8fc1\u79fb\u6392\u969c.",
+    "path": "category/backend-api-design/huawei-cloud-mgc-migration-ecs-gcp-to-hw"
+  },
+  {
+    "id": "huawei-cloud-migration-ecs-across-region",
+    "name": "huawei-cloud-migration-ecs-across-region",
+    "category": "backend-api-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Execute and troubleshoot single-source Huawei Cloud server migration in this repository via SMS with rsync fallback, orchestrated by Terraform + `scripts/mgc_migrate.py` against the Huawei Cloud SMS/ECS/VPC/IAM REST APIs. Also includes a standalone rsync-based path (`scripts/aws_to_huawei_direct.py`/`aws_to_huawei_rsync.py` via `scripts/run_aws_migration.sh`) for migrating AWS EC2 sources directly into Huawei Cloud. Use when the user asks to migrate an ECS instance, an AWS EC2 instance, or an on-prem VMware VM to Huawei Cloud (especially `la-north-2` -> `la-south-2`), run the end-to-end workflow (`terraform init/apply`), validate prerequisites, map `terraform.tfvars` to runtime env vars, inspect `out/migration_result.json`, diagnose post-run SSH/EIP/cloud-init failures, or diagnose SMS/MGC errors such as SMS.6504, SMS.6602, SMS.6603, SMS.6617, SMS.7605, SMS.7703, and SMS.8115.",
+    "path": "category/backend-api-design/huawei-cloud-migration-ecs-across-region"
   },
   {
     "id": "huawei-cloud-modelarts-notebook-management",
@@ -7160,6 +7224,14 @@
     "path": "category/backend-api-design/m11-ecosystem"
   },
   {
+    "id": "maas-huawei-cloud-maas-tokens-usage",
+    "name": "maas-huawei-cloud-maas-tokens-usage",
+    "category": "backend-api-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Query Huawei Cloud MaaS (Model as a Service) tokens usage statistics, including total tokens, prompt tokens, completion tokens, total requests, and total errors. Read-only queries, supports preset service, my service, and custom endpoint with time range queries (rolling last N days via --last-days, last 7/14/30 days, or a custom --from/--to range). Data source is MaaS ShowStatistics API, consistent with console. Use this skill when the user wants to: (1) query MaaS token consumption statistics, (2) check MaaS service request counts and error rates, (3) analyze token usage for preset service or my service, (4) monitor MaaS usage over a specific time period. Trigger: user mentions \"MaaS\", \"Model as a Service\", \"tokens usage\", \"token consumption\", \"request count\", \"error count\", \"MaaS usage\", \"preset service usage\", \"completion tokens\", \"prompt tokens\", \"MaaS statistics\", \"\u6a21\u578b\u670d\u52a1\", \"\u4ee4\u724c\u7528\u91cf\", \"token\u7edf\u8ba1\", \"token\u7528\u91cf\", \"\u8bcd\u5143\u7528\u91cf\", \"\u8bf7\u6c42\u6b21\u6570\", \"MaaS\u76d1\u63a7\", \"\u534e\u4e3a\u4e91MaaS\" Trigger (verb-style phrasings): user says \"\u67e5\u8be2MaaS\u7528\u91cf\", \"MaaS\u7528\u91cf\u67e5\u8be2\", \"\u67e5\u8be2token\u7528\u91cf\", \"\u7edf\u8ba1MaaS\u4ee4\u724c\u7528\u91cf\", \"\u67e5\u8be2MaaS\u8bf7\u6c42\u6b21\u6570\", \"MaaS\u76d1\u63a7\u6570\u636e\u67e5\u8be2\", \"\u68c0\u67e5MaaS\u9519\u8bef\u7387\", \"query MaaS usage statistics\", \"check MaaS tokens usage\", \"search MaaS usage\", \"find MaaS token consumption\", \"browse MaaS statistics\", \"discover MaaS resource usage",
+    "path": "category/backend-api-design/maas-huawei-cloud-maas-tokens-usage"
+  },
+  {
     "id": "macos-reverse",
     "name": "macos-reverse",
     "category": "backend-api-design",
@@ -7246,6 +7318,14 @@
     "repository": "coreyhaines31-marketingskills",
     "description": "When the user needs a comprehensive marketing plan for a client, a company they advise, or their own product. Also use when the user mentions \"marketing plan,\" \"growth plan,\" \"GTM plan,\" \"go-to-market plan,\" \"AARRR plan,\" \"90-day marketing plan,\" \"12-month marketing roadmap,\" \"fractional CMO plan,\" \"fCMO plan,\" \"market sizing,\" \"TAM SAM SOM,\" \"how big is this market,\" or \"market research.\" Generates an exhaustive 13-section plan structured by AARRR (Acquisition, Activation, Retention, Referral, Revenue), customized to the client's current budget, team, and stage, mapped to future funding milestones, cross-referenced with the 139-idea marketing-ideas library and an embedded 17-section current-state audit rubric, with a marketing operations stack showing which skills and MCP/API integrations execute each part. Outputs a Notion-paste-ready markdown document. For positioning and ICP context before planning, see product-marketing. For stage-specific deep work, see onboarding, signup, emails, referrals, pricing.",
     "path": "category/backend-api-design/marketing-plan"
+  },
+  {
+    "id": "marketing-x-twitter-scraper",
+    "name": "marketing-x-twitter-scraper",
+    "category": "backend-api-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "X API & Twitter scraper skill for AI coding agents. Builds integrations with the Xquik REST API, MCP server & webhooks: tweet search, user lookup, follower extraction, engagement metrics, giveaway contest draws, trending topics, account monitoring, reply/retweet/quote extraction, community & Space data, mutual follow checks. Works with Claude Code, Cursor, Codex, Copilot, Windsurf & 40+ agents.",
+    "path": "category/backend-api-design/marketing-x-twitter-scraper"
   },
   {
     "id": "master-ops",
@@ -7534,6 +7614,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "Create custom external web service APIs for Moodle LMS. Use when implementing web services for course management, user tracking, quiz operations, or custom plugin functionality. Covers parameter va...",
     "path": "category/backend-api-design/moodle-external-api-development"
+  },
+  {
+    "id": "mrs-huawei-cloud-mrs-host-alarm-diagnose",
+    "name": "mrs-huawei-cloud-mrs-host-alarm-diagnose",
+    "category": "backend-api-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud MRS cluster alarm diagnosis skill. Analyzes the root cause of an MRS alarm based on user-provided alarm information (alarm ID, alarm name, alarm details, occurrence time, node IP, related service and logs), then outputs the root cause, repair steps, and verification method. Diagnosis is driven by the built-in LakeWatch API client (lakewatch mode) or the MRS Manager API client (manager mode) and the per-alarm knowledge base under alarms/ (lakewatch) or alarm_manager/ (manager). The API mode is auto-detected by check_api_mode.py. No commands outside the knowledge base are fabricated. Applicable to MRS alarm diagnosis and root cause localization scenarios where an alarm ID is provided. Trigger words: \"\u544a\u8b66\u8bca\u65ad\", \"\u544a\u8b66\u5b9a\u4f4d\", \"alarm diagnosis\", \"alarm diagnose\", \"MRS\u544a\u8b66\", \"\u544a\u8b66\u539f\u56e0\", \"\u544a\u8b66ID\", \"alarm ID\", \"root cause",
+    "path": "category/backend-api-design/mrs-huawei-cloud-mrs-host-alarm-diagnose"
   },
   {
     "id": "msbuild",
@@ -7904,6 +7992,22 @@
     "path": "category/backend-api-design/oauth2-provider-design"
   },
   {
+    "id": "obs-huawei-cloud-obs-website-host",
+    "name": "obs-huawei-cloud-obs-website-host",
+    "category": "backend-api-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Configure Huawei Cloud OBS static website hosting with Python SDK and a custom domain. Use when the user needs to enable or repair OBS website hosting, set index or error pages, expose an existing bucket for public website access through a custom domain, or connect that domain through Huawei Cloud DNS when Huawei manages the zone. Triggers include OBS static website hosting, website endpoint, index page, error page, public-read bucket website access, custom domain CNAME, Huawei Cloud DNS, setBucketWebsite. \u4e2d\u6587\u89e6\u53d1\u8bcd\u5305\u62ec\uff1aOBS \u9759\u6001\u7f51\u7ad9\u6258\u7ba1\u3001\u7f51\u7ad9\u6258\u7ba1\u3001\u81ea\u5b9a\u4e49\u57df\u540d\u89e3\u6790\u3002",
+    "path": "category/backend-api-design/obs-huawei-cloud-obs-website-host"
+  },
+  {
+    "id": "obs-huawei-cloud-storage-query",
+    "name": "obs-huawei-cloud-storage-query",
+    "category": "backend-api-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Queries Huawei Cloud storage resources (EVS/OBS/SFS/CBR). Covers cloud disks (volumes/snapshots/types/quotas/recycle bin), OBS buckets (ACL/metadata/notifications/policies/objects), SFS Turbo file systems (shares/perm rules/backend targets/quotas/LDAP/AD), and CBR backups (vaults/policies/backups/tasks/agents/protectables). No write operations. Use this skill when the user needs to query disk info, list buckets/objects, check file system status, or view backup/policy details. Triggers include: \"\u4e91\u786c\u76d8\", \"EVS\", \"\u5bf9\u8c61\u5b58\u50a8\", \"OBS\", \"\u6587\u4ef6\u7cfb\u7edf\", \"SFS\", \"\u5907\u4efd\", \"CBR\", \"\u5b58\u50a8\u5e93\", \"\u5feb\u7167\", \"\u6876\", \"volume\", \"bucket\", \"backup\", \"vault\".",
+    "path": "category/backend-api-design/obs-huawei-cloud-storage-query"
+  },
+  {
     "id": "observe-whatsapp",
     "name": "observe-whatsapp",
     "category": "backend-api-design",
@@ -8214,6 +8318,14 @@
     "repository": "composio-community-awesome-codex-skills",
     "description": "Automate Openweather API tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/backend-api-design/openweather-api-automation"
+  },
+  {
+    "id": "ops-huawei-cloud-solution-ops",
+    "name": "ops-huawei-cloud-solution-ops",
+    "category": "backend-api-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "A skill for Huawei Cloud solution operations. It helps agents inspect, plan, operate, troubleshoot, and verify Huawei Cloud resources through hcloud, Huawei Cloud SDKs, Terraform, and MaaS capabilities. Use this when users want to query or change Huawei Cloud resources, troubleshoot authentication and API issues, assess environments, plan infrastructure, manage costs, or verify operational outcomes.",
+    "path": "category/backend-api-design/ops-huawei-cloud-solution-ops"
   },
   {
     "id": "optimize-agent-prompt",
@@ -9488,12 +9600,44 @@
     "path": "category/backend-api-design/scenario-admin-analytics"
   },
   {
+    "id": "scenario-blender-expert",
+    "name": "scenario-blender-expert",
+    "category": "backend-api-design",
+    "repository": "scenario-labs-skills",
+    "description": "Use when doing any 3D work in Blender through Python or an MCP bridge, headless or in a live session: modeling, sculpting a character or head, retopology, UV unwrapping, baking, texturing, rigging, animating, previs, geometry nodes, lighting and rendering, grease pencil, or finishing an AI-generated mesh into a production asset. Also before exporting or handing off an asset, to check it is ready for a game engine, a render or a 3D print (floating parts, z-fighting, inside-out normals, unapplied scale, missing UVs). Also when a bpy script fails on Blender 5.x API changes, a brush or sculpt operator fails or crashes headless, or a result has to be judged like a professional 3D artist would.",
+    "path": "category/backend-api-design/scenario-blender-expert"
+  },
+  {
+    "id": "scenario-roblox-vfx-audio",
+    "name": "scenario-roblox-vfx-audio",
+    "category": "backend-api-design",
+    "repository": "scenario-labs-skills",
+    "description": "Use when making or fixing Roblox visual effects or game audio: ParticleEmitter, Beam, Trail, flipbook sprite sheets, slash, hit, impact, explosion, fireball, aura or projectile VFX; effects only one player sees, effects that lag or pile up, particles invisible, popping or too bright; the Audio API (AudioPlayer, Wire, AudioEmitter, AudioListener, AudioDeviceOutput, effects), \\\"no sound\\\", \\\"3D sound not working\\\", music, ducking, footsteps, SoundGroup volumes; or importing Scenario-generated sound effects, music, voice or VFX sheets into a Roblox game.",
+    "path": "category/backend-api-design/scenario-roblox-vfx-audio"
+  },
+  {
     "id": "scenario-team-admin",
     "name": "scenario-team-admin",
     "category": "backend-api-design",
     "repository": "scenario-labs-skills",
     "description": "Use when administering a Scenario team from an agent through MCP: restricting which models a team or project can run (model access control, allowlist, blocklist), inviting or removing team and project members, changing roles, capping a member's Creative Unit spend, creating or deleting projects, auditing API keys and their roles or scopes, or attributing consumption per user or model. Keywords: governance, model control, consumption cap, spend limit, API key hygiene, team admin, enterprise.",
     "path": "category/backend-api-design/scenario-team-admin"
+  },
+  {
+    "id": "scenario-unity-mobile",
+    "name": "scenario-unity-mobile",
+    "category": "backend-api-design",
+    "repository": "scenario-labs-skills",
+    "description": "Use when a Unity 6.3 game targets Android or iOS: phone frame budget, overheating after 20 minutes, 'my game stutters on phones', ASTC or ETC2 textures, audio import, URP mobile settings, touch controls, on-screen joystick, UI under the notch or safe area, slow startup, ANRs, 'Android build fails', AAB, keystore signing, target API 36, Google Play upload, iOS Xcode export or archive, privacy manifest, app size, in-app purchases (IAP 5), rewarded ads (LevelPlay), ad consent.",
+    "path": "category/backend-api-design/scenario-unity-mobile"
+  },
+  {
+    "id": "scenario-unreal-expert",
+    "name": "scenario-unreal-expert",
+    "category": "backend-api-design",
+    "repository": "scenario-labs-skills",
+    "description": "Use when an agent drives Unreal Engine 5.8 on a Mac for any task: Editor Python (the unreal module), headless UnrealEditor-Cmd -run=pythonscript jobs, Epic's Unreal MCP server, the Remote Control API, console commands and cvars; when a script breaks on 5.8 (EditorLevelLibrary, Remote Control calls refused, Substrate materials black, MRQ presets); when a level, material, shot or build must be judged by numbers and a screenshot before it is called done; or when a brief must go to the right scenario-unreal-* specialist.",
+    "path": "category/backend-api-design/scenario-unreal-expert"
   },
   {
     "id": "scielo-api",
@@ -10168,12 +10312,60 @@
     "path": "category/backend-api-design/skill-data-derive-client"
   },
   {
+    "id": "skills-agent-operated-software",
+    "name": "skills-agent-operated-software",
+    "category": "backend-api-design",
+    "repository": "mvschwarz-openrig",
+    "description": "Use when designing, building, operating, or diagnosing an ongoing application whose live backend or control loop includes OpenRig agents, including applications with a Markdown, YAML, or JSON agent control plane or a thin surface over specialist agent roles.",
+    "path": "category/backend-api-design/skills-agent-operated-software"
+  },
+  {
+    "id": "skills-agentmemory-rest-api",
+    "name": "skills-agentmemory-rest-api",
+    "category": "backend-api-design",
+    "repository": "rohitg00-agentmemory",
+    "description": "The agentmemory HTTP REST API surface, the primary protocol for talking to the memory server. Use when calling agentmemory over HTTP, when MCP is unavailable and you need a fallback, or when integrating a host that does not speak MCP.",
+    "path": "category/backend-api-design/skills-agentmemory-rest-api"
+  },
+  {
+    "id": "skills-ai-regression-testing",
+    "name": "skills-ai-regression-testing",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "AI \u652f\u63f4\u958b\u767a\u306e\u305f\u3081\u306e\u30ea\u30b0\u30ec\u30c3\u30b7\u30e7\u30f3\u30c6\u30b9\u30c8\u6226\u7565\u3002\u30c7\u30fc\u30bf\u30d9\u30fc\u30b9\u4f9d\u5b58\u306a\u3057\u306e\u30b5\u30f3\u30c9\u30dc\u30c3\u30af\u30b9\u30e2\u30fc\u30c9 API \u30c6\u30b9\u30c8\u3001\u81ea\u52d5\u5316\u3055\u308c\u305f\u30d0\u30b0\u30c1\u30a7\u30c3\u30af\u30ef\u30fc\u30af\u30d5\u30ed\u30fc\u3001\u540c\u3058\u30e2\u30c7\u30eb\u304c\u30b3\u30fc\u30c9\u3092\u66f8\u3044\u3066\u30ec\u30d3\u30e5\u30fc\u3059\u308b AI \u306e\u30d6\u30e9\u30a4\u30f3\u30c9\u30b9\u30dd\u30c3\u30c8\u3092\u6355\u6349\u3059\u308b\u30d1\u30bf\u30fc\u30f3\u3002",
+    "path": "category/backend-api-design/skills-ai-regression-testing"
+  },
+  {
+    "id": "skills-api-connector-builder",
+    "name": "skills-api-connector-builder",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "\u30bf\u30fc\u30b2\u30c3\u30c8 \u30ea\u30dd\u30b8\u30c8\u30ea\u306e\u65e2\u5b58\u7d71\u5408\u30d1\u30bf\u30fc\u30f3\u306b\u6b63\u78ba\u306b\u4e00\u81f4\u3059\u308b\u65b0\u3057\u3044 API \u30b3\u30cd\u30af\u30bf\u30fc\u307e\u305f\u306f\u30d7\u30ed\u30d0\u30a4\u30c0\u30fc\u3092\u69cb\u7bc9\u3057\u307e\u3059\u30022 \u756a\u76ee\u306e\u30a2\u30fc\u30ad\u30c6\u30af\u30c1\u30e3\u3092\u767a\u660e\u305b\u305a\u306b\u30011 \u3064\u4ee5\u4e0a\u306e\u7d71\u5408\u3092\u8ffd\u52a0\u3059\u308b\u3068\u304d\u306b\u4f7f\u7528\u3057\u307e\u3059\u3002",
+    "path": "category/backend-api-design/skills-api-connector-builder"
+  },
+  {
+    "id": "skills-api-design",
+    "name": "skills-api-design",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "Patrones de dise\u00f1o REST API incluyendo nomenclatura de recursos, c\u00f3digos de estado, paginaci\u00f3n, filtrado, respuestas de error, versionado y rate limiting para APIs de producci\u00f3n.",
+    "path": "category/backend-api-design/skills-api-design"
+  },
+  {
     "id": "skills-api-versioning",
     "name": "skills-api-versioning",
     "category": "backend-api-design",
     "repository": "codewithmukesh-dotnet-claude-kit",
     "description": "API versioning strategies for ASP.NET Core. Covers Asp.Versioning library, URL segment, header, and query string strategies, version deprecation, and OpenAPI integration. Load this skill when adding versioning to an API, evolving an API with breaking changes, or when the user mentions \"API version\", \"versioning\", \"v1/v2\", \"Asp.Versioning\", \"deprecation\", \"breaking change\", or \"backward compatibility\".",
     "path": "category/backend-api-design/skills-api-versioning"
+  },
+  {
+    "id": "skills-asc-subscription-localization",
+    "name": "skills-asc-subscription-localization",
+    "category": "backend-api-design",
+    "repository": "rorkai-app-store-connect-cli-skills",
+    "description": "Bulk-localize subscription, subscription-group, and in-app purchase display names across App Store locales using asc, including API 4.4.1 version-scoped v2 resources. Use when filling or updating subscription/IAP names and descriptions without App Store Connect UI work.",
+    "path": "category/backend-api-design/skills-asc-subscription-localization"
   },
   {
     "id": "skills-auth-guide",
@@ -10224,6 +10416,14 @@
     "path": "category/backend-api-design/skills-azure-kubernetes"
   },
   {
+    "id": "skills-backend-patterns",
+    "name": "skills-backend-patterns",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "Patrones de arquitectura backend, dise\u00f1o de API, optimizaci\u00f3n de base de datos y buenas pr\u00e1cticas del lado del servidor para Node.js, Express y rutas API de Next.js.",
+    "path": "category/backend-api-design/skills-backend-patterns"
+  },
+  {
     "id": "skills-baoyu-danger-gemini-web",
     "name": "skills-baoyu-danger-gemini-web",
     "category": "backend-api-design",
@@ -10256,6 +10456,14 @@
     "path": "category/backend-api-design/skills-build-zoom-bot"
   },
   {
+    "id": "skills-carrel-search",
+    "name": "skills-carrel-search",
+    "category": "backend-api-design",
+    "repository": "fengzhenfei-carrel",
+    "description": "Query the user's local knowledge bases through the Carrel search API, use original text and source images as needed in the answer, list the reference files and offer follow-up directions drawn from the knowledge graph. Use when the user asks to search the knowledge base, find evidence in the stored material, compare records, or answer from several documents together.",
+    "path": "category/backend-api-design/skills-carrel-search"
+  },
+  {
     "id": "skills-choose-your-parallel-api",
     "name": "skills-choose-your-parallel-api",
     "category": "backend-api-design",
@@ -10270,6 +10478,62 @@
     "repository": "clerk-skills",
     "description": "Clerk Backend REST API explorer and executor. Browse tags, inspect endpoint schemas, and execute authenticated requests. Use when listing users, managing organizations, or calling any Clerk API endpoint.",
     "path": "category/backend-api-design/skills-clerk-backend-api"
+  },
+  {
+    "id": "skills-codex-auto-review-loop-llm",
+    "name": "skills-codex-auto-review-loop-llm",
+    "category": "backend-api-design",
+    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "description": "Autonomous research review loop using any OpenAI-compatible LLM API. Configure via llm-chat MCP server or environment variables. Trigger with \\\"auto review loop llm\\\" or \\\"llm review\\\".",
+    "path": "category/backend-api-design/skills-codex-auto-review-loop-llm"
+  },
+  {
+    "id": "skills-codex-auto-review-loop-minimax",
+    "name": "skills-codex-auto-review-loop-minimax",
+    "category": "backend-api-design",
+    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "description": "Autonomous multi-round research review loop using MiniMax API. Use when you want to use MiniMax instead of Codex MCP for external review. Trigger with \\\"auto review loop minimax\\\" or \\\"minimax review\\\".",
+    "path": "category/backend-api-design/skills-codex-auto-review-loop-minimax"
+  },
+  {
+    "id": "skills-codex-firecrawl-search",
+    "name": "skills-codex-firecrawl-search",
+    "category": "backend-api-design",
+    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "description": "Web search and page scraping via Firecrawl, returning full-page markdown. Use when user says \"firecrawl search\", \"firecrawl scrape\" or \"/firecrawl-search\".",
+    "path": "category/backend-api-design/skills-codex-firecrawl-search"
+  },
+  {
+    "id": "skills-codex-keenable-search",
+    "name": "skills-codex-keenable-search",
+    "category": "backend-api-design",
+    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "description": "Keyless web search and page fetch via Keenable. Use when user says \"keenable search\", \"web search without an API key\", \"fetch this page as markdown\", or needs broad web results beyond academic databases (arXiv, Semantic Scholar) with no search API key set up.",
+    "path": "category/backend-api-design/skills-codex-keenable-search"
+  },
+  {
+    "id": "skills-codex-openalex",
+    "name": "skills-codex-openalex",
+    "category": "backend-api-design",
+    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "description": "Search academic papers via OpenAlex API for open citation data, institutional affiliations, and funding information. Use when user says \"openalex search\", \"search openalex\", \"open citation graph\", or wants comprehensive academic metadata beyond arXiv/Semantic Scholar.",
+    "path": "category/backend-api-design/skills-codex-openalex"
+  },
+  {
+    "id": "skills-codex-semantic-scholar",
+    "name": "skills-codex-semantic-scholar",
+    "category": "backend-api-design",
+    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "description": "Search published venue papers (IEEE, ACM, Springer, etc.) via Semantic Scholar API. Complements /arxiv (preprints) with citation counts, venue metadata, and TLDR. Use when user says \"search semantic scholar\", \"find IEEE papers\", \"find journal papers\", \"venue papers\", \"citation search\", or wants published literature beyond arXiv preprints.",
+    "path": "category/backend-api-design/skills-codex-semantic-scholar"
+  },
+  {
+    "id": "skills-coding-standards",
+    "name": "skills-coding-standards",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "Convenciones de codificaci\u00f3n base entre proyectos para nomenclatura, legibilidad, inmutabilidad y revisi\u00f3n de calidad de c\u00f3digo. Usar skills de frontend o backend para patrones espec\u00edficos de frameworks.",
+    "path": "category/backend-api-design/skills-coding-standards"
   },
   {
     "id": "skills-debug-zoom",
@@ -10288,6 +10552,22 @@
     "path": "category/backend-api-design/skills-design-mcp-workflow"
   },
   {
+    "id": "skills-django-patterns",
+    "name": "skills-django-patterns",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "Patrones de arquitectura Django, dise\u00f1o de API REST con DRF, buenas pr\u00e1cticas de ORM, cach\u00e9, se\u00f1ales, middleware y aplicaciones Django de nivel producci\u00f3n.",
+    "path": "category/backend-api-design/skills-django-patterns"
+  },
+  {
+    "id": "skills-django-tdd",
+    "name": "skills-django-tdd",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "Django testing strategies with pytest-django, TDD methodology, factory_boy, mocking, coverage, and testing Django REST Framework APIs.",
+    "path": "category/backend-api-design/skills-django-tdd"
+  },
+  {
     "id": "skills-dotnet-init",
     "name": "skills-dotnet-init",
     "category": "backend-api-design",
@@ -10302,6 +10582,14 @@
     "repository": "microsoft-azure-skills",
     "description": "Guides Microsoft Entra ID app registration, OAuth 2.0 authentication, and MSAL integration. USE FOR: create app registration, register Azure AD app, configure OAuth, set up authentication, add API permissions, generate service principal, MSAL example, console app auth, Entra ID setup, Azure AD authentication. DO NOT USE FOR: Key Vault secrets (use azure-keyvault-expiration-audit), general Azure resource security guidance.",
     "path": "category/backend-api-design/skills-entra-app-registration"
+  },
+  {
+    "id": "skills-fastapi-patterns",
+    "name": "skills-fastapi-patterns",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "\u975e\u540c\u671fAPI\u3001\u4f9d\u5b58\u6027\u6ce8\u5165\u3001Pydantic\u306e\u30ea\u30af\u30a8\u30b9\u30c8\u30fb\u30ec\u30b9\u30dd\u30f3\u30b9\u30e2\u30c7\u30eb\u3001OpenAPI\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\u3001\u30c6\u30b9\u30c8\u3001\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3001\u672c\u756a\u5bfe\u5fdc\u306e\u305f\u3081\u306eFastAPI\u30d1\u30bf\u30fc\u30f3\u3002",
+    "path": "category/backend-api-design/skills-fastapi-patterns"
   },
   {
     "id": "skills-find-skills",
@@ -10360,12 +10648,28 @@
     "path": "category/backend-api-design/skills-flutter-use-http-package"
   },
   {
+    "id": "skills-gateguard",
+    "name": "skills-gateguard",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "API\u3001\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u3001\u304a\u3088\u3073LLM\u30a8\u30f3\u30c9\u30dd\u30a4\u30f3\u30c8\u306e\u30a2\u30af\u30bb\u30b9\u5236\u5fa1\u3068\u8a8d\u53ef\u30d1\u30bf\u30fc\u30f3\u3002",
+    "path": "category/backend-api-design/skills-gateguard"
+  },
+  {
     "id": "skills-general",
     "name": "skills-general",
     "category": "backend-api-design",
     "repository": "anthropics-knowledge-work",
     "description": "Cross-product Zoom reference skill. Use after the workflow is clear when you need shared platform guidance, app-model comparisons, authentication context, scopes, marketplace considerations, or API-vs-MCP routing.",
     "path": "category/backend-api-design/skills-general"
+  },
+  {
+    "id": "skills-google-workspace-ops",
+    "name": "skills-google-workspace-ops",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "Google Workspace API\u64cd\u4f5c\u3001Sheets\u81ea\u52d5\u5316\u3001Gmail\u7d71\u5408\u3001\u304a\u3088\u3073\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\u7ba1\u7406\u3002",
+    "path": "category/backend-api-design/skills-google-workspace-ops"
   },
   {
     "id": "skills-hiring-screener",
@@ -10382,6 +10686,30 @@
     "repository": "anthropics-claude-plugins-official",
     "description": "This skill should be used when the user asks to \"create a hook\", \"add a PreToolUse/PostToolUse/Stop hook\", \"validate tool use\", \"implement prompt-based hooks\", \"use ${CLAUDE_PLUGIN_ROOT}\", \"set up event-driven automation\", \"block dangerous commands\", or mentions hook events (PreToolUse, PostToolUse, Stop, SubagentStop, SessionStart, SessionEnd, UserPromptSubmit, PreCompact, Notification). Provides comprehensive guidance for creating and implementing Claude Code plugin hooks with focus on advanced prompt-based hooks API.",
     "path": "category/backend-api-design/skills-hook-development"
+  },
+  {
+    "id": "skills-ios-icon-gen",
+    "name": "skills-ios-icon-gen",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "SF Symbols\uff08Apple \u30cd\u30a4\u30c6\u30a3\u30d6 5,000 \u4ef6\u4ee5\u4e0a\uff09\u307e\u305f\u306f Iconify API\uff08200 \u4ee5\u4e0a\u306e\u30b3\u30ec\u30af\u30b7\u30e7\u30f3\u304b\u3089 275,000 \u4ef6\u4ee5\u4e0a\u306e\u30aa\u30fc\u30d7\u30f3\u30bd\u30fc\u30b9\u30a2\u30a4\u30b3\u30f3\uff09\u304b\u3089 Xcode \u30a2\u30bb\u30c3\u30c8\u30ab\u30bf\u30ed\u30b0\u7528\u306e PNG \u30a4\u30e1\u30fc\u30b8\u30bb\u30c3\u30c8\u3068\u3057\u3066 iOS \u30a2\u30d7\u30ea\u30a2\u30a4\u30b3\u30f3\u3092\u751f\u6210\u3057\u307e\u3059\u3002\u30a2\u30a4\u30b3\u30f3\u306e\u751f\u6210\u3001\u30a2\u30a4\u30b3\u30f3\u30a2\u30bb\u30c3\u30c8\u306e\u4f5c\u6210\u3001\u30a2\u30bb\u30c3\u30c8\u30ab\u30bf\u30ed\u30b0\u3078\u306e\u30a2\u30a4\u30b3\u30f3\u8ffd\u52a0\u3001\u307e\u305f\u306f iOS \u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u5411\u3051\u30a2\u30a4\u30b3\u30f3\u306e\u691c\u7d22\u3092\u884c\u3046\u969b\u306b\u4f7f\u7528\u3057\u307e\u3059\u3002",
+    "path": "category/backend-api-design/skills-ios-icon-gen"
+  },
+  {
+    "id": "skills-jira-integration",
+    "name": "skills-jira-integration",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "Jira \u30c1\u30b1\u30c3\u30c8\u306e\u53d6\u5f97\u3001\u8981\u4ef6\u5206\u6790\u3001\u30c1\u30b1\u30c3\u30c8\u30b9\u30c6\u30fc\u30bf\u30b9\u306e\u66f4\u65b0\u3001\u30b3\u30e1\u30f3\u30c8\u306e\u8ffd\u52a0\u3001\u307e\u305f\u306f\u30a4\u30b7\u30e5\u30fc\u306e\u30c8\u30e9\u30f3\u30b8\u30b7\u30e7\u30f3\u3092\u884c\u3046\u969b\u306b\u4f7f\u7528\u3057\u307e\u3059\u3002MCP \u307e\u305f\u306f\u76f4\u63a5 REST \u547c\u3073\u51fa\u3057\u306b\u3088\u308b Jira API \u30d1\u30bf\u30fc\u30f3\u3092\u63d0\u4f9b\u3057\u307e\u3059\u3002",
+    "path": "category/backend-api-design/skills-jira-integration"
+  },
+  {
+    "id": "skills-laravel-patterns",
+    "name": "skills-laravel-patterns",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "Patrones de arquitectura Laravel, routing/controladores, Eloquent ORM, capas de servicio, colas, eventos, cach\u00e9 y API resources para aplicaciones en producci\u00f3n.",
+    "path": "category/backend-api-design/skills-laravel-patterns"
   },
   {
     "id": "skills-migrate-to-parallel",
@@ -10408,6 +10736,14 @@
     "path": "category/backend-api-design/skills-mirrord-operator"
   },
   {
+    "id": "skills-modlens",
+    "name": "skills-modlens",
+    "category": "backend-api-design",
+    "repository": "liustack-modlens",
+    "description": "Plug-in vision for text-only models. Hard rule: when a file path or URL with an image extension (.png, .jpg, .jpeg, .webp, .gif, .heic, .heif) appears anywhere in the conversation (typed by the user, injected as a `[Image: source: <path>]` line, or inside a tag) and you cannot see that image's content, run this skill on it before any other approach: no self-built OCR, no PIL, no tesseract. Also triggers on pasted-image placeholders such as `[Image #1]` and `[Unsupported Image]`. If you can actually see the image, do not use this skill. When unsure, run `modlens guard` before the first read of a session: a deny verdict means the active model has native vision and must read the image itself. Runs the modlens CLI to convert the image into structured JSON evidence: every word transcribed, layout regions, semantics, visual clues. Also use when the user asks how to install, configure, or switch modlens providers (Gemini API key, OpenAI-compatible endpoints, Claude API or Claude Code CLI).",
+    "path": "category/backend-api-design/skills-modlens"
+  },
+  {
     "id": "skills-msbuild",
     "name": "skills-msbuild",
     "category": "backend-api-design",
@@ -10422,6 +10758,30 @@
     "repository": "yuan1z0825-nature-skills",
     "description": "Use when a user needs lawful academic full text, CNKI institutional access, English OA retrieval, publisher API access, institutional browser fallback, or supporting information downloads.",
     "path": "category/backend-api-design/skills-nature-downloader"
+  },
+  {
+    "id": "skills-nemo-fabric-integrate",
+    "name": "skills-nemo-fabric-integrate",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when integrating NVIDIA NeMo Fabric into a consumer application, service, evaluation harness, or platform through the typed Python SDK \u2014 translating the consumer's own application, job, or deployment config into an in-memory FabricConfig, choosing the single-invocation convenience API or an explicitly started runtime, validating with plan and doctor, and consuming normalized results, artifacts, and telemetry.",
+    "path": "category/backend-api-design/skills-nemo-fabric-integrate"
+  },
+  {
+    "id": "skills-nestjs-patterns",
+    "name": "skills-nestjs-patterns",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "\u65e5\u672c\u8a9e\u7ffb\u8a33\uff1a\u3053\u306e\u30d5\u30a1\u30a4\u30eb\u306f nestjs-patterns \u7528\u306e\u65e5\u672c\u8a9e\u7ffb\u8a33\u304c\u5fc5\u8981\u3067\u3059",
+    "path": "category/backend-api-design/skills-nestjs-patterns"
+  },
+  {
+    "id": "skills-nodejs-keccak256",
+    "name": "skills-nodejs-keccak256",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "JavaScript\u3068TypeScript\u306b\u304a\u3051\u308bEthereum\u30cf\u30c3\u30b7\u30e5\u30d0\u30b0\u3092\u9632\u3050\u3002Node\u306eSHA3-256\u306fNIST SHA3\u3067\u3042\u308a\u3001Ethereum Keccak-256\u3067\u306f\u306a\u304f\u3001\u30bb\u30ec\u30af\u30bf\u30fc\u3001\u7f72\u540d\u3001\u30b9\u30c8\u30ec\u30fc\u30b8\u30b9\u30ed\u30c3\u30c8\u3001\u30a2\u30c9\u30ec\u30b9\u5c0e\u51fa\u3092\u9759\u304b\u306b\u7834\u58ca\u3059\u308b\u3002",
+    "path": "category/backend-api-design/skills-nodejs-keccak256"
   },
   {
     "id": "skills-okx-agent-payments-protocol",
@@ -10480,6 +10840,22 @@
     "path": "category/backend-api-design/skills-principle-minimize-reader-load"
   },
   {
+    "id": "skills-quarkus-patterns",
+    "name": "skills-quarkus-patterns",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "Patrones de arquitectura Quarkus 3.x LTS con Camel para mensajer\u00eda, dise\u00f1o de API RESTful, servicios CDI, acceso a datos con Panache y procesamiento as\u00edncrono.",
+    "path": "category/backend-api-design/skills-quarkus-patterns"
+  },
+  {
+    "id": "skills-quarkus-tdd",
+    "name": "skills-quarkus-tdd",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "Desarrollo guiado por pruebas para Quarkus 3.x LTS usando JUnit 5, Mockito, REST Assured, pruebas Camel y JaCoCo. Usar al agregar funcionalidades, corregir bugs o refactorizar servicios orientados a eventos.",
+    "path": "category/backend-api-design/skills-quarkus-tdd"
+  },
+  {
     "id": "skills-rest-api",
     "name": "skills-rest-api",
     "category": "backend-api-design",
@@ -10510,6 +10886,30 @@
     "repository": "codewithmukesh-dotnet-claude-kit",
     "description": "Scalar API documentation UI for .NET 10 applications. Covers setup, themes, authentication prefill, multiple documents, layout options, and security. A modern replacement for Swagger UI. Load this skill when setting up API documentation UI, or when the user mentions \"Scalar\", \"MapScalarApiReference\", \"API reference\", \"Swagger UI replacement\", \"API documentation UI\", \"Scalar theme\", \"interactive API docs\", or \"Try It\".",
     "path": "category/backend-api-design/skills-scalar"
+  },
+  {
+    "id": "skills-scientific-db-pubmed-database",
+    "name": "skills-scientific-db-pubmed-database",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "\u751f\u7269\u533b\u5b66\u6587\u732e\u3001MeSH \u30af\u30a8\u30ea\u3001PMID \u691c\u7d22\u3001\u5f15\u7528\u53d6\u5f97\u3001\u304a\u3088\u3073 API \u3092\u5229\u7528\u3057\u305f\u6587\u732e\u30e2\u30cb\u30bf\u30ea\u30f3\u30b0\u306e\u305f\u3081\u306e PubMed \u304a\u3088\u3073 NCBI E-utilities \u306e\u76f4\u63a5\u691c\u7d22\u30ef\u30fc\u30af\u30d5\u30ed\u30fc\u3002",
+    "path": "category/backend-api-design/skills-scientific-db-pubmed-database"
+  },
+  {
+    "id": "skills-security-review",
+    "name": "skills-security-review",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "Usar este skill al agregar autenticaci\u00f3n, manejar entradas de usuario, trabajar con secretos, crear endpoints de API o implementar funcionalidades de pago/sensibles. Proporciona lista de verificaci\u00f3n y patrones de seguridad completos.",
+    "path": "category/backend-api-design/skills-security-review"
+  },
+  {
+    "id": "skills-seo-analysis",
+    "name": "skills-seo-analysis",
+    "category": "backend-api-design",
+    "repository": "nowork-studio-notfair-plugin",
+    "description": "Full SEO audit combining Google Search Console, URL Inspection API, PageSpeed Insights, a technical crawl, keyword research, and metadata, schema, search intent and Core Web Vitals checks. Surfaces quick wins, diagnoses traffic drops and content gaps, and produces an actionable 30-day plan. Use whenever the user asks about SEO, search rankings, organic traffic, Google Search Console, keyword performance, search visibility, technical SEO, URL indexing, or LCP, INP, CLS or Lighthouse scores. Also trigger on: \"why is my traffic down\", \"what keywords am I ranking for\", \"improve my rankings\", \"check my search console\", \"SEO audit\", \"analyze my SEO\", \"technical SEO\", \"meta tags\", \"indexing issues\", \"crawl errors\", \"content strategy\", \"keyword cannibalization\", \"search intent\", \"schema markup\", \"structured data\", \"URL inspection\", \"page speed\", \"performance score\", \"core web vitals\", \"lighthouse\", or any organic search question. If in doubt, trigger.",
+    "path": "category/backend-api-design/skills-seo-analysis"
   },
   {
     "id": "skills-setup-multiplayer-services",
@@ -10558,6 +10958,14 @@
     "repository": "unity-technologies-skills",
     "description": "Reviews a Unity 6 URP ScriptableRendererFeature that uses the Render Graph API, checking resource wiring, material binding, execution structure, and best practices. Use to validate a renderer feature.",
     "path": "category/backend-api-design/skills-validate-urp-render-graph-renderer-feature"
+  },
+  {
+    "id": "skills-x-api",
+    "name": "skills-x-api",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "\u30c4\u30a4\u30fc\u30c8\u306e\u6295\u7a3f\u3001\u30b9\u30ec\u30c3\u30c9\u3001\u30bf\u30a4\u30e0\u30e9\u30a4\u30f3\u306e\u8aad\u307f\u53d6\u308a\u3001\u691c\u7d22\u3001\u5206\u6790\u306e\u305f\u3081\u306eX/Twitter API\u7d71\u5408\u3002OAuth\u8a8d\u8a3c\u30d1\u30bf\u30fc\u30f3\u3001\u30ec\u30fc\u30c8\u30ea\u30df\u30c3\u30c8\u3001\u30d7\u30e9\u30c3\u30c8\u30d5\u30a9\u30fc\u30e0\u30cd\u30a4\u30c6\u30a3\u30d6\u306a\u30b3\u30f3\u30c6\u30f3\u30c4\u6295\u7a3f\u3092\u30ab\u30d0\u30fc\u3059\u308b\u3002\u30e6\u30fc\u30b6\u30fc\u304c\u30d7\u30ed\u30b0\u30e9\u30e0\u3067X\u3068\u5bfe\u8a71\u3057\u305f\u3044\u5834\u5408\u306b\u4f7f\u7528\u3059\u308b\u3002",
+    "path": "category/backend-api-design/skills-x-api"
   },
   {
     "id": "skills-x-api-mcp-guide",
@@ -12006,6 +12414,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Wrapper oficial de M2MCent (Node.js) para inyectar muros de pago x402 en APIs o servidores Model Context Protocol (MCP). Usar al construir nuevos servicios que requieran monetizaci\u00f3n m\u00e1quina a m\u00e1quina.",
     "path": "category/backend-api-design/x402-express-wrapper"
+  },
+  {
+    "id": "xdevplatform-xurl",
+    "name": "xdevplatform-xurl",
+    "category": "backend-api-design",
+    "repository": "xdevplatform-xurl",
+    "description": "A curl-like CLI tool for making authenticated requests to the X (Twitter) API. Use this skill when you need to post tweets, reply, quote, search, read posts, manage followers, send DMs, send or read end-to-end encrypted XChat messages, upload media, or interact with any X API v2 endpoint. Supports multiple apps, OAuth 2.0, OAuth 1.0a, and app-only auth.",
+    "path": "category/backend-api-design/xdevplatform-xurl"
   },
   {
     "id": "yapily",

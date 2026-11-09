@@ -140,6 +140,36 @@
     "link_cmd": "python .agents/library/activate_skill.py link bionemo-complexa-target"
   },
   {
+    "id": "bionemo-cuequivariance",
+    "name": "bionemo-cuequivariance",
+    "repository": "nvidia-skills",
+    "category": "general",
+    "description": "Use when defining cuEquivariance groups and irreps, building equivariant tensor products, or validating segmented polynomials with NumPy.",
+    "path": "library/nvidia-skills/skills/bionemo-cuequivariance",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bionemo-cuequivariance",
+    "link_cmd": "python .agents/library/activate_skill.py link bionemo-cuequivariance"
+  },
+  {
+    "id": "bionemo-cuequivariance-jax",
+    "name": "bionemo-cuequivariance-jax",
+    "repository": "nvidia-skills",
+    "category": "general",
+    "description": "Use when writing or debugging cuEquivariance JAX polynomials, irrep dictionaries, Flax NNX layers, or CPU/CUDA execution and layouts.",
+    "path": "library/nvidia-skills/skills/bionemo-cuequivariance-jax",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bionemo-cuequivariance-jax",
+    "link_cmd": "python .agents/library/activate_skill.py link bionemo-cuequivariance-jax"
+  },
+  {
+    "id": "bionemo-cuequivariance-torch",
+    "name": "bionemo-cuequivariance-torch",
+    "repository": "nvidia-skills",
+    "category": "general",
+    "description": "Use when building or debugging cuEquivariance PyTorch tensor products or equivariant GNNs, especially CPU references, layouts, indexing, and gradients.",
+    "path": "library/nvidia-skills/skills/bionemo-cuequivariance-torch",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bionemo-cuequivariance-torch",
+    "link_cmd": "python .agents/library/activate_skill.py link bionemo-cuequivariance-torch"
+  },
+  {
     "id": "bionemo-diffdock-nim",
     "name": "bionemo-diffdock-nim",
     "repository": "nvidia-skills",
@@ -528,6 +558,26 @@
     "path": "library/nvidia-skills/skills/cudaq-importing",
     "activation_cmd": "python .agents/library/activate_skill.py activate cudaq-importing",
     "link_cmd": "python .agents/library/activate_skill.py link cudaq-importing"
+  },
+  {
+    "id": "cudf-query-engine-builder",
+    "name": "cudf-query-engine-builder",
+    "repository": "nvidia-skills",
+    "category": "general",
+    "description": "Build the first native, single-GPU cuDF path in a query engine, or complete its initial adapter. Use for libcudf C++ or cuDF Java implementation, buffer ownership, worker readiness and CPU/reference comparison, including identifying missing POC inputs. Excludes standalone dataframe analysis, cuDF mainline changes, production integration and distributed or multi-GPU execution. Bundled maintainer evaluations use CPU simulations and source review; they do not run CUDA.",
+    "path": "library/nvidia-skills/skills/cudf-query-engine-builder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cudf-query-engine-builder",
+    "link_cmd": "python .agents/library/activate_skill.py link cudf-query-engine-builder"
+  },
+  {
+    "id": "cuml",
+    "name": "cuml",
+    "repository": "nvidia-skills",
+    "category": "general",
+    "description": ">-",
+    "path": "library/nvidia-skills/skills/cuml",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cuml",
+    "link_cmd": "python .agents/library/activate_skill.py link cuml"
   },
   {
     "id": "cuopt-developer",
@@ -1748,6 +1798,26 @@
     "path": "library/nvidia-skills/skills/i4h-workflow-validate",
     "activation_cmd": "python .agents/library/activate_skill.py activate i4h-workflow-validate",
     "link_cmd": "python .agents/library/activate_skill.py link i4h-workflow-validate"
+  },
+  {
+    "id": "isaac-cable-insertion-policy-deployment",
+    "name": "isaac-cable-insertion-policy-deployment",
+    "repository": "nvidia-skills",
+    "category": "general",
+    "description": "Export a trained Isaac Lab DisplayPort task-space checkpoint with LEAPP, run it through Isaac ROS Deploy and Isaac Sim 6.0 in separate Docker containers, verify training asset parity, and record insertion video and measured results. Use for post-training simulation deployment and testing of cable insertion policies.",
+    "path": "library/nvidia-skills/skills/isaac-cable-insertion-policy-deployment",
+    "activation_cmd": "python .agents/library/activate_skill.py activate isaac-cable-insertion-policy-deployment",
+    "link_cmd": "python .agents/library/activate_skill.py link isaac-cable-insertion-policy-deployment"
+  },
+  {
+    "id": "isaac-cable-insertion-policy-training",
+    "name": "isaac-cable-insertion-policy-training",
+    "repository": "nvidia-skills",
+    "category": "general",
+    "description": "Set up the standalone IsaacLabTraining package from NVIDIA-ISAAC-ROS/isaac_ros_manipulation, then launch, monitor, resume, evaluate, and tune DisplayPort insertion policies without a separate Isaac Lab source installation. Use for setup and campaign planning, dependency repair, curriculum or PhysX troubleshooting, video evidence, and long GPU runs.",
+    "path": "library/nvidia-skills/skills/isaac-cable-insertion-policy-training",
+    "activation_cmd": "python .agents/library/activate_skill.py activate isaac-cable-insertion-policy-training",
+    "link_cmd": "python .agents/library/activate_skill.py link isaac-cable-insertion-policy-training"
   },
   {
     "id": "isaac-humanoid-cloud-control",
@@ -3378,6 +3448,86 @@
     "path": "library/nvidia-skills/skills/skill-card-generator",
     "activation_cmd": "python .agents/library/activate_skill.py activate skill-card-generator",
     "link_cmd": "python .agents/library/activate_skill.py link skill-card-generator"
+  },
+  {
+    "id": "skills-data-designer",
+    "name": "skills-data-designer",
+    "repository": "nvidia-skills",
+    "category": "general",
+    "description": "Use when the user wants to create a dataset, generate synthetic data, or build a data generation pipeline. The argument is the description of the dataset to generate.",
+    "path": "library/nvidia-skills/skills/skills-data-designer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-data-designer",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-data-designer"
+  },
+  {
+    "id": "skills-deepstream-run-mv3dt",
+    "name": "skills-deepstream-run-mv3dt",
+    "repository": "nvidia-skills",
+    "category": "general",
+    "description": "\"Run and operate the DeepStream Multi-View 3D Tracking reference app, also known as MV3DT. Use when the user asks to set up prerequisites, run shipped MV3DT samples, run Multi-View 3D Tracking on custom synchronized MP4 datasets, import camera calibration, delegate missing calibration to AutoMagicCalib, inspect OSD or BEV visualization, consume MV3DT Kafka metadata, or clean up MV3DT run state in the DeepStream MV3DT app directory.\"",
+    "path": "library/nvidia-skills/skills/skills-deepstream-run-mv3dt",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-deepstream-run-mv3dt",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-deepstream-run-mv3dt"
+  },
+  {
+    "id": "skills-isaac-humanoid-cloud-control",
+    "name": "skills-isaac-humanoid-cloud-control",
+    "repository": "nvidia-skills",
+    "category": "general",
+    "description": "Run streamed Unitree G1 cloud-navigation demos in Isaac Sim with guarded gantry release. Use for demo, destination, Mission Control, or cleanup requests.",
+    "path": "library/nvidia-skills/skills/skills-isaac-humanoid-cloud-control",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-isaac-humanoid-cloud-control",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-isaac-humanoid-cloud-control"
+  },
+  {
+    "id": "skills-nemo-fabric-integrate",
+    "name": "skills-nemo-fabric-integrate",
+    "repository": "nvidia-skills",
+    "category": "general",
+    "description": "Use this skill when integrating NVIDIA NeMo Fabric into a consumer application, service, evaluation harness, or platform through the typed Python SDK \u2014 translating the consumer's own application, job, or deployment config into an in-memory FabricConfig, choosing the single-invocation convenience API or an explicitly started runtime, validating with plan and doctor, and consuming normalized results, artifacts, and telemetry.",
+    "path": "library/nvidia-skills/skills/skills-nemo-fabric-integrate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-nemo-fabric-integrate",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-nemo-fabric-integrate"
+  },
+  {
+    "id": "skills-nemo-mbridge-perf-megatron-fsdp",
+    "name": "skills-nemo-mbridge-perf-megatron-fsdp",
+    "repository": "nvidia-skills",
+    "category": "general",
+    "description": "Operational guide for enabling Megatron FSDP in Megatron-Bridge, including config knobs, code anchors, pitfalls, and verification.",
+    "path": "library/nvidia-skills/skills/skills-nemo-mbridge-perf-megatron-fsdp",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-nemo-mbridge-perf-megatron-fsdp",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-nemo-mbridge-perf-megatron-fsdp"
+  },
+  {
+    "id": "skills-omniverse-realtime-viewer",
+    "name": "skills-omniverse-realtime-viewer",
+    "repository": "nvidia-skills",
+    "category": "general",
+    "description": "\"Use as the top-level router for Omniverse Realtime Viewer USD apps, XR delivery, SPG GPU processing, stylized rendering, and focused viewer reference documents.\"",
+    "path": "library/nvidia-skills/skills/skills-omniverse-realtime-viewer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-omniverse-realtime-viewer",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-omniverse-realtime-viewer"
+  },
+  {
+    "id": "skills-omniverse-usd-performance-tuning",
+    "name": "skills-omniverse-usd-performance-tuning",
+    "repository": "nvidia-skills",
+    "category": "general",
+    "description": "\"Diagnose and optimize USD stages for slow loading, high memory, low FPS or validation; preserve asset boundaries and reuse shared definitions.\"",
+    "path": "library/nvidia-skills/skills/skills-omniverse-usd-performance-tuning",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-omniverse-usd-performance-tuning",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-omniverse-usd-performance-tuning"
+  },
+  {
+    "id": "skills-physical-ai-neural-reconstruction",
+    "name": "skills-physical-ai-neural-reconstruction",
+    "repository": "nvidia-skills",
+    "category": "general",
+    "description": "\"Router for NVIDIA NuRec/NRE: USDZ rendering, NCore conversion, 3DGS, gRPC sensor sim, carline adaptation, PhysicalAI HF datasets. Do NOT use for SimReady or infra setup.\"",
+    "path": "library/nvidia-skills/skills/skills-physical-ai-neural-reconstruction",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-physical-ai-neural-reconstruction",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-physical-ai-neural-reconstruction"
   },
   {
     "id": "tao-analyze-changenet-rca",

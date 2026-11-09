@@ -488,6 +488,14 @@
     "path": "category/architecture-system-design/architecture-review"
   },
   {
+    "id": "archive-baoyu-design",
+    "name": "archive-baoyu-design",
+    "category": "architecture-system-design",
+    "repository": "jimliu-baoyu-design",
+    "description": "Create or edit visual design artifacts as self-contained HTML: UI mockups, interactive prototypes, wireframes, landing pages, dashboards, app screens, slide decks, print documents, r\u00e9sum\u00e9s, animations, 3D objects, diagrams, fliers, HTML email, and visual research reports. Also author reusable design systems, UI kits, brand tokens, and component libraries, or export slide-structured decks made with this skill to PPTX. Use only when the task actually creates or edits a visual deliverable, even if the user does not say \"design\". Architecture or protocol analysis, rendering-engine or Rust/WASM/backend implementation, and technical Markdown do not trigger it by themselves. In a larger task, load it when visual creation or editing begins.",
+    "path": "category/architecture-system-design/archive-baoyu-design"
+  },
+  {
     "id": "astro",
     "name": "astro",
     "category": "architecture-system-design",
@@ -1096,6 +1104,14 @@
     "path": "category/architecture-system-design/claude-skills-marketplace"
   },
   {
+    "id": "claude-skills-open-design-deck-from-source",
+    "name": "claude-skills-open-design-deck-from-source",
+    "category": "architecture-system-design",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Turn a document (a report, spec, spreadsheet, PDF, existing deck, or repository files such as a CHANGELOG) into a deck or one-pager, storyline first, with every number traced back to the source \u2014 use whenever the user wants slides, a deck, a presentation or a one-pager made from an existing document, spreadsheet, PDF or deck, or from repository files (CHANGELOG, RFCs, architecture decision records, metrics CSVs), even if they don't mention Open Design",
+    "path": "category/architecture-system-design/claude-skills-open-design-deck-from-source"
+  },
+  {
     "id": "clean-architecture",
     "name": "clean-architecture",
     "category": "architecture-system-design",
@@ -1262,6 +1278,14 @@
     "repository": "gencraft-labs-skills",
     "description": "Codex Pet generator on RunComfy. Build a Codex-compatible Codex Pet spritesheet.webp + pet.json from a single reference image, drop it into `${CODEX_HOME:-$HOME/.codex}/pets/<name>/` and Codex picks it up as a custom Codex Pet next to the 8 built-ins. This skill produces the exact Codex Pet atlas Codex expects (1536x1872 PNG/WebP, 8 cols x 9 rows, 192x208 cells, 9 animation states \u2014 idle, running-right, running-left, waving, jumping, failed, waiting, running, review). Calls OpenAI GPT Image 2 edit ONCE via the local RunComfy CLI as `runcomfy run openai/gpt-image-2/edit` to produce a canonical Codex Pet pose, then assembles all 9 animation rows programmatically with ImageMagick micro-transforms \u2014 no Codex Pro, no `$imagegen`, no OPENAI_API_KEY required, only RUNCOMFY_TOKEN. Triggers on \"codex pet\", \"create codex pet\", \"make codex pet\", \"hatch codex pet\", \"/hatch image\", \"desktop pet codex\", \"codex pets\", \"spritesheet.webp\", or any explicit ask to build a custom pet for OpenAI Codex.",
     "path": "category/architecture-system-design/codex-pet"
+  },
+  {
+    "id": "codex-skills-open-design-deck-from-source",
+    "name": "codex-skills-open-design-deck-from-source",
+    "category": "architecture-system-design",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Turn a document (a report, spec, spreadsheet, PDF, existing deck, or repository files such as a CHANGELOG) into a deck or one-pager, storyline first, with every number traced back to the source \u2014 use whenever the user wants slides, a deck, a presentation or a one-pager made from an existing document, spreadsheet, PDF or deck, or from repository files (CHANGELOG, RFCs, architecture decision records, metrics CSVs), even if they don't mention Open Design",
+    "path": "category/architecture-system-design/codex-skills-open-design-deck-from-source"
   },
   {
     "id": "coding-agent-docs-optimization",
@@ -1646,6 +1670,14 @@
     "repository": "wondelai-skills",
     "description": "Design data systems by understanding storage engines, replication, partitioning, transactions, and consistency models. Use when the user mentions \"database choice\", \"which database should I use\", \"SQL or NoSQL\", \"replication lag\", \"partitioning strategy\", \"consistency vs availability\", \"stream processing\", \"ACID transactions\", \"eventual consistency\", \"my queries are slow at scale\", or \"data is inconsistent across replicas\". Also trigger when choosing a datastore, designing data pipelines, or debugging distributed-system consistency issues. Covers data models, batch/stream processing, and distributed consensus. For system design, see system-design. For resilience, see release-it.",
     "path": "category/architecture-system-design/ddia-systems"
+  },
+  {
+    "id": "dds-dcs-huawei-cloud-dds-dcs-instance-management",
+    "name": "dds-dcs-huawei-cloud-dds-dcs-instance-management",
+    "category": "architecture-system-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud DDS (Document Database Service) and DCS (Distributed Cache Service) unified management skill. Provides 16 operations across five capability domains: (1) Query \u2014 list/get DDS/DCS instances, DCS node info, DCS custom templates; (2) Analysis \u2014 analyze DDS deployment architecture and DCS security posture; (3) DDS Management \u2014 create instance, add read-only/sharding nodes, create backup, delete instance; (4) DCS Management \u2014 create instance, create custom template, delete instance, restart instance; (5) Multi-mode execution using hcloud CLI for available operations and huaweicloudsdk Python SDK as fallback. Auth via AK/SK environment variables or hcloud profile. All mutating operations require explicit user confirmation. Triggers include: \"DDS\",\"DCS\",\"\u6587\u6863\u6570\u636e\u5e93\",\"\u5206\u5e03\u5f0f\u7f13\u5b58\",\"\u6570\u636e\u5e93\u5b9e\u4f8b\",\"\u7f13\u5b58\u5b9e\u4f8b\",\"MongoDB\",\"Redis\",\"Memcached\",\"DDS\u5b9e\u4f8b\",\"DCS\u5b9e\u4f8b\",\"\u6570\u636e\u5e93\u8fd0\u7ef4\",\"\u7f13\u5b58\u8fd0\u7ef4\",\"\u6587\u6863\u6570\u636e\u5e93\u67e5\u8be2\",\"\u5206\u5e03\u5f0f\u7f13\u5b58\u67e5\u8be2\",\"DDS\u7ba1\u7406\",\"DCS\u7ba1\u7406\",\"\u7f13\u5b58\u8282\u70b9\",\"\u81ea\u5b9a\u4e49\u6a21\u677f\",\"document database\",\"distributed cache\",\"DDS instances\",\"DCS instances\",\"MongoDB cluster\",\"Redis cache\",\"dds-dcs\".",
+    "path": "category/architecture-system-design/dds-dcs-huawei-cloud-dds-dcs-instance-management"
   },
   {
     "id": "decision-logger",
@@ -2192,6 +2224,14 @@
     "path": "category/architecture-system-design/engineering-skills"
   },
   {
+    "id": "enterprise-communication-telegram-bot-builder",
+    "name": "enterprise-communication-telegram-bot-builder",
+    "category": "architecture-system-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Expert in building Telegram bots that solve real problems - from simple automation to complex AI-powered bots. Covers bot architecture, the Telegram Bot API, user experience, monetization strategies, and scaling bots to thousands of users. Use when: telegram bot, bot api, telegram automation, chat bot telegram, tg bot.",
+    "path": "category/architecture-system-design/enterprise-communication-telegram-bot-builder"
+  },
+  {
     "id": "environment-artist",
     "name": "environment-artist",
     "category": "architecture-system-design",
@@ -2294,6 +2334,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "Design and implement event stores for event-sourced systems. Use when building event sourcing infrastructure, choosing event store technologies, or implementing event persistence patterns.",
     "path": "category/architecture-system-design/event-store-design"
+  },
+  {
+    "id": "examples-deck-open-slide-canvas",
+    "name": "examples-deck-open-slide-canvas",
+    "category": "architecture-system-design",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "OpenDesign's architecture review: the local daemon + agent-runtime design, the tradeoffs, and the decision to lock. Built as a decision-grade product management deck for staff eng, tech leads, security.",
+    "path": "category/architecture-system-design/examples-deck-open-slide-canvas"
   },
   {
     "id": "excalidraw",
@@ -3888,6 +3936,14 @@
     "path": "category/architecture-system-design/project-docs"
   },
   {
+    "id": "project-guidelines-example",
+    "name": "project-guidelines-example",
+    "category": "architecture-system-design",
+    "repository": "affaan-m-ecc",
+    "description": "Project-specific skill template covering architecture, patterns, testing, and deployment guidance.",
+    "path": "category/architecture-system-design/project-guidelines-example"
+  },
+  {
     "id": "projection-patterns",
     "name": "projection-patterns",
     "category": "architecture-system-design",
@@ -4240,6 +4296,30 @@
     "path": "category/architecture-system-design/scaffold"
   },
   {
+    "id": "scenario-godot-architecture",
+    "name": "scenario-godot-architecture",
+    "category": "architecture-system-design",
+    "repository": "scenario-labs-skills",
+    "description": "Use when structuring Godot 4.7 game code: folders, scenes and nodes, signals or an event bus autoload, custom Resources for item data, components (health, hitbox, hurtbox), an inventory, save and load, InputMap and key rebinding for keyboard, mouse and gamepad, GDScript static typing and style, or GDScript vs C#; or when code is spaghetti, a folder scan breaks in the export, a save loads wrong, the gamepad does nothing, or @onready is null.",
+    "path": "category/architecture-system-design/scenario-godot-architecture"
+  },
+  {
+    "id": "scenario-roblox-architecture",
+    "name": "scenario-roblox-architecture",
+    "category": "architecture-system-design",
+    "repository": "scenario-labs-skills",
+    "description": "Use when structuring Roblox game code: where scripts go (ServerScriptService, ReplicatedStorage, StarterPlayerScripts), Script vs LocalScript and RunContext, a module loader or framework (Knit or none), services and controllers, how systems talk (signals, BindableEvents, attributes), CollectionService tags, cleanup with Trove or Janitor, Rojo project layout, or a round-based game core. Also when code is spaghetti, a script runs twice, require errors with 'required recursively', a module is nil on the client, a tool stops working after respawn, or memory climbs from leaked connections.",
+    "path": "category/architecture-system-design/scenario-roblox-architecture"
+  },
+  {
+    "id": "scenario-unity-architecture",
+    "name": "scenario-unity-architecture",
+    "category": "architecture-system-design",
+    "repository": "scenario-labs-skills",
+    "description": "Use when structuring Unity 6.3 C# code: ScriptableObject data vs runtime state, events and services, inventory, health, save and load, Input System actions and key rebinding, async with Awaitable, assembly definitions, Enter Play Mode and domain reload, .meta files, Git, Smart Merge and LFS. Also when 'my save works in the Editor but not in the build', statics keep values on the second Play, events fire twice or never, an await runs after its object died, rebinds are lost on relaunch, a renamed class loses its data, a scene merge breaks.",
+    "path": "category/architecture-system-design/scenario-unity-architecture"
+  },
+  {
     "id": "schema-markup",
     "name": "schema-markup",
     "category": "architecture-system-design",
@@ -4392,6 +4472,38 @@
     "path": "category/architecture-system-design/skill-extractor"
   },
   {
+    "id": "skills-adr",
+    "name": "skills-adr",
+    "category": "architecture-system-design",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "An architecture decision record: context, the decision, its consequences and status, with links to the records it supersedes or is superseded by.",
+    "path": "category/architecture-system-design/skills-adr"
+  },
+  {
+    "id": "skills-agent-architecture-audit",
+    "name": "skills-agent-architecture-audit",
+    "category": "architecture-system-design",
+    "repository": "affaan-m-ecc",
+    "description": "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u304a\u3088\u3073 LLM \u30a2\u30d7\u30ea\u30b1\u30fc\u30b7\u30e7\u30f3\u5411\u3051\u306e\u30d5\u30eb\u30b9\u30bf\u30c3\u30af\u8a3a\u65ad\u300212 \u5c64\u306e\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u30b9\u30bf\u30c3\u30af\u306b\u304a\u3051\u308b\u30e9\u30c3\u30d1\u30fc\u30ea\u30b0\u30ec\u30c3\u30b7\u30e7\u30f3\u3001\u30e1\u30e2\u30ea\u6c5a\u67d3\u3001\u30c4\u30fc\u30eb\u898f\u5f8b\u306e\u5931\u6557\u3001\u96a0\u308c\u305f\u4fee\u5fa9\u30eb\u30fc\u30d7\u3001\u30ec\u30f3\u30c0\u30ea\u30f3\u30b0\u7834\u640d\u3092\u76e3\u67fb\u3057\u307e\u3059\u3002\u91cd\u8981\u5ea6\u9806\u306e\u767a\u898b\u4e8b\u9805\u3068\u30b3\u30fc\u30c9\u30d5\u30a1\u30fc\u30b9\u30c8\u306e\u4fee\u6b63\u3092\u751f\u6210\u3057\u307e\u3059\u3002\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u30a2\u30d7\u30ea\u30b1\u30fc\u30b7\u30e7\u30f3\u3001\u81ea\u5f8b\u30eb\u30fc\u30d7\u3001\u307e\u305f\u306f LLM \u3092\u6d3b\u7528\u3057\u305f\u6a5f\u80fd\u3092\u69cb\u7bc9\u3059\u308b\u958b\u767a\u8005\u306b\u5fc5\u9808\u3067\u3059\u3002",
+    "path": "category/architecture-system-design/skills-agent-architecture-audit"
+  },
+  {
+    "id": "skills-agentmemory-architecture",
+    "name": "skills-agentmemory-architecture",
+    "category": "architecture-system-design",
+    "repository": "rohitg00-agentmemory",
+    "description": "How agentmemory is built, the iii engine primitives it runs on, its storage model, ports, and the viewer. Use when reasoning about how memory is stored or retrieved end to end, when extending the system, or when answering how agentmemory works under the hood.",
+    "path": "category/architecture-system-design/skills-agentmemory-architecture"
+  },
+  {
+    "id": "skills-android-clean-architecture",
+    "name": "skills-android-clean-architecture",
+    "category": "architecture-system-design",
+    "repository": "affaan-m-ecc",
+    "description": "Android \u3068 Kotlin Multiplatform \u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u306e\u30af\u30ea\u30fc\u30f3\u30a2\u30fc\u30ad\u30c6\u30af\u30c1\u30e3\u30d1\u30bf\u30fc\u30f3 \u2014 \u30e2\u30b8\u30e5\u30fc\u30eb\u69cb\u9020\u3001\u4f9d\u5b58\u95a2\u4fc2\u30eb\u30fc\u30eb\u3001UseCase\u3001Repository\u3001\u30c7\u30fc\u30bf\u5c64\u30d1\u30bf\u30fc\u30f3\u3002",
+    "path": "category/architecture-system-design/skills-android-clean-architecture"
+  },
+  {
     "id": "skills-answer-me-with-html",
     "name": "skills-answer-me-with-html",
     "category": "architecture-system-design",
@@ -4422,6 +4534,14 @@
     "repository": "codewithmukesh-dotnet-claude-kit",
     "description": "Architecture selection advisor for .NET applications. Asks structured questions about domain complexity, team size, system lifetime, compliance, and integration needs, then recommends the best-fit architecture: Vertical Slice, Clean Architecture, DDD + Clean Architecture, or Modular Monolith. Load this skill when the user asks \"which architecture\", \"choose architecture\", \"set up project\", \"new project\", \"architecture decision\", \"restructure\", or \"how should I organize\". Always load BEFORE any architecture-specific skill.",
     "path": "category/architecture-system-design/skills-architecture-advisor"
+  },
+  {
+    "id": "skills-architecture-decision-records",
+    "name": "skills-architecture-decision-records",
+    "category": "architecture-system-design",
+    "repository": "affaan-m-ecc",
+    "description": "\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30bb\u30c3\u30b7\u30e7\u30f3\u4e2d\u306b\u30a2\u30fc\u30ad\u30c6\u30af\u30c1\u30e3\u6c7a\u5b9a\u3092\u69cb\u9020\u5316ADR\u3068\u3057\u3066\u8a18\u9332\u3057\u3001\u81ea\u52d5\u7684\u306b\u6c7a\u5b9a\u306e\u77ac\u9593\u3092\u691c\u51fa\u3057\u3001\u30b3\u30f3\u30c6\u30ad\u30b9\u30c8\u3001\u691c\u8a0e\u3055\u308c\u305f\u4ee3\u66ff\u6848\u3001\u6839\u62e0\u3092\u8a18\u9332\u3057\u307e\u3059\u3002\u4eca\u5f8c\u306e\u958b\u767a\u8005\u304c\u30b3\u30fc\u30c9\u30d9\u30fc\u30b9\u306e\u5f62\u6210\u7406\u7531\u3092\u7406\u89e3\u3059\u308b\u305f\u3081\u306eADR\u30ed\u30b0\u3092\u7dad\u6301\u3057\u307e\u3059\u3002",
+    "path": "category/architecture-system-design/skills-architecture-decision-records"
   },
   {
     "id": "skills-azure-resource-visualizer",
@@ -4472,12 +4592,52 @@
     "path": "category/architecture-system-design/skills-clean-architecture"
   },
   {
+    "id": "skills-codex-dse-loop",
+    "name": "skills-codex-dse-loop",
+    "category": "architecture-system-design",
+    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "description": "Autonomous design space exploration loop for computer architecture and EDA. Runs a program, analyzes results, tunes parameters, and iterates until objective is met or timeout. Use when user says \\\\\\\"DSE\\\\\\\", \\\\\\\"design space exploration\\\\\\\", \\\\\\\"sweep parameters\\\\\\\", \\\\\\\"optimize\\\\\\\", \\\\\\\"find best config\\\\\\\", or wants iterative parameter tuning.",
+    "path": "category/architecture-system-design/skills-codex-dse-loop"
+  },
+  {
+    "id": "skills-codex-figure-spec",
+    "name": "skills-codex-figure-spec",
+    "category": "architecture-system-design",
+    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "description": "Generate deterministic publication-quality architecture, workflow, and pipeline diagrams from structured JSON (FigureSpec) into editable SVG. Use when user says \\\"\u67b6\u6784\u56fe\\\", \\\"workflow \u56fe\\\", \\\"pipeline \u56fe\\\", \\\"\u786e\u5b9a\u6027\u77e2\u91cf\u56fe\\\", \\\"figure spec\\\", \\\"draw architecture\\\", or needs precise, editable, publication-ready vector diagrams. Preferred over AI illustration for formal architecture/workflow figures.",
+    "path": "category/architecture-system-design/skills-codex-figure-spec"
+  },
+  {
+    "id": "skills-codex-paper-illustration",
+    "name": "skills-codex-paper-illustration",
+    "category": "architecture-system-design",
+    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "description": "Generate publication-quality AI illustrations for academic papers using Gemini image generation. Creates architecture diagrams, method illustrations with Codex-supervised iterative refinement loop. Use when user says \\\"\u751f\u6210\u56fe\u8868\\\", \\\"\u753b\u67b6\u6784\u56fe\\\", \\\"AI\u7ed8\u56fe\\\", \\\"paper illustration\\\", \\\"generate diagram\\\", or needs visual figures for papers.",
+    "path": "category/architecture-system-design/skills-codex-paper-illustration"
+  },
+  {
+    "id": "skills-codex-research-wiki",
+    "name": "skills-codex-research-wiki",
+    "category": "architecture-system-design",
+    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "description": "Persistent research knowledge base that accumulates papers, ideas, experiments, claims, and their relationships across the entire research lifecycle. Inspired by Karpathy's LLM Wiki pattern. Use when user says \\\"\u77e5\u8bc6\u5e93\\\", \\\"research wiki\\\", \\\"add paper\\\", \\\"wiki query\\\", \\\"\u67e5\u77e5\u8bc6\u5e93\\\", or wants to build/query a persistent field map.",
+    "path": "category/architecture-system-design/skills-codex-research-wiki"
+  },
+  {
     "id": "skills-configuration",
     "name": "skills-configuration",
     "category": "architecture-system-design",
     "repository": "codewithmukesh-dotnet-claude-kit",
     "description": "Configuration patterns for .NET 10 applications. Covers the Options pattern, IOptionsSnapshot vs IOptions, secrets management, and environment-based configuration. Load this skill when setting up application configuration, managing secrets, binding configuration sections, or when the user mentions \"configuration\", \"appsettings\", \"Options pattern\", \"IOptions\", \"IOptionsSnapshot\", \"secrets\", \"user secrets\", \"environment variables\", \"connection string\", or \"config binding\".",
     "path": "category/architecture-system-design/skills-configuration"
+  },
+  {
+    "id": "skills-content-hash-cache-pattern",
+    "name": "skills-content-hash-cache-pattern",
+    "category": "architecture-system-design",
+    "repository": "affaan-m-ecc",
+    "description": "SHA-256\u30b3\u30f3\u30c6\u30f3\u30c4\u30cf\u30c3\u30b7\u30e5\u3092\u4f7f\u7528\u3057\u3066\u3001\u9ad8\u30b3\u30b9\u30c8\u306a\u30d5\u30a1\u30a4\u30eb\u51e6\u7406\u7d50\u679c\u3092\u30ad\u30e3\u30c3\u30b7\u30e5\u3057\u307e\u3059 \u2014 \u30d1\u30b9\u975e\u4f9d\u5b58\u3001\u81ea\u52d5\u7121\u52b9\u5316\u3001\u30b5\u30fc\u30d3\u30b9\u30ec\u30a4\u30e4\u30fc\u306e\u5206\u96e2\u3002",
+    "path": "category/architecture-system-design/skills-content-hash-cache-pattern"
   },
   {
     "id": "skills-dart-use-pattern-matching",
@@ -4504,6 +4664,14 @@
     "path": "category/architecture-system-design/skills-dependency-injection"
   },
   {
+    "id": "skills-diagram",
+    "name": "skills-diagram",
+    "category": "architecture-system-design",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Designed diagrams of real systems \u2014 architecture, flowchart, entity-relationship, state machine or sequence \u2014 drawn from the code you read, laid out by the browser and styled by the active design system.",
+    "path": "category/architecture-system-design/skills-diagram"
+  },
+  {
     "id": "skills-docs-canvas",
     "name": "skills-docs-canvas",
     "category": "architecture-system-design",
@@ -4518,14 +4686,6 @@
     "repository": "anthropics-knowledge-work",
     "description": "Write and maintain technical documentation. Trigger with \"write docs for\", \"document this\", \"create a README\", \"write a runbook\", \"onboarding guide\", or when the user needs help with any form of technical writing \u2014 API docs, architecture docs, or operational runbooks.",
     "path": "category/architecture-system-design/skills-documentation"
-  },
-  {
-    "id": "skills-error-handling",
-    "name": "skills-error-handling",
-    "category": "architecture-system-design",
-    "repository": "codewithmukesh-dotnet-claude-kit",
-    "description": "Error handling strategy for .NET 10 applications. Covers the Result pattern, ProblemDetails (RFC 9457), global exception handling, FluentValidation, and structured error responses. Load this skill when implementing error handling, validation, or designing API error contracts, or when the user mentions \"error handling\", \"Result pattern\", \"ProblemDetails\", \"exception\", \"validation\", \"FluentValidation\", \"error response\", \"global exception handler\", or \"RFC 9457\".",
-    "path": "category/architecture-system-design/skills-error-handling"
   },
   {
     "id": "skills-flutter-apply-architecture-best-practices",
@@ -4550,6 +4710,14 @@
     "repository": "aws-agent-toolkit-for-aws",
     "description": "Migrate workloads from Heroku to AWS. Triggers on: migrate from Heroku, Heroku to AWS, move off Heroku, migrate Heroku Postgres to RDS, migrate Heroku Redis to ElastiCache, migrate Heroku Kafka to MSK, migrate dynos to Elastic Beanstalk, migrate dynos to Fargate, migrate Heroku Private Space, Heroku to ECS, leave Heroku, what-if workshop, compare migration scenarios, workshop mode. Runs a 6-phase process: discover Heroku resources live via the authenticated Heroku CLI (read-only, consent-gated) and/or from Terraform, Procfile/app.json, and billing exports; Terraform is optional. Then clarify, design, estimate costs, generate artifacts, and collect feedback. Clarify must finish before Design, Estimate, or Generate. An optional post-Estimate what-if workshop reprices region/HA/compute/Graviton scenarios. Do not use for: GCP migrations (see gcp-to-aws), Azure migrations (see azure-to-aws), AWS-to-Heroku reverse migration, general AWS architecture advice without migration intent, or Heroku-to-Heroku refactoring.",
     "path": "category/architecture-system-design/skills-heroku-to-aws"
+  },
+  {
+    "id": "skills-hexagonal-architecture",
+    "name": "skills-hexagonal-architecture",
+    "category": "architecture-system-design",
+    "repository": "affaan-m-ecc",
+    "description": "\u30d8\u30ad\u30b5\u30b4\u30ca\u30eb\u30a2\u30fc\u30ad\u30c6\u30af\u30c1\u30e3\uff08\u30dd\u30fc\u30c8\u30fb\u30a2\u30c0\u30d7\u30bf\u30d1\u30bf\u30fc\u30f3\uff09\u3001\u5883\u754c\u306e\u5206\u96e2\u3001\u304a\u3088\u3073\u5916\u90e8\u4f9d\u5b58\u95a2\u4fc2\u306e\u7ba1\u7406\u3002",
+    "path": "category/architecture-system-design/skills-hexagonal-architecture"
   },
   {
     "id": "skills-how",
@@ -4608,6 +4776,14 @@
     "path": "category/architecture-system-design/skills-om-ux-review-pr"
   },
   {
+    "id": "skills-open-design-deck-from-source",
+    "name": "skills-open-design-deck-from-source",
+    "category": "architecture-system-design",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Turn a document (a report, spec, spreadsheet, PDF, existing deck, or repository files such as a CHANGELOG) into a deck or one-pager, storyline first, with every number traced back to the source \u2014 use whenever the user wants slides, a deck, a presentation or a one-pager made from an existing document, spreadsheet, PDF or deck, or from repository files (CHANGELOG, RFCs, architecture decision records, metrics CSVs), even if they don't mention Open Design",
+    "path": "category/architecture-system-design/skills-open-design-deck-from-source"
+  },
+  {
     "id": "skills-plan",
     "name": "skills-plan",
     "category": "architecture-system-design",
@@ -4648,6 +4824,14 @@
     "path": "category/architecture-system-design/skills-principle-outcome-oriented-execution"
   },
   {
+    "id": "skills-project-guidelines-example",
+    "name": "skills-project-guidelines-example",
+    "category": "architecture-system-design",
+    "repository": "affaan-m-ecc",
+    "description": "Project-specific skill template covering architecture, patterns, testing, and deployment guidance.",
+    "path": "category/architecture-system-design/skills-project-guidelines-example"
+  },
+  {
     "id": "skills-scaffold",
     "name": "skills-scaffold",
     "category": "architecture-system-design",
@@ -4662,6 +4846,14 @@
     "repository": "anthropics-knowledge-work",
     "description": "Decide when Zoom MCP is the right fit and produce a safe setup plan for Claude. Use when planning AI workflows over Zoom data, deciding between MCP and REST, or defining a hybrid MCP architecture.",
     "path": "category/architecture-system-design/skills-setup-zoom-mcp"
+  },
+  {
+    "id": "skills-signed-audit-trails-recipe",
+    "name": "skills-signed-audit-trails-recipe",
+    "category": "architecture-system-design",
+    "repository": "wshobson-agents",
+    "description": "Step-by-step cookbook for setting up cryptographically signed audit trails on Claude Code tool calls. Use when explaining, evaluating, or demonstrating the pattern before committing to the protect-mcp runtime hooks. Covers Cedar policy, Ed25519 receipts, offline verification, tamper detection, CI/CD integration, and SLSA composition.",
+    "path": "category/architecture-system-design/skills-signed-audit-trails-recipe"
   },
   {
     "id": "skills-sprite-segment-3x3grid",
@@ -4702,6 +4894,14 @@
     "repository": "anthropics-knowledge-work",
     "description": "Design test strategies and test plans. Trigger with \"how should we test\", \"test strategy for\", \"write tests for\", \"test plan\", \"what tests do we need\", or when the user needs help with testing approaches, coverage, or test architecture.",
     "path": "category/architecture-system-design/skills-testing-strategy"
+  },
+  {
+    "id": "skills-understand",
+    "name": "skills-understand",
+    "category": "architecture-system-design",
+    "repository": "egonex-ai-understand-anything",
+    "description": "Analyze a codebase to produce an interactive knowledge graph for understanding architecture, components, and relationships",
+    "path": "category/architecture-system-design/skills-understand"
   },
   {
     "id": "skills-vertical-slice",
@@ -5126,6 +5326,14 @@
     "repository": "agricidaniel-claude-obsidian",
     "description": "Apply the Fable-derived 10-stage OBSERVE, OBSERVE, LISTEN, THINK, CONNECT, CONNECT, FEEL, ACCEPT, CREATE, GROW loop to consequential or ambiguous reasoning and decisions. Use for think this through, deep think, architecture review, postmortem, tradeoff analysis, or challenges to assumptions. This is a reasoning review, not a deterministic vault health check or repair workflow.",
     "path": "category/architecture-system-design/think"
+  },
+  {
+    "id": "thinking-and-docs-adr-verbatim",
+    "name": "thinking-and-docs-adr-verbatim",
+    "category": "architecture-system-design",
+    "repository": "davidondrej-skills",
+    "description": "Record concise ADRs that preserve the user''s decisions without conversational noise. Use for \"adr-verbatim\", \"new ADR\", \"document that as an ADR\", \"record this decision\", or supplied ADR wording.",
+    "path": "category/architecture-system-design/thinking-and-docs-adr-verbatim"
   },
   {
     "id": "threat-modeling-expert",

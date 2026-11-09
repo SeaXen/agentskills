@@ -20,6 +20,116 @@
     "link_cmd": "python .agents/library/activate_skill.py link agentcontrol"
   },
   {
+    "id": "agentcontrol-agent-graphs",
+    "name": "agentcontrol-agent-graphs",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Create and manage agent graphs \u2014 directed graphs of configs connected by edges with handoff logic. Use when building multi-agent workflows where configs route to each other.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/agentcontrol-agent-graphs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agentcontrol-agent-graphs",
+    "link_cmd": "python .agents/library/activate_skill.py link agentcontrol-agent-graphs"
+  },
+  {
+    "id": "agentcontrol-configs-create",
+    "name": "agentcontrol-configs-create",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Create and configure configs in LaunchDarkly. Helps you choose between agent vs completion mode, create the config, add variations with models and prompts, and verify the setup.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/agentcontrol-configs-create",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agentcontrol-configs-create",
+    "link_cmd": "python .agents/library/activate_skill.py link agentcontrol-configs-create"
+  },
+  {
+    "id": "agentcontrol-configs-targeting",
+    "name": "agentcontrol-configs-targeting",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "Configure config targeting rules to control which variations serve to different users. Enable percentage rollouts, attribute-based rules, segment targeting, and guarded rollouts.",
+    "path": "library/launchdarkly-ai-tooling/skills/agentcontrol-configs-targeting",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agentcontrol-configs-targeting",
+    "link_cmd": "python .agents/library/activate_skill.py link agentcontrol-configs-targeting"
+  },
+  {
+    "id": "agentcontrol-configs-update",
+    "name": "agentcontrol-configs-update",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Update, retire, and delete LaunchDarkly configs and their variations. Use when you need to modify config properties, change model parameters, update instructions or messages, take unused configs out of service, or permanently remove them.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/agentcontrol-configs-update",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agentcontrol-configs-update",
+    "link_cmd": "python .agents/library/activate_skill.py link agentcontrol-configs-update"
+  },
+  {
+    "id": "agentcontrol-configs-variations",
+    "name": "agentcontrol-configs-variations",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Experiment with configs by creating and managing variations. Helps you test different models, prompts, and parameters to find what works best through systematic experimentation.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/agentcontrol-configs-variations",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agentcontrol-configs-variations",
+    "link_cmd": "python .agents/library/activate_skill.py link agentcontrol-configs-variations"
+  },
+  {
+    "id": "agentcontrol-custom-metrics",
+    "name": "agentcontrol-custom-metrics",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Create, track, retrieve, update, and delete custom business metrics for configs. Covers full lifecycle: define metrics with the LaunchDarkly MCP server, emit events via SDK, and query results.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/agentcontrol-custom-metrics",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agentcontrol-custom-metrics",
+    "link_cmd": "python .agents/library/activate_skill.py link agentcontrol-custom-metrics"
+  },
+  {
+    "id": "agentcontrol-migrate",
+    "name": "agentcontrol-migrate",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Migrate an application with hardcoded LLM prompts to a full LaunchDarkly AgentControl implementation in five stages: audit the code, wrap the call, move the tools, add tracking, attach evaluators. Use when the user wants to externalize model/prompt configuration, move from direct provider calls (OpenAI, Anthropic, Bedrock, Gemini, Strands) to a managed config, or stage a full hardcoded-to-LaunchDarkly migration.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/agentcontrol-migrate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agentcontrol-migrate",
+    "link_cmd": "python .agents/library/activate_skill.py link agentcontrol-migrate"
+  },
+  {
+    "id": "agentcontrol-online-evals",
+    "name": "agentcontrol-online-evals",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "Attach judges to config variations for automatic LLM-as-a-judge evaluation. Create custom judges, configure sampling rates, and monitor quality scores.",
+    "path": "library/launchdarkly-ai-tooling/skills/agentcontrol-online-evals",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agentcontrol-online-evals",
+    "link_cmd": "python .agents/library/activate_skill.py link agentcontrol-online-evals"
+  },
+  {
+    "id": "agentcontrol-projects",
+    "name": "agentcontrol-projects",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "Guide for setting up LaunchDarkly projects in your codebase. Helps you assess your stack, choose the right approach, and integrate project management that makes sense for your architecture.",
+    "path": "library/launchdarkly-ai-tooling/skills/agentcontrol-projects",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agentcontrol-projects",
+    "link_cmd": "python .agents/library/activate_skill.py link agentcontrol-projects"
+  },
+  {
+    "id": "agentcontrol-snippets",
+    "name": "agentcontrol-snippets",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Create and manage prompt snippets \u2014 reusable text blocks referenced inside config variation prompts. Keeps common instructions, personas, and guardrails consistent across multiple configs.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/agentcontrol-snippets",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agentcontrol-snippets",
+    "link_cmd": "python .agents/library/activate_skill.py link agentcontrol-snippets"
+  },
+  {
+    "id": "agentcontrol-tools",
+    "name": "agentcontrol-tools",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Give your agents capabilities through tools (function calling). Helps you identify what your agent needs to do, create tool definitions, and attach them to config variations.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/agentcontrol-tools",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agentcontrol-tools",
+    "link_cmd": "python .agents/library/activate_skill.py link agentcontrol-tools"
+  },
+  {
     "id": "aiconfig-agent-graphs",
     "name": "aiconfig-agent-graphs",
     "repository": "launchdarkly-ai-tooling",
@@ -170,6 +280,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link aws-devops-agent"
   },
   {
+    "id": "aws-devops-agent-experiment-orchestration",
+    "name": "aws-devops-agent-experiment-orchestration",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Takes a product goal through a LaunchDarkly experiment and, if it wins, a guarded rollout (or a regular rollout on plans without guarded rollouts). Uses GitHub for the code change and deployment when it is connected to the agent space; otherwise hands those steps to a person.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/aws-devops-agent-experiment-orchestration",
+    "activation_cmd": "python .agents/library/activate_skill.py activate aws-devops-agent-experiment-orchestration",
+    "link_cmd": "python .agents/library/activate_skill.py link aws-devops-agent-experiment-orchestration"
+  },
+  {
     "id": "built-in-metrics",
     "name": "built-in-metrics",
     "repository": "launchdarkly-ai-tooling",
@@ -280,6 +400,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link experiments"
   },
   {
+    "id": "experiments-launchdarkly-experiment-guide",
+    "name": "experiments-launchdarkly-experiment-guide",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Guide a developer from 'I don't know what to test' to a ready-to-create LaunchDarkly experiment. Use when someone wants to run an experiment or A/B test but doesn't have a metric, a flag, or a hypothesis yet, or isn't sure what to measure. Scans the codebase and the connected LaunchDarkly account, proposes a hypothesis and metric from real context, wires up the flag and tracking code, then drafts the experiment and offers to create it. Built for engineers without a data-science or product-analytics background.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/experiments-launchdarkly-experiment-guide",
+    "activation_cmd": "python .agents/library/activate_skill.py activate experiments-launchdarkly-experiment-guide",
+    "link_cmd": "python .agents/library/activate_skill.py link experiments-launchdarkly-experiment-guide"
+  },
+  {
+    "id": "experiments-launchdarkly-experiment-setup",
+    "name": "experiments-launchdarkly-experiment-setup",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Set up and run experiments in LaunchDarkly. Create experiments with metrics, treatments, and flag config, start iterations to collect data, swap design between iterations, and stop with a winner.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/experiments-launchdarkly-experiment-setup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate experiments-launchdarkly-experiment-setup",
+    "link_cmd": "python .agents/library/activate_skill.py link experiments-launchdarkly-experiment-setup"
+  },
+  {
     "id": "feature-flags",
     "name": "feature-flags",
     "repository": "launchdarkly-ai-tooling",
@@ -288,6 +428,116 @@
     "path": "library/launchdarkly-ai-tooling/skills/feature-flags",
     "activation_cmd": "python .agents/library/activate_skill.py activate feature-flags",
     "link_cmd": "python .agents/library/activate_skill.py link feature-flags"
+  },
+  {
+    "id": "feature-flags-flag-and-release-change",
+    "name": "feature-flags-flag-and-release-change",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Drive a pull request's change end to end: decide it's flag-worthy, create the guarding flag, wire the new code path behind it on the PR branch, and record an automated release so the change ships safely when the PR merges. A portable orchestrator that composes should-flag-change, launchdarkly-flag-create, and flag-release. Keywords: flag a PR, wrap change in a flag, dark launch, kill switch, auto-release, automated rollout, end-to-end flag workflow.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/feature-flags-flag-and-release-change",
+    "activation_cmd": "python .agents/library/activate_skill.py activate feature-flags-flag-and-release-change",
+    "link_cmd": "python .agents/library/activate_skill.py link feature-flags-flag-and-release-change"
+  },
+  {
+    "id": "feature-flags-flag-release",
+    "name": "feature-flags-flag-release",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Record an automated rollout for an existing LaunchDarkly flag that guards a pull request's change, so the change releases safely when the PR merges. Honors a stated release intent (release now / hold / notBefore / segment / prerequisite) and defers per-environment to the project's release policies. Use as the release step once the guarding flag exists and its code is wired. Keywords: record release, automated rollout, release policy, guarded rollout, staged rollout, immediate vs policy, release intent, hold release, dark launch.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/feature-flags-flag-release",
+    "activation_cmd": "python .agents/library/activate_skill.py activate feature-flags-flag-release",
+    "link_cmd": "python .agents/library/activate_skill.py link feature-flags-flag-release"
+  },
+  {
+    "id": "feature-flags-launchdarkly-flag-cleanup",
+    "name": "feature-flags-launchdarkly-flag-cleanup",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Safely remove a feature flag from code while preserving production behavior. Use when the user wants to remove a flag from code, delete flag references, or create a PR that hardcodes the winning variation after a rollout is complete.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/feature-flags-launchdarkly-flag-cleanup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate feature-flags-launchdarkly-flag-cleanup",
+    "link_cmd": "python .agents/library/activate_skill.py link feature-flags-launchdarkly-flag-cleanup"
+  },
+  {
+    "id": "feature-flags-launchdarkly-flag-command",
+    "name": "feature-flags-launchdarkly-flag-command",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Resolve `/flag` style requests into the right LaunchDarkly flag lookup flow. Use when the user types `/flag`, asks to quickly find a flag by name/key, wants a direct flag detail summary, or needs fast disambiguation between similar flags.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/feature-flags-launchdarkly-flag-command",
+    "activation_cmd": "python .agents/library/activate_skill.py activate feature-flags-launchdarkly-flag-command",
+    "link_cmd": "python .agents/library/activate_skill.py link feature-flags-launchdarkly-flag-command"
+  },
+  {
+    "id": "feature-flags-launchdarkly-flag-create",
+    "name": "feature-flags-launchdarkly-flag-create",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Create and configure LaunchDarkly feature flags in a way that fits the existing codebase. Use when the user wants to create a new flag, wrap code in a flag, add a feature toggle, or set up an experiment. Guides exploration of existing patterns before creating.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/feature-flags-launchdarkly-flag-create",
+    "activation_cmd": "python .agents/library/activate_skill.py activate feature-flags-launchdarkly-flag-create",
+    "link_cmd": "python .agents/library/activate_skill.py link feature-flags-launchdarkly-flag-create"
+  },
+  {
+    "id": "feature-flags-launchdarkly-flag-discovery",
+    "name": "feature-flags-launchdarkly-flag-discovery",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Audit your LaunchDarkly feature flags to understand the landscape, find stale or launched flags, and assess removal readiness. Use when the user asks about flag debt, stale flags, cleanup candidates, flag health, or wants to understand their flag inventory.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/feature-flags-launchdarkly-flag-discovery",
+    "activation_cmd": "python .agents/library/activate_skill.py activate feature-flags-launchdarkly-flag-discovery",
+    "link_cmd": "python .agents/library/activate_skill.py link feature-flags-launchdarkly-flag-discovery"
+  },
+  {
+    "id": "feature-flags-launchdarkly-flag-drift",
+    "name": "feature-flags-launchdarkly-flag-drift",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Detect and reconcile drift between a feature flag's in-code SDK fallback default and its LaunchDarkly default rule (fallthrough). Use when a flag's default rule changed, when the user asks to detect flag drift, check whether a hardcoded default still matches LaunchDarkly, sync an in-code default, or open a PR reconciling a fallback value, without removing the flag or its evaluation.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/feature-flags-launchdarkly-flag-drift",
+    "activation_cmd": "python .agents/library/activate_skill.py activate feature-flags-launchdarkly-flag-drift",
+    "link_cmd": "python .agents/library/activate_skill.py link feature-flags-launchdarkly-flag-drift"
+  },
+  {
+    "id": "feature-flags-launchdarkly-flag-qualitative-feedback-setup",
+    "name": "feature-flags-launchdarkly-flag-qualitative-feedback-setup",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Integrate LaunchDarkly qualitative user feedback into a JavaScript/TypeScript codebase. Guides framework and design system detection, builds the sendFeedback utility and feedback widget matching existing project patterns. Use when the user wants to add a Give Feedback widget, collect user sentiment tied to feature flags, set up feedback collection, or wire up the $ld:feedback tracking event.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/feature-flags-launchdarkly-flag-qualitative-feedback-setup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate feature-flags-launchdarkly-flag-qualitative-feedback-setup",
+    "link_cmd": "python .agents/library/activate_skill.py link feature-flags-launchdarkly-flag-qualitative-feedback-setup"
+  },
+  {
+    "id": "feature-flags-launchdarkly-flag-targeting",
+    "name": "feature-flags-launchdarkly-flag-targeting",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Control LaunchDarkly feature flag targeting including toggling flags on/off, percentage rollouts, targeting rules, individual targets, and copying flag configurations between environments. Use when the user wants to change who sees a flag, roll out to a percentage, add targeting rules, or promote config between environments.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/feature-flags-launchdarkly-flag-targeting",
+    "activation_cmd": "python .agents/library/activate_skill.py activate feature-flags-launchdarkly-flag-targeting",
+    "link_cmd": "python .agents/library/activate_skill.py link feature-flags-launchdarkly-flag-targeting"
+  },
+  {
+    "id": "feature-flags-launchdarkly-guarded-rollout",
+    "name": "feature-flags-launchdarkly-guarded-rollout",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Configure guarded rollouts with progressive traffic increases, metric monitoring, and automatic rollback. Use when releasing features gradually with safety thresholds.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/feature-flags-launchdarkly-guarded-rollout",
+    "activation_cmd": "python .agents/library/activate_skill.py activate feature-flags-launchdarkly-guarded-rollout",
+    "link_cmd": "python .agents/library/activate_skill.py link feature-flags-launchdarkly-guarded-rollout"
+  },
+  {
+    "id": "feature-flags-should-flag-change",
+    "name": "feature-flags-should-flag-change",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Decide whether a given code change should be placed behind a LaunchDarkly feature flag. Use when a developer asks whether a change should be behind a flag, when reviewing a diff or pull request, or when running in CI on a PR. Reads the diff and surrounding code, then emits a structured advisory recommendation. Read-only: it never creates or modifies flags.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/feature-flags-should-flag-change",
+    "activation_cmd": "python .agents/library/activate_skill.py activate feature-flags-should-flag-change",
+    "link_cmd": "python .agents/library/activate_skill.py link feature-flags-should-flag-change"
   },
   {
     "id": "flag-and-release-change",
@@ -320,6 +570,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link investigate"
   },
   {
+    "id": "launchdarkly-automations-archival-settings",
+    "name": "launchdarkly-automations-archival-settings",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Read and change a LaunchDarkly project's Automations auto-archival settings via the hosted MCP. Auto-archival archives flags that are ready to archive after a grace period, or creates approval requests for them. Use when the user wants to see or change the grace period, approval requirement, run limit, recheck cadence, or notification recipients, turn automatic archival off or on, or asks why a flag was or was not archived automatically. For first-time setup of every Release Autopilot capability, use launchdarkly-release-autopilot-onboarding.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/launchdarkly-automations-archival-settings",
+    "activation_cmd": "python .agents/library/activate_skill.py activate launchdarkly-automations-archival-settings",
+    "link_cmd": "python .agents/library/activate_skill.py link launchdarkly-automations-archival-settings"
+  },
+  {
+    "id": "launchdarkly-automations-cleanup-settings",
+    "name": "launchdarkly-automations-cleanup-settings",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Read and change a LaunchDarkly project's Automations auto-cleanup settings via the hosted MCP. Auto-cleanup runs on a schedule and opens pull requests that remove the code for flags that are ready. Use when the user wants to turn automated flag cleanup on or off, change its schedule, repositories, flag states, job limit, or agent instructions, see which flags the next run will pick up, or asks why cleanup did not open a pull request. For first-time setup of every Release Autopilot capability, use launchdarkly-release-autopilot-onboarding.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/launchdarkly-automations-cleanup-settings",
+    "activation_cmd": "python .agents/library/activate_skill.py activate launchdarkly-automations-cleanup-settings",
+    "link_cmd": "python .agents/library/activate_skill.py link launchdarkly-automations-cleanup-settings"
+  },
+  {
     "id": "launchdarkly-experiment-guide",
     "name": "launchdarkly-experiment-guide",
     "repository": "launchdarkly-ai-tooling",
@@ -328,6 +598,16 @@
     "path": "library/launchdarkly-ai-tooling/skills/launchdarkly-experiment-guide",
     "activation_cmd": "python .agents/library/activate_skill.py activate launchdarkly-experiment-guide",
     "link_cmd": "python .agents/library/activate_skill.py link launchdarkly-experiment-guide"
+  },
+  {
+    "id": "launchdarkly-experiment-hypothesis-builder",
+    "name": "launchdarkly-experiment-hypothesis-builder",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Help a user turn a rough idea into a strong, testable experiment hypothesis, or grade one they already wrote. Scores the draft against the Change / Measurement / Rationale rubric, scaffolds an If/then/because sentence with fill-in questions for what is missing, and detects junk input, A/A tests, and multiple measurements. Coaches in conversation, or returns the experiment builder's JSON contract when the caller asks for JSON only. Can check existing flags and metrics with read-only lookups, then hands off to launchdarkly-experiment-setup. Never writes to LaunchDarkly.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/launchdarkly-experiment-hypothesis-builder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate launchdarkly-experiment-hypothesis-builder",
+    "link_cmd": "python .agents/library/activate_skill.py link launchdarkly-experiment-hypothesis-builder"
   },
   {
     "id": "launchdarkly-experiment-setup",
@@ -490,6 +770,36 @@
     "link_cmd": "python .agents/library/activate_skill.py link metrics"
   },
   {
+    "id": "metrics-launchdarkly-metric-choose",
+    "name": "metrics-launchdarkly-metric-choose",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Choose the right metrics for a LaunchDarkly experiment, guarded rollout, or release policy. Use when the user wants to know which metrics to use, which is the primary metric for an experiment, what guardrails to add, or which events to monitor in a rollout. Surfaces what will auto-attach from existing release policies before making additional recommendations.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/metrics-launchdarkly-metric-choose",
+    "activation_cmd": "python .agents/library/activate_skill.py activate metrics-launchdarkly-metric-choose",
+    "link_cmd": "python .agents/library/activate_skill.py link metrics-launchdarkly-metric-choose"
+  },
+  {
+    "id": "metrics-launchdarkly-metric-create",
+    "name": "metrics-launchdarkly-metric-create",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Create a LaunchDarkly metric that measures what matters for an experiment or rollout. Use when the user wants to create a metric, track an event, measure page views, button clicks, conversion, latency, error rate, or any custom numeric or binary outcome. Instruments the event first when needed (including SDK setup and .env), then creates and verifies the metric.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/metrics-launchdarkly-metric-create",
+    "activation_cmd": "python .agents/library/activate_skill.py activate metrics-launchdarkly-metric-create",
+    "link_cmd": "python .agents/library/activate_skill.py link metrics-launchdarkly-metric-create"
+  },
+  {
+    "id": "metrics-launchdarkly-metric-instrument",
+    "name": "metrics-launchdarkly-metric-instrument",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Instrument a LaunchDarkly metric event in a codebase by adding a track() call. Use when the user wants to wire up an event, instrument an action for a metric, add tracking to a feature, or confirm that an event is flowing to LaunchDarkly.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/metrics-launchdarkly-metric-instrument",
+    "activation_cmd": "python .agents/library/activate_skill.py activate metrics-launchdarkly-metric-instrument",
+    "link_cmd": "python .agents/library/activate_skill.py link metrics-launchdarkly-metric-instrument"
+  },
+  {
     "id": "migrate",
     "name": "migrate",
     "repository": "launchdarkly-ai-tooling",
@@ -510,6 +820,36 @@
     "link_cmd": "python .agents/library/activate_skill.py link observability"
   },
   {
+    "id": "observability-alert-investigation",
+    "name": "observability-alert-investigation",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Investigates a firing or recently fired observability alert: finds the firing and replays the value it evaluated, decides whether the alert is chronic noise or a new problem, reuses any automatic investigation, then finds the cause (what changed, which host, version or route is over-represented) and returns a structured diagnosis with cause, scope and next steps.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/observability-alert-investigation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate observability-alert-investigation",
+    "link_cmd": "python .agents/library/activate_skill.py link observability-alert-investigation"
+  },
+  {
+    "id": "observability-create-graph",
+    "name": "observability-create-graph",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Creates observability dashboards and graphs from logs, traces, errors, sessions, metrics, and events data by previewing charts inline and saving them to a dashboard.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/observability-create-graph",
+    "activation_cmd": "python .agents/library/activate_skill.py activate observability-create-graph",
+    "link_cmd": "python .agents/library/activate_skill.py link observability-create-graph"
+  },
+  {
+    "id": "observability-investigate",
+    "name": "observability-investigate",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Finds the root cause of a production problem from observability data (logs, traces, errors, sessions, metrics): scope and onset, what changed (deploys and flag changes), which host, version, route or flag variation is over-represented against a baseline, then trace, log and error evidence and blast radius. Use when the user reports a bug, an outage, an error or latency spike, an incident, or asks about patterns across application data.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/observability-investigate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate observability-investigate",
+    "link_cmd": "python .agents/library/activate_skill.py link observability-investigate"
+  },
+  {
     "id": "onboarding",
     "name": "onboarding",
     "repository": "launchdarkly-ai-tooling",
@@ -518,6 +858,16 @@
     "path": "library/launchdarkly-ai-tooling/skills/onboarding",
     "activation_cmd": "python .agents/library/activate_skill.py activate onboarding",
     "link_cmd": "python .agents/library/activate_skill.py link onboarding"
+  },
+  {
+    "id": "onboarding-mcp-configure",
+    "name": "onboarding-mcp-configure",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Configure the LaunchDarkly hosted MCP server during onboarding. Use when the parent LaunchDarkly onboarding skill reaches the MCP offer, after the first flag works. Supports Cursor, Claude Code, Windsurf, GitHub Copilot, and other MCP-compatible agents. OAuth authentication; no API keys for the hosted server.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/onboarding-mcp-configure",
+    "activation_cmd": "python .agents/library/activate_skill.py activate onboarding-mcp-configure",
+    "link_cmd": "python .agents/library/activate_skill.py link onboarding-mcp-configure"
   },
   {
     "id": "online-evals",
@@ -560,6 +910,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link release-autopilot"
   },
   {
+    "id": "release-autopilot-launchdarkly-release-autopilot-onboarding",
+    "name": "release-autopilot-launchdarkly-release-autopilot-onboarding",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Step-by-step onboarding wizard for LaunchDarkly Release Autopilot: pick capabilities (auto-flagging, auto-releasing, auto-cleanup, auto-archival), connect the GitHub App, map repositories to projects, choose which AI model account runs the agents (LaunchDarkly's by default, or your own Anthropic or OpenAI key), review release policies (release plans by GA), and turn on scheduled flag cleanup and archival. Use when the user wants to set up, onboard to, preview, or continue setting up Release Autopilot. For a single settings change or 'why didn't my PR get classified?', use launchdarkly-release-autopilot-settings instead.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/release-autopilot-launchdarkly-release-autopilot-onboarding",
+    "activation_cmd": "python .agents/library/activate_skill.py activate release-autopilot-launchdarkly-release-autopilot-onboarding",
+    "link_cmd": "python .agents/library/activate_skill.py link release-autopilot-launchdarkly-release-autopilot-onboarding"
+  },
+  {
+    "id": "release-autopilot-launchdarkly-release-autopilot-settings",
+    "name": "release-autopilot-launchdarkly-release-autopilot-settings",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Configure LaunchDarkly Release Autopilot settings (GitHub App auto-flagging and auto-releasing) via the hosted MCP, or diagnose why a pull request was not classified / auto-flagged. Use when the user wants to turn on auto-flagging, map a GitHub repo to a LaunchDarkly project, change Release Autopilot account defaults, unmap a repo, or asks why Release Autopilot did not classify their PR. For first-time setup (pick capabilities, connect GitHub, choose inference, review release policies), use launchdarkly-release-autopilot-onboarding instead.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/release-autopilot-launchdarkly-release-autopilot-settings",
+    "activation_cmd": "python .agents/library/activate_skill.py activate release-autopilot-launchdarkly-release-autopilot-settings",
+    "link_cmd": "python .agents/library/activate_skill.py link release-autopilot-launchdarkly-release-autopilot-settings"
+  },
+  {
     "id": "sdk-install",
     "name": "sdk-install",
     "repository": "launchdarkly-ai-tooling",
@@ -568,6 +938,16 @@
     "path": "library/launchdarkly-ai-tooling/skills/sdk-install",
     "activation_cmd": "python .agents/library/activate_skill.py activate sdk-install",
     "link_cmd": "python .agents/library/activate_skill.py link sdk-install"
+  },
+  {
+    "id": "sdk-install-apply",
+    "name": "sdk-install-apply",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Apply LaunchDarkly SDK onboarding: install dependency (or dual-SDK pair), configure env and secrets with consent, add init at entrypoint(s), verify compile. Nested under sdk-install; next is run.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/sdk-install-apply",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sdk-install-apply",
+    "link_cmd": "python .agents/library/activate_skill.py link sdk-install-apply"
   },
   {
     "id": "should-flag-change",

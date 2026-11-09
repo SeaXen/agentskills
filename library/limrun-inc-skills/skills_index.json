@@ -1,5 +1,15 @@
 [
   {
+    "id": "limrun-access-tokens",
+    "name": "limrun-access-tokens",
+    "repository": "limrun-inc-skills",
+    "category": "general",
+    "description": "\"Create and revoke Limrun access tokens through the CLI or TypeScript SDK. Use when delegating temporary instance control, interactive streaming, asset access, device installation, or service access, or choosing permissions and token lifetimes.\"",
+    "path": "library/limrun-inc-skills/skills/limrun-access-tokens",
+    "activation_cmd": "python .agents/library/activate_skill.py activate limrun-access-tokens",
+    "link_cmd": "python .agents/library/activate_skill.py link limrun-access-tokens"
+  },
+  {
     "id": "limrun-android-emulator",
     "name": "limrun-android-emulator",
     "repository": "limrun-inc-skills",
@@ -88,5 +98,55 @@
     "path": "library/limrun-inc-skills/skills/limrun-xcode-bazel",
     "activation_cmd": "python .agents/library/activate_skill.py activate limrun-xcode-bazel",
     "link_cmd": "python .agents/library/activate_skill.py link limrun-xcode-bazel"
+  },
+  {
+    "id": "skills-limrun-android-emulator",
+    "name": "skills-limrun-android-emulator",
+    "repository": "limrun-inc-skills",
+    "category": "general",
+    "description": "\"Drive an app running on a Limrun cloud Android emulator: install an APK, launch and terminate apps with crash reports, tap, type, read the UI element tree, screenshot, record video, inject microphone audio, shape network bandwidth, read app logs, run shell commands, transfer files, tunnel the app's network destinations through your machine with HTTP inspection and HAR capture, reach a private network through a private tunnel, send all traffic through the user's proxy, trust a custom CA certificate, and use adb over the CLI's tunnel for full logcat and interactive tools. Use after a build (from limrun-gradle or any builder) when the user wants to see, test, or interact with their app on an emulator, or says 'show me a screenshot', 'tap', 'run it on the emulator', 'check logcat', 'record a video', 'inspect network traffic', 'route all traffic through my proxy', or 'reach my local server from the emulator'. To build the APK or AAB first, use limrun-gradle.\"",
+    "path": "library/limrun-inc-skills/skills/skills-limrun-android-emulator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-limrun-android-emulator",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-limrun-android-emulator"
+  },
+  {
+    "id": "skills-limrun-expo-development",
+    "name": "skills-limrun-expo-development",
+    "repository": "limrun-inc-skills",
+    "category": "general",
+    "description": "\"Prepare and run Expo / React Native apps on Limrun with Expo dev-client iteration. Use when the user wants an Expo dev build, Metro tunnel, hot reload, JS/TS iteration without repeated native rebuilds, or to run/test an Expo app on a remote iOS simulator or Android emulator.\"",
+    "path": "library/limrun-inc-skills/skills/skills-limrun-expo-development",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-limrun-expo-development",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-limrun-expo-development"
+  },
+  {
+    "id": "skills-limrun-gradle",
+    "name": "skills-limrun-gradle",
+    "repository": "limrun-inc-skills",
+    "category": "general",
+    "description": "\"Build an Android app on a remote Gradle sandbox with `lim gradle build` instead of local Gradle or Android Studio, from any environment (Linux, Windows, macOS, VM, container). Use when the user wants to build an APK or AAB, sign a release with an upload key, prepare a Play Store publish, inspect build logs, or select sandbox tools and run shell commands, for native Android projects, React Native, and Expo. To run, tap, screenshot, or otherwise interact with the built APK on an emulator, use limrun-android-emulator. For iOS builds, use limrun-xcode or limrun-expo-development.\"",
+    "path": "library/limrun-inc-skills/skills/skills-limrun-gradle",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-limrun-gradle",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-limrun-gradle"
+  },
+  {
+    "id": "skills-limrun-ios-simulator",
+    "name": "skills-limrun-ios-simulator",
+    "repository": "limrun-inc-skills",
+    "category": "general",
+    "description": "\"Drive an app running on a Limrun cloud iOS simulator: launch, tap, type, read the accessibility element tree, read app logs and simulator syslog, screenshot, record video, connect the app to local services or a private tunnel, play a video file as the camera, send all traffic through the user's proxy and trust its CA, set the clipboard, read and write user defaults, post notifications, and run timed action chains. Use after a build (from any builder) when the user wants to see, test, or interact with their app on a simulator, or says 'show me a screenshot', 'tap', 'run the UI test', 'record a video', 'read the logs', 'connect localhost', 'reach my local server from the simulator', 'route all traffic through my proxy', 'trust my CA', 'mock the camera', 'paste into the app', 'change the language', 'simulate Face ID', or 'launch on simulator'. To build the app first, use limrun-xcode-bazel (Bazel workspaces) or limrun-xcode (xcodebuild projects).\"",
+    "path": "library/limrun-inc-skills/skills/skills-limrun-ios-simulator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-limrun-ios-simulator",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-limrun-ios-simulator"
+  },
+  {
+    "id": "skills-limrun-xcode",
+    "name": "skills-limrun-xcode",
+    "repository": "limrun-inc-skills",
+    "category": "general",
+    "description": "\"Build an iOS / Apple app on remote Xcode with `lim xcode build` instead of local xcodebuild, run project commands with `lim xcode run`, or run its XCTest suites with `lim xcode test`, from any environment (Linux, Windows, macOS, VM, container). Use for non-Bazel projects (an `.xcodeproj` / `.xcworkspace`, an XcodeGen `project.yml` with a gitignored project, React Native / Expo native build) when the user wants to build, compile, run code generation or Make targets, test, inspect build logs, reload, produce a preview build, or ship a signed device IPA. To run, tap, screenshot, or otherwise interact with the result on a simulator, use limrun-ios-simulator. For Bazel workspaces, use limrun-xcode-bazel.\"",
+    "path": "library/limrun-inc-skills/skills/skills-limrun-xcode",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-limrun-xcode",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-limrun-xcode"
   }
 ]

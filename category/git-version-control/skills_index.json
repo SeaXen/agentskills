@@ -56,6 +56,14 @@
     "path": "category/git-version-control/affiliate-onboarding-sequence"
   },
   {
+    "id": "afk",
+    "name": "afk",
+    "category": "git-version-control",
+    "repository": "jakubkrehel-skills",
+    "description": "Works through a project while you're away, finding improvements and new ideas, building the best of them on a local branch and leaving a report for when you're back.",
+    "path": "category/git-version-control/afk"
+  },
+  {
     "id": "agent-skill-offering",
     "name": "agent-skill-offering",
     "category": "git-version-control",
@@ -576,6 +584,14 @@
     "path": "category/git-version-control/claude-security"
   },
   {
+    "id": "claude-skills-open-design-publish",
+    "name": "claude-skills-open-design-publish",
+    "category": "git-version-control",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Share an Open Design artifact as a live link (a temporary no-account link, or your own Netlify, Vercel, Cloudflare Pages or GitHub Pages), or as one self-contained HTML file \u2014 use whenever the user wants to share, publish, deploy or host an Open Design artifact, or get a link to send to teammates or stakeholders; also when they want a single HTML file to attach or send",
+    "path": "category/git-version-control/claude-skills-open-design-publish"
+  },
+  {
     "id": "cmux-capture",
     "name": "cmux-capture",
     "category": "git-version-control",
@@ -960,6 +976,14 @@
     "path": "category/git-version-control/developing-openrig"
   },
   {
+    "id": "development-code-reviewer",
+    "name": "development-code-reviewer",
+    "category": "git-version-control",
+    "repository": "davila7-claude-code-templates",
+    "description": "You MUST use this when asked to review code: a pull request, a branch, a commit, staged or uncommitted changes, or \\\"check this before I merge\\\". Scopes the review to the diff, reads the surrounding code, hunts for real bugs (correctness, security, data loss, concurrency, broken callers, missing tests), verifies every finding against the code before reporting it, and returns a short severity-ranked list with a concrete failure scenario for each. Use it for any language; not for writing new code or for style-only cleanups.",
+    "path": "category/git-version-control/development-code-reviewer"
+  },
+  {
     "id": "devops-deploy",
     "name": "devops-deploy",
     "category": "git-version-control",
@@ -1150,6 +1174,22 @@
     "repository": "samber-dev-event-organizer-skills",
     "description": "Forecast final registrations for a technical event from its sign-up pace curve, with a bundled Python 3 script, while registration is still open - prior-edition or generic reference curves aligned on days-out, a low/mid/high band, milestone tripwires declared in advance, the commit figure at each contract lock date, when the forecast crosses capacity, and attendance by ticket type. Use whenever asked how many people will end up registering or attending, to project this year from last year's curve, what headcount to commit before sign-ups close, or when registration will hit its cap. Do NOT use for the demand verdict - use samber/dev-event-organizer-skills@event-market-fit - or overbooking ratios and food counts once sign-ups close - use samber/dev-event-organizer-skills@event-no-show-management.",
     "path": "category/git-version-control/event-registration-forecast"
+  },
+  {
+    "id": "examples-orbit-general",
+    "name": "examples-orbit-general",
+    "category": "git-version-control",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Open Orbit briefing skill \u2014 selected by the Orbit pipeline when the user has two or more connectors connected. Pulls the past 24 hours of activity from every authenticated connector (GitHub, Linear, Notion, Slack, \u98de\u4e66, Calendar, Gmail, Drive, Sentry, Vercel, \u2026) and renders a single adaptive bento-grid dashboard at the top of \"\u6211\u7684\u8bbe\u8ba1\". Each connector module picks its own UI form (list, avatar stack, status ring, heatmap, file grid, alert card, \u2026) based on the data shape it returns, so the layout scales as Orbit's connector ecosystem grows. This skill should not be triggered manually \u2014 it is invoked by Orbit's daily-digest scheduler against the user's live connector data.",
+    "path": "category/git-version-control/examples-orbit-general"
+  },
+  {
+    "id": "examples-orbit-github",
+    "name": "examples-orbit-github",
+    "category": "git-version-control",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Open Orbit briefing skill \u2014 selected by the Orbit pipeline when GitHub is the user's only connected connector, or when the user explicitly scopes their daily digest to GitHub. Pulls the past 24 hours of PRs, review requests, issues, CI runs, and merges from the user's authenticated GitHub connection and renders them in a layout that mirrors GitHub's native Notifications + PR-diff visual language. This skill should not be triggered manually \u2014 it is invoked by Orbit's daily-digest scheduler against live GitHub data.",
+    "path": "category/git-version-control/examples-orbit-github"
   },
   {
     "id": "experiment-orchestration",
@@ -2230,6 +2270,14 @@
     "repository": "davidondrej-skills",
     "description": "Skeptical review of outside contributions to public repos. Use when reviewing, ranking, or replying to public GitHub pull requests or issues from outside contributors, or when the user says \"larp-detector\".",
     "path": "category/git-version-control/larp-detector"
+  },
+  {
+    "id": "launchdarkly-automations-cleanup-settings",
+    "name": "launchdarkly-automations-cleanup-settings",
+    "category": "git-version-control",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Read and change a LaunchDarkly project's Automations auto-cleanup settings via the hosted MCP. Auto-cleanup runs on a schedule and opens pull requests that remove the code for flags that are ready. Use when the user wants to turn automated flag cleanup on or off, change its schedule, repositories, flag states, job limit, or agent instructions, see which flags the next run will pick up, or asks why cleanup did not open a pull request. For first-time setup of every Release Autopilot capability, use launchdarkly-release-autopilot-onboarding.",
+    "path": "category/git-version-control/launchdarkly-automations-cleanup-settings"
   },
   {
     "id": "launchdarkly-release-autopilot-onboarding",
@@ -3328,6 +3376,14 @@
     "path": "category/git-version-control/requesthunt"
   },
   {
+    "id": "research-and-web-deepapi",
+    "name": "research-and-web-deepapi",
+    "category": "git-version-control",
+    "repository": "davidondrej-skills",
+    "description": "Use DeepAPI for all web search, deep research, and web scraping (websites, LinkedIn, GitHub, X/Twitter, YouTube, Instagram) instead of built-in search, research, fetch, or browser tools. Prefer dedicated platform endpoints over web search. Instagram has profile, post, comment, and hashtag endpoints; no generic search. Use Deep Scrape for sourced JSON dossiers on people, companies, or topics. Also use it to navigate and act on public websites, draft and send safe email, and generate images.",
+    "path": "category/git-version-control/research-and-web-deepapi"
+  },
+  {
     "id": "resolve-agent-reviews",
     "name": "resolve-agent-reviews",
     "category": "git-version-control",
@@ -3478,6 +3534,14 @@
     "repository": "scenario-labs-skills",
     "description": "Use when a Scenario user wants to report a bug or request a change, on the public tracker at github.com/scenario-labs/skills or by email to support@scenario.com: turning a failed generation, MCP tool error, or unclear skill into a reproducible report, collecting trace ids with diagnostics_run, stripping keys, signed asset URLs, and personal data, asking before sharing a team or project id, or building a prefilled issue URL. Keywords: file an issue, feature request, feedback.",
     "path": "category/git-version-control/scenario-report"
+  },
+  {
+    "id": "scenario-roblox-tooling",
+    "name": "scenario-roblox-tooling",
+    "category": "git-version-control",
+    "repository": "scenario-labs-skills",
+    "description": "Use when setting up or repairing a Roblox team project outside Studio: Rojo or Script Sync, Wally packages, Rokit pins, luau-lsp type checking, Selene, StyLua, unit tests in Lune or the engine, GitHub Actions CI on pull requests, Open Cloud place publishing, Luau Execution or API key scopes, merging builders' Team Create map with code from files, Studio plugins, or proving a pipeline works. Also when users say \\\"set up Rojo\\\", \\\"CI for my Roblox game\\\", \\\"run tests in CI\\\", \\\"publish from GitHub\\\", \\\"Script Sync stopped syncing\\\", \\\"Rojo deleted my parts\\\", \\\"wally packages not found\\\", \\\"luau-lsp can't find ReplicatedStorage\\\", \\\"selene errors on types\\\", \\\"the release wiped the map\\\" or \\\"my LocalScript doesn't run\\\".",
+    "path": "category/git-version-control/scenario-roblox-tooling"
   },
   {
     "id": "search-first",
@@ -3656,6 +3720,62 @@
     "path": "category/git-version-control/skills-baoyu-wechat-summary"
   },
   {
+    "id": "skills-bedrock-migration-assessment",
+    "name": "skills-bedrock-migration-assessment",
+    "category": "git-version-control",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Source-cloud-neutral assessment of AI/LLM usage for a migration to Amazon Bedrock. Use when the user wants to find which OpenAI (direct or Azure OpenAI), Anthropic, Google/Gemini, or OpenRouter calls their code makes, or already has a provider-neutral ai-workload-profile.json (schema 1.0 or 1.1), and wants to answer the AI migration questions. It scans the code or validates the profile, then runs Clarify, and needs no infrastructure skill installed. This release stops after Clarify: it does not design, estimate, generate artifacts, or rewrite code. To rewrite SDK calls to Bedrock and get a branch, use llm-to-bedrock; for infrastructure migrations use gcp-to-aws, azure-to-aws, or heroku-to-aws.",
+    "path": "category/git-version-control/skills-bedrock-migration-assessment"
+  },
+  {
+    "id": "skills-ce-babysit-pr",
+    "name": "skills-ce-babysit-pr",
+    "category": "git-version-control",
+    "repository": "everyinc-compound-engineering-plugin",
+    "description": "Babysits an open GitHub PR until merge-ready, first judging whether an old PR still belongs. Use when asked to watch a PR over time or update an old one \u2014 not for one-shot comment resolution or one CI failure. GitHub (incl. Enterprise) only.",
+    "path": "category/git-version-control/skills-ce-babysit-pr"
+  },
+  {
+    "id": "skills-ce-code-review",
+    "name": "skills-ce-code-review",
+    "category": "git-version-control",
+    "repository": "everyinc-compound-engineering-plugin",
+    "description": "Review a named diff or PR for bugs, regressions, tests, and standards. Use when asked to review code or when a shipping skill needs a review receipt. Use when asked to apply this review's findings locally. Use ce-resolve-pr-feedback for feedback already left on a PR.",
+    "path": "category/git-version-control/skills-ce-code-review"
+  },
+  {
+    "id": "skills-ce-commit-push-pr",
+    "name": "skills-ce-commit-push-pr",
+    "category": "git-version-control",
+    "repository": "everyinc-compound-engineering-plugin",
+    "description": "Commit, push, and open a PR. Use when asked to ship/open a PR, or for PR-description-only flows like writing, rewriting, or describing a PR body.",
+    "path": "category/git-version-control/skills-ce-commit-push-pr"
+  },
+  {
+    "id": "skills-ce-dogfood",
+    "name": "skills-ce-dogfood",
+    "category": "git-version-control",
+    "repository": "everyinc-compound-engineering-plugin",
+    "description": "Hands-off, diff-scoped browser QA of the active branch: maps user flows, drives a real browser, autonomously fixes small breakages with regression tests and commits, judges experience against product personas, and writes a durable dogfood report. Manual invocation only.",
+    "path": "category/git-version-control/skills-ce-dogfood"
+  },
+  {
+    "id": "skills-ce-setup",
+    "name": "skills-ce-setup",
+    "category": "git-version-control",
+    "repository": "everyinc-compound-engineering-plugin",
+    "description": "Check Compound Engineering's tools and repo config and fix what it finds, scaffold a Compound Pack with `pack:<id>`, or draft and refresh coding standards and review docs from pull request history. Use when setting up or diagnosing Compound Engineering, or when creating or updating CODING_STANDARDS.md or REVIEW.md, including on a schedule.",
+    "path": "category/git-version-control/skills-ce-setup"
+  },
+  {
+    "id": "skills-ce-sweep",
+    "name": "skills-ce-sweep",
+    "category": "git-version-control",
+    "repository": "everyinc-compound-engineering-plugin",
+    "description": "Sweep configured feedback sources (Slack, GitHub Issues; email experimental) for new items: acknowledge at source, analyze recordings, verify fixes merged to main, and emit an `lfg`-ready plan. First run sets up sources; supports mode:non-interactive for scheduled runs.",
+    "path": "category/git-version-control/skills-ce-sweep"
+  },
+  {
     "id": "skills-ci-cd",
     "name": "skills-ci-cd",
     "category": "git-version-control",
@@ -3672,12 +3792,28 @@
     "path": "category/git-version-control/skills-claude-security"
   },
   {
+    "id": "skills-cpp-coding-standards",
+    "name": "skills-cpp-coding-standards",
+    "category": "git-version-control",
+    "repository": "affaan-m-ecc",
+    "description": "C++\u30b3\u30a2\u30ac\u30a4\u30c9\u30e9\u30a4\u30f3\u306b\u57fa\u3065\u304fC++\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u6a19\u6e96\uff08isocpp.github.io\uff09\u3002\u73fe\u4ee3\u7684\u3067\u5b89\u5168\u3067\u6163\u7528\u7684\u306a\u30d7\u30e9\u30af\u30c6\u30a3\u30b9\u3092\u5f37\u5236\u3059\u308b\u305f\u3081\u306bC++\u30b3\u30fc\u30c9\u3092\u66f8\u304d\u3001\u30ec\u30d3\u30e5\u30fc\u3001\u307e\u305f\u306f\u30ea\u30d5\u30a1\u30af\u30bf\u30ea\u30f3\u30b0\u3059\u308b\u5834\u5408\u306b\u4f7f\u7528\u3057\u307e\u3059\u3002",
+    "path": "category/git-version-control/skills-cpp-coding-standards"
+  },
+  {
     "id": "skills-cursor-sdk",
     "name": "skills-cursor-sdk",
     "category": "git-version-control",
     "repository": "cursor-plugins",
     "description": "Guide users building apps, scripts, CI pipelines, or automations on top of the Cursor TypeScript SDK (`@cursor/sdk`). Use this skill whenever the user mentions integrating, installing, or writing code against the Cursor SDK; whenever they say `Agent.create`, `Agent.prompt`, `Agent.resume`, `agent.send`, `run.stream`, `CursorAgentError`, or `@cursor/sdk`; whenever they ask to run Cursor agents programmatically from a script, CI/CD pipeline, GitHub Action, backend service, or any other code that isn't the Cursor IDE itself; and whenever they want to pick between local and cloud runtime, configure MCP servers for an SDK agent, or handle streaming, cancellation, or errors from an SDK agent. Also trigger when a user is wiring Cursor into an automation, writing a bot that runs Cursor, or porting REST `/v1/agents` calls to the SDK, even if they don't explicitly name the package. Use this eagerly rather than answering from memory; the SDK surface evolves and this skill plus its references are the source of truth for the external package.",
     "path": "category/git-version-control/skills-cursor-sdk"
+  },
+  {
+    "id": "skills-data-scraper-agent",
+    "name": "skills-data-scraper-agent",
+    "category": "git-version-control",
+    "repository": "affaan-m-ecc",
+    "description": "\u4efb\u610f\u306e\u30d1\u30d6\u30ea\u30c3\u30af\u30bd\u30fc\u30b9\uff08\u30b8\u30e7\u30d6\u30dc\u30fc\u30c9\u3001\u4fa1\u683c\u3001\u30cb\u30e5\u30fc\u30b9\u3001GitHub\u3001\u30b9\u30dd\u30fc\u30c4\u306a\u3069\uff09\u7528\u306e\u5b8c\u5168\u81ea\u52d5\u5316\u3055\u308c\u305fAI\u642d\u8f09\u30c7\u30fc\u30bf\u53ce\u96c6\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u3092\u69cb\u7bc9\u3057\u307e\u3059\u3002\u30b9\u30b1\u30b8\u30e5\u30fc\u30eb\u3067\u30b9\u30af\u30ec\u30a4\u30d7\u3057\u3001\u7121\u6599LLM\uff08Gemini Flash\uff09\u3067\u30c7\u30fc\u30bf\u3092\u8c4a\u304b\u306b\u3057\u3001Notion/Sheets/Supabase\u306b\u7d50\u679c\u3092\u4fdd\u5b58\u3057\u3001\u30e6\u30fc\u30b6\u30fc\u30d5\u30a3\u30fc\u30c9\u30d0\u30c3\u30af\u304b\u3089\u5b66\u7fd2\u3057\u307e\u3059\u3002GitHub Actions\u4e0a\u3067100\uff05\u7121\u6599\u3067\u5b9f\u884c\u3002\u30e6\u30fc\u30b6\u30fc\u304c\u30d1\u30d6\u30ea\u30c3\u30af\u30c7\u30fc\u30bf\u3092\u81ea\u52d5\u7684\u306b\u76e3\u8996\u3001\u53ce\u96c6\u3001\u307e\u305f\u306f\u8ffd\u8de1\u3057\u305f\u3044\u5834\u5408\u306b\u4f7f\u7528\u3057\u307e\u3059\u3002",
+    "path": "category/git-version-control/skills-data-scraper-agent"
   },
   {
     "id": "skills-dev-skills",
@@ -3720,12 +3856,52 @@
     "path": "category/git-version-control/skills-get-pr-comments"
   },
   {
+    "id": "skills-git-workflow",
+    "name": "skills-git-workflow",
+    "category": "git-version-control",
+    "repository": "affaan-m-ecc",
+    "description": "Git\u30ef\u30fc\u30af\u30d5\u30ed\u30fc\u3001\u30d6\u30e9\u30f3\u30c1\u6226\u7565\u3001\u30b3\u30df\u30c3\u30c8\u30e1\u30c3\u30bb\u30fc\u30b8\u898f\u7d04\u3001\u304a\u3088\u3073\u30d7\u30eb\u30ea\u30af\u30a8\u30b9\u30c8\u30d7\u30ed\u30bb\u30b9\u3002",
+    "path": "category/git-version-control/skills-git-workflow"
+  },
+  {
+    "id": "skills-github-ops",
+    "name": "skills-github-ops",
+    "category": "git-version-control",
+    "repository": "affaan-m-ecc",
+    "description": "GitHub\u64cd\u4f5c\u3001\u81ea\u52d5\u5316\u3001API\u30a4\u30f3\u30c6\u30b0\u30ec\u30fc\u30b7\u30e7\u30f3\u3001\u304a\u3088\u3073CI/CD\u30ef\u30fc\u30af\u30d5\u30ed\u30fc\u3002",
+    "path": "category/git-version-control/skills-github-ops"
+  },
+  {
+    "id": "skills-last30days",
+    "name": "skills-last30days",
+    "category": "git-version-control",
+    "repository": "mvanhorn-last30days-skill",
+    "description": "Research what people actually say about any topic in the last 30 days. Pulls posts and engagement from Reddit, X, YouTube, TikTok, Hacker News, Polymarket, GitHub, and the web. Includes a doctor health check to diagnose broken or missing sources.",
+    "path": "category/git-version-control/skills-last30days"
+  },
+  {
+    "id": "skills-lfg",
+    "name": "skills-lfg",
+    "category": "git-version-control",
+    "repository": "everyinc-compound-engineering-plugin",
+    "description": "Take a request all the way to done, hands-off, through the right Compound Engineering skills. A code change ends as an open pull request, pushed without stopping. Use only when the user explicitly asks for autonomous end-to-end work or invokes lfg directly. Use ce-plan, ce-work, ce-debug, or ce-commit-push-pr for work the user reviews step by step.",
+    "path": "category/git-version-control/skills-lfg"
+  },
+  {
     "id": "skills-llm-to-bedrock",
     "name": "skills-llm-to-bedrock",
     "category": "git-version-control",
     "repository": "aws-agent-toolkit-for-aws",
     "description": "Use when the user wants to migrate code that calls OpenAI, Gemini/Google AI, or the Anthropic API to Amazon Bedrock \u2014 a pure model/SDK rewrite. End-to-end: assesses the codebase, optionally captures aggregate OpenAI, OpenRouter, or Anthropic cost and token usage through consent-gated provider APIs, rewrites SDK calls, evaluates output quality against Bedrock, and delivers a ready-to-merge git branch. Also has an access-only mode for checking or enabling Bedrock model access for specific models (e.g. 'request access to Claude on Bedrock', 'which models do I turn on') with no code migration \u2014 it checks each model and walks the right access step, then stops. Not for agent runtime selection or agent migration planning (use agent-advisor), nor standalone cost estimates or infra-only migration. The full migration REQUIRES gcp-to-aws OR azure-to-aws installed alongside this skill (gcp-to-aws preferred when both are present); access-only mode needs neither.",
     "path": "category/git-version-control/skills-llm-to-bedrock"
+  },
+  {
+    "id": "skills-local-seo",
+    "name": "skills-local-seo",
+    "category": "git-version-control",
+    "repository": "nowork-studio-notfair-plugin",
+    "description": "Local SEO and Google Business Profile audit: diagnose why a business isn't ranking in the local pack / map results and produce a fix plan. Covers GBP completeness, NAP (name/address/phone) consistency across the site and citations, local pack and \"near me\" ranking factors, review velocity and responses, local landing pages, service-area pages, and LocalBusiness JSON-LD. Use whenever the user asks about local rankings, map results, Google Maps ranking, NAP consistency, store/branch pages, or multi-location SEO. Trigger on: \"local SEO\", \"Google Business Profile\", \"GBP audit\", \"rank on Google Maps\", \"local pack\", \"map pack\", \"near me ranking\", \"NAP\", \"local citations\", \"my business isn't on the map\", \"why don't I show up on Google Maps\", \"store locator SEO\", \"multi-location SEO\", \"service area pages\", or any location-based ranking question. For full-site (non-local) audits use /seo-analysis; for a single URL use /seo-page.",
+    "path": "category/git-version-control/skills-local-seo"
   },
   {
     "id": "skills-loop-on-ci",
@@ -3760,6 +3936,14 @@
     "path": "category/git-version-control/skills-mirrord-prev-env"
   },
   {
+    "id": "skills-neon",
+    "name": "skills-neon",
+    "category": "git-version-control",
+    "repository": "neondatabase-agent-skills",
+    "description": "Overview of Neon, a complete set of cloud backend primitives around Lakebase Postgres: Auth, Object Storage, Functions, the AI Gateway, and Realtime. Start here to choose Neon for undecided login, files, APIs, and LLM calls, set up the CLI or MCP server, and follow the branch-first workflow. Use when building an app or backend on Neon, or when \"Neon\" or \"Lakebase Postgres\" is mentioned. Child skill neon-postgres wins for an existing DATABASE_URL, SQL, schema, inspect, or search. Child skill neon-auth wins for login, users, sessions, identity routing, and Managed Better Auth setup. Child skill neon-realtime wins for live queries in reactive apps and agents. Also use for object storage, S3, buckets, serverless functions, function triggers, cron, AI gateway, LLM calls, realtime, logs, Loki, Grafana, observability, postgres, database, backend, Claimable Neon, neon.new, a no-signup database, or pairing Neon with Upstash for cache, Redis, rate limiting, queues, or background jobs.",
+    "path": "category/git-version-control/skills-neon"
+  },
+  {
     "id": "skills-neon-ai-gateway",
     "name": "skills-neon-ai-gateway",
     "category": "git-version-control",
@@ -3768,12 +3952,28 @@
     "path": "category/git-version-control/skills-neon-ai-gateway"
   },
   {
+    "id": "skills-neon-functions",
+    "name": "skills-neon-functions",
+    "category": "git-version-control",
+    "repository": "neondatabase-agent-skills",
+    "description": "Long-running, serverless Node.js HTTP functions deployed onto your Neon branch, with DATABASE_URL injected automatically and compute that runs next to your data. Use when a user wants to host an API, an AI agent with long streaming responses, a WebSocket or server-sent-events (SSE) server, a webhook handler, a Discord bot, an MCP server, or any request/response workload that risks timing out on short, lambda-style serverless functions \u2014 and wants it to branch with their database. Also use for Function Triggers: a cron or an object-storage event that POSTs to a function. Triggers include \"serverless function\", \"deploy an API\", \"long-running function\", \"streaming agent\", \"SSE server\", \"WebSocket server\", \"webhook handler\", \"MCP server\", \"cron\", \"scheduled function\", \"object storage trigger\", \"on upload\", \"function that won't time out\", \"function logs\", \"Neon Functions\", \"Neon Compute\", \"DDoS protection\", \"rate limiting\", and \"production hardening\". For live UIs over database rows, use neon-realtime.",
+    "path": "category/git-version-control/skills-neon-functions"
+  },
+  {
     "id": "skills-new-branch-and-pr",
     "name": "skills-new-branch-and-pr",
     "category": "git-version-control",
     "repository": "cursor-plugins",
     "description": "Create a fresh branch, complete work, and open a pull request",
     "path": "category/git-version-control/skills-new-branch-and-pr"
+  },
+  {
+    "id": "skills-oh-my-issues",
+    "name": "skills-oh-my-issues",
+    "category": "git-version-control",
+    "repository": "thedotmack-claude-mem",
+    "description": "Cluster a GitHub issue backlog by root cause into a small set of plan-master issues, redirect children with a standardized comment, and bundle architectural-fix PRs that close clusters atomically. Use when an issue tracker has accumulated dozens of reports that share underlying defects, when asked to triage / consolidate / cluster / dedupe issues, when asked to build a plan series or roadmap from open issues, or when routing a new incoming bug into an existing plan.",
+    "path": "category/git-version-control/skills-oh-my-issues"
   },
   {
     "id": "skills-om-auto-continue-pr",
@@ -3976,12 +4176,36 @@
     "path": "category/git-version-control/skills-om-verify-in-repo"
   },
   {
+    "id": "skills-open-design-publish",
+    "name": "skills-open-design-publish",
+    "category": "git-version-control",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "Share an Open Design artifact as a live link (a temporary no-account link, or your own Netlify, Vercel, Cloudflare Pages or GitHub Pages), or as one self-contained HTML file \u2014 use whenever the user wants to share, publish, deploy or host an Open Design artifact, or get a link to send to teammates or stakeholders; also when they want a single HTML file to attach or send",
+    "path": "category/git-version-control/skills-open-design-publish"
+  },
+  {
+    "id": "skills-parallel-execution-optimizer",
+    "name": "skills-parallel-execution-optimizer",
+    "category": "git-version-control",
+    "repository": "affaan-m-ecc",
+    "description": "\u5f53\u7528\u6237\u5e0c\u671b\u901a\u8fc7\u5e76\u884c\u5de5\u4f5c\u3001\u5e76\u53d1 agents\u3001\u6279\u91cf\u5de5\u5177\u8c03\u7528\u3001\u9694\u79bb worktree \u6216\u591a\u6761\u72ec\u7acb\u9a8c\u8bc1\u901a\u9053\u6765\u5927\u5e45\u52a0\u901f\u4efb\u52a1\u3001\u540c\u65f6\u4e0d\u635f\u5931\u6b63\u786e\u6027\u65f6\u4f7f\u7528\u3002",
+    "path": "category/git-version-control/skills-parallel-execution-optimizer"
+  },
+  {
     "id": "skills-port-github-app-to-origin",
     "name": "skills-port-github-app-to-origin",
     "category": "git-version-control",
     "repository": "cursor-plugins",
     "description": "Plans the port of an existing GitHub App to a Cursor Origin App. Use when the task is to bring a GitHub App to Origin or compare what it uses against the Origin API. Reads the app's needs out of its code, maps them onto the live Origin spec, and writes a porting brief with feedback for Cursor. Planning only.",
     "path": "category/git-version-control/skills-port-github-app-to-origin"
+  },
+  {
+    "id": "skills-pr-explainer",
+    "name": "skills-pr-explainer",
+    "category": "git-version-control",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "A pull request explained for reviewers: what changed and why, a before and after, risks and the test plan, and a guided tour of the files, drawn from the branch commits and diff.",
+    "path": "category/git-version-control/skills-pr-explainer"
   },
   {
     "id": "skills-pr-review-canvas",
@@ -4032,6 +4256,14 @@
     "path": "category/git-version-control/skills-show-me-your-work"
   },
   {
+    "id": "skills-skill-scout",
+    "name": "skills-skill-scout",
+    "category": "git-version-control",
+    "repository": "affaan-m-ecc",
+    "description": "\u65b0\u3057\u3044\u30b9\u30ad\u30eb\u3092\u4f5c\u6210\u3059\u308b\u524d\u306b\u3001\u30ed\u30fc\u30ab\u30eb\u30fb\u30de\u30fc\u30b1\u30c3\u30c8\u30d7\u30ec\u30a4\u30b9\u30fbGitHub\u30fbWeb\u306e\u65e2\u5b58\u30b9\u30ad\u30eb\u3092\u691c\u7d22\u3059\u308b\u3002\u30b9\u30ad\u30eb\u306e\u4f5c\u6210\u30fb\u30d3\u30eb\u30c9\u30fb\u30d5\u30a9\u30fc\u30af\u30fb\u691c\u7d22\u3092\u884c\u3046\u969b\u306b\u4f7f\u7528\u3002",
+    "path": "category/git-version-control/skills-skill-scout"
+  },
+  {
     "id": "skills-technical-writing",
     "name": "skills-technical-writing",
     "category": "git-version-control",
@@ -4056,6 +4288,14 @@
     "path": "category/git-version-control/skills-thermos"
   },
   {
+    "id": "skills-unified-notifications-ops",
+    "name": "skills-unified-notifications-ops",
+    "category": "git-version-control",
+    "repository": "affaan-m-ecc",
+    "description": "GitHub\u3001Linear\u3001\u30c7\u30b9\u30af\u30c8\u30c3\u30d7\u30a2\u30e9\u30fc\u30c8\u3001\u30d5\u30c3\u30af\u3001\u63a5\u7d9a\u3055\u308c\u305f\u901a\u4fe1\u30a4\u30f3\u30bf\u30fc\u30d5\u30a7\u30fc\u30b9\u3092\u7db2\u7f85\u3059\u308b\u3001\u7d71\u5408\u3055\u308c\u305fECC\u30cd\u30a4\u30c6\u30a3\u30d6\u30ef\u30fc\u30af\u30d5\u30ed\u30fc\u3068\u3057\u3066\u901a\u77e5\u3092\u904b\u7528\u3059\u308b\u3002\u771f\u306e\u554f\u984c\u304c\u30a2\u30e9\u30fc\u30c8\u30eb\u30fc\u30c6\u30a3\u30f3\u30b0\u3001\u91cd\u8907\u6392\u9664\u3001\u30a8\u30b9\u30ab\u30ec\u30fc\u30b7\u30e7\u30f3\u3001\u307e\u305f\u306f\u30a4\u30f3\u30dc\u30c3\u30af\u30b9\u5d29\u58ca\u3067\u3042\u308b\u5834\u5408\u306b\u4f7f\u7528\u3059\u308b\u3002",
+    "path": "category/git-version-control/skills-unified-notifications-ops"
+  },
+  {
     "id": "skills-update-opportunity",
     "name": "skills-update-opportunity",
     "category": "git-version-control",
@@ -4070,6 +4310,14 @@
     "repository": "obra-superpowers",
     "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback",
     "path": "category/git-version-control/skills-using-git-worktrees"
+  },
+  {
+    "id": "skills-version-bump",
+    "name": "skills-version-bump",
+    "category": "git-version-control",
+    "repository": "thedotmack-claude-mem",
+    "description": "Maintainer release workflow for the thedotmack/claude-mem repository only. Handles version increments across package.json, marketplace.json, plugin.json manifests, build verification, git tagging, GitHub releases, and changelog generation. npm publishing is done by the tag-triggered GitHub Actions workflow through npm trusted publishing. Does not apply to any other repository or npm package.",
+    "path": "category/git-version-control/skills-version-bump"
   },
   {
     "id": "smart-git-commit",

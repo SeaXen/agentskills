@@ -1,7 +1,7 @@
 # 🔒 Auth, Hardening & Compliance
 
 > **Category**: `security-compliance-auth`  
-> **Total Curated Skills**: 411 skills  
+> **Total Curated Skills**: 420 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -97,6 +97,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cloud-iam-helper-for-privileged-access-management`](../../library/google-skills/skills/cloud-iam-helper-for-privileged-access-management) | ⚪ Reserve | `google-skills` | Manages the end-to-end lifecycle of on-demand, temporary access using Privileged Access Manager... |
 | [`cloud-iam-helper-for-troubleshooting`](../../library/google-skills/skills/cloud-iam-helper-for-troubleshooting) | ⚪ Reserve | `google-skills` | Diagnoses, remediates, and manages Identity and Access Management (IAM) access issues on Google... |
 | [`cloud-logging-configuration-basics`](../../library/google-skills/skills/cloud-logging-configuration-basics) | ⚪ Reserve | `google-skills` | Configure single-project Cloud Logging on Google Cloud: regional log buckets, log sinks, log vi... |
+| [`cloudrobo-huawei-cloud-cloudrobo-asset`](../../library/huaweicloud-huaweicloud-skills/skills/cloudrobo-huawei-cloud-cloudrobo-asset) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Manage the full lifecycle of CloudRobo assets — query repositories and catalogs, create/list/sh... |
 | [`cobrowse-sdk`](../../library/anthropics-knowledge-work/skills/cobrowse-sdk) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom Cobrowse SDK. Use after routing to a collaborative-support workflow wh... |
 | [`codex-oauth-automation-extension`](../../library/reason-machines-trending-skills/skills/codex-oauth-automation-extension) | ⚪ Reserve | `reason-machines-trending-skills` | Chrome extension for automating OpenAI OAuth registration flows with captcha retrieval, CPA cal... |
 | [`coding-agent-rollout`](../../library/alirezarezvani-claude-skills/skills/coding-agent-rollout) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when rolling Claude Code out to a team or organization, or auditing a rollout already under... |
@@ -123,6 +124,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`critique-brand-consistency`](../../library/owl-listener-designer-skills/skills/critique-brand-consistency) | ⚪ Reserve | `owl-listener-designer-skills` | Critique a rendered screen against mood.md, voice.md, and tokens.md. Use when those brand files... |
 | [`crossframe-public`](../../library/sickn33-agentic-awesome-skills/skills/crossframe-public) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use when CrossFrame Suite routes explicit Chinese analysis of public issues, platform governanc... |
 | [`csrf-cross-site-request-forgery`](../../library/yaklang-hack-skills/skills/csrf-cross-site-request-forgery) | ⚪ Reserve | `yaklang-hack-skills` | CSRF testing playbook. Use when reviewing state-changing web flows, anti-CSRF defenses, SameSit... |
+| [`cts-huawei-cloud-cts-trace-management`](../../library/huaweicloud-huaweicloud-skills/skills/cts-huawei-cloud-cts-trace-management) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Huawei Cloud CTS (Cloud Trace Service / 云审计服务) management and audit analysis via the hcloud CLI... |
 | [`customs-trade-compliance`](../../library/affaan-m-ecc/skills/customs-trade-compliance) | ⚪ Reserve | `affaan-m-ecc` | Codified customs and trade compliance expertise — HS/HTS tariff classification with GRI rules, ... |
 | [`data-privacy-compliance`](../../library/davila7-claude-code-templates/skills/data-privacy-compliance) | ⚪ Reserve | `davila7-claude-code-templates` | Data privacy and regulatory compliance specialist for GDPR, CCPA, HIPAA, and international data... |
 | [`data-privacy-controls`](../../library/sickn33-agentic-awesome-skills/skills/data-privacy-controls) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Data privacy control register: data category, lawful basis, retention period, access roles, enc... |
@@ -366,6 +368,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skill-test`](../../library/donchitos-claude-code-game-studios/skills/skill-test) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Validate skill files for structural compliance and behavioral correctness. Four modes: static l... |
 | [`skill-writer`](../../library/getsentry-skills/skills/skill-writer) | ⚪ Reserve | `getsentry-skills` | Create, synthesize, and iteratively improve agent skills following the Agent Skills specificati... |
 | [`skills-add-voice`](../../library/cursor-plugins/skills/skills-add-voice) | ⚪ Reserve | `cursor-plugins` | Use when the user runs /add-voice, types Voice Mode, or asks to add Grok realtime voice to an a... |
+| [`skills-agentmemory-config`](../../library/rohitg00-agentmemory/skills/skills-agentmemory-config) | ⚪ Reserve | `rohitg00-agentmemory` | Set up and diagnose local agentmemory, including MCP, environment variables, ports, and feature... |
 | [`skills-audit-support`](../../library/anthropics-knowledge-work/skills/skills-audit-support) | ⚪ Reserve | `anthropics-knowledge-work` | Support SOX 404 compliance with control testing methodology, sample selection, and documentatio... |
 | [`skills-azure-compliance`](../../library/microsoft-azure-skills/skills/skills-azure-compliance) | ⚪ Reserve | `microsoft-azure-skills` | Run Azure compliance and security audits with azqr plus Key Vault expiration checks. Covers bes... |
 | [`skills-browser-cdp`](../../library/zenstory-ai-oh-story-claudecode/skills/skills-browser-cdp) | ⚪ Reserve | `zenstory-ai-oh-story-claudecode` | Use this skill when you need to control a Chrome browser via CDP (Chrome DevTools Protocol) to ... |
@@ -376,9 +379,12 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-compliance-check`](../../library/anthropics-knowledge-work/skills/skills-compliance-check) | ⚪ Reserve | `anthropics-knowledge-work` | Run a compliance check on a proposed action, product feature, or business initiative, surfacing... |
 | [`skills-compliance-tracking`](../../library/anthropics-knowledge-work/skills/skills-compliance-tracking) | ⚪ Reserve | `anthropics-knowledge-work` | Track compliance requirements and audit readiness. Trigger with "compliance", "audit prep", "SO... |
 | [`skills-connections`](../../library/makenotion-notion-cookbook/skills/skills-connections) | ⚪ Reserve | `makenotion-notion-cookbook` | Declare and use shared app-level Calendar, Mail, Slack, and OAuth connections in Notion Apps. |
+| [`skills-customs-trade-compliance`](../../library/affaan-m-ecc/skills/skills-customs-trade-compliance) | ⚪ Reserve | `affaan-m-ecc` | 通関書類、関税分類、関税最適化、制限当事者スクリーニング、複数の法域にわたる規制コンプライアンスのための成文化された専門知識。15年以上の経験を持つ貿易コンプライアンス専門家に情報。HS分類... |
 | [`skills-debug-zoom-integration`](../../library/anthropics-knowledge-work/skills/skills-debug-zoom-integration) | ⚪ Reserve | `anthropics-knowledge-work` | Debug broken Zoom implementations quickly. Use when auth, webhooks, SDK joins, MCP transport, o... |
 | [`skills-entra-agent-id`](../../library/microsoft-azure-skills/skills/skills-entra-agent-id) | ⚪ Reserve | `microsoft-azure-skills` | Provision Microsoft Entra Agent Identity Blueprints, BlueprintPrincipals, and per-instance Agen... |
 | [`skills-google-cloud-recipe-auth`](../../library/google-skills/skills/skills-google-cloud-recipe-auth) | ⚪ Reserve | `google-skills` | Provides expert guidance on Identity and Access Management (IAM) and authenticating and authori... |
+| [`skills-healthcare-phi-compliance`](../../library/affaan-m-ecc/skills/skills-healthcare-phi-compliance) | ⚪ Reserve | `affaan-m-ecc` | 保護医療情報（PHI）コンプライアンス、HIPAA準拠、およびデータセキュリティ。 |
+| [`skills-hipaa-compliance`](../../library/affaan-m-ecc/skills/skills-hipaa-compliance) | ⚪ Reserve | `affaan-m-ecc` | HIPAA準拠実装、セキュリティ対策、監査ログ、およびデータ保護戦略。 |
 | [`skills-levelplay-unity-integration`](../../library/unity-technologies-skills/skills/skills-levelplay-unity-integration) | ⚪ Reserve | `unity-technologies-skills` | Integrates the LevelPlay ad mediation SDK via the Ads Mediation package. Use when the user asks... |
 | [`skills-meeting-briefing`](../../library/anthropics-knowledge-work/skills/skills-meeting-briefing) | ⚪ Reserve | `anthropics-knowledge-work` | Prepare structured briefings for meetings with legal relevance and track resulting action items... |
 | [`skills-meeting-sdk`](../../library/anthropics-knowledge-work/skills/skills-meeting-sdk) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom Meeting SDK. Use after routing to a meeting-embed workflow when implem... |
@@ -386,6 +392,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-om-pre-implement-spec`](../../library/open-mercato-skills/skills/skills-om-pre-implement-spec) | ⚪ Reserve | `open-mercato-skills` | Audit a spec before implementation — readiness gate, backward-compatibility check against BACKW... |
 | [`skills-om-share-this-session`](../../library/open-mercato-skills/skills/skills-om-share-this-session) | ⚪ Reserve | `open-mercato-skills` | Publicly share a sanitized coding-agent session plus a ZIP of the files it generated, then file... |
 | [`skills-phone`](../../library/anthropics-knowledge-work/skills/skills-phone) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom Phone. Use after routing to a phone workflow when implementing OAuth, ... |
+| [`skills-protect-mcp-setup`](../../library/wshobson-agents/skills/skills-protect-mcp-setup) | ⚪ Reserve | `wshobson-agents` | Configure Cedar policy enforcement and Ed25519 signed receipts for Claude Code tool calls. Use ... |
+| [`skills-quarkus-security`](../../library/affaan-m-ecc/skills/skills-quarkus-security) | ⚪ Reserve | `affaan-m-ecc` | Buenas prácticas de seguridad en Quarkus para autenticación, autorización, JWT/OIDC, RBAC, vali... |
+| [`skills-scenario`](../../library/scenario-labs-skills/skills/skills-scenario) | ⚪ Reserve | `scenario-labs-skills` | Use when connecting an AI agent to Scenario (scenario.com) through MCP, or when a task involves... |
 | [`skills-scribe`](../../library/anthropics-knowledge-work/skills/skills-scribe) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom AI Services Scribe. Use after routing to a transcription workflow when... |
 | [`skills-setup-zoom-oauth`](../../library/anthropics-knowledge-work/skills/skills-setup-zoom-oauth) | ⚪ Reserve | `anthropics-knowledge-work` | Implement Zoom authentication correctly. Use when setting up app credentials, choosing an OAuth... |
 | [`skills-sox-testing`](../../library/anthropics-knowledge-work/skills/skills-sox-testing) | ⚪ Reserve | `anthropics-knowledge-work` | Generate SOX sample selections, testing workpapers, and control assessments. Use when planning ... |

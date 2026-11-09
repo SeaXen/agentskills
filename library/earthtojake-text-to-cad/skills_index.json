@@ -60,6 +60,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link engineering-drawing"
   },
   {
+    "id": "fea",
+    "name": "fea",
+    "repository": "earthtojake-text-to-cad",
+    "category": "general",
+    "description": "Checks whether a part or an assembly of bonded parts holds under its loads, as a linear static stress study of a STEP, an xbf or a text-to-cad model, meshed by netgen and solved by CalculiX, giving peak von Mises stress, safety factor against yield and deflection drawn on the part. Use when the person asks whether a part will hold, break or is strong enough, how much it bends or sags, where it is most stressed, how much load it takes, how to make it stronger or lighter without failing, or for FEA, a stress analysis or a strength simulation. Static loads and steady g-loads only.",
+    "path": "library/earthtojake-text-to-cad/skills/fea",
+    "activation_cmd": "python .agents/library/activate_skill.py activate fea",
+    "link_cmd": "python .agents/library/activate_skill.py link fea"
+  },
+  {
     "id": "gcode",
     "name": "gcode",
     "repository": "earthtojake-text-to-cad",
@@ -68,6 +78,36 @@
     "path": "library/earthtojake-text-to-cad/skills/gcode",
     "activation_cmd": "python .agents/library/activate_skill.py activate gcode",
     "link_cmd": "python .agents/library/activate_skill.py link gcode"
+  },
+  {
+    "id": "pcb",
+    "name": "pcb",
+    "repository": "earthtojake-text-to-cad",
+    "category": "general",
+    "description": "Create, edit, lay out and review native KiCad circuit boards (.kicad_pcb) and their schematics (.kicad_sch) - parts and nets, ERC, placement and routing, DRC, and a review before ordering (fab limits, decoupling, track width for current, assembly and BOM sourcing for JLCPCB, PCBWay or another fab); exports fabrication files, the netlist and BOM, or STEP for enclosure design. Shows boards and schematics in the CAD Viewer.",
+    "path": "library/earthtojake-text-to-cad/skills/pcb",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pcb",
+    "link_cmd": "python .agents/library/activate_skill.py link pcb"
+  },
+  {
+    "id": "print3d",
+    "name": "print3d",
+    "repository": "earthtojake-text-to-cad",
+    "category": "general",
+    "description": "Prints a part - slices an `.stl`, `.3mf` or `.obj` into printer-ready G-code with OrcaSlicer, headless or in the app, with built-in profiles for most FDM printers (Prusa, Bambu Lab, Creality, Voron), and sends it to a Bambu Lab printer through Bambu Connect or Bambu Studio. Use when the person wants a model sliced or printed. Never starts a print; whether a part will print is the cad skill's check.",
+    "path": "library/earthtojake-text-to-cad/skills/print3d",
+    "activation_cmd": "python .agents/library/activate_skill.py activate print3d",
+    "link_cmd": "python .agents/library/activate_skill.py link print3d"
+  },
+  {
+    "id": "robot-simulation",
+    "name": "robot-simulation",
+    "repository": "earthtojake-text-to-cad",
+    "category": "general",
+    "description": "Robot and world descriptions (URDF, SRDF, SDF) for ROS, MoveIt and Gazebo. Use for ROS robot_description files (links, joints, limits, inertials, meshes), MoveIt planning groups, end effectors, group states and disabled collision pairs, Gazebo/gz models and worlds (sensors, plugins, physics), and opening or reviewing a `.urdf`, `.srdf` or `.sdf`. Not the 3D CAD part itself, which the `cad` skill makes, nor a part's structural or physics analysis, nor signed-distance fields.",
+    "path": "library/earthtojake-text-to-cad/skills/robot-simulation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate robot-simulation",
+    "link_cmd": "python .agents/library/activate_skill.py link robot-simulation"
   },
   {
     "id": "sdf",
@@ -88,6 +128,36 @@
     "path": "library/earthtojake-text-to-cad/skills/sendcutsend",
     "activation_cmd": "python .agents/library/activate_skill.py activate sendcutsend",
     "link_cmd": "python .agents/library/activate_skill.py link sendcutsend"
+  },
+  {
+    "id": "skills-cad",
+    "name": "skills-cad",
+    "repository": "earthtojake-text-to-cad",
+    "category": "general",
+    "description": "Creates and edits parametric CAD parts, assemblies and 2D profiles as Python build123d models that text-to-cad's server builds and the CAD Viewer shows live; exports STEP, STL, 3MF, GLB, DXF and xbf files on request; resolves prompt references, measures geometry, checks whether a part can be machined, cut and bent, molded or printed, and articulates or animates assemblies. Use for 3D CAD modeling, editing a model script (any change to a part's or assembly's `.py`), organizing a CAD project, exporting or converting CAD files, DXF files, flat patterns, gaskets and laser or waterjet cut layouts, Quick Edit prompts, mechanisms, and explode or showcase animations. Opens and reviews existing XBF, STEP/STP, STL, 3MF, GLB and DXF files in the CAD Viewer. Not for the robot and world descriptions the robot-simulation skill writes.",
+    "path": "library/earthtojake-text-to-cad/skills/skills-cad",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-cad",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-cad"
+  },
+  {
+    "id": "skills-engineering-drawing",
+    "name": "skills-engineering-drawing",
+    "repository": "earthtojake-text-to-cad",
+    "category": "general",
+    "description": "Make an engineering drawing of a part as a PDF - orthographic views with hidden lines and centre marks, real dimensions, hole callouts, notes and a title block on ISO sheets, all projected from the part's geometry so the drawing follows the model. Use when the user asks for a drawing, a dimensioned sheet, shop or manufacturing drawings, a print, or \"2D views of this part\". Not for DXF cut layouts or flat patterns.",
+    "path": "library/earthtojake-text-to-cad/skills/skills-engineering-drawing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-engineering-drawing",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-engineering-drawing"
+  },
+  {
+    "id": "skills-sendcutsend",
+    "name": "skills-sendcutsend",
+    "repository": "earthtojake-text-to-cad",
+    "category": "general",
+    "description": "Review DXF and STEP/STP uploads for SendCutSend.com orders using its ordering guide, catalog, and specs. Use only for SendCutSend.com preflight reports covering upload readiness, selected material/SKU/thickness/service availability, and service-specific checks for laser cutting, CNC routing, bending, tapping, countersinking, hardware insertion, and finishing.",
+    "path": "library/earthtojake-text-to-cad/skills/skills-sendcutsend",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-sendcutsend",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-sendcutsend"
   },
   {
     "id": "srdf",

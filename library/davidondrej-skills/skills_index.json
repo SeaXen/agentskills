@@ -30,6 +30,56 @@
     "link_cmd": "python .agents/library/activate_skill.py link agent-orchestration"
   },
   {
+    "id": "agent-orchestration-fable-review",
+    "name": "agent-orchestration-fable-review",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Launch an independent Fable code review and return it verbatim. Use only when the user explicitly invokes /fable-review.",
+    "path": "library/davidondrej-skills/skills/agent-orchestration-fable-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agent-orchestration-fable-review",
+    "link_cmd": "python .agents/library/activate_skill.py link agent-orchestration-fable-review"
+  },
+  {
+    "id": "agent-orchestration-gpt-review",
+    "name": "agent-orchestration-gpt-review",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Launch an independent GPT-6-Astra code review and return it verbatim. Use only when the user explicitly invokes /gpt-review.",
+    "path": "library/davidondrej-skills/skills/agent-orchestration-gpt-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agent-orchestration-gpt-review",
+    "link_cmd": "python .agents/library/activate_skill.py link agent-orchestration-gpt-review"
+  },
+  {
+    "id": "agent-orchestration-kimi-review",
+    "name": "agent-orchestration-kimi-review",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Launch an independent Kimi K3.1 Pro Max code review and return it verbatim, falling back across harnesses and routes until one works. Use only when the user explicitly invokes /kimi-review.",
+    "path": "library/davidondrej-skills/skills/agent-orchestration-kimi-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agent-orchestration-kimi-review",
+    "link_cmd": "python .agents/library/activate_skill.py link agent-orchestration-kimi-review"
+  },
+  {
+    "id": "agent-orchestration-muse-review",
+    "name": "agent-orchestration-muse-review",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Launch an independent Meta Muse Wonder Max code review through Pi and OpenRouter, and return it verbatim. Use only when the user explicitly invokes /muse-review.",
+    "path": "library/davidondrej-skills/skills/agent-orchestration-muse-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agent-orchestration-muse-review",
+    "link_cmd": "python .agents/library/activate_skill.py link agent-orchestration-muse-review"
+  },
+  {
+    "id": "agent-orchestration-total-review",
+    "name": "agent-orchestration-total-review",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "'Run five independent max-effort reviews (Fable 5.1, Opus 5.5, GPT-6 Astra, GPT-6.1 Sol, Muse Wonder), merge their findings, and fix only what the user approves. Manual only: run when a human types /total-review; agents must never invoke it on their own.'",
+    "path": "library/davidondrej-skills/skills/agent-orchestration-total-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agent-orchestration-total-review",
+    "link_cmd": "python .agents/library/activate_skill.py link agent-orchestration-total-review"
+  },
+  {
     "id": "anti-sleep",
     "name": "anti-sleep",
     "repository": "davidondrej-skills",
@@ -420,6 +470,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link new-grok-bot"
   },
   {
+    "id": "occams-razor",
+    "name": "occams-razor",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Stop overthinking and answer with what we actually know for sure, how you know, and a confidence %. Use for \"occams-razor\", or when the user asks what we actually know, whether something is really true, or tells you to stop overthinking.",
+    "path": "library/davidondrej-skills/skills/occams-razor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate occams-razor",
+    "link_cmd": "python .agents/library/activate_skill.py link occams-razor"
+  },
+  {
     "id": "online-shopping",
     "name": "online-shopping",
     "repository": "davidondrej-skills",
@@ -540,6 +600,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link research-and-web"
   },
   {
+    "id": "research-and-web-deepapi",
+    "name": "research-and-web-deepapi",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Use DeepAPI for all web search, deep research, and web scraping (websites, LinkedIn, GitHub, X/Twitter, YouTube, Instagram) instead of built-in search, research, fetch, or browser tools. Prefer dedicated platform endpoints over web search. Instagram has profile, post, comment, and hashtag endpoints; no generic search. Use Deep Scrape for sourced JSON dossiers on people, companies, or topics. Also use it to navigate and act on public websites, draft and send safe email, and generate images.",
+    "path": "library/davidondrej-skills/skills/research-and-web-deepapi",
+    "activation_cmd": "python .agents/library/activate_skill.py activate research-and-web-deepapi",
+    "link_cmd": "python .agents/library/activate_skill.py link research-and-web-deepapi"
+  },
+  {
     "id": "reset-cursor-acp",
     "name": "reset-cursor-acp",
     "repository": "davidondrej-skills",
@@ -638,6 +708,16 @@
     "path": "library/davidondrej-skills/skills/thinking-and-docs",
     "activation_cmd": "python .agents/library/activate_skill.py activate thinking-and-docs",
     "link_cmd": "python .agents/library/activate_skill.py link thinking-and-docs"
+  },
+  {
+    "id": "thinking-and-docs-adr-verbatim",
+    "name": "thinking-and-docs-adr-verbatim",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "'Record concise ADRs that preserve the user''s decisions without conversational noise. Use for \"adr-verbatim\", \"new ADR\", \"document that as an ADR\", \"record this decision\", or supplied ADR wording.'",
+    "path": "library/davidondrej-skills/skills/thinking-and-docs-adr-verbatim",
+    "activation_cmd": "python .agents/library/activate_skill.py activate thinking-and-docs-adr-verbatim",
+    "link_cmd": "python .agents/library/activate_skill.py link thinking-and-docs-adr-verbatim"
   },
   {
     "id": "total-review",

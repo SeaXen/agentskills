@@ -1,7 +1,7 @@
 # 🧠 NousResearch Hermes Agent Skills
 
 > **Category**: `autonomous-agents-hermes`  
-> **Total Curated Skills**: 182 skills  
+> **Total Curated Skills**: 184 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -174,7 +174,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`simplify-code`](../../library/nousresearch-hermes-skills/skills/simplify-code) | ⚪ Reserve | `nousresearch-hermes-skills` | Parallel 4-agent cleanup of recent code changes. |
 | [`simpo`](../../library/nousresearch-hermes-optional-skills/skills/simpo) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Reference-free preference alignment, simpler than DPO. |
 | [`siyuan`](../../library/nousresearch-hermes-optional-skills/skills/siyuan) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Query and edit a SiYuan knowledge base via its API. |
+| [`skills-autonomous-agent-harness`](../../library/affaan-m-ecc/skills/skills-autonomous-agent-harness) | ⚪ Reserve | `affaan-m-ecc` | Claude Codeを永続的なメモリ、スケジュール済み操作、コンピュータ使用、タスクキューイングを備えた完全自動エージェントシステムに変換します。スタンドアロンエージェントフレームワーク（... |
 | [`skills-backup-incremental`](../../library/seaxen-skills-backup/skills/skills-backup-incremental) | ⚪ Reserve | `seaxen-skills-backup` | Incremental git sync of ~/.hermes/skills to SeaXen/skills-backup — persistent clone, diff commi... |
+| [`skills-hermes-imports`](../../library/affaan-m-ecc/skills/skills-hermes-imports) | ⚪ Reserve | `affaan-m-ecc` | Hermesデータインポート、マッピング、変換、およびデータインテグリティ検証。 |
 | [`slime`](../../library/nousresearch-hermes-optional-skills/skills/slime) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | RL post-training for LLMs with Megatron and SGLang. |
 | [`social-media-content-calendar`](../../library/nousresearch-hermes-optional-skills/skills/social-media-content-calendar) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Plan multi-platform social campaigns: briefs to posting. |
 | [`songsee`](../../library/nousresearch-hermes-skills/skills/songsee) | ⚪ Reserve | `nousresearch-hermes-skills` | Audio spectrograms/features (mel, chroma, MFCC) via CLI. |

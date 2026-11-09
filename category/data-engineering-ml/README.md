@@ -1,7 +1,7 @@
 # 📊 Data Pipelines, BigQuery & Machine Learning
 
 > **Category**: `data-engineering-ml`  
-> **Total Curated Skills**: 3284 skills  
+> **Total Curated Skills**: 3297 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -463,6 +463,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ceridian-dayforce`](../../library/membranedev-application-skills/skills/ceridian-dayforce) | ⚪ Reserve | `membranedev-application-skills` | Ceridian Dayforce integration. Manage data, records, and automate workflows. Use when the user ... |
 | [`certifier`](../../library/membranedev-application-skills/skills/certifier) | ⚪ Reserve | `membranedev-application-skills` | Certifier integration. Manage data, records, and automate workflows. Use when the user wants to... |
 | [`certify`](../../library/membranedev-application-skills/skills/certify) | ⚪ Reserve | `membranedev-application-skills` | Certify integration. Manage data, records, and automate workflows. Use when the user wants to i... |
+| [`ces-huawei-cloud-ces-ecs-monitoring`](../../library/huaweicloud-huaweicloud-skills/skills/ces-huawei-cloud-ces-ecs-monitoring) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Huawei Cloud ECS monitoring skill using Cloud Eye Service (CES). Provides comprehensive monitor... |
 | [`cflow`](../../library/membranedev-application-skills/skills/cflow) | ⚪ Reserve | `membranedev-application-skills` | Cflow integration. Manage data, records, and automate workflows. Use when the user wants to int... |
 | [`chaindesk`](../../library/membranedev-application-skills/skills/chaindesk) | ⚪ Reserve | `membranedev-application-skills` | Chaindesk integration. Manage data, records, and automate workflows. Use when the user wants to... |
 | [`channeladvisor`](../../library/membranedev-application-skills/skills/channeladvisor) | ⚪ Reserve | `membranedev-application-skills` | ChannelAdvisor integration. Manage data, records, and automate workflows. Use when the user wan... |
@@ -1014,6 +1015,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`exa`](../../library/membranedev-application-skills/skills/exa) | ⚪ Reserve | `membranedev-application-skills` | Exa integration. Manage Organizations. Use when the user wants to interact with Exa data. |
 | [`exabeam`](../../library/membranedev-application-skills/skills/exabeam) | ⚪ Reserve | `membranedev-application-skills` | Exabeam integration. Manage data, records, and automate workflows. Use when the user wants to i... |
 | [`exact-online`](../../library/membranedev-application-skills/skills/exact-online) | ⚪ Reserve | `membranedev-application-skills` | Exact Online integration. Manage Organizations. Use when the user wants to interact with Exact ... |
+| [`examples-card-twitter`](../../library/feimacode-open-design-agent-kit/skills/examples-card-twitter) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Twitter quote or data card designed to pair with a post. |
 | [`exhibitday`](../../library/membranedev-application-skills/skills/exhibitday) | ⚪ Reserve | `membranedev-application-skills` | ExhibitDay integration. Manage Organizations. Use when the user wants to interact with ExhibitD... |
 | [`expedy`](../../library/membranedev-application-skills/skills/expedy) | ⚪ Reserve | `membranedev-application-skills` | Expedy integration. Manage Organizations, Pipelines, Users, Filters. Use when the user wants to... |
 | [`expensify`](../../library/membranedev-application-skills/skills/expensify) | ⚪ Reserve | `membranedev-application-skills` | Expensify integration. Manage data, records, and automate workflows. Use when the user wants to... |
@@ -1370,6 +1372,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`huawei-cloud-ces-ecs-monitoring`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-ces-ecs-monitoring) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Huawei Cloud ECS monitoring skill using Cloud Eye Service (CES). Provides comprehensive monitor... |
 | [`huawei-cloud-ces-elb-monitoring`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-ces-elb-monitoring) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Huawei Cloud ELB monitoring skill using Cloud Eye Service (CES). Provides comprehensive monitor... |
 | [`huawei-cloud-ecs-alert`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-ecs-alert) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Automate batch creation and management of Huawei Cloud CES alarm rules for ECS instances using ... |
+| [`huawei-cloud-eip-query`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-eip-query) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Huawei Cloud EIP (Elastic Public IP) query and bandwidth monitoring skill using hcloud CLI (Koo... |
 | [`huawei-cloud-msot-msopprof-operator-profiler`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-msot-msopprof-operator-profiler) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Collect operator-level performance data on Ascend NPU using msopprof tool. Supports both device... |
 | [`hub-planner`](../../library/membranedev-application-skills/skills/hub-planner) | ⚪ Reserve | `membranedev-application-skills` | HUB Planner integration. Manage Organizations. Use when the user wants to interact with HUB Pla... |
 | [`hubstaff`](../../library/membranedev-application-skills/skills/hubstaff) | ⚪ Reserve | `membranedev-application-skills` | Hubstaff integration. Manage Organizations. Use when the user wants to interact with Hubstaff d... |
@@ -1861,6 +1864,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`modeck`](../../library/membranedev-application-skills/skills/modeck) | ⚪ Reserve | `membranedev-application-skills` | MoDeck integration. Manage data, records, and automate workflows. Use when the user wants to in... |
 | [`model-monitoring`](../../library/aj-geddes-useful-ai-prompts/skills/model-monitoring) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Monitor model performance, detect data drift, concept drift, and anomalies in production using ... |
 | [`model-registry-governance`](../../library/sickn33-agentic-awesome-skills/skills/model-registry-governance) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Establish model registry standards, governance controls, metadata schemas, |
+| [`modelarts-huawei-cloud-ascend-op-mfu-calculator`](../../library/huaweicloud-huaweicloud-skills/skills/modelarts-huawei-cloud-ascend-op-mfu-calculator) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Calculate MFU (Machine FLOP Utilization) for operators like matmul/GEMM/FlashAttention on Ascen... |
 | [`modelscope`](../../library/membranedev-application-skills/skills/modelscope) | ⚪ Reserve | `membranedev-application-skills` | ModelScope integration. Manage data, records, and automate workflows. Use when the user wants t... |
 | [`modern-treasury`](../../library/membranedev-application-skills/skills/modern-treasury) | ⚪ Reserve | `membranedev-application-skills` | Modern Treasury integration. Manage Organizations. Use when the user wants to interact with Mod... |
 | [`modulr`](../../library/membranedev-application-skills/skills/modulr) | ⚪ Reserve | `membranedev-application-skills` | Modulr integration. Manage data, records, and automate workflows. Use when the user wants to in... |
@@ -2640,13 +2644,22 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skeleton-first`](../../library/sickn33-agentic-awesome-skills/skills/skeleton-first) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Prove a data/AI/agent workflow end to end on a tiny sample, find cheap wins, then scale in cost... |
 | [`skills-account-research`](../../library/anthropics-knowledge-work/skills/skills-account-research) | ⚪ Reserve | `anthropics-knowledge-work` | Research a company using Common Room data. Triggers on 'research [company]', 'tell me about [do... |
 | [`skills-azure-kusto`](../../library/microsoft-azure-skills/skills/skills-azure-kusto) | ⚪ Reserve | `microsoft-azure-skills` | Query and analyze data in Azure Data Explorer (Kusto/ADX) using KQL for log analytics, telemetr... |
+| [`skills-card-twitter`](../../library/feimacode-open-design-agent-kit/skills/skills-card-twitter) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Twitter quote or data card designed to pair with a post. |
+| [`skills-clickhouse-io`](../../library/affaan-m-ecc/skills/skills-clickhouse-io) | ⚪ Reserve | `affaan-m-ecc` | ClickHouse database patterns, query optimization, analytics, and data engineering best practice... |
+| [`skills-codex-analyze-results`](../../library/wanshuiyin-auto-claude-code-research-in-sleep/skills/skills-codex-analyze-results) | ⚪ Reserve | `wanshuiyin-auto-claude-code-research-in-sleep` | Analyze ML experiment results, compute statistics, generate comparison tables and insights. Use... |
 | [`skills-dart-use-path-package`](../../library/dart-lang-skills/skills/skills-dart-use-path-package) | ⚪ Reserve | `dart-lang-skills` | Cross-platform file and directory path manipulation, segment splitting, extension extraction, a... |
 | [`skills-data-context-extractor`](../../library/anthropics-knowledge-work/skills/skills-data-context-extractor) | ⚪ Reserve | `anthropics-knowledge-work` | Generate or improve a company-specific data analysis skill by extracting tribal knowledge from ... |
+| [`skills-experiment-readout`](../../library/feimacode-open-design-agent-kit/skills/skills-experiment-readout) | ⚪ Reserve | `feimacode-open-design-agent-kit` | 假设 + 指标 + 结果 + 解释 + 决策, 把 A/B 或产品实验转成行动建议 |
 | [`skills-explore-data`](../../library/anthropics-knowledge-work/skills/skills-explore-data) | ⚪ Reserve | `anthropics-knowledge-work` | Profile and explore a dataset to understand its shape, quality, and patterns. Use when encounte... |
 | [`skills-firecrawl-scrape`](../../library/firecrawl-cli/skills/skills-firecrawl-scrape) | ⚪ Reserve | `firecrawl-cli` | Read a known webpage or execute a discovered workflow or data-provider capability. Use for page... |
+| [`skills-how-it-works`](../../library/thedotmack-claude-mem/skills/skills-how-it-works) | ⚪ Reserve | `thedotmack-claude-mem` | Explain how claude-mem captures observations, when memory injection kicks in, and where data li... |
+| [`skills-info-funnel`](../../library/feimacode-open-design-agent-kit/skills/skills-info-funnel) | ⚪ Reserve | `feimacode-open-design-agent-kit` | 3-6 阶递减漏斗, 突出转化率 / 筛选比例 / 流量损耗。竖图适合 IG Story / 小红书 |
 | [`skills-keyword-research`](../../library/kostja94-marketing-skills/skills/skills-keyword-research) | ⚪ Reserve | `kostja94-marketing-skills` | Coordinates keyword research from a seed or existing keyword data through discovery, intent clu... |
 | [`skills-nature-data`](../../library/yuan1z0825-nature-skills/skills/skills-nature-data) | ⚪ Reserve | `yuan1z0825-nature-skills` | Draft or audit manuscript Data/Code Availability statements, dataset access routes, repository ... |
+| [`skills-nuxt4-patterns`](../../library/affaan-m-ecc/skills/skills-nuxt4-patterns) | ⚪ Reserve | `affaan-m-ecc` | ハイドレーション安全性、パフォーマンス、ルートルール、遅延ロード、useFetchとuseAsyncDataを使ったSSR安全なデータフェッチングのためのNuxt 4アプリパターン。 |
+| [`skills-paid-ads-tiktok`](../../library/nowork-studio-notfair-plugin/skills/skills-paid-ads-tiktok) | ⚪ Reserve | `nowork-studio-notfair-plugin` | Audit, diagnose, and safely operate connected TikTok Ads accounts through the NotFair MCP. Use ... |
 | [`skills-parallel-data-enrichment`](../../library/parallel-web-parallel-agent-skills/skills/skills-parallel-data-enrichment) | ⚪ Reserve | `parallel-web-parallel-agent-skills` | Bulk data enrichment. Adds web-sourced fields (CEO names, funding, contact info) to lists of co... |
+| [`skills-physical-ai-neural-reconstruction`](../../library/nvidia-skills/skills/skills-physical-ai-neural-reconstruction) | ⚪ Reserve | `nvidia-skills` | Router for NVIDIA NuRec/NRE: USDZ rendering, NCore conversion, 3DGS, gRPC sensor sim, carline a... |
 | [`skills-reconciliation`](../../library/anthropics-knowledge-work/skills/skills-reconciliation) | ⚪ Reserve | `anthropics-knowledge-work` | Reconcile accounts by comparing GL balances to subledgers, bank statements, or third-party data... |
 | [`skills-why`](../../library/cursor-plugins/skills/skills-why) | ⚪ Reserve | `cursor-plugins` | Use for 'why does X work this way', 'why we picked Y', design rationale, regressions, postmorte... |
 | [`skillzrun`](../../library/membranedev-application-skills/skills/skillzrun) | ⚪ Reserve | `membranedev-application-skills` | SkillzRun integration. Manage Organizations, Leads, Projects, Pipelines, Users, Goals and more.... |

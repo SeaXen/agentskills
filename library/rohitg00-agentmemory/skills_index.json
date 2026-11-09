@@ -160,6 +160,56 @@
     "link_cmd": "python .agents/library/activate_skill.py link session-history"
   },
   {
+    "id": "skills-agentmemory-architecture",
+    "name": "skills-agentmemory-architecture",
+    "repository": "rohitg00-agentmemory",
+    "category": "general",
+    "description": "How agentmemory is built, the iii engine primitives it runs on, its storage model, ports, and the viewer. Use when reasoning about how memory is stored or retrieved end to end, when extending the system, or when answering how agentmemory works under the hood.",
+    "path": "library/rohitg00-agentmemory/skills/skills-agentmemory-architecture",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-agentmemory-architecture",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-agentmemory-architecture"
+  },
+  {
+    "id": "skills-agentmemory-config",
+    "name": "skills-agentmemory-config",
+    "repository": "rohitg00-agentmemory",
+    "category": "general",
+    "description": "Set up and diagnose local agentmemory, including MCP, environment variables, ports, and feature flags. Use when getting started, checking a connection, enabling a feature, configuring auth, or explaining why a feature is off by default.",
+    "path": "library/rohitg00-agentmemory/skills/skills-agentmemory-config",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-agentmemory-config",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-agentmemory-config"
+  },
+  {
+    "id": "skills-agentmemory-hooks",
+    "name": "skills-agentmemory-hooks",
+    "repository": "rohitg00-agentmemory",
+    "category": "general",
+    "description": "The agentmemory plugin hooks that capture observations automatically across the agent session lifecycle. Use when explaining how memory gets captured without manual saves, when debugging missing observations, or when tuning what gets recorded.",
+    "path": "library/rohitg00-agentmemory/skills/skills-agentmemory-hooks",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-agentmemory-hooks",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-agentmemory-hooks"
+  },
+  {
+    "id": "skills-agentmemory-mcp-tools",
+    "name": "skills-agentmemory-mcp-tools",
+    "repository": "rohitg00-agentmemory",
+    "category": "general",
+    "description": "Map of every agentmemory MCP tool, what each does, and its parameters. Use when choosing which memory tool to call, when a tool name or argument is unclear, or when answering what agentmemory can do via MCP.",
+    "path": "library/rohitg00-agentmemory/skills/skills-agentmemory-mcp-tools",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-agentmemory-mcp-tools",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-agentmemory-mcp-tools"
+  },
+  {
+    "id": "skills-agentmemory-rest-api",
+    "name": "skills-agentmemory-rest-api",
+    "repository": "rohitg00-agentmemory",
+    "category": "general",
+    "description": "The agentmemory HTTP REST API surface, the primary protocol for talking to the memory server. Use when calling agentmemory over HTTP, when MCP is unavailable and you need a fallback, or when integrating a host that does not speak MCP.",
+    "path": "library/rohitg00-agentmemory/skills/skills-agentmemory-rest-api",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-agentmemory-rest-api",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-agentmemory-rest-api"
+  },
+  {
     "id": "write-agentmemory-skill",
     "name": "write-agentmemory-skill",
     "repository": "rohitg00-agentmemory",

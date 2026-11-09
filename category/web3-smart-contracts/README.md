@@ -1,7 +1,7 @@
 # 🪙 Web3, Solidity & DeFi Architecture
 
 > **Category**: `web3-smart-contracts`  
-> **Total Curated Skills**: 110 skills  
+> **Total Curated Skills**: 113 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -92,6 +92,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`pyth`](../../library/internet-court-internet-court-skill/skills/pyth) | ⚪ Reserve | `internet-court-internet-court-skill` | Complete guide for Pyth Network - decentralized oracle providing real-time price feeds for DeFi... |
 | [`rootdata`](../../library/starchild-ai-agent-official-skills/skills/rootdata) | ⚪ Reserve | `starchild-ai-agent-official-skills` | Web3 project intel: investors, funding rounds, rankings, personnel moves. |
 | [`setup-solidity-contracts`](../../library/openzeppelin-openzeppelin-skills/skills/setup-solidity-contracts) | ⚪ Reserve | `openzeppelin-openzeppelin-skills` | Set up a Solidity smart contract project with OpenZeppelin Contracts. Use when users need to: (... |
+| [`skills-agent-payment-x402`](../../library/affaan-m-ecc/skills/skills-agent-payment-x402) | ⚪ Reserve | `affaan-m-ecc` | タスクごとのバジェット、支出コントロール、ノンカストディアルウォレットを備えた x402 決済実行を AI エージェントに追加します。agentwallet-sdk を通じて Base を、... |
+| [`skills-defi-amm-security`](../../library/affaan-m-ecc/skills/skills-defi-amm-security) | ⚪ Reserve | `affaan-m-ecc` | DeFi自動マーケットメーカー（AMM）スマートコントラクトセキュリティ監査パターン。フラッシュローン、スリッページ、サンドイッチング攻撃、価格操作、再入攻撃、不正確な整数演算をカバー。 |
 | [`skills-okx-agentic-wallet`](../../library/okx-onchainos-skills/skills/skills-okx-agentic-wallet) | ⚪ Reserve | `okx-onchainos-skills` | Operate OKX Onchain OS wallets and execute or inspect on-chain transactions. Use for wallet log... |
 | [`skills-okx-dapp-discovery`](../../library/okx-onchainos-skills/skills/skills-okx-dapp-discovery) | ⚪ Reserve | `okx-onchainos-skills` | Discover supported third-party DApps and route protocol-specific requests to OKX plugins withou... |
 | [`skills-okx-defi`](../../library/okx-onchainos-skills/skills/skills-okx-defi) | ⚪ Reserve | `okx-onchainos-skills` | Discover and manage OKX-aggregated DeFi products and positions across protocols and chains. Use... |
@@ -124,6 +126,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`upgrade-cairo-contracts`](../../library/openzeppelin-openzeppelin-skills/skills/upgrade-cairo-contracts) | ⚪ Reserve | `openzeppelin-openzeppelin-skills` | Upgrade Cairo smart contracts using OpenZeppelin's UpgradeableComponent on Starknet. Use when u... |
 | [`upgrade-solidity-contracts`](../../library/openzeppelin-openzeppelin-skills/skills/upgrade-solidity-contracts) | ⚪ Reserve | `openzeppelin-openzeppelin-skills` | Upgrade Solidity smart contracts using OpenZeppelin proxy patterns. Use when users need to: (1)... |
 | [`wallet`](../../library/starchild-ai-agent-official-skills/skills/wallet) | ⚪ Reserve | `starchild-ai-agent-official-skills` | Send transactions on Monad testnet or mainnet using Agent wallet, the transactions could be for... |
+| [`wealthville-pool-scoring`](../../library/davila7-claude-code-templates/skills/wealthville-pool-scoring) | ⚪ Reserve | `davila7-claude-code-templates` | Score DeFi liquidity pools before providing liquidity. Returns a 0-100 pool score and an Enter/... |
 | [`web3-rate-limiting-circuit-breaker`](../../library/sickn33-agentic-awesome-skills/skills/web3-rate-limiting-circuit-breaker) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | On-chain and relayer rate-limiting circuit breaker register: throughput thresholds, emergency p... |
 | [`web3-testing`](../../library/antigravity-awesome-skills/skills/web3-testing) | ⚪ Reserve | `antigravity-awesome-skills` | Test smart contracts comprehensively using Hardhat and Foundry with unit tests, integration tes... |
 | [`web3-transaction-relayer-pool`](../../library/sickn33-agentic-awesome-skills/skills/web3-transaction-relayer-pool) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Gasless transaction relayer node pool register: fee sponsorship limits, nonce synchronization, ... |

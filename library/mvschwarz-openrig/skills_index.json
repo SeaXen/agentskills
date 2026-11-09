@@ -110,6 +110,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link context-engineering"
   },
   {
+    "id": "core-cross-host-rig-commands",
+    "name": "core-cross-host-rig-commands",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": "Use when addressing a registered remote OpenRig host, choosing its transport, or interpreting a cross-host result.",
+    "path": "library/mvschwarz-openrig/skills/core-cross-host-rig-commands",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-cross-host-rig-commands",
+    "link_cmd": "python .agents/library/activate_skill.py link core-cross-host-rig-commands"
+  },
+  {
     "id": "core-openrig-architect",
     "name": "core-openrig-architect",
     "repository": "mvschwarz-openrig",
@@ -118,6 +128,16 @@
     "path": "library/mvschwarz-openrig/skills/core-openrig-architect",
     "activation_cmd": "python .agents/library/activate_skill.py activate core-openrig-architect",
     "link_cmd": "python .agents/library/activate_skill.py link core-openrig-architect"
+  },
+  {
+    "id": "core-openrig-skills",
+    "name": "core-openrig-skills",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": "\"Use when an agent running inside OpenRig needs the right skill or context for fleet recovery, seat handover, new-seat orientation, a watchdog wake, cross-host reach to an agent on another machine, rig packaging, an OpenRig upgrade, systematic debugging, queue triage, or implementation planning; also when the agent doesn't know what applies or nothing is projected on cold boot. Installing, starting or updating OpenRig, getting back to a team or bringing a stopped one back from a person's own session is the rigs skill.\"",
+    "path": "library/mvschwarz-openrig/skills/core-openrig-skills",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-openrig-skills",
+    "link_cmd": "python .agents/library/activate_skill.py link core-openrig-skills"
   },
   {
     "id": "core-openrig-upgrade",
@@ -390,6 +410,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link plan-review"
   },
   {
+    "id": "pods-review-team",
+    "name": "pods-review-team",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": "Use when assigned a review or when an authored review boundary is reached.",
+    "path": "library/mvschwarz-openrig/skills/pods-review-team",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pods-review-team",
+    "link_cmd": "python .agents/library/activate_skill.py link pods-review-team"
+  },
+  {
     "id": "queue-handoff",
     "name": "queue-handoff",
     "repository": "mvschwarz-openrig",
@@ -500,6 +530,56 @@
     "link_cmd": "python .agents/library/activate_skill.py link session-source-fork"
   },
   {
+    "id": "skills-agent-operated-software",
+    "name": "skills-agent-operated-software",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": ">-",
+    "path": "library/mvschwarz-openrig/skills/skills-agent-operated-software",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-agent-operated-software",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-agent-operated-software"
+  },
+  {
+    "id": "skills-openrig-skills",
+    "name": "skills-openrig-skills",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": "\"Use when an agent running inside OpenRig needs the right skill or context for fleet recovery, seat handover, new-seat orientation, a watchdog wake, cross-host reach to an agent on another machine, rig packaging, an OpenRig upgrade, systematic debugging, queue triage, or implementation planning; also when the agent doesn't know what applies or nothing is projected on cold boot. Installing, starting or updating OpenRig, getting back to a team or bringing a stopped one back from a person's own session is the rigs skill.\"",
+    "path": "library/mvschwarz-openrig/skills/skills-openrig-skills",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-openrig-skills",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-openrig-skills"
+  },
+  {
+    "id": "skills-openrig-user",
+    "name": "skills-openrig-user",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": ">-",
+    "path": "library/mvschwarz-openrig/skills/skills-openrig-user",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-openrig-user",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-openrig-user"
+  },
+  {
+    "id": "skills-refocusing",
+    "name": "skills-refocusing",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": ">-",
+    "path": "library/mvschwarz-openrig/skills/skills-refocusing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-refocusing",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-refocusing"
+  },
+  {
+    "id": "skills-rigs",
+    "name": "skills-rigs",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": "Use when a person in their own Claude Code or Codex session mentions OpenRig, rigs or the rig command, or wants a team of coding agents (Claude Code, Codex) on their project. That includes installing, setting up, starting or updating OpenRig, seeing, getting back to or re-attaching to their OpenRig agents (including bringing a stopped team back), TUI or operator, starting or sharing a team, and joining this session to one. Operating a running rig from inside it (fleet recovery, seat handover, watchdog wakes, in-rig upgrades) is the openrig-skills skill.",
+    "path": "library/mvschwarz-openrig/skills/skills-rigs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-rigs",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-rigs"
+  },
+  {
     "id": "skills-seat-continuity-and-handover",
     "name": "skills-seat-continuity-and-handover",
     "repository": "mvschwarz-openrig",
@@ -598,5 +678,15 @@
     "path": "library/mvschwarz-openrig/skills/watchdog",
     "activation_cmd": "python .agents/library/activate_skill.py activate watchdog",
     "link_cmd": "python .agents/library/activate_skill.py link watchdog"
+  },
+  {
+    "id": "working-with-an-openrig-team",
+    "name": "working-with-an-openrig-team",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": ">-",
+    "path": "library/mvschwarz-openrig/skills/working-with-an-openrig-team",
+    "activation_cmd": "python .agents/library/activate_skill.py activate working-with-an-openrig-team",
+    "link_cmd": "python .agents/library/activate_skill.py link working-with-an-openrig-team"
   }
 ]

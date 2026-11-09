@@ -16,7 +16,7 @@ Counts drift and the docs disagree. Trust these, in order:
 | per-skill catalog records | `Skill.Sea/data/catalog.json` (~24.7 MB) |
 | repo cards | `Skill.Sea/data/repositories.json` |
 
-Verified 2026-11-06: **21,757 skills · 38 categories · 485 repositories · 131 hot-set**.
+Verified 2026-11-09: **22,678 skills · 38 categories · 488 repositories · 131 hot-set**.
 
 `README.md`, `update.py --help`, and this file's previous numbers are **stale**. Don't propagate them.
 

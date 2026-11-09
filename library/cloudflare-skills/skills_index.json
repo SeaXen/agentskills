@@ -40,6 +40,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link cloudflare"
   },
   {
+    "id": "cloudflare-app-bootstrap",
+    "name": "cloudflare-app-bootstrap",
+    "repository": "cloudflare-skills",
+    "category": "general",
+    "description": "Get a Cloudflare Workers app to a working local request by connecting its bindings, secrets, and initial data, then verifying real application behavior. Use for app setup or onboarding after the project exists; use frameworks-on-cloudflare or cf-cli to create or configure the project, and wrangler or cf-cli for isolated commands.",
+    "path": "library/cloudflare-skills/skills/cloudflare-app-bootstrap",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cloudflare-app-bootstrap",
+    "link_cmd": "python .agents/library/activate_skill.py link cloudflare-app-bootstrap"
+  },
+  {
     "id": "cloudflare-deploy",
     "name": "cloudflare-deploy",
     "repository": "cloudflare-skills",
@@ -88,6 +98,16 @@
     "path": "library/cloudflare-skills/skills/durable-objects",
     "activation_cmd": "python .agents/library/activate_skill.py activate durable-objects",
     "link_cmd": "python .agents/library/activate_skill.py link durable-objects"
+  },
+  {
+    "id": "frameworks-on-cloudflare",
+    "name": "frameworks-on-cloudflare",
+    "repository": "cloudflare-skills",
+    "category": "general",
+    "description": "Build, migrate, and deploy web-framework applications on Cloudflare Workers. Use when a framework project such as Astro, SvelteKit, React Router, TanStack Start, Nuxt, Hono, or a React or Vue SPA targets Cloudflare, or when a framework repository contains Workers deployment configuration.",
+    "path": "library/cloudflare-skills/skills/frameworks-on-cloudflare",
+    "activation_cmd": "python .agents/library/activate_skill.py activate frameworks-on-cloudflare",
+    "link_cmd": "python .agents/library/activate_skill.py link frameworks-on-cloudflare"
   },
   {
     "id": "gateway-workers",
@@ -150,6 +170,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link sandbox-stable"
   },
   {
+    "id": "skills-cloudflare",
+    "name": "skills-cloudflare",
+    "repository": "cloudflare-skills",
+    "category": "general",
+    "description": "Discover and choose Cloudflare products for apps, APIs, AI agents, storage, networking, and security. Use for architecture and product selection, including when the user describes a need without naming a Cloudflare product; then find the relevant skill or documentation. Also use when a Cloudflare-proxied site shows a Cloudflare error page, a `52x` status, a 1xxx error code, or a Cloudflare `403`, to decide whether to fix Cloudflare configuration or the origin.",
+    "path": "library/cloudflare-skills/skills/skills-cloudflare",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-cloudflare",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-cloudflare"
+  },
+  {
+    "id": "skills-cloudflare-one",
+    "name": "skills-cloudflare-one",
+    "repository": "cloudflare-skills",
+    "category": "general",
+    "description": "Design, configure, troubleshoot, or review Cloudflare One Zero Trust and SASE deployments. Use cloudflare-one-migrations for migration planning from other vendors. Also use when an agent, script, crawler, or other non-browser client needs to reach a webpage or API protected by Cloudflare Access.",
+    "path": "library/cloudflare-skills/skills/skills-cloudflare-one",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-cloudflare-one",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-cloudflare-one"
+  },
+  {
     "id": "turnstile-spin",
     "name": "turnstile-spin",
     "repository": "cloudflare-skills",
@@ -178,6 +218,16 @@
     "path": "library/cloudflare-skills/skills/workers-best-practices",
     "activation_cmd": "python .agents/library/activate_skill.py activate workers-best-practices",
     "link_cmd": "python .agents/library/activate_skill.py link workers-best-practices"
+  },
+  {
+    "id": "workers-development",
+    "name": "workers-development",
+    "repository": "cloudflare-skills",
+    "category": "general",
+    "description": "Run, inspect, and debug Cloudflare Workers during local development with cf dev, wrangler dev, or the Cloudflare Vite plugin, using Local Explorer to read and seed binding data and query local traces and logs. Also routes production debugging to Workers observability. Use for debugging requests whether or not the project uses Wrangler.",
+    "path": "library/cloudflare-skills/skills/workers-development",
+    "activation_cmd": "python .agents/library/activate_skill.py activate workers-development",
+    "link_cmd": "python .agents/library/activate_skill.py link workers-development"
   },
   {
     "id": "workers-profiling",

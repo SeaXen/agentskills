@@ -1,7 +1,7 @@
 # 🧮 Algorithms, Logic & Math
 
 > **Category**: `algorithms-logic`  
-> **Total Curated Skills**: 241 skills  
+> **Total Curated Skills**: 244 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -198,6 +198,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`sales-quota-setting`](../../library/mbfinotti-sales-skills/skills/sales-quota-setting) | ⚪ Reserve | `mbfinotti-sales-skills` | Designs how sales quotas are derived for a team or company - top-down vs bottom-up reconciliati... |
 | [`scale-attribution-reconciler`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/scale-attribution-reconciler) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when platform-reported conversions disagree with GA4/ecommerce, when you suspect Meta and G... |
 | [`scale-paid-measurement-loop`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/scale-paid-measurement-loop) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "read back" a paid campaign change, "did this ad change work", or "co... |
+| [`scenario-maya-expert`](../../library/scenario-labs-skills/skills/scenario-maya-expert) | ⚪ Reserve | `scenario-labs-skills` | Use when doing any Autodesk Maya task through Python or a bridge, headless or live: maya.cmds o... |
+| [`scenario-roblox-gameplay`](../../library/scenario-labs-skills/skills/scenario-roblox-gameplay) | ⚪ Reserve | `scenario-labs-skills` | Use when building Roblox gameplay systems: NPC or enemy AI that patrols, chases and attacks, st... |
+| [`scenario-roblox-luau`](../../library/scenario-labs-skills/skills/scenario-roblox-luau) | ⚪ Reserve | `scenario-labs-skills` | Use when writing, reviewing or debugging Luau in a Roblox experience: task.spawn vs task.defer ... |
 | [`secops-detection-engineering`](../../library/google-skills/skills/secops-detection-engineering) | ⚪ Reserve | `google-skills` | Author, validate, test, and deploy YARA-L 2.0 detection rules and evaluate end-to-end detection... |
 | [`senior-ml-engineer`](../../library/alirezarezvani-claude-skills/skills/senior-ml-engineer) | ⚪ Reserve | `alirezarezvani-claude-skills` | ML engineering skill for productionizing models, building MLOps pipelines, and integrating LLMs... |
 | [`siege`](../../library/anthropics-claude-plugins-official/skills/siege) | ⚪ Reserve | `anthropics-claude-plugins-official` | Work on one hard mathematics problem in rounds: each round a judge writes a few self-contained ... |

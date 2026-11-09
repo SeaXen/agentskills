@@ -560,6 +560,14 @@
     "path": "category/database-sql-relational/binary-diff"
   },
   {
+    "id": "bionemo-cuequivariance-torch",
+    "name": "bionemo-cuequivariance-torch",
+    "category": "database-sql-relational",
+    "repository": "nvidia-skills",
+    "description": "Use when building or debugging cuEquivariance PyTorch tensor products or equivariant GNNs, especially CPU references, layouts, indexing, and gradients.",
+    "path": "category/database-sql-relational/bionemo-cuequivariance-torch"
+  },
+  {
     "id": "brand-rebranding",
     "name": "brand-rebranding",
     "category": "database-sql-relational",
@@ -1720,6 +1728,14 @@
     "path": "category/database-sql-relational/huawei-cloud-ascend-small-model-migrate"
   },
   {
+    "id": "huawei-cloud-cloudrobo-model-adapt-workflow",
+    "name": "huawei-cloud-cloudrobo-model-adapt-workflow",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "One-stop workflow for adapting models on the CloudRobo platform. Chains 4 sub-skills: huawei-cloud-cloudrobo-npu-patcher (PyTorch VLA \u2192 Ascend NPU adaptation), huawei-cloud-cloudrobo-weight-layout (standard checkpoint layout), huawei-cloud-cloudrobo-train-metrics (Octopus training metric reporting), and huawei-cloud-cloudrobo-inference-adapter (target-protocol inference interface adaptation), covering the full pipeline of \"model code \u2192 trainable on NPU \u2192 weights produced in standard layout \u2192 platform metric visualization \u2192 protocol-based inference service\". Use this skill when the user asks to adapt a VLA or robot foundation model end-to-end on the CloudRobo/Ascend platform, and the task involves two or more of: NPU migration, checkpoint conventions, training metric reporting, and inference protocol adaptation. Triggers include: \"platform model adaptation\", \"end-to-end adaptation\", \"adapt to CloudRobo and deploy\", \"run training + report metrics + wire up inference\", \"\u6a21\u578b\u9002\u914d\", \"\u7aef\u5230\u7aef\u9002\u914d\", \"\u6a21\u578b\u8fc1\u79fb\u5230NPU\", \"\u5728\u4e91\u673a\u5668\u4eba\u5e73\u53f0\u90e8\u7f72\u6a21\u578b\", \"\u8bad\u7ec3\u5e76\u4e0a\u62a5\u6307\u6807\".",
+    "path": "category/database-sql-relational/huawei-cloud-cloudrobo-model-adapt-workflow"
+  },
+  {
     "id": "huawei-cloud-config-helper",
     "name": "huawei-cloud-config-helper",
     "category": "database-sql-relational",
@@ -2304,6 +2320,14 @@
     "path": "category/database-sql-relational/mobile-offline-support"
   },
   {
+    "id": "modelarts-huawei-cloud-ascend-profiler-db-explorer",
+    "name": "modelarts-huawei-cloud-ascend-profiler-db-explorer",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Convert natural language questions into safe executable SQL to query Ascend PyTorch Profiler / msprof database for operator time consumption, communication, dispatch, and other performance data. Supports table schema extraction from official documentation. Use this skill when the user wants to: (1) analyze Ascend profiling database, (2) query operator performance data, (3) analyze communication and dispatch bottlenecks, (4) check table schema for profiling data. Trigger: user mentions \"profiler db\", \"sqlite\", \"sql\", \"table\", \"schema\", \"ascend-pytorch-profiler\", \"msprof\", \"operator time\", \"communication time\", \"dispatch analysis\", \"\u6027\u80fd\u5206\u6790\", \"\u7b97\u5b50\u8017\u65f6\", \"\u6570\u636e\u5e93\u67e5\u8be2\", \"\u6027\u80fd\u6570\u636e\", \"\u6027\u80fd\u74f6\u9888",
+    "path": "category/database-sql-relational/modelarts-huawei-cloud-ascend-profiler-db-explorer"
+  },
+  {
     "id": "monday-automation",
     "name": "monday-automation",
     "category": "database-sql-relational",
@@ -2326,6 +2350,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Generates SQL validation notebooks for dbt PR changes with before/after comparison queries.",
     "path": "category/database-sql-relational/monte-carlo-validation-notebook"
+  },
+  {
+    "id": "mrs-huawei-cloud-mrs-spark-sql-check",
+    "name": "mrs-huawei-cloud-mrs-spark-sql-check",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud MRS Spark SQL specification checking skill. Performs comprehensive SQL statement checking for MRS Spark, including syntax validation, specification compliance, and performance risk detection. triggers: \"Spark SQL review\", \"check Spark SQL\", \"\u68c0\u67e5Spark SQL\", \"Spark SQL\u68c0\u67e5\", \"Spark SQL\u89c4\u8303\", \"Spark SQL\u8bed\u6cd5\".",
+    "path": "category/database-sql-relational/mrs-huawei-cloud-mrs-spark-sql-check"
   },
   {
     "id": "mysql",
@@ -2664,6 +2696,14 @@
     "path": "category/database-sql-relational/postmark-automation"
   },
   {
+    "id": "pre-mortem",
+    "name": "pre-mortem",
+    "category": "database-sql-relational",
+    "repository": "davila7-claude-code-templates",
+    "description": "Use for a pre-mortem, or before committing to a plan, launch or migration: \"what could go wrong?\", \"stress test this plan\", \"how might this fail?\", \"risks before we ship\". Assumes failure, lists causes, ranks them and sets mitigations. Skip for explaining a failure that already happened.",
+    "path": "category/database-sql-relational/pre-mortem"
+  },
+  {
     "id": "prisma",
     "name": "prisma",
     "category": "database-sql-relational",
@@ -2750,6 +2790,14 @@
     "repository": "prisma-skills",
     "description": "Obtain or reuse a Prisma Postgres database and connect an application. Use when the user needs a database and has none configured (\"I need a database\", \"add a Postgres database\", \"set up a database for this app\"), runs or mentions `create-db` or `npx create-db`, or asks to set up or connect Prisma Postgres, including in v0 and the Vercel Marketplace. Hands Prisma ORM configuration to prisma-orm-setup; reuses an existing connection first and honors an explicit provider, driver, alternative ORM, or database-only choice.",
     "path": "category/database-sql-relational/prisma-postgres-setup"
+  },
+  {
+    "id": "prisma-postgres-upgrade",
+    "name": "prisma-postgres-upgrade",
+    "category": "database-sql-relational",
+    "repository": "prisma-skills",
+    "description": "Upgrade a PostgreSQL app from Prisma ORM 6 or 7 straight to Prisma 8 in one pass, keeping the existing schema.prisma, database and data. Use when a Postgres project on Prisma 6 or 7 wants Prisma 8, including before deploying it on Prisma Compute, which runs only Prisma 8. Triggers on \"upgrade prisma 6 to 8\", \"upgrade prisma 7 to 8\", \"upgrade to prisma 8 postgres\", \"prisma7Schema\", \"migrations/app\", \"move off @prisma/client\", \"Console says move to Prisma 8\".",
+    "path": "category/database-sql-relational/prisma-postgres-upgrade"
   },
   {
     "id": "prisma-upgrade-v7",
@@ -2840,6 +2888,14 @@
     "path": "category/database-sql-relational/querying-data-lake"
   },
   {
+    "id": "railway-templates",
+    "name": "railway-templates",
+    "category": "database-sql-relational",
+    "repository": "davila7-claude-code-templates",
+    "description": "Search and deploy services from Railway's template marketplace. Use when user wants to add a service from a template, find templates for a specific use case, or deploy tools like Ghost, Strapi, n8n, Minio, Uptime Kuma, etc. For databases (Postgres, Redis, MySQL, MongoDB), prefer the railway-database skill.",
+    "path": "category/database-sql-relational/railway-templates"
+  },
+  {
     "id": "rds-oracle",
     "name": "rds-oracle",
     "category": "database-sql-relational",
@@ -2862,6 +2918,14 @@
     "repository": "cline-skills",
     "description": "Read project data documentation (data dictionaries, dbt manifests, model docs, column descriptions, lineage, metric definitions) before writing analytics SQL. Use for mapping business and product terms to concrete models and columns.",
     "path": "category/database-sql-relational/reading-data-dict"
+  },
+  {
+    "id": "readonly-sql-guard",
+    "name": "readonly-sql-guard",
+    "category": "database-sql-relational",
+    "repository": "davila7-claude-code-templates",
+    "description": "Make an agent's database access provably read-only. Use when an agent runs caller-supplied SQL against a production/ERP/analytics database (a \"query\" MCP tool, text-to-SQL, an admin console), or when reviewing DB-access code for write/DDL/side-effect/transaction-escape risks. Checks what a statement CALLS, not just its shape.",
+    "path": "category/database-sql-relational/readonly-sql-guard"
   },
   {
     "id": "rebranding",
@@ -2926,6 +2990,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Discover, inspect, and invoke 2,000+ AI models and APIs through SandBase's local MCP bridge with explicit schema and cost checks.",
     "path": "category/database-sql-relational/sandbase-mcp"
+  },
+  {
+    "id": "scenario-roblox-data",
+    "name": "scenario-roblox-data",
+    "category": "database-sql-relational",
+    "repository": "scenario-labs-skills",
+    "description": "Use when a Roblox game saves or loads player data, or when players report data not saving, lost progress, rollbacks, duplicated items or a purchase granted twice. Triggers: DataStoreService, UpdateAsync, SetAsync, BindToClose, ProfileStore, ProfileService, DataStore2, session locking, data schema or migration, Developer Product ProcessReceipt, player trading, OrderedDataStore leaderboards, MemoryStore, MessagingService, TeleportService and reserved servers, DataStore budgets and throttling (errors 301 to 306), 'You must publish this place to the web to access DataStore', and testing data code in an unpublished place.",
+    "path": "category/database-sql-relational/scenario-roblox-data"
   },
   {
     "id": "schema",
@@ -3192,6 +3264,38 @@
     "path": "category/database-sql-relational/skills-azure-storage"
   },
   {
+    "id": "skills-competitor-pages",
+    "name": "skills-competitor-pages",
+    "category": "database-sql-relational",
+    "repository": "nowork-studio-notfair-plugin",
+    "description": "Competitor page gap analysis \u2014 take a query you want to win and the pages currently outranking you, and produce a concrete brief on what to add or change to compete. Compares content depth and coverage (subtopics they cover that you don't), structure (headings, format, tables, media), search-intent match, E-E-A-T signals, schema/rich-result eligibility, internal linking, and on-page optimization \u2014 across your page vs. the top-ranking competitors. Use this skill whenever the user wants to know why a competitor outranks them on a specific query, what a top-ranking page does better, a content-gap analysis against specific competitor URLs, or a brief to beat a specific SERP. Trigger on: \"why does competitor X outrank me\", \"content gap analysis\", \"competitor page analysis\", \"what does the top result have that I don't\", \"how do I beat this page\", \"analyze competitor pages\", \"SERP gap\", \"compete for [keyword]\". For seed keyword discovery use /keyword-research; for a content calendar use /content-planner.",
+    "path": "category/database-sql-relational/skills-competitor-pages"
+  },
+  {
+    "id": "skills-django-security",
+    "name": "skills-django-security",
+    "category": "database-sql-relational",
+    "repository": "affaan-m-ecc",
+    "description": "Django security best practices, authentication, authorization, CSRF protection, SQL injection prevention, XSS prevention, and secure deployment configurations.",
+    "path": "category/database-sql-relational/skills-django-security"
+  },
+  {
+    "id": "skills-documentation-lookup",
+    "name": "skills-documentation-lookup",
+    "category": "database-sql-relational",
+    "repository": "affaan-m-ecc",
+    "description": "\u8a13\u7df4\u30c7\u30fc\u30bf\u306e\u4ee3\u308f\u308a\u306bContext7 MCP\u7d4c\u7531\u3067\u6700\u65b0\u306e\u30e9\u30a4\u30d6\u30e9\u30ea\u3068\u30d5\u30ec\u30fc\u30e0\u30ef\u30fc\u30af\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\u4f7f\u7528\u3002\u30bb\u30c3\u30c8\u30a2\u30c3\u30d7\u306e\u8cea\u554f\u3001API\u30ea\u30d5\u30a1\u30ec\u30f3\u30b9\u3001\u30b3\u30fc\u30c9\u4f8b\u3001\u307e\u305f\u306f\u30e6\u30fc\u30b6\u30fc\u304c\u30d5\u30ec\u30fc\u30e0\u30ef\u30fc\u30af\uff08\u4f8b\uff1aReact\u3001Next.js\u3001Prisma\uff09\u306b\u540d\u524d\u3092\u4ed8\u3051\u308b\u3068\u304d\u306b\u30a2\u30af\u30c6\u30a3\u30d9\u30fc\u30b7\u30e7\u30f3\u3002",
+    "path": "category/database-sql-relational/skills-documentation-lookup"
+  },
+  {
+    "id": "skills-ecommerce-seo",
+    "name": "skills-ecommerce-seo",
+    "category": "database-sql-relational",
+    "repository": "nowork-studio-notfair-plugin",
+    "description": "E-commerce SEO audit for online stores (WooCommerce, Shopify, Magento, custom). Covers category / product listing pages (PLP), product detail pages (PDP), faceted navigation and its crawl-budget and duplicate-content traps, pagination, canonicals for variants and filters, out-of-stock / discontinued products, internal linking and breadcrumbs, and Product / Offer / Review / AggregateRating / BreadcrumbList structured data. Use whenever the user runs an online store and asks about product or category page SEO, filter URLs being indexed, product rich results, or thin/duplicate product pages. Trigger on: \"e-commerce SEO\", \"ecommerce SEO\", \"product page SEO\", \"category page SEO\", \"WooCommerce SEO\", \"Shopify SEO\", \"faceted navigation\", \"filter URLs in Google\", \"product schema\", \"rich snippets for products\", \"out of stock SEO\", \"duplicate product pages\". For a single URL use /seo-page; for full-site use /seo-analysis.",
+    "path": "category/database-sql-relational/skills-ecommerce-seo"
+  },
+  {
     "id": "skills-ef-core",
     "name": "skills-ef-core",
     "category": "database-sql-relational",
@@ -3214,6 +3318,14 @@
     "repository": "firebase-agent-skills",
     "description": "Builds and deploys Firebase SQL Connect (aka Firebase Data Connect) backends with PostgreSQL securely. Use when designing schemas with tables and relations, writing authorized queries and mutations, configuring real-time data updates, or generating type-safe SDKs. Use when you need a relational database with Firebase, or when the user mentions SQL Connect or Data Connect.",
     "path": "category/database-sql-relational/skills-firebase-data-connect-basics"
+  },
+  {
+    "id": "skills-image-seo",
+    "name": "skills-image-seo",
+    "category": "database-sql-relational",
+    "repository": "nowork-studio-notfair-plugin",
+    "description": "Image SEO audit \u2014 make a site's images discoverable in Google Images and stop them from dragging down Core Web Vitals. Audits alt text quality and coverage, descriptive file names, modern formats (WebP/AVIF), dimensions and compression, responsive srcset, lazy-loading, explicit width/height (CLS), image sitemaps, and ImageObject structured data. Use this skill whenever the user asks about image SEO, alt text, Google Images ranking, image optimization for search, image file size hurting page speed, WebP/AVIF, or image structured data. Trigger on: \"image SEO\", \"alt text\", \"rank in Google Images\", \"optimize my images for search\", \"image alt tags\", \"WebP\", \"image compression SEO\", \"image sitemap\", \"ImageObject schema\", or any image-discoverability / image-performance question. For overall page speed use /seo-analysis; for generating new images use the brand image skills.",
+    "path": "category/database-sql-relational/skills-image-seo"
   },
   {
     "id": "skills-migrate",
@@ -3248,6 +3360,30 @@
     "path": "category/database-sql-relational/skills-mirrord-db-branching"
   },
   {
+    "id": "skills-mysql-patterns",
+    "name": "skills-mysql-patterns",
+    "category": "database-sql-relational",
+    "repository": "affaan-m-ecc",
+    "description": "\u65e5\u672c\u8a9e\u7ffb\u8a33\uff1a\u3053\u306e\u30d5\u30a1\u30a4\u30eb\u306f mysql-patterns \u7528\u306e\u65e5\u672c\u8a9e\u7ffb\u8a33\u304c\u5fc5\u8981\u3067\u3059",
+    "path": "category/database-sql-relational/skills-mysql-patterns"
+  },
+  {
+    "id": "skills-postgres-patterns",
+    "name": "skills-postgres-patterns",
+    "category": "database-sql-relational",
+    "repository": "affaan-m-ecc",
+    "description": "Patrones de base de datos PostgreSQL para optimizaci\u00f3n de consultas, dise\u00f1o de esquemas, indexaci\u00f3n y seguridad. Basado en las buenas pr\u00e1cticas de Supabase.",
+    "path": "category/database-sql-relational/skills-postgres-patterns"
+  },
+  {
+    "id": "skills-programmatic-seo",
+    "name": "skills-programmatic-seo",
+    "category": "database-sql-relational",
+    "repository": "nowork-studio-notfair-plugin",
+    "description": "Programmatic SEO planning and audit: building or evaluating large sets of template-generated pages that target long-tail query patterns (e.g. \"[service] in [city]\", \"[product] vs [product]\", \"[tool] for [use-case]\"). Covers data-source and template design, thin/duplicate-content and doorway-page risks, per-page uniqueness and value thresholds, internal linking and hubs, indexation management (publish vs. noindex), and scaling without a manual action. Use whenever the user wants to generate many pages from a template/dataset, build location/comparison/use-case pages at scale, or asks why generated pages aren't indexing. Trigger on: \"programmatic SEO\", \"pSEO\", \"generate pages at scale\", \"templated pages\", \"location pages at scale\", \"comparison pages\", \"[city] pages\", \"my generated pages aren't indexed\", \"doorway pages\", \"scale content\". For one-off content use /content-writer; for keyword discovery use /keyword-research.",
+    "path": "category/database-sql-relational/skills-programmatic-seo"
+  },
+  {
     "id": "skills-project-setup",
     "name": "skills-project-setup",
     "category": "database-sql-relational",
@@ -3256,12 +3392,44 @@
     "path": "category/database-sql-relational/skills-project-setup"
   },
   {
+    "id": "skills-schema-markup-generator",
+    "name": "skills-schema-markup-generator",
+    "category": "database-sql-relational",
+    "repository": "nowork-studio-notfair-plugin",
+    "description": "Generate JSON-LD structured data markup for rich results in Google Search. Supports FAQ, HowTo, Article, Product, LocalBusiness, and multi-type schemas. Validates against Google requirements and provides implementation guidance. Use when asked to \"add schema markup\", \"generate structured data\", \"JSON-LD\", \"rich snippets\", \"FAQ schema\", \"product markup\", \"add structured data to my page\", \"how to get rich snippets\", or any structured data task.",
+    "path": "category/database-sql-relational/skills-schema-markup-generator"
+  },
+  {
+    "id": "skills-search-console",
+    "name": "skills-search-console",
+    "category": "database-sql-relational",
+    "repository": "nowork-studio-notfair-plugin",
+    "description": "Query and operate connected Google Search Console properties through NotFair MCP. Use for live GSC query or page performance, clicks, impressions, CTR, position, traffic changes, indexing status, URL inspection, sitemap reads or approved sitemap submission/removal, and Search Console MCP setup. Route full-site SEO audits to seo-analysis.",
+    "path": "category/database-sql-relational/skills-search-console"
+  },
+  {
     "id": "skills-seo-ai-visibility",
     "name": "skills-seo-ai-visibility",
     "category": "database-sql-relational",
     "repository": "anthropics-knowledge-work",
     "description": "Audits and fixes both halves of being found \u2014 classic search and AI answers. Search side: rankings, site structure, page speed, titles and descriptions, and content that answers what customers search for. AI side: whether assistant crawlers can reach the site, pages render without JavaScript, an llms.txt file, schema.org data, and presence in the directories assistants read. For online stores it also runs a bulk catalog cleanup, rewriting product titles, descriptions, alt text, and SEO fields in approved batches. Works on any public website with no connector. Use this whenever the owner talks about being found online, including \"nobody finds us on Google,\" \"how do I show up in ChatGPT,\" \"make my website AI friendly,\" \"SEO audit,\" \"GEO,\" \"AEO,\" \"AI search visibility,\" \"my competitor ranks above me,\" \"fix my product listings,\" or \"I asked an AI about my industry and we weren't in the answer.",
     "path": "category/database-sql-relational/skills-seo-ai-visibility"
+  },
+  {
+    "id": "skills-seo-drift",
+    "name": "skills-seo-drift",
+    "category": "database-sql-relational",
+    "repository": "nowork-studio-notfair-plugin",
+    "description": "SEO drift monitoring \u2014 snapshot a site's SEO state and detect regressions over time. Captures a baseline (rankings/positions, indexed page count, titles & meta descriptions, canonical/robots directives, schema presence, key on-page elements) and on later runs diffs against it to surface what changed: ranking drops, pages that fell out of the index, titles/metas that were accidentally overwritten (a CMS/redeploy classic), canonicals or noindex flipped, schema that disappeared. Use this skill when the user wants to monitor SEO over time, catch regressions after a site change / migration / redeploy, set a baseline, diff against a previous state, or asks \"what changed on my site's SEO\" or \"did my redesign break SEO\". Trigger on: \"SEO drift\", \"SEO monitoring\", \"track SEO over time\", \"did my site change break SEO\", \"after migration SEO\", \"SEO regression\", \"baseline my SEO\", \"compare SEO to last month\", \"my titles changed\", \"pages fell out of the index\". For a one-time full audit use /seo-analysis.",
+    "path": "category/database-sql-relational/skills-seo-drift"
+  },
+  {
+    "id": "skills-sitemap-audit",
+    "name": "skills-sitemap-audit",
+    "category": "database-sql-relational",
+    "repository": "nowork-studio-notfair-plugin",
+    "description": "XML sitemap audit \u2014 find and fix the sitemap problems that quietly waste crawl budget and slow indexing. Discovers the sitemap (robots.txt, /sitemap.xml, sitemap index), validates structure and size limits, and cross-checks the URLs it lists against reality: non-200 / redirected / noindex / canonicalized-away URLs that shouldn't be in a sitemap, plus indexable pages that are missing from it. Reviews lastmod accuracy, sitemap-index organization, and robots.txt reference. Use this skill whenever the user asks about sitemaps, sitemap errors in Search Console, \"sitemap couldn't fetch / has errors\", crawl budget, pages not getting indexed, or whether their sitemap is clean. Trigger on: \"sitemap\", \"sitemap.xml\", \"XML sitemap\", \"sitemap errors\", \"sitemap audit\", \"couldn't fetch sitemap\", \"crawl budget\", \"pages not indexed sitemap\", \"sitemap index\", \"lastmod\", \"robots.txt sitemap\", or any sitemap/crawl-coverage question. For a full-site SEO audit use /seo-analysis; for broken links use /broken-link-checker.",
+    "path": "category/database-sql-relational/skills-sitemap-audit"
   },
   {
     "id": "skills-sql-queries",

@@ -1160,6 +1160,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link chembl-database"
   },
   {
+    "id": "chisle",
+    "name": "chisle",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": ">",
+    "path": "library/davila7-claude-code-templates/skills/chisle",
+    "activation_cmd": "python .agents/library/activate_skill.py activate chisle",
+    "link_cmd": "python .agents/library/activate_skill.py link chisle"
+  },
+  {
     "id": "chrome-extension-developer",
     "name": "chrome-extension-developer",
     "repository": "davila7-claude-code-templates",
@@ -2220,6 +2230,46 @@
     "link_cmd": "python .agents/library/activate_skill.py link developer-growth-analysis"
   },
   {
+    "id": "development-brainstorming",
+    "name": "development-brainstorming",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"You MUST use this before any creative or build work: creating features, building components, adding functionality, modifying behavior, or planning anything new, in software or out of it (a website, a talk, a business). Finds out what the user actually wants and why, one question at a time, compares 2-3 approaches and gets a design doc approved before anything is built. Use it even if they never say brainstorm or design; skip it only for fully specified one-line tasks.\"",
+    "path": "library/davila7-claude-code-templates/skills/development-brainstorming",
+    "activation_cmd": "python .agents/library/activate_skill.py activate development-brainstorming",
+    "link_cmd": "python .agents/library/activate_skill.py link development-brainstorming"
+  },
+  {
+    "id": "development-code-reviewer",
+    "name": "development-code-reviewer",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"You MUST use this when asked to review code: a pull request, a branch, a commit, staged or uncommitted changes, or \\\"check this before I merge\\\". Scopes the review to the diff, reads the surrounding code, hunts for real bugs (correctness, security, data loss, concurrency, broken callers, missing tests), verifies every finding against the code before reporting it, and returns a short severity-ranked list with a concrete failure scenario for each. Use it for any language; not for writing new code or for style-only cleanups.\"",
+    "path": "library/davila7-claude-code-templates/skills/development-code-reviewer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate development-code-reviewer",
+    "link_cmd": "python .agents/library/activate_skill.py link development-code-reviewer"
+  },
+  {
+    "id": "development-systematic-debugging",
+    "name": "development-systematic-debugging",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"You MUST use this whenever something is broken, before proposing or making any fix, including quick fixes and when the user is in a hurry: a bug, a failing or red test, a build or CI failure, a crash, a performance problem, unexpected behavior. Finds the root cause in four phases (investigate, compare, test one hypothesis, fix with a failing test first) instead of guessing, and stops after three failed fixes to question the design. Not for writing new features.\"",
+    "path": "library/davila7-claude-code-templates/skills/development-systematic-debugging",
+    "activation_cmd": "python .agents/library/activate_skill.py activate development-systematic-debugging",
+    "link_cmd": "python .agents/library/activate_skill.py link development-systematic-debugging"
+  },
+  {
+    "id": "development-test-driven-development",
+    "name": "development-test-driven-development",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"You MUST use this before writing or changing any production code, including one-line fixes and when the user is in a hurry: a new feature, a bug fix, a refactor, a behavior change. Write the failing test first, run it and watch it fail for the right reason, write the minimal code that passes, then run the whole test suite before saying it is done. Skip it only for throwaway prototypes, generated code or configuration-only changes, and only with the user's OK.\"",
+    "path": "library/davila7-claude-code-templates/skills/development-test-driven-development",
+    "activation_cmd": "python .agents/library/activate_skill.py activate development-test-driven-development",
+    "link_cmd": "python .agents/library/activate_skill.py link development-test-driven-development"
+  },
+  {
     "id": "devil",
     "name": "devil",
     "repository": "davila7-claude-code-templates",
@@ -2428,6 +2478,46 @@
     "path": "library/davila7-claude-code-templates/skills/docs-search",
     "activation_cmd": "python .agents/library/activate_skill.py activate docs-search",
     "link_cmd": "python .agents/library/activate_skill.py link docs-search"
+  },
+  {
+    "id": "document-skills-docx",
+    "name": "document-skills-docx",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"Document toolkit (.docx). Create/edit documents, tracked changes, comments, formatting preservation, text extraction, for professional document processing.\"",
+    "path": "library/davila7-claude-code-templates/skills/document-skills-docx",
+    "activation_cmd": "python .agents/library/activate_skill.py activate document-skills-docx",
+    "link_cmd": "python .agents/library/activate_skill.py link document-skills-docx"
+  },
+  {
+    "id": "document-skills-pdf",
+    "name": "document-skills-pdf",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"PDF manipulation toolkit. Extract text/tables, create PDFs, merge/split, fill forms, for programmatic document processing and analysis.\"",
+    "path": "library/davila7-claude-code-templates/skills/document-skills-pdf",
+    "activation_cmd": "python .agents/library/activate_skill.py activate document-skills-pdf",
+    "link_cmd": "python .agents/library/activate_skill.py link document-skills-pdf"
+  },
+  {
+    "id": "document-skills-pptx",
+    "name": "document-skills-pptx",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"Presentation toolkit (.pptx). Create/edit slides, layouts, content, speaker notes, comments, for programmatic presentation creation and modification.\"",
+    "path": "library/davila7-claude-code-templates/skills/document-skills-pptx",
+    "activation_cmd": "python .agents/library/activate_skill.py activate document-skills-pptx",
+    "link_cmd": "python .agents/library/activate_skill.py link document-skills-pptx"
+  },
+  {
+    "id": "document-skills-xlsx",
+    "name": "document-skills-xlsx",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"Spreadsheet toolkit (.xlsx/.csv). Create/edit with formulas/formatting, analyze data, visualization, recalculate formulas, for spreadsheet processing and analysis.\"",
+    "path": "library/davila7-claude-code-templates/skills/document-skills-xlsx",
+    "activation_cmd": "python .agents/library/activate_skill.py activate document-skills-xlsx",
+    "link_cmd": "python .agents/library/activate_skill.py link document-skills-xlsx"
   },
   {
     "id": "documentation-templates",
@@ -2718,6 +2808,16 @@
     "path": "library/davila7-claude-code-templates/skills/ensembl-database",
     "activation_cmd": "python .agents/library/activate_skill.py activate ensembl-database",
     "link_cmd": "python .agents/library/activate_skill.py link ensembl-database"
+  },
+  {
+    "id": "enterprise-communication-telegram-bot-builder",
+    "name": "enterprise-communication-telegram-bot-builder",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"Expert in building Telegram bots that solve real problems - from simple automation to complex AI-powered bots. Covers bot architecture, the Telegram Bot API, user experience, monetization strategies, and scaling bots to thousands of users. Use when: telegram bot, bot api, telegram automation, chat bot telegram, tg bot.\"",
+    "path": "library/davila7-claude-code-templates/skills/enterprise-communication-telegram-bot-builder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate enterprise-communication-telegram-bot-builder",
+    "link_cmd": "python .agents/library/activate_skill.py link enterprise-communication-telegram-bot-builder"
   },
   {
     "id": "environment",
@@ -3118,6 +3218,16 @@
     "path": "library/davila7-claude-code-templates/skills/firecrawl-scraper",
     "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-scraper",
     "link_cmd": "python .agents/library/activate_skill.py link firecrawl-scraper"
+  },
+  {
+    "id": "five-whys",
+    "name": "five-whys",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": ">",
+    "path": "library/davila7-claude-code-templates/skills/five-whys",
+    "activation_cmd": "python .agents/library/activate_skill.py activate five-whys",
+    "link_cmd": "python .agents/library/activate_skill.py link five-whys"
   },
   {
     "id": "flowio",
@@ -3668,6 +3778,16 @@
     "path": "library/davila7-claude-code-templates/skills/haskell-pro",
     "activation_cmd": "python .agents/library/activate_skill.py activate haskell-pro",
     "link_cmd": "python .agents/library/activate_skill.py link haskell-pro"
+  },
+  {
+    "id": "healthcare-job-search",
+    "name": "healthcare-job-search",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Find open US healthcare jobs (nursing, CNA, allied health, therapy, imaging, pharmacy, physicians and more) and the hourly pay employers post, using CareJobs.Now's free MCP server or its public JSON endpoints. Use when someone asks for healthcare or nursing jobs in a US place, what a healthcare job pays, or which hospitals are hiring.",
+    "path": "library/davila7-claude-code-templates/skills/healthcare-job-search",
+    "activation_cmd": "python .agents/library/activate_skill.py activate healthcare-job-search",
+    "link_cmd": "python .agents/library/activate_skill.py link healthcare-job-search"
   },
   {
     "id": "helm-chart-scaffolding",
@@ -4458,6 +4578,16 @@
     "path": "library/davila7-claude-code-templates/skills/marketing-strategy-pmm",
     "activation_cmd": "python .agents/library/activate_skill.py activate marketing-strategy-pmm",
     "link_cmd": "python .agents/library/activate_skill.py link marketing-strategy-pmm"
+  },
+  {
+    "id": "marketing-x-twitter-scraper",
+    "name": "marketing-x-twitter-scraper",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"X API & Twitter scraper skill for AI coding agents. Builds integrations with the Xquik REST API, MCP server & webhooks: tweet search, user lookup, follower extraction, engagement metrics, giveaway contest draws, trending topics, account monitoring, reply/retweet/quote extraction, community & Space data, mutual follow checks. Works with Claude Code, Cursor, Codex, Copilot, Windsurf & 40+ agents.\"",
+    "path": "library/davila7-claude-code-templates/skills/marketing-x-twitter-scraper",
+    "activation_cmd": "python .agents/library/activate_skill.py activate marketing-x-twitter-scraper",
+    "link_cmd": "python .agents/library/activate_skill.py link marketing-x-twitter-scraper"
   },
   {
     "id": "markitdown",
@@ -6110,6 +6240,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link pptx-posters"
   },
   {
+    "id": "pre-mortem",
+    "name": "pre-mortem",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": ">",
+    "path": "library/davila7-claude-code-templates/skills/pre-mortem",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pre-mortem",
+    "link_cmd": "python .agents/library/activate_skill.py link pre-mortem"
+  },
+  {
     "id": "premium-web-design",
     "name": "premium-web-design",
     "repository": "davila7-claude-code-templates",
@@ -6198,6 +6338,16 @@
     "path": "library/davila7-claude-code-templates/skills/production-code-audit",
     "activation_cmd": "python .agents/library/activate_skill.py activate production-code-audit",
     "link_cmd": "python .agents/library/activate_skill.py link production-code-audit"
+  },
+  {
+    "id": "productivity-writing-skills",
+    "name": "productivity-writing-skills",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment",
+    "path": "library/davila7-claude-code-templates/skills/productivity-writing-skills",
+    "activation_cmd": "python .agents/library/activate_skill.py activate productivity-writing-skills",
+    "link_cmd": "python .agents/library/activate_skill.py link productivity-writing-skills"
   },
   {
     "id": "professional-communication",
@@ -6700,6 +6850,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link railway-docs"
   },
   {
+    "id": "railway-templates",
+    "name": "railway-templates",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Search and deploy services from Railway's template marketplace. Use when user wants to add a service from a template, find templates for a specific use case, or deploy tools like Ghost, Strapi, n8n, Minio, Uptime Kuma, etc. For databases (Postgres, Redis, MySQL, MongoDB), prefer the railway-database skill.",
+    "path": "library/davila7-claude-code-templates/skills/railway-templates",
+    "activation_cmd": "python .agents/library/activate_skill.py activate railway-templates",
+    "link_cmd": "python .agents/library/activate_skill.py link railway-templates"
+  },
+  {
     "id": "rdkit",
     "name": "rdkit",
     "repository": "davila7-claude-code-templates",
@@ -6798,6 +6958,16 @@
     "path": "library/davila7-claude-code-templates/skills/reactome-database",
     "activation_cmd": "python .agents/library/activate_skill.py activate reactome-database",
     "link_cmd": "python .agents/library/activate_skill.py link reactome-database"
+  },
+  {
+    "id": "readonly-sql-guard",
+    "name": "readonly-sql-guard",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Make an agent's database access provably read-only. Use when an agent runs caller-supplied SQL against a production/ERP/analytics database (a \"query\" MCP tool, text-to-SQL, an admin console), or when reviewing DB-access code for write/DDL/side-effect/transaction-escape risks. Checks what a statement CALLS, not just its shape.",
+    "path": "library/davila7-claude-code-templates/skills/readonly-sql-guard",
+    "activation_cmd": "python .agents/library/activate_skill.py activate readonly-sql-guard",
+    "link_cmd": "python .agents/library/activate_skill.py link readonly-sql-guard"
   },
   {
     "id": "receiving-code-review",
@@ -7030,6 +7200,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link resume-version-manager"
   },
   {
+    "id": "rex-claude",
+    "name": "rex-claude",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"Open other Claude Code sessions in Rex terminal panes or tabs and drive them: launch claude in a directory, answer the workspace trust dialog, send prompts, wait for each turn by its reported status (working, done, blocked on a permission prompt), read the screen, press keys and close the pane. Use when running inside the Rex terminal (REX_SESSION is set, TERM_PROGRAM=rex) and the user wants to start, delegate to, test in, watch or control a second Claude Code session side by side, for example to test a setting or permission in a fresh session, run a task in parallel in another pane, or check what another Claude pane is doing.\"",
+    "path": "library/davila7-claude-code-templates/skills/rex-claude",
+    "activation_cmd": "python .agents/library/activate_skill.py activate rex-claude",
+    "link_cmd": "python .agents/library/activate_skill.py link rex-claude"
+  },
+  {
     "id": "risk-management-specialist",
     "name": "risk-management-specialist",
     "repository": "davila7-claude-code-templates",
@@ -7248,6 +7428,26 @@
     "path": "library/davila7-claude-code-templates/skills/scientific-critical-thinking",
     "activation_cmd": "python .agents/library/activate_skill.py activate scientific-critical-thinking",
     "link_cmd": "python .agents/library/activate_skill.py link scientific-critical-thinking"
+  },
+  {
+    "id": "scientific-literature-review",
+    "name": "scientific-literature-review",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Conduct comprehensive, systematic literature reviews using multiple academic databases (PubMed, arXiv, bioRxiv, Semantic Scholar, etc.). This skill should be used when conducting systematic literature reviews, meta-analyses, research synthesis, or comprehensive literature searches across biomedical, scientific, and technical domains. Creates professionally formatted markdown documents and PDFs with verified citations in multiple citation styles (APA, Nature, Vancouver, etc.).",
+    "path": "library/davila7-claude-code-templates/skills/scientific-literature-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate scientific-literature-review",
+    "link_cmd": "python .agents/library/activate_skill.py link scientific-literature-review"
+  },
+  {
+    "id": "scientific-scanpy",
+    "name": "scientific-scanpy",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"Single-cell RNA-seq analysis. Load .h5ad/10X data, QC, normalization, PCA/UMAP/t-SNE, Leiden clustering, marker genes, cell type annotation, trajectory, for scRNA-seq analysis.\"",
+    "path": "library/davila7-claude-code-templates/skills/scientific-scanpy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate scientific-scanpy",
+    "link_cmd": "python .agents/library/activate_skill.py link scientific-scanpy"
   },
   {
     "id": "scientific-schematics",
@@ -8180,6 +8380,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link tech-resume-optimizer"
   },
   {
+    "id": "technical-debt-auditor",
+    "name": "technical-debt-auditor",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": ">",
+    "path": "library/davila7-claude-code-templates/skills/technical-debt-auditor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate technical-debt-auditor",
+    "link_cmd": "python .agents/library/activate_skill.py link technical-debt-auditor"
+  },
+  {
     "id": "telegram-bot-builder",
     "name": "telegram-bot-builder",
     "repository": "davila7-claude-code-templates",
@@ -8290,6 +8500,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link think-tank"
   },
   {
+    "id": "thinking-method-selector",
+    "name": "thinking-method-selector",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": ">",
+    "path": "library/davila7-claude-code-templates/skills/thinking-method-selector",
+    "activation_cmd": "python .agents/library/activate_skill.py activate thinking-method-selector",
+    "link_cmd": "python .agents/library/activate_skill.py link thinking-method-selector"
+  },
+  {
     "id": "threat-modeling-expert",
     "name": "threat-modeling-expert",
     "repository": "davila7-claude-code-templates",
@@ -8348,6 +8568,16 @@
     "path": "library/davila7-claude-code-templates/skills/torchdrug",
     "activation_cmd": "python .agents/library/activate_skill.py activate torchdrug",
     "link_cmd": "python .agents/library/activate_skill.py link torchdrug"
+  },
+  {
+    "id": "tradeoff-analysis",
+    "name": "tradeoff-analysis",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": ">",
+    "path": "library/davila7-claude-code-templates/skills/tradeoff-analysis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate tradeoff-analysis",
+    "link_cmd": "python .agents/library/activate_skill.py link tradeoff-analysis"
   },
   {
     "id": "transcribe",
@@ -8510,6 +8740,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link uspto-database"
   },
   {
+    "id": "utilities-using-superpowers",
+    "name": "utilities-using-superpowers",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions",
+    "path": "library/davila7-claude-code-templates/skills/utilities-using-superpowers",
+    "activation_cmd": "python .agents/library/activate_skill.py activate utilities-using-superpowers",
+    "link_cmd": "python .agents/library/activate_skill.py link utilities-using-superpowers"
+  },
+  {
     "id": "ux-researcher-designer",
     "name": "ux-researcher-designer",
     "repository": "davila7-claude-code-templates",
@@ -8630,6 +8870,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link vulnerability-scanner"
   },
   {
+    "id": "wealthville-pool-scoring",
+    "name": "wealthville-pool-scoring",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"Score DeFi liquidity pools before providing liquidity. Returns a 0-100 pool score and an Enter/Hold/Exit/Reduce/Avoid verdict with calibrated confidence for ~68,800 Solana pools and 575 EVM pools, plus a public miss-inclusive track record. Use when asked whether a pool is worth LPing into, which pools look best right now, or how accurate the scores have actually been.\"",
+    "path": "library/davila7-claude-code-templates/skills/wealthville-pool-scoring",
+    "activation_cmd": "python .agents/library/activate_skill.py activate wealthville-pool-scoring",
+    "link_cmd": "python .agents/library/activate_skill.py link wealthville-pool-scoring"
+  },
+  {
     "id": "web-artifacts-builder",
     "name": "web-artifacts-builder",
     "repository": "davila7-claude-code-templates",
@@ -8648,6 +8898,16 @@
     "path": "library/davila7-claude-code-templates/skills/web-design-guidelines",
     "activation_cmd": "python .agents/library/activate_skill.py activate web-design-guidelines",
     "link_cmd": "python .agents/library/activate_skill.py link web-design-guidelines"
+  },
+  {
+    "id": "web-development-react-best-practices",
+    "name": "web-development-react-best-practices",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Comprehensive React and Next.js performance optimization guide with 40+ rules for eliminating waterfalls, optimizing bundles, and improving rendering. Use when optimizing React apps, reviewing performance, or refactoring components.",
+    "path": "library/davila7-claude-code-templates/skills/web-development-react-best-practices",
+    "activation_cmd": "python .agents/library/activate_skill.py activate web-development-react-best-practices",
+    "link_cmd": "python .agents/library/activate_skill.py link web-development-react-best-practices"
   },
   {
     "id": "web-games",
@@ -8758,6 +9018,26 @@
     "path": "library/davila7-claude-code-templates/skills/workflow-automation",
     "activation_cmd": "python .agents/library/activate_skill.py activate workflow-automation",
     "link_cmd": "python .agents/library/activate_skill.py link workflow-automation"
+  },
+  {
+    "id": "workflow-automation-n8n-workflow-patterns",
+    "name": "workflow-automation-n8n-workflow-patterns",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"Proven architectural patterns for building n8n workflows.\"",
+    "path": "library/davila7-claude-code-templates/skills/workflow-automation-n8n-workflow-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate workflow-automation-n8n-workflow-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link workflow-automation-n8n-workflow-patterns"
+  },
+  {
+    "id": "workflow-automation-planning-with-files",
+    "name": "workflow-automation-planning-with-files",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Transforms workflow to use Manus-style persistent markdown files for planning, progress tracking, and knowledge storage. Use when starting complex tasks, multi-step projects, research tasks, or when the user mentions planning, organizing work, tracking progress, or wants structured output.",
+    "path": "library/davila7-claude-code-templates/skills/workflow-automation-planning-with-files",
+    "activation_cmd": "python .agents/library/activate_skill.py activate workflow-automation-planning-with-files",
+    "link_cmd": "python .agents/library/activate_skill.py link workflow-automation-planning-with-files"
   },
   {
     "id": "workorai",

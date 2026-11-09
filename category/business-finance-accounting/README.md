@@ -1,7 +1,7 @@
 # 💰 Financial Modeling, Tax & Accounting
 
 > **Category**: `business-finance-accounting`  
-> **Total Curated Skills**: 269 skills  
+> **Total Curated Skills**: 273 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -92,6 +92,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`event-budget`](../../library/samber-dev-event-organizer-skills/skills/event-budget) | ⚪ Reserve | `samber-dev-event-organizer-skills` | Build the budget and P&L for a technical event - every cost line split into fixed and per-head,... |
 | [`event-positioning`](../../library/samber-dev-event-organizer-skills/skills/event-positioning) | ⚪ Reserve | `samber-dev-event-organizer-skills` | Define a technical event's positioning - what it stands for, against which alternatives, for wh... |
 | [`event-sponsor-pricing`](../../library/samber-dev-event-organizer-skills/skills/event-sponsor-pricing) | ⚪ Reserve | `samber-dev-event-organizer-skills` | Build the sponsorship rate card for a technical event - the revenue target taken from the budge... |
+| [`examples-data-report`](../../library/feimacode-open-design-agent-kit/skills/examples-data-report) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Turns CSV, Excel, or JSON data into a polished visual report page. |
+| [`examples-finance-report`](../../library/feimacode-open-design-agent-kit/skills/examples-finance-report) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Quarterly / monthly financial report — masthead with KPIs, revenue and burn charts, P&L summary... |
 | [`excel-analysis`](../../library/davila7-claude-code-templates/skills/excel-analysis) | ⚪ Reserve | `davila7-claude-code-templates` | Analyze Excel spreadsheets, create pivot tables, generate charts, and perform data analysis. Us... |
 | [`excel-author`](../../library/nousresearch-hermes-optional-skills/skills/excel-author) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Build auditable financial workbooks headless via openpyxl. |
 | [`excel-automation`](../../library/claude-office-skills-skills/skills/excel-automation) | ⚪ Reserve | `claude-office-skills-skills` | name: excel-automation |
@@ -229,6 +231,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-cash-flow-snapshot`](../../library/anthropics-knowledge-work/skills/skills-cash-flow-snapshot) | ⚪ Reserve | `anthropics-knowledge-work` | Reads AR/AP, historical cash timing, and known fixed costs from the ledger (MYOB, NetSuite, Qui... |
 | [`skills-close-month`](../../library/anthropics-knowledge-work/skills/skills-close-month) | ⚪ Reserve | `anthropics-knowledge-work` | Closes the books and turns them into a decision as a three-link chain — month-end-prep reconcil... |
 | [`skills-connect-recommend`](../../library/stripe-ai/skills/skills-connect-recommend) | ⚪ Reserve | `stripe-ai` | Use this skill when the user asks about Stripe Connect configuration, charge patterns, Dashboar... |
+| [`skills-data-report`](../../library/feimacode-open-design-agent-kit/skills/skills-data-report) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Turns CSV, Excel, or JSON data into a polished visual report page. |
+| [`skills-finance-billing-ops`](../../library/affaan-m-ecc/skills/skills-finance-billing-ops) | ⚪ Reserve | `affaan-m-ecc` | ECCの証拠優先の収益、価格設定、返金、チーム請求、請求モデルの実態確認ワークフロー。ユーザーが販売スナップショット、価格比較、重複請求の診断、または汎用的な支払いアドバイスではなくコードに... |
 | [`skills-financial-statements`](../../library/anthropics-knowledge-work/skills/skills-financial-statements) | ⚪ Reserve | `anthropics-knowledge-work` | Generate financial statements (income statement, balance sheet, cash flow) with period-over-per... |
 | [`skills-growth-pulse`](../../library/anthropics-knowledge-work/skills/skills-growth-pulse) | ⚪ Reserve | `anthropics-knowledge-work` | Answers one question for an SMB owner — is the growth engine actually working? Pulls sales tren... |
 | [`skills-instrument-data-to-allotrope`](../../library/anthropics-knowledge-work/skills/skills-instrument-data-to-allotrope) | ⚪ Reserve | `anthropics-knowledge-work` | Convert laboratory instrument output files (PDF, CSV, Excel, TXT) to Allotrope Simple Model (AS... |

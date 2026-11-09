@@ -1,7 +1,7 @@
 # 🎨 Visual Design, Branding & Graphics
 
 > **Category**: `graphics-branding-design`  
-> **Total Curated Skills**: 126 skills  
+> **Total Curated Skills**: 131 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -40,6 +40,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`canva-creator`](../../library/anthropics-knowledge-work/skills/canva-creator) | ⚪ Reserve | `anthropics-knowledge-work` | Takes an approved content brief and executes a campaign end-to-end: builds the posting calendar... |
 | [`canvas-automation`](../../library/composio-community-awesome-codex-skills/skills/canvas-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Canvas tasks via Rube MCP (Composio). Always search tools first for current schemas. |
 | [`canvas-design`](../../library/anthropics-official-skills/skills/canvas-design) | ⚪ Reserve | `anthropics-official-skills` | Create beautiful visual art in .png and .pdf documents using design philosophy. You should use ... |
+| [`claude-skills-open-design-integrations`](../../library/feimacode-open-design-agent-kit/skills/claude-skills-open-design-integrations) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Show which services Open Design can use directly (Canva, Figma, Notion, Google Drive, Slack, so... |
 | [`cobejs`](../../library/mengto-skills/skills/cobejs) | ⚪ Reserve | `mengto-skills` | Use when adding a lightweight interactive globe with cobe (canvas setup, markers, interaction, ... |
 | [`collaborator-ai-canvas`](../../library/reason-machines-trending-skills/skills/collaborator-ai-canvas) | ⚪ Reserve | `reason-machines-trending-skills` | name: collaborator-ai-canvas |
 | [`commercial-paid-ads`](../../library/kostja94-marketing-skills/skills/commercial-paid-ads) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan paid ads strategy, allocate ad budget, or choose paid channels. Als... |
@@ -123,13 +124,17 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`replica-brand`](../../library/jakeschincariol-replica-skill/skills/replica-brand) | ⚪ Reserve | `jakeschincariol-replica-skill` | Names and rebrands an app clone so it is the user's own: name candidates with the trademark, do... |
 | [`research-positioning-mapper`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/research-positioning-mapper) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "map our positioning", "name our competitive alternatives", or "pick ... |
 | [`scenario-product-shots`](../../library/scenario-labs-skills/skills/scenario-product-shots) | ⚪ Reserve | `scenario-labs-skills` | Use when producing product photography with Scenario from a real product photo: e-commerce pack... |
+| [`scenario-unity-ui`](../../library/scenario-labs-skills/skills/scenario-unity-ui) | ⚪ Reserve | `scenario-labs-skills` | Use when building or fixing game UI in Unity 6.3: main menu, settings screen (resolution, quali... |
 | [`service-concierge-portal-generate`](../../library/forcedotcom-sf-skills/skills/service-concierge-portal-generate) | ⚪ Reserve | `forcedotcom-sf-skills` | Deploys an Agentforce Concierge portal on an LWR Experience Cloud site: provisions the site, co... |
 | [`shop-pack`](../../library/feimacode-open-design-agent-kit/skills/shop-pack) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Everything a small online shop needs from one product list and the seller's own photos: square ... |
 | [`skills-ad-manager`](../../library/anthropics-knowledge-work/skills/skills-ad-manager) | ⚪ Reserve | `anthropics-knowledge-work` | The ads consultant that becomes an ads agent. Reads paid-ad performance natively through the Ti... |
 | [`skills-canva-creator`](../../library/anthropics-knowledge-work/skills/skills-canva-creator) | ⚪ Reserve | `anthropics-knowledge-work` | Takes an approved content brief and executes a campaign end-to-end: builds the posting calendar... |
 | [`skills-design-critique`](../../library/anthropics-knowledge-work/skills/skills-design-critique) | ⚪ Reserve | `anthropics-knowledge-work` | Get structured design feedback on usability, hierarchy, and consistency. Trigger with "review t... |
+| [`skills-design-system`](../../library/affaan-m-ecc/skills/skills-design-system) | ⚪ Reserve | `affaan-m-ecc` | アクセシビリティ、レスポンシブネス、テーマ設定、コンポーネント群、トークンを備えた本番環境対応デザインシステムの構築。Figma、Storybook、コンポーネントライブラリ統合。 |
 | [`skills-discover-brand`](../../library/anthropics-knowledge-work/skills/skills-discover-brand) | ⚪ Reserve | `anthropics-knowledge-work` | This skill orchestrates autonomous discovery of brand materials across enterprise platforms (No... |
 | [`skills-om-figma-design-with-ds`](../../library/open-mercato-skills/skills/skills-om-figma-design-with-ds) | ⚪ Reserve | `open-mercato-skills` | Design in a design tool (Figma or similar) on the repository's design system — write a brief fo... |
+| [`skills-open-design-integrations`](../../library/feimacode-open-design-agent-kit/skills/skills-open-design-integrations) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Show which services Open Design can use directly (Canva, Figma, Notion, Google Drive, Slack, so... |
+| [`skills-rfc`](../../library/feimacode-open-design-agent-kit/skills/skills-rfc) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A request for comments: the problem, goals and non-goals, the proposal with the alternatives co... |
 | [`skills-social-content-engine`](../../library/anthropics-knowledge-work/skills/skills-social-content-engine) | ⚪ Reserve | `anthropics-knowledge-work` | Runs the owner's content operation as a standing thing rather than a one-off: keeps a rolling p... |
 | [`skills-ui-ugui`](../../library/unity-technologies-skills/skills/skills-ui-ugui) | ⚪ Reserve | `unity-technologies-skills` | Understands, edits, and generates Unity uGUI Canvas hierarchies, RectTransforms, Layout Groups,... |
 | [`social-content-engine`](../../library/anthropics-knowledge-work/skills/social-content-engine) | ⚪ Reserve | `anthropics-knowledge-work` | Runs the owner's content operation as a standing thing rather than a one-off: keeps a rolling p... |

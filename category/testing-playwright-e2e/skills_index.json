@@ -512,6 +512,14 @@
     "path": "category/testing-playwright-e2e/headless-testing"
   },
   {
+    "id": "huawei-cloud-waf-false-alarm-diagnosis",
+    "name": "huawei-cloud-waf-false-alarm-diagnosis",
+    "category": "testing-playwright-e2e",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Diagnose Huawei Cloud WAF (Web Application Firewall) false positive blocks step by step. Use when a customer reports \"normal requests blocked by WAF / returning 418 / page won't open\", or asks \"why is this interface blocked\" \u2014 the skill locates the blocking event, judges whether it is a false positive from the payload and rule hit, walks the WAF rule priority chain (false-alarm shield / global whitelist \u2192 IP whitelist \u2192 IP blacklist \u2192 geo-blocking \u2192 precise protection \u2192 attack punishment \u2192 anti-crawler \u2192 CC protection \u2192 web basic protection) to pinpoint the blocking source, and recommends the safest release method with ready-to-run hcloud commands plus a rollback guide. Triggers include: \"WAF\u8bef\u62a5\", \"\u8bef\u62a5\u62e6\u622a\u8bca\u65ad\", \"\u6b63\u5e38\u8bf7\u6c42\u88ab\u62e6\u622a\", \"\u6b63\u5e38\u8bf7\u6c42\u88abWAF\u62e6\u622a\", \"\u8fd4\u56de418\", \"\u9875\u9762\u6253\u4e0d\u5f00\", \"\u63a5\u53e3\u88ab\u62e6\", \"\u63a5\u53e3\u88ab\u62e6\u622a\", \"\u88abWAF\u62e6\u4e86\", \"\u8bef\u62a5\u5c4f\u853d\", \"\u5168\u5c40\u767d\u540d\u5355\", \"IP\u767d\u540d\u5355\u653e\u884c\", \"WAF\u62e6\u622a\", \"WAF\u8bef\u62a5\u8bca\u65ad\", \"false positive\", \"WAF block diagnosis\", \"418 blocked",
+    "path": "category/testing-playwright-e2e/huawei-cloud-waf-false-alarm-diagnosis"
+  },
+  {
     "id": "i4h-workflow-e2e",
     "name": "i4h-workflow-e2e",
     "category": "testing-playwright-e2e",
@@ -744,6 +752,14 @@
     "path": "category/testing-playwright-e2e/pptx-author"
   },
   {
+    "id": "print3d",
+    "name": "print3d",
+    "category": "testing-playwright-e2e",
+    "repository": "earthtojake-text-to-cad",
+    "description": "Prints a part - slices an `.stl`, `.3mf` or `.obj` into printer-ready G-code with OrcaSlicer, headless or in the app, with built-in profiles for most FDM printers (Prusa, Bambu Lab, Creality, Voron), and sends it to a Bambu Lab printer through Bambu Connect or Bambu Studio. Use when the person wants a model sliced or printed. Never starts a print; whether a part will print is the cad skill's check.",
+    "path": "category/testing-playwright-e2e/print3d"
+  },
+  {
     "id": "prismic-automation",
     "name": "prismic-automation",
     "category": "testing-playwright-e2e",
@@ -822,6 +838,54 @@
     "repository": "cursor-plugins",
     "description": "Run Playwright smoke tests, debug failures, and verify fixes",
     "path": "category/testing-playwright-e2e/run-smoke-tests"
+  },
+  {
+    "id": "scenario-blender-geometry-nodes",
+    "name": "scenario-blender-geometry-nodes",
+    "category": "testing-playwright-e2e",
+    "repository": "scenario-labs-skills",
+    "description": "Use when building or debugging Geometry Nodes, headless or live: procedural modeling, scattering objects on a surface, arrays along a curve, repeat or for-each loops, simulation zones, 5.2 physics (cloth, colliders, forces, effectors), closures, bundles, matrices, node-group assets with gizmos. Also when a GN script links nothing, shows red links, ignores modifier inputs, loses instances in a bounding box, or a simulation resets or jumps.",
+    "path": "category/testing-playwright-e2e/scenario-blender-geometry-nodes"
+  },
+  {
+    "id": "scenario-blender-hair",
+    "name": "scenario-blender-hair",
+    "category": "testing-playwright-e2e",
+    "repository": "scenario-labs-skills",
+    "description": "Use when grooming hair or fur in Blender with hair curves, such as a character hairstyle, animal fur, procedural fur in geometry nodes, or hair cards and mesh hair for games. Also covers the Essentials hair node assets (Interpolate, Clump, Curl, Frizz, Noise, Trim), density masks, bald spots, parting lines, strand shading in Cycles or EEVEE, and slow grooms. Use it too when a hair script misbehaves headless, for example stale modifier inputs or curve sculpt brushes that do nothing.",
+    "path": "category/testing-playwright-e2e/scenario-blender-hair"
+  },
+  {
+    "id": "scenario-blender-sculpting",
+    "name": "scenario-blender-sculpting",
+    "category": "testing-playwright-e2e",
+    "repository": "scenario-labs-skills",
+    "description": "Use when sculpting in Blender through Python: sculpt a head, face or bust, a stylized or cartoon character, a creature or a realistic portrait; block out from primitives; cut planes, a jaw or gonial angle, cheekbones; fix a jaw or face that looks like a ball or balloon; stylized hair clumps; eyelids; an expression or smirk; plan remesh or multires resolution; reproduce Clay Strips, Crease, Draw Sharp, Scrape, Grab or mask moves without a tablet; final clay renders; or when a sculpt operator crashes headless.",
+    "path": "category/testing-playwright-e2e/scenario-blender-sculpting"
+  },
+  {
+    "id": "scenario-godot-gameplay",
+    "name": "scenario-godot-gameplay",
+    "category": "testing-playwright-e2e",
+    "repository": "scenario-labs-skills",
+    "description": "Use when building gameplay systems in Godot 4.7: enemy AI that patrols, chases and attacks, state machines, behavior trees (LimboAI), NavigationAgent3D pathfinding and avoidance for 100 to 1000 enemies, 'agents stack up' or 'path is empty', hitbox and hurtbox combat, fast bullets going through walls, save and load, inventory, quests, dialogue (Dialogue Manager), input remapping, procedural dungeons, or measuring agent counts and frame time headless.",
+    "path": "category/testing-playwright-e2e/scenario-godot-gameplay"
+  },
+  {
+    "id": "scenario-godot-multiplayer",
+    "name": "scenario-godot-multiplayer",
+    "category": "testing-playwright-e2e",
+    "repository": "scenario-labs-skills",
+    "description": "Use when a Godot 4 game goes online or co-op: host and join with ENet, WebSocket for a web build, RPCs (@rpc, rpc_id, any_peer), MultiplayerSpawner and MultiplayerSynchronizer, player authority, lobbies and login, a dedicated or headless server export, lag, rubber-banding, prediction or netfox, cheating, bandwidth, Steam, Nakama or WebRTC. Symptoms: players do not appear on the client, 'rpc node checksum failed', 'node not found' on an RPC, desync, the server build is huge, a client never connects.",
+    "path": "category/testing-playwright-e2e/scenario-godot-multiplayer"
+  },
+  {
+    "id": "scenario-playable-ads",
+    "name": "scenario-playable-ads",
+    "category": "testing-playwright-e2e",
+    "repository": "scenario-labs-skills",
+    "description": "Use when a mobile game's gameplay recording, screenshots or existing art and sound should become a playable ad: an HTML5 interactive ad or interactive end card for Meta, Google Ads App campaigns, AppLovin, Unity Ads, Mintegral, Moloco, Liftoff, TikTok Pangle or any MRAID network, with a hint hand, a CTA and a mute button, packaged per network and QA-tested in headless Chromium. Keywords: playable ad, HTML5 playable, MRAID, FbPlayableAd, ExitApi, end card, CTA, hypercasual ad.",
+    "path": "category/testing-playwright-e2e/scenario-playable-ads"
   },
   {
     "id": "screenshots",
@@ -904,6 +968,22 @@
     "path": "category/testing-playwright-e2e/skills-clerk-testing"
   },
   {
+    "id": "skills-momentic-mobile-test",
+    "name": "skills-momentic-mobile-test",
+    "category": "testing-playwright-e2e",
+    "repository": "momentic-ai-skills",
+    "description": "Create, run, and maintain Momentic mobile E2E tests and modules for Android and iOS.",
+    "path": "category/testing-playwright-e2e/skills-momentic-mobile-test"
+  },
+  {
+    "id": "skills-momentic-test",
+    "name": "skills-momentic-test",
+    "category": "testing-playwright-e2e",
+    "repository": "momentic-ai-skills",
+    "description": "Create, run, and maintain Momentic browser E2E tests and modules stored as *.test.yaml and *.module.yaml files.",
+    "path": "category/testing-playwright-e2e/skills-momentic-test"
+  },
+  {
     "id": "skills-om-integration-tests",
     "name": "skills-om-integration-tests",
     "category": "testing-playwright-e2e",
@@ -926,6 +1006,22 @@
     "repository": "cursor-plugins",
     "description": "Run Playwright smoke tests, debug failures, and verify fixes",
     "path": "category/testing-playwright-e2e/skills-run-smoke-tests"
+  },
+  {
+    "id": "skills-tdd-workflow",
+    "name": "skills-tdd-workflow",
+    "category": "testing-playwright-e2e",
+    "repository": "affaan-m-ecc",
+    "description": "Usar este skill al escribir nuevas funcionalidades, corregir bugs o refactorizar c\u00f3digo. Aplica el desarrollo guiado por pruebas con 80%+ de cobertura incluyendo pruebas unitarias, de integraci\u00f3n y E2E.",
+    "path": "category/testing-playwright-e2e/skills-tdd-workflow"
+  },
+  {
+    "id": "skills-windows-desktop-e2e",
+    "name": "skills-windows-desktop-e2e",
+    "category": "testing-playwright-e2e",
+    "repository": "affaan-m-ecc",
+    "description": "E2E testing for Windows native desktop apps (WPF, WinForms, Win32/MFC, Qt) using pywinauto and Windows UI Automation.",
+    "path": "category/testing-playwright-e2e/skills-windows-desktop-e2e"
   },
   {
     "id": "skyvern-browser-automation",

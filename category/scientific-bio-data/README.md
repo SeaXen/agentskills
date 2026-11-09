@@ -1,7 +1,7 @@
 # 🔬 Scientific, Bio-Informatics & Astrophysics
 
 > **Category**: `scientific-bio-data`  
-> **Total Curated Skills**: 126 skills  
+> **Total Curated Skills**: 131 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -107,7 +107,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`research-engineer`](../../library/antigravity-awesome-skills/skills/research-engineer) | ⚪ Reserve | `antigravity-awesome-skills` | An uncompromising Academic Research Engineer. Operates with absolute scientific rigor, objectiv... |
 | [`resilience-program-design`](../../library/aws-agent-toolkit-for-aws/skills/resilience-program-design) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Designs a resilience program: how to structure and standardize resilience policies across an or... |
 | [`results-analysis`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/results-analysis) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | This skill should be used when the user asks to "analyze experimental results", "run strict sta... |
+| [`robot-simulation`](../../library/earthtojake-text-to-cad/skills/robot-simulation) | ⚪ Reserve | `earthtojake-text-to-cad` | Robot and world descriptions (URDF, SRDF, SDF) for ROS, MoveIt and Gazebo. Use for ROS robot_de... |
 | [`runpod-discovery`](../../library/runpod-runpod-plugins-official/skills/runpod-discovery) | ⚪ Reserve | `runpod-runpod-plugins-official` | Answer what is available, what fits and the price against Runpod''s catalogs: GPU and CPU |
+| [`scenario-godot-3d-world`](../../library/scenario-labs-skills/skills/scenario-godot-3d-world) | ⚪ Reserve | `scenario-labs-skills` | Use when building 3D levels and worlds in Godot 4.7: third-person or FPS controller, player stu... |
 | [`scenario-walkable-room`](../../library/scenario-labs-skills/skills/scenario-walkable-room) | ⚪ Reserve | `scenario-labs-skills` | Use when one interior photo, uploaded or generated on Scenario, should become a room a visitor ... |
 | [`scientific-article-pdf`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/scientific-article-pdf) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate publication-ready scientific article PDFs from templates |
 | [`scientific-brainstorming`](../../library/davila7-claude-code-templates/skills/scientific-brainstorming) | ⚪ Reserve | `davila7-claude-code-templates` | Research ideation partner. Generate hypotheses, explore interdisciplinary connections, challeng... |
@@ -116,6 +118,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`scientific-illustration-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/scientific-illustration-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Create graphical abstracts, schematic diagrams, and scientific illustrations |
 | [`scientific-pkg-gget`](../../library/affaan-m-ecc/skills/scientific-pkg-gget) | ⚪ Reserve | `affaan-m-ecc` | gget CLI and Python workflow for quick genomic database queries, sequence lookup, BLAST-style s... |
 | [`scientific-problem-selection`](../../library/anthropics-knowledge-work/skills/scientific-problem-selection) | ⚪ Reserve | `anthropics-knowledge-work` | This skill should be used when scientists need help with research problem selection, project id... |
+| [`scientific-scanpy`](../../library/davila7-claude-code-templates/skills/scientific-scanpy) | ⚪ Reserve | `davila7-claude-code-templates` | Single-cell RNA-seq analysis. Load .h5ad/10X data, QC, normalization, PCA/UMAP/t-SNE, Leiden cl... |
 | [`scientific-slides`](../../library/davila7-claude-code-templates/skills/scientific-slides) | ⚪ Reserve | `davila7-claude-code-templates` | Build slide decks and presentations for research talks. Use this for making PowerPoint slides, ... |
 | [`scientific-visualization`](../../library/davila7-claude-code-templates/skills/scientific-visualization) | ⚪ Reserve | `davila7-claude-code-templates` | Create publication figures with matplotlib/seaborn/plotly. Multi-panel layouts, error bars, sig... |
 | [`scientific-writing-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/scientific-writing-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Curated tools and techniques for scientific writing beyond LaTeX |
@@ -133,6 +136,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-nature-writing`](../../library/yuan1z0825-nature-skills/skills/skills-nature-writing) | ⚪ Reserve | `yuan1z0825-nature-skills` | Draft or restructure scientific manuscript arguments, sections, and initial-submission material... |
 | [`skills-nextflow-development`](../../library/anthropics-knowledge-work/skills/skills-nextflow-development) | ⚪ Reserve | `anthropics-knowledge-work` | Run nf-core bioinformatics pipelines (rnaseq, sarek, atacseq) on sequencing data. Use when anal... |
 | [`skills-physics-3d-collision`](../../library/unity-technologies-skills/skills/skills-physics-3d-collision) | ⚪ Reserve | `unity-technologies-skills` | Diagnoses 3D PhysX collision and trigger problems. Use when OnCollisionEnter or OnTriggerEnter ... |
+| [`skills-scientific-db-uspto-database`](../../library/affaan-m-ecc/skills/skills-scientific-db-uspto-database) | ⚪ Reserve | `affaan-m-ecc` | 公式記録の検索、PatentSearch クエリ、TSDR チェック、譲渡データ、および再現可能な IP 調査ログのための USPTO 特許・商標データワークフロー。 |
+| [`skills-scientific-pkg-gget`](../../library/affaan-m-ecc/skills/skills-scientific-pkg-gget) | ⚪ Reserve | `affaan-m-ecc` | ゲノムデータベースへのクイック検索、配列検索、BLAST スタイルの検索、エンリッチメントチェック、および再現可能なバイオインフォマティクス証拠ログのための gget CLI および Pyt... |
 | [`skills-scientific-problem-selection`](../../library/anthropics-knowledge-work/skills/skills-scientific-problem-selection) | ⚪ Reserve | `anthropics-knowledge-work` | This skill should be used when scientists need help with research problem selection, project id... |
 | [`skills-scvi-tools`](../../library/anthropics-knowledge-work/skills/skills-scvi-tools) | ⚪ Reserve | `anthropics-knowledge-work` | Deep learning for single-cell analysis using scvi-tools. This skill should be used when users n... |
 | [`skills-single-cell-rna-qc`](../../library/anthropics-knowledge-work/skills/skills-single-cell-rna-qc) | ⚪ Reserve | `anthropics-knowledge-work` | Performs quality control on single-cell RNA-seq data (.h5ad or .h5 files) using scverse best pr... |

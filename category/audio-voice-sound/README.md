@@ -1,7 +1,7 @@
 # 🎙️ Audio, Voice Cloning & Sound Design
 
 > **Category**: `audio-voice-sound`  
-> **Total Curated Skills**: 207 skills  
+> **Total Curated Skills**: 213 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -66,6 +66,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ce-riffrec-feedback-analysis`](../../library/everyinc-compound-engineering-plugin/skills/ce-riffrec-feedback-analysis) | ⚪ Reserve | `everyinc-compound-engineering-plugin` | Analyze recorded product feedback into evidence for bugs and requirements. Use when a Riffrec c... |
 | [`claudemy`](../../library/assafkip-claudemy/skills/claudemy) | ⚪ Reserve | `assafkip-claudemy` | Turn any topic into a short audio course. Researches the topic on the web, works out what most ... |
 | [`comment-mining`](../../library/scrapecreators-social-media-research-skills/skills/comment-mining) | ⚪ Reserve | `scrapecreators-social-media-research-skills` | Use when the user wants to mine comments and replies for audience reactions, customer language,... |
+| [`common-huawei-cloud-vod-collector`](../../library/huaweicloud-huaweicloud-skills/skills/common-huawei-cloud-vod-collector) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Invoke this skill to capture poor experiences and distill them into high-value requirements (Vo... |
 | [`conducting-social-engineering-pretext-call`](../../library/mukul975-anthropic-cybersecurity-skills/skills/conducting-social-engineering-pretext-call) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Plan and execute authorized vishing (voice phishing) pretext calls to |
 | [`connections-optimizer`](../../library/affaan-m-ecc/skills/connections-optimizer) | ⚪ Reserve | `affaan-m-ecc` | Reorganize the user's X and LinkedIn network with review-first pruning, add/follow recommendati... |
 | [`conorbronsdon-avoid-ai-writing`](../../library/conorbronsdon-avoid-ai-writing/skills/conorbronsdon-avoid-ai-writing) | ⚪ Reserve | `conorbronsdon-avoid-ai-writing` | Audit and rewrite content to remove AI writing patterns ("AI-isms"). Use this skill when asked ... |
@@ -86,6 +87,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`dialogue-audio`](../../library/101-skills-superpowers/skills/dialogue-audio) | ⚪ Reserve | `101-skills-superpowers` | Multi-speaker dialogue audio creation with ElevenLabs and Dia TTS. Covers speaker tags, emotion... |
 | [`digital-brain-skill`](../../library/muratcankoylan-agent-skills-for-context-engineering/skills/digital-brain-skill) | ⚪ Reserve | `muratcankoylan-agent-skills-for-context-engineering` | This skill should be used for personal operating-system workflows: content creation, voice cons... |
 | [`digital-health-clinical-asr-setup`](../../library/nvidia-skills/skills/digital-health-clinical-asr-setup) | ⚪ Reserve | `nvidia-skills` | Stage 1 of Clinical ASR Flywheel. Use when bootstrapping a cycle: NVCF+MW disclosure, NVIDIA_AP... |
+| [`ecc-council`](../../library/affaan-m-ecc/skills/ecc-council) | ⚪ Reserve | `affaan-m-ecc` | Convene a four-voice council for ambiguous decisions, tradeoffs, and go/no-go calls. Use when m... |
 | [`elevenlabs`](../../library/membranedev-application-skills/skills/elevenlabs) | ⚪ Reserve | `membranedev-application-skills` | ElevenLabs integration. Manage data, records, and automate workflows. Use when the user wants t... |
 | [`elevenlabs-automation`](../../library/composio-community-awesome-codex-skills/skills/elevenlabs-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate ElevenLabs text-to-speech workflows -- generate speech from text, browse and inspect v... |
 | [`elevenlabs-music-generation`](../../library/gencraft-labs-skills/skills/elevenlabs-music-generation) | ⚪ Reserve | `gencraft-labs-skills` | Generate full songs and instrumental tracks with ElevenLabs Music on RunComfy via the `runcomfy... |
@@ -160,7 +162,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`sag`](../../library/openclaw-openclaw/skills/sag) | ⚪ Reserve | `openclaw-openclaw` | ElevenLabs text-to-speech with mac-style say UX. |
 | [`save-to-spotify`](../../library/cline-skills/skills/save-to-spotify) | ⚪ Reserve | `cline-skills` | Create polished audio content and save to Spotify. Produces episodes with TTS narration, a rich... |
 | [`scenario-ace-step`](../../library/scenario-labs-skills/skills/scenario-ace-step) | ⚪ Reserve | `scenario-labs-skills` | Use when creating or editing music with ACE-Step models on Scenario via MCP: text-to-music song... |
+| [`scenario-comic-creator`](../../library/scenario-labs-skills/skills/scenario-comic-creator) | ⚪ Reserve | `scenario-labs-skills` | Use when a user wants to make their own comic, manga, BD, graphic novel or illustrated book wit... |
+| [`scenario-godot-audio`](../../library/scenario-labs-skills/skills/scenario-godot-audio) | ⚪ Reserve | `scenario-labs-skills` | Use when adding or fixing sound in Godot 4.7: audio buses and effects, volume sliders, 'too man... |
 | [`scenario-model-training`](../../library/scenario-labs-skills/skills/scenario-model-training) | ⚪ Reserve | `scenario-labs-skills` | Use when generated assets must keep a consistent style, character, or product look and referenc... |
+| [`scenario-unity-gameplay`](../../library/scenario-labs-skills/skills/scenario-unity-gameplay) | ⚪ Reserve | `scenario-labs-skills` | Use when building or debugging Unity gameplay systems: enemy AI that patrols, chases and attack... |
 | [`scout-audience-mapper`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/scout-audience-mapper) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "analyze my target audience", "build an audience profile for influenc... |
 | [`screen-reader-testing`](../../library/antigravity-awesome-skills/skills/screen-reader-testing) | ⚪ Reserve | `antigravity-awesome-skills` | Test web applications with screen readers including VoiceOver, NVDA, and JAWS. Use when validat... |
 | [`screenpipe`](../../library/thedotmack-claude-mem/skills/screenpipe) | ⚪ Reserve | `thedotmack-claude-mem` | Search screen and audio history recorded by Screenpipe and optionally save selected context int... |
@@ -177,6 +182,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-audio-setup-mixers`](../../library/unity-technologies-skills/skills/skills-audio-setup-mixers) | ⚪ Reserve | `unity-technologies-skills` | Routes Audio Sources into existing Audio Mixer Groups, classifying each source by what it plays... |
 | [`skills-avoid-ai-writing`](../../library/conorbronsdon-avoid-ai-writing/skills/skills-avoid-ai-writing) | ⚪ Reserve | `conorbronsdon-avoid-ai-writing` | Audit and rewrite content to remove AI writing patterns ("AI-isms"). Use this skill when asked ... |
 | [`skills-brand-review`](../../library/anthropics-knowledge-work/skills/skills-brand-review) | ⚪ Reserve | `anthropics-knowledge-work` | Review content against your brand voice, style guide, and messaging pillars, flagging deviation... |
+| [`skills-brand-voice`](../../library/affaan-m-ecc/skills/skills-brand-voice) | ⚪ Reserve | `affaan-m-ecc` | 実際のポスト、エッセイ、ローンチノート、ドキュメント、またはサイトコピーからソース派生の執筆スタイルプロファイルを構築し、コンテンツ、アウトリーチ、ソーシャルワークフロー全体でそのプロファイ... |
 | [`skills-brand-voice-enforcement`](../../library/anthropics-knowledge-work/skills/skills-brand-voice-enforcement) | ⚪ Reserve | `anthropics-knowledge-work` | This skill applies brand guidelines to content creation. It should be used when the user asks t... |
 | [`skills-craft-game-floors`](../../library/unity-technologies-skills/skills/skills-craft-game-floors) | ⚪ Reserve | `unity-technologies-skills` | Makes a Unity game look and feel finished: art style, lighting, juice, sound, menus, saves and ... |
 | [`skills-customer-voice`](../../library/anthropics-knowledge-work/skills/skills-customer-voice) | ⚪ Reserve | `anthropics-knowledge-work` | Surface what customers are actually saying - direct attributed quotes on a topic across call tr... |

@@ -27,7 +27,7 @@
 </p>
 
 <p align="center">
-  <a href="https://answer-me-with-html.com/"><b>Website</b></a> · <a href="#install">Install</a> · <a href="#what-you-ask-what-you-get">Examples</a> · <a href="#explainer-videos">Videos</a> · <a href="#always-on-mode-recommended">Always-on mode</a> · <a href="docs/reference.md">Reference</a> · <a href="README.zh-CN.md">简体中文</a>
+  <a href="https://answer-me-with-html.com/"><b>Website</b></a> · <a href="#install">Install</a> · <a href="#what-you-ask-what-you-get">Examples</a> · <a href="#explainer-videos">Videos</a> · <a href="#always-on-mode-recommended">Always-on mode</a> · <a href="docs/reference.md">Reference</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.ja.md">日本語</a>
 </p>
 
 Once installed, ask questions the way you always do:
@@ -259,7 +259,10 @@ The agent picks a component by the shape of the information:
 | Component | Good for |
 | :--- | :--- |
 | `flow` | Architecture, call chains, decision branches. Auto layout, with groups, decisions and databases |
+| `state` | A state machine: states and the events that move between them, with an initial state, a final state and self-transitions |
 | `er` | A data model: entities with their columns (PK / FK / UK) and crow's-foot relationships |
+| `class` | UML classes, attributes, methods, interfaces and relationships |
+| `api` | HTTP / RPC contracts: parameters, request and response fields, status codes |
 | `sequence` | Messages going back and forth between several parties over time |
 | `tree` | Folders, modules, taxonomies |
 | `timeline` | History, releases, phases |

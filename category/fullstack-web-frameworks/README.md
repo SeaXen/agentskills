@@ -1,7 +1,7 @@
 # 🌐 Fullstack Web Frameworks & Apps
 
 > **Category**: `fullstack-web-frameworks`  
-> **Total Curated Skills**: 58 skills  
+> **Total Curated Skills**: 60 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -66,6 +66,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-clerk-nextjs-patterns`](../../library/clerk-skills/skills/skills-clerk-nextjs-patterns) | ⚪ Reserve | `clerk-skills` | Advanced Next.js patterns - middleware, Server Actions, caching with |
 | [`skills-clerk-tanstack-patterns`](../../library/clerk-skills/skills/skills-clerk-tanstack-patterns) | ⚪ Reserve | `clerk-skills` | TanStack React Start auth patterns with @clerk/tanstack-react-start |
 | [`skills-neon-realtime`](../../library/neondatabase-agent-skills/skills/skills-neon-realtime) | ⚪ Reserve | `neondatabase-agent-skills` | Neon Realtime makes any SQL query live. Build realtime, reactive apps and agents on Lakebase Po... |
+| [`skills-nextjs-turbopack`](../../library/affaan-m-ecc/skills/skills-nextjs-turbopack) | ⚪ Reserve | `affaan-m-ecc` | Next.js 16+ y Turbopack — bundling incremental, caché en sistema de archivos, velocidad de desa... |
+| [`skills-pixelfx`](../../library/patch-gg-pixelfx/skills/skills-pixelfx) | ⚪ Reserve | `patch-gg-pixelfx` | Make pixel art effects and sprite animations in code with the pixelfx library, which has 244 re... |
 | [`sora`](../../library/davila7-claude-code-templates/skills/sora) | ⚪ Reserve | `davila7-claude-code-templates` | Use when the user asks to generate, remix, poll, list, download, or delete Sora videos via Open... |
 | [`tanstack-query`](../../library/mindrally-skills/skills/tanstack-query) | ⚪ Reserve | `mindrally-skills` | Best practices for TanStack Query v5 (React Query) server state management, including query key... |
 | [`tanstack-query-expert`](../../library/davila7-claude-code-templates/skills/tanstack-query-expert) | ⚪ Reserve | `davila7-claude-code-templates` | Expert in TanStack Query (React Query) — asynchronous state management. Covers data fetching, s... |

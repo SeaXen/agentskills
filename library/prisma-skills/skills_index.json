@@ -4,7 +4,7 @@
     "name": "prisma-cli",
     "repository": "prisma-skills",
     "category": "general",
-    "description": "",
+    "description": "Prisma ORM 7 CLI reference for existing Prisma 7 applications or explicitly selected Prisma 7 workflows. Covers prisma init, generate, migrate, db, dev, studio, and mcp. For setup, connection repair, or Prisma 8, use prisma-orm-setup; not the Prisma Platform CLI.",
     "path": "library/prisma-skills/skills/prisma-cli",
     "activation_cmd": "python .agents/library/activate_skill.py activate prisma-cli",
     "link_cmd": "python .agents/library/activate_skill.py link prisma-cli"
@@ -14,7 +14,7 @@
     "name": "prisma-client-api",
     "repository": "prisma-skills",
     "category": "general",
-    "description": "",
+    "description": "Prisma Client API reference covering model queries, filters, operators, and client methods. Use when writing database queries, using CRUD operations, filtering data, or configuring Prisma Client. Triggers on \"prisma query\", \"findMany\", \"create\", \"update\", \"delete\", \"$transaction\".",
     "path": "library/prisma-skills/skills/prisma-client-api",
     "activation_cmd": "python .agents/library/activate_skill.py activate prisma-client-api",
     "link_cmd": "python .agents/library/activate_skill.py link prisma-client-api"
@@ -24,7 +24,7 @@
     "name": "prisma-compute",
     "repository": "prisma-skills",
     "category": "general",
-    "description": "",
+    "description": "Deploy and operate apps on Prisma Compute with the Prisma 8 CLI. Use whenever the user mentions Prisma Compute, deploying or hosting a Prisma app, `prisma deploy`, `prisma dev module.ts`, Prisma Composer apps (`module.ts`, `compute()`, the `composer` section of `prisma.config.ts`), preview stages, deploy on push (`prisma git connect`, `prisma/cloud-deploy-action`), `prisma service` logs, versions, rollback, or custom domains, `project env`, `PRISMA_SERVICE_TOKEN`, regions, 504s, sleeping instances, or `waitUntil`; also when a project still uses the removed `@prisma/cli app deploy`, `prisma.compute.ts`, `defineComputeConfig`, `compute:deploy`, or `build logs` surface.",
     "path": "library/prisma-skills/skills/prisma-compute",
     "activation_cmd": "python .agents/library/activate_skill.py activate prisma-compute",
     "link_cmd": "python .agents/library/activate_skill.py link prisma-compute"
@@ -34,7 +34,7 @@
     "name": "prisma-database-setup",
     "repository": "prisma-skills",
     "category": "general",
-    "description": "",
+    "description": "Deprecated compatibility name for prisma-orm-setup. Use only when a user or existing integration explicitly invokes prisma-database-setup; otherwise select prisma-orm-setup.",
     "path": "library/prisma-skills/skills/prisma-database-setup",
     "activation_cmd": "python .agents/library/activate_skill.py activate prisma-database-setup",
     "link_cmd": "python .agents/library/activate_skill.py link prisma-database-setup"
@@ -44,7 +44,7 @@
     "name": "prisma-driver-adapter-implementation",
     "repository": "prisma-skills",
     "category": "general",
-    "description": "",
+    "description": "Required reference for Prisma ORM 7 SQL driver adapter work. Use when implementing or modifying adapters, adding database drivers, or touching SqlDriverAdapter, Transaction, savepoint, result mapping, or DriverAdapterError behavior. Covers current transaction lifecycle, optional savepoint hooks, original database-error preservation, and verification.",
     "path": "library/prisma-skills/skills/prisma-driver-adapter-implementation",
     "activation_cmd": "python .agents/library/activate_skill.py activate prisma-driver-adapter-implementation",
     "link_cmd": "python .agents/library/activate_skill.py link prisma-driver-adapter-implementation"
@@ -54,7 +54,7 @@
     "name": "prisma-mongodb-upgrade",
     "repository": "prisma-skills",
     "category": "general",
-    "description": "",
+    "description": "Decision and migration guide for Prisma ORM MongoDB projects on v6, which have no upgrade path to v7. Use when a MongoDB project asks about upgrading Prisma, when \"upgrade to prisma 7\" comes up in a project with provider = \"mongodb\", or when evaluating a move to Prisma 8. Triggers on \"upgrade prisma mongodb\", \"prisma 7 mongodb\", \"mongodb prisma migration\", \"prisma 8 mongodb\".",
     "path": "library/prisma-skills/skills/prisma-mongodb-upgrade",
     "activation_cmd": "python .agents/library/activate_skill.py activate prisma-mongodb-upgrade",
     "link_cmd": "python .agents/library/activate_skill.py link prisma-mongodb-upgrade"
@@ -64,7 +64,7 @@
     "name": "prisma-orm-setup",
     "repository": "prisma-skills",
     "category": "general",
-    "description": "",
+    "description": "Set up Prisma ORM in an application, connect its database, or troubleshoot the connection of an existing Prisma 6, 7, or 8 app. Defaults new applications to Prisma ORM 8 and loads the package-owned prisma-8 skill; keeps existing Prisma 6/7 apps on their version with provider references for PostgreSQL, MySQL, SQLite, SQL Server, CockroachDB, MongoDB, and Prisma Postgres.",
     "path": "library/prisma-skills/skills/prisma-orm-setup",
     "activation_cmd": "python .agents/library/activate_skill.py activate prisma-orm-setup",
     "link_cmd": "python .agents/library/activate_skill.py link prisma-orm-setup"
@@ -74,7 +74,7 @@
     "name": "prisma-postgres",
     "repository": "prisma-skills",
     "category": "general",
-    "description": "",
+    "description": "Deprecated compatibility name for prisma-postgres-setup. Use only when a user or existing integration explicitly invokes prisma-postgres; otherwise select prisma-postgres-setup.",
     "path": "library/prisma-skills/skills/prisma-postgres",
     "activation_cmd": "python .agents/library/activate_skill.py activate prisma-postgres",
     "link_cmd": "python .agents/library/activate_skill.py link prisma-postgres"
@@ -84,17 +84,27 @@
     "name": "prisma-postgres-setup",
     "repository": "prisma-skills",
     "category": "general",
-    "description": "",
+    "description": "Obtain or reuse a Prisma Postgres database and connect an application. Use when the user needs a database and has none configured (\"I need a database\", \"add a Postgres database\", \"set up a database for this app\"), runs or mentions `create-db` or `npx create-db`, or asks to set up or connect Prisma Postgres, including in v0 and the Vercel Marketplace. Hands Prisma ORM configuration to prisma-orm-setup; reuses an existing connection first and honors an explicit provider, driver, alternative ORM, or database-only choice.",
     "path": "library/prisma-skills/skills/prisma-postgres-setup",
     "activation_cmd": "python .agents/library/activate_skill.py activate prisma-postgres-setup",
     "link_cmd": "python .agents/library/activate_skill.py link prisma-postgres-setup"
+  },
+  {
+    "id": "prisma-postgres-upgrade",
+    "name": "prisma-postgres-upgrade",
+    "repository": "prisma-skills",
+    "category": "general",
+    "description": "Upgrade a PostgreSQL app from Prisma ORM 6 or 7 straight to Prisma 8 in one pass, keeping the existing schema.prisma, database and data. Use when a Postgres project on Prisma 6 or 7 wants Prisma 8, including before deploying it on Prisma Compute, which runs only Prisma 8. Triggers on \"upgrade prisma 6 to 8\", \"upgrade prisma 7 to 8\", \"upgrade to prisma 8 postgres\", \"prisma7Schema\", \"migrations/app\", \"move off @prisma/client\", \"Console says move to Prisma 8\".",
+    "path": "library/prisma-skills/skills/prisma-postgres-upgrade",
+    "activation_cmd": "python .agents/library/activate_skill.py activate prisma-postgres-upgrade",
+    "link_cmd": "python .agents/library/activate_skill.py link prisma-postgres-upgrade"
   },
   {
     "id": "prisma-upgrade-v7",
     "name": "prisma-upgrade-v7",
     "repository": "prisma-skills",
     "category": "general",
-    "description": "",
+    "description": "Complete migration guide from Prisma ORM v6 to v7 covering all breaking changes. Use when upgrading Prisma versions, encountering v7 errors, or migrating existing projects. Triggers on \"upgrade to prisma 7\", \"prisma 7 migration\", \"prisma-client generator\", \"driver adapter required\".",
     "path": "library/prisma-skills/skills/prisma-upgrade-v7",
     "activation_cmd": "python .agents/library/activate_skill.py activate prisma-upgrade-v7",
     "link_cmd": "python .agents/library/activate_skill.py link prisma-upgrade-v7"

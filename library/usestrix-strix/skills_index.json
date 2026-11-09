@@ -4,7 +4,7 @@
     "name": "api-security-testing",
     "repository": "usestrix-strix",
     "category": "general",
-    "description": "",
+    "description": "Security-test a REST, GraphQL, or gRPC API with Strix \u2014 autonomous agents that enumerate endpoints from an OpenAPI/GraphQL schema (or by crawling), then actually exploit the API-specific vulnerability classes in the OWASP API Security Top 10 (2023) \u2014 broken object-level authorization (BOLA/IDOR), broken object property level authorization (excessive data exposure and mass assignment), broken function-level authorization, unrestricted resource consumption, SSRF, injection, and auth/token flaws. Every finding comes with a working proof-of-concept request. Use when the user asks to pentest, security-test, audit, or find vulnerabilities in an API, endpoint, or backend service.",
     "path": "library/usestrix-strix/skills/api-security-testing",
     "activation_cmd": "python .agents/library/activate_skill.py activate api-security-testing",
     "link_cmd": "python .agents/library/activate_skill.py link api-security-testing"
@@ -14,7 +14,7 @@
     "name": "application-security-testing",
     "repository": "usestrix-strix",
     "category": "general",
-    "description": "",
+    "description": "Application security testing (AppSec) across a whole product with Strix \u2014 decide which asset needs which test (source code, running web app, API, CI pipeline), run it, and turn the results into a ranked remediation plan. Autonomous agents exploit and prove each issue instead of emitting static-analysis alerts, so the plan is ordered by what is actually reachable. Use when the user asks for an application security review or audit, an appsec assessment, vulnerability scanning across their stack, a security review before a launch or a customer security questionnaire, or does not yet know which kind of security test they need.",
     "path": "library/usestrix-strix/skills/application-security-testing",
     "activation_cmd": "python .agents/library/activate_skill.py activate application-security-testing",
     "link_cmd": "python .agents/library/activate_skill.py link application-security-testing"
@@ -24,7 +24,7 @@
     "name": "ci-security-scanning-with-strix",
     "repository": "usestrix-strix",
     "category": "general",
-    "description": "",
+    "description": "Add security scanning to CI/CD with Strix \u2014 GitHub Actions, GitLab CI, or any pipeline \u2014 so every pull request gets a diff-scoped AI pentest that blocks vulnerable code before it merges, with results as PR comments and SARIF uploaded to code scanning. Covers both the self-hosted open-source CLI (runs in your runner) and the managed app.strix.ai platform (GitHub/GitLab app or API, no runner infra). Use when the user asks to add security scanning, SAST/DAST, pentesting, vulnerability checks, or automated security review to their CI pipeline, pre-merge gate, or PR workflow.",
     "path": "library/usestrix-strix/skills/ci-security-scanning-with-strix",
     "activation_cmd": "python .agents/library/activate_skill.py activate ci-security-scanning-with-strix",
     "link_cmd": "python .agents/library/activate_skill.py link ci-security-scanning-with-strix"
@@ -34,7 +34,7 @@
     "name": "find-security-vulnerabilities-in-code",
     "repository": "usestrix-strix",
     "category": "general",
-    "description": "",
+    "description": "Find security vulnerabilities in a codebase or repository with Strix \u2014 a white-box AI security review that reads your source, reasons about the actual data flow and authorization model, then exploits what it finds in a live sandbox so every reported issue has a working proof-of-concept instead of a noisy static-analysis alert. Covers injection, XSS, SSRF, broken access control and IDOR, insecure deserialization, secrets in code, unsafe dependencies, and business-logic flaws. Use when the user asks to security-scan, security-review, or audit their code, repo, or pull request for vulnerabilities.",
     "path": "library/usestrix-strix/skills/find-security-vulnerabilities-in-code",
     "activation_cmd": "python .agents/library/activate_skill.py activate find-security-vulnerabilities-in-code",
     "link_cmd": "python .agents/library/activate_skill.py link find-security-vulnerabilities-in-code"
@@ -44,7 +44,7 @@
     "name": "fix-security-vulnerabilities-with-strix",
     "repository": "usestrix-strix",
     "category": "general",
-    "description": "",
+    "description": "Fix security vulnerabilities found by a Strix pentest (open-source CLI or app.strix.ai cloud) \u2014 triage by severity, patch the root cause rather than the symptom, and re-run Strix to prove each fix actually closes the exploit. Handles injection, XSS, SSRF, broken access control, IDOR, and other validated findings. Use after a Strix scan reports findings, or when the user asks to remediate, patch, or fix security issues from a strix_runs report, vulnerabilities.json, findings.sarif, or a cloud scan.",
     "path": "library/usestrix-strix/skills/fix-security-vulnerabilities-with-strix",
     "activation_cmd": "python .agents/library/activate_skill.py activate fix-security-vulnerabilities-with-strix",
     "link_cmd": "python .agents/library/activate_skill.py link fix-security-vulnerabilities-with-strix"
@@ -54,7 +54,7 @@
     "name": "managed-pentesting-with-strix",
     "repository": "usestrix-strix",
     "category": "general",
-    "description": "",
+    "description": "Run a managed pentest of a web app, API, repository, or local workspace on the app.strix.ai platform with the `strix cloud` CLI or REST API \u2014 no local Docker or LLM key needed. Safely review and upload local source, register assets, launch and poll scans, triage vulnerabilities, export SARIF, download compliance reports, start PR reviews, buy credits, and set up schedules or webhooks. Use for managed, continuous, scheduled, team-tracked, or sandboxed-agent security testing.",
     "path": "library/usestrix-strix/skills/managed-pentesting-with-strix",
     "activation_cmd": "python .agents/library/activate_skill.py activate managed-pentesting-with-strix",
     "link_cmd": "python .agents/library/activate_skill.py link managed-pentesting-with-strix"
@@ -64,7 +64,7 @@
     "name": "owasp-top-10-testing",
     "repository": "usestrix-strix",
     "category": "general",
-    "description": "",
+    "description": "Test an application against the OWASP Top 10 with Strix \u2014 autonomous AI agents that attempt real exploits for each category of the current OWASP Top 10:2025 (broken access control including SSRF, security misconfiguration, software supply chain failures, cryptographic failures, injection, insecure design, authentication failures, integrity failures, logging and alerting failures, mishandling of exceptional conditions) and report only what they could actually prove, mapped back to the category with a proof-of-concept. Also covers the OWASP API Security Top 10 (2023). Use when the user asks for an OWASP Top 10 assessment, OWASP compliance testing, or a security review mapped to OWASP categories.",
     "path": "library/usestrix-strix/skills/owasp-top-10-testing",
     "activation_cmd": "python .agents/library/activate_skill.py activate owasp-top-10-testing",
     "link_cmd": "python .agents/library/activate_skill.py link owasp-top-10-testing"
@@ -74,7 +74,7 @@
     "name": "penetration-testing-with-strix",
     "repository": "usestrix-strix",
     "category": "general",
-    "description": "",
+    "description": "Pentest a web app, API, codebase, repository, URL, domain, or IP with Strix \u2014 autonomous AI penetration testing that exploits and proves vulnerabilities (OWASP Top 10 and beyond \u2014 injection, XSS, SSRF, auth/access-control flaws, IDOR, business logic) instead of just flagging them. Runs self-hosted with the open-source CLI or via the managed app.strix.ai cloud, and returns validated findings with proof-of-concept exploits (Markdown, JSON, CSV, SARIF). Use when the user asks to pentest, hack, security-scan, security-audit, or find vulnerabilities in an app, API, website, or repo.",
     "path": "library/usestrix-strix/skills/penetration-testing-with-strix",
     "activation_cmd": "python .agents/library/activate_skill.py activate penetration-testing-with-strix",
     "link_cmd": "python .agents/library/activate_skill.py link penetration-testing-with-strix"
@@ -84,7 +84,7 @@
     "name": "web-app-penetration-testing",
     "repository": "usestrix-strix",
     "category": "general",
-    "description": "",
+    "description": "Pentest a web app or website end to end \u2014 black-box testing of a live URL, staging environment, or local dev server that finds and exploits real vulnerabilities (auth bypass, broken access control, IDOR, injection, XSS, SSRF, business logic) and proves each one with a working proof-of-concept instead of a signature match. Runs with Strix, either the self-hosted open-source CLI or the managed app.strix.ai cloud. Use when the user asks to pentest, hack, security-test, or audit their web app, website, web application, or staging site.",
     "path": "library/usestrix-strix/skills/web-app-penetration-testing",
     "activation_cmd": "python .agents/library/activate_skill.py activate web-app-penetration-testing",
     "link_cmd": "python .agents/library/activate_skill.py link web-app-penetration-testing"

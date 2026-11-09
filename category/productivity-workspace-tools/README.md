@@ -1,7 +1,7 @@
 # 🚀 Productivity, Slack, Notion & Linear
 
 > **Category**: `productivity-workspace-tools`  
-> **Total Curated Skills**: 306 skills  
+> **Total Curated Skills**: 313 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -90,6 +90,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`event-volunteer-experience`](../../library/samber-dev-event-organizer-skills/skills/event-volunteer-experience) | ⚪ Reserve | `samber-dev-event-organizer-skills` | Design what a volunteer gets when they are not standing at a post, and how one edition closes w... |
 | [`event-volunteers`](../../library/samber-dev-event-organizer-skills/skills/event-volunteers) | ⚪ Reserve | `samber-dev-event-organizer-skills` | Recruit and organize the volunteer workforce that staffs one edition of a technical event - ros... |
 | [`eventkit`](../../library/dpearson2699-swift-ios-skills/skills/eventkit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Create, read, and manage calendar events and reminders using EventKit and EventKitUI. Use when ... |
+| [`examples-kami-deck`](../../library/feimacode-open-design-agent-kit/skills/examples-kami-deck) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A lab-meeting deck on gut-microbiome links to sleep quality — the design, the results, the cave... |
 | [`exec-briefing-memo`](../../library/feimacode-open-design-agent-kit/skills/exec-briefing-memo) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A one-page decision memo: the decision needed, a clear recommendation with confidence, key fact... |
 | [`exec-briefing-memo-board-memo`](../../library/feimacode-open-design-agent-kit/skills/exec-briefing-memo-board-memo) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A one-page decision memo: the decision needed, a clear recommendation with confidence, key fact... |
 | [`exec-briefing-memo-board-paper`](../../library/feimacode-open-design-agent-kit/skills/exec-briefing-memo-board-paper) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A one-page decision memo: the decision needed, a clear recommendation with confidence, key fact... |
@@ -98,12 +99,14 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`explore-participation-warmup-planner`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/explore-participation-warmup-planner) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "plan the participation ramp before we promote", "how much account hi... |
 | [`extension-email-calendar-events`](../../library/caffeinelabs-skills/skills/extension-email-calendar-events) | ⚪ Reserve | `caffeinelabs-skills` | Support for organising events/meetings and sending invitations by email. |
 | [`facts`](../../library/backnotprop-bro/skills/facts) | ⚪ Reserve | `backnotprop-bro` | Give a capable engineer a terse, jargon-free briefing on the critical facts and implications of... |
+| [`fea`](../../library/earthtojake-text-to-cad/skills/fea) | ⚪ Reserve | `earthtojake-text-to-cad` | Checks whether a part or an assembly of bonded parts holds under its loads, as a linear static ... |
 | [`fireflies-transcript`](../../library/davidondrej-skills/skills/fireflies-transcript) | ⚪ Reserve | `davidondrej-skills` | Fetch raw Fireflies.ai meeting transcripts. Use only when the user explicitly invokes /fireflie... |
 | [`fiscal-briefing`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/fiscal-briefing) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Public finances briefing. Supports UK, US, and Australia. Produces a single compact briefing on... |
 | [`flashqla-linear-attention`](../../library/reason-machines-trending-skills/skills/flashqla-linear-attention) | ⚪ Reserve | `reason-machines-trending-skills` | name: flashqla-linear-attention |
 | [`flowhunt-skill`](../../library/sickn33-agentic-awesome-skills/skills/flowhunt-skill) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Automation discovery audit skill. Walks through a 5-question workflow intake, then audits Gmail... |
 | [`founder-coach`](../../library/alirezarezvani-claude-skills/skills/founder-coach) | ⚪ Reserve | `alirezarezvani-claude-skills` | Personal leadership development for founders and first-time CEOs. Covers founder archetype iden... |
 | [`frontend-ui-engineering`](../../library/addyosmani-agent-skills/skills/frontend-ui-engineering) | ⚪ Reserve | `addyosmani-agent-skills` | Builds production-quality, accessible, responsive user-facing UIs. Use when building or modifyi... |
+| [`functiongraph-huawei-cloud-functiongraph-trigger-create`](../../library/huaweicloud-huaweicloud-skills/skills/functiongraph-huawei-cloud-functiongraph-trigger-create) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Create FunctionGraph triggers on Huawei Cloud. Supports scheduled TIMER triggers (Quartz Cron e... |
 | [`gog`](../../library/openclaw-openclaw/skills/gog) | ⚪ Reserve | `openclaw-openclaw` | Google Workspace CLI for Gmail, Calendar, Drive, Contacts, Sheets, and Docs. |
 | [`google-calendar`](../../library/membranedev-application-skills/skills/google-calendar) | ⚪ Reserve | `membranedev-application-skills` | Google Calendar integration. Manage communication data, records, and workflows. Use when the us... |
 | [`google-calendar-automation`](../../library/antigravity-awesome-skills/skills/google-calendar-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate Google Calendar events, scheduling, availability checks, and attendee management via R... |
@@ -148,6 +151,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`linear-claude-skill`](../../library/antigravity-awesome-skills/skills/linear-claude-skill) | ⚪ Reserve | `antigravity-awesome-skills` | Manage Linear issues, projects, and teams |
 | [`linear-tickets`](../../library/stablyai-orca/skills/linear-tickets) | ⚪ Reserve | `stablyai-orca` | Linear ticket work through Orca's CLI. Use when working from a linked Linear issue, finishing w... |
 | [`linktree-link-hub`](../../library/sickn33-agentic-awesome-skills/skills/linktree-link-hub) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Link-in-bio register: label, destination URL, link type, priority order, audience, click tracki... |
+| [`live-polls`](../../library/phuryn-pm-skills/skills/live-polls) | ⚪ Reserve | `phuryn-pm-skills` | A poll or vote in a meeting, workshop or training: 'run a quick poll', dot-voting, a confidence... |
 | [`ljg-invest`](../../library/lijigang-ljg-skills/skills/ljg-invest) | ⚪ Reserve | `lijigang-ljg-skills` | 投资分析。给一个项目（公司名、BP、创始人对话记录），写一份深度投资分析报告。不走传统投资分析的路——核心判断只有一个：这个项目是不是一台「秩序创造机器」。Use when user say... |
 | [`loop`](../../library/alirezarezvani-claude-skills/skills/loop) | ⚪ Reserve | `alirezarezvani-claude-skills` | Start an autonomous experiment loop with user-selected interval (10min, 1h, daily, weekly, mont... |
 | [`macro-briefing`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/macro-briefing) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Macroeconomic monitor. Supports UK, US, Euro area, and Australia. Pulls GDP, inflation, employm... |
@@ -238,6 +242,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`research`](../../library/alirezarezvani-claude-skills/skills/research) | ⚪ Reserve | `alirezarezvani-claude-skills` | Default entry point for any research request — a hybrid router that classifies the question det... |
 | [`research-documentation`](../../library/makenotion-notion-cookbook/skills/research-documentation) | ⚪ Reserve | `makenotion-notion-cookbook` | Researches questions across Notion sources and synthesizes cited briefs, comparisons, or report... |
 | [`scan-new-specs`](../../library/warpdotdev-common-skills/skills/scan-new-specs) | ⚪ Reserve | `warpdotdev-common-skills` | DEPRECATED and retired as of 2026-08-20. Do not invoke, and do not schedule. This skill scanned... |
+| [`scenario-maya-groom`](../../library/scenario-labs-skills/skills/scenario-maya-groom) | ⚪ Reserve | `scenario-labs-skills` | Use when grooming hair or fur in Maya with XGen (Interactive Groom splines or legacy descriptio... |
 | [`schedule-it`](../../library/membranedev-application-skills/skills/schedule-it) | ⚪ Reserve | `membranedev-application-skills` | Schedule it integration. Manage Users, Roles, Organizations, Projects, Pipelines, Activities an... |
 | [`scout-trend-spotter`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/scout-trend-spotter) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "find trending topics", "what trends should my brand jump on", or "ti... |
 | [`scrum-master`](../../library/alirezarezvani-claude-skills/skills/scrum-master) | ⚪ Reserve | `alirezarezvani-claude-skills` | Advanced Scrum Master skill for data-driven agile team analysis and coaching. Use when the user... |
@@ -253,7 +258,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-build-agent`](../../library/anthropics-knowledge-work/skills/skills-build-agent) | ⚪ Reserve | `anthropics-knowledge-work` | Turns a task the owner keeps doing by hand into a named, reusable skill they can trigger by nam... |
 | [`skills-close-management`](../../library/anthropics-knowledge-work/skills/skills-close-management) | ⚪ Reserve | `anthropics-knowledge-work` | Manage the month-end close process with task sequencing, dependencies, and status tracking. Use... |
 | [`skills-custom-blocks`](../../library/makenotion-notion-cookbook/skills/skills-custom-blocks) | ⚪ Reserve | `makenotion-notion-cookbook` | Build interactive browser custom blocks declared by a Notion App. |
+| [`skills-exec-briefing-memo`](../../library/feimacode-open-design-agent-kit/skills/skills-exec-briefing-memo) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Decision needed + recommendation + evidence + tradeoffs, 把复杂材料压成可拍板的一页 |
 | [`skills-grant-rfp-writer`](../../library/anthropics-knowledge-work/skills/skills-grant-rfp-writer) | ⚪ Reserve | `anthropics-knowledge-work` | Finds grant and solicitation opportunities the organization actually qualifies for, runs a hard... |
+| [`skills-marketing-loops`](../../library/coreyhaines31-marketingskills/skills/skills-marketing-loops) | ⚪ Reserve | `coreyhaines31-marketingskills` | When the user wants to set up a recurring, self-running marketing workflow — a repeatable loop ... |
 | [`skills-marketing-monday`](../../library/anthropics-knowledge-work/skills/skills-marketing-monday) | ⚪ Reserve | `anthropics-knowledge-work` | Delivers the weekly growth briefing as one merged read — whether the growth engine is working, ... |
 | [`skills-notion-as-code`](../../library/makenotion-notion-cookbook/skills/skills-notion-as-code) | ⚪ Reserve | `makenotion-notion-cookbook` | Declare Notion pages, databases, teamspaces, and custom agents in an App, including data source... |
 | [`skills-notion-build-my-engineering-wiki`](../../library/makenotion-notion-cookbook/skills/skills-notion-build-my-engineering-wiki) | ⚪ Reserve | `makenotion-notion-cookbook` | Build a personalized Notion engineering home from technical docs, project context, and chat or ... |

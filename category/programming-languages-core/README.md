@@ -1,7 +1,7 @@
 # 📐 Programming Languages & Type Systems
 
 > **Category**: `programming-languages-core`  
-> **Total Curated Skills**: 401 skills  
+> **Total Curated Skills**: 417 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -134,6 +134,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`csharp-expert`](../../library/dotnet-skills/skills/csharp-expert) | ⚪ Reserve | `dotnet-skills` | Route C# and .NET requests to the exact installed specialist or smallest dotnet/skills marketpl... |
 | [`csharp-testing`](../../library/affaan-m-ecc/skills/csharp-testing) | ⚪ Reserve | `affaan-m-ecc` | C# and .NET testing patterns with xUnit, FluentAssertions, mocking, integration tests, and test... |
 | [`cucumber-skill`](../../library/sickn33-agentic-awesome-skills/skills/cucumber-skill) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Generates Cucumber BDD tests with Gherkin feature files and step definitions in Java, JavaScrip... |
+| [`cudf-query-engine-builder`](../../library/nvidia-skills/skills/cudf-query-engine-builder) | ⚪ Reserve | `nvidia-skills` | Build the first native, single-GPU cuDF path in a query engine, or complete its initial adapter... |
 | [`custom-product-pages`](../../library/appeeky-aso-skills/skills/custom-product-pages) | ⚪ Reserve | `appeeky-aso-skills` | When the user wants to design, deploy, or measure Apple Custom Product Pages (CPP) — the altern... |
 | [`cypress-skill`](../../library/sickn33-agentic-awesome-skills/skills/cypress-skill) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Generates production-grade Cypress E2E and component tests in JavaScript or TypeScript. Support... |
 | [`database-migrations`](../../library/affaan-m-ecc/skills/database-migrations) | ⚪ Reserve | `affaan-m-ecc` | Safe, reversible database migration patterns: forward-only production changes, expand-contract ... |
@@ -153,6 +154,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`domain-ml`](../../library/actionbook-rust-skills/skills/domain-ml) | ⚪ Reserve | `actionbook-rust-skills` | Use when building ML/AI apps in Rust. Keywords: machine learning, ML, AI, tensor, model, infere... |
 | [`drizzle-orm`](../../library/mindrally-skills/skills/drizzle-orm) | ⚪ Reserve | `mindrally-skills` | Guidelines for developing with Drizzle ORM, a lightweight type-safe TypeScript ORM with SQL-lik... |
 | [`drizzle-orm-expert`](../../library/davila7-claude-code-templates/skills/drizzle-orm-expert) | ⚪ Reserve | `davila7-claude-code-templates` | Expert in Drizzle ORM for TypeScript — schema design, relational queries, migrations, and serve... |
+| [`ecs-huawei-cloud-ecs-vulnerability-auditor`](../../library/huaweicloud-huaweicloud-skills/skills/ecs-huawei-cloud-ecs-vulnerability-auditor) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Audit Huawei Cloud ECS instances for security vulnerabilities across host OS packages, running ... |
 | [`emdash-cms`](../../library/reason-machines-trending-skills/skills/emdash-cms) | ⚪ Reserve | `reason-machines-trending-skills` | AI coding agent skill for building with EmDash, the full-stack TypeScript CMS built on Astro an... |
 | [`entry-point-analyzer`](../../library/trailofbits-skills/skills/entry-point-analyzer) | ⚪ Reserve | `trailofbits-skills` | Analyzes smart contract codebases to identify state-changing entry points for security auditing... |
 | [`error-handling`](../../library/affaan-m-ecc/skills/error-handling) | ⚪ Reserve | `affaan-m-ecc` | Patterns for robust error handling across TypeScript, Python, and Go. Covers typed errors, erro... |
@@ -361,8 +363,22 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`sign-in-with-google-web`](../../library/google-skills/skills/sign-in-with-google-web) | ⚪ Reserve | `google-skills` | Implement, configure, and secure Sign In With Google (SiwG) using Google Identity Services (GIS... |
 | [`skills-azure-messaging`](../../library/microsoft-azure-skills/skills/skills-azure-messaging) | ⚪ Reserve | `microsoft-azure-skills` | Troubleshoot and resolve issues with Azure Messaging SDKs for Event Hubs and Service Bus. Cover... |
 | [`skills-azure-upgrade`](../../library/microsoft-azure-skills/skills/skills-azure-upgrade) | ⚪ Reserve | `microsoft-azure-skills` | Assess and upgrade Azure workloads between plans, tiers, or SKUs, or modernize Azure SDK depend... |
+| [`skills-cpp-testing`](../../library/affaan-m-ecc/skills/skills-cpp-testing) | ⚪ Reserve | `affaan-m-ecc` | C++ テストの作成/更新/修正、GoogleTest/CTest の設定、失敗またはフレーキーなテストの診断、カバレッジ/サニタイザーの追加時にのみ使用します。 |
 | [`skills-csharp-expert`](../../library/dotnet-skills/skills/skills-csharp-expert) | ⚪ Reserve | `dotnet-skills` | Route C# and .NET requests to the exact installed specialist or smallest dotnet/skills marketpl... |
+| [`skills-csharp-testing`](../../library/affaan-m-ecc/skills/skills-csharp-testing) | ⚪ Reserve | `affaan-m-ecc` | xUnit、FluentAssertions、モッキング、統合テスト、テスト組織のベストプラクティスを使用したC#と.NETのテストパターン。 |
+| [`skills-database-migrations`](../../library/affaan-m-ecc/skills/skills-database-migrations) | ⚪ Reserve | `affaan-m-ecc` | Buenas prácticas de migración de base de datos para cambios de esquema, migraciones de datos, r... |
+| [`skills-error-handling`](../../library/affaan-m-ecc/skills/skills-error-handling) | ⚪ Reserve | `affaan-m-ecc` | TypeScript、Python、Goにわたる堅牢なエラー処理のパターン。型付きエラー、エラー境界、リトライ、サーキットブレーカー、ユーザー向けエラーメッセージをカバーします。 |
+| [`skills-flox-environments`](../../library/affaan-m-ecc/skills/skills-flox-environments) | ⚪ Reserve | `affaan-m-ecc` | Floxで再現可能なクロスプラットフォーム開発環境を作成します — Nixに基づく宣言的な環境マネージャー。次の場合は必ずこのスキルを使用してください: システムレベルの依存関係（コンパイラ... |
+| [`skills-golang-patterns`](../../library/affaan-m-ecc/skills/skills-golang-patterns) | ⚪ Reserve | `affaan-m-ecc` | Patrones idiomáticos de Go, buenas prácticas y convenciones para construir aplicaciones Go robu... |
+| [`skills-golang-testing`](../../library/affaan-m-ecc/skills/skills-golang-testing) | ⚪ Reserve | `affaan-m-ecc` | Patrones de pruebas Go incluyendo pruebas basadas en tablas, subpruebas, benchmarks, fuzzing y ... |
+| [`skills-java-coding-standards`](../../library/affaan-m-ecc/skills/skills-java-coding-standards) | ⚪ Reserve | `affaan-m-ecc` | Spring Bootサービス向けのJavaコーディング標準：命名、不変性、Optional使用、ストリーム、例外、ジェネリクス、プロジェクトレイアウト。 |
 | [`skills-principle-type-system-discipline`](../../library/cursor-plugins/skills/skills-principle-type-system-discipline) | ⚪ Reserve | `cursor-plugins` | Apply when designing types, reviewing a function signature, or writing code in any statically-t... |
+| [`skills-python-patterns`](../../library/affaan-m-ecc/skills/skills-python-patterns) | ⚪ Reserve | `affaan-m-ecc` | Patrones idiomáticos de Python, estándares PEP 8, type hints y buenas prácticas para construir ... |
+| [`skills-rust-patterns`](../../library/affaan-m-ecc/skills/skills-rust-patterns) | ⚪ Reserve | `affaan-m-ecc` | Patrones idiomáticos de Rust, ownership, manejo de errores, traits, concurrencia y buenas práct... |
+| [`skills-rust-testing`](../../library/affaan-m-ecc/skills/skills-rust-testing) | ⚪ Reserve | `affaan-m-ecc` | Patrones de pruebas en Rust incluyendo pruebas unitarias, de integración, async, basadas en pro... |
+| [`skills-springboot-patterns`](../../library/affaan-m-ecc/skills/skills-springboot-patterns) | ⚪ Reserve | `affaan-m-ecc` | Patrones de arquitectura Spring Boot, diseño de API REST, servicios en capas, acceso a datos, c... |
+| [`skills-springboot-security`](../../library/affaan-m-ecc/skills/skills-springboot-security) | ⚪ Reserve | `affaan-m-ecc` | Buenas prácticas de Spring Security para autenticación/autorización, validación, CSRF, secretos... |
+| [`skills-tinystruct-patterns`](../../library/affaan-m-ecc/skills/skills-tinystruct-patterns) | ⚪ Reserve | `affaan-m-ecc` | tinystruct Java フレームワークで開発する際の専門ガイダンス。tinystruct コードベース、または tinystruct 上に構築されたあらゆるプロジェクトで作業する際に... |
 | [`skills-typescript-best-practices`](../../library/cursor-plugins/skills/skills-typescript-best-practices) | ⚪ Reserve | `cursor-plugins` | TypeScript best practices. Use when reading or editing any .ts or .tsx file. |
 | [`slack-bot-builder`](../../library/antigravity-awesome-skills/skills/slack-bot-builder) | ⚪ Reserve | `antigravity-awesome-skills` | Build Slack apps using the Bolt framework across Python, JavaScript, and Java. Covers Block Kit... |
 | [`solana`](../../library/mindrally-skills/skills/solana) | ⚪ Reserve | `mindrally-skills` | Expert guidelines for Solana program development with Rust, Anchor framework, and Web3.js integ... |

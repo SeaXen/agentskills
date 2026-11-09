@@ -19,9 +19,9 @@
 </p>
 
 <p align="center">
-  <a href="https://theaioperator.io"><img src="https://img.shields.io/badge/Subscribe_on_Substack-FF6719?style=for-the-badge&logo=substack&logoColor=white" alt="Subscribe on Substack" /></a>
+  <a href="https://theaioperator.io/subscribe?utm_source=github&utm_medium=readme&utm_campaign=top"><img src="https://img.shields.io/badge/Subscribe_on_Substack-FF6719?style=for-the-badge&logo=substack&logoColor=white" alt="Subscribe on Substack" /></a>
   <br />
-  <em>Weekly posts on AI second-brain systems, vault patterns, and what actually works.</em>
+  <em>Free posts on AI agent memory, from the person who builds this repo.</em>
 </p>
 
 <p align="center">
@@ -29,7 +29,7 @@
   <img src="https://img.shields.io/github/v/release/eugeniughelbur/obsidian-second-brain?style=for-the-badge&color=green" alt="Release" />
   <img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge" alt="License: MIT" />
   <img src="https://img.shields.io/github/stars/eugeniughelbur/obsidian-second-brain?style=for-the-badge&color=yellow" alt="Stars" />
-  <a href="https://github.com/sponsors/eugeniughelbur"><img src="https://img.shields.io/badge/Sponsor-EA4AAA?style=for-the-badge&logo=github-sponsors&logoColor=white" alt="Sponsor" /></a>
+  <a href="https://theaioperator.io/subscribe?utm_source=github&utm_medium=readme&utm_campaign=support-badge"><img src="https://img.shields.io/badge/Support-EA4AAA?style=for-the-badge&logo=substack&logoColor=white" alt="Support this project" /></a>
 </p>
 
 <h1 align="center">obsidian-second-brain: AI second brain for Obsidian - persistent memory for Claude Code, Codex, Cursor and Grok Bot</h1>
@@ -110,6 +110,14 @@ You use Claude every day. Every session starts from scratch. You re-explain ever
 You take notes in Obsidian. Hundreds of files. They just sit there. You make the same decision twice because you forgot you made it six months ago. Ideas rot in daily notes. Nobody connects the dots.
 
 **Two powerful tools. Completely disconnected.** You already have the long-term memory. The thing doing the thinking cannot reach it.
+
+---
+
+## Who builds this
+
+I'm Eugeniu Ghelbur, an AI automation engineer. I built this for my own vault, and I still run my work on it every day. I review and merge every change myself, and close to 50 people have shipped fixes so far ([see who](#contributors)).
+
+I write up what I learn twice a week on [The AI Operator](https://theaioperator.io/subscribe?utm_source=github&utm_medium=readme&utm_campaign=who-builds-this), and post shorter notes on [X](https://x.com/eugeniu_ghelbur) and [LinkedIn](https://www.linkedin.com/in/eugeniu-ghelbur/).
 
 ---
 
@@ -202,7 +210,7 @@ Free transcript via youtube-transcript-api. Optional metadata + top comments via
 *The product is above. This is where it came from and where it goes next.*
 
 <p align="center">
-  <strong>From the blog</strong> &middot; <a href="https://theaioperator.io">The AI Operator &rarr;</a>
+  <strong>From the blog</strong> &middot; <a href="https://theaioperator.io/?utm_source=github&utm_medium=readme&utm_campaign=blog-section">The AI Operator &rarr;</a>
 </p>
 
 <p align="center">
@@ -221,7 +229,7 @@ Free transcript via youtube-transcript-api. Optional metadata + top comments via
 </p>
 
 <p align="center">
-  <em>One post per Tuesday on Obsidian + AI workflows and bringing AI into real work.</em>
+  <em>Two posts a week, Tuesday and Thursday, on Obsidian + AI workflows and bringing AI into real work.</em>
 </p>
 
 <p align="center">
@@ -248,11 +256,11 @@ Free transcript via youtube-transcript-api. Optional metadata + top comments via
 
 ### Follow along
 
-*Weekly posts on AI second-brain systems, vault patterns, and what actually works.*
+*Two posts a week on AI second-brain systems, vault patterns, and what works in practice.*
 
 <a href="https://x.com/eugeniu_ghelbur"><img src="https://img.shields.io/badge/Follow_on_X-000?style=for-the-badge&logo=x&logoColor=white" alt="Follow on X" /></a>
 <a href="https://www.linkedin.com/in/eugeniu-ghelbur/"><img src="https://img.shields.io/badge/Connect_on_LinkedIn-0A66C2?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg%3D%3D" alt="Connect on LinkedIn" /></a>
-<a href="https://theaioperator.io"><img src="https://img.shields.io/badge/Subscribe_on_Substack-FF6719?style=for-the-badge&logo=substack&logoColor=white" alt="Subscribe on Substack" /></a>
+<a href="https://theaioperator.io/subscribe?utm_source=github&utm_medium=readme&utm_campaign=middle-badge"><img src="https://img.shields.io/badge/Subscribe_on_Substack-FF6719?style=for-the-badge&logo=substack&logoColor=white" alt="Subscribe on Substack" /></a>
 <a href="https://github.com/eugeniughelbur"><img src="https://img.shields.io/badge/Follow_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="Follow on GitHub" /></a>
 
 </td>
@@ -383,7 +391,9 @@ Powered by xAI Grok (live X access) + Perplexity Sonar (web research) + YouTube.
 
 **Setup:** copy `.env.example` to `~/.config/obsidian-second-brain/.env`, add your keys (xAI, Perplexity, YouTube optional, OpenAI optional for podcast Whisper). Run `install.sh` and answer "y" to the research prompt to do this automatically.
 
-**No keys? `/research` and `/research-deep` still work.** With no `PERPLEXITY_API_KEY` set they automatically fall back to free, key-less sources (Wikipedia, HackerNews, arXiv, Reddit, Lobsters, dev.to, OpenAlex, Semantic Scholar, CrossRef, DuckDuckGo - plus Tavily/Brave when keyed) and Claude synthesizes the dossier. Pass `--free` to force it even when keyed, or `--academic` to restrict to scholarly sources. The other research commands (`/x-read`, `/x-pulse`, `/notebooklm`, `/youtube`) still need their respective keys.
+**No keys? `/research` and `/research-deep` still work.** With no `PERPLEXITY_API_KEY` set they automatically fall back to free, key-less sources (Wikipedia, HackerNews, arXiv, Reddit, Lobsters, dev.to, OpenAlex, Semantic Scholar, CrossRef, DuckDuckGo - plus Tavily/Brave when keyed and Keenable when `RESEARCH_KEENABLE=1`) and Claude synthesizes the dossier. Pass `--free` to force it even when keyed, or `--academic` to restrict to scholarly sources. The other research commands (`/x-read`, `/x-pulse`, `/notebooklm`, `/youtube`) still need their respective keys.
+
+**Optional Keenable source, off by default.** Set `RESEARCH_KEENABLE=1` to add Keenable web search to the free pool; unset, it never runs, and `KEENABLE_API_KEY` alone does not switch it on. Keenable runs this source, and your query text is sent to Keenable (`api.keenable.ai`). The anonymous limit is 1,000 requests an hour and 10 a second per IP; an optional `KEENABLE_API_KEY` lifts it.
 
 <details>
 <summary><strong>See the thinking tools in action</strong></summary>
@@ -883,6 +893,7 @@ Keys you need:
 | `GEMINI_API_KEY` | [aistudio.google.com/apikey](https://aistudio.google.com/apikey) | `/notebooklm`, `/youtube` summary (Grok fallback) (vault-grounded synthesis via Gemini File Search) | Free tier covers it. Paid: ~$0.004/call (Flash), ~$0.06/call (Pro). |
 | `YOUTUBE_API_KEY` | [console.cloud.google.com](https://console.cloud.google.com) | `/youtube` metadata + comments (optional, transcripts free without) | Free tier 10k units/day |
 | `OPENAI_API_KEY` | [platform.openai.com](https://platform.openai.com/api-keys) | `/podcast` Whisper transcription (optional, falls back to show-notes if unset) | ~$0.006/min |
+| `FIRECRAWL_API_KEY` | [firecrawl.dev](https://www.firecrawl.dev/app/api-keys) | `/research-deep` Phase 3.5 page reading (optional, used only when `TAVILY_API_KEY` is unset). Run by Firecrawl; the cited page URLs are sent to it | Up to 3 pages per run |
 
 Without keys, the 38 non-research commands work fully, and `/research` + `/research-deep` fall back to free, key-less sources. The rest of the research toolkit degrades gracefully.
 
@@ -959,6 +970,9 @@ Yes. The skill writes to your vault as standard markdown files. Obsidian Sync, i
 ### Can I add notes from my phone?
 Yes, through the optional Telegram bot. Send a voice note while you walk, and it is transcribed into today's daily note. Photos, PDFs and links are filed too. See [Capture from your phone](#capture-from-your-phone-optional).
 
+### Can I use it in a language other than English?
+Yes: talk to your agent in your own language and keep the vault in English. The agent translates what you say before it writes a note, replies in your language, and searches with English queries. This passes every vault rule, and search quality is measured on English notes, so you stay on the tested path. Put the rule in `<vault>/.claude/CLAUDE.md`, not `_CLAUDE.md`, so an `/obsidian-init` re-run keeps it. [andreanovix](https://github.com/andreanovix) shared a working block in [discussion #307](https://github.com/eugeniughelbur/obsidian-second-brain/discussions/307). Notes in Chinese, Japanese or Korean, command phrases in five languages, and encoding: see [LANGUAGES.md](LANGUAGES.md).
+
 ### Do I need API keys to use this?
 Mostly no. The vault commands (`/obsidian-save`, `/obsidian-daily`, etc.) need no API keys. `/research` and `/research-deep` are also key-free now - with no Perplexity key they automatically fall back to free, key-less sources (Wikipedia, HackerNews, arXiv, Reddit, and more) and Claude synthesizes the dossier. The remaining research commands (`/x-read`, `/x-pulse`, `/notebooklm`, `/youtube`, `/podcast`) need their respective keys (xAI Grok, Perplexity, Google Gemini, optionally YouTube Data API v3 / OpenAI Whisper) and exit with a clear setup message when one is missing. The calendar command (`/obsidian-calendar`, all four modes) needs the Google Calendar MCP connector rather than an API key.
 
@@ -987,7 +1001,7 @@ The maintenance layer, given a name. Its one rule: every stored fact must be tim
 Approximate per-call costs as of 2026-04: `/x-read` ~$0.05, `/x-pulse` ~$0.13, `/research` ~$0.04, `/research-deep` ~$0.40-$0.80, `/youtube` ~$0.04, `/podcast` ~$0.04 Grok call (plus ~$0.006/min if Whisper is used; free if RSS provides a `<podcast:transcript>` tag or you accept the show-notes fallback). Costs for paid calls (Grok, Perplexity, Gemini) are logged to `~/.research-toolkit/usage.log` for visibility. No hard caps. You're trusted to monitor your own spend.
 
 ### Can I use this on Windows or Linux?
-The core vault commands work anywhere Claude Code runs. `install.sh` supports Linux, macOS, and Windows (MSYS2/Git Bash): on Linux/macOS slash commands are symlinked so `git pull` keeps them current; on Windows they are copied and `update.sh` refreshes them. The research toolkit auto-open step uses `open` on macOS, `xdg-open` on Linux, and `notepad` on Windows. On Windows the config file and Claude Code state hang off `%USERPROFILE%` (see the research toolkit section); `OBSIDIAN_ENV_FILE` relocates the config file for every part of the toolkit.
+Yes. Windows users: follow [WINDOWS.md](WINDOWS.md), one page with the setup steps and fixes for the traps earlier users hit. The core vault commands work anywhere Claude Code runs. `install.sh` supports Linux, macOS, and Windows (MSYS2/Git Bash): on Linux/macOS slash commands are symlinked so `git pull` keeps them current; on Windows they are copied and `update.sh` refreshes them. The research toolkit auto-open step uses `open` on macOS, `xdg-open` on Linux, and `notepad` on Windows. On Windows the config file and Claude Code state hang off `%USERPROFILE%` (see the research toolkit section); `OBSIDIAN_ENV_FILE` relocates the config file for every part of the toolkit.
 
 ### A research command said it saved, but my daily note or `log.md` did not change (Windows)
 Since #248 the research toolkit (`/research`, `/research-deep`, `/x-pulse`, `/youtube`, `/podcast`) reads and writes vault files as UTF-8 on every platform. Before appending to today's daily note or to `log.md` it checks that the existing file is valid UTF-8. A file that is not - typically a note an earlier Windows run rewrote in the system code page (cp1252) before that fix - is left exactly as it is and the append is skipped, because UTF-8 bytes added to a cp1252 file would leave something that decodes correctly as neither. The research note itself is still saved; only the daily-note or log append is skipped, and a `[vault]` line on stderr says so. Re-save that one file as UTF-8 once (Obsidian and VS Code both do this on save, or `iconv -f cp1252 -t utf-8 old.md > new.md`) and the next run appends normally. Files the toolkit creates are always UTF-8.
@@ -1052,7 +1066,13 @@ Customizing your own fork? Copy [`references/DELTAS.template.md`](references/DEL
 
 ### Contributors
 
-This project is maintained by one person but built with many. 18+ external contributors have landed merged PRs - security fixes, platform ports (Pi came from a contributor), Windows compatibility, translations, and the first automated test. Ideas from closed or stalled PRs get reimplemented with the original author credited as co-author rather than dropped. See the full list on the [contributors graph](https://github.com/eugeniughelbur/obsidian-second-brain/graphs/contributors).
+This project is maintained by one person but built with many. Close to 50 people have landed merged PRs: security fixes, platform ports (Pi came from a contributor), Windows compatibility, translations, and the first automated test. Ideas from closed or stalled PRs get reimplemented with the original author credited as co-author rather than dropped.
+
+Thank you to everyone below, and to the nearly 100 people who filed issues or PRs by November 2026. Every report made the tool better.
+
+<a href="https://github.com/eugeniughelbur/obsidian-second-brain/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=eugeniughelbur/obsidian-second-brain" alt="Avatars of obsidian-second-brain contributors" />
+</a>
 
 If your PR goes quiet mid-review, that is normal life - the idea stays on the table, and if it lands later you stay on the commit.
 
@@ -1060,9 +1080,11 @@ If your PR goes quiet mid-review, that is normal life - the idea stays on the ta
 
 ## Sponsors
 
-Sponsorships help fund ongoing development of obsidian-second-brain: new commands, research-toolkit API costs, and ongoing maintenance.
+obsidian-second-brain is free and MIT-licensed. If it saves you time, a paid subscription to The AI Operator is the best way to support it. That is where I write about building it, and paid readers also get a monthly no-code guide and a monthly Q&A.
 
-[![Sponsor on GitHub](https://img.shields.io/badge/Sponsor-eugeniughelbur-EA4AAA?style=for-the-badge&logo=github-sponsors&logoColor=white)](https://github.com/sponsors/eugeniughelbur)
+[![Support on Substack](https://img.shields.io/badge/Support_on_Substack-EA4AAA?style=for-the-badge&logo=substack&logoColor=white)](https://theaioperator.io/subscribe?utm_source=github&utm_medium=readme&utm_campaign=sponsors-section)
+
+Prefer GitHub? [GitHub Sponsors](https://github.com/sponsors/eugeniughelbur) works too.
 
 ---
 
@@ -1080,7 +1102,7 @@ Built by **Eugeniu Ghelbur**, AI Automation Engineer @ Single Grain
 
 <a href="https://x.com/eugeniu_ghelbur"><img src="https://img.shields.io/badge/Follow_on_X-000?style=for-the-badge&logo=x&logoColor=white" alt="Follow on X" /></a>
 <a href="https://www.linkedin.com/in/eugeniu-ghelbur/"><img src="https://img.shields.io/badge/Connect_on_LinkedIn-0A66C2?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPjxwYXRoIGQ9Ik0yMC40NDcgMjAuNDUyaC0zLjU1NHYtNS41NjljMC0xLjMyOC0uMDI3LTMuMDM3LTEuODUyLTMuMDM3LTEuODUzIDAtMi4xMzYgMS40NDUtMi4xMzYgMi45Mzl2NS42NjdIOS4zNTFWOWgzLjQxNHYxLjU2MWguMDQ2Yy40NzctLjkgMS42MzctMS44NSAzLjM3LTEuODUgMy42MDEgMCA0LjI2NyAyLjM3IDQuMjY3IDUuNDU1djYuMjg2ek01LjMzNyA3LjQzM2MtMS4xNDQgMC0yLjA2My0uOTI2LTIuMDYzLTIuMDY1IDAtMS4xMzguOTItMi4wNjMgMi4wNjMtMi4wNjMgMS4xNCAwIDIuMDY0LjkyNSAyLjA2NCAyLjA2MyAwIDEuMTM5LS45MjUgMi4wNjUtMi4wNjQgMi4wNjV6bTEuNzgyIDEzLjAxOUgzLjU1NVY5aDMuNTY0djExLjQ1MnpNMjIuMjI1IDBIMS43NzFDLjc5MiAwIDAgLjc3NCAwIDEuNzI5djIwLjU0MkMwIDIzLjIyNy43OTIgMjQgMS43NzEgMjRoMjAuNDUxQzIzLjIgMjQgMjQgMjMuMjI3IDI0IDIyLjI3MVYxLjcyOUMyNCAuNzc0IDIzLjIgMCAyMi4yMjIgMGguMDAzeiIvPjwvc3ZnPg%3D%3D" alt="Connect on LinkedIn" /></a>
-<a href="https://theaioperator.io"><img src="https://img.shields.io/badge/Subscribe_on_Substack-FF6719?style=for-the-badge&logo=substack&logoColor=white" alt="Subscribe on Substack" /></a>
+<a href="https://theaioperator.io/subscribe?utm_source=github&utm_medium=readme&utm_campaign=footer"><img src="https://img.shields.io/badge/Subscribe_on_Substack-FF6719?style=for-the-badge&logo=substack&logoColor=white" alt="Subscribe on Substack" /></a>
 <a href="https://github.com/eugeniughelbur"><img src="https://img.shields.io/badge/Follow_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="Follow on GitHub" /></a>
 
 </td>
