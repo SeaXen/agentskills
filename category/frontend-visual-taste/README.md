@@ -1,7 +1,7 @@
 # 👁️ Visual Taste, Critique & Typography
 
 > **Category**: `frontend-visual-taste`  
-> **Total Curated Skills**: 192 skills  
+> **Total Curated Skills**: 194 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -172,12 +172,14 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-accessibility-review`](../../library/anthropics-knowledge-work/skills/skills-accessibility-review) | ⚪ Reserve | `anthropics-knowledge-work` | Run a WCAG 2.1 AA accessibility audit on a design or page. Trigger with "audit accessibility", ... |
 | [`skills-baoyu-cover-image`](../../library/jimliu-baoyu-skills/skills/skills-baoyu-cover-image) | ⚪ Reserve | `jimliu-baoyu-skills` | Generates article cover images with 5 dimensions (type, palette, rendering, text, mood) combini... |
 | [`skills-baoyu-xhs-images`](../../library/jimliu-baoyu-skills/skills/skills-baoyu-xhs-images) | ⚪ Reserve | `jimliu-baoyu-skills` | Generates infographic image card series with 12 visual styles, 8 layouts, and 3 color palettes.... |
+| [`skills-brand-guidelines`](../../library/alirezarezvani-claude-skills/skills/skills-brand-guidelines) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when writing or enforcing brand guidelines (colors, typography, logo rules, imagery, tone o... |
 | [`skills-brand-style`](../../library/anthropics-knowledge-work/skills/skills-brand-style) | ⚪ Reserve | `anthropics-knowledge-work` | Sets and updates the owner's brand look and output preferences, which every page and document t... |
 | [`skills-data-visualization`](../../library/anthropics-knowledge-work/skills/skills-data-visualization) | ⚪ Reserve | `anthropics-knowledge-work` | Create effective data visualizations with Python (matplotlib, seaborn, plotly). Use when buildi... |
 | [`skills-doc-kami-parchment`](../../library/feimacode-open-design-agent-kit/skills/skills-doc-kami-parchment) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Warm parchment canvas (#f5f4ed), monochrome ink-blue accent (#1B365D), one serif family, and ed... |
 | [`skills-frontend-design`](../../library/anthropics-claude-plugins-official/skills/skills-frontend-design) | ⚪ Reserve | `anthropics-claude-plugins-official` | Guidance for distinctive, intentional visual design when building new UI or reshaping an existi... |
 | [`skills-impeccable`](../../library/pbakaus-impeccable/skills/skills-impeccable) | ⚪ Reserve | `pbakaus-impeccable` | Use when the user wants to design, redesign, shape, critique, audit, polish, simplify, harden, ... |
 | [`skills-optimize-text-mesh-pro`](../../library/unity-technologies-skills/skills/skills-optimize-text-mesh-pro) | ⚪ Reserve | `unity-technologies-skills` | Optimizes TextMeshPro rendering, memory, and font setup, including font asset stacks, fallback ... |
+| [`skills-pixijs`](../../library/pixijs-pixijs-skills/skills/skills-pixijs) | ⚪ Reserve | `pixijs-pixijs-skills` | PixiJS v8 (pixi.js) reference. Use it before writing, fixing or porting any PixiJS code, from a... |
 | [`skills-scenario-video-editing`](../../library/scenario-labs-skills/skills/skills-scenario-video-editing) | ⚪ Reserve | `scenario-labs-skills` | Use when editing footage already on Scenario through MCP with a tool model, not a new generatio... |
 | [`skills-style-tile`](../../library/feimacode-open-design-agent-kit/skills/skills-style-tile) | ⚪ Reserve | `feimacode-open-design-agent-kit` | One compact board showing a color and type pairing — palette with contrast, type specimen and s... |
 | [`skills-urp-postprocessing`](../../library/unity-technologies-skills/skills/skills-urp-postprocessing) | ⚪ Reserve | `unity-technologies-skills` | Sets up, configures, and debugs URP post-processing with the Volume framework. Use for bloom, t... |

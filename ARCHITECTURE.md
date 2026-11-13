@@ -9,8 +9,8 @@
 Antigravity Kit is a modular system consisting of:
 
 - **20 Specialist Agents** - Role-based AI personas
-- **131 Active Hot-Set Skills** - Curated daily-driver engineering skills - Domain-specific knowledge modules
-- **28,062 Library Reserve Skills** - Offline capability archive across 487 repositories (`.agent/library/`)
+- **132 Active Hot-Set Skills** - Curated daily-driver engineering skills - Domain-specific knowledge modules
+- **29,097 Library Reserve Skills** - Offline capability archive across 493 repositories (`.agent/library/`)
 - **18 Workflows** - Slash command procedures
 
 ---
@@ -21,9 +21,9 @@ Antigravity Kit is a modular system consisting of:
 .agent/
 ├── ARCHITECTURE.md          # This file
 ├── agents/                  # 20 Specialist Agents
-├── skills/                  # 131 Active Hot-Set Skills
-├── category/                # 38 Granular Functional Category Directories (22,679 real skills)
-├── library/                 # 28,062 Offline Reserve Skills (487 repositories) & Activator
+├── skills/                  # 132 Active Hot-Set Skills
+├── category/                # 38 Granular Functional Category Directories (23,581 real skills)
+├── library/                 # 29,097 Offline Reserve Skills (493 repositories) & Activator
 ├── workflows/               # 18 Slash Commands
 ├── rules/                   # Global Rules
 └── scripts/                 # Master Validation Scripts
@@ -293,7 +293,7 @@ Slash command procedures. Invoke with `/command`.
 | `/deploy`        | Safe production deployment procedures & pre-flight checks                   |
 | `/enhance`       | Iterative feature updates on existing codebases                             |
 | `/impeccable`    | Anti-cliché UI polish, typography, and frontend design review                |
-| `/library`       | Search, inspect, and activate from the 28,062 offline reserve skills across 487 repositories          |
+| `/library`       | Search, inspect, and activate from the 29,097 offline reserve skills across 493 repositories          |
 | `/orchestrate`   | Multi-agent perspective coordination & workload balancing                   |
 | `/owl`           | Decoupled deep investigator & verified coder pipeline                       |
 | `/plan`          | Structured roadmap & task dependency planning (no code)                     |

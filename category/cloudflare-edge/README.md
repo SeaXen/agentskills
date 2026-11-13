@@ -1,7 +1,7 @@
 # ☁️ Cloudflare Workers, Pages & Edge
 
 > **Category**: `cloudflare-edge`  
-> **Total Curated Skills**: 149 skills  
+> **Total Curated Skills**: 153 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -29,6 +29,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`browser-bridge`](../../library/sickn33-agentic-awesome-skills/skills/browser-bridge) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Inspect, control, and automate tasks in your real Microsoft Edge or Google Chrome browser via C... |
 | [`browser-extension-reverse`](../../library/sickn33-agentic-awesome-skills/skills/browser-extension-reverse) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Authorized reverse engineering of Chrome/Firefox extensions: manifest analysis, background work... |
 | [`c1`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/c1) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | VS-Enhanced Quantitative Design Consultant with Materials & Sampling Enhanced VS 3-Phase proces... |
+| [`camera-systems`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/camera-systems) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Builds and tunes game cameras, engine-neutral with Godot and Cinemachine 3 mappings: 2D follow ... |
 | [`canvas`](../../library/agricidaniel-claude-obsidian/skills/canvas) | ⚪ Reserve | `agricidaniel-claude-obsidian` | Create, inspect, and update Obsidian JSON Canvas boards with text, file, link, group, and edge ... |
 | [`cdn-setup`](../../library/sickn33-agentic-awesome-skills/skills/cdn-setup) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Configure CDNs for content delivery. Set up CloudFront, Cloudflare, and |
 | [`cf-cli`](../../library/cloudflare-skills/skills/cf-cli) | ⚪ Reserve | `cloudflare-skills` | Cloudflare's official cf CLI (beta) for the public Cloudflare API and Workers projects. Use for... |
@@ -75,6 +76,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`edge-to-edge`](../../library/android-skills/skills/edge-to-edge) | ⚪ Reserve | `android-skills` | Use this skill to migrate your Jetpack Compose app to add adaptive edge-to-edge |
 | [`emc`](../../library/aklofas-kicad-happy/skills/emc) | ⚪ Reserve | `aklofas-kicad-happy` | EMC pre-compliance risk analysis for KiCad PCB designs — 18 check categories, 44 rule IDs cover... |
 | [`engage-subject-line-lab`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/engage-subject-line-lab) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "generate subject line variants", "pre-score my subject lines", or "w... |
+| [`engineering-hivemind`](../../library/alirezarezvani-claude-skills/skills/engineering-hivemind) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when delegating grunt work to free opencode workers instead of spending Claude tokens: one ... |
 | [`evaluate-narrative-drift-monitor`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/evaluate-narrative-drift-monitor) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "check if our surfaces have drifted from the canon", "watch for compe... |
 | [`file-uploads`](../../library/antigravity-awesome-skills/skills/file-uploads) | ⚪ Reserve | `antigravity-awesome-skills` | Expert at handling file uploads and cloud storage. Covers S3, Cloudflare R2, presigned URLs, mu... |
 | [`find-exposed-servers`](../../library/useosint-skills/skills/find-exposed-servers) | ⚪ Reserve | `useosint-skills` | Find internet-exposed hosts, ports, services and devices using third-party internet-scan data i... |
@@ -139,6 +141,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-cloudflare`](../../library/cloudflare-skills/skills/skills-cloudflare) | ⚪ Reserve | `cloudflare-skills` | Discover and choose Cloudflare products for apps, APIs, AI agents, storage, networking, and sec... |
 | [`skills-cloudflare-one`](../../library/cloudflare-skills/skills/skills-cloudflare-one) | ⚪ Reserve | `cloudflare-skills` | Design, configure, troubleshoot, or review Cloudflare One Zero Trust and SASE deployments. Use ... |
 | [`skills-code-review`](../../library/anthropics-knowledge-work/skills/skills-code-review) | ⚪ Reserve | `anthropics-knowledge-work` | Review code changes for security, performance, and correctness. Trigger with a PR URL or diff, ... |
+| [`skills-demo-video`](../../library/alirezarezvani-claude-skills/skills/skills-demo-video) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when asked for a demo video, product walkthrough, feature showcase or GIF from screenshots ... |
 | [`skills-mirrord-propagation-discovery`](../../library/metalbear-co-mirrord/skills/skills-mirrord-propagation-discovery) | ⚪ Reserve | `metalbear-co-mirrord` | Scans a live Kubernetes environment with `mirrord dump` to find an identifier mirrord can filte... |
 | [`skills-om-fix-issue-multi-optimized`](../../library/open-mercato-skills/skills/skills-om-fix-issue-multi-optimized) | ⚪ Reserve | `open-mercato-skills` | Thin combined alias for om-fix-issue that uses configured implementation workers and independen... |
 | [`skills-om-fix-issue-optimized`](../../library/open-mercato-skills/skills/skills-om-fix-issue-optimized) | ⚪ Reserve | `open-mercato-skills` | Thin worker-optimized alias for om-fix-issue that delegates bounded implementation packets to c... |
@@ -158,6 +161,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`turnstile-spin`](../../library/cloudflare-skills/skills/turnstile-spin) | ⚪ Reserve | `cloudflare-skills` | Set up, repair, or migrate to Cloudflare Turnstile bot verification in an existing frontend and... |
 | [`typing-exclusion-worker`](../../library/getsentry-skills/skills/typing-exclusion-worker) | ⚪ Reserve | `getsentry-skills` | Python typing exclusion worker: remove assigned mypy exclusion modules in small scoped batches,... |
 | [`unit-testing-test-generate`](../../library/antigravity-awesome-skills/skills/unit-testing-test-generate) | ⚪ Reserve | `antigravity-awesome-skills` | Generate comprehensive, maintainable unit tests across languages with strong coverage and edge ... |
+| [`unreal-niagara`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/unreal-niagara) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Unreal Engine 5 (UE 5.8) Niagara VFX: systems, emitters, User parameters, spawning from C++ or ... |
 | [`vercel-deployments`](../../library/sickn33-agentic-awesome-skills/skills/vercel-deployments) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Deploy frontend and full-stack apps on Vercel with previews, edge functions, |
 | [`vercel-development`](../../library/mindrally-skills/skills/vercel-development) | ⚪ Reserve | `mindrally-skills` | Vercel and Next.js deployment best practices including server components, edge functions, AI SD... |
 | [`vercel-xhttp-relay`](../../library/reason-machines-trending-skills/skills/vercel-xhttp-relay) | ⚪ Reserve | `reason-machines-trending-skills` | Deploy an XHTTP relay on Vercel Edge Functions to proxy Xray/V2Ray traffic and hide your origin... |

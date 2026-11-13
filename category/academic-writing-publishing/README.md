@@ -1,7 +1,7 @@
 # 📚 Academic Writing, Research & Literature
 
 > **Category**: `academic-writing-publishing`  
-> **Total Curated Skills**: 285 skills  
+> **Total Curated Skills**: 288 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -263,14 +263,17 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-codex-slides-polish`](../../library/wanshuiyin-auto-claude-code-research-in-sleep/skills/skills-codex-slides-polish) | ⚪ Reserve | `wanshuiyin-auto-claude-code-research-in-sleep` | Per-page Codex review + targeted python-pptx / Beamer fixes for academic talk slides. Use AFTER... |
 | [`skills-codex-writing-systems-papers`](../../library/wanshuiyin-auto-claude-code-research-in-sleep/skills/skills-codex-writing-systems-papers) | ⚪ Reserve | `wanshuiyin-auto-claude-code-research-in-sleep` | Paragraph-level structural blueprint for 10-12 page systems papers targeting OSDI, SOSP, ASPLOS... |
 | [`skills-deck-guizang-editorial`](../../library/feimacode-open-design-agent-kit/skills/skills-deck-guizang-editorial) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Editorial magazine meets e-ink: 10 layouts and 5 palettes (Ink, Indigo Porcelain, Forest Ink, K... |
+| [`skills-litreview`](../../library/alirezarezvani-claude-skills/skills/skills-litreview) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when starting a literature review or a literature-based project. Plans the search (PICO, SP... |
 | [`skills-nature-paper-card`](../../library/yuan1z0825-nature-skills/skills/skills-nature-paper-card) | ⚪ Reserve | `yuan1z0825-nature-skills` | Build a structured deep-reading Paper Card for one scientific paper, analysing methods, experim... |
 | [`skills-nature-paper-to-patent`](../../library/yuan1z0825-nature-skills/skills/skills-nature-paper-to-patent) | ⚪ Reserve | `yuan1z0825-nature-skills` | Turn research papers or inventor materials into evidence-grounded Chinese invention patent draf... |
 | [`skills-nature-paper-trans`](../../library/yuan1z0825-nature-skills/skills/skills-nature-paper-trans) | ⚪ Reserve | `yuan1z0825-nature-skills` | 将英文论文 PDF 的指定页面或全文逐页翻译为简体中文图片型 PDF，尽量保留原文的版式、分栏、图表和公式；最终仅交付中文 PDF。用于论文阅读翻译，不用于可编辑 Word 重建或逐字审校。 |
 | [`skills-nature-paper-xray`](../../library/yuan1z0825-nature-skills/skills/skills-nature-paper-xray) | ⚪ Reserve | `yuan1z0825-nature-skills` | Read one supplied paper closely enough to reconstruct how its authors actually got there, rathe... |
 | [`skills-nature-paper2ppt`](../../library/yuan1z0825-nature-skills/skills/skills-nature-paper2ppt) | ⚪ Reserve | `yuan1z0825-nature-skills` | Create or improve a Chinese academic PPTX from a scientific paper or research reading notes, wi... |
 | [`skills-nature-reader`](../../library/yuan1z0825-nature-skills/skills/skills-nature-reader) | ⚪ Reserve | `yuan1z0825-nature-skills` | Create source-grounded Chinese-English paper readers with aligned text, figures, tables, and eq... |
+| [`skills-research-summarizer`](../../library/alirezarezvani-claude-skills/skills/skills-research-summarizer) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when summarizing a research paper, article or report, comparing several sources or extracti... |
 | [`skills-scientific-thinking-literature-review`](../../library/affaan-m-ecc/skills/skills-scientific-thinking-literature-review) | ⚪ Reserve | `affaan-m-ecc` | 学術、生物医学、技術、科学的なトピックに対するシステマティックな文献レビューワークフロー。検索計画、ソースのスクリーニング、統合、引用確認、証拠ログを含む。 |
 | [`skills-scientific-thinking-scholar-evaluation`](../../library/affaan-m-ecc/skills/skills-scientific-thinking-scholar-evaluation) | ⚪ Reserve | `affaan-m-ecc` | 論文、提案書、文献レビュー、方法論セクション、証拠の質、引用サポート、研究論文フィードバックのための構造化された学術的作業評価。 |
+| [`skills-seo-content`](../../library/agricidaniel-claude-seo/skills/skills-seo-content) | ⚪ Reserve | `agricidaniel-claude-seo` | Evaluate page content for usefulness, E-E-A-T, readability, thinness, and AI citation readiness... |
 | [`skills-start`](../../library/anthropics-knowledge-work/skills/skills-start) | ⚪ Reserve | `anthropics-knowledge-work` | Set up your bio-research environment and explore available tools. Use when first getting orient... |
 | [`slides-polish`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/slides-polish) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Per-page Codex review + targeted python-pptx / Beamer fixes for academic talk slides. Use AFTER... |
 | [`slr-automation-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/slr-automation-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Tools and pipelines for automating systematic literature reviews |

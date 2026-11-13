@@ -81,6 +81,35 @@ Then install **Tavily** from `/plugins`. It adds these skills and the hosted Tav
 In Grok Build, open `/plugin`, search for **Tavily**, and install it.
 It adds these skills and the hosted Tavily MCP server.
 
+### OpenCode plugin
+
+Add `@tavily/opencode-plugin` to the `plugins` array in `opencode.json` (`plugin` on OpenCode 1.x):
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugins": ["@tavily/opencode-plugin"]
+}
+```
+
+It adds these skills. The plugin's source is in [`.opencode-plugin/`](.opencode-plugin/).
+
+### Antigravity plugin
+
+```bash
+agy plugin install tavily-ai/skills
+```
+
+It adds these skills and the hosted Tavily MCP server.
+
+### Gemini CLI extension
+
+```bash
+gemini extensions install https://github.com/tavily-ai/skills
+```
+
+It adds these skills and the hosted Tavily MCP server.
+
 ### Keep the CLI current
 
 ```bash

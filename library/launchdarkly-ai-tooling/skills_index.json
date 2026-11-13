@@ -750,6 +750,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link launchdarkly-release-autopilot-settings"
   },
   {
+    "id": "launchdarkly-release-plans",
+    "name": "launchdarkly-release-plans",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"List, create, edit, make default, and delete LaunchDarkly release plans of both kinds: environment release plans (one environment's phases, rollout steps, and rollback metrics, with starter plans) and flag release plans (a project's environments in release order, each with its environment release plan, which Release Autopilot proposes releases from on pull requests). Also starts a flag's release from a flag release plan. Use when the user wants to see, build, change, or remove a release plan, set an environment's or a project's default plan, or when another skill such as Release Autopilot onboarding needs release plans planned or created. For first-time Release Autopilot setup, use launchdarkly-release-autopilot-onboarding, which follows this skill.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/launchdarkly-release-plans",
+    "activation_cmd": "python .agents/library/activate_skill.py activate launchdarkly-release-plans",
+    "link_cmd": "python .agents/library/activate_skill.py link launchdarkly-release-plans"
+  },
+  {
     "id": "mcp-configure",
     "name": "mcp-configure",
     "repository": "launchdarkly-ai-tooling",
@@ -848,6 +858,16 @@
     "path": "library/launchdarkly-ai-tooling/skills/observability-investigate",
     "activation_cmd": "python .agents/library/activate_skill.py activate observability-investigate",
     "link_cmd": "python .agents/library/activate_skill.py link observability-investigate"
+  },
+  {
+    "id": "observability-plugin-setup",
+    "name": "observability-plugin-setup",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Set up LaunchDarkly observability for an app that already uses a LaunchDarkly SDK by adding the observability plugin to its existing client and opening a pull request. Use when an observability tool reports the project has never received data (observability_set_up or observabilitySetUp is false), when observability queries come back empty because nothing is instrumented, or when the user asks to add observability, error monitoring, logs, tracing, or session replay to a LaunchDarkly-enabled app.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/observability-plugin-setup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate observability-plugin-setup",
+    "link_cmd": "python .agents/library/activate_skill.py link observability-plugin-setup"
   },
   {
     "id": "onboarding",

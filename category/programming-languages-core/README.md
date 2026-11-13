@@ -1,7 +1,7 @@
 # 📐 Programming Languages & Type Systems
 
 > **Category**: `programming-languages-core`  
-> **Total Curated Skills**: 417 skills  
+> **Total Curated Skills**: 432 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -98,6 +98,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`azure-storage-queue-ts`](../../library/antigravity-awesome-skills/skills/azure-storage-queue-ts) | ⚪ Reserve | `antigravity-awesome-skills` | Azure Queue Storage JavaScript/TypeScript SDK (@azure/storage-queue) for message queue operatio... |
 | [`azure-upgrade`](../../library/microsoft-azure-skills/skills/azure-upgrade) | ⚪ Reserve | `microsoft-azure-skills` | Assess and upgrade Azure workloads between plans, tiers, or SKUs, or modernize Azure SDK depend... |
 | [`bb-local-toolkit`](../../library/elementalsouls-claude-bughunter/skills/bb-local-toolkit) | ⚪ Reserve | `elementalsouls-claude-bughunter` | Local-tooling companion to the bug-bounty orchestrator — carries the SAME complete bug-bounty w... |
+| [`bevy-ecs`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/bevy-ecs) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Builds and debugs Bevy 0.20 games in Rust: components, Query and Commands systems, schedules, S... |
 | [`bevy-ecs-expert`](../../library/sickn33-agentic-awesome-skills/skills/bevy-ecs-expert) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Master Bevy's Entity Component System (ECS) in Rust, covering Systems, Queries, Resources, and ... |
 | [`bigtable-basics`](../../library/google-skills/skills/bigtable-basics) | ⚪ Reserve | `google-skills` | Assists in provisioning instances/tables, designing performant schemas, and querying data in Bi... |
 | [`browser-use-to-stagehand`](../../library/browserbase-skills/skills/browser-use-to-stagehand) | ⚪ Reserve | `browserbase-skills` | Migrate browser-use (Python) browser-automation scripts to Stagehand v3 (TypeScript) on Browser... |
@@ -188,6 +189,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ghost-bits-cast-attack`](../../library/yaklang-hack-skills/skills/ghost-bits-cast-attack) | ⚪ Reserve | `yaklang-hack-skills` | Java "Ghost Bits" / Cast Attack playbook (Black Hat Asia 2026). Use when attacking Java service... |
 | [`glam`](../../library/internet-court-internet-court-skill/skills/glam) | ⚪ Reserve | `internet-court-internet-court-skill` | Solana vault management via GLAM Protocol. Triggers: glam, glam-cli, glam-sdk, vault create/man... |
 | [`go-rust-reverse`](../../library/sickn33-agentic-awesome-skills/skills/go-rust-reverse) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Reverse engineer stripped Go and Rust binaries: runtime recognition, pclntab/module metadata re... |
+| [`godot-csharp`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/godot-csharp) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | C# and .NET in Godot 4.7: partial node classes, the PascalCase lifecycle, [Export] and [Signal]... |
+| [`godot-gdscript`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/godot-gdscript) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | GDScript 2.0 for Godot 4.7: static typing, @export and @onready, await and coroutines, and port... |
+| [`godot-resources`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/godot-resources) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Godot 4.7 data-driven design with custom Resources: class_name and @export fields, .tres files,... |
 | [`golang-benchmark`](../../library/samber-cc-skills-golang/skills/golang-benchmark) | ⚪ Reserve | `samber-cc-skills-golang` | Golang benchmarking, profiling, and performance measurement. Use when writing, running, or comp... |
 | [`golang-concurrency`](../../library/samber-cc-skills-golang/skills/golang-concurrency) | ⚪ Reserve | `samber-cc-skills-golang` | Golang concurrency design — goroutine lifecycle and leak prevention, channels and `select`, cha... |
 | [`golang-context`](../../library/samber-cc-skills-golang/skills/golang-context) | ⚪ Reserve | `samber-cc-skills-golang` | Idiomatic context.Context usage in Golang — propagation through API boundaries, cancellation, t... |
@@ -296,10 +300,12 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`nodejs-keccak256`](../../library/affaan-m-ecc/skills/nodejs-keccak256) | ⚪ Reserve | `affaan-m-ecc` | Prevent Ethereum hashing bugs in JavaScript and TypeScript. Node's sha3-256 is NIST SHA3, not E... |
 | [`nuxtjs-vue-typescript`](../../library/mindrally-skills/skills/nuxtjs-vue-typescript) | ⚪ Reserve | `mindrally-skills` | Best practices for building Nuxt 3 and Vue 3 applications with TypeScript, the Composition API,... |
 | [`nx-monorepo`](../../library/giuseppe-trisciuoglio-developer-kit/skills/nx-monorepo) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides comprehensive Nx monorepo management guidance for TypeScript/JavaScript projects. Use ... |
+| [`offensive-deserialization`](../../library/snailsploit-claude-red/skills/offensive-deserialization) | ⚪ Reserve | `snailsploit-claude-red` | Insecure deserialization exploitation across Java, PHP, .NET, Python, Node.js, and Ruby. Covers... |
 | [`open-agent-sdk-typescript`](../../library/reason-machines-trending-skills/skills/open-agent-sdk-typescript) | ⚪ Reserve | `reason-machines-trending-skills` | name: open-agent-sdk-typescript |
 | [`open-multi-agent-orchestration`](../../library/reason-machines-trending-skills/skills/open-multi-agent-orchestration) | ⚪ Reserve | `reason-machines-trending-skills` | Expertise in using open-multi-agent, a TypeScript framework for building production-grade multi... |
 | [`openapi-to-typescript`](../../library/davila7-claude-code-templates/skills/openapi-to-typescript) | ⚪ Reserve | `davila7-claude-code-templates` | Converts OpenAPI 3.0 JSON/YAML to TypeScript interfaces and type guards. This skill should be u... |
 | [`optimization-gguf`](../../library/davila7-claude-code-templates/skills/optimization-gguf) | ⚪ Reserve | `davila7-claude-code-templates` | GGUF format and llama.cpp quantization for efficient CPU/GPU inference. Use when deploying mode... |
+| [`parallel-api`](../../library/parallel-web-parallel-agent-skills/skills/parallel-api) | ⚪ Reserve | `parallel-web-parallel-agent-skills` | Build apps and agents on the Parallel API: Search, Extract, Responses, Task, Decisions and Moni... |
 | [`pixi-js`](../../library/mindrally-skills/skills/pixi-js) | ⚪ Reserve | `mindrally-skills` | Expert guidance for Pixi.js game development with TypeScript, focusing on high-performance web ... |
 | [`pixijs-create`](../../library/pixijs-pixijs-skills/skills/pixijs-create) | ⚪ Reserve | `pixijs-pixijs-skills` | Use this skill when scaffolding a new PixiJS v8 project with the create-pixi CLI or adding Pixi... |
 | [`playwright-cursor-rules`](../../library/mindrally-skills/skills/playwright-cursor-rules) | ⚪ Reserve | `mindrally-skills` | Expert guidance for Playwright end-to-end testing with TypeScript and JavaScript best practices |
@@ -368,14 +374,20 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-csharp-testing`](../../library/affaan-m-ecc/skills/skills-csharp-testing) | ⚪ Reserve | `affaan-m-ecc` | xUnit、FluentAssertions、モッキング、統合テスト、テスト組織のベストプラクティスを使用したC#と.NETのテストパターン。 |
 | [`skills-database-migrations`](../../library/affaan-m-ecc/skills/skills-database-migrations) | ⚪ Reserve | `affaan-m-ecc` | Buenas prácticas de migración de base de datos para cambios de esquema, migraciones de datos, r... |
 | [`skills-error-handling`](../../library/affaan-m-ecc/skills/skills-error-handling) | ⚪ Reserve | `affaan-m-ecc` | TypeScript、Python、Goにわたる堅牢なエラー処理のパターン。型付きエラー、エラー境界、リトライ、サーキットブレーカー、ユーザー向けエラーメッセージをカバーします。 |
+| [`skills-expo-migrate-module`](../../library/expo-skills/skills/skills-expo-migrate-module) | ⚪ Reserve | `expo-skills` | Migrate an existing Apple/Swift Expo native module from the Expo Modules API 1.0 definition DSL... |
+| [`skills-expo-module`](../../library/expo-skills/skills/skills-expo-module) | ⚪ Reserve | `expo-skills` | Guide for creating and writing Expo native modules and views using the Expo Modules API (Swift,... |
 | [`skills-flox-environments`](../../library/affaan-m-ecc/skills/skills-flox-environments) | ⚪ Reserve | `affaan-m-ecc` | Floxで再現可能なクロスプラットフォーム開発環境を作成します — Nixに基づく宣言的な環境マネージャー。次の場合は必ずこのスキルを使用してください: システムレベルの依存関係（コンパイラ... |
+| [`skills-gemini-api-dev`](../../library/google-gemini-gemini-skills/skills/skills-gemini-api-dev) | ⚪ Reserve | `google-gemini-gemini-skills` | Use this skill when writing code that calls the Gemini API for text generation, multi-turn chat... |
 | [`skills-golang-patterns`](../../library/affaan-m-ecc/skills/skills-golang-patterns) | ⚪ Reserve | `affaan-m-ecc` | Patrones idiomáticos de Go, buenas prácticas y convenciones para construir aplicaciones Go robu... |
 | [`skills-golang-testing`](../../library/affaan-m-ecc/skills/skills-golang-testing) | ⚪ Reserve | `affaan-m-ecc` | Patrones de pruebas Go incluyendo pruebas basadas en tablas, subpruebas, benchmarks, fuzzing y ... |
 | [`skills-java-coding-standards`](../../library/affaan-m-ecc/skills/skills-java-coding-standards) | ⚪ Reserve | `affaan-m-ecc` | Spring Bootサービス向けのJavaコーディング標準：命名、不変性、Optional使用、ストリーム、例外、ジェネリクス、プロジェクトレイアウト。 |
+| [`skills-mcp-server-builder`](../../library/alirezarezvani-claude-skills/skills/skills-mcp-server-builder) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when exposing an API as an MCP server or scaffolding a new MCP server in Python or TypeScri... |
 | [`skills-principle-type-system-discipline`](../../library/cursor-plugins/skills/skills-principle-type-system-discipline) | ⚪ Reserve | `cursor-plugins` | Apply when designing types, reviewing a function signature, or writing code in any statically-t... |
 | [`skills-python-patterns`](../../library/affaan-m-ecc/skills/skills-python-patterns) | ⚪ Reserve | `affaan-m-ecc` | Patrones idiomáticos de Python, estándares PEP 8, type hints y buenas prácticas para construir ... |
 | [`skills-rust-patterns`](../../library/affaan-m-ecc/skills/skills-rust-patterns) | ⚪ Reserve | `affaan-m-ecc` | Patrones idiomáticos de Rust, ownership, manejo de errores, traits, concurrencia y buenas práct... |
 | [`skills-rust-testing`](../../library/affaan-m-ecc/skills/skills-rust-testing) | ⚪ Reserve | `affaan-m-ecc` | Patrones de pruebas en Rust incluyendo pruebas unitarias, de integración, async, basadas en pro... |
+| [`skills-saas-scaffolder`](../../library/alirezarezvani-claude-skills/skills/skills-saas-scaffolder) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when starting a new SaaS app with auth, database, Stripe billing and a dashboard (Next.js A... |
+| [`skills-spec-to-repo`](../../library/alirezarezvani-claude-skills/skills/skills-spec-to-repo) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when the user says 'build me an app', 'create a project from this spec', 'scaffold a new re... |
 | [`skills-springboot-patterns`](../../library/affaan-m-ecc/skills/skills-springboot-patterns) | ⚪ Reserve | `affaan-m-ecc` | Patrones de arquitectura Spring Boot, diseño de API REST, servicios en capas, acceso a datos, c... |
 | [`skills-springboot-security`](../../library/affaan-m-ecc/skills/skills-springboot-security) | ⚪ Reserve | `affaan-m-ecc` | Buenas prácticas de Spring Security para autenticación/autorización, validación, CSRF, secretos... |
 | [`skills-tinystruct-patterns`](../../library/affaan-m-ecc/skills/skills-tinystruct-patterns) | ⚪ Reserve | `affaan-m-ecc` | tinystruct Java フレームワークで開発する際の専門ガイダンス。tinystruct コードベース、または tinystruct 上に構築されたあらゆるプロジェクトで作業する際に... |
@@ -412,7 +424,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ui5-typescript-conversion`](../../library/cline-skills/skills/ui5-typescript-conversion) | ⚪ Reserve | `cline-skills` | A skill for converting UI5 (SAPUI5/OpenUI5) projects to TypeScript. |
 | [`unit-test-boundary-conditions`](../../library/giuseppe-trisciuoglio-developer-kit/skills/unit-test-boundary-conditions) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides edge case, corner case, boundary condition, and limit testing patterns for Java unit t... |
 | [`unit-test-parameterized`](../../library/giuseppe-trisciuoglio-developer-kit/skills/unit-test-parameterized) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides parameterized testing patterns with JUnit 5, generates data-driven unit tests using @P... |
+| [`unreal-blueprints`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/unreal-blueprints) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Unreal Engine 5 (UE 5.8) Blueprint visual scripting: Blueprint Classes vs the Level Blueprint, ... |
 | [`unreal-engine-cpp-pro`](../../library/antigravity-awesome-skills/skills/unreal-engine-cpp-pro) | ⚪ Reserve | `antigravity-awesome-skills` | Expert guide for Unreal Engine 5.x C++ development, covering UObject hygiene, performance patte... |
+| [`unreal-enhanced-input`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/unreal-enhanced-input) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Unreal Engine 5 (UE 5.8) player input with Enhanced Input: Input Actions (IA_), Mapping Context... |
+| [`unreal-packaging`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/unreal-packaging) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Packages and ships Unreal Engine 5 (UE 5.8) projects: Shipping builds, cooking, pak/IoStore and... |
 | [`upgrade-stylus-contracts`](../../library/openzeppelin-openzeppelin-skills/skills/upgrade-stylus-contracts) | ⚪ Reserve | `openzeppelin-openzeppelin-skills` | Upgrade Stylus smart contracts using OpenZeppelin proxy patterns on Arbitrum. Use when users ne... |
 | [`video-sdk-web`](../../library/anthropics-knowledge-work/skills/video-sdk-web) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Video SDK for Web - JavaScript/TypeScript integration for browser-based video sessions, re... |
 | [`virtual-agent-android`](../../library/anthropics-knowledge-work/skills/virtual-agent-android) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Virtual Agent Android integration via WebView. Use for Java/Kotlin bridge callbacks, nativ... |

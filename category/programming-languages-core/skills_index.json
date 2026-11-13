@@ -632,6 +632,14 @@
     "path": "category/programming-languages-core/bb-local-toolkit"
   },
   {
+    "id": "bevy-ecs",
+    "name": "bevy-ecs",
+    "category": "programming-languages-core",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "Builds and debugs Bevy 0.20 games in Rust: components, Query and Commands systems, schedules, States, observers and headless tests. Use when Cargo.toml depends on bevy, on a B0001 query-conflict panic, or pre-0.20 code (EventReader, SpriteBundle). Not for engine-neutral AI, generation, physics or shaders (`game-ai`, `procedural-gen`, `physics-tuning`, `shader-programming`).",
+    "path": "category/programming-languages-core/bevy-ecs"
+  },
+  {
     "id": "bevy-ecs-expert",
     "name": "bevy-ecs-expert",
     "category": "programming-languages-core",
@@ -1350,6 +1358,30 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Reverse engineer stripped Go and Rust binaries: runtime recognition, pclntab/module metadata recovery, panic-string analysis, and idiomatic decompilation strategies.",
     "path": "category/programming-languages-core/go-rust-reverse"
+  },
+  {
+    "id": "godot-csharp",
+    "name": "godot-csharp",
+    "category": "programming-languages-core",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "C# and .NET in Godot 4.7: partial node classes, the PascalCase lifecycle, [Export] and [Signal], signals as C# events, the .csproj and calling GDScript. Use for .cs scripts in Godot, porting GDScript to C#, a failed build, or a failed web or Android export. Not for GDScript (`godot-gdscript`), Unity C# (`unity-csharp-scripting`) or export presets (`godot-export`).",
+    "path": "category/programming-languages-core/godot-csharp"
+  },
+  {
+    "id": "godot-gdscript",
+    "name": "godot-gdscript",
+    "category": "programming-languages-core",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "GDScript 2.0 for Godot 4.7: static typing, @export and @onready, await and coroutines, and porting 3.x code. Use for .gd parse errors (\"Cannot infer the type\"), a coroutine that never resumes, a null @onready variable or upgrade breakage. Not for signals (`godot-signals-groups`), scenes (`godot-nodes-scenes`), C# (`godot-csharp`) or CI tests (`godot-gdscript-headless-testing`).",
+    "path": "category/programming-languages-core/godot-gdscript"
+  },
+  {
+    "id": "godot-resources",
+    "name": "godot-resources",
+    "category": "programming-languages-core",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "Godot 4.7 data-driven design with custom Resources: class_name and @export fields, .tres files, shared references vs duplicate_deep(), uids and threaded loading. Use for items, stats or enemy configs as data, or when editing one enemy changes every enemy or a .tres stops loading. Not for save slots (`save-systems`) or the C# version (`godot-csharp`).",
+    "path": "category/programming-languages-core/godot-resources"
   },
   {
     "id": "golang-benchmark",
@@ -2216,6 +2248,14 @@
     "path": "category/programming-languages-core/nx-monorepo"
   },
   {
+    "id": "offensive-deserialization",
+    "name": "offensive-deserialization",
+    "category": "programming-languages-core",
+    "repository": "snailsploit-claude-red",
+    "description": "Insecure deserialization exploitation across Java, PHP, .NET, Python, Node.js, and Ruby. Covers gadget chain construction with ysoserial/phpggc/ysoserial.net, ObjectInputStream and BinaryFormatter sink identification, pickle __reduce__ RCE, phar:// wrapper abuse, Jackson polymorphic typing, Json.NET TypeNameHandling, ViewState tampering, node-serialize IIFE injection, Ruby Marshal.load and YAML.load gadgets, framework-specific chains for Spring/Hibernate/Laravel/Symfony, modern attack surfaces including Kubernetes admission webhooks and message queue consumers, WAF bypass through encoding layers and content-type manipulation, and serialVersionUID/JMX/RMI vectors. Activate when the engagement involves deserialization sinks, serialized data in cookies or request bodies, gadget chain development, magic method abuse, ysoserial payload generation, or any review of marshalling and unmarshalling logic in target applications.",
+    "path": "category/programming-languages-core/offensive-deserialization"
+  },
+  {
     "id": "open-agent-sdk-typescript",
     "name": "open-agent-sdk-typescript",
     "category": "programming-languages-core",
@@ -2246,6 +2286,14 @@
     "repository": "davila7-claude-code-templates",
     "description": "GGUF format and llama.cpp quantization for efficient CPU/GPU inference. Use when deploying models on consumer hardware, Apple Silicon, or when needing flexible quantization from 2-8 bit without GPU requirements.",
     "path": "category/programming-languages-core/optimization-gguf"
+  },
+  {
+    "id": "parallel-api",
+    "name": "parallel-api",
+    "category": "programming-languages-core",
+    "repository": "parallel-web-parallel-agent-skills",
+    "description": "Build apps and agents on the Parallel API: Search, Extract, Responses, Task, Decisions and Monitor, through the parallel-web Python and TypeScript SDKs or REST. Use when writing, reviewing or debugging code that calls Parallel; when choosing a Parallel API, search mode, reasoning effort or Task processor; when adding web search, page extraction, cited answers, research, enrichment, web-grounded decisions or web monitoring to an app; when swapping another search provider for Parallel; when setting up PARALLEL_API_KEY; when a Parallel integration isn't performing as expected; or when a Parallel request fails. Not for searching the web inside the agent's own session. To remove an existing Exa, Tavily, Perplexity or Firecrawl integration end to end, use migrate-to-parallel; to benchmark Parallel against another provider, use parallel-search-evaluation.",
+    "path": "category/programming-languages-core/parallel-api"
   },
   {
     "id": "pixi-js",
@@ -2792,12 +2840,36 @@
     "path": "category/programming-languages-core/skills-error-handling"
   },
   {
+    "id": "skills-expo-migrate-module",
+    "name": "skills-expo-migrate-module",
+    "category": "programming-languages-core",
+    "repository": "expo-skills",
+    "description": "Migrate an existing Apple/Swift Expo native module from the Expo Modules API 1.0 definition DSL to the 2.0 macro API (sometimes called v2) while preserving its JavaScript and TypeScript contract. Use when converting or incrementally adopting @ExpoModule, @JS, @Event, @SharedObject, or @Record in an existing module. Do not use for creating a new module, general Expo SDK upgrades, or Android/Kotlin migrations.",
+    "path": "category/programming-languages-core/skills-expo-migrate-module"
+  },
+  {
+    "id": "skills-expo-module",
+    "name": "skills-expo-module",
+    "category": "programming-languages-core",
+    "repository": "expo-skills",
+    "description": "Guide for creating and writing Expo native modules and views using the Expo Modules API (Swift, Kotlin, TypeScript). Covers module definition DSL, native views, shared objects, config plugins, lifecycle hooks, autolinking, and type system. Use when building or modifying native modules for Expo. Not for migrating an existing Swift module from the definition DSL to the Expo Modules API 2.0 macros; use expo-migrate-module (from the expo-experiments plugin) for that.",
+    "path": "category/programming-languages-core/skills-expo-module"
+  },
+  {
     "id": "skills-flox-environments",
     "name": "skills-flox-environments",
     "category": "programming-languages-core",
     "repository": "affaan-m-ecc",
     "description": "Flox\u3067\u518d\u73fe\u53ef\u80fd\u306a\u30af\u30ed\u30b9\u30d7\u30e9\u30c3\u30c8\u30d5\u30a9\u30fc\u30e0\u958b\u767a\u74b0\u5883\u3092\u4f5c\u6210\u3057\u307e\u3059 \u2014 Nix\u306b\u57fa\u3065\u304f\u5ba3\u8a00\u7684\u306a\u74b0\u5883\u30de\u30cd\u30fc\u30b8\u30e3\u30fc\u3002\u6b21\u306e\u5834\u5408\u306f\u5fc5\u305a\u3053\u306e\u30b9\u30ad\u30eb\u3092\u4f7f\u7528\u3057\u3066\u304f\u3060\u3055\u3044: \u30b7\u30b9\u30c6\u30e0\u30ec\u30d9\u30eb\u306e\u4f9d\u5b58\u95a2\u4fc2\uff08\u30b3\u30f3\u30d1\u30a4\u30e9\u30fc\u3001\u30c7\u30fc\u30bf\u30d9\u30fc\u30b9\u3001openssl\u30fblibvips\u30fbBLAS\u30fbLAPACK\u306a\u3069\u306e\u30cd\u30a4\u30c6\u30a3\u30d6\u30e9\u30a4\u30d6\u30e9\u30ea\u30fc\uff09\u3092\u6301\u3064\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u3092\u8a2d\u5b9a\u3059\u308b\u5834\u5408; Python\u3001Node.js\u3001Rust\u3001Go\u3001C/C++\u3001Java\u3001Ruby\u3001Elixir\u3001PHP\u3001\u305d\u306e\u4ed6\u306e\u8a00\u8a9e\u306e\u518d\u73fe\u53ef\u80fd\u306a\u30c4\u30fc\u30eb\u30c1\u30a7\u30fc\u30f3\u3092\u8a2d\u5b9a\u3059\u308b\u5834\u5408; macOS\u3068Linux\u9593\u3067\u540c\u4e00\u306b\u52d5\u4f5c\u3059\u308b\u74b0\u5883\u3092\u7ba1\u7406\u3059\u308b\u5834\u5408; \u30c1\u30fc\u30e0\u306e\u305f\u3081\u306b\u6b63\u78ba\u306a\u30d1\u30c3\u30b1\u30fc\u30b8\u30d0\u30fc\u30b8\u30e7\u30f3\u3092\u56fa\u5b9a\u3059\u308b\u5834\u5408; \u30ed\u30fc\u30ab\u30eb\u30b5\u30fc\u30d3\u30b9\uff08PostgreSQL\u3001Redis\u3001Kafka\uff09\u3092\u958b\u767a\u30c4\u30fc\u30eb\u3068\u4e26\u884c\u3057\u3066\u5b9f\u884c\u3059\u308b\u5834\u5408; \u5358\u4e00\u30b3\u30de\u30f3\u30c9\u3067\u65b0\u3057\u3044\u958b\u767a\u8005\u3092\u30aa\u30f3\u30dc\u30fc\u30c9\u3059\u308b\u5834\u5408; \u307e\u305f\u306f\u300c\u81ea\u5206\u306e\u30de\u30b7\u30f3\u3067\u306f\u52d5\u304f\u300d\u554f\u984c\u3092\u89e3\u6c7a\u3059\u308b\u5834\u5408\u3002AI\u652f\u63f4\u3084\u30d0\u30a4\u30d6\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u306b\u7279\u306b\u4fa1\u5024\u304c\u3042\u308a\u307e\u3059 \u2014 Flox\u306f\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u304csudo\u306a\u3057\u3001\u30b7\u30b9\u30c6\u30e0\u6c5a\u67d3\u306a\u3057\u3001\u30b5\u30f3\u30c9\u30dc\u30c3\u30af\u30b9\u5236\u9650\u306a\u3057\u306b\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u30b9\u30b3\u30fc\u30d7\u306e\u74b0\u5883\u306b\u30c4\u30fc\u30eb\u3092\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u3067\u304d\u3001\u7d50\u679c\u306e\u74b0\u5883\u306f\u30ea\u30dd\u30b8\u30c8\u30ea\u306b\u30b3\u30df\u30c3\u30c8\u3055\u308c\u308b\u305f\u3081\u3001\u8ab0\u3067\u3082\u5373\u5ea7\u306b\u518d\u73fe\u3067\u304d\u307e\u3059\u3002\u30e6\u30fc\u30b6\u30fc\u304cFlox\u306b\u8a00\u53ca\u3057\u306a\u3044\u5834\u5408\u3067\u3082\u3001\u518d\u73fe\u53ef\u80fd\u3001\u5ba3\u8a00\u7684\u3001\u30af\u30ed\u30b9\u30d7\u30e9\u30c3\u30c8\u30d5\u30a9\u30fc\u30e0\u306a\u958b\u767a\u74b0\u5883\u3068\u30b7\u30b9\u30c6\u30e0\u30d1\u30c3\u30b1\u30fc\u30b8\u304c\u5fc5\u8981\u3068\u8aac\u660e\u3057\u305f\u5834\u5408\u306f\u3053\u306e\u30b9\u30ad\u30eb\u3092\u4f7f\u7528\u3057\u3066\u304f\u3060\u3055\u3044\u3002\u307e\u305f\u3001\u30e6\u30fc\u30b6\u30fc\u304c.flox/\u3001manifest.toml\u3001flox activate\u3001\u307e\u305f\u306fFloxHub\u306b\u8a00\u53ca\u3057\u305f\u5834\u5408\u3082\u4f7f\u7528\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
     "path": "category/programming-languages-core/skills-flox-environments"
+  },
+  {
+    "id": "skills-gemini-api-dev",
+    "name": "skills-gemini-api-dev",
+    "category": "programming-languages-core",
+    "repository": "google-gemini-gemini-skills",
+    "description": "Use this skill when writing code that calls the Gemini API for text generation, multi-turn chat, multimodal understanding, image generation, video generation, speech generation (TTS), voice design, voice replication, streaming responses, background research tasks, function calling, structured output, calibrated decisions (yes/no, choice, rubric scoring), or migrating from the old generateContent API. Covers SDK usage and best practices for Gemini models and agents in Python and TypeScript.",
+    "path": "category/programming-languages-core/skills-gemini-api-dev"
   },
   {
     "id": "skills-golang-patterns",
@@ -2822,6 +2894,14 @@
     "repository": "affaan-m-ecc",
     "description": "Spring Boot\u30b5\u30fc\u30d3\u30b9\u5411\u3051\u306eJava\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u6a19\u6e96\uff1a\u547d\u540d\u3001\u4e0d\u5909\u6027\u3001Optional\u4f7f\u7528\u3001\u30b9\u30c8\u30ea\u30fc\u30e0\u3001\u4f8b\u5916\u3001\u30b8\u30a7\u30cd\u30ea\u30af\u30b9\u3001\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u30ec\u30a4\u30a2\u30a6\u30c8\u3002",
     "path": "category/programming-languages-core/skills-java-coding-standards"
+  },
+  {
+    "id": "skills-mcp-server-builder",
+    "name": "skills-mcp-server-builder",
+    "category": "programming-languages-core",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when exposing an API as an MCP server or scaffolding a new MCP server in Python or TypeScript, before hand-writing tool wrappers. Generates tools from OpenAPI with openapi_to_mcp.py and validates them with mcp_validator.py.",
+    "path": "category/programming-languages-core/skills-mcp-server-builder"
   },
   {
     "id": "skills-principle-type-system-discipline",
@@ -2854,6 +2934,22 @@
     "repository": "affaan-m-ecc",
     "description": "Patrones de pruebas en Rust incluyendo pruebas unitarias, de integraci\u00f3n, async, basadas en propiedades, mocking y cobertura. Sigue la metodolog\u00eda TDD.",
     "path": "category/programming-languages-core/skills-rust-testing"
+  },
+  {
+    "id": "skills-saas-scaffolder",
+    "name": "skills-saas-scaffolder",
+    "category": "programming-languages-core",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when starting a new SaaS app with auth, database, Stripe billing and a dashboard (Next.js App Router, TypeScript, Tailwind, shadcn/ui, Drizzle). Bootstraps it with project_bootstrapper.py.",
+    "path": "category/programming-languages-core/skills-saas-scaffolder"
+  },
+  {
+    "id": "skills-spec-to-repo",
+    "name": "skills-spec-to-repo",
+    "category": "programming-languages-core",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when the user says 'build me an app', 'create a project from this spec', 'scaffold a new repo', 'generate a starter', 'turn this idea into code', 'bootstrap a project', 'I have requirements and need a codebase', or provides a natural-language project specification and expects a complete, runnable repository. Stack-agnostic: Next.js, FastAPI, Rails, Go, Rust, Flutter, and more.",
+    "path": "category/programming-languages-core/skills-spec-to-repo"
   },
   {
     "id": "skills-springboot-patterns",
@@ -3144,12 +3240,36 @@
     "path": "category/programming-languages-core/unit-test-parameterized"
   },
   {
+    "id": "unreal-blueprints",
+    "name": "unreal-blueprints",
+    "category": "programming-languages-core",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "Unreal Engine 5 (UE 5.8) Blueprint visual scripting: Blueprint Classes vs the Level Blueprint, Event Graph, and Cast, Interfaces and Event Dispatchers. Use for BP graphs, how one Blueprint calls another, \"cast failed\", slow Event Tick or Blueprint compile errors. Not for C++ (`unreal-cpp-gameplay`), input assets (`unreal-enhanced-input`) or AI trees (`unreal-behavior-trees`).",
+    "path": "category/programming-languages-core/unreal-blueprints"
+  },
+  {
     "id": "unreal-engine-cpp-pro",
     "name": "unreal-engine-cpp-pro",
     "category": "programming-languages-core",
     "repository": "antigravity-awesome-skills",
     "description": "Expert guide for Unreal Engine 5.x C++ development, covering UObject hygiene, performance patterns, and best practices.",
     "path": "category/programming-languages-core/unreal-engine-cpp-pro"
+  },
+  {
+    "id": "unreal-enhanced-input",
+    "name": "unreal-enhanced-input",
+    "category": "programming-languages-core",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "Unreal Engine 5 (UE 5.8) player input with Enhanced Input: Input Actions (IA_), Mapping Contexts (IMC_), ETriggerEvent bindings and remappable keys. Use when wiring move, look or fire, building a rebind menu, or input does nothing, stops after respawn or fires every frame. Not for engine-neutral input design (`input-systems`) or the Character class (`unreal-cpp-gameplay`).",
+    "path": "category/programming-languages-core/unreal-enhanced-input"
+  },
+  {
+    "id": "unreal-packaging",
+    "name": "unreal-packaging",
+    "category": "programming-languages-core",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "Packages and ships Unreal Engine 5 (UE 5.8) projects: Shipping builds, cooking, pak/IoStore and RunUAT BuildCookRun with UAT and cook log reading. Use for a packaged game with a black screen, a map missing in the build, \"BUILD FAILED\" or an AutomationTool exit code. Not for store uploads (`steam-publish`, `itch-publish`) or gameplay compile errors (`unreal-cpp-gameplay`).",
+    "path": "category/programming-languages-core/unreal-packaging"
   },
   {
     "id": "upgrade-stylus-contracts",

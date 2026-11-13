@@ -56,6 +56,14 @@
     "path": "category/prompt-llm-engineering/agent-orchestration-improve-agent"
   },
   {
+    "id": "agent-platform-autorater-customization",
+    "name": "agent-platform-autorater-customization",
+    "category": "prompt-llm-engineering",
+    "repository": "google-skills",
+    "description": "Customizes an autorater (evaluation metric) for an AI agent so its grades match the user's own judgment, starting from the agent's real trajectories. Use when a user wants a metric tailored to their agent, wants to turn failing trajectories into rubrics, says an existing autorater grades their agent wrong, or wants an autorater to agree with human labels (autorater hillclimbing, judge calibration). Don't use for quick evals with built-in metrics or for improving the agent itself (use agent-platform-eval-flywheel).",
+    "path": "category/prompt-llm-engineering/agent-platform-autorater-customization"
+  },
+  {
     "id": "agent-platform-inference",
     "name": "agent-platform-inference",
     "category": "prompt-llm-engineering",
@@ -568,6 +576,14 @@
     "path": "category/prompt-llm-engineering/binance-wallet-tracker"
   },
   {
+    "id": "binance-web3-binance-agentic-wallet",
+    "name": "binance-web3-binance-agentic-wallet",
+    "category": "prompt-llm-engineering",
+    "repository": "binance-binance-skills-hub",
+    "description": "Use when the user mentions wallet connect/sign in/sign out, check balance, send/transfer tokens, swap/buy/sell tokens, DEX trade, limit/market order, cancel order, get a quote, transaction history, wallet settings, daily limit, slippage, MEV protection, supported chains, send to ENS domain, send to .eth or .bnb name, resolve domain name to address, domain-based transfer, send to .ai Agent ID name, Agent ID claim status, whether I claimed my .ai space id / Agent ID, get my .ai domain, prediction market, place prediction, redeem winnings, prediction PnL, x402 payment, HTTP 402 Payment Required, check/revoke/manage token approvals, DeFi protocols, staking, liquidity pool, LP, yield farming, deposit, redeem, stake, unstake, claim rewards/fees, health factor, APY, TVL, sign external transaction, contract call, sign message, EIP-712, developer mode, speed up/cancel/replace transaction, pending/stuck transactions, gas price, gas fee, network fee, fee levels, gas tiers, or any on-chain wallet operation.",
+    "path": "category/prompt-llm-engineering/binance-web3-binance-agentic-wallet"
+  },
+  {
     "id": "biomni",
     "name": "biomni",
     "category": "prompt-llm-engineering",
@@ -918,6 +934,14 @@
     "repository": "starchild-ai-agent-official-skills",
     "description": "Check and collect LP fees from PancakeSwap V3 and Infinity (v4) positions. Use when user says \"collect my fees\", \"claim LP fees\", \"how much fees have I earned\", \"pending fees\", \"uncollected fees\", \"/collect-fees\", \"harvest LP fees\", or asks about fees from a specific token pair position.",
     "path": "category/prompt-llm-engineering/collect-fees"
+  },
+  {
+    "id": "commenter-talent-scan",
+    "name": "commenter-talent-scan",
+    "category": "prompt-llm-engineering",
+    "repository": "ericosiu-ai-marketing-skills",
+    "description": "Turn the commenters on a public social media hiring post into a ranked, outreach-ready talent list. Pulls every comment, resolves and enriches each commenter's profile, downloads their profile image, and scores every person with an eval-gated Jev text+images sieve (role depth, hire target vs peer vs brand, role level, primary specialty). Use when asked to: \"scan the commenters\", \"find hires in the comments\", \"who in these comments is worth hiring\", \"talent scan this post\", \"rank the applicants in the comments\".",
+    "path": "category/prompt-llm-engineering/commenter-talent-scan"
   },
   {
     "id": "computer-use-agents",
@@ -1920,6 +1944,14 @@
     "path": "category/prompt-llm-engineering/huawei-cloud-activity-submit"
   },
   {
+    "id": "huawei-cloud-bcs-manage",
+    "name": "huawei-cloud-bcs-manage",
+    "category": "prompt-llm-engineering",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Query and manage Huawei Cloud BCS (Blockchain Service, \u533a\u5757\u94fe\u670d\u52a1) from one entry point. Read-only: list blockchain instances with status/version/charging details, instance detail, organization/peer nodes, channels, union members and invitations, specifications, quotas, creation/deployment status, asynchronous operation records, alerts and monitoring metrics. Write: download certificates and Fabric SDK configuration, create/freeze/unfreeze user certificates, create/delete channels, add/remove peers and organizations, create/update/delete instances, and handle union member invitations. Uses the huaweicloudsdkbcs Python SDK (KooCLI only exposes BCS when its local metadata cache holds the BCS service template, so this skill does not depend on KooCLI). Read-only commands never prompt; every write prints an impact preview and requires --confirm, and asynchronous results are reported through ListOpRecord. Never queries or modifies chaincode lifecycle (no BCS OpenAPI; use the console). Use when the user wants to list/inspect BCS instances, channels, organizations, peers, members, quotas, alerts or metrics (inventory, daily inspection, troubleshooting, cost review), or to change BCS resources: create or delete an instance, manage channels/peers/organizations, issue or revoke certificates, download SDK config, or accept/reject union invitations. Triggers include: \"BCS\", \"blockchain service\", \"\u533a\u5757\u94fe\", \"\u533a\u5757\u94fe\u670d\u52a1\", \"BCS \u5b9e\u4f8b\", \"blockchain instance\", \"BCS channel\", \"\u901a\u9053\", \"\u8054\u76df\u6210\u5458\", \"BCS \u914d\u989d\", \"BCS \u544a\u8b66\", \"BCS \u76d1\u63a7\", \"BCS \u76d1\u63a7\u6307\u6807\", \"list BCS\", \"query blockchain\", \"\u67e5\u770b\u533a\u5757\u94fe\u5b9e\u4f8b\", \"\u67e5\u8be2\u533a\u5757\u94fe\u901a\u9053\", \"\u67e5\u8be2\u94fe\u7801 SDK \u914d\u7f6e\", \"how many blockchain instances\", \"\u521b\u5efa\u533a\u5757\u94fe\u5b9e\u4f8b\", \"\u5220\u9664\u533a\u5757\u94fe\u5b9e\u4f8b\", \"BCS channel management\", \"\u521b\u5efa\u901a\u9053\", \"\u5220\u9664\u901a\u9053\", \"\u6dfb\u52a0\u8282\u70b9\", \"\u79fb\u9664\u7ec4\u7ec7\", \"\u4e0b\u8f7d\u8bc1\u4e66\", \"\u4e0b\u8f7dSDK\u914d\u7f6e\", \"\u51bb\u7ed3\u8bc1\u4e66\", \"\u8054\u76df\u9080\u8bf7\", \"BCS manage\".",
+    "path": "category/prompt-llm-engineering/huawei-cloud-bcs-manage"
+  },
+  {
     "id": "huawei-cloud-cloudrobo-train",
     "name": "huawei-cloud-cloudrobo-train",
     "category": "prompt-llm-engineering",
@@ -2856,6 +2888,14 @@
     "path": "category/prompt-llm-engineering/nowait"
   },
   {
+    "id": "nvalchemi-toolkit",
+    "name": "nvalchemi-toolkit",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Build and change NVIDIA ALCHEMI Toolkit (nvalchemi) workflows for atomistic simulation and machine-learned interatomic potentials (MLIPs). Use for batched structure relaxation, molecular dynamics, reaction paths, training or fine-tuning an MLIP, atomistic datasets in Zarr, generative structure workflows, model wrapping, and custom hooks or integrators, with the ALCHEMI Toolkit (nvalchemi), or when the user asks for batched GPU atomistic simulation and nvalchemi is installed or acceptable. Not for other simulation packages the user asked for (ASE-only, OpenMM, LAMMPS, GROMACS) when the request does not involve nvalchemi, ALCHEMI Toolkit-Ops (nvalchemiops) kernel work, or plain PyTorch questions.",
+    "path": "category/prompt-llm-engineering/nvalchemi-toolkit"
+  },
+  {
     "id": "observability-langsmith",
     "name": "observability-langsmith",
     "category": "prompt-llm-engineering",
@@ -2870,6 +2910,14 @@
     "repository": "davila7-claude-code-templates",
     "description": "Open-source AI observability platform for LLM tracing, evaluation, and monitoring. Use when debugging LLM applications with detailed traces, running evaluations on datasets, or monitoring production AI systems with real-time insights.",
     "path": "category/prompt-llm-engineering/observability-phoenix"
+  },
+  {
+    "id": "offensive-ai-security",
+    "name": "offensive-ai-security",
+    "category": "prompt-llm-engineering",
+    "repository": "snailsploit-claude-red",
+    "description": "AI/LLM security offensive checklist: prompt injection, jailbreaking, model extraction, training data poisoning, adversarial inputs, LLM-assisted attack automation, and AI system reconnaissance. Use when assessing AI/ML systems, red-teaming LLMs, or researching AI attack vectors.",
+    "path": "category/prompt-llm-engineering/offensive-ai-security"
   },
   {
     "id": "okx-agentic-wallet",
@@ -3952,12 +4000,28 @@
     "path": "category/prompt-llm-engineering/skillclaw-skill-evolution"
   },
   {
+    "id": "skills-aeo",
+    "name": "skills-aeo",
+    "category": "prompt-llm-engineering",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when content should be cited by ChatGPT, Perplexity, Claude or Gemini (answer engine optimization), before rewriting it. Scores E-E-A-T and structure with aeo_audit.py, rewrites with aeo_optimizer.py and logs citations with citation_tracker.py.",
+    "path": "category/prompt-llm-engineering/skills-aeo"
+  },
+  {
     "id": "skills-agent-eval",
     "name": "skills-agent-eval",
     "category": "prompt-llm-engineering",
     "repository": "affaan-m-ecc",
     "description": "\u30ab\u30b9\u30bf\u30e0\u30bf\u30b9\u30af\u3067\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\uff08Claude Code\u3001Aider\u3001Codex \u306a\u3069\uff09\u3092\u30d8\u30c3\u30c9\u30c4\u30fc\u30d8\u30c3\u30c9\u3067\u6bd4\u8f03\u3057\u3001\u5408\u683c\u7387\u3001\u30b3\u30b9\u30c8\u3001\u6642\u9593\u3001\u4e00\u8cab\u6027\u306e\u30e1\u30c8\u30ea\u30af\u30b9\u3092\u6e2c\u5b9a\u3057\u307e\u3059",
     "path": "category/prompt-llm-engineering/skills-agent-eval"
+  },
+  {
+    "id": "skills-agent-regression-evals",
+    "name": "skills-agent-regression-evals",
+    "category": "prompt-llm-engineering",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use before shipping any agent, prompt, model or tool change, or when a pass-rate drop needs a verdict. Runs repeated trials, gates candidate vs baseline with paired statistics in regression_gate.py, checks tool-call trajectories and finds flaky cases.",
+    "path": "category/prompt-llm-engineering/skills-agent-regression-evals"
   },
   {
     "id": "skills-cad",
@@ -4152,6 +4216,22 @@
     "path": "category/prompt-llm-engineering/skills-cost-aware-llm-pipeline"
   },
   {
+    "id": "skills-cross-eval",
+    "name": "skills-cross-eval",
+    "category": "prompt-llm-engineering",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for /c-level-agents:cross-eval, or when a high-stakes memo needs independent review by several models before the boardroom.",
+    "path": "category/prompt-llm-engineering/skills-cross-eval"
+  },
+  {
+    "id": "skills-eval",
+    "name": "skills-eval",
+    "category": "prompt-llm-engineering",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Rank finished AgentHub agents by metric or judge. Use when asked which agent won.",
+    "path": "category/prompt-llm-engineering/skills-eval"
+  },
+  {
     "id": "skills-eval-harness",
     "name": "skills-eval-harness",
     "category": "prompt-llm-engineering",
@@ -4174,6 +4254,14 @@
     "repository": "affaan-m-ecc",
     "description": "EVM\u30c1\u30a7\u30fc\u30f3\u5168\u4f53\u3067\u30b5\u30a4\u30ec\u30f3\u30c8\u306a\u5c0f\u6570\u70b9\u4e0d\u4e00\u81f4\u30d0\u30b0\u3092\u9632\u3050\u3002\u30e9\u30f3\u30bf\u30a4\u30e0\u3067\u306e\u5c0f\u6570\u70b9\u7167\u4f1a\u3001\u30c1\u30a7\u30fc\u30f3\u5bfe\u5fdc\u30ad\u30e3\u30c3\u30b7\u30f3\u30b0\u3001\u30d6\u30ea\u30c3\u30b8\u30c9\u30c8\u30fc\u30af\u30f3\u306e\u7cbe\u5ea6\u30c9\u30ea\u30d5\u30c8\u3001\u30dc\u30c3\u30c8\u30fb\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9\u30fbDeFi\u30c4\u30fc\u30eb\u5411\u3051\u306e\u5b89\u5168\u306a\u6b63\u898f\u5316\u3092\u30ab\u30d0\u30fc\u3057\u307e\u3059\u3002",
     "path": "category/prompt-llm-engineering/skills-evm-token-decimals"
+  },
+  {
+    "id": "skills-fable-goal",
+    "name": "skills-fable-goal",
+    "category": "prompt-llm-engineering",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when the user wants a /goal prompt rather than the build itself ('/fable-goal', 'turn this into a goal prompt', 'write the prompt that builds X'). Turns their ramble into one copy-paste prompt checked by goal_prompt_self_check.py.",
+    "path": "category/prompt-llm-engineering/skills-fable-goal"
   },
   {
     "id": "skills-gemini",
@@ -4200,12 +4288,36 @@
     "path": "category/prompt-llm-engineering/skills-healthcare-eval-harness"
   },
   {
+    "id": "skills-hub-run",
+    "name": "skills-hub-run",
+    "category": "prompt-llm-engineering",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for /hub-run, or to run a whole AgentHub competition end to end: init, baseline, spawn, eval and merge.",
+    "path": "category/prompt-llm-engineering/skills-hub-run"
+  },
+  {
+    "id": "skills-image-prompt",
+    "name": "skills-image-prompt",
+    "category": "prompt-llm-engineering",
+    "repository": "davidondrej-skills",
+    "description": "Write four distinct prompts for AI image models. Use for image, thumbnail, banner, logo, or illustration prompts. Produces prompt text only.",
+    "path": "category/prompt-llm-engineering/skills-image-prompt"
+  },
+  {
     "id": "skills-incremental-build",
     "name": "skills-incremental-build",
     "category": "prompt-llm-engineering",
     "repository": "dotnet-skills",
     "description": "Fix MSBuild incremental/no-op builds: 'nothing changed but it rebuilds anyway'. USE FOR: targets re-executing on subsequent builds, missing Inputs/Outputs or FileWrites, volatile output paths, untracked writes, glob changes, Visual Studio Fast Up-to-Date Check (FUTDC); 'Building target completely' vs 'Skipping target' in binlog. DO NOT USE FOR: within-build duplicates (find-repeated-work-within-one-build), first-build slowness (build-perf-baseline), parallelism (build-parallelism), slow evaluation (eval-performance), non-MSBuild systems.",
     "path": "category/prompt-llm-engineering/skills-incremental-build"
+  },
+  {
+    "id": "skills-llm-cost-optimizer",
+    "name": "skills-llm-cost-optimizer",
+    "category": "prompt-llm-engineering",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use whenever an LLM feature is being built or its costs come up (model choice, prompt caching, token limits, per-feature spend). Sets routing, caching, max_tokens and cost logging before launch rather than after the bill.",
+    "path": "category/prompt-llm-engineering/skills-llm-cost-optimizer"
   },
   {
     "id": "skills-llm-trading-agent-security",
@@ -4216,12 +4328,28 @@
     "path": "category/prompt-llm-engineering/skills-llm-trading-agent-security"
   },
   {
+    "id": "skills-llm-wiki",
+    "name": "skills-llm-wiki",
+    "category": "prompt-llm-engineering",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when building or maintaining an Obsidian second brain that an LLM keeps up to date, or when ingesting a paper, article or book into it. Ingests with ingest_source.py, maintains index and links and checks the vault with lint_wiki.py.",
+    "path": "category/prompt-llm-engineering/skills-llm-wiki"
+  },
+  {
     "id": "skills-mem-setup",
     "name": "skills-mem-setup",
     "category": "prompt-llm-engineering",
     "repository": "thedotmack-claude-mem",
     "description": "This skill should be used when the user asks to \"set up claude-mem\", \"pair claude-mem\", \"connect cmem\", \"add my cmem key\", \"set up cloud sync in Cowork\" or in the Claude app, or provides cmem.ai Connect values (sync token, user id, SyncHub URL) for this plugin. Configures the CMEM Pro plugin credentials.",
     "path": "category/prompt-llm-engineering/skills-mem-setup"
+  },
+  {
+    "id": "skills-memory-engineering",
+    "name": "skills-memory-engineering",
+    "category": "prompt-llm-engineering",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use before adding memory to an agent or when a memory store keeps growing (long context vs RAG vs graph vs agentic memory, what to expire). Prices the design with memory_cost_profiler.py and refuses one without a forgetting policy via forgetting_policy_linter.py.",
+    "path": "category/prompt-llm-engineering/skills-memory-engineering"
   },
   {
     "id": "skills-okx-dex-market",
@@ -4264,6 +4392,22 @@
     "path": "category/prompt-llm-engineering/skills-principle-explain-the-number"
   },
   {
+    "id": "skills-prompt-engineer-toolkit",
+    "name": "skills-prompt-engineer-toolkit",
+    "category": "prompt-llm-engineering",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when a marketing team's AI prompts need testing, versioning or governance, before shipping a prompt. A/B tests prompts against cases with prompt_tester.py and keeps diffed versions with prompt_versioner.py.",
+    "path": "category/prompt-llm-engineering/skills-prompt-engineer-toolkit"
+  },
+  {
+    "id": "skills-prompt-governance",
+    "name": "skills-prompt-governance",
+    "category": "prompt-llm-engineering",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when prompts run in production and need versioning, a registry, A/B tests, regression checks or an eval pipeline. Sets up the release process for prompts; single-prompt quality: senior-prompt-engineer.",
+    "path": "category/prompt-llm-engineering/skills-prompt-governance"
+  },
+  {
     "id": "skills-prompt-optimizer",
     "name": "skills-prompt-optimizer",
     "category": "prompt-llm-engineering",
@@ -4280,6 +4424,46 @@
     "path": "category/prompt-llm-engineering/skills-regex-vs-llm-structured-text"
   },
   {
+    "id": "skills-self-eval",
+    "name": "skills-self-eval",
+    "category": "prompt-llm-engineering",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Grade finished work honestly on two axes with a devil's-advocate pass against inflation. Use whenever the user asks how well a task went, to rate the work or for an honest self-review.",
+    "path": "category/prompt-llm-engineering/skills-self-eval"
+  },
+  {
+    "id": "skills-senior-prompt-engineer",
+    "name": "skills-senior-prompt-engineer",
+    "category": "prompt-llm-engineering",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Improve prompts and measure LLM quality: fix inconsistent prompts, build eval sets, score RAG retrieval, check agent tool configs. Use whenever the user's prompt, chatbot or RAG answers are unreliable or they ask how to test them.",
+    "path": "category/prompt-llm-engineering/skills-senior-prompt-engineer"
+  },
+  {
+    "id": "skills-seo-dataforseo",
+    "name": "skills-seo-dataforseo",
+    "category": "prompt-llm-engineering",
+    "repository": "agricidaniel-claude-seo",
+    "description": "Live SEO data via DataForSEO MCP server: SERP analysis, keyword research (volume, difficulty, intent, trends), backlink profiles, on-page analysis, competitor and content analysis, business listings, AI visibility (LLM mention tracking), and domain analytics. Requires DataForSEO extension installed. Use when user says \"dataforseo\", \"live SERP\", \"keyword volume\", \"backlink data\", \"AI visibility check\", or \"real search data\".",
+    "path": "category/prompt-llm-engineering/skills-seo-dataforseo"
+  },
+  {
+    "id": "skills-seo-profound",
+    "name": "skills-seo-profound",
+    "category": "prompt-llm-engineering",
+    "repository": "agricidaniel-claude-seo",
+    "description": "Profound LLM citation tracker (extension). Time-series brand citation rates across ChatGPT, Perplexity, and other LLMs. Pairs with seo-seranking for triangulated AI visibility coverage.",
+    "path": "category/prompt-llm-engineering/skills-seo-profound"
+  },
+  {
+    "id": "skills-seo-seranking",
+    "name": "skills-seo-seranking",
+    "category": "prompt-llm-engineering",
+    "repository": "agricidaniel-claude-seo",
+    "description": "SE Ranking AI visibility analyst (extension). Tracks AI Share-of-Voice across ChatGPT, Gemini, Perplexity, AI Overviews, and AI Mode in a single query.",
+    "path": "category/prompt-llm-engineering/skills-seo-seranking"
+  },
+  {
     "id": "skills-sharpen",
     "name": "skills-sharpen",
     "category": "prompt-llm-engineering",
@@ -4288,12 +4472,28 @@
     "path": "category/prompt-llm-engineering/skills-sharpen"
   },
   {
+    "id": "skills-skill-security-auditor",
+    "name": "skills-skill-security-auditor",
+    "category": "prompt-llm-engineering",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use before installing any skill or plugin from an untrusted source, or when asked if a skill is safe. Scans scripts, SKILL.md and dependencies for exfiltration, dangerous calls and prompt injection with skill_security_auditor.py.",
+    "path": "category/prompt-llm-engineering/skills-skill-security-auditor"
+  },
+  {
     "id": "skills-smart-explore",
     "name": "skills-smart-explore",
     "category": "prompt-llm-engineering",
     "repository": "thedotmack-claude-mem",
     "description": "Token-optimized structural code search using tree-sitter AST parsing. Use instead of reading full files when you need to understand code structure, find functions, or explore a codebase efficiently.",
     "path": "category/prompt-llm-engineering/skills-smart-explore"
+  },
+  {
+    "id": "skills-spinning-up-deep-rl",
+    "name": "skills-spinning-up-deep-rl",
+    "category": "prompt-llm-engineering",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Learn or apply deep reinforcement learning with OpenAI Spinning Up: policy gradients, VPG, PPO, SAC, TD3, DDPG, TRPO. Use whenever an RL agent will not learn, reward stays flat, or the user asks how PPO or SAC works.",
+    "path": "category/prompt-llm-engineering/skills-spinning-up-deep-rl"
   },
   {
     "id": "skills-token-budget-advisor",
@@ -4318,6 +4518,14 @@
     "repository": "unity-technologies-skills",
     "description": "Control a Unity Editor or Player via the unity-pipeline package. Compile, run tests, eval, method-reload code, enter Play Mode, capture screenshots.",
     "path": "category/prompt-llm-engineering/skills-unity-pipeline"
+  },
+  {
+    "id": "skills-video",
+    "name": "skills-video",
+    "category": "prompt-llm-engineering",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to create video with AI tools or code, or asks which approach to use (screen recording, AI avatar, generated, or templated) or how to make videos repeatably: product demos, AI generation (Veo, Sora, HeyGen), programmatic video with Remotion. For what to post, see social. For video ads, see ad-creative.",
+    "path": "category/prompt-llm-engineering/skills-video"
   },
   {
     "id": "slides-style-prompt-studio",

@@ -264,6 +264,14 @@
     "path": "category/productivity-workspace-tools/compute-on-demand-reservations"
   },
   {
+    "id": "compute-spot-capacity-advice",
+    "name": "compute-spot-capacity-advice",
+    "category": "productivity-workspace-tools",
+    "repository": "google-skills",
+    "description": "Evaluates Google Compute Engine (GCE) Spot VM capacity obtainability, placement likelihood, and machine family or regional flexibility. Use when planning batch workloads, finding available Spot CPU or GPU capacity, assessing stockout risks, or optimizing instance distribution across zones. Don't use for TPU availability, on-demand reservation capacity (use compute-on-demand-reservations), or future GPU/TPU calendar bookings (use compute-future-reservations).",
+    "path": "category/productivity-workspace-tools/compute-spot-capacity-advice"
+  },
+  {
     "id": "conference-cfp-submission",
     "name": "conference-cfp-submission",
     "category": "productivity-workspace-tools",
@@ -358,6 +366,14 @@
     "repository": "amplitude-mcp-marketplace",
     "description": "Delivers a daily briefing of the most important changes across your Amplitude instance. Use when the user asks for a \"daily download\", \"morning briefing\", \"what's happening\", \"anything I should know\", or wants a summary of recent metric changes, experiments, and user feedback.",
     "path": "category/productivity-workspace-tools/daily-brief"
+  },
+  {
+    "id": "daily-production-report",
+    "name": "daily-production-report",
+    "category": "productivity-workspace-tools",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "Produces the morning production report: output against plan by line, cell and product; OEE with availability, performance and quality shown separately; the downtime log ranked both by minutes and by frequency; scrap and downtime priced in dollars; week-over-week movers; and the exceptions needing a decision today. For each significant exception it drafts a specific reschedule or changeover move with its consequences traced, never a re-optimised day. Reads the consolidated dataset and leads with data freshness. When the plant has a floor plan on file, or attaches one, it also draws each machine's OEE, availability and downtime on a schematic of the floor. Use when someone says \\\"morning report,\\\" \\\"production report,\\\" \\\"how did we do yesterday,\\\" \\\"what's our OEE,\\\" \\\"downtime report,\\\" \\\"what's late,\\\" or \\\"what do I take into the production meeting.\\",
+    "path": "category/productivity-workspace-tools/daily-production-report"
   },
   {
     "id": "day-hour-performance-breakdown",
@@ -1888,12 +1904,68 @@
     "path": "category/productivity-workspace-tools/skillopt-sleep"
   },
   {
+    "id": "skills-agent-launcher-orchestrator",
+    "name": "skills-agent-launcher-orchestrator",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when someone wants to build, launch, grade or schedule a Claude Managed Agent in their own Anthropic account ('build me an agent', 'run this nightly'). Reads the session goal, routes with goal_router.py and compiles the loop with loop_compiler.py.",
+    "path": "category/productivity-workspace-tools/skills-agent-launcher-orchestrator"
+  },
+  {
+    "id": "skills-agent-protocol",
+    "name": "skills-agent-protocol",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when C-suite advisor agents need to call each other or run a multi-role meeting. Defines invocation syntax, loop prevention, isolation and response formats.",
+    "path": "category/productivity-workspace-tools/skills-agent-protocol"
+  },
+  {
+    "id": "skills-atlassian-admin",
+    "name": "skills-atlassian-admin",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for Atlassian org administration: Jira or Confluence users and groups, permissions, SSO, marketplace apps or security policy. Audits permissions with permission_audit_tool.py.",
+    "path": "category/productivity-workspace-tools/skills-atlassian-admin"
+  },
+  {
+    "id": "skills-atlassian-templates",
+    "name": "skills-atlassian-templates",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when creating or changing Jira or Confluence templates, blueprints or page layouts for reuse across the org. Scaffolds them with template_scaffolder.py.",
+    "path": "category/productivity-workspace-tools/skills-atlassian-templates"
+  },
+  {
+    "id": "skills-board-meeting",
+    "name": "skills-board-meeting",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for /c-level-agents:boardroom or a strategic question that needs a structured multi-executive deliberation. Runs six phases: context, isolated C-suite views, critic, synthesis, founder review and decision.",
+    "path": "category/productivity-workspace-tools/skills-board-meeting"
+  },
+  {
+    "id": "skills-board-prep",
+    "name": "skills-board-prep",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use before a board meeting, investor update or fundraising pitch where the numbers will be challenged. Drills numbers cold, anticipates the hard questions and builds a narrative that admits weakness without losing the room.",
+    "path": "category/productivity-workspace-tools/skills-board-prep"
+  },
+  {
     "id": "skills-build-agent",
     "name": "skills-build-agent",
     "category": "productivity-workspace-tools",
     "repository": "anthropics-knowledge-work",
     "description": "Turns a task the owner keeps doing by hand into a named, reusable skill they can trigger by name or put on a schedule. Watches them do it once or listens to them describe it, works out what varies and what stays fixed, writes the skill with approval checkpoints in the right places, registers it with the router, and shares it with the team. This is how a business gets a workflow nobody shipped for them. Use this whenever the owner describes something repetitive they wish were automatic \u2014 including phrasings like \"I do this every week,\" \"can you remember how to do this,\" \"make this a thing I can just ask for,\" \"build me an agent,\" \"automate this for me,\" \"turn this into a workflow,\" or \"I want this to happen every Monday.\" Reach for it when they describe a routine, even without asking for automation.",
     "path": "category/productivity-workspace-tools/skills-build-agent"
+  },
+  {
+    "id": "skills-chief-of-staff",
+    "name": "skills-chief-of-staff",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when a founder question needs routing to the right C-suite advisor, or a cross-functional decision needs a board meeting convened. Loads company context, synthesizes the answers and tracks decisions.",
+    "path": "category/productivity-workspace-tools/skills-chief-of-staff"
   },
   {
     "id": "skills-close-management",
@@ -1904,12 +1976,44 @@
     "path": "category/productivity-workspace-tools/skills-close-management"
   },
   {
+    "id": "skills-community-marketing",
+    "name": "skills-community-marketing",
+    "category": "productivity-workspace-tools",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to build or grow an online community, or asks whether a community is worth it, where to host it, or why members stay quiet: Discord, Slack, forums, participation, community-led growth, advocates. For referral programs, see referrals. For creator partnerships, see influencer-marketing.",
+    "path": "category/productivity-workspace-tools/skills-community-marketing"
+  },
+  {
+    "id": "skills-confluence-expert",
+    "name": "skills-confluence-expert",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when building or restructuring a Confluence space: page hierarchy, permissions, templates, Jira macros or a content audit. Generates structure with space_structure_generator.py and audits with content_audit_analyzer.py.",
+    "path": "category/productivity-workspace-tools/skills-confluence-expert"
+  },
+  {
     "id": "skills-custom-blocks",
     "name": "skills-custom-blocks",
     "category": "productivity-workspace-tools",
     "repository": "makenotion-notion-cookbook",
     "description": "Build interactive browser custom blocks declared by a Notion App.",
     "path": "category/productivity-workspace-tools/skills-custom-blocks"
+  },
+  {
+    "id": "skills-decision-logger",
+    "name": "skills-decision-logger",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when logging a decision after a board meeting, reviewing past decisions or checking overdue actions. Keeps raw transcripts and approved decisions separately with decision_tracker.py.",
+    "path": "category/productivity-workspace-tools/skills-decision-logger"
+  },
+  {
+    "id": "skills-dossier",
+    "name": "skills-dossier",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for diligence or meeting prep on a specific company, person or organization ('prep me for a meeting with X', 'due diligence on Y'). Tests the user's stated hypothesis with balanced evidence (disconfirming_evidence_balance.py) and writes a .docx dossier.",
+    "path": "category/productivity-workspace-tools/skills-dossier"
   },
   {
     "id": "skills-exec-briefing-memo",
@@ -1920,12 +2024,68 @@
     "path": "category/productivity-workspace-tools/skills-exec-briefing-memo"
   },
   {
+    "id": "skills-executive-mentor",
+    "name": "skills-executive-mentor",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when a founder or executive needs a plan stress-tested, a dreaded decision made, a hard board meeting prepared or an honest post-mortem. Adversarial thinking partner; scores options with decision_matrix_scorer.py and maps stakeholders with stakeholder_mapper.py.",
+    "path": "category/productivity-workspace-tools/skills-executive-mentor"
+  },
+  {
+    "id": "skills-fea",
+    "name": "skills-fea",
+    "category": "productivity-workspace-tools",
+    "repository": "earthtojake-text-to-cad",
+    "description": "Checks whether a part or an assembly of bonded parts holds under its loads, as a linear static stress study of a STEP, an xbf or a text-to-cad model, meshed by netgen and solved by CalculiX, giving peak von Mises stress, safety factor against yield and deflection drawn on the part. Use when the person asks whether a part will hold, break or is strong enough, how much it bends or sags, where it is most stressed, how much load it takes, how to make it stronger or lighter without failing, or for FEA, a stress analysis or a strength simulation. Static loads and steady g-loads only.",
+    "path": "category/productivity-workspace-tools/skills-fea"
+  },
+  {
+    "id": "skills-fireflies-transcript",
+    "name": "skills-fireflies-transcript",
+    "category": "productivity-workspace-tools",
+    "repository": "davidondrej-skills",
+    "description": "Fetch raw Fireflies.ai meeting transcripts. Use only when the user explicitly invokes /fireflies-transcript; for YouTube, use youtube-transcript.",
+    "path": "category/productivity-workspace-tools/skills-fireflies-transcript"
+  },
+  {
+    "id": "skills-founder-coach",
+    "name": "skills-founder-coach",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when a founder is the bottleneck, can't delegate, is burning out or is moving from IC to CEO. Covers delegation, energy and calendar audits, blind spots and succession.",
+    "path": "category/productivity-workspace-tools/skills-founder-coach"
+  },
+  {
     "id": "skills-grant-rfp-writer",
     "name": "skills-grant-rfp-writer",
     "category": "productivity-workspace-tools",
     "repository": "anthropics-knowledge-work",
     "description": "Finds grant and solicitation opportunities the organization actually qualifies for, runs a hard go/no-go before anyone starts writing, drafts the application or response from past submissions and real program data, and tracks every deadline and reporting obligation that follows an award. Built for nonprofits, government contractors, and education, and it filters daily feeds like SAM.gov or DIBBS down to the handful worth bidding. Runs on Google Drive or M365 with DocuSign and Calendar deepening it, and works from uploaded past submissions plus web research when nothing is connected. Use this whenever a funding or bidding opportunity is in play \u2014 including \"find grants we qualify for,\" \"should we bid this,\" \"draft the response to this RFP,\" \"we've got 50 solicitations to filter,\" \"what's due on the federal grant,\" or \"help me write the proposal narrative.",
     "path": "category/productivity-workspace-tools/skills-grant-rfp-writer"
+  },
+  {
+    "id": "skills-incoming-request-advisor",
+    "name": "skills-incoming-request-advisor",
+    "category": "productivity-workspace-tools",
+    "repository": "deanpeters-product-manager-skills",
+    "description": "Decode an incoming message into a structured breakdown separating the literal ask from the job-to-be-done. Use when a loaded Slack ping, email, mandate, or escalation needs a reply.",
+    "path": "category/productivity-workspace-tools/skills-incoming-request-advisor"
+  },
+  {
+    "id": "skills-jira-expert",
+    "name": "skills-jira-expert",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Jira setup and queries: JQL, workflows, custom fields, automation, dashboards. Use whenever the user needs a Jira search, filter, dashboard or rule set up, or a workflow fixed.",
+    "path": "category/productivity-workspace-tools/skills-jira-expert"
+  },
+  {
+    "id": "skills-lark-meeting",
+    "name": "skills-lark-meeting",
+    "category": "productivity-workspace-tools",
+    "repository": "larksuite-cli",
+    "description": "\u98de\u4e66\u89c6\u9891\u4f1a\u8bae\uff1a\u67e5\u8be2\u4f1a\u8bae\u8bb0\u5f55\u4e0e\u4f1a\u8bae\u4ea7\u7269(\u7eaa\u8981/\u9010\u5b57\u7a3f/\u5999\u8bb0)\u3001\u5999\u8bb0\u641c\u7d22/\u4e0a\u4f20/\u4e0b\u8f7d/\u7f16\u8f91\u3001\u673a\u5668\u4eba\u53c2\u4e0e\u4f1a\u8bae\uff1b\u67e5\u8be2\u8fdb\u884c\u4e2d\u7684\u4f1a\u8bae\u3001\u5b9e\u65f6\u4f1a\u8bae\u5185\u5bb9(\u53d1\u8a00/\u804a\u5929/\u5171\u4eab\u6587\u6863)\u95ee\u7b54(\u4f1a\u4e0a/\u4f1a\u91cc)\u3001\u53d1\u9001\u4f1a\u4e2d\u804a\u5929/\u8868\u60c5\uff1b\u57fa\u4e8e meeting_id\u3001meeting_no\u3001event_id\u3001note_id\u3001minute_token\u3001vc-node-id \u6216\u5999\u8bb0 URL \u67e5\u8be2\u76f8\u5173\u4fe1\u606f\u3002\u9884\u7ea6\u4f1a\u8bae\u3001\u5fd9\u95f2\u548c\u4f1a\u8bae\u5ba4\u7ba1\u7406\u8d70 lark-calendar\u3002",
+    "path": "category/productivity-workspace-tools/skills-lark-meeting"
   },
   {
     "id": "skills-marketing-loops",
@@ -1942,6 +2102,14 @@
     "repository": "anthropics-knowledge-work",
     "description": "Delivers the weekly growth briefing as one merged read \u2014 whether the growth engine is working, what customers are saying in public and private, what competitors actually changed, and the three growth actions worth taking this week. The growth twin of the Monday brief, chaining growth-pulse and review-reputation and adding a web-native competitor scan, merged into a single page rather than three reports. Offers to run on a weekly cadence once, and sets it up on a yes. Use this whenever the owner wants a recurring or one-off growth check, including phrasings like \"how's marketing doing,\" \"growth check for the week,\" \"give me my Monday growth brief,\" \"what should I be doing about growth this week,\" \"are we winning or losing out there,\" or \"set up a weekly marketing update.\" Reach for it when the owner asks how the business is growing rather than how it is paying its bills.",
     "path": "category/productivity-workspace-tools/skills-marketing-monday"
+  },
+  {
+    "id": "skills-meeting-analyzer",
+    "name": "skills-meeting-analyzer",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when the user shares meeting transcripts (.vtt, .srt, .txt, Otter, Granola, Zoom) or asks how they come across in meetings. Measures speaking ratio, filler words and avoidance patterns and gives coaching.",
+    "path": "category/productivity-workspace-tools/skills-meeting-analyzer"
   },
   {
     "id": "skills-notion-as-code",
@@ -2048,12 +2216,44 @@
     "path": "category/productivity-workspace-tools/skills-notion-weekly-project-digest"
   },
   {
+    "id": "skills-pm-skills",
+    "name": "skills-pm-skills",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Router for project-management skills: sprints, portfolio health, Jira, Confluence, stakeholder comms, plus a delivery loop. Use whenever a delivery request is unclear about which PM skill fits, or the user asks to run a delivery loop or pull Jira data into one.",
+    "path": "category/productivity-workspace-tools/skills-pm-skills"
+  },
+  {
+    "id": "skills-pulse",
+    "name": "skills-pulse",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for what people are saying right now about a topic (trends, sentiment, complaints, tool comparisons) across Reddit, Hacker News and the web in a recent window. Returns a cited briefing with engagement signals.",
+    "path": "category/productivity-workspace-tools/skills-pulse"
+  },
+  {
+    "id": "skills-qms-audit-expert",
+    "name": "skills-qms-audit-expert",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for ISO 13485 internal audits: planning the program, running an audit, classifying findings or preparing for an external audit. Optimizes the schedule with audit_schedule_optimizer.py.",
+    "path": "category/productivity-workspace-tools/skills-qms-audit-expert"
+  },
+  {
     "id": "skills-report-pack",
     "name": "skills-report-pack",
     "category": "productivity-workspace-tools",
     "repository": "anthropics-knowledge-work",
     "description": "Delivers the owner's custom recurring report pack on a set cadence \u2014 runs the saved report definition from report-builder, wraps it in a business-pulse snapshot so the numbers have context, and hands over one chat summary plus the workbook. Defined once, then delivered on schedule without being asked again. Runs on any single connected data source, or entirely from an uploaded CSV or XLSX. Use it when the owner asks for their report pack, their weekly or monthly numbers, \"send me the usual report,\" \"run my report pack,\" \"set this up to come every Monday,\" or \"I want these numbers on a schedule.",
     "path": "category/productivity-workspace-tools/skills-report-pack"
+  },
+  {
+    "id": "skills-run-without-you",
+    "name": "skills-run-without-you",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when a graded managed agent should run on a schedule, on an event trigger or on demand ('run it every morning'). Validates cron with cron_validator.py and builds the deployment with deployment_builder.py.",
+    "path": "category/productivity-workspace-tools/skills-run-without-you"
   },
   {
     "id": "skills-setup-benny",
@@ -2078,6 +2278,14 @@
     "repository": "anthropics-knowledge-work",
     "description": "Guidance for effectively searching Slack to find messages, files, channels, and people",
     "path": "category/productivity-workspace-tools/skills-slack-search"
+  },
+  {
+    "id": "skills-social-media-manager",
+    "name": "skills-social-media-manager",
+    "category": "productivity-workspace-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Plan social media: strategy, content calendar, community management, follower growth. Use whenever the user asks what to post and when, or how to grow followers. Single posts: social-content.",
+    "path": "category/productivity-workspace-tools/skills-social-media-manager"
   },
   {
     "id": "skills-sync",
@@ -2110,6 +2318,14 @@
     "repository": "anthropics-knowledge-work",
     "description": "Generate a comprehensive weekly briefing for all external calls in the next 7 days. Triggers on 'weekly prep brief', 'prepare my week', 'what calls do I have this week', 'Monday prep', or any weekly planning request.",
     "path": "category/productivity-workspace-tools/skills-weekly-prep-brief"
+  },
+  {
+    "id": "skills-wiki-narrate",
+    "name": "skills-wiki-narrate",
+    "category": "productivity-workspace-tools",
+    "repository": "ar9av-obsidian-wiki",
+    "description": "Turn a wiki topic into a cited Markdown briefing, plain-language explanation, or progressive lecture. Use this skill for topic-based briefing, explanation, and lecture requests that must stay within the evidence compiled in an Obsidian vault.",
+    "path": "category/productivity-workspace-tools/skills-wiki-narrate"
   },
   {
     "id": "skills-workflow",

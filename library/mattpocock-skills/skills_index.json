@@ -4,7 +4,7 @@
     "name": "ask-matt",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Ask which skill or flow fits your situation. A router over the skills in this repo.",
     "path": "library/mattpocock-skills/skills/ask-matt",
     "activation_cmd": "python .agents/library/activate_skill.py activate ask-matt",
     "link_cmd": "python .agents/library/activate_skill.py link ask-matt"
@@ -14,7 +14,7 @@
     "name": "chief-of-staff",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Pursue a long-running goal in a single session by co-ordinating subagents.",
     "path": "library/mattpocock-skills/skills/chief-of-staff",
     "activation_cmd": "python .agents/library/activate_skill.py activate chief-of-staff",
     "link_cmd": "python .agents/library/activate_skill.py link chief-of-staff"
@@ -24,7 +24,7 @@
     "name": "claude-handoff",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Hand the current conversation off to a fresh background agent that picks up the work immediately.",
     "path": "library/mattpocock-skills/skills/claude-handoff",
     "activation_cmd": "python .agents/library/activate_skill.py activate claude-handoff",
     "link_cmd": "python .agents/library/activate_skill.py link claude-handoff"
@@ -34,7 +34,7 @@
     "name": "code-review",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes: Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \\\"review since X\\\".\"",
     "path": "library/mattpocock-skills/skills/code-review",
     "activation_cmd": "python .agents/library/activate_skill.py activate code-review",
     "link_cmd": "python .agents/library/activate_skill.py link code-review"
@@ -44,7 +44,7 @@
     "name": "codebase-design",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary.",
     "path": "library/mattpocock-skills/skills/codebase-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate codebase-design",
     "link_cmd": "python .agents/library/activate_skill.py link codebase-design"
@@ -64,7 +64,7 @@
     "name": "diagnosing-bugs",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Diagnosis loop for hard bugs and performance regressions. Use when the user says \"diagnose\"/\"debug this\", or reports something broken/throwing/failing/slow.",
     "path": "library/mattpocock-skills/skills/diagnosing-bugs",
     "activation_cmd": "python .agents/library/activate_skill.py activate diagnosing-bugs",
     "link_cmd": "python .agents/library/activate_skill.py link diagnosing-bugs"
@@ -74,7 +74,7 @@
     "name": "domain-modeling",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a GLOSSARY.md, or recording or editing an ADR.",
     "path": "library/mattpocock-skills/skills/domain-modeling",
     "activation_cmd": "python .agents/library/activate_skill.py activate domain-modeling",
     "link_cmd": "python .agents/library/activate_skill.py link domain-modeling"
@@ -90,11 +90,61 @@
     "link_cmd": "python .agents/library/activate_skill.py link engineering"
   },
   {
+    "id": "engineering-code-review",
+    "name": "engineering-code-review",
+    "repository": "mattpocock-skills",
+    "category": "general",
+    "description": "\"Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes: Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \\\"review since X\\\".\"",
+    "path": "library/mattpocock-skills/skills/engineering-code-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate engineering-code-review",
+    "link_cmd": "python .agents/library/activate_skill.py link engineering-code-review"
+  },
+  {
+    "id": "engineering-implement-spec",
+    "name": "engineering-implement-spec",
+    "repository": "mattpocock-skills",
+    "category": "general",
+    "description": "\"Implement the result of /to-spec and /to-tickets in code.\"",
+    "path": "library/mattpocock-skills/skills/engineering-implement-spec",
+    "activation_cmd": "python .agents/library/activate_skill.py activate engineering-implement-spec",
+    "link_cmd": "python .agents/library/activate_skill.py link engineering-implement-spec"
+  },
+  {
+    "id": "engineering-improve-codebase-architecture",
+    "name": "engineering-improve-codebase-architecture",
+    "repository": "mattpocock-skills",
+    "category": "general",
+    "description": "Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.",
+    "path": "library/mattpocock-skills/skills/engineering-improve-codebase-architecture",
+    "activation_cmd": "python .agents/library/activate_skill.py activate engineering-improve-codebase-architecture",
+    "link_cmd": "python .agents/library/activate_skill.py link engineering-improve-codebase-architecture"
+  },
+  {
+    "id": "engineering-research",
+    "name": "engineering-research",
+    "repository": "mattpocock-skills",
+    "category": "general",
+    "description": "Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated to a background agent.",
+    "path": "library/mattpocock-skills/skills/engineering-research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate engineering-research",
+    "link_cmd": "python .agents/library/activate_skill.py link engineering-research"
+  },
+  {
+    "id": "engineering-wayfinder",
+    "name": "engineering-wayfinder",
+    "repository": "mattpocock-skills",
+    "category": "general",
+    "description": "Plan a huge chunk of work (more than one agent session can hold) as a shared map of decision tickets on your issue tracker, and resolve them one at a time until the way to the destination is clear.",
+    "path": "library/mattpocock-skills/skills/engineering-wayfinder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate engineering-wayfinder",
+    "link_cmd": "python .agents/library/activate_skill.py link engineering-wayfinder"
+  },
+  {
     "id": "git-guardrails-claude-code",
     "name": "git-guardrails-claude-code",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Set up Claude Code hooks to block dangerous git commands (push, reset --hard, clean, branch -D, etc.) before they execute. Use when user wants to prevent destructive git operations, add git safety hooks, or block git push/reset in Claude Code.",
     "path": "library/mattpocock-skills/skills/git-guardrails-claude-code",
     "activation_cmd": "python .agents/library/activate_skill.py activate git-guardrails-claude-code",
     "link_cmd": "python .agents/library/activate_skill.py link git-guardrails-claude-code"
@@ -104,7 +154,7 @@
     "name": "grill-me",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "A relentless interview to sharpen a plan or design.",
     "path": "library/mattpocock-skills/skills/grill-me",
     "activation_cmd": "python .agents/library/activate_skill.py activate grill-me",
     "link_cmd": "python .agents/library/activate_skill.py link grill-me"
@@ -114,7 +164,7 @@
     "name": "grill-with-docs",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "A relentless interview to sharpen a plan or design, which also creates docs (ADR's and glossary) as we go.",
     "path": "library/mattpocock-skills/skills/grill-with-docs",
     "activation_cmd": "python .agents/library/activate_skill.py activate grill-with-docs",
     "link_cmd": "python .agents/library/activate_skill.py link grill-with-docs"
@@ -124,7 +174,7 @@
     "name": "grilling",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases.",
     "path": "library/mattpocock-skills/skills/grilling",
     "activation_cmd": "python .agents/library/activate_skill.py activate grilling",
     "link_cmd": "python .agents/library/activate_skill.py link grilling"
@@ -134,7 +184,7 @@
     "name": "handoff",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Compact the current conversation into a handoff document for another agent to pick up.",
     "path": "library/mattpocock-skills/skills/handoff",
     "activation_cmd": "python .agents/library/activate_skill.py activate handoff",
     "link_cmd": "python .agents/library/activate_skill.py link handoff"
@@ -144,7 +194,7 @@
     "name": "implement",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Implement a piece of work based on a spec or set of tickets.\"",
     "path": "library/mattpocock-skills/skills/implement",
     "activation_cmd": "python .agents/library/activate_skill.py activate implement",
     "link_cmd": "python .agents/library/activate_skill.py link implement"
@@ -154,7 +204,7 @@
     "name": "implement-spec",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Implement the result of /to-spec and /to-tickets in code.\"",
     "path": "library/mattpocock-skills/skills/implement-spec",
     "activation_cmd": "python .agents/library/activate_skill.py activate implement-spec",
     "link_cmd": "python .agents/library/activate_skill.py link implement-spec"
@@ -164,7 +214,7 @@
     "name": "improve-codebase-architecture",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.",
     "path": "library/mattpocock-skills/skills/improve-codebase-architecture",
     "activation_cmd": "python .agents/library/activate_skill.py activate improve-codebase-architecture",
     "link_cmd": "python .agents/library/activate_skill.py link improve-codebase-architecture"
@@ -180,11 +230,31 @@
     "link_cmd": "python .agents/library/activate_skill.py link in-progress"
   },
   {
+    "id": "in-progress-chief-of-staff",
+    "name": "in-progress-chief-of-staff",
+    "repository": "mattpocock-skills",
+    "category": "general",
+    "description": "Pursue a long-running goal in a single session by co-ordinating subagents.",
+    "path": "library/mattpocock-skills/skills/in-progress-chief-of-staff",
+    "activation_cmd": "python .agents/library/activate_skill.py activate in-progress-chief-of-staff",
+    "link_cmd": "python .agents/library/activate_skill.py link in-progress-chief-of-staff"
+  },
+  {
+    "id": "in-progress-software-factory",
+    "name": "in-progress-software-factory",
+    "repository": "mattpocock-skills",
+    "category": "general",
+    "description": "Shared language for designing a software factory: the tasks it runs and the services it plugs into.",
+    "path": "library/mattpocock-skills/skills/in-progress-software-factory",
+    "activation_cmd": "python .agents/library/activate_skill.py activate in-progress-software-factory",
+    "link_cmd": "python .agents/library/activate_skill.py link in-progress-software-factory"
+  },
+  {
     "id": "loop-me",
     "name": "loop-me",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Grill me about specs for the workflows I want to build, within this workspace.",
     "path": "library/mattpocock-skills/skills/loop-me",
     "activation_cmd": "python .agents/library/activate_skill.py activate loop-me",
     "link_cmd": "python .agents/library/activate_skill.py link loop-me"
@@ -194,7 +264,7 @@
     "name": "migrate-to-shoehorn",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Migrate test files from `as` type assertions to @total-typescript/shoehorn. Use when user mentions shoehorn, wants to replace `as` in tests, or needs partial test data.",
     "path": "library/mattpocock-skills/skills/migrate-to-shoehorn",
     "activation_cmd": "python .agents/library/activate_skill.py activate migrate-to-shoehorn",
     "link_cmd": "python .agents/library/activate_skill.py link migrate-to-shoehorn"
@@ -214,7 +284,7 @@
     "name": "pr",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Use when writing a PR body.\"",
     "path": "library/mattpocock-skills/skills/pr",
     "activation_cmd": "python .agents/library/activate_skill.py activate pr",
     "link_cmd": "python .agents/library/activate_skill.py link pr"
@@ -230,11 +300,21 @@
     "link_cmd": "python .agents/library/activate_skill.py link productivity"
   },
   {
+    "id": "productivity-grilling",
+    "name": "productivity-grilling",
+    "repository": "mattpocock-skills",
+    "category": "general",
+    "description": "Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases.",
+    "path": "library/mattpocock-skills/skills/productivity-grilling",
+    "activation_cmd": "python .agents/library/activate_skill.py activate productivity-grilling",
+    "link_cmd": "python .agents/library/activate_skill.py link productivity-grilling"
+  },
+  {
     "id": "prototype",
     "name": "prototype",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like.",
     "path": "library/mattpocock-skills/skills/prototype",
     "activation_cmd": "python .agents/library/activate_skill.py activate prototype",
     "link_cmd": "python .agents/library/activate_skill.py link prototype"
@@ -244,7 +324,7 @@
     "name": "research",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated to a background agent.",
     "path": "library/mattpocock-skills/skills/research",
     "activation_cmd": "python .agents/library/activate_skill.py activate research",
     "link_cmd": "python .agents/library/activate_skill.py link research"
@@ -254,7 +334,7 @@
     "name": "retro",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Conduct a retrospective on a coding session.\"",
     "path": "library/mattpocock-skills/skills/retro",
     "activation_cmd": "python .agents/library/activate_skill.py activate retro",
     "link_cmd": "python .agents/library/activate_skill.py link retro"
@@ -264,7 +344,7 @@
     "name": "scaffold-exercises",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Create exercise directory structures with sections, problems, solutions, and explainers that pass linting. Use when user wants to scaffold exercises, create exercise stubs, or set up a new course section.",
     "path": "library/mattpocock-skills/skills/scaffold-exercises",
     "activation_cmd": "python .agents/library/activate_skill.py activate scaffold-exercises",
     "link_cmd": "python .agents/library/activate_skill.py link scaffold-exercises"
@@ -274,7 +354,7 @@
     "name": "setup-matt-pocock-skills",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Configure this repo for the engineering skills: set up its issue tracker, triage label vocabulary, and domain doc layout. Run once before first use of the other engineering skills.\"",
     "path": "library/mattpocock-skills/skills/setup-matt-pocock-skills",
     "activation_cmd": "python .agents/library/activate_skill.py activate setup-matt-pocock-skills",
     "link_cmd": "python .agents/library/activate_skill.py link setup-matt-pocock-skills"
@@ -284,7 +364,7 @@
     "name": "setup-pre-commit",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Set up Husky pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current repo. Use when user wants to add pre-commit hooks, set up Husky, configure lint-staged, or add commit-time formatting/typechecking/testing.",
     "path": "library/mattpocock-skills/skills/setup-pre-commit",
     "activation_cmd": "python .agents/library/activate_skill.py activate setup-pre-commit",
     "link_cmd": "python .agents/library/activate_skill.py link setup-pre-commit"
@@ -294,7 +374,7 @@
     "name": "setup-ts-deep-modules",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Wire dependency-cruiser into a TypeScript repo so each package is a deep module, with implementation hidden in subfolders and reachable only through its entry-point files. User-invoked.",
     "path": "library/mattpocock-skills/skills/setup-ts-deep-modules",
     "activation_cmd": "python .agents/library/activate_skill.py activate setup-ts-deep-modules",
     "link_cmd": "python .agents/library/activate_skill.py link setup-ts-deep-modules"
@@ -304,7 +384,7 @@
     "name": "software-factory",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Shared language for designing a software factory: the tasks it runs and the services it plugs into.",
     "path": "library/mattpocock-skills/skills/software-factory",
     "activation_cmd": "python .agents/library/activate_skill.py activate software-factory",
     "link_cmd": "python .agents/library/activate_skill.py link software-factory"
@@ -314,7 +394,7 @@
     "name": "tdd",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions \"red-green-refactor\", or wants integration tests.",
     "path": "library/mattpocock-skills/skills/tdd",
     "activation_cmd": "python .agents/library/activate_skill.py activate tdd",
     "link_cmd": "python .agents/library/activate_skill.py link tdd"
@@ -324,7 +404,7 @@
     "name": "teach",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Teach the user a new skill or concept, within this workspace.",
     "path": "library/mattpocock-skills/skills/teach",
     "activation_cmd": "python .agents/library/activate_skill.py activate teach",
     "link_cmd": "python .agents/library/activate_skill.py link teach"
@@ -334,7 +414,7 @@
     "name": "to-questionnaire",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Turn a decision you can't fully answer into a questionnaire for someone else to fill in.",
     "path": "library/mattpocock-skills/skills/to-questionnaire",
     "activation_cmd": "python .agents/library/activate_skill.py activate to-questionnaire",
     "link_cmd": "python .agents/library/activate_skill.py link to-questionnaire"
@@ -344,7 +424,7 @@
     "name": "to-spec",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of what you've already discussed.\"",
     "path": "library/mattpocock-skills/skills/to-spec",
     "activation_cmd": "python .agents/library/activate_skill.py activate to-spec",
     "link_cmd": "python .agents/library/activate_skill.py link to-spec"
@@ -354,7 +434,7 @@
     "name": "to-tickets",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Break a plan, spec, or the current conversation into a set of tracer-bullet tickets, each declaring its blocking edges, published to the configured tracker (edges as text in one file per ticket locally, or native blocking links on a real tracker).",
     "path": "library/mattpocock-skills/skills/to-tickets",
     "activation_cmd": "python .agents/library/activate_skill.py activate to-tickets",
     "link_cmd": "python .agents/library/activate_skill.py link to-tickets"
@@ -364,7 +444,7 @@
     "name": "triage",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Move issues and external PRs through a state machine of triage roles, categorise, verify, grill if needed, and write agent-ready briefs.",
     "path": "library/mattpocock-skills/skills/triage",
     "activation_cmd": "python .agents/library/activate_skill.py activate triage",
     "link_cmd": "python .agents/library/activate_skill.py link triage"
@@ -374,7 +454,7 @@
     "name": "wait-what",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Stop. That last message did not land: re-pitch it.\"",
     "path": "library/mattpocock-skills/skills/wait-what",
     "activation_cmd": "python .agents/library/activate_skill.py activate wait-what",
     "link_cmd": "python .agents/library/activate_skill.py link wait-what"
@@ -384,7 +464,7 @@
     "name": "wayfinder",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Plan a huge chunk of work (more than one agent session can hold) as a shared map of decision tickets on your issue tracker, and resolve them one at a time until the way to the destination is clear.",
     "path": "library/mattpocock-skills/skills/wayfinder",
     "activation_cmd": "python .agents/library/activate_skill.py activate wayfinder",
     "link_cmd": "python .agents/library/activate_skill.py link wayfinder"
@@ -394,7 +474,7 @@
     "name": "wizard",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Generate an interactive bash wizard that walks a human through steps only they can perform. Use when provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover. Don't invoke this for steps the agent can perform itself.",
     "path": "library/mattpocock-skills/skills/wizard",
     "activation_cmd": "python .agents/library/activate_skill.py activate wizard",
     "link_cmd": "python .agents/library/activate_skill.py link wizard"
@@ -404,7 +484,7 @@
     "name": "writing-beats",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Writing, exploit; assemble raw material into a journey of beats, grounding each term before a beat leans on it.",
     "path": "library/mattpocock-skills/skills/writing-beats",
     "activation_cmd": "python .agents/library/activate_skill.py activate writing-beats",
     "link_cmd": "python .agents/library/activate_skill.py link writing-beats"
@@ -414,7 +494,7 @@
     "name": "writing-for-agents",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "Writing documents for agents. Use when creating or editing skills, or modifying AGENTS.md or CLAUDE.md.",
     "path": "library/mattpocock-skills/skills/writing-for-agents",
     "activation_cmd": "python .agents/library/activate_skill.py activate writing-for-agents",
     "link_cmd": "python .agents/library/activate_skill.py link writing-for-agents"
@@ -424,7 +504,7 @@
     "name": "writing-fragments",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Writing, explore: mine raw fragments, no structure yet.\"",
     "path": "library/mattpocock-skills/skills/writing-fragments",
     "activation_cmd": "python .agents/library/activate_skill.py activate writing-fragments",
     "link_cmd": "python .agents/library/activate_skill.py link writing-fragments"
@@ -434,7 +514,7 @@
     "name": "writing-shape",
     "repository": "mattpocock-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Writing, exploit: shape raw material into an article, paragraph by paragraph.\"",
     "path": "library/mattpocock-skills/skills/writing-shape",
     "activation_cmd": "python .agents/library/activate_skill.py activate writing-shape",
     "link_cmd": "python .agents/library/activate_skill.py link writing-shape"

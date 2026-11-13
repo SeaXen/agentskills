@@ -1,7 +1,7 @@
 # 🎙️ Audio, Voice Cloning & Sound Design
 
 > **Category**: `audio-voice-sound`  
-> **Total Curated Skills**: 213 skills  
+> **Total Curated Skills**: 221 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -105,6 +105,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`game-audio`](../../library/#searex-skill/skills/game-audio) | ⚪ Reserve | `#searex-skill` | Game audio principles. Sound design, music integration, adaptive audio systems. |
 | [`gemma-tuner-multimodal`](../../library/reason-machines-trending-skills/skills/gemma-tuner-multimodal) | ⚪ Reserve | `reason-machines-trending-skills` | Fine-tune Gemma 4 and 3n models with audio, images, and text on Apple Silicon using PyTorch and... |
 | [`genre-creator`](../../library/bitwize-music-studio-claude-ai-music-skills/skills/genre-creator) | ⚪ Reserve | `bitwize-music-studio-claude-ai-music-skills` | Create new genre documentation files for the bitwize-music genre library. Use when the user wan... |
+| [`godot-audio`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/godot-audio) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Godot 4.7 audio APIs: AudioStreamPlayer 2D and 3D, the bus layout, AudioServer volume and mute,... |
 | [`grow-pipeline`](../../library/anthropics-knowledge-work/skills/grow-pipeline) | ⚪ Reserve | `anthropics-knowledge-work` | Fills the funnel end to end without the owner babysitting it — reads the market and the competi... |
 | [`guideline-generation`](../../library/anthropics-knowledge-work/skills/guideline-generation) | ⚪ Reserve | `anthropics-knowledge-work` | This skill generates, creates, or builds brand voice guidelines from source materials. It shoul... |
 | [`huawei-cloud-vod-collector`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-vod-collector) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Invoke this skill to capture poor experiences and distill them into high-value requirements (Vo... |
@@ -140,6 +141,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`nemotron-speech`](../../library/nvidia-skills/skills/nemotron-speech) | ⚪ Reserve | `nvidia-skills` | Routes NVIDIA Nemotron Speech (Formerly Riva) NIM tasks — deploys, runs, and tests ASR, TTS, an... |
 | [`newsletter-voice`](../../library/charlie947-social-media-skills/skills/newsletter-voice) | ⚪ Reserve | `charlie947-social-media-skills` | Build newsletter writing instructions inside a Codex or Claude project. Runs after voice-builde... |
 | [`observe-share-of-voice-tracker`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/observe-share-of-voice-tracker) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "track our share of voice", "what share of the conversation do we own... |
+| [`offensive-bluetooth-classic`](../../library/snailsploit-claude-red/skills/offensive-bluetooth-classic) | ⚪ Reserve | `snailsploit-claude-red` | Bluetooth Classic (BR/EDR) attack methodology — device discovery, service enumeration via SDP, ... |
 | [`omnivoice-tts`](../../library/reason-machines-trending-skills/skills/omnivoice-tts) | ⚪ Reserve | `reason-machines-trending-skills` | Expert skill for OmniVoice, a massively multilingual zero-shot TTS model supporting 600+ langua... |
 | [`openless-voice-input`](../../library/reason-machines-trending-skills/skills/openless-voice-input) | ⚪ Reserve | `reason-machines-trending-skills` | OpenLess open-source voice input for macOS & Windows — press a hotkey, speak, get AI-polished t... |
 | [`optimize-audio`](../../library/unity-technologies-skills/skills/optimize-audio) | ⚪ Reserve | `unity-technologies-skills` | Optimizes audio memory, CPU cost, and playback quality through import settings and mixer config... |
@@ -181,21 +183,27 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-add-read-aloud`](../../library/cursor-plugins/skills/skills-add-read-aloud) | ⚪ Reserve | `cursor-plugins` | Use when the user runs /add-read-aloud or wants the app to speak text with Grok text-to-speech:... |
 | [`skills-audio-setup-mixers`](../../library/unity-technologies-skills/skills/skills-audio-setup-mixers) | ⚪ Reserve | `unity-technologies-skills` | Routes Audio Sources into existing Audio Mixer Groups, classifying each source by what it plays... |
 | [`skills-avoid-ai-writing`](../../library/conorbronsdon-avoid-ai-writing/skills/skills-avoid-ai-writing) | ⚪ Reserve | `conorbronsdon-avoid-ai-writing` | Audit and rewrite content to remove AI writing patterns ("AI-isms"). Use this skill when asked ... |
+| [`skills-behuman`](../../library/alirezarezvani-claude-skills/skills/skills-behuman) | ⚪ Reserve | `alirezarezvani-claude-skills` | Reply like a real person, direct and warm, without lists or hedging. Use whenever the user says... |
 | [`skills-brand-review`](../../library/anthropics-knowledge-work/skills/skills-brand-review) | ⚪ Reserve | `anthropics-knowledge-work` | Review content against your brand voice, style guide, and messaging pillars, flagging deviation... |
 | [`skills-brand-voice`](../../library/affaan-m-ecc/skills/skills-brand-voice) | ⚪ Reserve | `affaan-m-ecc` | 実際のポスト、エッセイ、ローンチノート、ドキュメント、またはサイトコピーからソース派生の執筆スタイルプロファイルを構築し、コンテンツ、アウトリーチ、ソーシャルワークフロー全体でそのプロファイ... |
 | [`skills-brand-voice-enforcement`](../../library/anthropics-knowledge-work/skills/skills-brand-voice-enforcement) | ⚪ Reserve | `anthropics-knowledge-work` | This skill applies brand guidelines to content creation. It should be used when the user asks t... |
+| [`skills-content-humanizer`](../../library/alirezarezvani-claude-skills/skills/skills-content-humanizer) | ⚪ Reserve | `alirezarezvani-claude-skills` | Make a draft sound less like AI: fix generic, robotic text with rhythm, specifics, personality ... |
+| [`skills-copy-editing`](../../library/alirezarezvani-claude-skills/skills/skills-copy-editing) | ⚪ Reserve | `alirezarezvani-claude-skills` | Edit, proofread and tighten existing marketing copy in focused passes: clarity, voice, proofrea... |
 | [`skills-craft-game-floors`](../../library/unity-technologies-skills/skills/skills-craft-game-floors) | ⚪ Reserve | `unity-technologies-skills` | Makes a Unity game look and feel finished: art style, lighting, juice, sound, menus, saves and ... |
 | [`skills-customer-voice`](../../library/anthropics-knowledge-work/skills/skills-customer-voice) | ⚪ Reserve | `anthropics-knowledge-work` | Surface what customers are actually saying - direct attributed quotes on a topic across call tr... |
 | [`skills-debug-voice`](../../library/cursor-plugins/skills/skills-debug-voice) | ⚪ Reserve | `cursor-plugins` | Use when the user runs /debug-voice, says voice mode has flaws, asks to see or capture what hap... |
 | [`skills-grow-pipeline`](../../library/anthropics-knowledge-work/skills/skills-grow-pipeline) | ⚪ Reserve | `anthropics-knowledge-work` | Fills the funnel end to end without the owner babysitting it — reads the market and the competi... |
 | [`skills-guideline-generation`](../../library/anthropics-knowledge-work/skills/skills-guideline-generation) | ⚪ Reserve | `anthropics-knowledge-work` | This skill generates, creates, or builds brand voice guidelines from source materials. It shoul... |
 | [`skills-inbox-manager`](../../library/anthropics-knowledge-work/skills/skills-inbox-manager) | ⚪ Reserve | `anthropics-knowledge-work` | Turns a full inbox into a short, ranked list of what actually needs the owner. Reads the mail, ... |
+| [`skills-influencer-marketing`](../../library/coreyhaines31-marketingskills/skills/skills-influencer-marketing) | ⚪ Reserve | `coreyhaines31-marketingskills` | When the user wants creator, influencer, or ambassador partnerships, or asks which creators fit... |
+| [`skills-marketing-context`](../../library/alirezarezvani-claude-skills/skills/skills-marketing-context) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use at the start of any marketing project, or when ICP, positioning or brand voice are missing,... |
 | [`skills-optimize-audio`](../../library/unity-technologies-skills/skills/skills-optimize-audio) | ⚪ Reserve | `unity-technologies-skills` | Optimizes audio memory, CPU cost, and playback quality through import settings and mixer config... |
 | [`skills-outreach-composer`](../../library/anthropics-knowledge-work/skills/skills-outreach-composer) | ⚪ Reserve | `anthropics-knowledge-work` | Writes prospect outreach and follow-up sequences that sound like the owner wrote them, not like... |
+| [`skills-product-marketing`](../../library/coreyhaines31-marketingskills/skills/skills-product-marketing) | ⚪ Reserve | `coreyhaines31-marketingskills` | When the user wants to create or update the product marketing context doc (.agents/product-mark... |
 | [`skills-proposal-builder`](../../library/anthropics-knowledge-work/skills/skills-proposal-builder) | ⚪ Reserve | `anthropics-knowledge-work` | Turns whatever came out of a discovery conversation — a call transcript, a voice memo, jobsite ... |
+| [`skills-public-relations`](../../library/coreyhaines31-marketingskills/skills/skills-public-relations) | ⚪ Reserve | `coreyhaines31-marketingskills` | When the user wants press and media coverage, or asks what to say to a reporter, whether a stor... |
 | [`skills-reactivate`](../../library/anthropics-knowledge-work/skills/skills-reactivate) | ⚪ Reserve | `anthropics-knowledge-work` | Wins back customers who have quietly stopped buying — finds the ones whose gap has stretched pa... |
 | [`skills-review-reputation`](../../library/anthropics-knowledge-work/skills/skills-review-reputation) | ⚪ Reserve | `anthropics-knowledge-work` | Watches what customers are saying in public and in private, then does something about it. Aggre... |
-| [`skills-setup`](../../library/anthropics-knowledge-work/skills/skills-setup) | ⚪ Reserve | `anthropics-knowledge-work` | First-run setup - checks which tools are connected, shows what's connected and what each one un... |
 | [`skills-setup-vivox-voice-chat`](../../library/unity-technologies-skills/skills/skills-setup-vivox-voice-chat) | ⚪ Reserve | `unity-technologies-skills` | Adds and configures in-game voice and text chat with Unity Vivox. Use when the user asks about ... |
 | [`skills-speed-to-lead`](../../library/anthropics-knowledge-work/skills/skills-speed-to-lead) | ⚪ Reserve | `anthropics-knowledge-work` | Makes sure no inbound lead goes unanswered. Watches web forms, the shared inbox, and the CRM fo... |
 | [`skills-ticket-deflector`](../../library/anthropics-knowledge-work/skills/skills-ticket-deflector) | ⚪ Reserve | `anthropics-knowledge-work` | Reads a forwarded customer email or ticket, pulls order and refund status from a payments conne... |

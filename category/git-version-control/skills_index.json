@@ -1152,6 +1152,14 @@
     "path": "category/git-version-control/email-sequence-designer"
   },
   {
+    "id": "engineering-code-review",
+    "name": "engineering-code-review",
+    "category": "git-version-control",
+    "repository": "mattpocock-skills",
+    "description": "Review the changes since a fixed point (commit, branch, tag, or merge-base) along two axes: Standards (does the code follow this repo's documented coding standards?) and Spec (does the code match what the originating issue/spec asked for?). Runs both reviews in parallel sub-agents and reports them side by side. Use when the user wants to review a branch, a PR, work-in-progress changes, or asks to \\\"review since X\\\".",
+    "path": "category/git-version-control/engineering-code-review"
+  },
+  {
     "id": "eval-creator-ci",
     "name": "eval-creator-ci",
     "category": "git-version-control",
@@ -1936,6 +1944,14 @@
     "path": "category/git-version-control/gl-cli"
   },
   {
+    "id": "godot-gdscript-headless-testing",
+    "name": "godot-gdscript-headless-testing",
+    "category": "git-version-control",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "Runs Godot 4.7 GDScript tests with godot --headless and a SceneTree runner that exits non-zero on failure, so CI can gate merges. Owns Godot tests in CI. Use for GitHub Actions jobs or a headless run that hangs or exits 0 despite SCRIPT ERROR lines. Not for export in CI (`godot-export`), GDScript language (`godot-gdscript`) or Unity tests (`unity-csharp-scripting`).",
+    "path": "category/git-version-control/godot-gdscript-headless-testing"
+  },
+  {
     "id": "golang-google-wire",
     "name": "golang-google-wire",
     "category": "git-version-control",
@@ -2312,6 +2328,14 @@
     "path": "category/git-version-control/leaving-pr-comments"
   },
   {
+    "id": "librarian",
+    "name": "librarian",
+    "category": "git-version-control",
+    "repository": "jetbrains-thinkrail",
+    "description": "Research open-source libraries with evidence-backed answers and GitHub permalinks. Use when the user asks about library internals, needs implementation details with source code references, wants to understand why something was changed, or needs authoritative answers backed by actual code. Excels at navigating large open-source repos and providing citations to exact lines of code.",
+    "path": "category/git-version-control/librarian"
+  },
+  {
     "id": "ljg-push",
     "name": "ljg-push",
     "category": "git-version-control",
@@ -2390,6 +2414,14 @@
     "repository": "langchain-ai-langchain-skills",
     "description": "INVOKE THIS SKILL when building, testing, or deploying Managed Deep Agents in LangSmith. Walks a user through their first agent end to end \u2014 interviewing them about what they want to build, mapping it onto what MDA can actually do, then scaffolding and deploying it. Covers the file-based project layout; define_deep_agent / defineDeepAgent; instructions, skills, memory, identity, tools, MCP servers, connections, middleware, sandboxes, schedules, channels, and evals; the mda CLI; GitHub deployments; and Context Hub.",
     "path": "category/git-version-control/managed-deep-agents"
+  },
+  {
+    "id": "manychat-ig-lead-magnet",
+    "name": "manychat-ig-lead-magnet",
+    "category": "git-version-control",
+    "repository": "ericosiu-ai-marketing-skills",
+    "description": "Create or prepare Instagram comment-to-DM lead magnet workflows using a PDF, public resource link, or GitHub skill and ManyChat automation. Use when the user wants to turn a source asset such as a YouTube video, podcast, post, Slack/Hermes output, or existing PDF into a lead magnet, choose the right comment keyword(s), upload the PDF into ManyChat, add tracking tags/fields, QA the flow, and set it up so people can comment on an Instagram post/reel and receive the resource by DM or after an email capture.",
+    "path": "category/git-version-control/manychat-ig-lead-magnet"
   },
   {
     "id": "mcore-create-issue",
@@ -2608,12 +2640,52 @@
     "path": "category/git-version-control/nurture-email-sequence-designer"
   },
   {
+    "id": "observability-plugin-setup",
+    "name": "observability-plugin-setup",
+    "category": "git-version-control",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Set up LaunchDarkly observability for an app that already uses a LaunchDarkly SDK by adding the observability plugin to its existing client and opening a pull request. Use when an observability tool reports the project has never received data (observability_set_up or observabilitySetUp is false), when observability queries come back empty because nothing is instrumented, or when the user asks to add observability, error monitoring, logs, tracing, or session replay to a LaunchDarkly-enabled app.",
+    "path": "category/git-version-control/observability-plugin-setup"
+  },
+  {
     "id": "octocat",
     "name": "octocat",
     "category": "git-version-control",
     "repository": "mcollina-skills",
     "description": "Use this skill whenever the prompt contains any `github.com` URL, even if the user only pastes a link and gives no GitHub-specific keywords. Handles git and GitHub operations using the gh CLI. Triggers include any GitHub link to an issue, pull request, commit, compare page, Actions run, release, discussion, or repository. Covers creating and reviewing PRs, repository security advisories (GHSA), their comments, and fix PRs in their temporary private forks, private vulnerability report discussions, watching CI checks, interactive rebasing, branch cleanup, submodule management, and repository archaeology with git log/blame/bisect.",
     "path": "category/git-version-control/octocat"
+  },
+  {
+    "id": "offensive-cicd-pipeline",
+    "name": "offensive-cicd-pipeline",
+    "category": "git-version-control",
+    "repository": "snailsploit-claude-red",
+    "description": "Comprehensive CI/CD pipeline exploitation methodology covering GitHub Actions injection vectors (expression injection via PR titles and issue bodies, workflow_run event abuse, GITHUB_TOKEN over-scoping, composite action supply chain compromise), Jenkins attack paths (Groovy sandbox escapes, script console remote code execution, Java remoting deserialization, credential store dumping, shared library injection), GitLab CI exploitation (YAML anchor injection, runner registration token abuse, CI variable extraction, protected branch bypass via merge request pipelines), and Azure DevOps pipeline agent compromise with service connection theft. Includes artifact poisoning techniques across all platforms, tooling guidance for gato and jenkins-attack-framework, and maps to MITRE ATT&CK T1195.002 (Supply Chain Compromise: Compromise Software Supply Chain). Covers enumeration of pipeline configurations, privilege escalation from contributor to code execution, lateral movement through pipeline trust boundaries, and persistence via modified workflow definitions. Each technique section provides working exploitation code, detection indicators, and defensive countermeasures.",
+    "path": "category/git-version-control/offensive-cicd-pipeline"
+  },
+  {
+    "id": "offensive-cicd-secrets",
+    "name": "offensive-cicd-secrets",
+    "category": "git-version-control",
+    "repository": "snailsploit-claude-red",
+    "description": "Comprehensive secrets extraction methodology targeting CI/CD environments across all major platforms. Covers environment variable extraction from build contexts, exploitation of vault and secrets-manager misconfigurations (HashiCorp Vault, AWS Secrets Manager, Azure Key Vault, GCP Secret Manager), runner and agent token abuse for lateral movement, OIDC federation attacks exploiting trust relationships between CI/CD providers and cloud platforms, build log leakage analysis for inadvertently exposed credentials, cache poisoning techniques for credential exfiltration, platform-specific credential store exploitation (GitHub Actions secrets, GitLab CI variables, Jenkins credential providers), service connection and service account abuse in Azure DevOps and GCP, and Docker registry credential theft from build environments. Maps to MITRE ATT&CK T1552 (Unsecured Credentials) and its sub-techniques. Each section provides enumeration procedures, extraction techniques, and post-exploitation pivoting guidance for using recovered secrets to expand access.",
+    "path": "category/git-version-control/offensive-cicd-secrets"
+  },
+  {
+    "id": "offensive-dependency-confusion",
+    "name": "offensive-dependency-confusion",
+    "category": "git-version-control",
+    "repository": "snailsploit-claude-red",
+    "description": "Deep-dive offensive methodology for dependency confusion and namespace attacks across all major package ecosystems. Covers npm scope confusion exploiting the gap between public and private scoped packages and .npmrc misconfigurations where registry mappings fail to pin internal scopes exclusively. Addresses PyPI namespace attacks through --extra-index-url resolution ordering, NuGet feed priority exploitation when multiple package sources are configured without clear directives, Maven and Gradle repository ordering where artifact resolution traverses repositories sequentially, Go module proxy abuse through GOPROXY misconfiguration, Ruby gems namespace squatting, and Docker image tag confusion with unqualified image references. Provides complete proof-of-concept methodology using safe callbacks including DNS canary via interactsh or Burp Collaborator and HTTP beacon with no destructive payload. Covers reconnaissance techniques for discovering internal package names through GitHub repository analysis, error message harvesting, JavaScript source map extraction, lock file parsing, job postings mentioning internal tools, and package manifest inspection. Directly references and builds upon Alex Birsan's seminal 2021 dependency confusion research. Each ecosystem section includes registry-specific exploitation mechanics, configuration vulnerabilities, and defensive countermeasures for engagement reporting.",
+    "path": "category/git-version-control/offensive-dependency-confusion"
+  },
+  {
+    "id": "offensive-supply-chain",
+    "name": "offensive-supply-chain",
+    "category": "git-version-control",
+    "repository": "snailsploit-claude-red",
+    "description": "Comprehensive offensive methodology for software supply chain attacks covering the full kill chain from reconnaissance through exploitation. Addresses dependency confusion across npm, PyPI, and NuGet ecosystems where internal registry override allows an attacker to inject malicious packages that shadow private dependencies. Covers typosquatting techniques for popular packages, compromised package injection via maintainer account takeover or social engineering, and build system attacks through Makefile injection, setup.py install hooks, and npm postinstall scripts. Extends into CI/CD artifact tampering where build outputs are replaced or modified in transit, code signing abuse through stolen or self-signed certificates, upstream repository compromise via commit injection or force-push to trusted repos, and container image supply chain attacks including base image trojaning and registry confusion. Maps to MITRE ATT&CK T1195.001 (Supply Chain Compromise: Compromise Software Dependencies and Development Tools) and T1195.002 (Supply Chain Compromise: Compromise Software Supply Chain). Integrates tooling such as confused for dependency confusion scanning and dependency-check for known vulnerable component detection. Each technique section provides reproducible proof-of-concept patterns, detection guidance for defenders, and engagement-safe execution notes for authorized red team operations.",
+    "path": "category/git-version-control/offensive-supply-chain"
   },
   {
     "id": "oh-my-issues",
@@ -2894,6 +2966,14 @@
     "repository": "jackwener-opencli",
     "description": "Automatically fix broken OpenCLI adapters when commands fail. Load this skill when an opencli command fails \u2014 it guides you through collecting a trace artifact, patching the adapter, retrying, and filing an upstream GitHub issue after a verified fix. Works with any AI agent.",
     "path": "category/git-version-control/opencli-autofix"
+  },
+  {
+    "id": "operations-skills-setting-up-cloudwatch-observability",
+    "name": "operations-skills-setting-up-cloudwatch-observability",
+    "category": "git-version-control",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Sets up CloudWatch observability for the first time - Omni (CloudWatch Application Observability) and classic CloudWatch. Omni: creating a Space or Domain; access grants (who has access, at what level), access profiles bounding alerts, integrations, agents; instrumenting an app or AI agent with the plain ADOT SDK so traces reach Omni (Python/Node/Java/.NET on EC2/ECS/EKS/Lambda), incl. no-image-rebuild, CoreCLR vars; ingesting Azure or Google Cloud telemetry via the CloudWatch agent (VM/AKS, GCE/GKE); connecting Slack or the AWS DevOps Agent to a Space; whether GitHub or a custom MCP tool server (HTTP/stdio) can connect. CloudWatch: onboarding a service to Application Signals: ADOT auto-instrumentation, amazon-cloudwatch-observability add-on, monitored service, ServiceEvents, CI/CD metadata, Terraform. For using what is set up - queries, dashboards, alarms, Omni alerts, X-Ray, synthetics, Dynamic Instrumentation, AI agent evaluation, detecting Omni vs classic - use aws-observability.",
+    "path": "category/git-version-control/operations-skills-setting-up-cloudwatch-observability"
   },
   {
     "id": "orbit-general",
@@ -3704,12 +3784,36 @@
     "path": "category/git-version-control/skill-tester"
   },
   {
+    "id": "skills-afk",
+    "name": "skills-afk",
+    "category": "git-version-control",
+    "repository": "jakubkrehel-skills",
+    "description": "Works through a project while you're away, finding improvements and new ideas, building the best of them on a local branch and leaving a report for when you're back.",
+    "path": "category/git-version-control/skills-afk"
+  },
+  {
     "id": "skills-agentic-actions-auditor",
     "name": "skills-agentic-actions-auditor",
     "category": "git-version-control",
     "repository": "trailofbits-skills",
     "description": "Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Claude Code Action, Gemini CLI, OpenAI Codex, and GitHub AI Inference. Detects attack vectors where attacker-controlled input reaches AI agents running in CI/CD pipelines, including env var intermediary patterns, direct expression injection, dangerous sandbox configurations, and wildcard user allowlists. Use when reviewing workflow files that invoke AI coding agents, auditing CI/CD pipeline security for prompt injection risks, or evaluating agentic action configurations.",
     "path": "category/git-version-control/skills-agentic-actions-auditor"
+  },
+  {
+    "id": "skills-antfu-create-pr",
+    "name": "skills-antfu-create-pr",
+    "category": "git-version-control",
+    "repository": "antfu-skills",
+    "description": "Create a reviewable GitHub pull request from the current branch with a Conventional Commits title, a concise evidence-based body, and before/after screenshots for UI changes. Use when asked to open, create, publish, or prepare a PR.",
+    "path": "category/git-version-control/skills-antfu-create-pr"
+  },
+  {
+    "id": "skills-ar-resume",
+    "name": "skills-ar-resume",
+    "category": "git-version-control",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for /ar-resume, or to continue a paused autoresearch experiment from its branch and results history.",
+    "path": "category/git-version-control/skills-ar-resume"
   },
   {
     "id": "skills-baoyu-wechat-summary",
@@ -3776,6 +3880,14 @@
     "path": "category/git-version-control/skills-ce-sweep"
   },
   {
+    "id": "skills-challenge",
+    "name": "skills-challenge",
+    "category": "git-version-control",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Pre-mortem a plan: assume it failed in 12 months and work back to the assumptions, dependencies and execution risks. Use whenever the user will commit serious resources or feedback seems too positive.",
+    "path": "category/git-version-control/skills-challenge"
+  },
+  {
     "id": "skills-ci-cd",
     "name": "skills-ci-cd",
     "category": "git-version-control",
@@ -3790,6 +3902,30 @@
     "repository": "anthropics-claude-plugins-official",
     "description": "Claude Security: scan the codebase (the whole repository or a scoped part of it), scan changes (this branch's or a pull request's diff, or one commit), or suggest patches (findings turned into targeted patch files, each verified by a panel of agents, that you apply when you choose). Use when the user asks to scan, audit or check code with Claude Security, to scan their changes with Claude Security, or to fix or patch Claude Security findings.",
     "path": "category/git-version-control/skills-claude-security"
+  },
+  {
+    "id": "skills-commercial-forecaster",
+    "name": "skills-commercial-forecaster",
+    "category": "git-version-control",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when building a bookings, ARR, pipeline or NRR forecast, or a commit, best-case and pipeline board number. Forecasts with bookings_forecaster.py, projects cohorts with cohort_arr_projector.py and scores stage confidence with funnel_confidence_scorer.py, showing every conversion assumption.",
+    "path": "category/git-version-control/skills-commercial-forecaster"
+  },
+  {
+    "id": "skills-commit-craft",
+    "name": "skills-commit-craft",
+    "category": "git-version-control",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Turn a mix of changes into clean, reviewable commits with good messages, blocking staged secrets and .env files. Use whenever the user says commit this, wants to split work into commits, write a commit message, or is about to push.",
+    "path": "category/git-version-control/skills-commit-craft"
+  },
+  {
+    "id": "skills-copilot-history-ingest",
+    "name": "skills-copilot-history-ingest",
+    "category": "git-version-control",
+    "repository": "ar9av-obsidian-wiki",
+    "description": "Ingest GitHub Copilot CLI/session history into Obsidian as distilled knowledge. Use for importing or mining Copilot history; not for general Copilot help, simple session search, or backup.",
+    "path": "category/git-version-control/skills-copilot-history-ingest"
   },
   {
     "id": "skills-cpp-coding-standards",
@@ -3814,6 +3950,14 @@
     "repository": "affaan-m-ecc",
     "description": "\u4efb\u610f\u306e\u30d1\u30d6\u30ea\u30c3\u30af\u30bd\u30fc\u30b9\uff08\u30b8\u30e7\u30d6\u30dc\u30fc\u30c9\u3001\u4fa1\u683c\u3001\u30cb\u30e5\u30fc\u30b9\u3001GitHub\u3001\u30b9\u30dd\u30fc\u30c4\u306a\u3069\uff09\u7528\u306e\u5b8c\u5168\u81ea\u52d5\u5316\u3055\u308c\u305fAI\u642d\u8f09\u30c7\u30fc\u30bf\u53ce\u96c6\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u3092\u69cb\u7bc9\u3057\u307e\u3059\u3002\u30b9\u30b1\u30b8\u30e5\u30fc\u30eb\u3067\u30b9\u30af\u30ec\u30a4\u30d7\u3057\u3001\u7121\u6599LLM\uff08Gemini Flash\uff09\u3067\u30c7\u30fc\u30bf\u3092\u8c4a\u304b\u306b\u3057\u3001Notion/Sheets/Supabase\u306b\u7d50\u679c\u3092\u4fdd\u5b58\u3057\u3001\u30e6\u30fc\u30b6\u30fc\u30d5\u30a3\u30fc\u30c9\u30d0\u30c3\u30af\u304b\u3089\u5b66\u7fd2\u3057\u307e\u3059\u3002GitHub Actions\u4e0a\u3067100\uff05\u7121\u6599\u3067\u5b9f\u884c\u3002\u30e6\u30fc\u30b6\u30fc\u304c\u30d1\u30d6\u30ea\u30c3\u30af\u30c7\u30fc\u30bf\u3092\u81ea\u52d5\u7684\u306b\u76e3\u8996\u3001\u53ce\u96c6\u3001\u307e\u305f\u306f\u8ffd\u8de1\u3057\u305f\u3044\u5834\u5408\u306b\u4f7f\u7528\u3057\u307e\u3059\u3002",
     "path": "category/git-version-control/skills-data-scraper-agent"
+  },
+  {
+    "id": "skills-deepapi",
+    "name": "skills-deepapi",
+    "category": "git-version-control",
+    "repository": "davidondrej-skills",
+    "description": "Use DeepAPI for all web search, deep research, and web scraping (websites, LinkedIn, GitHub, X/Twitter, YouTube, Instagram) instead of built-in search, research, fetch, or browser tools. Prefer dedicated platform endpoints over web search. Instagram has profile, post, comment, and hashtag endpoints; no generic search. Use Deep Scrape for sourced JSON dossiers on people, companies, or topics. Also use it to navigate and act on public websites, draft and send safe email, and generate images.",
+    "path": "category/git-version-control/skills-deepapi"
   },
   {
     "id": "skills-dev-skills",
@@ -3864,12 +4008,36 @@
     "path": "category/git-version-control/skills-git-workflow"
   },
   {
+    "id": "skills-git-worktree-manager",
+    "name": "skills-git-worktree-manager",
+    "category": "git-version-control",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when running several branches or agents in parallel on one repo. Creates worktrees with isolated ports and env via worktree_manager.py and removes stale ones with worktree_cleanup.py.",
+    "path": "category/git-version-control/skills-git-worktree-manager"
+  },
+  {
     "id": "skills-github-ops",
     "name": "skills-github-ops",
     "category": "git-version-control",
     "repository": "affaan-m-ecc",
     "description": "GitHub\u64cd\u4f5c\u3001\u81ea\u52d5\u5316\u3001API\u30a4\u30f3\u30c6\u30b0\u30ec\u30fc\u30b7\u30e7\u30f3\u3001\u304a\u3088\u3073CI/CD\u30ef\u30fc\u30af\u30d5\u30ed\u30fc\u3002",
     "path": "category/git-version-control/skills-github-ops"
+  },
+  {
+    "id": "skills-grill-me",
+    "name": "skills-grill-me",
+    "category": "git-version-control",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Interview the user relentlessly about a plan or design until reaching shared understanding, resolving each branch of the decision tree. Use when user wants to stress-test a plan, get grilled on their design, or mentions \"grill me\".",
+    "path": "category/git-version-control/skills-grill-me"
+  },
+  {
+    "id": "skills-karpathy-coder",
+    "name": "skills-karpathy-coder",
+    "category": "git-version-control",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Check a diff for overbuilt code: hidden assumptions, needless abstraction, non-surgical changes, unverified goals (Karpathy's four principles). Load whenever the user thinks they overcomplicated something or wants a pre-commit check.",
+    "path": "category/git-version-control/skills-karpathy-coder"
   },
   {
     "id": "skills-last30days",
@@ -3920,6 +4088,14 @@
     "path": "category/git-version-control/skills-make-pr-easy-to-review"
   },
   {
+    "id": "skills-merge",
+    "name": "skills-merge",
+    "category": "git-version-control",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use to land the winning AgentHub branch, archive the others and clean up worktrees.",
+    "path": "category/git-version-control/skills-merge"
+  },
+  {
     "id": "skills-metronome",
     "name": "skills-metronome",
     "category": "git-version-control",
@@ -3934,6 +4110,14 @@
     "repository": "metalbear-co-mirrord",
     "description": "Help users create and manage mirrord preview environments \u2014 running a modified service as an isolated pod in a shared Kubernetes cluster, scoped by an environment key and HTTP/queue traffic filtering, so teams can validate and review changes against real traffic without affecting live services. Use when a developer wants to run \"mirrord preview\" ad hoc, share a preview via a link (mirrord-share-ingress), or wire preview environments into CI with the metalbear-co/mirrord-preview GitHub Action (e.g. per-PR previews, least-privilege cluster access).",
     "path": "category/git-version-control/skills-mirrord-prev-env"
+  },
+  {
+    "id": "skills-nagent",
+    "name": "skills-nagent",
+    "category": "git-version-control",
+    "repository": "davidondrej-skills",
+    "description": "Launch a new bb worker thread with the right project, model, worktree, and task brief. Use for nagent, launching a bb session, or a standalone bb agent. Covers thread creation; use bb-cli for managing existing threads.",
+    "path": "category/git-version-control/skills-nagent"
   },
   {
     "id": "skills-neon",
@@ -3958,6 +4142,14 @@
     "repository": "neondatabase-agent-skills",
     "description": "Long-running, serverless Node.js HTTP functions deployed onto your Neon branch, with DATABASE_URL injected automatically and compute that runs next to your data. Use when a user wants to host an API, an AI agent with long streaming responses, a WebSocket or server-sent-events (SSE) server, a webhook handler, a Discord bot, an MCP server, or any request/response workload that risks timing out on short, lambda-style serverless functions \u2014 and wants it to branch with their database. Also use for Function Triggers: a cron or an object-storage event that POSTs to a function. Triggers include \"serverless function\", \"deploy an API\", \"long-running function\", \"streaming agent\", \"SSE server\", \"WebSocket server\", \"webhook handler\", \"MCP server\", \"cron\", \"scheduled function\", \"object storage trigger\", \"on upload\", \"function that won't time out\", \"function logs\", \"Neon Functions\", \"Neon Compute\", \"DDoS protection\", \"rate limiting\", and \"production hardening\". For live UIs over database rows, use neon-realtime.",
     "path": "category/git-version-control/skills-neon-functions"
+  },
+  {
+    "id": "skills-neon-postgres",
+    "name": "skills-neon-postgres",
+    "category": "git-version-control",
+    "repository": "neondatabase-agent-skills",
+    "description": "Guides and best practices for working with Lakebase Postgres on Neon: connections, pooled vs direct, schema migrations, branching (including schema-only, reset-from-parent, and branch-per-PR workflows), autoscaling, scale-to-zero, instant restore, read replicas, IP allow lists, logical replication, egress optimization, and Lakebase Search. Use when the work is an existing DATABASE_URL, SQL, schema, inspect, or search. New backends, Auth, files, Functions, and LLM calls go to the parent `neon` skill. Live queries, reactive UIs, and realtime data go to `neon-realtime`. Also use for \"@neondatabase/serverless\", \"@neon/neon-js\", \"neon inspect db\", \"neon postgres computes\", \"Neon branch\", \"schema-only branch\", \"reset branch\", \"branch per PR\", high database bills, network transfer or egress, Free plan limits or a compute suspended over quota (SQLSTATE 53000, HTTP 402), SELECT * optimization, query overfetching, \"semantic search\", \"vector search\", \"full-text search\", \"BM25\", or \"hybrid search\".",
+    "path": "category/git-version-control/skills-neon-postgres"
   },
   {
     "id": "skills-new-branch-and-pr",
@@ -4216,6 +4408,14 @@
     "path": "category/git-version-control/skills-pr-review-canvas"
   },
   {
+    "id": "skills-pr-review-expert",
+    "name": "skills-pr-review-expert",
+    "category": "git-version-control",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "File-by-file pull request review for bugs, security and quality, with a merge verdict. Load whenever the user asks to review, look over or check a PR or diff before merging.",
+    "path": "category/git-version-control/skills-pr-review-expert"
+  },
+  {
     "id": "skills-principle-separate-before-serializing-shared-state",
     "name": "skills-principle-separate-before-serializing-shared-state",
     "category": "git-version-control",
@@ -4246,6 +4446,30 @@
     "repository": "cursor-plugins",
     "description": "Review the current branch for bugs, intent fit, and test coverage; run or write tests; commit focused work; open or update a PR.",
     "path": "category/git-version-control/skills-review-and-ship"
+  },
+  {
+    "id": "skills-runpod-build-template",
+    "name": "skills-runpod-build-template",
+    "category": "git-version-control",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Create or improve a complete Runpod template project from an application request, local code, or GitHub repository, with a documented Dockerfile and app-specific files for Pods or queue/load-balanced Serverless. Use runpod-templates for finding or operating existing official templates, runpod-mcp/runpodctl to register an already-built image as a template, runpod-flash for its code-first workflow, and runpod-companion-clis for standalone image build/push commands.",
+    "path": "category/git-version-control/skills-runpod-build-template"
+  },
+  {
+    "id": "skills-runpod-companion-clis",
+    "name": "skills-runpod-companion-clis",
+    "category": "git-version-control",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Companion CLIs for Runpod workflows \u2014 HuggingFace, GitHub, Docker, and AWS. Use runpod-build-template for complete template project authoring, and the ComfyUI model-repair guide in runpod-templates for imported workflows lacking model download metadata.",
+    "path": "category/git-version-control/skills-runpod-companion-clis"
+  },
+  {
+    "id": "skills-security-guidance",
+    "name": "skills-security-guidance",
+    "category": "git-version-control",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when installing or tuning the PreToolUse security hook that warns before Claude writes command injection, XSS, SQL injection, unsafe deserialization, eval or GitHub Actions injection. Warns once per file and rule; ENABLE_SECURITY_REMINDER=0 turns it off.",
+    "path": "category/git-version-control/skills-security-guidance"
   },
   {
     "id": "skills-show-me-your-work",
@@ -4318,6 +4542,14 @@
     "repository": "thedotmack-claude-mem",
     "description": "Maintainer release workflow for the thedotmack/claude-mem repository only. Handles version increments across package.json, marketplace.json, plugin.json manifests, build verification, git tagging, GitHub releases, and changelog generation. npm publishing is done by the tag-triggered GitHub Actions workflow through npm trusted publishing. Does not apply to any other repository or npm package.",
     "path": "category/git-version-control/skills-version-bump"
+  },
+  {
+    "id": "skills-wiki-stage-commit",
+    "name": "skills-wiki-stage-commit",
+    "category": "git-version-control",
+    "repository": "ar9av-obsidian-wiki",
+    "description": "Review staged wiki writes and promote accepted pages to final locations when WIKI_STAGED_WRITES is enabled. Use for staging approval/commit; rejected pages return to _raw/ for editing.",
+    "path": "category/git-version-control/skills-wiki-stage-commit"
   },
   {
     "id": "smart-git-commit",

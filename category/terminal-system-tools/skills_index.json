@@ -1032,6 +1032,62 @@
     "path": "category/terminal-system-tools/data-dashboard"
   },
   {
+    "id": "data-google-agents-cli-adk-code",
+    "name": "data-google-agents-cli-adk-code",
+    "category": "terminal-system-tools",
+    "repository": "google-agents-cli",
+    "description": "This skill should be used when the user wants to \"write agent code\", \"build an agent with ADK\", \"add a tool\", \"create a callback\", \"define an agent\", \"use state management\" \u2014 in a project that needs ADK (Agent Development Kit) API patterns and code examples. It provides a quick reference for agent types, tool definitions, orchestration patterns, callbacks, state management, the graph Workflow API, and reference recipes to study. Do NOT use for scaffolding (use google-agents-cli-scaffold) or deployment (use google-agents-cli-deploy).",
+    "path": "category/terminal-system-tools/data-google-agents-cli-adk-code"
+  },
+  {
+    "id": "data-google-agents-cli-deploy",
+    "name": "data-google-agents-cli-deploy",
+    "category": "terminal-system-tools",
+    "repository": "google-agents-cli",
+    "description": "This skill should be used when the user wants to \"deploy an agent\", \"deploy my ADK agent\", \"set up CI/CD\", \"configure secrets\", \"troubleshoot a deployment\", or needs guidance on Agent Runtime, Cloud Run, or GKE deployment targets, or binding an agent to an Agent Gateway. Covers deployment workflows, service accounts, rollback, and production infrastructure. Applies to any framework agents-cli deploys (ADK, LangChain, ...). Part of the agents-cli skills suite. Do NOT use for agent API code patterns (ADK: use google-agents-cli-adk-code), evaluation (use google-agents-cli-eval), or project scaffolding (use google-agents-cli-scaffold).",
+    "path": "category/terminal-system-tools/data-google-agents-cli-deploy"
+  },
+  {
+    "id": "data-google-agents-cli-eval",
+    "name": "data-google-agents-cli-eval",
+    "category": "terminal-system-tools",
+    "repository": "google-agents-cli",
+    "description": "This skill should be used when the user wants to \"run an evaluation\", \"evaluate my agent\", \"evaluate my ADK agent\", \"write an eval dataset\", \"analyze eval failures\", \"compare eval results\", \"optimize agent\", or needs guidance on the Gemini platform eval methodology and the Quality Flywheel. Covers eval metrics, dataset schema, LLM-as-judge scoring, and common failure causes. Applies to any agents-cli project, whatever framework the agent is written in. Do NOT use for agent API code patterns (ADK: use google-agents-cli-adk-code), deployment (use google-agents-cli-deploy), or project scaffolding (use google-agents-cli-scaffold).",
+    "path": "category/terminal-system-tools/data-google-agents-cli-eval"
+  },
+  {
+    "id": "data-google-agents-cli-observability",
+    "name": "data-google-agents-cli-observability",
+    "category": "terminal-system-tools",
+    "repository": "google-agents-cli",
+    "description": "This skill should be used when the user wants to \"set up tracing\", \"monitor my agent\", \"configure logging\", \"add observability\", \"debug production traffic\", or needs guidance on monitoring deployed agents, including ADK (Agent Development Kit) agents. Covers Cloud Trace, prompt-response logging, BigQuery Agent Analytics, third-party integrations (AgentOps, Phoenix, MLflow, etc.), and troubleshooting. Part of the agents-cli skills suite. Do NOT use for deployment setup (use google-agents-cli-deploy) or API code patterns (use google-agents-cli-adk-code).",
+    "path": "category/terminal-system-tools/data-google-agents-cli-observability"
+  },
+  {
+    "id": "data-google-agents-cli-publish",
+    "name": "data-google-agents-cli-publish",
+    "category": "terminal-system-tools",
+    "repository": "google-agents-cli",
+    "description": "This skill should be used when the user wants to \"publish an agent\", \"publish my ADK agent\", \"register an agent with Gemini\", \"publish to Gemini\" (formerly Gemini Enterprise), or needs guidance on the agents-cli publish gemini command. Also use when the user wants to \"manage agents in Agent Registry\", \"list/update/delete registered agents\", or \"register an MCP server\". Covers ADK vs A2A registration modes, programmatic and interactive usage, flag reference, auto-detection from deployment metadata, Agent Registry fleet management, and troubleshooting. Part of the agents-cli skills suite. Do NOT use for deployment (use google-agents-cli-deploy).",
+    "path": "category/terminal-system-tools/data-google-agents-cli-publish"
+  },
+  {
+    "id": "data-google-agents-cli-scaffold",
+    "name": "data-google-agents-cli-scaffold",
+    "category": "terminal-system-tools",
+    "repository": "google-agents-cli",
+    "description": "This skill should be used when the user wants to \"create an agent project\", \"start a new ADK project\", \"build me a new agent\", \"add CI/CD to my project\", \"add deployment\", \"enhance my project\", or \"upgrade my project\". Part of the agents-cli skills suite. Covers `agents-cli scaffold create`, `scaffold enhance`, and `scaffold upgrade` commands, template options, deployment targets, and the prototype-first workflow. Do NOT use for writing agent code (ADK projects: use google-agents-cli-adk-code) or deployment operations (use google-agents-cli-deploy).",
+    "path": "category/terminal-system-tools/data-google-agents-cli-scaffold"
+  },
+  {
+    "id": "data-google-agents-cli-workflow",
+    "name": "data-google-agents-cli-workflow",
+    "category": "terminal-system-tools",
+    "repository": "google-agents-cli",
+    "description": "This skill should be used when the user wants to \"develop an agent\", \"build an agent using ADK\", \"run the agent locally\", \"debug agent code\", \"test an agent\", \"deploy an agent\", \"publish an agent\", \"monitor an agent\", or needs the ADK (Agent Development Kit) development lifecycle and coding guidelines. Entrypoint for building ADK agents. Always active \u2014 provides the full workflow (scaffold, build, evaluate, deploy, publish, observe), code preservation rules, model selection guidance, and troubleshooting steps for ADK or any agent development.",
+    "path": "category/terminal-system-tools/data-google-agents-cli-workflow"
+  },
+  {
     "id": "database-security",
     "name": "database-security",
     "category": "terminal-system-tools",
@@ -1150,6 +1206,14 @@
     "repository": "mukul975-anthropic-cybersecurity-skills",
     "description": "Hunt for suspicious PowerShell execution (T1059.001) such as encoded commands,",
     "path": "category/terminal-system-tools/detecting-suspicious-powershell-execution"
+  },
+  {
+    "id": "developer-device-platform-device-run",
+    "name": "developer-device-platform-device-run",
+    "category": "terminal-system-tools",
+    "repository": "google-skills",
+    "description": "Runs automated, non-interactive jobs on remote Android devices with Developer Device Platform (DDP) Device Run using `gcloud beta device-run sessions`: native Android executables or shell scripts (for example CLI tools, custom runners, test harnesses or benchmarks) and Android instrumentation tests, on one or many devices, then waits for completion and collects per-device outputs and logs. Use when running a binary or test suite on remote devices without an interactive connection. Don't use it for interactive device reservations, adb tunnels or screen streaming (use developer-device-platform-basics), or for local devices.",
+    "path": "category/terminal-system-tools/developer-device-platform-device-run"
   },
   {
     "id": "developer-live-demo-design",
@@ -1408,6 +1472,22 @@
     "path": "category/terminal-system-tools/exploiting-api-injection-vulnerabilities"
   },
   {
+    "id": "fastgen-runtime",
+    "name": "fastgen-runtime",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Resolve the execution context for an NVIDIA FastGen command: checkout and interpreter, config path and override syntax, output/cache/data roots, run identity, and distributed launch variables. Use it when preparing or debugging execution; method selection belongs to fastgen-configure.",
+    "path": "category/terminal-system-tools/fastgen-runtime"
+  },
+  {
+    "id": "fastgen-setup",
+    "name": "fastgen-setup",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Set up or repair an NVIDIA FastGen environment for a chosen task: Docker or Conda installation, credentials and model access, weight and dataset downloads, and an optional bounded smoke test. Use it before any FastGen command whenever the environment, access or inputs are not yet known to work.",
+    "path": "category/terminal-system-tools/fastgen-setup"
+  },
+  {
     "id": "feature-flags-architect",
     "name": "feature-flags-architect",
     "category": "terminal-system-tools",
@@ -1446,6 +1526,14 @@
     "repository": "reason-machines-trending-skills",
     "description": "Sync, search, classify, and query X/Twitter bookmarks locally using the Field Theory CLI",
     "path": "category/terminal-system-tools/fieldtheory-cli-bookmarks"
+  },
+  {
+    "id": "firecrawl-build",
+    "name": "firecrawl-build",
+    "category": "terminal-system-tools",
+    "repository": "firecrawl-skills",
+    "description": "Integrate Firecrawl into application code whenever a product, agent, or workflow needs web data inside the app \u2014 web search, live search results, page scraping, structured extraction, or browser interaction. Use when building any feature that needs data from the web in code, even if the user does not mention Firecrawl explicitly and only describes wanting web data, website content, search, scraping, or interaction in an application. Trigger for Firecrawl requests, \"fire girl\" shorthand, and generic app-level web-data needs that should map to `/scrape`, `/search`, or `/interact`. Do not use this skill for one-off terminal-only web tasks during the current session; use `firecrawl/cli` for those.",
+    "path": "category/terminal-system-tools/firecrawl-build"
   },
   {
     "id": "flexus-l-huawei-cloud-flexus-l-server-scripts-excute",
@@ -2296,6 +2384,14 @@
     "path": "category/terminal-system-tools/linux-troubleshooting"
   },
   {
+    "id": "litert-google-tensor",
+    "name": "litert-google-tensor",
+    "category": "terminal-system-tools",
+    "repository": "google-skills",
+    "description": "Compiles LiteRT (.tflite) models ahead-of-time for Google Tensor TPUs (Tensor G5 on Pixel 10, Tensor G6 on Pixel 11) locally on Linux x86_64 or on Google Colab (--colab on macOS, Windows, or ARM hosts), benchmarks them on a USB-attached Pixel with LiteRT's benchmark_model (NPU latency, peak memory, TPU tile time, TPU energy, optional CPU baseline), and packages compiled models for an Android Gradle app as a Google Play AI pack with the Tensor NPU runtime module and a Kotlin loader, applies it to the app and verifies it on a Pixel. Use when the user asks to compile, AOT-compile, or prepare a .tflite model for the Pixel TPU/NPU, check whether a .tflite is already Tensor-compiled, measure on-device NPU performance of a compiled model, or package or deploy a compiled model into their Android app (or replace the one it ships). Don't use for Qualcomm, MediaTek, or Samsung NPUs, GPU-only benchmarking, LiteRT-LM or LLM (.litertlm) models, on-device JIT compilation, non-Gradle builds, or publishing to Google Play.",
+    "path": "category/terminal-system-tools/litert-google-tensor"
+  },
+  {
     "id": "littlesnitch-linux",
     "name": "littlesnitch-linux",
     "category": "terminal-system-tools",
@@ -2472,6 +2568,14 @@
     "path": "category/terminal-system-tools/month-end-prep"
   },
   {
+    "id": "morning-plant-pulse",
+    "name": "morning-plant-pulse",
+    "category": "terminal-system-tools",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "Runs the overnight chain that has the morning production report waiting before anyone asks for it: joins last night's planning, production and maintenance exports, flags the mismatched keys, then computes output against plan, OEE with its three components, downtime ranked two ways, priced losses and the exceptions needing a decision. Stores a record per production day and keeps one Operations Command Center dashboard per site up to date, with a 14 and 30 day trend. Safe to run unattended. Use when someone says \\\"run the morning pulse,\\\" \\\"do the overnight report,\\\" \\\"morning plant pulse,\\\" \\\"update the operations dashboard,\\\" or schedules the daily production run.",
+    "path": "category/terminal-system-tools/morning-plant-pulse"
+  },
+  {
     "id": "ms365-tenant-manager",
     "name": "ms365-tenant-manager",
     "category": "terminal-system-tools",
@@ -2558,6 +2662,94 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Interact with Obsidian vaults using the Obsidian CLI to read, create, search, and manage notes, tasks, properties, and more. Also supports plugin and theme development with commands to reload plugins, run JavaScript, capture errors, take screenshots, and inspect the DOM. Use when the user asks to interact with their Obsidian vault, manage notes, search vault content, perform vault operations from the command line, or develop and debug Obsidian plugins and themes.",
     "path": "category/terminal-system-tools/obsidian-cli"
+  },
+  {
+    "id": "obsidian-headless",
+    "name": "obsidian-headless",
+    "category": "terminal-system-tools",
+    "repository": "kepano-obsidian-skills",
+    "description": "Sync and publish Obsidian vaults from the command line with Obsidian Headless (`ob`), without the desktop app. Use when the user wants to set up or run Obsidian Sync or Obsidian Publish on a server, in CI, or from a terminal, or change a vault's Sync or Publish settings.",
+    "path": "category/terminal-system-tools/obsidian-headless"
+  },
+  {
+    "id": "offensive-anti-forensics",
+    "name": "offensive-anti-forensics",
+    "category": "terminal-system-tools",
+    "repository": "snailsploit-claude-red",
+    "description": "Anti-forensics and evidence destruction techniques for red team operators conducting authorized engagements. Covers log clearing on Windows (wevtutil, Clear-EventLog, ETW provider patching) and Linux (journal truncation, utmp/wtmp binary editing, syslog manipulation), timestamp manipulation via Timestomp and SetMACE to defeat timeline analysis, filesystem-level anti-forensics including NTFS Alternate Data Streams for payload hiding and secure deletion with sdelete/shred, memory artifact removal to counter live forensics, disk artifact manipulation targeting MFT entries and USN journal records, network forensics evasion through encrypted C2 channels and DNS-over-HTTPS tunneling, and anti-VM/sandbox detection to avoid dynamic analysis environments. Tools: Timestomp, wevtutil, sdelete, shred, MimiPenguin, Invoke-Phant0m. Aligns to MITRE ATT&CK T1070 (Indicator Removal), T1027 (Obfuscated Files or Information), T1497 (Virtualization/Sandbox Evasion). Each technique includes the forensic artifact it targets, the destruction or manipulation method, and the defender perspective so operators understand detection gaps they must account for.",
+    "path": "category/terminal-system-tools/offensive-anti-forensics"
+  },
+  {
+    "id": "offensive-container-escape",
+    "name": "offensive-container-escape",
+    "category": "terminal-system-tools",
+    "repository": "snailsploit-claude-red",
+    "description": "Container escape and breakout techniques targeting Docker, containerd, and Podman runtimes. Covers privileged container breakout via host filesystem mount and nsenter, Docker socket abuse through /var/run/docker.sock, Linux capability exploitation including CAP_SYS_ADMIN, CAP_SYS_PTRACE, and CAP_NET_ADMIN, cgroup v1 notify_on_release escape, runc CVEs such as CVE-2019-5736 and CVE-2024-21626 Leaky Vessels, kernel exploits from within containers, and Dockerfile misconfigurations like --privileged and host namespace sharing. Includes enumeration with capsh, amicontained, deepce, CDK, and nsenter. Maps to MITRE ATT&CK T1611 Escape to Host. Use this skill when the engagement scope includes container breakout, Docker escape, container privilege escalation, host access from container, or when you land inside a containerized environment and need to reach the underlying host.",
+    "path": "category/terminal-system-tools/offensive-container-escape"
+  },
+  {
+    "id": "offensive-iot",
+    "name": "offensive-iot",
+    "category": "terminal-system-tools",
+    "repository": "snailsploit-claude-red",
+    "description": "IoT and embedded device security testing methodology. Covers hardware reconnaissance (UART, JTAG, SWD, SPI flash, I2C EEPROM, eMMC chip-off), firmware acquisition (vendor portals, OTA capture, flash dump, binwalk extraction), firmware analysis (filesystem mounting, binary triage, hardcoded secrets, default credential discovery), bootloader attacks (U-Boot console, secure-boot bypass, fault injection), runtime attacks on embedded Linux/RTOS (busybox CVEs, MTD writes, /dev/mem), wireless protocol attacks (Zigbee, BLE, Z-Wave, LoRaWAN, Thread/Matter, sub-GHz), MQTT/CoAP/Modbus/BACnet/OPC-UA exploitation, mobile companion app analysis, cloud-IoT API abuse, and side-channel/glitching basics. Use for IoT pentest, smart-home assessment, ICS/OT testing, or embedded vulnerability research.",
+    "path": "category/terminal-system-tools/offensive-iot"
+  },
+  {
+    "id": "offensive-k8s-attacks",
+    "name": "offensive-k8s-attacks",
+    "category": "terminal-system-tools",
+    "repository": "snailsploit-claude-red",
+    "description": "Kubernetes cluster attack techniques covering the full attack lifecycle from initial foothold in a pod to cluster-wide compromise. Covers service account token theft and impersonation, RBAC misconfiguration exploitation including wildcard permissions and privilege escalation via role binding, direct etcd access for secret extraction, kubelet API abuse on port 10250 and read-only port 10255, pod escape via hostPID hostNetwork and hostPath volume mounts, Kubernetes secrets enumeration and decoding, admission controller bypass techniques, network policy bypass and lateral movement, cloud metadata service access from pods for credential theft on AWS EKS GCP GKE and Azure AKS, CRD and operator abuse for persistence, and node compromise via DaemonSet deployment. Tools include kubectl, kube-hunter, peirates, kubeaudit, kdigger, kubeletctl. Maps to MITRE ATT&CK T1609 Container Administration Command, T1610 Deploy Container, T1613 Container and Resource Discovery. Use this skill when assessing Kubernetes clusters, attacking from within a compromised pod, exploiting RBAC or kubelet misconfigurations, or performing cloud-native lateral movement.",
+    "path": "category/terminal-system-tools/offensive-k8s-attacks"
+  },
+  {
+    "id": "offensive-lateral-movement",
+    "name": "offensive-lateral-movement",
+    "category": "terminal-system-tools",
+    "repository": "snailsploit-claude-red",
+    "description": "Comprehensive lateral movement tradecraft for authorized red team engagements covering credential-based movement (pass-the-hash, pass-the-ticket, overpass-the-hash), NTLM relay attacks (ntlmrelayx with PetitPotam, DFSCoerce, PrinterBug coercion), remote execution protocols (WMI, WinRM, DCOM, PsExec and alternatives), RDP session hijacking, and network pivoting through tunneling tools (chisel, ligolo-ng, SSH tunnels, SOCKS proxies). Provides operator-ready command sequences for mimikatz, crackmapexec/netexec, impacket suite, and evil-winrm with emphasis on OPSEC considerations, SMB signing bypass, and detection evasion. Maps to MITRE ATT&CK T1021 (Remote Services), T1550 (Use Alternate Authentication Material), and sub-techniques. Includes defender-perspective detection guidance for blue team awareness and a rapid engagement cheatsheet for common lateral movement scenarios encountered during internal penetration tests and assumed-breach exercises.",
+    "path": "category/terminal-system-tools/offensive-lateral-movement"
+  },
+  {
+    "id": "offensive-linux-privesc",
+    "name": "offensive-linux-privesc",
+    "category": "terminal-system-tools",
+    "repository": "snailsploit-claude-red",
+    "description": "Comprehensive Linux privilege escalation methodology for offensive security engagements. Covers the full attack surface from a low-privilege shell to root: SUID/SGID binary abuse via GTFOBins, Linux capabilities exploitation (cap_setuid, cap_dac_override, cap_dac_read_search), sudo misconfigurations including NOPASSWD rules and Baron Samedit (CVE-2021-3156), cron job abuse through writable scripts, PATH hijacking, and wildcard injection with tar/rsync/chown. Includes writable /etc/passwd attacks, NFS no_root_squash exploitation, kernel exploits (DirtyPipe CVE-2022-0847, DirtyCow CVE-2016-5195, PwnKit CVE-2021-4034), Docker group container escapes, LD_PRELOAD and LD_LIBRARY_PATH hijacking for shared library injection, systemd service misconfigurations, and sensitive file enumeration for credential harvesting. Integrates automated enumeration with LinPEAS, linux-exploit-suggester, pspy for process monitoring, and GTFOBins for binary exploitation. Each technique includes detection signatures and defender-side visibility to support purple team operations. Maps to MITRE ATT&CK T1548 (Abuse Elevation Control Mechanism) and related sub-techniques. Designed for authorized penetration testing, red team engagements, and CTF competitions where you hold a low-privilege shell and need to escalate to root.",
+    "path": "category/terminal-system-tools/offensive-linux-privesc"
+  },
+  {
+    "id": "offensive-netexec",
+    "name": "offensive-netexec",
+    "category": "terminal-system-tools",
+    "repository": "snailsploit-claude-red",
+    "description": "Use this skill whenever the user asks about NetExec (nxc) \u2014 a network exploitation and post-exploitation tool for Active Directory environments. Triggers include: any mention of 'nxc', 'netexec', 'crackmapexec' successor questions, AD enumeration, SMB/LDAP/WinRM/MSSQL/SSH/RDP/VNC/WMI/FTP/NFS protocol attacks, password spraying, credential dumping (SAM, NTDS, LSASS, DPAPI), Kerberoasting, ASREPRoasting, lateral movement, BloodHound collection, module usage, or any pentest workflow involving Windows domain environments. This skill covers ALL protocols, ALL modules, and ALL core features of NetExec. Always provide full command examples with correct flags and options.",
+    "path": "category/terminal-system-tools/offensive-netexec"
+  },
+  {
+    "id": "offensive-persistence",
+    "name": "offensive-persistence",
+    "category": "terminal-system-tools",
+    "repository": "snailsploit-claude-red",
+    "description": "Comprehensive persistence tradecraft for authorized red team engagements covering Windows and Linux mechanisms. Windows techniques include registry Run/RunOnce keys, scheduled tasks, WMI event subscriptions, DLL search order hijacking, COM object hijacking, Startup folder drops, service creation, Security Support Provider (SSP) DLL injection, and Active Directory persistence (AdminSDHolder abuse, DCShadow, Golden Ticket, Silver Ticket, Skeleton Key, SID History injection). Linux techniques include cron and at jobs, systemd timers and services, SSH authorized_keys injection, shell profile backdoors (.bashrc/.bash_profile), PAM module backdoors, LD_PRELOAD hijacking, kernel module rootkits, web shells, and Git hook abuse. Provides operator-ready command sequences for SharPersist, Impacket ticketer, schtasks, sc.exe, crontab, and systemctl with OPSEC considerations for each method. Maps to MITRE ATT&CK T1547 (Boot or Logon Autostart), T1053 (Scheduled Task/Job), T1546 (Event Triggered Execution), T1556 (Modify Authentication Process), and sub-techniques. Includes detection indicators and a rapid engagement cheatsheet.",
+    "path": "category/terminal-system-tools/offensive-persistence"
+  },
+  {
+    "id": "offensive-windows-privesc",
+    "name": "offensive-windows-privesc",
+    "category": "terminal-system-tools",
+    "repository": "snailsploit-claude-red",
+    "description": "Comprehensive Windows privilege escalation methodology for offensive security engagements. Covers the full attack surface from a standard user shell to NT AUTHORITY\\\\SYSTEM: token impersonation via SeImpersonate and SeAssignPrimaryToken privileges using JuicyPotato, PrintSpoofer, GodPotato, SweetPotato, and RoguePotato; service misconfigurations including unquoted service paths, weak service DACLs, writable service binaries, and insecure service creation permissions; AlwaysInstallElevated MSI exploitation; DLL hijacking through search order abuse, phantom DLL loading, and writable PATH directory injection; UAC bypass techniques via fodhelper.exe, eventvwr.exe, CMSTP, and environment variable manipulation; scheduled task abuse for writable task actions and new task creation; registry autorun exploitation for persistence and escalation; PrintNightmare (CVE-2021-34527) for remote and local privilege escalation; and credential harvesting from SAM database extraction, DPAPI blob decryption, LSA secret dumping, and Credential Manager enumeration. Integrates automated enumeration with WinPEAS, PowerUp, SharpUp, Seatbelt, and BeRoot. Each technique includes detection signatures and defender-side visibility for purple team operations. Maps to MITRE ATT&CK T1548 (Abuse Elevation Control Mechanism) and T1574 (Hijack Execution Flow). Designed for authorized penetration testing, red team engagements, and CTF competitions where you hold a standard user shell and need to escalate to SYSTEM or local Administrator.",
+    "path": "category/terminal-system-tools/offensive-windows-privesc"
+  },
+  {
+    "id": "offensive-zigbee-thread-matter",
+    "name": "offensive-zigbee-thread-matter",
+    "category": "terminal-system-tools",
+    "repository": "snailsploit-claude-red",
+    "description": "Zigbee, Thread, and Matter mesh-protocol attack methodology \u2014 IEEE 802.15.4 sniffing with TI CC2531 / CC2540 / Sonoff Zigbee Dongle E, KillerBee toolkit, Touchlink commissioning abuse with the well-known transport key, replay/injection attacks, Zigbee Cluster Library command abuse for door locks and bulbs, Thread network credential theft, Matter commissioning chain analysis, and 6LoWPAN/IPv6 routing exploitation. Use when targeting smart-home or commercial mesh deployments, Zigbee-based door locks, lighting, or sensor networks.",
+    "path": "category/terminal-system-tools/offensive-zigbee-thread-matter"
   },
   {
     "id": "onboard",
@@ -3256,12 +3448,28 @@
     "path": "category/terminal-system-tools/skills-asset-transformer-toolkit"
   },
   {
+    "id": "skills-autoresearch-agent",
+    "name": "skills-autoresearch-agent",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Make a file measurably better by trial: faster code, smaller bundle, higher pass rate or prompt score. Use whenever the user wants something optimized against a metric, before hand-tuning; loops edits, keeps wins, resets losses. Needs an eval command.",
+    "path": "category/terminal-system-tools/skills-autoresearch-agent"
+  },
+  {
     "id": "skills-azure-diagnostics",
     "name": "skills-azure-diagnostics",
     "category": "terminal-system-tools",
     "repository": "microsoft-azure-skills",
     "description": "Debug Azure production issues using AppLens, Azure Monitor, resource health, and safe triage, including evidence-only diagnosis without live access. WHEN: debug production issues, troubleshoot app service, app service high CPU, app service deployment failure, troubleshoot container apps, container app 503 or target port mismatch, troubleshoot functions, function telemetry missing or stopped after a config/connection-string change, troubleshoot AKS, VM RDP, Linux SSH, VM black screen, can't connect to VM, reset VM password, NSG or firewall blocking, kubectl cannot connect, kube-system/CoreDNS failures, pod pending, crashloop, node not ready, upgrade failures, analyze logs, KQL, insights, image pull failures, cold start issues, health probe failures, resource health, root cause of errors, troubleshoot event hubs, troubleshoot service bus, messaging SDK error, AMQP connection failure, message lock lost, lock renewal during long-running processing, service bus dead letter.",
     "path": "category/terminal-system-tools/skills-azure-diagnostics"
+  },
+  {
+    "id": "skills-c-level-agents",
+    "name": "skills-c-level-agents",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when the founder wants a virtual executive team or a /c-level-agents command. Lists the 13 C-suite agents and 21 commands and routes multi-role decisions.",
+    "path": "category/terminal-system-tools/skills-c-level-agents"
   },
   {
     "id": "skills-cardputer-buddy",
@@ -3304,6 +3512,14 @@
     "path": "category/terminal-system-tools/skills-dart-build-cli-app"
   },
   {
+    "id": "skills-eas-simulator",
+    "name": "skills-eas-simulator",
+    "category": "terminal-system-tools",
+    "repository": "expo-skills",
+    "description": "Run and control a user's app on a remote iOS/Android simulator with Expo Simulators (also called EAS Simulator). Read before running any `eas simulator:*` commands - it has the current syntax and workflow. Use whenever the user needs a simulator they can't run locally - 'run my app on a cloud simulator', 'use eas simulator to run/install/screenshot my app', 'I'm on Linux/Cursor and need an iOS device', 'no sim on this box / headless CI', 'let an agent click through my app and screenshot it', 'test my dev build on a remote sim with live reload', 'stream a sim to my browser' - even when they don't say 'Expo Simulators', 'EAS Simulator', or 'cloud'. On a host WITHOUT a local simulator (Linux, CI, cloud sandbox) it's the default; on macOS, do NOT auto-trigger for a plain 'run on the simulator' - use it only for a cloud/remote/shareable sim, an iOS version they lack, or an agent-driven session. NOT for local sims (expo run:ios, Xcode, Android Studio), EAS Build/Update, web preview, or physical devices.",
+    "path": "category/terminal-system-tools/skills-eas-simulator"
+  },
+  {
     "id": "skills-example-command",
     "name": "skills-example-command",
     "category": "terminal-system-tools",
@@ -3312,12 +3528,100 @@
     "path": "category/terminal-system-tools/skills-example-command"
   },
   {
+    "id": "skills-gemini-api-cli",
+    "name": "skills-gemini-api-cli",
+    "category": "terminal-system-tools",
+    "repository": "google-gemini-gemini-skills",
+    "description": "Call the Gemini API from the shell with gemini-api. Use for media generation (images, TTS, music, video), file and YouTube analysis, audio/video transcription, Deep Research, and sandboxed agents.",
+    "path": "category/terminal-system-tools/skills-gemini-api-cli"
+  },
+  {
+    "id": "skills-generate2dmedia",
+    "name": "skills-generate2dmedia",
+    "category": "terminal-system-tools",
+    "repository": "0x0funky-agent-sprite-forge",
+    "description": "The art-route layer of the Forge skills. route_media.py is the one command that generates an image or an image-to-video clip - through the paid API of any provider whose key is configured (OpenAI, Google Gemini, xAI, BytePlus ModelArk, fal.ai; the configured key is the owner's consent), else through the user's own signed-in Codex or Grok CLI - and prints one JSON line with the route, artifact, sha256 and cost estimate; with no route it answers no-route (codeart2d is then the last resort). Also the capability check (forge_doctor), API key configuration, the spend ledger, resume and Codex image adoption. Use when a Forge skill sends a generation here, for the capability check, or when the user asks about keys, routes or spend. Not for planning, processing or QA of sprites, video frames or maps (generate2dsprite, video2dsprite, generate2dmap) or for code-drawn art (codeart2d).",
+    "path": "category/terminal-system-tools/skills-generate2dmedia"
+  },
+  {
     "id": "skills-genoffice",
     "name": "skills-genoffice",
     "category": "terminal-system-tools",
     "repository": "genspark-ai-genoffice",
     "description": "Create, convert, read and edit Office documents locally with GenOffice's command line. Build a new presentation (pptx) from a brief through a checked outline, per-page spec and render pipeline, a new spreadsheet (xlsx) from CSV or JSON data with formulas, a new Word document (docx) from Markdown or HTML, or a PDF; convert between pdf, docx, xlsx, pptx, md, html and csv; read the structure and text of an existing file (including the user's own docx / xlsx / pptx as source material) and apply structured edits to it. Use whenever the user asks for a slide deck, presentation, spreadsheet, workbook, report, Word document or any real Office file, a format conversion, a rewrite of part of an existing document, or wants the result opened in the GenOffice editor. Documents are processed locally; only search, image and media send the query or the referenced file to the provider configured in GenOffice.",
     "path": "category/terminal-system-tools/skills-genoffice"
+  },
+  {
+    "id": "skills-global-agent-guardrails",
+    "name": "skills-global-agent-guardrails",
+    "category": "terminal-system-tools",
+    "repository": "davidondrej-skills",
+    "description": "Configure the shared guard against catastrophic shell commands in local AI agents. Use when changing block patterns, adding an agent or machine, or investigating why a command was or wasn't blocked.",
+    "path": "category/terminal-system-tools/skills-global-agent-guardrails"
+  },
+  {
+    "id": "skills-google-agents-cli-adk-code",
+    "name": "skills-google-agents-cli-adk-code",
+    "category": "terminal-system-tools",
+    "repository": "google-agents-cli",
+    "description": "This skill should be used when the user wants to \"write agent code\", \"build an agent with ADK\", \"add a tool\", \"create a callback\", \"define an agent\", \"use state management\" \u2014 in a project that needs ADK (Agent Development Kit) API patterns and code examples. It provides a quick reference for agent types, tool definitions, orchestration patterns, callbacks, state management, the graph Workflow API, and reference recipes to study. Do NOT use for scaffolding (use google-agents-cli-scaffold) or deployment (use google-agents-cli-deploy).",
+    "path": "category/terminal-system-tools/skills-google-agents-cli-adk-code"
+  },
+  {
+    "id": "skills-google-agents-cli-deploy",
+    "name": "skills-google-agents-cli-deploy",
+    "category": "terminal-system-tools",
+    "repository": "google-agents-cli",
+    "description": "This skill should be used when the user wants to \"deploy an agent\", \"deploy my ADK agent\", \"set up CI/CD\", \"configure secrets\", \"troubleshoot a deployment\", or needs guidance on Agent Runtime, Cloud Run, or GKE deployment targets, or binding an agent to an Agent Gateway. Covers deployment workflows, service accounts, rollback, and production infrastructure. Applies to any framework agents-cli deploys (ADK, LangChain, ...). Part of the agents-cli skills suite. Do NOT use for agent API code patterns (ADK: use google-agents-cli-adk-code), evaluation (use google-agents-cli-eval), or project scaffolding (use google-agents-cli-scaffold).",
+    "path": "category/terminal-system-tools/skills-google-agents-cli-deploy"
+  },
+  {
+    "id": "skills-google-agents-cli-eval",
+    "name": "skills-google-agents-cli-eval",
+    "category": "terminal-system-tools",
+    "repository": "google-agents-cli",
+    "description": "This skill should be used when the user wants to \"run an evaluation\", \"evaluate my agent\", \"evaluate my ADK agent\", \"write an eval dataset\", \"analyze eval failures\", \"compare eval results\", \"optimize agent\", or needs guidance on the Gemini platform eval methodology and the Quality Flywheel. Covers eval metrics, dataset schema, LLM-as-judge scoring, and common failure causes. Applies to any agents-cli project, whatever framework the agent is written in. Do NOT use for agent API code patterns (ADK: use google-agents-cli-adk-code), deployment (use google-agents-cli-deploy), or project scaffolding (use google-agents-cli-scaffold).",
+    "path": "category/terminal-system-tools/skills-google-agents-cli-eval"
+  },
+  {
+    "id": "skills-google-agents-cli-observability",
+    "name": "skills-google-agents-cli-observability",
+    "category": "terminal-system-tools",
+    "repository": "google-agents-cli",
+    "description": "This skill should be used when the user wants to \"set up tracing\", \"monitor my agent\", \"configure logging\", \"add observability\", \"debug production traffic\", or needs guidance on monitoring deployed agents, including ADK (Agent Development Kit) agents. Covers Cloud Trace, prompt-response logging, BigQuery Agent Analytics, third-party integrations (AgentOps, Phoenix, MLflow, etc.), and troubleshooting. Part of the agents-cli skills suite. Do NOT use for deployment setup (use google-agents-cli-deploy) or API code patterns (use google-agents-cli-adk-code).",
+    "path": "category/terminal-system-tools/skills-google-agents-cli-observability"
+  },
+  {
+    "id": "skills-google-agents-cli-publish",
+    "name": "skills-google-agents-cli-publish",
+    "category": "terminal-system-tools",
+    "repository": "google-agents-cli",
+    "description": "This skill should be used when the user wants to \"publish an agent\", \"publish my ADK agent\", \"register an agent with Gemini\", \"publish to Gemini\" (formerly Gemini Enterprise), or needs guidance on the agents-cli publish gemini command. Also use when the user wants to \"manage agents in Agent Registry\", \"list/update/delete registered agents\", or \"register an MCP server\". Covers ADK vs A2A registration modes, programmatic and interactive usage, flag reference, auto-detection from deployment metadata, Agent Registry fleet management, and troubleshooting. Part of the agents-cli skills suite. Do NOT use for deployment (use google-agents-cli-deploy).",
+    "path": "category/terminal-system-tools/skills-google-agents-cli-publish"
+  },
+  {
+    "id": "skills-google-agents-cli-scaffold",
+    "name": "skills-google-agents-cli-scaffold",
+    "category": "terminal-system-tools",
+    "repository": "google-agents-cli",
+    "description": "This skill should be used when the user wants to \"create an agent project\", \"start a new ADK project\", \"build me a new agent\", \"add CI/CD to my project\", \"add deployment\", \"enhance my project\", or \"upgrade my project\". Part of the agents-cli skills suite. Covers `agents-cli scaffold create`, `scaffold enhance`, and `scaffold upgrade` commands, template options, deployment targets, and the prototype-first workflow. Do NOT use for writing agent code (ADK projects: use google-agents-cli-adk-code) or deployment operations (use google-agents-cli-deploy).",
+    "path": "category/terminal-system-tools/skills-google-agents-cli-scaffold"
+  },
+  {
+    "id": "skills-google-agents-cli-workflow",
+    "name": "skills-google-agents-cli-workflow",
+    "category": "terminal-system-tools",
+    "repository": "google-agents-cli",
+    "description": "This skill should be used when the user wants to \"develop an agent\", \"build an agent using ADK\", \"run the agent locally\", \"debug agent code\", \"test an agent\", \"deploy an agent\", \"publish an agent\", \"monitor an agent\", or needs the ADK (Agent Development Kit) development lifecycle and coding guidelines. Entrypoint for building ADK agents. Always active \u2014 provides the full workflow (scaffold, build, evaluate, deploy, publish, observe), code preservation rules, model selection guidance, and troubleshooting steps for ADK or any agent development.",
+    "path": "category/terminal-system-tools/skills-google-agents-cli-workflow"
+  },
+  {
+    "id": "skills-herdr",
+    "name": "skills-herdr",
+    "category": "terminal-system-tools",
+    "repository": "davidondrej-skills",
+    "description": "Operate and coordinate AI agents in Herdr workspaces in Ghostty. Use when the user mentions Herdr or asks to inspect, message, wait for, or coordinate its agents. Excludes cmux and ordinary terminal sessions.",
+    "path": "category/terminal-system-tools/skills-herdr"
   },
   {
     "id": "skills-limrun-android-emulator",
@@ -3358,6 +3662,22 @@
     "repository": "anthropics-knowledge-work",
     "description": "Reconciles the accounting ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books) against PayPal, Shopify, Square, and Stripe settlements, flags transactions that need attention, suspicious duplicates, and missing receipts, then writes a plain-English P&L narrative and exports a close packet (xlsx + one-page PDF). This is the first link of the /close-month command; a request to close the month or the books routes there, and the command runs this skill before refreshing the forecast and distributing the packet. Use this skill directly only when the owner wants the reconciliation alone, with no forecast refresh and no distribution: \"just reconcile, no packet,\" \"what's missing from the books,\" \"flag the duplicates and missing receipts,\" or \"write the P&L narrative for this month.",
     "path": "category/terminal-system-tools/skills-month-end-prep"
+  },
+  {
+    "id": "skills-ms365-tenant-manager",
+    "name": "skills-ms365-tenant-manager",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for Microsoft 365 tenant administration (Entra ID users, Exchange Online, Teams, licenses, Conditional Access, compliance reports). Plans setup with tenant_setup.py, bulk-manages users with user_management.py and generates PowerShell with powershell_generator.py.",
+    "path": "category/terminal-system-tools/skills-ms365-tenant-manager"
+  },
+  {
+    "id": "skills-obsidian-cli",
+    "name": "skills-obsidian-cli",
+    "category": "terminal-system-tools",
+    "repository": "kepano-obsidian-skills",
+    "description": "Interact with Obsidian vaults using the Obsidian CLI to read, create, search, and manage notes, tasks, properties, and more. Also supports plugin and theme development with commands to reload plugins, run JavaScript, capture errors, take screenshots, and inspect the DOM. Use when the user asks to interact with their Obsidian vault, manage notes, search vault content, perform vault operations from the command line, or develop and debug Obsidian plugins and themes.",
+    "path": "category/terminal-system-tools/skills-obsidian-cli"
   },
   {
     "id": "skills-openrig-user",
@@ -3414,6 +3734,38 @@
     "repository": "mvschwarz-openrig",
     "description": "Use when a person in their own Claude Code or Codex session mentions OpenRig, rigs or the rig command, or wants a team of coding agents (Claude Code, Codex) on their project. That includes installing, setting up, starting or updating OpenRig, seeing, getting back to or re-attaching to their OpenRig agents (including bringing a stopped team back), TUI or operator, starting or sharing a team, and joining this session to one. Operating a running rig from inside it (fleet recovery, seat handover, watchdog wakes, in-rig upgrades) is the openrig-skills skill.",
     "path": "category/terminal-system-tools/skills-rigs"
+  },
+  {
+    "id": "skills-runpod-mcp",
+    "name": "skills-runpod-mcp",
+    "category": "terminal-system-tools",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Manage Runpod infrastructure through the connected Runpod MCP server's tool calls (pods, serverless endpoints and jobs, templates, network volumes, registry credentials, secrets, clusters, the GPU/CPU catalog, and billing), and connect the server when it is missing (hosted or local npx). Load it before the first Runpod MCP tool call of a request: it routes the task to the journey skill that carries the procedure, owns the answer contract and the rules on which resources you may change, and defers to runpodctl for the terminal, file transfer, and SSH setup; template project and Hub listing authoring routes to runpod-build-template.",
+    "path": "category/terminal-system-tools/skills-runpod-mcp"
+  },
+  {
+    "id": "skills-runpodctl",
+    "name": "skills-runpodctl",
+    "category": "terminal-system-tools",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Runpod CLI for managing GPU/CPU workloads from the terminal \u2014 pods, serverless endpoints, templates, network volumes, Hub deploys, models, SSH, and file transfer (send/receive, network-volume upload/download). Use for terminal/CI/scripting, SSH setup, `doctor`, or when the Runpod MCP tools are not connected; prefer runpod-mcp for structured tool calls in an MCP-enabled session.",
+    "path": "category/terminal-system-tools/skills-runpodctl"
+  },
+  {
+    "id": "skills-setup",
+    "name": "skills-setup",
+    "category": "terminal-system-tools",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for /autoresearch-agent:setup, or to start a new autoresearch experiment: target, eval command, metric, direction, evaluator.",
+    "path": "category/terminal-system-tools/skills-setup"
+  },
+  {
+    "id": "skills-simple-english",
+    "name": "skills-simple-english",
+    "category": "terminal-system-tools",
+    "repository": "aminblg-simpleenglish",
+    "description": "Write or rewrite text in plain, layman-readable English in the spirit of ASD-STE100 Simplified Technical English: short sentences, active voice, simple tenses, one word one meaning, condition before command, every technical term defined at first use, no AI slop. Default mode is Plain. Strict mode applies full STE vocabulary compliance when the user names STE, ASD-STE100, or compliance. Use for documentation, READMEs, runbooks, procedures, error messages, release notes, incident reports, API guides, and explanations for readers outside the field. Also use when the user says \"STE\", \"Simplified Technical English\", \"ASD-STE100\", \"plain English\", \"layman's terms\", \"explain it simply\", \"no jargon\", \"de-slop\", \"make this readable\", \"write for non-native readers\", or asks for docs that translate well. The same rules govern the reply: answer first, prose by default.",
+    "path": "category/terminal-system-tools/skills-simple-english"
   },
   {
     "id": "skills-smb-router",
@@ -3640,12 +3992,28 @@
     "path": "category/terminal-system-tools/unity-cli"
   },
   {
+    "id": "unity-csharp-scripting",
+    "name": "unity-csharp-scripting",
+    "category": "terminal-system-tools",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "Writes and fixes Unity 6.3 LTS C# gameplay scripts: MonoBehaviour lifecycle, serialization, .meta/GUID discipline and command-line tests. Use for new or renamed .cs files, \"Missing script\" or a field missing from the Inspector. Not for physics (`unity-physics`), input (`unity-input-system`), data assets (`unity-scriptableobjects`) or builds (`unity-build-pipeline`).",
+    "path": "category/terminal-system-tools/unity-csharp-scripting"
+  },
+  {
     "id": "unix-cli-best-practices",
     "name": "unix-cli-best-practices",
     "category": "terminal-system-tools",
     "repository": "flutter-agent-plugins",
     "description": "Safe, portable, and efficient command-line patterns for macOS/BSD Unix tools (grep, find, sed, awk, xargs, mdfind, pbcopy, open) and modern alternatives (ripgrep, fd). Covers common shell scripting and one-liner use cases including fast searching, text processing, codebase navigation, and parallel execution.",
     "path": "category/terminal-system-tools/unix-cli-best-practices"
+  },
+  {
+    "id": "unreal-cpp-gameplay",
+    "name": "unreal-cpp-gameplay",
+    "category": "terminal-system-tools",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "Unreal Engine 5 (UE 5.8) C++ gameplay code: UCLASS and UPROPERTY reflection, the Gameplay Framework, GC-safe pointers, Build.cs and command-line builds. Use for GENERATED_BODY, Live Coding, \"unresolved external symbol\" or UHT errors. Not for Blueprints (`unreal-blueprints`), Enhanced Input (`unreal-enhanced-input`) or packaging (`unreal-packaging`); engine source builds are out of scope.",
+    "path": "category/terminal-system-tools/unreal-cpp-gameplay"
   },
   {
     "id": "unslop-file",

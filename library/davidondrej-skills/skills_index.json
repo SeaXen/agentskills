@@ -330,6 +330,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link fireflies-transcript"
   },
   {
+    "id": "gemini-review",
+    "name": "gemini-review",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Launch an independent Gemini 4 Carbon code review through Cursor at High reasoning and return it verbatim. Use for /gemini-review, or when the user or another agent asks for a Gemini review.",
+    "path": "library/davidondrej-skills/skills/gemini-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gemini-review",
+    "link_cmd": "python .agents/library/activate_skill.py link gemini-review"
+  },
+  {
     "id": "git-worktree",
     "name": "git-worktree",
     "repository": "davidondrej-skills",
@@ -678,6 +688,246 @@
     "path": "library/davidondrej-skills/skills/skill-authoring",
     "activation_cmd": "python .agents/library/activate_skill.py activate skill-authoring",
     "link_cmd": "python .agents/library/activate_skill.py link skill-authoring"
+  },
+  {
+    "id": "skills-4x4",
+    "name": "skills-4x4",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "'Pull 16 fast decisions out of the user with 4 sets of 4 open questions, then present an implementation plan. Only for risky changes, large product decisions, or large refactors. Run when the user types /4x4. Agents may suggest it in one line but never start it on their own.'",
+    "path": "library/davidondrej-skills/skills/skills-4x4",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-4x4",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-4x4"
+  },
+  {
+    "id": "skills-adr-verbatim",
+    "name": "skills-adr-verbatim",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "'Record concise ADRs that preserve the user''s decisions without conversational noise. Use for \"adr-verbatim\", \"new ADR\", \"document that as an ADR\", \"record this decision\", or supplied ADR wording.'",
+    "path": "library/davidondrej-skills/skills/skills-adr-verbatim",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-adr-verbatim",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-adr-verbatim"
+  },
+  {
+    "id": "skills-boat",
+    "name": "skills-boat",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Manage Boat (boat.dev, formerly Box by Ascii) cloud sandboxes via API, CLI, and SSH. Use for provisioning, environments, secrets, templates, snapshots, stop/resume/fork, or running BB and coding agents on Boat.",
+    "path": "library/davidondrej-skills/skills/skills-boat",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-boat",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-boat"
+  },
+  {
+    "id": "skills-browser-harness",
+    "name": "skills-browser-harness",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Direct browser control via CDP. Use when the user wants to automate, scrape, test, or interact with web pages. Connects to the user's already-running Chrome.",
+    "path": "library/davidondrej-skills/skills/skills-browser-harness",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-browser-harness",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-browser-harness"
+  },
+  {
+    "id": "skills-deep-research",
+    "name": "skills-deep-research",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Run deep research through DeepAPI and save a report with sources. Use when asked for deep research, DeepAPI research, or Perplexity deep research.",
+    "path": "library/davidondrej-skills/skills/skills-deep-research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-deep-research",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-deep-research"
+  },
+  {
+    "id": "skills-deep-scrape",
+    "name": "skills-deep-scrape",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Build sourced JSON dossiers on people, companies, or topics with DeepAPI. Use for profiles, prospects, vendor due diligence, or customer research across sources; use deep-research for recommendations.",
+    "path": "library/davidondrej-skills/skills/skills-deep-scrape",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-deep-scrape",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-deep-scrape"
+  },
+  {
+    "id": "skills-deepapi",
+    "name": "skills-deepapi",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Use DeepAPI for all web search, deep research, and web scraping (websites, LinkedIn, GitHub, X/Twitter, YouTube, Instagram) instead of built-in search, research, fetch, or browser tools. Prefer dedicated platform endpoints over web search. Instagram has profile, post, comment, and hashtag endpoints; no generic search. Use Deep Scrape for sourced JSON dossiers on people, companies, or topics. Also use it to navigate and act on public websites, draft and send safe email, and generate images.",
+    "path": "library/davidondrej-skills/skills/skills-deepapi",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-deepapi",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-deepapi"
+  },
+  {
+    "id": "skills-designs",
+    "name": "skills-designs",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "'Show 4 better, new design options as separate real image renders of the actual app UI. Use for \"designs\" or when the user asks for new design ideas.'",
+    "path": "library/davidondrej-skills/skills/skills-designs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-designs",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-designs"
+  },
+  {
+    "id": "skills-effective-agent-skills",
+    "name": "skills-effective-agent-skills",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "'Write, review, and debug agent skills. Use when creating or editing SKILL.md files, improving skill structure, or diagnosing invocation and execution problems.'",
+    "path": "library/davidondrej-skills/skills/skills-effective-agent-skills",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-effective-agent-skills",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-effective-agent-skills"
+  },
+  {
+    "id": "skills-fable-review",
+    "name": "skills-fable-review",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Launch an independent Fable code review and return it verbatim. Use for /fable-review, or when the user or another agent asks for a Fable review.",
+    "path": "library/davidondrej-skills/skills/skills-fable-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-fable-review",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-fable-review"
+  },
+  {
+    "id": "skills-fireflies-transcript",
+    "name": "skills-fireflies-transcript",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Fetch raw Fireflies.ai meeting transcripts. Use only when the user explicitly invokes /fireflies-transcript; for YouTube, use youtube-transcript.",
+    "path": "library/davidondrej-skills/skills/skills-fireflies-transcript",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-fireflies-transcript",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-fireflies-transcript"
+  },
+  {
+    "id": "skills-global-agent-guardrails",
+    "name": "skills-global-agent-guardrails",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "\"Configure the shared guard against catastrophic shell commands in local AI agents. Use when changing block patterns, adding an agent or machine, or investigating why a command was or wasn't blocked.\"",
+    "path": "library/davidondrej-skills/skills/skills-global-agent-guardrails",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-global-agent-guardrails",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-global-agent-guardrails"
+  },
+  {
+    "id": "skills-goal-loop",
+    "name": "skills-goal-loop",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "'Draft /goal prompts and explain persistent agent loops. Use for goal or Ralph loops, autonomous run setup, monitoring, and troubleshooting.'",
+    "path": "library/davidondrej-skills/skills/skills-goal-loop",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-goal-loop",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-goal-loop"
+  },
+  {
+    "id": "skills-gpt-review",
+    "name": "skills-gpt-review",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Launch an independent GPT-6-Astra code review and return it verbatim. Use for /gpt-review, or when the user or another agent asks for a GPT review.",
+    "path": "library/davidondrej-skills/skills/skills-gpt-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gpt-review",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gpt-review"
+  },
+  {
+    "id": "skills-herdr",
+    "name": "skills-herdr",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Operate and coordinate AI agents in Herdr workspaces in Ghostty. Use when the user mentions Herdr or asks to inspect, message, wait for, or coordinate its agents. Excludes cmux and ordinary terminal sessions.",
+    "path": "library/davidondrej-skills/skills/skills-herdr",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-herdr",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-herdr"
+  },
+  {
+    "id": "skills-image-prompt",
+    "name": "skills-image-prompt",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "'Write four distinct prompts for AI image models. Use for image, thumbnail, banner, logo, or illustration prompts. Produces prompt text only.'",
+    "path": "library/davidondrej-skills/skills/skills-image-prompt",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-image-prompt",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-image-prompt"
+  },
+  {
+    "id": "skills-kimi-review",
+    "name": "skills-kimi-review",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Launch an independent Kimi K3.1 Pro Max code review and return it verbatim, falling back across harnesses and routes until one works. Use for /kimi-review, or when the user or another agent asks for a Kimi review.",
+    "path": "library/davidondrej-skills/skills/skills-kimi-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-kimi-review",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-kimi-review"
+  },
+  {
+    "id": "skills-muse-review",
+    "name": "skills-muse-review",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Launch an independent Meta Muse Wonder Max code review through Pi and OpenRouter, and return it verbatim. Use for /muse-review, or when the user or another agent asks for a Muse review.",
+    "path": "library/davidondrej-skills/skills/skills-muse-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-muse-review",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-muse-review"
+  },
+  {
+    "id": "skills-nagent",
+    "name": "skills-nagent",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Launch a new bb worker thread with the right project, model, worktree, and task brief. Use for nagent, launching a bb session, or a standalone bb agent. Covers thread creation; use bb-cli for managing existing threads.",
+    "path": "library/davidondrej-skills/skills/skills-nagent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-nagent",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-nagent"
+  },
+  {
+    "id": "skills-occams-razor",
+    "name": "skills-occams-razor",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Stop overthinking and answer with what we actually know for sure, how you know, and a confidence %. Use for \"occams-razor\", or when the user asks what we actually know, whether something is really true, or tells you to stop overthinking.",
+    "path": "library/davidondrej-skills/skills/skills-occams-razor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-occams-razor",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-occams-razor"
+  },
+  {
+    "id": "skills-read-all-adrs",
+    "name": "skills-read-all-adrs",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Read every ADR markdown file in the project's docs/adr/ folder so you have full context on past decisions. Use only when the user explicitly calls it.",
+    "path": "library/davidondrej-skills/skills/skills-read-all-adrs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-read-all-adrs",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-read-all-adrs"
+  },
+  {
+    "id": "skills-remind",
+    "name": "skills-remind",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Rewrite the last response simpler and shorter in plain English, prefixed with a 3-5 sentence TLDR of the conversation so far. Manual-only, invoked as /remind.",
+    "path": "library/davidondrej-skills/skills/skills-remind",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-remind",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-remind"
+  },
+  {
+    "id": "skills-total-review",
+    "name": "skills-total-review",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "'Run five independent max-effort reviews (Fable 5.1, Opus 5.5, GPT-6 Astra, GPT-6.1 Sol, Muse Wonder), merge their findings, and fix only what the user approves. Use for /total-review, or when the user or another agent asks for a total review.'",
+    "path": "library/davidondrej-skills/skills/skills-total-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-total-review",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-total-review"
+  },
+  {
+    "id": "state",
+    "name": "state",
+    "repository": "davidondrej-skills",
+    "category": "general",
+    "description": "Manually-invoked skill that recaps what the current thread is doing and how far along it is. Use when the user says \"state\", \"where are we\", or \"what % are we done\".",
+    "path": "library/davidondrej-skills/skills/state",
+    "activation_cmd": "python .agents/library/activate_skill.py activate state",
+    "link_cmd": "python .agents/library/activate_skill.py link state"
   },
   {
     "id": "stop-overthinking",

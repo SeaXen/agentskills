@@ -1584,6 +1584,14 @@
     "path": "category/business-strategy-legal/launchdarkly-experiment-hypothesis-builder"
   },
   {
+    "id": "launchdarkly-release-plans",
+    "name": "launchdarkly-release-plans",
+    "category": "business-strategy-legal",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "List, create, edit, make default, and delete LaunchDarkly release plans of both kinds: environment release plans (one environment's phases, rollout steps, and rollback metrics, with starter plans) and flag release plans (a project's environments in release order, each with its environment release plan, which Release Autopilot proposes releases from on pull requests). Also starts a flag's release from a flag release plan. Use when the user wants to see, build, change, or remove a release plan, set an environment's or a project's default plan, or when another skill such as Release Autopilot onboarding needs release plans planned or created. For first-time Release Autopilot setup, use launchdarkly-release-autopilot-onboarding, which follows this skill.",
+    "path": "category/business-strategy-legal/launchdarkly-release-plans"
+  },
+  {
     "id": "legal",
     "name": "legal",
     "category": "business-strategy-legal",
@@ -1811,8 +1819,8 @@
     "id": "onboarding",
     "name": "onboarding",
     "category": "business-strategy-legal",
-    "repository": "anthropics-knowledge-work",
-    "description": "Generate an onboarding checklist and first-week plan for a new hire. Use when someone has a start date coming up, building the pre-start task list (accounts, equipment, buddy), scheduling Day 1 and Week 1, or setting 30/60/90-day goals for a new team member.",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "Sets the plugin up for one plant on first run. Asks which ERP, CAD, CMMS and document system the plant uses and tests the four supported connectors (Microsoft 365, Oracle NetSuite, Infor M3, Autodesk Fusion), takes a bulk drop of the plant's own documents so it asks only what they don't answer, profiles the export folder, and runs the time interview with a clock-skew check. Also captures vocabulary, sites, capability, machining data, standards, templates and commercial rates, reports which skills are limited by anything missing, and ends with connector options for every other system named. Unknowns are deferred, never blocking. Use on a first session or when someone says \\\"set us up,\\\" \\\"get started,\\\" \\\"configure the plugin,\\\" \\\"which of our systems can you reach,\\\" \\\"which ERP can you reach,\\\" \\\"can you connect to our CMMS,\\\" \\\"here are our documents,\\\" \\\"our shifts changed,\\\" \\\"we added a plant,\\\" \\\"update our labour rate,\\\" \\\"change our margin,\\\" or \\\"reconfigure.\\",
     "path": "category/business-strategy-legal/onboarding"
   },
   {
@@ -2062,6 +2070,22 @@
     "repository": "feimacode-open-design-agent-kit",
     "description": "Product spec / PRD as a single page \u2014 problem, success metrics, scope, user stories, design notes, rollout plan, open questions. Use when the brief mentions \"PRD\", \"spec\", \"product spec\", \"feature brief\", or \"\u9700\u6c42\u6587\u6863\".",
     "path": "category/business-strategy-legal/pm-spec"
+  },
+  {
+    "id": "portfolio-interview-deck",
+    "name": "portfolio-interview-deck",
+    "category": "business-strategy-legal",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "The deck a designer presents in a portfolio interview: one or two projects from their work library, timed for a 30, 45 or 60 minute slot, with presenter notes, minute budgets and backup slides for the questions that come.",
+    "path": "category/business-strategy-legal/portfolio-interview-deck"
+  },
+  {
+    "id": "portfolio-site",
+    "name": "portfolio-site",
+    "category": "business-strategy-legal",
+    "repository": "feimacode-open-design-agent-kit",
+    "description": "A designer's portfolio website from their work library: a home page that passes a hiring manager's first look on a phone, one case study per project built around decisions and outcomes, and an about page, published as one site.",
+    "path": "category/business-strategy-legal/portfolio-site"
   },
   {
     "id": "post-mortem",
@@ -2424,6 +2448,14 @@
     "path": "category/business-strategy-legal/skill-lifeguard"
   },
   {
+    "id": "skills-arquiteto-de-empresa",
+    "name": "skills-arquiteto-de-empresa",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when a founder wants to document or design a whole company as version-controlled markdown (company as code, a company wiki agents can read, an OKF bundle). Runs a 12-phase interview, scaffolds with scaffold_bundle.py and checks it with okf_linter.py.",
+    "path": "category/business-strategy-legal/skills-arquiteto-de-empresa"
+  },
+  {
     "id": "skills-asc-ppp-pricing",
     "name": "skills-asc-ppp-pricing",
     "category": "business-strategy-legal",
@@ -2448,12 +2480,76 @@
     "path": "category/business-strategy-legal/skills-bmad-prd"
   },
   {
+    "id": "skills-boardroom",
+    "name": "skills-boardroom",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for /c-level-agents:boardroom, or a decision spanning several executive domains (a pricing change, raise vs cut). Runs a 6-phase C-suite deliberation and writes a board memo.",
+    "path": "category/business-strategy-legal/skills-boardroom"
+  },
+  {
+    "id": "skills-business-investment-advisor",
+    "name": "skills-business-investment-advisor",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when deciding whether a capital expense is worth it (equipment, property, an acquisition, hiring, technology), or for ROI, IRR, NPV, payback, build vs buy or lease vs buy.",
+    "path": "category/business-strategy-legal/skills-business-investment-advisor"
+  },
+  {
+    "id": "skills-capacity-planner",
+    "name": "skills-capacity-planner",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Size an ops or support team and plan headcount: Erlang C queue models, utilization risk, hiring order. Use whenever the user asks how many agents or staff they need, if the team is overloaded, or who to hire first.",
+    "path": "category/business-strategy-legal/skills-capacity-planner"
+  },
+  {
+    "id": "skills-cco-review",
+    "name": "skills-cco-review",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Challenge a churn, retention, segment or CS hiring plan. Use whenever asked or /c-level-agents:cco-review.",
+    "path": "category/business-strategy-legal/skills-cco-review"
+  },
+  {
+    "id": "skills-cfo-review",
+    "name": "skills-cfo-review",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Challenge a plan that spends real money: hiring wave, raise, channel budget. Use whenever asked or /c-level-agents:cfo-review.",
+    "path": "category/business-strategy-legal/skills-cfo-review"
+  },
+  {
+    "id": "skills-chro-advisor",
+    "name": "skills-chro-advisor",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "People strategy: hiring plans, comp bands, org structure, performance, retention. Use whenever the user asks who to hire, what to pay, how to structure teams or why staff leave.",
+    "path": "category/business-strategy-legal/skills-chro-advisor"
+  },
+  {
+    "id": "skills-code-to-prd",
+    "name": "skills-code-to-prd",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when asked to write a PRD or product spec from an existing codebase (reverse-engineer requirements, document pages, fields, routes and endpoints). Maps the code with codebase_analyzer.py and scaffolds the PRD with prd_scaffolder.py.",
+    "path": "category/business-strategy-legal/skills-code-to-prd"
+  },
+  {
     "id": "skills-codebase-onboarding",
     "name": "skills-codebase-onboarding",
     "category": "business-strategy-legal",
     "repository": "affaan-m-ecc",
     "description": "\u4e0d\u6163\u308c\u306a\u30b3\u30fc\u30c9\u30d9\u30fc\u30b9\u3092\u5206\u6790\u3057\u3001\u30a2\u30fc\u30ad\u30c6\u30af\u30c1\u30e3\u30de\u30c3\u30d7\u3001\u4e3b\u8981\u306a\u30a8\u30f3\u30c8\u30ea\u30dd\u30a4\u30f3\u30c8\u3001\u898f\u7d04\u3001\u30b9\u30bf\u30fc\u30bf\u30fcCLAUDE.md\u3092\u542b\u3080\u69cb\u9020\u5316\u30aa\u30f3\u30dc\u30fc\u30c7\u30a3\u30f3\u30b0\u30ac\u30a4\u30c9\u3092\u751f\u6210\u3057\u307e\u3059\u3002\u65b0\u3057\u3044\u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u306b\u53c2\u52a0\u3059\u308b\u304b\u3001\u30ea\u30dd\u3067Claude Code\u3092\u521d\u3081\u3066\u30bb\u30c3\u30c8\u30a2\u30c3\u30d7\u3059\u308b\u5834\u5408\u306b\u4f7f\u7528\u3057\u307e\u3059\u3002",
     "path": "category/business-strategy-legal/skills-codebase-onboarding"
+  },
+  {
+    "id": "skills-competitive-teardown",
+    "name": "skills-competitive-teardown",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Deep competitor teardown: pricing, reviews, hiring, SEO, UX, scored across 12 dimensions with SWOT and positioning maps. Use whenever the user asks how they compare to a rival or how to respond to a competitor's move.",
+    "path": "category/business-strategy-legal/skills-competitive-teardown"
   },
   {
     "id": "skills-competitor-research",
@@ -2480,12 +2576,36 @@
     "path": "category/business-strategy-legal/skills-content-planner"
   },
   {
+    "id": "skills-contract-and-proposal-writer",
+    "name": "skills-contract-and-proposal-writer",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when drafting a freelance contract, proposal, SOW, NDA or MSA for US, EU, UK or DACH jurisdictions. Writes structured Markdown with docx conversion steps; not legal advice.",
+    "path": "category/business-strategy-legal/skills-contract-and-proposal-writer"
+  },
+  {
     "id": "skills-contract-review",
     "name": "skills-contract-review",
     "category": "business-strategy-legal",
     "repository": "anthropics-knowledge-work",
     "description": "Lightweight NDA, MSA, and vendor contract review for SMBs without legal on staff. Reads contracts from local files, mail attachments (Gmail or M365), a connected file store (Google Drive or M365), or DocuSign envelopes; flags non-standard terms; explains risks in plain English; and outputs a marked-up redline as a separate DOCX. Use when the user says \"review this contract,\" \"what am I signing,\" \"red flags,\" \"flag any concerns,\" \"check the payment terms,\" or uploads/forwards a contract or legal agreement.",
     "path": "category/business-strategy-legal/skills-contract-review"
+  },
+  {
+    "id": "skills-copywriting",
+    "name": "skills-copywriting",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for any headline, tagline, CTA, landing, pricing or about-page copy request, before drafting. Scores candidate headlines with headline_scorer.py and applies a page-section framework, so the first draft is tested rather than guessed.",
+    "path": "category/business-strategy-legal/skills-copywriting"
+  },
+  {
+    "id": "skills-cpo-review",
+    "name": "skills-cpo-review",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Challenge a roadmap, PMF claim or feature kill. Use whenever asked or /c-level-agents:cpo-review.",
+    "path": "category/business-strategy-legal/skills-cpo-review"
   },
   {
     "id": "skills-create-learning-path",
@@ -2504,6 +2624,14 @@
     "path": "category/business-strategy-legal/skills-draft-offer"
   },
   {
+    "id": "skills-email-sequence",
+    "name": "skills-email-sequence",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for any drip, nurture, onboarding, welcome or re-engagement email sequence to opted-in users, before writing emails. Plans timing, triggers and exits and scores the sequence with sequence_analyzer.py.",
+    "path": "category/business-strategy-legal/skills-email-sequence"
+  },
+  {
     "id": "skills-false-positive-reviewer",
     "name": "skills-false-positive-reviewer",
     "category": "business-strategy-legal",
@@ -2518,6 +2646,14 @@
     "repository": "anthropics-knowledge-work",
     "description": "Create structured interview plans with competency-based questions and scorecards. Trigger with \"interview plan for\", \"interview questions for\", \"how should we interview\", \"scorecard for\", or when the user is preparing to interview candidates.",
     "path": "category/business-strategy-legal/skills-interview-prep"
+  },
+  {
+    "id": "skills-interview-system-designer",
+    "name": "skills-interview-system-designer",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when designing a hiring loop, competency matrix, scoring rubric or question bank, or checking interviewer calibration. Plans the loop per role with interview_planner.py.",
+    "path": "category/business-strategy-legal/skills-interview-system-designer"
   },
   {
     "id": "skills-job-post-builder",
@@ -2568,12 +2704,44 @@
     "path": "category/business-strategy-legal/skills-onboarding"
   },
   {
+    "id": "skills-onboarding-cro",
+    "name": "skills-onboarding-cro",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when activation, time-to-value or a first-run experience after signup needs work, before redesigning it. Finds the activation drop-off with activation_funnel_analyzer.py.",
+    "path": "category/business-strategy-legal/skills-onboarding-cro"
+  },
+  {
     "id": "skills-parallel-monitor",
     "name": "skills-parallel-monitor",
     "category": "business-strategy-legal",
     "repository": "parallel-web-parallel-agent-skills",
     "description": "Continuously track the web for changes on a recurring cadence. Use when the user asks to 'monitor', 'track changes to', 'watch', or 'alert me when' something on the web changes \u2014 e.g., 'Track price changes for iPhone 16', 'Alert me when Tesla files a new 8-K', 'Monitor competitor pricing pages weekly'. Also use to list, inspect, update, or stop existing monitors, including requests to delete them.",
     "path": "category/business-strategy-legal/skills-parallel-monitor"
+  },
+  {
+    "id": "skills-patent",
+    "name": "skills-patent",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for prior-art search, freedom-to-operate, patent landscape, acquisition diligence or litigation prior art. Picks the use case with sub_use_case_router.py, searches Google Patents, Espacenet and USPTO and writes a .docx; not legal advice.",
+    "path": "category/business-strategy-legal/skills-patent"
+  },
+  {
+    "id": "skills-paywall-upgrade-cro",
+    "name": "skills-paywall-upgrade-cro",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when designing or fixing an in-app paywall, upgrade modal, feature gate or trial-expiry screen. Applies upgrade-moment patterns for users who have already seen value. Public pricing page: page-cro.",
+    "path": "category/business-strategy-legal/skills-paywall-upgrade-cro"
+  },
+  {
+    "id": "skills-prd-development",
+    "name": "skills-prd-development",
+    "category": "business-strategy-legal",
+    "repository": "deanpeters-product-manager-skills",
+    "description": "Build a structured PRD that connects problem, users, solution, and success criteria. Use when turning discovery notes into an engineering-ready document for a major initiative.",
+    "path": "category/business-strategy-legal/skills-prd-development"
   },
   {
     "id": "skills-pre-mortem",
@@ -2584,12 +2752,68 @@
     "path": "category/business-strategy-legal/skills-pre-mortem"
   },
   {
+    "id": "skills-pricing",
+    "name": "skills-pricing",
+    "category": "business-strategy-legal",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to set pricing and packaging, or asks what to charge, whether to raise prices, or how to move existing customers: tiers, value metrics, per-seat vs usage, freemium and trials, willingness to pay, pricing pages. For in-app upgrade screens, see paywalls. For offers on services, courses, and high-ticket B2B, see offers.",
+    "path": "category/business-strategy-legal/skills-pricing"
+  },
+  {
+    "id": "skills-pricing-strategist",
+    "name": "skills-pricing-strategist",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when choosing or revisiting pricing: seat, usage, value-based, freemium or hybrid, Van Westendorp willingness-to-pay analysis, or Good/Better/Best tiers. Runs pricing_model_picker.py, wtp_analyzer.py and packaging_designer.py and returns a range, not one number.",
+    "path": "category/business-strategy-legal/skills-pricing-strategist"
+  },
+  {
+    "id": "skills-process-mapper",
+    "name": "skills-process-mapper",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when documenting an end-to-end business process (procurement, onboarding, handoffs) and finding where work waits. Maps it with process_documenter.py, measures stages with cycle_time_analyzer.py and finds bottlenecks with bottleneck_detector.py.",
+    "path": "category/business-strategy-legal/skills-process-mapper"
+  },
+  {
+    "id": "skills-product-strategist",
+    "name": "skills-product-strategist",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Head of Product: quarterly OKRs cascaded from company to team, product vision, roadmap, team structure. Use whenever the user asks to set OKRs, a vision or roadmap, or align teams on strategy.",
+    "path": "category/business-strategy-legal/skills-product-strategist"
+  },
+  {
+    "id": "skills-product-strategy-session",
+    "name": "skills-product-strategy-session",
+    "category": "business-strategy-legal",
+    "repository": "deanpeters-product-manager-skills",
+    "description": "Run an end-to-end product strategy session across positioning, discovery, and roadmap planning. Use when a team needs validated direction before committing to execution.",
+    "path": "category/business-strategy-legal/skills-product-strategy-session"
+  },
+  {
     "id": "skills-research-synthesis",
     "name": "skills-research-synthesis",
     "category": "business-strategy-legal",
     "repository": "anthropics-knowledge-work",
     "description": "Synthesize user research into themes, insights, and recommendations. Use when you have interview transcripts, survey results, usability test notes, support tickets, or NPS responses that need to be distilled into patterns, user segments, and prioritized next steps.",
     "path": "category/business-strategy-legal/skills-research-synthesis"
+  },
+  {
+    "id": "skills-roadmap-communicator",
+    "name": "skills-roadmap-communicator",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Write roadmap narratives, release notes, changelogs, stakeholder updates. Use whenever the user explains plans to execs, engineers or customers.",
+    "path": "category/business-strategy-legal/skills-roadmap-communicator"
+  },
+  {
+    "id": "skills-roadmap-planning",
+    "name": "skills-roadmap-planning",
+    "category": "business-strategy-legal",
+    "repository": "deanpeters-product-manager-skills",
+    "description": "Plan a strategic roadmap across prioritization, epic definition, stakeholder alignment, and sequencing. Use when turning strategy into a release plan that teams can execute.",
+    "path": "category/business-strategy-legal/skills-roadmap-planning"
   },
   {
     "id": "skills-roadmap-update",
@@ -2630,6 +2854,22 @@
     "repository": "anthropics-knowledge-work",
     "description": "Evaluate a vendor \u2014 cost analysis, risk assessment, and recommendation. Use when reviewing a new vendor proposal, deciding whether to renew or replace a contract, comparing two vendors side-by-side, or building a TCO breakdown and negotiation points before procurement sign-off.",
     "path": "category/business-strategy-legal/skills-vendor-review"
+  },
+  {
+    "id": "skills-vpe-advisor",
+    "name": "skills-vpe-advisor",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when delivery is slowing, eng hiring is broken, team structure is unclear or you need to decide when to add an eng manager. Runs delivery_throughput_analyzer.py (DORA), eng_hiring_funnel_calculator.py and eng_team_structure_designer.py.",
+    "path": "category/business-strategy-legal/skills-vpe-advisor"
+  },
+  {
+    "id": "skills-vpe-review",
+    "name": "skills-vpe-review",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Challenge a plan on delivery speed, eng hiring, team structure or on-call. Use when asked or /c-level-agents:vpe-review.",
+    "path": "category/business-strategy-legal/skills-vpe-review"
   },
   {
     "id": "solana-contracts",

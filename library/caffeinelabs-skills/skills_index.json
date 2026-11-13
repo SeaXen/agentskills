@@ -264,7 +264,7 @@
     "name": "extension-oql",
     "repository": "caffeinelabs-skills",
     "category": "general",
-    "description": "Make a canister's data queryable by the Caffeine Data Intelligence agent. Use whenever an app stores structured data (Maps/Lists/arrays of records) that should be answerable in natural language \u2014 \"top customers\", \"revenue by region\", \"active projects\". Adds a discoverable `schema()` and a JSON `execute()` query endpoint via the `caffeineai-oql` mops package's `Expose` mixin.",
+    "description": "Make a canister's data queryable by the Caffeine Data Intelligence agent and by the user's own AI assistant (Claude or ChatGPT through the ICP MCP connector, which reads app data only through OQL). Use whenever an app stores structured data (Maps/Lists/arrays of records) that should be answerable in natural language \u2014 \"top customers\", \"revenue by region\", \"active projects\". Adds a discoverable `schema()` and a JSON `execute()` query endpoint via the `caffeineai-oql` mops package's `Expose` mixin.",
     "path": "library/caffeinelabs-skills/skills/extension-oql",
     "activation_cmd": "python .agents/library/activate_skill.py activate extension-oql",
     "link_cmd": "python .agents/library/activate_skill.py link extension-oql"
@@ -358,6 +358,56 @@
     "path": "library/caffeinelabs-skills/skills/reviewing-motoko",
     "activation_cmd": "python .agents/library/activate_skill.py activate reviewing-motoko",
     "link_cmd": "python .agents/library/activate_skill.py link reviewing-motoko"
+  },
+  {
+    "id": "skills-caffeine-app",
+    "name": "skills-caffeine-app",
+    "repository": "caffeinelabs-skills",
+    "category": "general",
+    "description": "\"Scaffold and build a complete Caffeine app (caffeine.ai) from scratch \u2014 the project layout, the caffeine.toml workspace + canister manifests, the mops.toml for the single Motoko `backend` canister, the React/Vite frontend, and the caffeine CLI build loop (auth login, doctor, install, check --fix, preview --build). Use whenever the user wants to create, scaffold, set up, or build a Caffeine app or a caffeine.ai project, asks about caffeine.toml or mops.toml structure, or needs the caffeine CLI workflow \u2014 even if they do not say the words 'from scratch'. Always pair it with the `writing-motoko` skill for the backend code. Do NOT use it for Motoko language syntax or compiler errors (use the `writing-motoko` skill), and do NOT use it for generic Internet Computer / dfx / icp deployment (use the `icp-cli` skill).\"",
+    "path": "library/caffeinelabs-skills/skills/skills-caffeine-app",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-caffeine-app",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-caffeine-app"
+  },
+  {
+    "id": "skills-extension-inference",
+    "name": "skills-extension-inference",
+    "repository": "caffeinelabs-skills",
+    "category": "general",
+    "description": ">-",
+    "path": "library/caffeinelabs-skills/skills/skills-extension-inference",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-extension-inference",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-extension-inference"
+  },
+  {
+    "id": "skills-migrating-to-moc-2",
+    "name": "skills-migrating-to-moc-2",
+    "repository": "caffeinelabs-skills",
+    "category": "general",
+    "description": ">-",
+    "path": "library/caffeinelabs-skills/skills/skills-migrating-to-moc-2",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-migrating-to-moc-2",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-migrating-to-moc-2"
+  },
+  {
+    "id": "skills-mops-cli",
+    "name": "skills-mops-cli",
+    "repository": "caffeinelabs-skills",
+    "category": "general",
+    "description": ">-",
+    "path": "library/caffeinelabs-skills/skills/skills-mops-cli",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-mops-cli",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-mops-cli"
+  },
+  {
+    "id": "skills-writing-motoko",
+    "name": "skills-writing-motoko",
+    "repository": "caffeinelabs-skills",
+    "category": "general",
+    "description": ">-",
+    "path": "library/caffeinelabs-skills/skills/skills-writing-motoko",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-writing-motoko",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-writing-motoko"
   },
   {
     "id": "troubleshooting-motoko-migrations",

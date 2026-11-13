@@ -60,6 +60,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link electron"
   },
   {
+    "id": "modern-web-guidance",
+    "name": "modern-web-guidance",
+    "repository": "vercel-labs-agent-browser",
+    "category": "general",
+    "description": "Apply Chrome's Modern Web Guidance to frontend code, then verify the built page in a real browser with agent-browser. Use when asked to build or modernize UI with web platform best practices, follow Modern Web Guidance or Baseline guidance, or check that a change fixed layout shift, respects reduced motion or the color scheme, or gives a dialog correct focus and inert behavior. Triggers include \"use modern web guidance\", \"modern web best practices\", \"fix layout shift\", \"respect reduced motion\", \"add dark mode\", \"build an accessible dialog\", and \"verify this against the guide\".",
+    "path": "library/vercel-labs-agent-browser/skills/modern-web-guidance",
+    "activation_cmd": "python .agents/library/activate_skill.py activate modern-web-guidance",
+    "link_cmd": "python .agents/library/activate_skill.py link modern-web-guidance"
+  },
+  {
     "id": "protected-vercel-deployments",
     "name": "protected-vercel-deployments",
     "repository": "vercel-labs-agent-browser",
@@ -188,6 +198,16 @@
     "path": "library/vercel-labs-agent-browser/skills/technical-writer",
     "activation_cmd": "python .agents/library/activate_skill.py activate technical-writer",
     "link_cmd": "python .agents/library/activate_skill.py link technical-writer"
+  },
+  {
+    "id": "vercel",
+    "name": "vercel",
+    "repository": "vercel-labs-agent-browser",
+    "category": "general",
+    "description": "Access and test Vercel deployments with agent-browser, behind Deployment Protection or at a different feature flag variant. Use when a preview or production URL redirects to a Vercel login page, returns a protection 401 or 403, needs short-lived Trusted Sources OIDC authentication instead of a static bypass secret or public exception, or must be viewed with a Vercel feature flag set to another variant.",
+    "path": "library/vercel-labs-agent-browser/skills/vercel",
+    "activation_cmd": "python .agents/library/activate_skill.py activate vercel",
+    "link_cmd": "python .agents/library/activate_skill.py link vercel"
   },
   {
     "id": "vercel-sandbox",

@@ -10,6 +10,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link figma"
   },
   {
+    "id": "figma-3d-transforms",
+    "name": "figma-3d-transforms",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "'Add or edit 3D transforms \u2014 depth, perspective, z-axis rotation, tilt, isometric, and parallax looks that flat 2D rotation cannot express. Use whenever a request reaches into the third dimension \u2014 \"make it 3D\", \"add depth/perspective\", \"tilt/rotate it back\", \"z-plane\", \"isometric\", \"flip it like a card\", \"parallax\", \"vanishing point\", \"receding into the distance\", \"make it pop out\".'",
+    "path": "library/figma-mcp-server-guide/skills/figma-3d-transforms",
+    "activation_cmd": "python .agents/library/activate_skill.py activate figma-3d-transforms",
+    "link_cmd": "python .agents/library/activate_skill.py link figma-3d-transforms"
+  },
+  {
     "id": "figma-code-connect",
     "name": "figma-code-connect",
     "repository": "figma-mcp-server-guide",
@@ -208,6 +218,116 @@
     "path": "library/figma-mcp-server-guide/skills/generate-project-plan",
     "activation_cmd": "python .agents/library/activate_skill.py activate generate-project-plan",
     "link_cmd": "python .agents/library/activate_skill.py link generate-project-plan"
+  },
+  {
+    "id": "skills-figma-generate-design",
+    "name": "skills-figma-generate-design",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "\"Use this skill alongside figma-use when the task involves translating an application page, view, or multi-section layout into Figma. Triggers: 'write to Figma', 'create in Figma from code', 'push page to Figma', 'take this app/page and build it in Figma', 'create a screen', 'build a landing page in Figma', 'update the Figma screen to match code', 'convert this modal/dialog/drawer/panel to Figma'. This is the preferred workflow skill whenever the user wants to build or update a full page, modal, dialog, drawer, sidebar, panel, form, dashboard, list, table, card, header, message preview, or other composed product UI in Figma from code or a description\u2014even when the user calls that composed UI a component. Discovers design system components, variables, and styles from Code Connect files, existing screens, and library search, then imports them and assembles views incrementally section-by-section using design system tokens instead of hardcoded values.\"",
+    "path": "library/figma-mcp-server-guide/skills/skills-figma-generate-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figma-generate-design",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figma-generate-design"
+  },
+  {
+    "id": "skills-figma-generative-plugins",
+    "name": "skills-figma-generative-plugins",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "\"**MANDATORY prerequisite** \u2014 load this skill before calling `create_generative_plugin` or `update_generative_plugin`. Use when the user asks to create, author, change, fix, or extend a reusable generative Figma plugin.\"",
+    "path": "library/figma-mcp-server-guide/skills/skills-figma-generative-plugins",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figma-generative-plugins",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figma-generative-plugins"
+  },
+  {
+    "id": "skills-figma-shaders",
+    "name": "skills-figma-shaders",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "\"**MANDATORY prerequisite** \u2014 load this skill before calling `create_shader` or `update_shader`. Use when the user asks to create, author, change, fix, or iterate on a shader effect, shader fill, custom effect, custom fill, or procedural shader in Figma.\"",
+    "path": "library/figma-mcp-server-guide/skills/skills-figma-shaders",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figma-shaders",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figma-shaders"
+  },
+  {
+    "id": "skills-figma-spec",
+    "name": "skills-figma-spec",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "\"This skill is required to create, read, edit, review, or comment on Figma specs. You must read it when working on a PRD, brief, RFC or any kind of document in either a standalone Figma spec or a Figma spec embedded in a Figma Design or Figjam file.\"",
+    "path": "library/figma-mcp-server-guide/skills/skills-figma-spec",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figma-spec",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figma-spec"
+  },
+  {
+    "id": "skills-figma-use",
+    "name": "skills-figma-use",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "\"**MANDATORY prerequisite** \u2014 you MUST invoke this skill BEFORE every `use_figma` tool call. NEVER call `use_figma` directly without loading this skill first. Skipping it causes common, hard-to-debug failures. Trigger whenever the user wants to perform a write action or a unique read action that requires JavaScript execution in the Figma file context \u2014 e.g. create/edit/delete nodes, set up variables or tokens, build components and variants, modify auto-layout or fills, bind variables to properties, or inspect file structure programmatically.\"",
+    "path": "library/figma-mcp-server-guide/skills/skills-figma-use",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figma-use",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figma-use"
+  },
+  {
+    "id": "skills-figma-use-motion",
+    "name": "skills-figma-use-motion",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "\"Motion / animation context for the `use_figma` MCP tool \u2014 animating Figma nodes via manual keyframes, animation styles, easing, and timeline duration. Load alongside figma-use whenever a task involves adding, editing, or inspecting animation on a node. Also covers working with custom animation styles.\"",
+    "path": "library/figma-mcp-server-guide/skills/skills-figma-use-motion",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figma-use-motion",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figma-use-motion"
+  },
+  {
+    "id": "skills-figma-use-slides",
+    "name": "skills-figma-use-slides",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "\"This skill helps agents use Figma's use_figma MCP tool in the Slides context. Can be used alongside figma-use which has foundational context for using the use_figma tool.\"",
+    "path": "library/figma-mcp-server-guide/skills/skills-figma-use-slides",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figma-use-slides",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figma-use-slides"
+  },
+  {
+    "id": "skills-figquery-figma-generate-design",
+    "name": "skills-figquery-figma-generate-design",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "\"Use this skill alongside figma-use when the task involves translating an application page, view, or multi-section layout into Figma. Triggers: 'write to Figma', 'create in Figma from code', 'push page to Figma', 'take this app/page and build it in Figma', 'create a screen', 'build a landing page in Figma', 'update the Figma screen to match code', 'convert this modal/dialog/drawer/panel to Figma'. This is the preferred workflow skill whenever the user wants to build or update a full page, modal, dialog, drawer, sidebar, panel, form, dashboard, list, table, card, header, message preview, or other composed product UI in Figma from code or a description\u2014even when the user calls that composed UI a component. Discovers design system components, variables, and styles from Code Connect files, existing screens, and library search, then imports them and assembles views incrementally section-by-section using design system tokens instead of hardcoded values.\"",
+    "path": "library/figma-mcp-server-guide/skills/skills-figquery-figma-generate-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figquery-figma-generate-design",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figquery-figma-generate-design"
+  },
+  {
+    "id": "skills-figquery-figma-generate-library",
+    "name": "skills-figquery-figma-generate-library",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "\"Build or update a professional-grade design system in Figma from a codebase. Use when the user wants to create variables/tokens, build component libraries, create individual components with proper variant sets and variable bindings, set up theming (light/dark modes), document foundations, or reconcile gaps between code and Figma. Also use when the user asks to create or generate any component in Figma \u2014 even a single one \u2014 since components require proper variable foundations, variant states, and design token bindings to be production-quality. This skill teaches WHAT to build and in WHAT ORDER \u2014 it complements the `figma-use` skill which teaches HOW to call the Plugin API. Both skills should be loaded together.\"",
+    "path": "library/figma-mcp-server-guide/skills/skills-figquery-figma-generate-library",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figquery-figma-generate-library",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figquery-figma-generate-library"
+  },
+  {
+    "id": "skills-figquery-figma-use",
+    "name": "skills-figquery-figma-use",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "\"**MANDATORY prerequisite** \u2014 you MUST invoke this skill BEFORE every `use_figma` tool call. NEVER call `use_figma` directly without loading this skill first. Skipping it causes common, hard-to-debug failures. Trigger whenever the user wants to perform a write action or a unique read action that requires JavaScript execution in the Figma file context \u2014 e.g. create/edit/delete nodes, set up variables or tokens, build components and variants, modify auto-layout or fills, bind variables to properties, or inspect file structure programmatically.\"",
+    "path": "library/figma-mcp-server-guide/skills/skills-figquery-figma-use",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figquery-figma-use",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figquery-figma-use"
+  },
+  {
+    "id": "skills-figquery-figma-use-motion",
+    "name": "skills-figquery-figma-use-motion",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "\"Motion / animation context for the `use_figma` MCP tool \u2014 animating Figma nodes via manual keyframes, animation styles, easing, and timeline duration. Load alongside figma-use whenever a task involves adding, editing, or inspecting animation on a node. Also covers working with custom animation styles.\"",
+    "path": "library/figma-mcp-server-guide/skills/skills-figquery-figma-use-motion",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figquery-figma-use-motion",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figquery-figma-use-motion"
   },
   {
     "id": "video-interaction-mapper",

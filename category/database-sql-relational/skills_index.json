@@ -520,12 +520,36 @@
     "path": "category/database-sql-relational/bigquery-bigframes"
   },
   {
+    "id": "bigquery-migration-data-loader",
+    "name": "bigquery-migration-data-loader",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Provisions BigQuery datasets, ingests staged Parquet files directly into native BigQuery tables by using bq load, and deploys already-translated views from local or Cloud Storage BigQuery Migration Service (BQMS) translation outputs. Use when provisioning target BigQuery datasets for warehouse migrations, batch loading staged Parquet files into native BigQuery tables by using bq load, auditing loaded table row counts, or deploying already-translated BigQuery views into a target dataset. Don't use for extracting source database catalog metadata, translating SQL queries, views, stored procedures, or DDL schemas to GoogleSQL (use bigquery-migration-sql-translator), exporting or unloading source database tables (such as Snowflake, Databricks, Teradata, or Oracle) to Parquet on Cloud Storage, or running post-migration cross-database data validation.",
+    "path": "category/database-sql-relational/bigquery-migration-data-loader"
+  },
+  {
+    "id": "bigquery-migration-metadata-extractor",
+    "name": "bigquery-migration-metadata-extractor",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Extracts database catalog metadata and query logs from data warehouses by running the DWH migration extractor locally or on a temporary Google Cloud VM through the BigQuery Migration Cloud Extractor (credentials held in Secret Manager), and inspects extracted `.zip` archives to report object and volume statistics. Use when extracting database metadata or query logs from Snowflake, Redshift, Teradata, Oracle, PostgreSQL, SQL Server, Hive, etc., deciding between local and cloud (Cloud Extractor) extraction, or inspecting extracted dwh-migration-*.zip archives to print post-extraction statistics. Don't use for SQL dialect translation (use bigquery-migration-sql-translator), exporting table data to Parquet or CSV files (such as Snowflake `COPY INTO` unloads) or loading it into BigQuery (use the BigQuery Data Transfer Service or bigquery-basics), or validating migrated data.",
+    "path": "category/database-sql-relational/bigquery-migration-metadata-extractor"
+  },
+  {
     "id": "bigquery-migration-sql-translator",
     "name": "bigquery-migration-sql-translator",
     "category": "database-sql-relational",
     "repository": "google-skills",
     "description": "Translates SQL queries, DDL schemas, and stored procedures from legacy database dialects (Teradata, Oracle, Redshift, Snowflake, SparkSQL, HiveQL) to BigQuery GoogleSQL using the BigQuery Migration Service (BQMS) MCP server. Use when translating legacy SQL queries, migrating schemas or metadata zip archives, or configuring BigQuery Migration Service (BQMS) YAML translation settings. Don't use for executing BigQuery queries or managing datasets and tables (use bigquery-basics), diagnosing runtime job errors (use bigquery-troubleshooting), or tuning slot reservations (use bigquery-optimization).",
     "path": "category/database-sql-relational/bigquery-migration-sql-translator"
+  },
+  {
+    "id": "bigquery-migration-validator",
+    "name": "bigquery-migration-validator",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Validates that tables migrated to BigQuery match their source (Teradata, Snowflake, Oracle, Redshift, Databricks, PostgreSQL, SQL Server, MySQL, MariaDB, Hive, Impala, Vertica) with the BigQuery Migration Service (BQMS) validation tool: schema and data type comparison, column aggregate comparison, and row-level data comparison. Use when generating or editing a validation config, running a validation, choosing sampling or partitioning, fixing connection or driver errors, or investigating validation results in BigQuery and Cloud Storage to decide which mismatches to fix. Don't use for SQL translation (use bigquery-migration-sql-translator), extracting source database catalog metadata or query logs, generating SQL scripts (such as COPY INTO) or exporting or unloading source tables to Parquet on Cloud Storage, loading staged files into BigQuery (such as bq load), or general BigQuery query failures and tuning (use bigquery-troubleshooting or bigquery-optimization).",
+    "path": "category/database-sql-relational/bigquery-migration-validator"
   },
   {
     "id": "bigquery-optimization",
@@ -1848,6 +1872,14 @@
     "path": "category/database-sql-relational/huawei-cloud-mrs-spark-sql-check"
   },
   {
+    "id": "huawei-cloud-officeace-expert-migration",
+    "name": "huawei-cloud-officeace-expert-migration",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "\u628a WorkBuddy\u3001\u5343\u95ee\u529e\u516c\uff08QwenWork\uff09\u6216\u767e\u5ea6\u642d\u5b50\uff08DuMate\uff09\u7684\u4e13\u5bb6\u3001\u4e13\u5bb6\u56e2/\u4e13\u5bb6\u5957\u4ef6\u8fc1\u79fb\u6210 OfficeAce \u53ef\u7528\u7684\u4e13\u5bb6\u5361\u3001\u6280\u80fd\u76ee\u5f55\u4e0e\u4e13\u5bb6\u56e2\u65f6\u4f7f\u7528\u3002**\u5f3a\u5236\u7b2c\u4e00\u6b65**\uff1a\u6267\u884c\u4efb\u4f55\u8fc1\u79fb\u52a8\u4f5c\u524d\u5fc5\u987b\u5148\u95ee\u7528\u6237\u300c\u8fd9\u6b21\u8fc1\u79fb\u662f\u8de8\u673a\u5668\u7684\u5417\uff1f\u300d\uff0c\u5f97\u5230\u7b54\u590d\u524d\u7981\u6b62\u8fd0\u884c\u4efb\u4f55\u8fc1\u79fb\u5668\u7684 --install\uff081.6.0 \u8d77 migrate.py / migrate_workbuddy.py / migrate_suite.py \u4e09\u8005\u5171\u7528\u811a\u672c\u7ea7\u95f8\u95e8 migration_gate.py\uff0c\u76f4\u63a5\u8c03\u7528\u5b50\u8fc1\u79fb\u5668\u540c\u6837\u88ab\u62e6\u622a\uff1b\u8de8\u673a\u5668\u65f6\u6307\u5bfc\u7528\u6237\u5148\u628a\u4e13\u5bb6\u5305\u4f20\u5230\u672c\u673a\u518d\u6309\u8def\u5f84\u8fc1\u79fb\uff09\u3002**\u652f\u6301\u4e00\u53e5\u8bdd\u8fc1\u79fb**\uff1a\u7528\u6237\u8bf4\u300c\u628a X \u8fc1\u8fc7\u6765 / \u628a\u8fd9\u4e2a\u4e13\u5bb6\u56e2\u88c5\u5230 OfficeAce\u300d\u65f6\uff0c\u7528 ~/.office-claw/skills/huawei-cloud-officeace-expert-migration/scripts/migrate.py \u4e00\u4e2a\u547d\u4ee4\u81ea\u52a8\u5b9a\u4f4d\u6e90\u5305\u3001\u8bc6\u522b\u5e73\u53f0\u3001\u9009\u8fc1\u79fb\u5668\u3001\u88c5\u5b8c\u81ea\u68c0\u5e76\u81ea\u52a8\u540c\u6b65\u5e94\u7528\u955c\u50cf\u76ee\u5f55\uff0c\u4e0d\u9700\u8981\u7528\u6237\u7ed9\u8def\u5f84\u6216\u6307\u5b9a\u811a\u672c\u3002\u8986\u76d6\u683c\u5f0f\u8bc6\u522b\u3001\u5b57\u6bb5\u6620\u5c04\u3001\u6280\u80fd\u6b63\u6587\u6539\u5199\u3001\u4e13\u5bb6\u5361/\u56e2\u961f\u6ce8\u518c\u3001\u5934\u50cf\u843d\u5730\u3001\u5b89\u88c5\u4e0e\u5341\u4e00\u9879\u6821\u9a8c\u5168\u6d41\u7a0b\u30021.2.0 \u8d77\u4ee5\u300c\u8fc1\u79fb\u5b8c\u5373\u53ef\u7528\u300d\u4e3a\u9a8c\u6536\u7ebf\uff1a\u4eba\u8bbe\u53d6\u5168\u6587\u3001\u6280\u80fd\u6309\u89d2\u8272\u5206\u5de5\u3001\u811a\u672c\u6539\u7edd\u5bf9\u8def\u5f84\u3001\u8fd0\u884c\u914d\u7f6e\u53d6\u81ea\u672c\u673a model.json\u3001\u4e3b\u7406\u4eba\u4e0e\u6210\u5458\u5168\u90e8\u8fdb\u4e13\u5bb6\u76ee\u5f55\uff0c\u88c5\u5b8c\u76f4\u63a5\u6d3e\u4efb\u52a1\u5373\u53ef\u8dd1\u3002\u89e6\u53d1\u8bcd\uff1a\u8fc1\u79fb\u4e13\u5bb6\u3001\u8fc1\u79fb\u4e13\u5bb6\u56e2\u3001\u4e13\u5bb6\u5957\u4ef6\u8fc1\u79fb\u3001\u5957\u4ef6\u79fb\u690d\u3001\u628a\u5957\u4ef6\u88c5\u5230 OfficeAce\u3001\u628a\u8fd9\u4e2a\u4e13\u5bb6\u8fc1\u8fc7\u6765\u3001\u5e2e\u6211\u628a\u4e13\u5bb6\u56e2\u642c\u8fc7\u53bb\u3001\u4e13\u5bb6\u5305\u8f6c\u6362\u3001plugin \u8f6c expert\u3001qwenwork \u5957\u4ef6\u3001dumate \u5957\u4ef6\u3001workbuddy \u4e13\u5bb6\u3001workbuddy \u4e13\u5bb6\u56e2\u3001\u6709\u54ea\u4e9b\u4e13\u5bb6\u53ef\u4ee5\u8fc1\u3001\u4e13\u5bb6\u5361\u4e0d\u5b58\u5728\u3001\u4e13\u5bb6\u5217\u8868\u91cc\u6ca1\u6709\u3001\u4e3b\u7406\u4eba\u51fa\u9519\u3001\u4e13\u5bb6\u56e2\u8dd1\u4e0d\u8d77\u6765\u3001\u6210\u5458\u4eba\u8bbe\u4e00\u6837\u3001\u6280\u80fd\u52a0\u8f7d\u4e0d\u5230\u3001\u4e13\u5bb6\u5934\u50cf\u4e71\u7801\u3001\u5934\u50cf\u4e0d\u663e\u793a\u3001\u5934\u50cf\u662f\u4e00\u5757\u7eaf\u8272\u3001\u6362\u4e13\u5bb6\u5934\u50cf\u3001\u955c\u50cf\u4e0d\u540c\u6b65\u3001\u6539\u4e86\u6280\u80fd\u6ca1\u751f\u6548\u3002",
+    "path": "category/database-sql-relational/huawei-cloud-officeace-expert-migration"
+  },
+  {
     "id": "huawei-cloud-rds-mysql-replica-promotion",
     "name": "huawei-cloud-rds-mysql-replica-promotion",
     "category": "database-sql-relational",
@@ -2272,6 +2304,14 @@
     "path": "category/database-sql-relational/migrating-to-post-quantum-cryptography"
   },
   {
+    "id": "migration-and-modernization-skills-dms-schema-conversion",
+    "name": "migration-and-modernization-skills-dms-schema-conversion",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Handles the full DMS Schema Conversion lifecycle including creating migration projects, converting database schemas to a target engine, running compatibility assessments, navigating metadata trees, exporting converted DDL to S3, applying schema changes to a target database, and converting SQL statements between database engines. Applies when migrating database schemas between heterogeneous engines using AWS DMS Schema Conversion.",
+    "path": "category/database-sql-relational/migration-and-modernization-skills-dms-schema-conversion"
+  },
+  {
     "id": "migration-architect",
     "name": "migration-architect",
     "category": "database-sql-relational",
@@ -2566,6 +2606,14 @@
     "repository": "pixijs-pixijs-skills",
     "description": "Use this skill when upgrading to PixiJS v8 from v7 or diagnosing broken v7 code after an upgrade. Covers async app.init, single pixi.js package (deprecated @pixi/* sub-packages), Graphics shape-then-fill, BaseTexture \u2192 TextureSource, shader/uniform rework, ParticleContainer+Particle, constructor options objects, DisplayObject removal, settings/utils removal, Ticker signature, events rewrite. Triggers on: migrate v7, v8 breaking changes, @pixi/ import, DisplayObject, beginFill, endFill, cacheAsBitmap, BaseTexture, deprecated.",
     "path": "category/database-sql-relational/pixijs-migration-v8"
+  },
+  {
+    "id": "pixijs-rendering",
+    "name": "pixijs-rendering",
+    "category": "database-sql-relational",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "Builds and debugs 2D browser game rendering with PixiJS v8: async init, Assets loading, the Container and Sprite scene graph, pointer dragging and v7-to-v8 migration. Use when a game or playable ad uses pixi.js, or on a blank canvas, clicks not firing, or drag stopping at the sprite edge. Not for dashboards or charts, Phaser (`phaser-core`) or 3D (`threejs-scene-setup`).",
+    "path": "category/database-sql-relational/pixijs-rendering"
   },
   {
     "id": "plan-validation",
@@ -2896,6 +2944,14 @@
     "path": "category/database-sql-relational/railway-templates"
   },
   {
+    "id": "rds-huawei-cloud-rds-mysql-replica-promotion",
+    "name": "rds-huawei-cloud-rds-mysql-replica-promotion",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud RDS for MySQL risk reduction skill that converts a single instance to a primary/standby (HA) instance via the hcloud CLI. Use this skill when the user wants to convert a Huawei Cloud RDS for MySQL single instance to a primary/standby (HA) instance, upgrade database high availability, or eliminate single-point-of-failure risk. Trigger: User mentions \"\u5355\u673a\u8f6c\u4e3b\u5907\", \"\u9ad8\u53ef\u7528\u5347\u7ea7\", \"single to HA\", \"convert to primary/standby",
+    "path": "category/database-sql-relational/rds-huawei-cloud-rds-mysql-replica-promotion"
+  },
+  {
     "id": "rds-oracle",
     "name": "rds-oracle",
     "category": "database-sql-relational",
@@ -2990,6 +3046,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Discover, inspect, and invoke 2,000+ AI models and APIs through SandBase's local MCP bridge with explicit schema and cost checks.",
     "path": "category/database-sql-relational/sandbase-mcp"
+  },
+  {
+    "id": "save-systems",
+    "name": "save-systems",
+    "category": "database-sql-relational",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "Engine-neutral save and load with Godot and Python code: what to serialize, slots and autosave, atomic writes and versioned migration. Use for save/load or a continue button, or saves that corrupt after a crash or break after a patch. Not for Roblox DataStores (`roblox-datastores`), data assets (`godot-resources`, `unity-scriptableobjects`) or genre save screens (`rpg`, `visual-novel`).",
+    "path": "category/database-sql-relational/save-systems"
   },
   {
     "id": "scenario-roblox-data",
@@ -3232,6 +3296,14 @@
     "path": "category/database-sql-relational/sitemap-audit"
   },
   {
+    "id": "skills-ai-seo",
+    "name": "skills-ai-seo",
+    "category": "database-sql-relational",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to get cited and recommended in AI answers (ChatGPT, Perplexity, AI Overviews), or asks why AI cites a competitor, which content gets cited, or whether llms.txt or a page format is worth it: AEO, GEO, AI visibility, agent-readable sites. For technical and on-page SEO, see seo-audit. For structured data, see schema.",
+    "path": "category/database-sql-relational/skills-ai-seo"
+  },
+  {
     "id": "skills-aws-storage",
     "name": "skills-aws-storage",
     "category": "database-sql-relational",
@@ -3272,6 +3344,22 @@
     "path": "category/database-sql-relational/skills-competitor-pages"
   },
   {
+    "id": "skills-database-designer",
+    "name": "skills-database-designer",
+    "category": "database-sql-relational",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Design a database schema: tables, relationships, indexes, normalization, SQL vs NoSQL, migration plans. Use whenever the user asks how to structure their data, which database to pick, or before writing DDL.",
+    "path": "category/database-sql-relational/skills-database-designer"
+  },
+  {
+    "id": "skills-database-schema-designer",
+    "name": "skills-database-schema-designer",
+    "category": "database-sql-relational",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when asked for an ERD, table relationships, normalization or a schema migration plan. Produces the ERD and normalized DDL with migration steps.",
+    "path": "category/database-sql-relational/skills-database-schema-designer"
+  },
+  {
     "id": "skills-django-security",
     "name": "skills-django-security",
     "category": "database-sql-relational",
@@ -3304,6 +3392,14 @@
     "path": "category/database-sql-relational/skills-ef-core"
   },
   {
+    "id": "skills-expo-dom",
+    "name": "skills-expo-dom",
+    "category": "database-sql-relational",
+    "repository": "expo-skills",
+    "description": "Use Expo DOM components to run web code in a webview on native and as-is on web. Migrate web code to native incrementally. For the end-to-end migration of a whole web app, use the expo-web-to-native skill.",
+    "path": "category/database-sql-relational/skills-expo-dom"
+  },
+  {
     "id": "skills-figure-it-out",
     "name": "skills-figure-it-out",
     "category": "database-sql-relational",
@@ -3320,6 +3416,22 @@
     "path": "category/database-sql-relational/skills-firebase-data-connect-basics"
   },
   {
+    "id": "skills-gcp-cloud-architect",
+    "name": "skills-gcp-cloud-architect",
+    "category": "database-sql-relational",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Design, deploy and cut the cost of Google Cloud setups: Cloud Run, GKE, Functions, Cloud SQL, BigQuery, moving to GCP. Use whenever the user asks how to host or run something on GCP, why their GCP bill is high, or plans a GCP migration.",
+    "path": "category/database-sql-relational/skills-gcp-cloud-architect"
+  },
+  {
+    "id": "skills-human-gate",
+    "name": "skills-human-gate",
+    "category": "database-sql-relational",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use before shipping anything that needs human sign-off (a plan, spec, report, page, migration or irreversible action). Builds a review page with review_page_builder.py and runs human_gate.py, which refuses to close with an open blocker or no named reviewer.",
+    "path": "category/database-sql-relational/skills-human-gate"
+  },
+  {
     "id": "skills-image-seo",
     "name": "skills-image-seo",
     "category": "database-sql-relational",
@@ -3328,12 +3440,20 @@
     "path": "category/database-sql-relational/skills-image-seo"
   },
   {
-    "id": "skills-migrate",
-    "name": "skills-migrate",
+    "id": "skills-local-seo-manager",
+    "name": "skills-local-seo-manager",
     "category": "database-sql-relational",
-    "repository": "codewithmukesh-dotnet-claude-kit",
-    "description": "Guided, safe migration workflow covering EF Core schema migrations, .NET version upgrades, and NuGet dependency updates \u2014 each with rollback strategies and verification steps. Invoke when: \"add migration\", \"update database\", \"create migration\", \"schema change\", \"new table\", \"rename column\", \"upgrade nuget\", \"update packages\", \"dependency update\", \"version upgrade\", \".NET upgrade\".",
-    "path": "category/database-sql-relational/skills-migrate"
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for any local business's Google Business Profile, Maps ranking, service-area pages, citations or review replies, before writing. Checks NAP consistency with nap_checker.py and generates LocalBusiness schema and area pages with its scripts.",
+    "path": "category/database-sql-relational/skills-local-seo-manager"
+  },
+  {
+    "id": "skills-marketing-demand-acquisition",
+    "name": "skills-marketing-demand-acquisition",
+    "category": "database-sql-relational",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when planning demand generation, paid acquisition across Google, LinkedIn and Meta, or a marketing budget, before allocating spend. Computes blended and per-channel CAC with calculate_cac.py and sets MQL to SQL handoffs.",
+    "path": "category/database-sql-relational/skills-marketing-demand-acquisition"
   },
   {
     "id": "skills-migrate-birp-to-urp",
@@ -3342,6 +3462,14 @@
     "repository": "unity-technologies-skills",
     "description": "Plans, executes, and troubleshoots migration from the Built-in Render Pipeline to URP. Use when asked to convert a project, scene, material, or shader to URP, or to fix visuals broken by the change.",
     "path": "category/database-sql-relational/skills-migrate-birp-to-urp"
+  },
+  {
+    "id": "skills-migration-architect",
+    "name": "skills-migration-architect",
+    "category": "database-sql-relational",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Plan a migration with zero or minimal downtime: phased plan, compatibility check, rollback scripts, for schemas, databases and services. Load whenever the user must change a live table, move a database or cut over without downtime.",
+    "path": "category/database-sql-relational/skills-migration-architect"
   },
   {
     "id": "skills-mirrord-config",
@@ -3376,20 +3504,36 @@
     "path": "category/database-sql-relational/skills-postgres-patterns"
   },
   {
-    "id": "skills-programmatic-seo",
-    "name": "skills-programmatic-seo",
-    "category": "database-sql-relational",
-    "repository": "nowork-studio-notfair-plugin",
-    "description": "Programmatic SEO planning and audit: building or evaluating large sets of template-generated pages that target long-tail query patterns (e.g. \"[service] in [city]\", \"[product] vs [product]\", \"[tool] for [use-case]\"). Covers data-source and template design, thin/duplicate-content and doorway-page risks, per-page uniqueness and value thresholds, internal linking and hubs, indexation management (publish vs. noindex), and scaling without a manual action. Use whenever the user wants to generate many pages from a template/dataset, build location/comparison/use-case pages at scale, or asks why generated pages aren't indexing. Trigger on: \"programmatic SEO\", \"pSEO\", \"generate pages at scale\", \"templated pages\", \"location pages at scale\", \"comparison pages\", \"[city] pages\", \"my generated pages aren't indexed\", \"doorway pages\", \"scale content\". For one-off content use /content-writer; for keyword discovery use /keyword-research.",
-    "path": "category/database-sql-relational/skills-programmatic-seo"
-  },
-  {
     "id": "skills-project-setup",
     "name": "skills-project-setup",
     "category": "database-sql-relational",
     "repository": "codewithmukesh-dotnet-claude-kit",
     "description": "Tech-stack selection advisor for .NET projects: recommended defaults for database, auth, caching, messaging, observability, and resilience, with the rationale behind each default. Load when choosing or reviewing a project's tech stack, or when the user says \"tech stack\", \"which database\", \"pick a stack\", \"recommended defaults\", or \"what should I use for\". For project initialization use dotnet-init, for codebase assessment use health-check, for upgrades and schema changes use migrate.",
     "path": "category/database-sql-relational/skills-project-setup"
+  },
+  {
+    "id": "skills-revops",
+    "name": "skills-revops",
+    "category": "database-sql-relational",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to design revenue operations, or asks when a lead is ready for sales or why sales and marketing disagree on lead quality: lifecycle stages, MQL and SQL, scoring, routing, handoff, pipeline stages, CRM automation. For outbound copy, see cold-email. For email flows, see emails.",
+    "path": "category/database-sql-relational/skills-revops"
+  },
+  {
+    "id": "skills-schema",
+    "name": "skills-schema",
+    "category": "database-sql-relational",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to add, fix, or validate schema markup (JSON-LD), or asks which type fits a page or whether some markup is allowed: product, review, recipe, FAQ, rich result eligibility (FAQ no longer earns Google rich results), Search Console errors. For broader SEO, see seo-audit. For AI search, see ai-seo.",
+    "path": "category/database-sql-relational/skills-schema"
+  },
+  {
+    "id": "skills-schema-markup",
+    "name": "skills-schema-markup",
+    "category": "database-sql-relational",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for any JSON-LD, schema.org, rich-result or structured-data request, before writing markup. Validates the markup with schema_validator.py against Google's required properties, which catches errors a hand-written block misses.",
+    "path": "category/database-sql-relational/skills-schema-markup"
   },
   {
     "id": "skills-schema-markup-generator",
@@ -3416,12 +3560,60 @@
     "path": "category/database-sql-relational/skills-seo-ai-visibility"
   },
   {
-    "id": "skills-seo-drift",
-    "name": "skills-seo-drift",
+    "id": "skills-seo-competitor-pages",
+    "name": "skills-seo-competitor-pages",
     "category": "database-sql-relational",
-    "repository": "nowork-studio-notfair-plugin",
-    "description": "SEO drift monitoring \u2014 snapshot a site's SEO state and detect regressions over time. Captures a baseline (rankings/positions, indexed page count, titles & meta descriptions, canonical/robots directives, schema presence, key on-page elements) and on later runs diffs against it to surface what changed: ranking drops, pages that fell out of the index, titles/metas that were accidentally overwritten (a CMS/redeploy classic), canonicals or noindex flipped, schema that disappeared. Use this skill when the user wants to monitor SEO over time, catch regressions after a site change / migration / redeploy, set a baseline, diff against a previous state, or asks \"what changed on my site's SEO\" or \"did my redesign break SEO\". Trigger on: \"SEO drift\", \"SEO monitoring\", \"track SEO over time\", \"did my site change break SEO\", \"after migration SEO\", \"SEO regression\", \"baseline my SEO\", \"compare SEO to last month\", \"my titles changed\", \"pages fell out of the index\". For a one-time full audit use /seo-analysis.",
-    "path": "category/database-sql-relational/skills-seo-drift"
+    "repository": "agricidaniel-claude-seo",
+    "description": "Generate SEO-optimized competitor comparison and alternatives pages. Covers \"X vs Y\" layouts, \"alternatives to X\" pages, feature matrices, schema markup, and conversion optimization. Use when user says \"comparison page\", \"vs page\", \"alternatives page\", \"competitor comparison\", \"X vs Y\", \"versus\", \"compare competitors\", or \"alternative to\".",
+    "path": "category/database-sql-relational/skills-seo-competitor-pages"
+  },
+  {
+    "id": "skills-seo-ecommerce",
+    "name": "skills-seo-ecommerce",
+    "category": "database-sql-relational",
+    "repository": "agricidaniel-claude-seo",
+    "description": "Analyze ecommerce SEO across product pages, product schema, Shopping visibility, marketplace signals, and keyword gaps. Use only for stores, catalogs, or product listings.",
+    "path": "category/database-sql-relational/skills-seo-ecommerce"
+  },
+  {
+    "id": "skills-seo-image-gen",
+    "name": "skills-seo-image-gen",
+    "category": "database-sql-relational",
+    "repository": "agricidaniel-claude-seo",
+    "description": "AI image generation for SEO assets: OG/social preview images, blog hero images, schema images, product photography, infographics. Powered by Gemini via nanobanana-mcp. Requires banana extension installed. Use when the user wants an SEO asset and says \\\"OG image\\\", \\\"social preview\\\", \\\"hero image\\\", \\\"blog image\\\", \\\"product photo\\\", \\\"infographic\\\", \\\"seo image\\\", \\\"image-gen\\\", \\\"favicon\\\", \\\"schema image\\\", or \\\"pinterest pin\\\". Not for general artwork, banners, or thumbnails unrelated to SEO.",
+    "path": "category/database-sql-relational/skills-seo-image-gen"
+  },
+  {
+    "id": "skills-seo-local",
+    "name": "skills-seo-local",
+    "category": "database-sql-relational",
+    "repository": "agricidaniel-claude-seo",
+    "description": "Audit local SEO, including Google Business Profile, NAP consistency, citations, reviews, local schema, location pages, and multi-location structure. Use when the user asks about local SEO, a local business, the map pack, or a GBP profile; use seo-maps for geo-grid rank tracking.",
+    "path": "category/database-sql-relational/skills-seo-local"
+  },
+  {
+    "id": "skills-seo-page",
+    "name": "skills-seo-page",
+    "category": "database-sql-relational",
+    "repository": "agricidaniel-claude-seo",
+    "description": "Analyze one supplied URL across on-page, content, technical metadata, schema, images, and performance. Use only for a single-page review.",
+    "path": "category/database-sql-relational/skills-seo-page"
+  },
+  {
+    "id": "skills-seo-schema",
+    "name": "skills-seo-schema",
+    "category": "database-sql-relational",
+    "repository": "agricidaniel-claude-seo",
+    "description": "Detect, validate, or generate Schema.org JSON-LD for a supplied page or entity. Use only when structured data or rich-result markup is requested.",
+    "path": "category/database-sql-relational/skills-seo-schema"
+  },
+  {
+    "id": "skills-seo-technical",
+    "name": "skills-seo-technical",
+    "category": "database-sql-relational",
+    "repository": "agricidaniel-claude-seo",
+    "description": "Audit technical SEO across crawlability, indexability, security, URLs, mobile, Core Web Vitals, rendering, structured data, and IndexNow. Use when the user asks for a technical SEO audit or about crawling, indexing, rendering, or site speed. Exclude content strategy and backlinks.",
+    "path": "category/database-sql-relational/skills-seo-technical"
   },
   {
     "id": "skills-sitemap-audit",
@@ -3432,12 +3624,36 @@
     "path": "category/database-sql-relational/skills-sitemap-audit"
   },
   {
+    "id": "skills-snowflake-development",
+    "name": "skills-snowflake-development",
+    "category": "database-sql-relational",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for Snowflake work: SQL, Dynamic Tables, Streams and Tasks, Cortex AI functions and agents, Snowpark Python, dbt on Snowflake, or Snowflake errors. Helps with queries via snowflake_query_helper.py.",
+    "path": "category/database-sql-relational/skills-snowflake-development"
+  },
+  {
+    "id": "skills-sql-database-assistant",
+    "name": "skills-sql-database-assistant",
+    "category": "database-sql-relational",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Write, fix and speed up SQL: slow queries, EXPLAIN plans, indexes, ORM migrations (Prisma, Drizzle, SQLAlchemy). Load whenever a query is slow or wrong, the user needs SQL written, or an ORM migration.",
+    "path": "category/database-sql-relational/skills-sql-database-assistant"
+  },
+  {
     "id": "skills-sql-queries",
     "name": "skills-sql-queries",
     "category": "database-sql-relational",
     "repository": "anthropics-knowledge-work",
     "description": "Write correct, performant SQL across all major data warehouse dialects (Snowflake, BigQuery, Databricks, PostgreSQL, etc.). Use when writing queries, optimizing slow SQL, translating between dialects, or building complex analytical queries with CTEs, window functions, or aggregations.",
     "path": "category/database-sql-relational/skills-sql-queries"
+  },
+  {
+    "id": "skills-tech-stack-evaluator",
+    "name": "skills-tech-stack-evaluator",
+    "category": "database-sql-relational",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Compare frameworks or tech stacks before committing: side-by-side scoring, total cost of ownership, ecosystem health and migration risk. Use whenever the user asks which framework to pick, X vs Y, whether to switch stacks, or if a migration is worth it.",
+    "path": "category/database-sql-relational/skills-tech-stack-evaluator"
   },
   {
     "id": "skills-tf-best-practices",

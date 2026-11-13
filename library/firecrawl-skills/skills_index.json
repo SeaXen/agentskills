@@ -20,6 +20,376 @@
     "link_cmd": "python .agents/library/activate_skill.py link core"
   },
   {
+    "id": "firecrawl",
+    "name": "firecrawl",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "|",
+    "path": "library/firecrawl-skills/skills/firecrawl",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl"
+  },
+  {
+    "id": "firecrawl-agent",
+    "name": "firecrawl-agent",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "Autonomously navigate websites and extract structured data across pages. Use when the task requires navigation or no suitable ready-made workflow or data provider covers it.",
+    "path": "library/firecrawl-skills/skills/firecrawl-agent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-agent",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-agent"
+  },
+  {
+    "id": "firecrawl-alexandria",
+    "name": "firecrawl-alexandria",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "Find a direct path to structured data through ready-made workflows, data APIs, and indexes. Follow the search skill to discover and inspect tools, then the scrape skill to execute them.",
+    "path": "library/firecrawl-skills/skills/firecrawl-alexandria",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-alexandria",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-alexandria"
+  },
+  {
+    "id": "firecrawl-build",
+    "name": "firecrawl-build",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "Integrate Firecrawl into application code whenever a product, agent, or workflow needs web data inside the app \u2014 web search, live search results, page scraping, structured extraction, or browser interaction. Use when building any feature that needs data from the web in code, even if the user does not mention Firecrawl explicitly and only describes wanting web data, website content, search, scraping, or interaction in an application. Trigger for Firecrawl requests, \"fire girl\" shorthand, and generic app-level web-data needs that should map to `/scrape`, `/search`, or `/interact`. Do not use this skill for one-off terminal-only web tasks during the current session; use `firecrawl/cli` for those.",
+    "path": "library/firecrawl-skills/skills/firecrawl-build",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-build",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-build"
+  },
+  {
+    "id": "firecrawl-build-interact",
+    "name": "firecrawl-build-interact",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "Integrate Firecrawl `/interact` into product code for dynamic pages and browser actions after scraping. Use when a feature needs clicks, form fills, pagination, authentication-aware flows, or other multi-step interactions that plain `/scrape` cannot complete.",
+    "path": "library/firecrawl-skills/skills/firecrawl-build-interact",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-build-interact",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-build-interact"
+  },
+  {
+    "id": "firecrawl-build-onboarding",
+    "name": "firecrawl-build-onboarding",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "Get Firecrawl credentials and SDK setup into a project. Use when an application needs `FIRECRAWL_API_KEY`, when an agent should add Firecrawl to `.env`, when the user wants to authenticate Firecrawl for app code, or when choosing the first SDK and docs for a new Firecrawl integration. This skill includes its own browser auth flow, so it does not depend on the website onboarding skill.",
+    "path": "library/firecrawl-skills/skills/firecrawl-build-onboarding",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-build-onboarding",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-build-onboarding"
+  },
+  {
+    "id": "firecrawl-build-scrape",
+    "name": "firecrawl-build-scrape",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "Integrate Firecrawl `/scrape` into product code for single-page extraction. Use when an app already has a URL and needs markdown, HTML, links, screenshots, metadata, or structured page output. Prefer this skill over broader crawl patterns when the feature is page-level.",
+    "path": "library/firecrawl-skills/skills/firecrawl-build-scrape",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-build-scrape",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-build-scrape"
+  },
+  {
+    "id": "firecrawl-build-search",
+    "name": "firecrawl-build-search",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "Integrate Firecrawl `/search` into product code and agent workflows. Use when an app needs discovery before extraction, when the feature starts with a query instead of a URL, or when the system should search the web and optionally hydrate result content.",
+    "path": "library/firecrawl-skills/skills/firecrawl-build-search",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-build-search",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-build-search"
+  },
+  {
+    "id": "firecrawl-business-contacts",
+    "name": "firecrawl-business-contacts",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "\"Find the published business contacts of companies with Firecrawl, whether the user names them or describes them by type and place: press and media, sales, partnerships and support inboxes, shared business phone numbers and official contact forms, taken from the companies' own websites. Use when the user asks how to contact a company or wants published business emails, phone numbers or press, sales, support or partnership contacts, since contact pages change and an address must come from the page, not memory. Not for named people's details (use firecrawl-lead-research) or finding people to reach out to (use firecrawl-lead-gen).\"",
+    "path": "library/firecrawl-skills/skills/firecrawl-business-contacts",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-business-contacts",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-business-contacts"
+  },
+  {
+    "id": "firecrawl-company-directories",
+    "name": "firecrawl-company-directories",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "\"Extract structured company lists with Firecrawl from any page or site that lists companies: accelerator batches, VC portfolios, member and sponsor lists, marketplaces and app directories, YC, Crunchbase, Product Hunt or G2. Use when the user wants those companies as a CSV, JSON, CRM-ready list or research table, even without an explicit request to scrape.\"",
+    "path": "library/firecrawl-skills/skills/firecrawl-company-directories",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-company-directories",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-company-directories"
+  },
+  {
+    "id": "firecrawl-competitive-intel",
+    "name": "firecrawl-competitive-intel",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "Monitor competitor pricing, features, changelogs, dashboards, and product changes with Firecrawl. Use for recurring competitive intelligence, pricing tier extraction, feature change tracking, or structured competitor alerts.",
+    "path": "library/firecrawl-skills/skills/firecrawl-competitive-intel",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-competitive-intel",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-competitive-intel"
+  },
+  {
+    "id": "firecrawl-crawl",
+    "name": "firecrawl-crawl",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "|",
+    "path": "library/firecrawl-skills/skills/firecrawl-crawl",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-crawl",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-crawl"
+  },
+  {
+    "id": "firecrawl-dashboard-reporting",
+    "name": "firecrawl-dashboard-reporting",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "\"Read metrics off web dashboards with Firecrawl browser: public stats, status and transparency pages as well as analytics tools the user is signed in to. Use when the user wants numbers, KPIs or charts from a dashboard turned into a report, summary or date-range table, even without an explicit request to scrape.\"",
+    "path": "library/firecrawl-skills/skills/firecrawl-dashboard-reporting",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-dashboard-reporting",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-dashboard-reporting"
+  },
+  {
+    "id": "firecrawl-deep-research",
+    "name": "firecrawl-deep-research",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "|",
+    "path": "library/firecrawl-skills/skills/firecrawl-deep-research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-deep-research",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-deep-research"
+  },
+  {
+    "id": "firecrawl-demo-walkthrough",
+    "name": "firecrawl-demo-walkthrough",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "Walk through a product's key flows with Firecrawl browser and produce a structured UX/product walkthrough. Use for signup, onboarding, pricing, docs, dashboard, product demo prep, UX teardown, and first-run experience analysis.",
+    "path": "library/firecrawl-skills/skills/firecrawl-demo-walkthrough",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-demo-walkthrough",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-demo-walkthrough"
+  },
+  {
+    "id": "firecrawl-developer-index",
+    "name": "firecrawl-developer-index",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "Searches current documentation, release notes, API references and public repository issues for libraries, frameworks, SDKs, APIs and CLI tools with `firecrawl developer`. Use before answering when the user names a version, is upgrading, pastes an error from a library or tool, or asks how to use, configure or migrate a specific library or API. Model knowledge stops at a training cutoff and misses new releases, renamed APIs, changed defaults and recent fixes, so when a version, option, error or API is unfamiliar or may have changed, look it up instead of guessing. Also checks whether a bug was fixed and in which release. Not for general programming concepts, code that uses no specific library, or refactoring code the user supplied.",
+    "path": "library/firecrawl-skills/skills/firecrawl-developer-index",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-developer-index",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-developer-index"
+  },
+  {
+    "id": "firecrawl-download",
+    "name": "firecrawl-download",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "|",
+    "path": "library/firecrawl-skills/skills/firecrawl-download",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-download",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-download"
+  },
+  {
+    "id": "firecrawl-fantasy-sports",
+    "name": "firecrawl-fantasy-sports",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "\"Help fantasy players make start/sit, waiver, streaming, trade, draft and keeper decisions using current player news, usage, matchups and their league's scoring. Use for choosing between players, finding pickups, evaluating a deal or filling a roster need, even without an explicit research request. Excludes generic sports scores, betting and changing league rosters.\"",
+    "path": "library/firecrawl-skills/skills/firecrawl-fantasy-sports",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-fantasy-sports",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-fantasy-sports"
+  },
+  {
+    "id": "firecrawl-interact",
+    "name": "firecrawl-interact",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "|",
+    "path": "library/firecrawl-skills/skills/firecrawl-interact",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-interact",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-interact"
+  },
+  {
+    "id": "firecrawl-job-postings",
+    "name": "firecrawl-job-postings",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "\"Find current job postings on employer career pages and job boards. Use when the user asks who's hiring, seeks remote or local jobs, or wants openings matched to their role, skills, experience, or salary preferences.\"",
+    "path": "library/firecrawl-skills/skills/firecrawl-job-postings",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-job-postings",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-job-postings"
+  },
+  {
+    "id": "firecrawl-knowledge-base",
+    "name": "firecrawl-knowledge-base",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "Build a knowledge base from web content with Firecrawl. Use for local reference docs, RAG-ready chunks, fine-tuning datasets, documentation mirrors, topic corpora, or LLM-ready markdown organized from web sources.",
+    "path": "library/firecrawl-skills/skills/firecrawl-knowledge-base",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-knowledge-base",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-knowledge-base"
+  },
+  {
+    "id": "firecrawl-knowledge-ingest",
+    "name": "firecrawl-knowledge-ingest",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "\"Export documentation portals, help centers and API reference sites into local markdown or JSON with Firecrawl browser, including pages that render with JavaScript, hide content behind collapsible navigation or paginate. Use when the user wants a docs site, help center or support knowledge base saved as files, even without an explicit request to scrape.\"",
+    "path": "library/firecrawl-skills/skills/firecrawl-knowledge-ingest",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-knowledge-ingest",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-knowledge-ingest"
+  },
+  {
+    "id": "firecrawl-lead-gen",
+    "name": "firecrawl-lead-gen",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "\"Find and qualify new prospects with Firecrawl Alexandria people and company data: people by role, seniority, company, industry, size, location or technology, target accounts that match criteria, or the right contacts at companies, returned as a ranked, sourced table or CSV. Also extracts lead lists from a database or directory the user names, and refreshes a prospect list with only new matches. Use when the user wants a lead list, prospects, target accounts or the people to reach out to at companies that fit criteria. Not for enriching people or companies the user already supplied (use firecrawl-lead-research).\"",
+    "path": "library/firecrawl-skills/skills/firecrawl-lead-gen",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-lead-gen",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-lead-gen"
+  },
+  {
+    "id": "firecrawl-lead-research",
+    "name": "firecrawl-lead-research",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "\"Enrich and research the people and companies the user names or supplies with Firecrawl Alexandria data: background on a person, a professional profile URL to look up, whether someone still holds a role, missing columns in a table or CSV of people or companies, firmographics for company domains (industry, headcount, funding, location), and pre-call or meeting briefs. Use whenever the request is about specific named people or companies, even without the word enrich, since roles, headcount and funding change faster than training data. Not for finding new prospects (use firecrawl-lead-gen) or a company's published press, sales or support contacts (use firecrawl-business-contacts).\"",
+    "path": "library/firecrawl-skills/skills/firecrawl-lead-research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-lead-research",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-lead-research"
+  },
+  {
+    "id": "firecrawl-map",
+    "name": "firecrawl-map",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "|",
+    "path": "library/firecrawl-skills/skills/firecrawl-map",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-map",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-map"
+  },
+  {
+    "id": "firecrawl-market-research",
+    "name": "firecrawl-market-research",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "\"Research markets and companies with Firecrawl using current, cited figures: market size, growth, trends, financials and earnings. Use when the user asks for market research, an industry overview or a comparison of companies by the numbers, since these figures change faster than training data.\"",
+    "path": "library/firecrawl-skills/skills/firecrawl-market-research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-market-research",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-market-research"
+  },
+  {
+    "id": "firecrawl-monitor",
+    "name": "firecrawl-monitor",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "|",
+    "path": "library/firecrawl-skills/skills/firecrawl-monitor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-monitor",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-monitor"
+  },
+  {
+    "id": "firecrawl-parse",
+    "name": "firecrawl-parse",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "|",
+    "path": "library/firecrawl-skills/skills/firecrawl-parse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-parse",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-parse"
+  },
+  {
+    "id": "firecrawl-qa",
+    "name": "firecrawl-qa",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "\"Test a live website with Firecrawl browser and write up what's broken: links, forms, mobile layout, performance and console errors. Use for pre-launch checks, bug hunts or confirming a deployed site works.\"",
+    "path": "library/firecrawl-skills/skills/firecrawl-qa",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-qa",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-qa"
+  },
+  {
+    "id": "firecrawl-research-index",
+    "name": "firecrawl-research-index",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "Find the papers that answer a research query in Firecrawl's research paper index \u2014 a corpus of paper abstracts whose largest share is biomedical and life-science literature (PubMed, bioRxiv, medRxiv), alongside arXiv preprints in CS, physics, and math \u2014 using semantic search, semantic and structural expansion, and in-body verification. Use this skill for literature-finding and paper-retrieval tasks of any kind, including clinical, biomedical, drug, gene, disease, and other life-science questions, whether the answer is a single paper or a full multi-paper set. The index is reached only through the `firecrawl_research_*` MCP tools or the `firecrawl research` CLI subcommands. Calling `firecrawl_search` with its `categories` option set to `[\"research\"]` is a different feature \u2014 it filters ordinary web search to research-affiliated websites (the list includes PubMed, bioRxiv, medRxiv, arXiv, and publisher sites) and returns page results from them, without querying the paper records in this index.",
+    "path": "library/firecrawl-skills/skills/firecrawl-research-index",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-research-index",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-research-index"
+  },
+  {
+    "id": "firecrawl-research-papers",
+    "name": "firecrawl-research-papers",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "Find and synthesize research papers, whitepapers, PDFs, technical reports, and academic sources with Firecrawl Research, using semantic paper search, related-paper expansion, and in-body verification over Firecrawl's paper index \u2014 largely biomedical and life-science literature from PubMed, bioRxiv, and medRxiv, plus arXiv preprints in CS, physics, and math. Use when the user wants a literature review, systematic review, survey of studies, paper summary, research landscape, or sourced synthesis from scholarly and industry publications, including clinical, drug, gene, disease, epidemiology, and public-health topics. Prefer this over a general web-research workflow whenever the evidence base is published papers rather than web pages.",
+    "path": "library/firecrawl-skills/skills/firecrawl-research-papers",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-research-papers",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-research-papers"
+  },
+  {
+    "id": "firecrawl-scrape",
+    "name": "firecrawl-scrape",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "Read a known webpage or execute a discovered workflow or data-provider capability. Use for page content or structured results once the URL or tool is selected.",
+    "path": "library/firecrawl-skills/skills/firecrawl-scrape",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-scrape",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-scrape"
+  },
+  {
+    "id": "firecrawl-search",
+    "name": "firecrawl-search",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "Find web sources with query-relevant page excerpts and optional full-page content, and discover workflows, data APIs, and indexes. Use for web research or finding structured records, listings, transcripts, and datasets. Supports semantic tool discovery, domain matching, and progressive catalogue browsing.",
+    "path": "library/firecrawl-skills/skills/firecrawl-search",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-search",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-search"
+  },
+  {
+    "id": "firecrawl-seo-audit",
+    "name": "firecrawl-seo-audit",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "\"Inspect a website's titles, meta descriptions, headings, canonicals, structured data and internal links for on-page and technical SEO issues. Use for SEO audits, page-source checks, broken-link reviews or comparing pages for target keywords, even without an explicit request to scrape. Return source-backed findings and prioritized fixes. Excludes generic SEO explanations, standalone copywriting and functional website testing.\"",
+    "path": "library/firecrawl-skills/skills/firecrawl-seo-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-seo-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-seo-audit"
+  },
+  {
+    "id": "firecrawl-shop",
+    "name": "firecrawl-shop",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "\"Researches products across retailers and review sites with Firecrawl and recommends what to buy within the user's budget and preferences, with current prices and sources. Use when the user wants to compare products, find the best option or check reviews before buying, since prices and models change faster than training data. Adds to a cart only when asked and a signed-in browser profile exists.\"",
+    "path": "library/firecrawl-skills/skills/firecrawl-shop",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-shop",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-shop"
+  },
+  {
+    "id": "firecrawl-website-design-clone",
+    "name": "firecrawl-website-design-clone",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "\"Extract an existing website's visual system into DESIGN.md, or collect its existing logo, colors, fonts and homepage messaging for a document. Use for reference-based UI implementation, documenting design patterns, or matching a presentation to a company's website. Excludes inventing a new brand or brand positioning.\"",
+    "path": "library/firecrawl-skills/skills/firecrawl-website-design-clone",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-website-design-clone",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-website-design-clone"
+  },
+  {
+    "id": "firecrawl-workflows",
+    "name": "firecrawl-workflows",
+    "repository": "firecrawl-skills",
+    "category": "general",
+    "description": "Run focused Firecrawl workflows for research, documentation lookup, SEO audits, QA, lead discovery and enrichment, business contacts, current jobs, fantasy decisions, brand assets, knowledge bases and website design systems. Use when the user wants a sourced answer or deliverable from a workflow rather than raw extraction or product-code integration.",
+    "path": "library/firecrawl-skills/skills/firecrawl-workflows",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firecrawl-workflows",
+    "link_cmd": "python .agents/library/activate_skill.py link firecrawl-workflows"
+  },
+  {
     "id": "workflows",
     "name": "workflows",
     "repository": "firecrawl-skills",

@@ -1568,6 +1568,14 @@
     "path": "category/backend-api-design/atlassian-mcp"
   },
   {
+    "id": "audio-design",
+    "name": "audio-design",
+    "category": "backend-api-design",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "Engine-neutral game audio technique: bus layout, volume sliders in decibels, loudness, ducking music under dialogue, adaptive music and SFX variation, with Godot, Unity and FMOD/Wwise mappings. Use when mixing a game, making music react to combat, fixing repetitive footsteps or beat sync, or a mix that clips or pumps. Not for the Godot audio API (`godot-audio`).",
+    "path": "category/backend-api-design/audio-design"
+  },
+  {
     "id": "auth-guide",
     "name": "auth-guide",
     "category": "backend-api-design",
@@ -2422,6 +2430,14 @@
     "repository": "vintasoftware-django-ai-plugins",
     "description": "Expert guidance for Django REST Framework class-based views using Classy DRF (https://www.cdrf.co). Use when selecting or debugging APIView, GenericAPIView, concrete generic views, mixin combinations, or ViewSet/GenericViewSet/ModelViewSet behavior; tracing method resolution order (MRO); understanding which method to override (`create` vs `perform_create`, `update` vs `perform_update`, `destroy` vs `perform_destroy`, `get_queryset`, `get_serializer_class`); and comparing behavior across DRF versions. Do not use for function-based views, GraphQL, FastAPI/Flask, frontend work, or non-DRF backend frameworks.",
     "path": "category/backend-api-design/cdrf-expert"
+  },
+  {
+    "id": "ce-retro",
+    "name": "ce-retro",
+    "category": "backend-api-design",
+    "repository": "everyinc-compound-engineering-plugin",
+    "description": "Look back over an agent session in this repo, the current one by default or any scope the user names across harnesses, and find what in the repo's environment keeps costing agents effort or leading them into mistakes, keeping only fixes the evidence shows are worth it. Lands the approved environment fixes and hands the rest to their owners. Use for a retro, postmortem, or papercut sweep of how agents worked in this repo. Use ce-compound to keep the lesson of one solved problem, and ce-debug for a bug in product code.",
+    "path": "category/backend-api-design/ce-retro"
   },
   {
     "id": "cf-crawl",
@@ -3432,6 +3448,14 @@
     "path": "category/backend-api-design/currents-api-automation"
   },
   {
+    "id": "custom-connector",
+    "name": "custom-connector",
+    "category": "backend-api-design",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "Gets the plugin talking to a manufacturing system that has no vendor MCP, working down a seven-tier access ladder in order \u2014 vendor MCP, community MCP, a scoped API wrapper, a read-only database view, a Zapier bridge, screen automation as a last resort, or a scheduled export contract \u2014 and stopping at the highest rung that actually works. States plainly at every rung what the customer gets, what it costs, and how it will eventually break. Most often the answer is that a vendor MCP already exists and nothing needs building \u2014 just an admin turning it on. Maps whatever it reaches onto the consolidated dataset schema, so no downstream skill changes. Credentials never enter the conversation. Use when someone says \\\"connect our ERP,\\\" \\\"we use SAP,\\\" \\\"can you reach our MES,\\\" \\\"set up a connector for this system,\\\" or \\\"our system isn't supported.\\",
+    "path": "category/backend-api-design/custom-connector"
+  },
+  {
     "id": "dailydev-playbook",
     "name": "dailydev-playbook",
     "category": "backend-api-design",
@@ -3502,6 +3526,14 @@
     "repository": "forcedotcom-sf-skills",
     "description": "Retrieve Data Lake Object (DLO) and Data Model Object (DMO) schema information from Salesforce Data Cloud using REST APIs. Use this skill when you need to inspect DLO or DMO field definitions, data types, or metadata. Takes org alias and optional DLO/DMO name as parameters.",
     "path": "category/backend-api-design/data360-schema-get"
+  },
+  {
+    "id": "database-skills-timestream-influxdb",
+    "name": "database-skills-timestream-influxdb",
+    "category": "backend-api-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Retrieves authoritative guidance on Amazon Timestream for InfluxDB across its supported engine variants. Applicable to any InfluxDB-on-AWS request including engine variant and licensing selection, provisioning and IAM, encryption at rest (AWS-owned and customer-managed KMS keys, key policies, and key lifecycle), schema design (tags vs fields, cardinality, HTTP/sensor/metric data modeling), migration from LiveAnalytics, Processing Engine plugins, connectivity (database endpoints and private or public access), and write/query errors.",
+    "path": "category/backend-api-design/database-skills-timestream-influxdb"
   },
   {
     "id": "datacircle",
@@ -4336,6 +4368,22 @@
     "path": "category/backend-api-design/endpoint-ops"
   },
   {
+    "id": "engineering-research",
+    "name": "engineering-research",
+    "category": "backend-api-design",
+    "repository": "mattpocock-skills",
+    "description": "Investigate a question against high-trust primary sources and capture the findings as a Markdown file in the repo. Use when the user wants a topic researched, docs or API facts gathered, or reading legwork delegated to a background agent.",
+    "path": "category/backend-api-design/engineering-research"
+  },
+  {
+    "id": "engineering-strict-api",
+    "name": "engineering-strict-api",
+    "category": "backend-api-design",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when the user says 'no hallucinations', 'verify APIs' or 'don't invent functions', or code depends on a library version you have not checked. Requires proof that every method, import and variable exists in the installed version before using it.",
+    "path": "category/backend-api-design/engineering-strict-api"
+  },
+  {
     "id": "enrichr-api",
     "name": "enrichr-api",
     "category": "backend-api-design",
@@ -4710,6 +4758,14 @@
     "repository": "forcedotcom-sf-skills",
     "description": "Headless 360 REST API deployment step for creating sObject records. Handles describe-based field discovery, required-field derivation, entity-relationship ordering, and composite graph transactions. Use this skill when a designer skill (or a user directly) needs to create sObject records after design confirmation, including non-setup sObject creation.",
     "path": "category/backend-api-design/field-service-sobject-create-configure"
+  },
+  {
+    "id": "figma-3d-transforms",
+    "name": "figma-3d-transforms",
+    "category": "backend-api-design",
+    "repository": "figma-mcp-server-guide",
+    "description": "Add or edit 3D transforms \u2014 depth, perspective, z-axis rotation, tilt, isometric, and parallax looks that flat 2D rotation cannot express. Use whenever a request reaches into the third dimension \u2014 \"make it 3D\", \"add depth/perspective\", \"tilt/rotate it back\", \"z-plane\", \"isometric\", \"flip it like a card\", \"parallax\", \"vanishing point\", \"receding into the distance\", \"make it pop out\".",
+    "path": "category/backend-api-design/figma-3d-transforms"
   },
   {
     "id": "figma-use",
@@ -5230,6 +5286,22 @@
     "repository": "mindrally-skills",
     "description": "Go API development guidelines using the standard library (1.22+) with best practices for RESTful API design, error handling, and security",
     "path": "category/backend-api-design/go-api-development"
+  },
+  {
+    "id": "godot-physics",
+    "name": "godot-physics",
+    "category": "backend-api-design",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "Godot 4.7 physics API in 2D and 3D: body and Area types, collision_layer and mask bits, Area signals for hurtboxes, RayCast and space queries, and Jolt (3D default since 4.6). Use when objects pass through each other, body_entered never fires or a raycast hits itself. Not for engine-neutral jitter and tunnelling (`physics-tuning`) or CharacterBody movement (`godot-2d-movement`).",
+    "path": "category/backend-api-design/godot-physics"
+  },
+  {
+    "id": "godot-ui-control",
+    "name": "godot-ui-control",
+    "category": "backend-api-design",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "Godot 4.7 Control-node API for menus and HUDs: anchors, Containers, Theme and StyleBox, focus neighbours and stretch settings, with a headless layout check. Use when Godot UI overlaps or drifts on resize, buttons ignore the gamepad, or an invisible panel swallows clicks. Not for engine-neutral UI rules (`game-ui-ux`; load both) or rebinding (`input-systems`).",
+    "path": "category/backend-api-design/godot-ui-control"
   },
   {
     "id": "google-ads-api-account-diagnostics",
@@ -6334,6 +6406,14 @@
     "repository": "himself65-finance-skills",
     "description": "Read Hyperliquid (app.hyperliquid.xyz) perp and spot market data through opencli and Hyperliquid's public info API: mark, oracle, and mid prices, 24h change, funding rates (hourly and annualized APR), open interest, volume, the L2 order book, OHLCV candles, funding history, and cross-venue funding comparisons (Hyperliquid vs Binance vs Bybit) for funding arbitrage. Use this skill whenever the user mentions Hyperliquid (HL, HL DEX, hyperliquid.xyz) or asks about its perps, spot pairs such as PURR, funding, open interest, order book, or candles. Read-only market data: no account, order, or transfer operations.",
     "path": "category/backend-api-design/hyperliquid-reader"
+  },
+  {
+    "id": "iap-agent-platform-troubleshooting",
+    "name": "iap-agent-platform-troubleshooting",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Diagnoses Identity-Aware Proxy (IAP) denials of outbound requests from Gemini Enterprise Agent Platform agents that run on Agent Runtime and send traffic through Agent Gateway. Use when an agent request fails with \"Egress request is not authorized\", when Cloud Audit Logs show an IAP egressViaIAP decision with granted false, when IAP audit entries are missing while debugging agent egress, or when Access policies, IAP allow policies, policy bindings, or Agent Registry entries might block agent egress. Don't use for Gemini model IAM permission errors (such as aiplatform.endpoints.predict), Agent Platform API errors, or Agent Runtime deployment or 500 errors (use agent-platform-troubleshooting instead). Don't use for setting up, creating, or connecting an Agent Gateway, or for IAP web apps, IAP TCP forwarding, or SSH.",
+    "path": "category/backend-api-design/iap-agent-platform-troubleshooting"
   },
   {
     "id": "ibm-api-connect",
@@ -8064,6 +8144,62 @@
     "path": "category/backend-api-design/oeis-api"
   },
   {
+    "id": "offensive-api-security",
+    "name": "offensive-api-security",
+    "category": "backend-api-design",
+    "repository": "snailsploit-claude-red",
+    "description": "Comprehensive API security testing methodology covering REST, gRPC, and WebSocket attack surfaces. Addresses the full OWASP API Security Top 10 2023 including BOLA/IDOR, broken authentication, excessive data exposure, rate limiting bypass, BFLA, mass assignment, SSRF, and security misconfiguration. Includes REST-specific attacks such as HTTP verb tampering, content-type switching, and parameter pollution. Covers gRPC exploitation through protobuf interception, reflection API enumeration, and metadata injection. Addresses WebSocket vulnerabilities including origin bypass, message injection, and cross-site WebSocket hijacking. Provides tooling guidance for Burp Suite, Postman, grpcurl, websocat, and mitmproxy. Each technique includes detection signatures and defensive indicators so you understand what artifacts your testing leaves behind. Designed for authorized penetration testing engagements against API-driven architectures.",
+    "path": "category/backend-api-design/offensive-api-security"
+  },
+  {
+    "id": "offensive-graphql",
+    "name": "offensive-graphql",
+    "category": "backend-api-design",
+    "repository": "snailsploit-claude-red",
+    "description": "Offensive methodology for attacking GraphQL APIs during penetration tests and bug bounty engagements. Covers the full attack lifecycle: endpoint discovery, introspection abuse and blind schema reconstruction when introspection is disabled, authentication and authorization bypass through Relay node IDs and nested object traversal, injection via variables and directives, query batching for brute force and OTP bypass, denial of service through depth bombs and alias amplification, WebSocket subscription hijacking, information disclosure through verbose errors and field suggestion oracles, and file upload abuse via the multipart GraphQL specification. Includes tool-specific guidance for InQL, graphql-cop, CrackQL, BatchQL, Altair, GraphQL Voyager, and clairvoyance. Trigger on: GraphQL, graphql, introspection query, batching attack, query depth, GraphQL injection, GraphQL IDOR, field suggestion, GraphQL auth bypass, GraphQL DoS, GraphQL security, graphql-cop, InQL, CrackQL, BatchQL, Relay node, alias amplification, subscription abuse, multipart upload GraphQL, schema enumeration, __schema, __type.",
+    "path": "category/backend-api-design/offensive-graphql"
+  },
+  {
+    "id": "offensive-idor",
+    "name": "offensive-idor",
+    "category": "backend-api-design",
+    "repository": "snailsploit-claude-red",
+    "description": "IDOR (Insecure Direct Object Reference) testing checklist: object ID enumeration, horizontal/vertical privilege escalation, GUID predictability, indirect references via hashes, chained IDOR, and API endpoint IDOR. Use for web app pentests and bug bounty IDOR discovery.",
+    "path": "category/backend-api-design/offensive-idor"
+  },
+  {
+    "id": "offensive-parameter-pollution",
+    "name": "offensive-parameter-pollution",
+    "category": "backend-api-design",
+    "repository": "snailsploit-claude-red",
+    "description": "HTTP parameter pollution (HPP) checklist: duplicate parameter injection, backend vs frontend parsing differences, WAF bypass via HPP, server-side vs client-side HPP, and practical exploitation patterns. Use when testing web applications for parameter handling flaws.",
+    "path": "category/backend-api-design/offensive-parameter-pollution"
+  },
+  {
+    "id": "offensive-shellcode",
+    "name": "offensive-shellcode",
+    "category": "backend-api-design",
+    "repository": "snailsploit-claude-red",
+    "description": "Shellcode development reference for offensive security engagements. Use when writing custom x86/x64 shellcode, implementing position-independent code (PIC), building shellcode loaders, evading AV/EDR detection, or converting PE files to shellcode. Covers null byte avoidance, API hashing, encoder/decoder patterns, staged vs stageless payloads, Windows PEB traversal, and cross-platform shellcode techniques.",
+    "path": "category/backend-api-design/offensive-shellcode"
+  },
+  {
+    "id": "offensive-wpa-enterprise",
+    "name": "offensive-wpa-enterprise",
+    "category": "backend-api-design",
+    "repository": "snailsploit-claude-red",
+    "description": "WPA/WPA2/WPA3-Enterprise (802.1X / EAP) attack methodology \u2014 EAP method identification (PEAP-MSCHAPv2, EAP-TTLS, EAP-TLS, EAP-GTC, EAP-PWD, EAP-FAST), evil-twin RADIUS attacks with eaphammer for credential capture, MSCHAPv2 challenge-response cracking, EAP-TLS client certificate theft paths (DPAPI, NDES, AD CS auto-enrollment), supplicant validation bypass (missing server cert validation, missing CN pinning, BYOD misconfigurations), and post-capture pivots into AD via cracked domain credentials. Use for corporate Wi-Fi engagements where the network is 802.1X authenticated.",
+    "path": "category/backend-api-design/offensive-wpa-enterprise"
+  },
+  {
+    "id": "offensive-xxe",
+    "name": "offensive-xxe",
+    "category": "backend-api-design",
+    "repository": "snailsploit-claude-red",
+    "description": "XML External Entity injection testing checklist: classic XXE, blind XXE (out-of-band), XXE via file upload (SVG/docx), XXE in SOAP/REST, error-based XXE, XInclude attacks, and XXE filter bypass. Use for web app XXE testing and bug bounty.",
+    "path": "category/backend-api-design/offensive-xxe"
+  },
+  {
     "id": "okta-attack",
     "name": "okta-attack",
     "category": "backend-api-design",
@@ -9544,6 +9680,14 @@
     "path": "category/backend-api-design/runpod-migrate"
   },
   {
+    "id": "runpod-vllm",
+    "name": "runpod-vllm",
+    "category": "backend-api-design",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Serve a Hugging Face model with vLLM on Runpod (Hub worker-vllm queue endpoint, load-balancing",
+    "path": "category/backend-api-design/runpod-vllm"
+  },
+  {
     "id": "saas-economics-efficiency-metrics",
     "name": "saas-economics-efficiency-metrics",
     "category": "backend-api-design",
@@ -10312,6 +10456,14 @@
     "path": "category/backend-api-design/skill-data-derive-client"
   },
   {
+    "id": "skills-ads",
+    "name": "skills-ads",
+    "category": "backend-api-design",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to plan, run, or fix paid ads on Google, Meta, and LinkedIn, or asks a judgement call on them: are ads worth it, which channel or budget split, why CPA rose, kill or keep a campaign. End with facts, hypotheses, and missing data; label unavailable inputs MISSING instead of estimating. For ad copy, see ad-creative. For pixels and CAPI, see conversion-tracking. For landing pages, see cro.",
+    "path": "category/backend-api-design/skills-ads"
+  },
+  {
     "id": "skills-agent-operated-software",
     "name": "skills-agent-operated-software",
     "category": "backend-api-design",
@@ -10350,6 +10502,22 @@
     "repository": "affaan-m-ecc",
     "description": "Patrones de dise\u00f1o REST API incluyendo nomenclatura de recursos, c\u00f3digos de estado, paginaci\u00f3n, filtrado, respuestas de error, versionado y rate limiting para APIs de producci\u00f3n.",
     "path": "category/backend-api-design/skills-api-design"
+  },
+  {
+    "id": "skills-api-design-reviewer",
+    "name": "skills-api-design-reviewer",
+    "category": "backend-api-design",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for any PR or spec that adds or changes REST endpoints, before approving it. Lints conventions with api_linter.py, detects breaking changes with breaking_change_detector.py and scores the design with api_scorecard.py.",
+    "path": "category/backend-api-design/skills-api-design-reviewer"
+  },
+  {
+    "id": "skills-api-test-suite-builder",
+    "name": "skills-api-test-suite-builder",
+    "category": "backend-api-design",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when asked to write API, integration or contract tests for REST endpoints. Builds the suite from the routes: happy paths, auth, validation errors and edge cases per endpoint.",
+    "path": "category/backend-api-design/skills-api-test-suite-builder"
   },
   {
     "id": "skills-api-versioning",
@@ -10392,6 +10560,14 @@
     "path": "category/backend-api-design/skills-aws-observability"
   },
   {
+    "id": "skills-aws-secrets-manager",
+    "name": "skills-aws-secrets-manager",
+    "category": "backend-api-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Secret safety for AWS Secrets Manager, secret management, credentials, API keys, tokens, and passwords. Prevents AI agents from directly fetching secret values and teaches runtime dynamic references with asm-exec so plaintext never enters the LLM context window.",
+    "path": "category/backend-api-design/skills-aws-secrets-manager"
+  },
+  {
     "id": "skills-azure-aigateway",
     "name": "skills-azure-aigateway",
     "category": "backend-api-design",
@@ -10432,6 +10608,14 @@
     "path": "category/backend-api-design/skills-baoyu-danger-gemini-web"
   },
   {
+    "id": "skills-boat",
+    "name": "skills-boat",
+    "category": "backend-api-design",
+    "repository": "davidondrej-skills",
+    "description": "Manage Boat (boat.dev, formerly Box by Ascii) cloud sandboxes via API, CLI, and SSH. Use for provisioning, environments, secrets, templates, snapshots, stop/resume/fork, or running BB and coding agents on Boat.",
+    "path": "category/backend-api-design/skills-boat"
+  },
+  {
     "id": "skills-build-connector",
     "name": "skills-build-connector",
     "category": "backend-api-design",
@@ -10456,12 +10640,44 @@
     "path": "category/backend-api-design/skills-build-zoom-bot"
   },
   {
+    "id": "skills-business-health-diagnostic",
+    "name": "skills-business-health-diagnostic",
+    "category": "backend-api-design",
+    "repository": "deanpeters-product-manager-skills",
+    "description": "Diagnose SaaS business health across growth, retention, efficiency, and capital. Use when preparing a business review or prioritizing urgent fixes.",
+    "path": "category/backend-api-design/skills-business-health-diagnostic"
+  },
+  {
+    "id": "skills-caffeine-app",
+    "name": "skills-caffeine-app",
+    "category": "backend-api-design",
+    "repository": "caffeinelabs-skills",
+    "description": "Scaffold and build a complete Caffeine app (caffeine.ai) from scratch \u2014 the project layout, the caffeine.toml workspace + canister manifests, the mops.toml for the single Motoko `backend` canister, the React/Vite frontend, and the caffeine CLI build loop (auth login, doctor, install, check --fix, preview --build). Use whenever the user wants to create, scaffold, set up, or build a Caffeine app or a caffeine.ai project, asks about caffeine.toml or mops.toml structure, or needs the caffeine CLI workflow \u2014 even if they do not say the words 'from scratch'. Always pair it with the `writing-motoko` skill for the backend code. Do NOT use it for Motoko language syntax or compiler errors (use the `writing-motoko` skill), and do NOT use it for generic Internet Computer / dfx / icp deployment (use the `icp-cli` skill).",
+    "path": "category/backend-api-design/skills-caffeine-app"
+  },
+  {
+    "id": "skills-caio-review",
+    "name": "skills-caio-review",
+    "category": "backend-api-design",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for /c-level-agents:caio-review, or to challenge a plan involving AI (no eval set, API vs fine-tune vs self-host, EU AI Act class).",
+    "path": "category/backend-api-design/skills-caio-review"
+  },
+  {
     "id": "skills-carrel-search",
     "name": "skills-carrel-search",
     "category": "backend-api-design",
     "repository": "fengzhenfei-carrel",
     "description": "Query the user's local knowledge bases through the Carrel search API, use original text and source images as needed in the answer, list the reference files and offer follow-up directions drawn from the knowledge graph. Use when the user asks to search the knowledge base, find evidence in the stored material, compare records, or answer from several documents together.",
     "path": "category/backend-api-design/skills-carrel-search"
+  },
+  {
+    "id": "skills-chief-ai-officer-advisor",
+    "name": "skills-chief-ai-officer-advisor",
+    "category": "backend-api-design",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for AI strategy decisions: API vs fine-tune vs build, EU AI Act or US state risk classification, when self-hosting pays off, or AI hiring order. Runs model_buildvsbuy_calculator.py, ai_risk_classifier.py and ai_cost_economics.py.",
+    "path": "category/backend-api-design/skills-chief-ai-officer-advisor"
   },
   {
     "id": "skills-choose-your-parallel-api",
@@ -10536,6 +10752,14 @@
     "path": "category/backend-api-design/skills-coding-standards"
   },
   {
+    "id": "skills-cuopt-numerical-optimization-api",
+    "name": "skills-cuopt-numerical-optimization-api",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "LP, MILP, and QP (beta) with cuOpt \u2014 Python, C, and CLI. Use when the user is solving LP, MILP, or QP with any cuOpt interface.",
+    "path": "category/backend-api-design/skills-cuopt-numerical-optimization-api"
+  },
+  {
     "id": "skills-debug-zoom",
     "name": "skills-debug-zoom",
     "category": "backend-api-design",
@@ -10576,12 +10800,36 @@
     "path": "category/backend-api-design/skills-dotnet-init"
   },
   {
+    "id": "skills-eas-app-stores",
+    "name": "skills-eas-app-stores",
+    "category": "backend-api-design",
+    "repository": "expo-skills",
+    "description": "Build and submit iOS and Android apps with EAS to TestFlight, the App Store, or Google Play. Supports Expo and other React Native projects, plus existing native apps. Use for eas.json setup, release pipelines, signing, app versions and build numbers, store submissions, and listing metadata. For Expo websites and API routes, use eas-hosting; for adding React Native screens to a native app, use expo-brownfield.",
+    "path": "category/backend-api-design/skills-eas-app-stores"
+  },
+  {
+    "id": "skills-eas-hosting",
+    "name": "skills-eas-hosting",
+    "category": "backend-api-design",
+    "repository": "expo-skills",
+    "description": "Deploy Expo websites and Expo Router API routes to EAS Hosting - export the web bundle, run eas deploy for production and PR preview URLs, manage environment secrets and custom domains, and work within the Cloudflare Workers runtime. Also covers authoring API routes (+api.ts handlers, HTTP methods, request handling, CORS). Use when deploying an Expo web app or API routes, setting up EAS Hosting, or configuring hosting environments and domains. Not for native builds or store releases - use the eas-app-stores skill for those.",
+    "path": "category/backend-api-design/skills-eas-hosting"
+  },
+  {
     "id": "skills-entra-app-registration",
     "name": "skills-entra-app-registration",
     "category": "backend-api-design",
     "repository": "microsoft-azure-skills",
     "description": "Guides Microsoft Entra ID app registration, OAuth 2.0 authentication, and MSAL integration. USE FOR: create app registration, register Azure AD app, configure OAuth, set up authentication, add API permissions, generate service principal, MSAL example, console app auth, Entra ID setup, Azure AD authentication. DO NOT USE FOR: Key Vault secrets (use azure-keyvault-expiration-audit), general Azure resource security guidance.",
     "path": "category/backend-api-design/skills-entra-app-registration"
+  },
+  {
+    "id": "skills-expo-data-fetching",
+    "name": "skills-expo-data-fetching",
+    "category": "backend-api-design",
+    "repository": "expo-skills",
+    "description": "Use when implementing or debugging ANY network request, API call, or data fetching. Covers fetch API, React Query, SWR, error handling, caching, offline support, loading/empty/error screen states, and Expo Router data loaders (`useLoaderData`).",
+    "path": "category/backend-api-design/skills-expo-data-fetching"
   },
   {
     "id": "skills-fastapi-patterns",
@@ -10686,6 +10934,14 @@
     "repository": "anthropics-claude-plugins-official",
     "description": "This skill should be used when the user asks to \"create a hook\", \"add a PreToolUse/PostToolUse/Stop hook\", \"validate tool use\", \"implement prompt-based hooks\", \"use ${CLAUDE_PLUGIN_ROOT}\", \"set up event-driven automation\", \"block dangerous commands\", or mentions hook events (PreToolUse, PostToolUse, Stop, SubagentStop, SessionStart, SessionEnd, UserPromptSubmit, PreCompact, Notification). Provides comprehensive guidance for creating and implementing Claude Code plugin hooks with focus on advanced prompt-based hooks API.",
     "path": "category/backend-api-design/skills-hook-development"
+  },
+  {
+    "id": "skills-interview",
+    "name": "skills-interview",
+    "category": "backend-api-design",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when someone has an agent idea to scope before launch ('help me scope an agent'). Interviews them about the one job and writes a build sheet with build_sheet_builder.py, checked by primitives_validator.py; no API key needed.",
+    "path": "category/backend-api-design/skills-interview"
   },
   {
     "id": "skills-ios-icon-gen",
@@ -10816,6 +11072,14 @@
     "path": "category/backend-api-design/skills-parallel-search-evaluation"
   },
   {
+    "id": "skills-performance-profiler",
+    "name": "skills-performance-profiler",
+    "category": "backend-api-design",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for a slow endpoint, memory leak, CPU spike, large bundle or performance budget in Node.js, Python or Go, before optimizing. Measures before and after with performance_profiler.py, flamegraphs and k6 load tests.",
+    "path": "category/backend-api-design/skills-performance-profiler"
+  },
+  {
     "id": "skills-plan-zoom-product",
     "name": "skills-plan-zoom-product",
     "category": "backend-api-design",
@@ -10880,6 +11144,30 @@
     "path": "category/backend-api-design/skills-rivet-sdk"
   },
   {
+    "id": "skills-runpod-endpoint-ops",
+    "name": "skills-runpod-endpoint-ops",
+    "category": "backend-api-design",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Operate a Serverless endpoint that already exists: diagnose queued jobs and dying workers,",
+    "path": "category/backend-api-design/skills-runpod-endpoint-ops"
+  },
+  {
+    "id": "skills-runpod-flash",
+    "name": "skills-runpod-flash",
+    "category": "backend-api-design",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Code-first serverless with the Runpod Python SDK (`runpod` 2.0): define a `runpod.App` with `@app.queue` / `@app.api` / `@app.task`, iterate on remote GPUs/CPUs with `rp flash dev`, ship with `rp flash deploy`, and maintain or migrate legacy `runpod-flash` projects (`from runpod_flash import Endpoint`). Use runpod-build-template for explicit Dockerfile/template project authoring, and runpodctl/runpod-mcp for infrastructure management.",
+    "path": "category/backend-api-design/skills-runpod-flash"
+  },
+  {
+    "id": "skills-runpod-migrate",
+    "name": "skills-runpod-migrate",
+    "category": "backend-api-design",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Migrate a codebase from the Runpod GraphQL API or REST v1 to REST v2 \u2014 inventory which parts use which API version, rewrite the call sites, flag breaking changes, and verify. Use when someone asks to move to v2, asks what v2 would change, or asks which Runpod API their code is on. For managing infrastructure rather than migrating code, use runpod-mcp or runpodctl.",
+    "path": "category/backend-api-design/skills-runpod-migrate"
+  },
+  {
     "id": "skills-scalar",
     "name": "skills-scalar",
     "category": "backend-api-design",
@@ -10896,12 +11184,44 @@
     "path": "category/backend-api-design/skills-scientific-db-pubmed-database"
   },
   {
+    "id": "skills-security-pen-testing",
+    "name": "skills-security-pen-testing",
+    "category": "backend-api-design",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Authorized penetration testing of an app or API: vulnerability scans, OWASP Top 10 checks, dependency audits and a pentest report. Use whenever the user asks if their app is secure or hackable, wants a security scan or a pentest report.",
+    "path": "category/backend-api-design/skills-security-pen-testing"
+  },
+  {
     "id": "skills-security-review",
     "name": "skills-security-review",
     "category": "backend-api-design",
     "repository": "affaan-m-ecc",
     "description": "Usar este skill al agregar autenticaci\u00f3n, manejar entradas de usuario, trabajar con secretos, crear endpoints de API o implementar funcionalidades de pago/sensibles. Proporciona lista de verificaci\u00f3n y patrones de seguridad completos.",
     "path": "category/backend-api-design/skills-security-review"
+  },
+  {
+    "id": "skills-senior-backend",
+    "name": "skills-senior-backend",
+    "category": "backend-api-design",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Build and fix backend services: REST or GraphQL APIs, auth, microservices, PostgreSQL queries, migrations and load tests. Use whenever the user's API is slow or broken, needs login or auth added, a schema change, or a new endpoint or service scaffolded.",
+    "path": "category/backend-api-design/skills-senior-backend"
+  },
+  {
+    "id": "skills-senior-ml-engineer",
+    "name": "skills-senior-ml-engineer",
+    "category": "backend-api-design",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for putting ML models or LLM features into production: deployment, MLOps, drift monitoring, RAG pipelines, LLM API cost and retries. Deploys with model_deployment_pipeline.py, monitors with ml_monitoring_suite.py and builds RAG with rag_system_builder.py.",
+    "path": "category/backend-api-design/skills-senior-ml-engineer"
+  },
+  {
+    "id": "skills-seo-ahrefs",
+    "name": "skills-seo-ahrefs",
+    "category": "backend-api-design",
+    "repository": "agricidaniel-claude-seo",
+    "description": "Ahrefs API analyst (extension). Reads referring domains, backlinks, organic keywords, and content explorer data via the tested @ahrefs/mcp@0.0.11 server. Pairs with seo-backlinks for multi-source confidence weighting.",
+    "path": "category/backend-api-design/skills-seo-ahrefs"
   },
   {
     "id": "skills-seo-analysis",
@@ -10912,12 +11232,60 @@
     "path": "category/backend-api-design/skills-seo-analysis"
   },
   {
+    "id": "skills-seo-firecrawl",
+    "name": "skills-seo-firecrawl",
+    "category": "backend-api-design",
+    "repository": "agricidaniel-claude-seo",
+    "description": "Full-site crawling, scraping, and site mapping via Firecrawl MCP. Use when user says \"crawl site\", \"map site\", \"full crawl\", \"find all pages\", \"broken links\", \"site structure\", \"discover pages\", \"JS rendering\", or needs site-wide analysis.",
+    "path": "category/backend-api-design/skills-seo-firecrawl"
+  },
+  {
+    "id": "skills-seo-google",
+    "name": "skills-seo-google",
+    "category": "backend-api-design",
+    "repository": "agricidaniel-claude-seo",
+    "description": "Google SEO APIs: Search Console (Search Analytics, URL Inspection, Sitemaps), PageSpeed Insights v5, CrUX field data with 25-week history, Indexing API v3, and GA4 organic traffic. Provides real Google field data for Core Web Vitals, indexation status, search performance, and organic traffic trends. Use when user says \"search console\", \"GSC\", \"PageSpeed\", \"CrUX\", \"field data\", \"indexing API\", \"GA4 organic\", \"URL inspection\", or \"real CWV data\".",
+    "path": "category/backend-api-design/skills-seo-google"
+  },
+  {
+    "id": "skills-seo-maps",
+    "name": "skills-seo-maps",
+    "category": "backend-api-design",
+    "repository": "agricidaniel-claude-seo",
+    "description": "Maps intelligence for local SEO: geo-grid rank tracking, GBP profile auditing via API, review intelligence across Google/Tripadvisor/Trustpilot, cross-platform NAP verification, competitor radius mapping, and LocalBusiness schema generation. Three tiers: free (Overpass + Geoapify), DataForSEO, and DataForSEO + Google. Use when user says \"maps\", \"geo-grid\", \"rank tracking\", \"GBP audit\", \"review velocity\", \"competitor radius\", or \"SoLV\".",
+    "path": "category/backend-api-design/skills-seo-maps"
+  },
+  {
+    "id": "skills-seo-matomo",
+    "name": "skills-seo-matomo",
+    "category": "backend-api-design",
+    "repository": "agricidaniel-claude-seo",
+    "description": "Matomo Reporting API extension. Self-hosted or Matomo Cloud analytics as a GA4 alternative or complement. Organic traffic, landing pages, device / country breakdowns, referrers, search keywords. Triggers on \"Matomo\", \"self-hosted analytics\", \"analytics ohne Google\", \"GA4 alternative\", \"Matomo Reporting\", \"Piwik\".",
+    "path": "category/backend-api-design/skills-seo-matomo"
+  },
+  {
+    "id": "skills-seo-unlighthouse",
+    "name": "skills-seo-unlighthouse",
+    "category": "backend-api-design",
+    "repository": "agricidaniel-claude-seo",
+    "description": "Multi-page Lighthouse audit via the MIT-licensed Unlighthouse CLI. Free-tier alternative to running PageSpeed against every URL on a site, no API quota burn, runs locally.",
+    "path": "category/backend-api-design/skills-seo-unlighthouse"
+  },
+  {
     "id": "skills-setup-multiplayer-services",
     "name": "skills-setup-multiplayer-services",
     "category": "backend-api-design",
     "repository": "unity-technologies-skills",
     "description": "Guides real-time online multiplayer with Unity Multiplayer Services. Use when the user asks about network topology, hosting, matchmaking, or session-based play such as rooms, parties, and lobbies, not backend features.",
     "path": "category/backend-api-design/skills-setup-multiplayer-services"
+  },
+  {
+    "id": "skills-stage-launch",
+    "name": "skills-stage-launch",
+    "category": "backend-api-design",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when a managed-agent build sheet is ready to launch ('launch it', 'deploy the agent'). Generates and validates API payloads with payload_generator.py and payload_validator.py and writes a resumable curl script with launch_script_writer.py that uses the user's own key.",
+    "path": "category/backend-api-design/skills-stage-launch"
   },
   {
     "id": "skills-stripe-best-practices",
@@ -10936,12 +11304,36 @@
     "path": "category/backend-api-design/skills-stripe-docs"
   },
   {
+    "id": "skills-stripe-integration-expert",
+    "name": "skills-stripe-integration-expert",
+    "category": "backend-api-design",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for any Stripe integration: subscriptions, trials, proration, checkout, usage billing, webhooks, customer portal or invoicing in Next.js, Express or Django. Writes idempotent webhook handlers and debugs delivery failures.",
+    "path": "category/backend-api-design/skills-stripe-integration-expert"
+  },
+  {
     "id": "skills-stripe-projects",
     "name": "skills-stripe-projects",
     "category": "backend-api-design",
     "repository": "stripe-ai",
     "description": "Use when the user wants to provision infrastructure or third-party services using Stripe Projects. Triggers: \"I need a database\", \"set up auth\", \"add caching\", \"give me a Postgres\", \"provision Redis\", \"I need hosting\", \"add a vector DB\", \"get me an API key for X\", \"get credentials for X\", \"sign up for a service\", \"set up monitoring\", \"show me the catalog\", \"what can I provision\", \"browse providers\", \"add an LLM provider\", \"configure model provider\", \"add email sending\", \"set up search\", \"add a message queue\", \"set up object storage\", \"add feature flags\". Also trigger when the user asks how to get an API key or credentials for any third-party service \u2014 don't tell them to sign up manually; check the Projects catalog first. Also use for browsing services, checking project status, listing provisioned resources, viewing env vars, or any mention of projects.dev or adding/provisioning/connecting a cloud service.",
     "path": "category/backend-api-design/skills-stripe-projects"
+  },
+  {
+    "id": "skills-terraform-patterns",
+    "name": "skills-terraform-patterns",
+    "category": "backend-api-design",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for any Terraform module, state backend, provider setup or IaC security review, before editing .tf files. Analyzes modules with tf_module_analyzer.py and scans for misconfigurations with tf_security_scanner.py.",
+    "path": "category/backend-api-design/skills-terraform-patterns"
+  },
+  {
+    "id": "skills-universal-scraping-architect",
+    "name": "skills-universal-scraping-architect",
+    "category": "backend-api-design",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Build a scraper or extractor for sites, PDFs or paginated APIs and validate the fields (Firecrawl or local Python). Load whenever the user wants data pulled from pages, files or an API, or a scraper broke.",
+    "path": "category/backend-api-design/skills-universal-scraping-architect"
   },
   {
     "id": "skills-upgrade-stripe",
@@ -10974,6 +11366,22 @@
     "repository": "cursor-plugins",
     "description": "Read before using any X tool (the X plugin, any X MCP, or Grok Bot's built-in public X reads) and on any X error. Covers reading and searching posts, users, news, trends, Spaces, communities, lists and bookmarks; posting with create_posts; scheduled X calls; livestreams; and X Chat (DMs, inbox, unread, message requests, Chat PIN, juicebox, xchat_lite).",
     "path": "category/backend-api-design/skills-x-api-mcp-guide"
+  },
+  {
+    "id": "skills-youtube-full",
+    "name": "skills-youtube-full",
+    "category": "backend-api-design",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for any YouTube URL, video ID or @handle, or a request for transcripts, video search, channel, playlist or new-upload monitoring. Fetches them with yt-dlp, youtube-transcript-api and public RSS feeds, with no API key; no video or audio downloads.",
+    "path": "category/backend-api-design/skills-youtube-full"
+  },
+  {
+    "id": "skills-zero-hallucination-coder",
+    "name": "skills-zero-hallucination-coder",
+    "category": "backend-api-design",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use before high-stakes or multi-file coding (auth, databases, migrations), or when asked to plan carefully and avoid invented APIs. Runs discuss, map, decompose, execute and verify, checking every import and API exists. Not for trivial edits.",
+    "path": "category/backend-api-design/skills-zero-hallucination-coder"
   },
   {
     "id": "slash-graphql",

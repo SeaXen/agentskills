@@ -19,7 +19,7 @@ You need Node 24+, Go 1.25+, Git and hardware virtualization (x86-64), plus an O
 
 ```powershell
 winget install -e --id OpenJS.NodeJS.LTS; winget install -e --id GoLang.Go; winget install -e --id Git.Git
-git clone https://github.com/feder-cr/invisible_dots; cd invisible_dots
+git clone https://github.com/oss-invisible/dots; cd dots
 npm ci; npm run build --workspace @invisible-dots/cli
 node apps/cli/dist/invisible-dots.mjs setup --all
 node apps/cli/dist/invisible-dots.mjs server
@@ -29,7 +29,7 @@ node apps/cli/dist/invisible-dots.mjs server
 
 ```bash
 curl -fsSL https://deb.nodesource.com/setup_24.x | sudo -E bash - && sudo apt-get install -y nodejs git && sudo snap install go --classic
-git clone https://github.com/feder-cr/invisible_dots && cd invisible_dots
+git clone https://github.com/oss-invisible/dots && cd dots
 npm ci && npm run build --workspace @invisible-dots/cli
 node apps/cli/dist/invisible-dots.mjs setup --all
 node apps/cli/dist/invisible-dots.mjs server
@@ -58,7 +58,7 @@ Anything that needs a computer and a person's judgement, for as long as it takes
 | | |
 |---|---|
 | **[A computer of its own](docs/guide.md#what-a-dot-can-do)** | A hardware-accelerated VM with a Linux desktop and a persistent disk. It sleeps when idle and wakes for the next message, task or automation. |
-| **[A browser that is not blocked](docs/guide.md#the-browser)** | [invisible_playwright_mcp](https://github.com/feder-cr/invisible_playwright_mcp): Firefox patched in C++, the fingerprint set inside the engine. Each identity keeps its own cookies and logins. |
+| **[A browser that is not blocked](docs/guide.md#the-browser)** | [invisible_playwright_mcp](https://github.com/oss-invisible/playwright_mcp): Firefox patched in C++, the fingerprint set inside the engine. Each identity keeps its own cookies and logins. |
 | **[Memory and skills](docs/guide.md#what-a-dot-can-do)** | It writes its own notes and how-tos in its home folder, as Claude Code does, and reads them on the next task. |
 | **[Your MCP servers](docs/guide.md#mcp-servers)** | Any MCP server you declare, a program on its computer or a URL, as in Claude Code. Its keys stay out of the config. |
 | **[Permissions you set](docs/guide.md#approvals)** | Every tool belongs to a permission: allow, ask or deny. An ask waits in your Inbox, survives a restart and runs the call once. |
@@ -75,9 +75,9 @@ Anything that needs a computer and a person's judgement, for as long as it takes
 ## Related projects
 
 **The pieces of this one.** A Dot's browser is
-[invisible_playwright_mcp](https://github.com/feder-cr/invisible_playwright_mcp), on
-[invisible_playwright](https://github.com/feder-cr/invisible_playwright) and
-[invisible_core](https://github.com/feder-cr/invisible_core); the engine is a fork of
+[invisible_playwright_mcp](https://github.com/oss-invisible/playwright_mcp), on
+[invisible_playwright](https://github.com/oss-invisible/playwright) and
+[invisible_core](https://github.com/oss-invisible/core); the engine is a fork of
 [nanobot](https://github.com/HKUDS/nanobot).
 
 ## License
@@ -93,7 +93,7 @@ their robots.txt.
 ---
 
 <p align="center">
-  <a href="https://github.com/feder-cr/invisible_dots/actions/workflows/tests.yml"><img alt="tests" src="https://github.com/feder-cr/invisible_dots/actions/workflows/tests.yml/badge.svg"></a>
+  <a href="https://github.com/oss-invisible/dots/actions/workflows/tests.yml"><img alt="tests" src="https://github.com/oss-invisible/dots/actions/workflows/tests.yml/badge.svg"></a>
   <a href="LICENSE"><img alt="license: MIT" src="https://img.shields.io/badge/license-MIT-blue"></a>
   <img alt="status: alpha" src="https://img.shields.io/badge/status-alpha-orange">
   <img alt="hosts: Linux and Windows" src="https://img.shields.io/badge/hosts-Linux%20%7C%20Windows-lightgrey">

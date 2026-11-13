@@ -1,7 +1,7 @@
 # 🧠 NousResearch Hermes Agent Skills
 
 > **Category**: `autonomous-agents-hermes`  
-> **Total Curated Skills**: 184 skills  
+> **Total Curated Skills**: 185 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -176,6 +176,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`siyuan`](../../library/nousresearch-hermes-optional-skills/skills/siyuan) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Query and edit a SiYuan knowledge base via its API. |
 | [`skills-autonomous-agent-harness`](../../library/affaan-m-ecc/skills/skills-autonomous-agent-harness) | ⚪ Reserve | `affaan-m-ecc` | Claude Codeを永続的なメモリ、スケジュール済み操作、コンピュータ使用、タスクキューイングを備えた完全自動エージェントシステムに変換します。スタンドアロンエージェントフレームワーク（... |
 | [`skills-backup-incremental`](../../library/seaxen-skills-backup/skills/skills-backup-incremental) | ⚪ Reserve | `seaxen-skills-backup` | Incremental git sync of ~/.hermes/skills to SeaXen/skills-backup — persistent clone, diff commi... |
+| [`skills-hermes-history-ingest`](../../library/ar9av-obsidian-wiki/skills/skills-hermes-history-ingest) | ⚪ Reserve | `ar9av-obsidian-wiki` | Ingest Hermes agent history into Obsidian as distilled knowledge. Use for importing or mining ~... |
 | [`skills-hermes-imports`](../../library/affaan-m-ecc/skills/skills-hermes-imports) | ⚪ Reserve | `affaan-m-ecc` | Hermesデータインポート、マッピング、変換、およびデータインテグリティ検証。 |
 | [`slime`](../../library/nousresearch-hermes-optional-skills/skills/slime) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | RL post-training for LLMs with Megatron and SGLang. |
 | [`social-media-content-calendar`](../../library/nousresearch-hermes-optional-skills/skills/social-media-content-calendar) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Plan multi-platform social campaigns: briefs to posting. |

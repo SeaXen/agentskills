@@ -1,5 +1,55 @@
 [
   {
+    "id": "ask-matt",
+    "name": "ask-matt",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u8be2\u95ee\u5f53\u524d\u60c5\u5883\u9002\u5408\u54ea\u4e2a\u6280\u80fd\u6216\u6d41\u7a0b\uff1b\u5b83\u662f\u672c\u4ed3\u5e93\u6240\u6709 skills \u7684\u8def\u7531\u5668\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/ask-matt",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ask-matt",
+    "link_cmd": "python .agents/library/activate_skill.py link ask-matt"
+  },
+  {
+    "id": "chief-of-staff",
+    "name": "chief-of-staff",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u5728\u5355\u4e2a session \u4e2d\u901a\u8fc7\u534f\u8c03 subagents \u6765\u63a8\u8fdb\u4e00\u4e2a\u957f\u671f\u76ee\u6807\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/chief-of-staff",
+    "activation_cmd": "python .agents/library/activate_skill.py activate chief-of-staff",
+    "link_cmd": "python .agents/library/activate_skill.py link chief-of-staff"
+  },
+  {
+    "id": "claude-handoff",
+    "name": "claude-handoff",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u628a\u5f53\u524d\u5bf9\u8bdd\u4ea4\u63a5\u7ed9\u4e00\u4e2a\u5168\u65b0\u7684 background agent\uff0c\u8ba9\u5b83\u7acb\u5373\u63a5\u624b\u5de5\u4f5c\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/claude-handoff",
+    "activation_cmd": "python .agents/library/activate_skill.py activate claude-handoff",
+    "link_cmd": "python .agents/library/activate_skill.py link claude-handoff"
+  },
+  {
+    "id": "code-review",
+    "name": "code-review",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\"\u4ece\u56fa\u5b9a\u70b9\uff08commit\u3001branch\u3001tag \u6216 merge-base\uff09\u5f00\u59cb\uff0c\u6309 Standards\uff08\u4ee3\u7801\u662f\u5426\u7b26\u5408\u672c\u4ed3\u5e93\u8bb0\u5f55\u7684\u7f16\u7801\u6807\u51c6\uff1f\uff09\u548c Spec\uff08\u4ee3\u7801\u662f\u5426\u7b26\u5408\u6765\u6e90 issue/spec \u7684\u8981\u6c42\uff1f\uff09\u4e24\u4e2a\u8f74\u7ebf\u5ba1\u67e5\u53d8\u66f4\u3002\u4e24\u4e2a\u5ba1\u67e5\u4f1a\u5728\u5e76\u884c\u5b50\u4ee3\u7406\u4e2d\u8fd0\u884c\uff0c\u5e76\u5e76\u6392\u62a5\u544a\u3002\u9002\u7528\u4e8e\u7528\u6237\u60f3\u5ba1\u67e5 branch\u3001PR\u3001\u8fdb\u884c\u4e2d\u7684\u53d8\u66f4\uff0c\u6216\u8981\u6c42\u201creview since X\u201d\u65f6\u3002\"",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/code-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate code-review",
+    "link_cmd": "python .agents/library/activate_skill.py link code-review"
+  },
+  {
+    "id": "codebase-design",
+    "name": "codebase-design",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u7528\u4e8e\u8bbe\u8ba1\u6df1\u6a21\u5757\u7684\u5171\u4eab\u8bcd\u6c47\u3002\u9002\u7528\u4e8e\u7528\u6237\u60f3\u8bbe\u8ba1\u6216\u6539\u8fdb\u6a21\u5757\u63a5\u53e3\u3001\u5bfb\u627e\u6df1\u5316\u673a\u4f1a\u3001\u51b3\u5b9a seam \u653e\u5728\u54ea\u91cc\u3001\u8ba9\u4ee3\u7801\u66f4\u5bb9\u6613\u6d4b\u8bd5\u6216\u66f4\u9002\u5408 AI \u5bfc\u822a\uff0c\u6216\u5176\u4ed6\u6280\u80fd\u9700\u8981\u6df1\u6a21\u5757\u8bcd\u6c47\u65f6\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/codebase-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate codebase-design",
+    "link_cmd": "python .agents/library/activate_skill.py link codebase-design"
+  },
+  {
     "id": "deprecated",
     "name": "deprecated",
     "repository": "vinvcn-mattpocock-skills-zh-cn",
@@ -8,6 +58,26 @@
     "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/deprecated",
     "activation_cmd": "python .agents/library/activate_skill.py activate deprecated",
     "link_cmd": "python .agents/library/activate_skill.py link deprecated"
+  },
+  {
+    "id": "diagnosing-bugs",
+    "name": "diagnosing-bugs",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u9762\u5411\u68d8\u624b\u7f3a\u9677\u548c\u6027\u80fd\u56de\u9000\u7684\u8bca\u65ad\u5faa\u73af\u3002\u9002\u7528\u4e8e\u7528\u6237\u8bf4 \u201cdiagnose\u201d / \u201cdebug this\u201d\uff0c\u6216\u62a5\u544a\u67d0\u4e9b\u4e1c\u897f broken\u3001throwing\u3001failing\u3001slow \u65f6\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/diagnosing-bugs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate diagnosing-bugs",
+    "link_cmd": "python .agents/library/activate_skill.py link diagnosing-bugs"
+  },
+  {
+    "id": "domain-modeling",
+    "name": "domain-modeling",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u6784\u5efa\u5e76\u6253\u78e8\u9879\u76ee\u7684\u9886\u57df\u6a21\u578b\u3002\u9002\u7528\u4e8e\u8ba8\u8bba codebase \u672f\u8bed\u3001\u7f16\u5199\u6216\u7f16\u8f91 GLOSSARY.md\uff0c\u6216\u8bb0\u5f55\u6216\u7f16\u8f91 ADR\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/domain-modeling",
+    "activation_cmd": "python .agents/library/activate_skill.py activate domain-modeling",
+    "link_cmd": "python .agents/library/activate_skill.py link domain-modeling"
   },
   {
     "id": "engineering",
@@ -20,6 +90,86 @@
     "link_cmd": "python .agents/library/activate_skill.py link engineering"
   },
   {
+    "id": "git-guardrails-claude-code",
+    "name": "git-guardrails-claude-code",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u8bbe\u7f6e Claude Code hooks\uff0c\u5728\u5371\u9669 git commands\uff08push\u3001reset --hard\u3001clean\u3001branch -D \u7b49\uff09\u6267\u884c\u524d\u963b\u6b62\u5b83\u4eec\u3002\u9002\u7528\u4e8e\u7528\u6237\u60f3\u9632\u6b62\u7834\u574f\u6027 git \u64cd\u4f5c\u3001\u6dfb\u52a0 git safety hooks\uff0c\u6216\u5728 Claude Code \u4e2d\u963b\u6b62 git push/reset \u65f6\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/git-guardrails-claude-code",
+    "activation_cmd": "python .agents/library/activate_skill.py activate git-guardrails-claude-code",
+    "link_cmd": "python .agents/library/activate_skill.py link git-guardrails-claude-code"
+  },
+  {
+    "id": "grill-me",
+    "name": "grill-me",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u4e00\u4e2a\u7528\u6765\u6253\u78e8\u8ba1\u5212\u6216\u8bbe\u8ba1\u7684\u6301\u7eed\u8ffd\u95ee\u5f0f\u8bbf\u8c08\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/grill-me",
+    "activation_cmd": "python .agents/library/activate_skill.py activate grill-me",
+    "link_cmd": "python .agents/library/activate_skill.py link grill-me"
+  },
+  {
+    "id": "grill-with-docs",
+    "name": "grill-with-docs",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u4e00\u4e2a\u7528\u6765\u6253\u78e8\u8ba1\u5212\u6216\u8bbe\u8ba1\u7684\u6301\u7eed\u8ffd\u95ee\u5f0f\u8bbf\u8c08\uff0c\u5e76\u5728\u8fc7\u7a0b\u4e2d\u521b\u5efa\u6587\u6863\uff08ADRs \u548c\u8bcd\u6c47\u8868\uff09\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/grill-with-docs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate grill-with-docs",
+    "link_cmd": "python .agents/library/activate_skill.py link grill-with-docs"
+  },
+  {
+    "id": "grilling",
+    "name": "grilling",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u56f4\u7ed5\u8ba1\u5212\u3001decision \u6216 idea \u6301\u7eed\u8ffd\u95ee\u7528\u6237\u3002\u9002\u7528\u4e8e\u7528\u6237\u60f3\u5bf9\u81ea\u5df1\u7684\u601d\u8def\u505a\u538b\u529b\u6d4b\u8bd5\uff0c\u6216\u4f7f\u7528\u4efb\u4f55 \u201cgrill\u201d \u89e6\u53d1\u63aa\u8f9e\u65f6\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/grilling",
+    "activation_cmd": "python .agents/library/activate_skill.py activate grilling",
+    "link_cmd": "python .agents/library/activate_skill.py link grilling"
+  },
+  {
+    "id": "handoff",
+    "name": "handoff",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u628a\u5f53\u524d\u5bf9\u8bdd\u538b\u7f29\u6210\u4ea4\u63a5\u6587\u6863\uff0c\u8ba9\u53e6\u4e00\u4e2a\u4ee3\u7406\u63a5\u624b\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/handoff",
+    "activation_cmd": "python .agents/library/activate_skill.py activate handoff",
+    "link_cmd": "python .agents/library/activate_skill.py link handoff"
+  },
+  {
+    "id": "implement",
+    "name": "implement",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\"\u57fa\u4e8e spec \u6216 ticket \u96c6\u5408\u5b9e\u73b0\u4e00\u6bb5\u5de5\u4f5c\u3002\"",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/implement",
+    "activation_cmd": "python .agents/library/activate_skill.py activate implement",
+    "link_cmd": "python .agents/library/activate_skill.py link implement"
+  },
+  {
+    "id": "implement-spec",
+    "name": "implement-spec",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\"\u5728\u4ee3\u7801\u4e2d\u5b9e\u73b0 /to-spec \u548c /to-tickets \u7684\u4ea7\u51fa\u3002\"",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/implement-spec",
+    "activation_cmd": "python .agents/library/activate_skill.py activate implement-spec",
+    "link_cmd": "python .agents/library/activate_skill.py link implement-spec"
+  },
+  {
+    "id": "improve-codebase-architecture",
+    "name": "improve-codebase-architecture",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u626b\u63cf\u4ee3\u7801\u5e93\u4e2d\u7684\u6df1\u5316\u673a\u4f1a\uff0c\u751f\u6210\u53ef\u89c6\u5316 HTML \u62a5\u544a\uff0c\u7136\u540e\u56f4\u7ed5\u4f60\u9009\u4e2d\u7684\u5019\u9009\u9879\u7ee7\u7eed\u8ffd\u95ee\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/improve-codebase-architecture",
+    "activation_cmd": "python .agents/library/activate_skill.py activate improve-codebase-architecture",
+    "link_cmd": "python .agents/library/activate_skill.py link improve-codebase-architecture"
+  },
+  {
     "id": "in-progress",
     "name": "in-progress",
     "repository": "vinvcn-mattpocock-skills-zh-cn",
@@ -28,6 +178,26 @@
     "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/in-progress",
     "activation_cmd": "python .agents/library/activate_skill.py activate in-progress",
     "link_cmd": "python .agents/library/activate_skill.py link in-progress"
+  },
+  {
+    "id": "loop-me",
+    "name": "loop-me",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u5728\u8fd9\u4e2a\u5de5\u4f5c\u533a\u4e2d\uff0c\u5c31\u6211\u60f3\u6784\u5efa\u7684\u5de5\u4f5c\u6d41\u89c4\u683c\u8bbf\u8c08\u6211\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/loop-me",
+    "activation_cmd": "python .agents/library/activate_skill.py activate loop-me",
+    "link_cmd": "python .agents/library/activate_skill.py link loop-me"
+  },
+  {
+    "id": "migrate-to-shoehorn",
+    "name": "migrate-to-shoehorn",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u5c06\u6d4b\u8bd5\u6587\u4ef6\u4ece `as` \u7c7b\u578b\u65ad\u8a00\u8fc1\u79fb\u5230 @total-typescript/shoehorn\u3002\u9002\u7528\u4e8e\u7528\u6237\u63d0\u5230 shoehorn\u3001\u60f3\u66ff\u6362\u6d4b\u8bd5\u4e2d\u7684 `as`\uff0c\u6216\u9700\u8981\u5c40\u90e8\u6d4b\u8bd5\u6570\u636e\u65f6\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/migrate-to-shoehorn",
+    "activation_cmd": "python .agents/library/activate_skill.py activate migrate-to-shoehorn",
+    "link_cmd": "python .agents/library/activate_skill.py link migrate-to-shoehorn"
   },
   {
     "id": "misc",
@@ -40,6 +210,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link misc"
   },
   {
+    "id": "pr",
+    "name": "pr",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\"\u7528\u4e8e\u64b0\u5199 PR \u6b63\u6587\u3002\u9002\u7528\u4e8e\u7528\u6237\u8981\u6c42\u8d77\u8349\u3001\u6539\u5199\u6216\u6539\u8fdb PR \u6b63\u6587\uff0c\u6216\u5e0c\u671b PR \u66f4\u4fbf\u4e8e\u5ba1\u9605\u65f6\u3002\"",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/pr",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pr",
+    "link_cmd": "python .agents/library/activate_skill.py link pr"
+  },
+  {
     "id": "productivity",
     "name": "productivity",
     "repository": "vinvcn-mattpocock-skills-zh-cn",
@@ -48,5 +228,205 @@
     "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/productivity",
     "activation_cmd": "python .agents/library/activate_skill.py activate productivity",
     "link_cmd": "python .agents/library/activate_skill.py link productivity"
+  },
+  {
+    "id": "prototype",
+    "name": "prototype",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u6784\u5efa\u4e00\u6b21\u6027\u539f\u578b\u6765\u56de\u7b54\u4e00\u4e2a\u8bbe\u8ba1\u95ee\u9898\u3002\u9002\u7528\u4e8e\u7528\u6237\u60f3\u9a8c\u8bc1\u67d0\u4e2a state model \u6216 logic \u662f\u5426\u611f\u89c9\u5bf9\uff0c\u6216\u63a2\u7d22 UI \u5e94\u8be5\u957f\u4ec0\u4e48\u6837\u65f6\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/prototype",
+    "activation_cmd": "python .agents/library/activate_skill.py activate prototype",
+    "link_cmd": "python .agents/library/activate_skill.py link prototype"
+  },
+  {
+    "id": "research",
+    "name": "research",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u5bf9\u7167\u9ad8\u53ef\u4fe1\u4e00\u624b\u6765\u6e90\u8c03\u7814\u95ee\u9898\uff0c\u5e76\u628a\u53d1\u73b0\u4fdd\u5b58\u4e3a\u4ed3\u5e93\u4e2d\u7684 Markdown \u6587\u4ef6\u3002\u9002\u7528\u4e8e\u7528\u6237\u60f3\u8c03\u7814\u4e3b\u9898\u3001\u6536\u96c6\u6587\u6863\u6216 API \u4e8b\u5b9e\uff0c\u6216\u628a\u9605\u8bfb\u5de5\u4f5c\u59d4\u6258\u7ed9\u540e\u53f0\u4ee3\u7406\u65f6\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate research",
+    "link_cmd": "python .agents/library/activate_skill.py link research"
+  },
+  {
+    "id": "retro",
+    "name": "retro",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\"\u5bf9\u4e00\u6b21 coding session \u505a retrospective\u3002\"",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/retro",
+    "activation_cmd": "python .agents/library/activate_skill.py activate retro",
+    "link_cmd": "python .agents/library/activate_skill.py link retro"
+  },
+  {
+    "id": "scaffold-exercises",
+    "name": "scaffold-exercises",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u521b\u5efa\u5305\u542b\u7ae0\u8282\u3001\u9898\u76ee\u3001\u7b54\u6848\u548c\u8bb2\u89e3\u7684\u7ec3\u4e60\u76ee\u5f55\u7ed3\u6784\uff0c\u5e76\u786e\u4fdd\u901a\u8fc7 linting\u3002\u9002\u7528\u4e8e\u7528\u6237\u60f3 scaffold exercises\u3001\u521b\u5efa exercise stubs\uff0c\u6216\u8bbe\u7f6e\u65b0\u7684\u8bfe\u7a0b\u7ae0\u8282\u65f6\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/scaffold-exercises",
+    "activation_cmd": "python .agents/library/activate_skill.py activate scaffold-exercises",
+    "link_cmd": "python .agents/library/activate_skill.py link scaffold-exercises"
+  },
+  {
+    "id": "setup-matt-pocock-skills",
+    "name": "setup-matt-pocock-skills",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\"\u4e3a\u6b64\u4ed3\u5e93\u914d\u7f6e engineering skills\uff1a\u8bbe\u7f6e\u5176 issue tracker\u3001triage labels \u8bcd\u6c47\u4e0e domain docs \u5e03\u5c40\u3002\u5728\u9996\u6b21\u4f7f\u7528\u5176\u4ed6 engineering skills \u524d\u8fd0\u884c\u4e00\u6b21\u3002\"",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/setup-matt-pocock-skills",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setup-matt-pocock-skills",
+    "link_cmd": "python .agents/library/activate_skill.py link setup-matt-pocock-skills"
+  },
+  {
+    "id": "setup-pre-commit",
+    "name": "setup-pre-commit",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u5728\u5f53\u524d\u4ed3\u5e93\u8bbe\u7f6e Husky pre-commit hooks\uff0c\u96c6\u6210 lint-staged (Prettier)\u3001\u7c7b\u578b\u68c0\u67e5\u548c\u6d4b\u8bd5\u3002\u9002\u7528\u4e8e\u7528\u6237\u60f3\u6dfb\u52a0 pre-commit hooks\u3001\u8bbe\u7f6e Husky\u3001\u914d\u7f6e lint-staged\uff0c\u6216\u5728\u63d0\u4ea4\u65f6\u8fd0\u884c\u683c\u5f0f\u5316\u3001\u7c7b\u578b\u68c0\u67e5\u548c\u6d4b\u8bd5\u65f6\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/setup-pre-commit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setup-pre-commit",
+    "link_cmd": "python .agents/library/activate_skill.py link setup-pre-commit"
+  },
+  {
+    "id": "setup-ts-deep-modules",
+    "name": "setup-ts-deep-modules",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u5728 TypeScript repo \u4e2d\u63a5\u5165 dependency-cruiser\uff0c\u8ba9\u6bcf\u4e2a package \u6210\u4e3a deep module\uff1aimplementation \u9690\u85cf\u5728 subfolders \u4e2d\uff0c\u53ea\u80fd\u901a\u8fc7 entry-point files \u8bbf\u95ee\u3002User-invoked\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/setup-ts-deep-modules",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setup-ts-deep-modules",
+    "link_cmd": "python .agents/library/activate_skill.py link setup-ts-deep-modules"
+  },
+  {
+    "id": "tdd",
+    "name": "tdd",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u6d4b\u8bd5\u9a71\u52a8\u5f00\u53d1\u3002\u9002\u7528\u4e8e\u7528\u6237\u60f3\u7528\u5148\u5199\u6d4b\u8bd5\u7684\u65b9\u5f0f\u6784\u5efa\u529f\u80fd\u6216\u4fee\u590d\u7f3a\u9677\u3001\u63d0\u5230 \u201cred-green-refactor\u201d\uff0c\u6216\u9700\u8981\u96c6\u6210\u6d4b\u8bd5\u65f6\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/tdd",
+    "activation_cmd": "python .agents/library/activate_skill.py activate tdd",
+    "link_cmd": "python .agents/library/activate_skill.py link tdd"
+  },
+  {
+    "id": "teach",
+    "name": "teach",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u5728\u8fd9\u4e2a\u5de5\u4f5c\u533a\u4e2d\u6559\u7528\u6237\u4e00\u4e2a\u65b0\u6280\u80fd\u6216\u6982\u5ff5\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/teach",
+    "activation_cmd": "python .agents/library/activate_skill.py activate teach",
+    "link_cmd": "python .agents/library/activate_skill.py link teach"
+  },
+  {
+    "id": "to-questionnaire",
+    "name": "to-questionnaire",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u628a\u4f60\u65e0\u6cd5\u5b8c\u6574\u56de\u7b54\u7684 decision \u8f6c\u6210\u4e00\u4efd\u4ea4\u7ed9\u4ed6\u4eba\u586b\u5199\u7684 questionnaire\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/to-questionnaire",
+    "activation_cmd": "python .agents/library/activate_skill.py activate to-questionnaire",
+    "link_cmd": "python .agents/library/activate_skill.py link to-questionnaire"
+  },
+  {
+    "id": "to-spec",
+    "name": "to-spec",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\"\u628a\u5f53\u524d\u5bf9\u8bdd\u8f6c\u6210 spec \u5e76\u53d1\u5e03\u5230\u9879\u76ee issue tracker\uff1a\u4e0d\u505a\u8bbf\u8c08\uff0c\u53ea\u7efc\u5408\u5df2\u7ecf\u8ba8\u8bba\u7684\u5185\u5bb9\u3002\"",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/to-spec",
+    "activation_cmd": "python .agents/library/activate_skill.py activate to-spec",
+    "link_cmd": "python .agents/library/activate_skill.py link to-spec"
+  },
+  {
+    "id": "to-tickets",
+    "name": "to-tickets",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u628a plan\u3001spec \u6216\u5f53\u524d\u5bf9\u8bdd\u62c6\u6210\u4e00\u7ec4 tracer-bullet tickets\uff0c\u6bcf\u4e2a ticket \u58f0\u660e blocking edges\uff0c\u5e76\u53d1\u5e03\u5230\u5df2\u914d\u7f6e\u7684 tracker\uff1b\u672c\u5730\u7528\u6bcf ticket \u4e00\u4e2a\u6587\u4ef6\u4e2d\u7684\u6587\u672c edge\uff0c\u771f\u5b9e tracker \u7528 native blocking links\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/to-tickets",
+    "activation_cmd": "python .agents/library/activate_skill.py activate to-tickets",
+    "link_cmd": "python .agents/library/activate_skill.py link to-tickets"
+  },
+  {
+    "id": "triage",
+    "name": "triage",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u8ba9 issues \u548c external PRs \u901a\u8fc7\u4e00\u7ec4 triage roles \u72b6\u6001\u673a\uff0c\u5206\u7c7b\u3001\u9a8c\u8bc1\u3001\u5fc5\u8981\u65f6 grilling\uff0c\u5e76\u5199\u51fa agent-ready briefs\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/triage",
+    "activation_cmd": "python .agents/library/activate_skill.py activate triage",
+    "link_cmd": "python .agents/library/activate_skill.py link triage"
+  },
+  {
+    "id": "wait-what",
+    "name": "wait-what",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\"\u505c\u4e00\u4e0b\uff1a\u521a\u624d\u90a3\u6761\u6d88\u606f\u6ca1\u6709\u8bf4\u6e05\u695a\uff0c\u91cd\u65b0\u8868\u8ff0\u4e00\u904d\u3002\"",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/wait-what",
+    "activation_cmd": "python .agents/library/activate_skill.py activate wait-what",
+    "link_cmd": "python .agents/library/activate_skill.py link wait-what"
+  },
+  {
+    "id": "wayfinder",
+    "name": "wayfinder",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u628a\u5355\u4e2a agent session \u88c5\u4e0d\u4e0b\u7684\u4e00\u5927\u5757\u5de5\u4f5c\u89c4\u5212\u6210 issue tracker \u4e0a\u7684 decision tickets shared map\uff0c\u5e76\u9010\u4e00\u89e3\u51b3\uff0c\u76f4\u5230\u901a\u5f80 destination \u7684\u8def\u6e05\u6670\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/wayfinder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate wayfinder",
+    "link_cmd": "python .agents/library/activate_skill.py link wayfinder"
+  },
+  {
+    "id": "wizard",
+    "name": "wizard",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u751f\u6210\u4e00\u4e2a\u4ea4\u4e92\u5f0f bash wizard\uff0c\u9010\u6b65\u5f15\u5bfc\u4eba\u5b8c\u6210\u53ea\u6709\u4ed6\u4eec\u80fd\u6267\u884c\u7684\u624b\u52a8\u6d41\u7a0b\u3002\u7528\u4e8e provisioning \u57fa\u7840\u8bbe\u65bd\u3001\u8bbe\u7f6e credentials \u6216 CI secrets\u3001\u8d70\u67e5\u4e0d\u719f\u6089\u7684\u7b2c\u4e09\u65b9 dashboard\uff0c\u6216\u8fd0\u884c\u4e00\u6b21\u6027 migration \u6216 cutover\u3002\u5bf9\u4e8e agent \u81ea\u5df1\u5c31\u80fd\u6267\u884c\u7684\u6b65\u9aa4\uff0c\u4e0d\u8981\u8c03\u7528\u5b83\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/wizard",
+    "activation_cmd": "python .agents/library/activate_skill.py activate wizard",
+    "link_cmd": "python .agents/library/activate_skill.py link wizard"
+  },
+  {
+    "id": "writing-beats",
+    "name": "writing-beats",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "Writing, exploit\u2014\u2014\u628a\u539f\u59cb\u7d20\u6750\u7ec4\u88c5\u6210\u4e00\u6bb5\u8282\u62cd\u65c5\u7a0b\uff0c\u5728\u67d0\u4e2a beat \u4f9d\u8d56\u4e00\u4e2a\u672f\u8bed\u4e4b\u524d\u5148\u628a\u5b83 grounded\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/writing-beats",
+    "activation_cmd": "python .agents/library/activate_skill.py activate writing-beats",
+    "link_cmd": "python .agents/library/activate_skill.py link writing-beats"
+  },
+  {
+    "id": "writing-for-agents",
+    "name": "writing-for-agents",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\u4e3a agent \u7f16\u5199\u6587\u6863\u3002\u9002\u7528\u4e8e\u521b\u5efa\u6216\u7f16\u8f91 skills\uff0c\u6216\u4fee\u6539 AGENTS.md \u6216 CLAUDE.md \u65f6\u3002",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/writing-for-agents",
+    "activation_cmd": "python .agents/library/activate_skill.py activate writing-for-agents",
+    "link_cmd": "python .agents/library/activate_skill.py link writing-for-agents"
+  },
+  {
+    "id": "writing-fragments",
+    "name": "writing-fragments",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\"Writing, explore\uff1a\u6316\u6398\u539f\u59cb fragments\uff0c\u6682\u4e0d\u65bd\u52a0\u4efb\u4f55\u7ed3\u6784\u3002\"",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/writing-fragments",
+    "activation_cmd": "python .agents/library/activate_skill.py activate writing-fragments",
+    "link_cmd": "python .agents/library/activate_skill.py link writing-fragments"
+  },
+  {
+    "id": "writing-shape",
+    "name": "writing-shape",
+    "repository": "vinvcn-mattpocock-skills-zh-cn",
+    "category": "general",
+    "description": "\"Writing, exploit\uff1a\u628a\u539f\u59cb\u7d20\u6750\u5851\u9020\u6210\u6587\u7ae0\uff0c\u4e00\u6bb5\u4e00\u6bb5\u5730\u63a8\u8fdb\u3002\"",
+    "path": "library/vinvcn-mattpocock-skills-zh-cn/skills/writing-shape",
+    "activation_cmd": "python .agents/library/activate_skill.py activate writing-shape",
+    "link_cmd": "python .agents/library/activate_skill.py link writing-shape"
   }
 ]

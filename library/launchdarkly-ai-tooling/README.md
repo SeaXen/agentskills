@@ -31,6 +31,7 @@ Agent Skills are modular, text-based playbooks that teach an agent how to perfor
 | `release-autopilot/launchdarkly-release-autopilot-onboarding` | Step-by-step setup: pick capabilities, connect the GitHub App, map repos, choose inference, review release setup |
 | `release-autopilot/launchdarkly-release-autopilot-settings` | Turn on GitHub App auto-flagging / auto-releasing, map `owner/name` repos, or diagnose why a PR was not classified (confirm before every write) |
 | `release-autopilot/launchdarkly-automations-cleanup-settings` | Read or change a project's auto-cleanup schedule, repositories, and limits, or explain why cleanup did not open a PR (confirm before every write) |
+| `release-autopilot/launchdarkly-release-plans` | List, create, edit, make default, or delete environment release plans (with starter plans) and flag release plans, and start a flag's release from a plan (confirm before every write) |
 | `release-autopilot/launchdarkly-automations-archival-settings` | Read or change a project's auto-archival grace period, approvals, and limits, or turn it off; a person turns it on (confirm before every write) |
 
 ### AgentControl
@@ -63,6 +64,16 @@ Agent Skills are modular, text-based playbooks that teach an agent how to perfor
 | `metrics/launchdarkly-metric-choose` | Select the right metric type for an experiment |
 | `metrics/launchdarkly-metric-create` | Create metrics and instrument tracking events |
 | `metrics/launchdarkly-metric-instrument` | Add tracking calls to code for existing metrics |
+
+### Observability
+
+| Skill | Description |
+|-------|-------------|
+| `observability/investigate` | Find the root cause of a production problem from logs, traces, errors, sessions, and metrics |
+| `observability/alert-investigation` | Investigate a firing or recently fired observability alert |
+| `observability/create-graph` | Build observability dashboards and graphs |
+| `observability/create-fix-pr` | Investigate a root cause and file a minimal fix PR |
+| `observability/observability-plugin-setup` | Turn on observability by adding the plugin to an app's existing LaunchDarkly client and opening a PR |
 
 ### AWS DevOps Agent
 

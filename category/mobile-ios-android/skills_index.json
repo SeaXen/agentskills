@@ -712,6 +712,14 @@
     "path": "category/mobile-ios-android/eas-update"
   },
   {
+    "id": "ebitengine-game",
+    "name": "ebitengine-game",
+    "category": "mobile-ios-android",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "Creates, debugs and packages 2D games in Go with Ebitengine v2: a play-and-retry loop, input, pixel-art scaling, text, audio and desktop, WASM or mobile builds. Use when go.mod requires ebiten/v2 or the user wants a game in Go, or on blurry pixel art, missed key presses or stutter. Not for engine patches; pair with `game-feel`, `game-ui-ux` or a genre skill for design.",
+    "path": "category/mobile-ios-android/ebitengine-game"
+  },
+  {
     "id": "email-design",
     "name": "email-design",
     "category": "mobile-ios-android",
@@ -1864,6 +1872,30 @@
     "path": "category/mobile-ios-android/skills-accessibility"
   },
   {
+    "id": "skills-antislop-layoutmobile",
+    "name": "skills-antislop-layoutmobile",
+    "category": "mobile-ios-android",
+    "repository": "miqdadbadjuber-anti-slop",
+    "description": "Mobile layout skill for antislop. Use for layouts that reflow across screen sizes, phone to desktop: grids, overflow, tap targets. Load with the core.",
+    "path": "category/mobile-ios-android/skills-antislop-layoutmobile"
+  },
+  {
+    "id": "skills-app-store-optimization",
+    "name": "skills-app-store-optimization",
+    "category": "mobile-ios-android",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for any App Store or Google Play listing, keyword, ranking or review question, before writing metadata. Scores the listing with aso_scorer.py and checks keywords, competitors, title and subtitle limits and reviews with its 8 ASO scripts.",
+    "path": "category/mobile-ios-android/skills-app-store-optimization"
+  },
+  {
+    "id": "skills-apple-hig-expert",
+    "name": "skills-apple-hig-expert",
+    "category": "mobile-ios-android",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when designing or reviewing iOS, macOS, watchOS or visionOS UI against Apple's Human Interface Guidelines, including Liquid Glass, contrast and tap targets. Checks it with hig_checker.py.",
+    "path": "category/mobile-ios-android/skills-apple-hig-expert"
+  },
+  {
     "id": "skills-build-zoom-meeting-app",
     "name": "skills-build-zoom-meeting-app",
     "category": "mobile-ios-android",
@@ -1918,6 +1950,78 @@
     "repository": "dart-lang-skills",
     "description": "Guide agents to use `package:ffigen` to automatically generate FFI bindings instead of writing them manually. Use this skill when a task involves writing new FFI bindings, extending C/Objective-C/Swift integrations, or replacing hand-crafted `dart:ffi` setups.",
     "path": "category/mobile-ios-android/skills-dart-use-ffigen"
+  },
+  {
+    "id": "skills-eas-observe",
+    "name": "skills-eas-observe",
+    "category": "mobile-ios-android",
+    "repository": "expo-skills",
+    "description": "Use for anything related to EAS Observe - adding `expo-observe` to an Expo project (AppMetricsRoot/ObserveRoot HOC, markInteractive and ObserveInteractiveMarker, the useObserve hook, the Expo Router / React Navigation integrations for per-route metrics, the expo-image and Reanimated integrations, user-defined events via `Observe.logEvent`, error reporting via ObserveErrorBoundary and `Observe.reportError`, native crash reporting, source map upload for symbolicated stack traces, and runtime config such as sampleRate and dispatchInDebug), querying via the EAS CLI (`eas observe:metrics-summary`, `observe:metrics`, `observe:routes`, `observe:events`, `observe:session`, `observe:versions`, `observe:errors`, `observe:event`) or the Expo MCP `observe_*` tools, interpreting the resulting metrics (cold/warm launch, TTR, TTI, navigation cold/warm TTR, update download, and the TTI frameRate/device/network params for triaging slow startups), or shipping an Observe integration inside a third-party package.",
+    "path": "category/mobile-ios-android/skills-eas-observe"
+  },
+  {
+    "id": "skills-eas-update",
+    "name": "skills-eas-update",
+    "category": "mobile-ios-android",
+    "repository": "expo-skills",
+    "description": "Configure and use EAS Update for over-the-air JavaScript and asset updates with expo-updates and EAS CLI. Use when setting up OTA updates, running eas update:configure or eas update, publishing to preview/staging/production channels, explaining branches/channels/runtime versions, testing updates, or debugging why an installed build still shows old code. Load for TestFlight, preview, or production updates that do not appear, including questions about cold launches or reopening the app. Not for update health metrics; use eas-update-insights for adoption, crashes, and rollout monitoring.",
+    "path": "category/mobile-ios-android/skills-eas-update"
+  },
+  {
+    "id": "skills-expo-app-clip",
+    "name": "skills-expo-app-clip",
+    "category": "mobile-ios-android",
+    "repository": "expo-skills",
+    "description": "Add an iOS App Clip target to an Expo app. Use when the user mentions App Clip, AASA, apple-app-site-association, appclips, smart app banner, or wants to ship a lightweight iOS Clip invoked from a URL alongside their parent app.",
+    "path": "category/mobile-ios-android/skills-expo-app-clip"
+  },
+  {
+    "id": "skills-expo-brownfield",
+    "name": "skills-expo-brownfield",
+    "category": "mobile-ios-android",
+    "repository": "expo-skills",
+    "description": "Integrate Expo and React Native into an existing native iOS or Android app. Use for brownfield, embedding a React Native screen in SwiftUI/UIKit or Kotlin, or AAR/XCFramework packaging. Covers isolated and integrated approaches. For building or distributing a purely native app with EAS, use eas-app-stores.",
+    "path": "category/mobile-ios-android/skills-expo-brownfield"
+  },
+  {
+    "id": "skills-expo-dev-client",
+    "name": "skills-expo-dev-client",
+    "category": "mobile-ios-android",
+    "repository": "expo-skills",
+    "description": "Build and distribute Expo development clients locally or via TestFlight for internal testing. For production TestFlight releases and store submission, use the eas-app-stores skill.",
+    "path": "category/mobile-ios-android/skills-expo-dev-client"
+  },
+  {
+    "id": "skills-expo-overview",
+    "name": "skills-expo-overview",
+    "category": "mobile-ios-android",
+    "repository": "expo-skills",
+    "description": "Entry point and router for every Expo or EAS task. Load this skill first \u2014 before writing code and before choosing another expo-* / eas-* skill \u2014 when the request, PRD, or spec mentions Expo, EAS, Expo Go, or an expo-* package, or the project has an `expo` dependency in `package.json`. Within that gate it also covers app specs and designs to implement (tabs, stacks, maps, lists, navigation, building from a screenshot), and phrasings like 'implement a mobile app', 'make my app look native', 'add navigation', 'fetch some data', 'upgrade my SDK', 'add Expo to my existing native app', 'ship to the App Store', or 'I'm new to Expo, where do I start'. A fully specified request (SDK pinned, libraries named, layout given) still routes through here \u2014 the shared setup rules still apply. Do NOT load it when neither signal is present: a bare React Native project with no `expo` dependency is not Expo work. Detects the real goal, routes to the right expo-* / eas-* skill, and owns the shared setup rules.",
+    "path": "category/mobile-ios-android/skills-expo-overview"
+  },
+  {
+    "id": "skills-expo-project-structure",
+    "name": "skills-expo-project-structure",
+    "category": "mobile-ios-android",
+    "repository": "expo-skills",
+    "description": "Folder structure for a new Expo app. Use when scaffolding or laying out a new Expo project with Expo Router, or deciding where a file should live in one. For new projects only \u2014 never restructure an existing app to match.",
+    "path": "category/mobile-ios-android/skills-expo-project-structure"
+  },
+  {
+    "id": "skills-expo-router",
+    "name": "skills-expo-router",
+    "category": "mobile-ios-android",
+    "repository": "expo-skills",
+    "description": "Navigation and routing for Expo Router. Covers file-based routes, groups and dynamic routes, folder organization, Link with previews and context menus, native Stack, page titles, modals and form sheets, NativeTabs, headers and toolbars, and header search bars.",
+    "path": "category/mobile-ios-android/skills-expo-router"
+  },
+  {
+    "id": "skills-expo-upgrade",
+    "name": "skills-expo-upgrade",
+    "category": "mobile-ios-android",
+    "repository": "expo-skills",
+    "description": "Guidelines for upgrading Expo SDK versions and fixing dependency issues",
+    "path": "category/mobile-ios-android/skills-expo-upgrade"
   },
   {
     "id": "skills-flutter-add-integration-test",
@@ -2038,6 +2142,14 @@
     "repository": "feimacode-open-design-agent-kit",
     "description": "Audit a live website with Open Design's own checks \u2014 contrast, tap targets, phone layout, larger text, broken images, page weight and template looks \u2014 and get a short, plain-language report of the biggest problems with marked screenshots \u2014 use whenever the user wants a website audited, checked or reviewed for design, accessibility or mobile problems (\"audit this site\", \"what's wrong with our website\", \"find problems on example.com\", \"why does our site look bad on phones\"), or wants talking points before pitching a redesign, even if they don't mention Open Design",
     "path": "category/mobile-ios-android/skills-open-design-site-audit"
+  },
+  {
+    "id": "skills-paywalls",
+    "name": "skills-paywalls",
+    "category": "mobile-ios-android",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to create or improve in-app paywalls and upgrade moments, or asks when or how hard to ask free users to pay (after they've seen value): upgrade screens, upsell modals, feature gates, limit-reached and trial-expired screens, mobile subscription paywalls. For public pricing pages, see cro. For pricing decisions, see pricing.",
+    "path": "category/mobile-ios-android/skills-paywalls"
   },
   {
     "id": "skills-swift-actor-persistence",

@@ -304,6 +304,14 @@
     "path": "category/business-sales-crm/beachhead-segment"
   },
   {
+    "id": "blader-humanizer",
+    "name": "blader-humanizer",
+    "category": "business-sales-crm",
+    "repository": "blader-humanizer",
+    "description": "Rewrite AI-sounding text so it reads like the writer without changing what it says. Use when editing or reviewing prose for AI tells: not-X-but-Y contrasts, one-line closers, staged openers, forced triads, dashes everywhere, inflated claims, sales language, stock AI words, bold labels, or filler.",
+    "path": "category/business-sales-crm/blader-humanizer"
+  },
+  {
     "id": "blender-director",
     "name": "blender-director",
     "category": "business-sales-crm",
@@ -896,6 +904,14 @@
     "path": "category/business-sales-crm/customer-health-score"
   },
   {
+    "id": "customer-inquiry-intake",
+    "name": "customer-inquiry-intake",
+    "category": "business-sales-crm",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "Reads a customer RFQ in whatever shape it arrived \u2014 a PDF drawing package, a 40-line spreadsheet, a portal export, a phone photo of a marked-up print, or a forwarded thread where the real requirement is four messages down \u2014 and pulls specifications, quantities and dates into one consistent intake form with every field traceable to the file and page it came from. Records how each tolerance was read and which geometry path each line takes. Reports what was never stated separately from what was stated two different ways. Checks the request against what the plant can actually build before asking the customer anything, drafts the questions back as sendable text, and returns a provisional bid/no-bid that names which unanswered question would change it. Use when someone says \\\"an RFQ came in,\\\" \\\"can we quote this,\\\" \\\"should we bid this job,\\\" \\\"read this inquiry,\\\" or \\\"what's missing from this RFQ?\\",
+    "path": "category/business-sales-crm/customer-inquiry-intake"
+  },
+  {
     "id": "customer-interviews",
     "name": "customer-interviews",
     "category": "business-sales-crm",
@@ -1014,6 +1030,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Automate survey deployment, data collection, and pipeline management",
     "path": "category/business-sales-crm/data-collection-automation"
+  },
+  {
+    "id": "data-consolidate",
+    "name": "data-consolidate",
+    "category": "business-sales-crm",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "Joins the plant's scheduled exports and connector data into one working dataset \u2014 ERP items (NetSuite or Infor M3), sales orders, production work orders, purchase orders, inventory, routings and closed-job operation actuals; CMMS assets and maintenance work orders; and the MES, historian, quality and planning files landing in the Microsoft 365 export folder. Keys on part number, production work order, sales order, lot, asset and supplier, classifies every key that fails to match into one of eight mismatch classes, and proposes the correction rather than reporting a count, applying nothing without a yes. Runs file-only with no connector, or connector-only with no files. Use when someone says \\\"pull the data together,\\\" \\\"consolidate the exports,\\\" \\\"build the dataset,\\\" \\\"join production to the ERP,\\\" or \\\"why don't these numbers match,\\\" and before any reporting or quoting skill runs.",
+    "path": "category/business-sales-crm/data-consolidate"
   },
   {
     "id": "data-designer",
@@ -2216,6 +2240,14 @@
     "path": "category/business-sales-crm/influencer-prospecting"
   },
   {
+    "id": "inspection-to-capa",
+    "name": "inspection-to-capa",
+    "category": "business-sales-crm",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "Runs the quality chain end to end: writes the nonconformance against the requirement it violates, searches history at the moment of writing to say whether this has happened before and whether the last fix held, reads sensor and inspection data on one verified timeline, proposes ranked candidate causes with evidence for and against, drafts the 8D, and produces the customer pack behind a redaction diff. Use when someone says \\\"run the CAPA chain,\\\" \\\"take this nonconformance through to an 8D,\\\" \\\"inspection to CAPA,\\\" or asks for the full corrective-action workflow.",
+    "path": "category/business-sales-crm/inspection-to-capa"
+  },
+  {
     "id": "inspired-product",
     "name": "inspired-product",
     "category": "business-sales-crm",
@@ -2718,6 +2750,14 @@
     "repository": "yuan1z0825-nature-skills",
     "description": "Complete automated literature discovery pipeline: multi-source search \u2192 six-dimension scoring \u2192 fine reading \u2192 formatted delivery \u2192 archival. Combines a configurable engine with daily cron-driven application layer. Works with Feishu, Telegram, or any messaging platform.",
     "path": "category/business-sales-crm/nature-literature-pipeline"
+  },
+  {
+    "id": "ncr-writeup",
+    "name": "ncr-writeup",
+    "category": "business-sales-crm",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "Writes the nonconformance report: what was found and measured, the specific requirement it violates cited to its document and locator, how many parts are actually suspect and why that scope rather than a narrower one, and where every one of them physically is across all five locations. Searches prior NCRs and CAPAs at the moment of writing and reports whether the earlier fix held. Where containment places parts at a customer, drafts the escape notification automatically against its contractual clock. Never asserts a requirement it cannot locate. Keeps the site's Quality Register of open NCRs up to date, and closes an NCR there when told to. Use when someone says \\\"write up this nonconformance,\\\" \\\"we found bad parts,\\\" \\\"raise an NCR,\\\" \\\"the inspector rejected this lot,\\\" \\\"a customer is complaining about a part,\\\" or \\\"close NCR-2026-0141.\\",
+    "path": "category/business-sales-crm/ncr-writeup"
   },
   {
     "id": "nectar-crm",
@@ -3304,6 +3344,14 @@
     "path": "category/business-sales-crm/prove-launch-feedback-synthesizer"
   },
   {
+    "id": "quote-build",
+    "name": "quote-build",
+    "category": "business-sales-crm",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "Produces the make-to-order quote from the intake form, comparable prior jobs and cost history, with every number traced to where it came from \u2014 material at the price actually paid on a named purchase order, machine hours per operation from a labelled ladder (current routing, closed-job actuals, the confirmed design, first principles) with setup and run kept apart, setup re-amortized at each quantity break, and margin on its own line. Checks the promised date against real shop load before committing to it. Revises in place when a customer counters, preserving what changed and why. Use when someone says \\\"build the quote,\\\" \\\"price this job,\\\" \\\"what should we charge,\\\" \\\"quote this RFQ,\\\" or \\\"the customer came back on price.\\",
+    "path": "category/business-sales-crm/quote-build"
+  },
+  {
     "id": "ralphinho-rfc-pipeline",
     "name": "ralphinho-rfc-pipeline",
     "category": "business-sales-crm",
@@ -3374,6 +3422,14 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "When the user wants to design, launch, or optimize a referral or affiliate program. Use when they mention 'referral program,' 'affiliate program,' 'word of mouth,' 'refer a friend,' 'incentive program,' 'customer referrals,' 'brand ambassador,' 'partner program,' 'referral link,' or 'growth through referrals.' Covers program mechanics, incentive design, and optimization \u2014 not just the idea of referrals but the actual system.",
     "path": "category/business-sales-crm/referral-program"
+  },
+  {
+    "id": "relationship-intelligence",
+    "name": "relationship-intelligence",
+    "category": "business-sales-crm",
+    "repository": "ericosiu-ai-marketing-skills",
+    "description": "Consolidate lead feeds and relationship history into evidence-backed client, recruiting, partnership, sponsorship and acquisition opportunities. Use for cross-source identity reconciliation, prior-touch attribution, independent fit tiers and owner-ready action queues. Not an automatic outreach or hiring decision system.",
+    "path": "category/business-sales-crm/relationship-intelligence"
   },
   {
     "id": "rep-context",
@@ -3502,6 +3558,14 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "Use when an RFP, RFI, RFQ, security questionnaire, vendor questionnaire, or proposal request arrives and the team needs a structured response \u2014 parsing multi-section buyer-dictated requirements (MANDATORY vs WEIGHTED vs NICE-TO-HAVE), building a Shipley-method proof-point matrix mapping each requirement to a verifiable proof point, articulating 3-5 win-themes that ladder up across requirements, and producing a Shipley-derived winrate estimate that informs a bid / no-bid / partner-bid recommendation. For Bid Managers, Proposal Leads, Directors of Sales, and Sales Engineers at the response-strategy moment. Surfaces GAP requirements explicitly \u2014 never invents claims. NOT free-form proposal narrative authoring, NOT contract redline, NOT marketing collateral.",
     "path": "category/business-sales-crm/rfp-responder"
+  },
+  {
+    "id": "rfq-to-quote",
+    "name": "rfq-to-quote",
+    "category": "business-sales-crm",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "Runs the whole RFQ-to-quote chain end to end: reads the inquiry and its drawings, checks it against what the plant can build, drafts the questions back, returns a provisional bid/no-bid, pulls cost history, routings and closed-job actuals, builds an internal estimating model in Fusion where connected (from the drawing, a prior part's model saved as new, text specs as a ROM only, or a STEP file), derives machine hours per operation with each hour's basis labelled, and drafts the quote with its cost basis shown. Four approval gates, and the chain pauses for days while the customer answers. Use when someone says \\\"run the RFQ chain,\\\" \\\"take this RFQ all the way to a quote,\\\" \\\"quote this end to end,\\\" \\\"quote this from the drawing,\\\" or names an inquiry and asks for the full workflow.",
+    "path": "category/business-sales-crm/rfq-to-quote"
   },
   {
     "id": "roast",
@@ -3880,6 +3944,14 @@
     "path": "category/business-sales-crm/skills-account-plan"
   },
   {
+    "id": "skills-acquisition-channel-advisor",
+    "name": "skills-acquisition-channel-advisor",
+    "category": "business-sales-crm",
+    "repository": "deanpeters-product-manager-skills",
+    "description": "Evaluate acquisition channels using unit economics, customer quality, and scalability. Use when deciding whether to scale, test, or kill a growth channel.",
+    "path": "category/business-sales-crm/skills-acquisition-channel-advisor"
+  },
+  {
     "id": "skills-business-pulse",
     "name": "skills-business-pulse",
     "category": "business-sales-crm",
@@ -3928,12 +4000,36 @@
     "path": "category/business-sales-crm/skills-career-ops"
   },
   {
+    "id": "skills-chief-customer-officer-advisor",
+    "name": "skills-chief-customer-officer-advisor",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for retention strategy, customer segmentation or CS team sizing decisions (GRR vs NRR, churn causes, pooled vs named CSMs). Runs retention_decomposition_analyzer.py, customer_segmentation_designer.py and cs_coverage_calculator.py.",
+    "path": "category/business-sales-crm/skills-chief-customer-officer-advisor"
+  },
+  {
+    "id": "skills-chief-data-officer-advisor",
+    "name": "skills-chief-data-officer-advisor",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for data strategy decisions: training models on customer data, warehouse vs lakehouse vs mesh, valuing data for a raise or M&A, or data hiring order. Runs ai_training_data_audit.py, data_product_strategy_picker.py and data_asset_valuator.py.",
+    "path": "category/business-sales-crm/skills-chief-data-officer-advisor"
+  },
+  {
     "id": "skills-close-plan",
     "name": "skills-close-plan",
     "category": "business-sales-crm",
     "repository": "anthropics-knowledge-work",
     "description": "Build the business case and mutual action plan for a deal - the why-buy/why-now story, the ROI framing, and the dated step-by-step path to signature shared with the customer. Use when the user says \"build a close plan for [deal]\", \"mutual action plan for [account]\", \"business case for [opp]\", or \"what's the path to signature\".",
     "path": "category/business-sales-crm/skills-close-plan"
+  },
+  {
+    "id": "skills-cmo-advisor",
+    "name": "skills-cmo-advisor",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Marketing leadership: positioning, product-led vs sales-led vs community-led growth, budget split across channels, marketing team design. Use whenever the user asks how to grow, which go-to-market fits or where to spend.",
+    "path": "category/business-sales-crm/skills-cmo-advisor"
   },
   {
     "id": "skills-codex-claims-drafting",
@@ -4016,6 +4112,30 @@
     "path": "category/business-sales-crm/skills-codex-wiki-enrich"
   },
   {
+    "id": "skills-cold-email",
+    "name": "skills-cold-email",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for any cold outreach or SDR email or follow-up sequence to prospects who did not opt in, before drafting. Scores the sequence for length, personalization and spam risk with email_sequence_analyzer.py. Opted-in nurture: email-sequence.",
+    "path": "category/business-sales-crm/skills-cold-email"
+  },
+  {
+    "id": "skills-commercial-policy",
+    "name": "skills-commercial-policy",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when writing or revising discount rules: discount matrix, approver thresholds, exception flows and the deal framework sales works under. Builds the matrix with discount_matrix_builder.py, routes exceptions with exception_router.py and checks the policy with policy_linter.py.",
+    "path": "category/business-sales-crm/skills-commercial-policy"
+  },
+  {
+    "id": "skills-commercial-skills",
+    "name": "skills-commercial-skills",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when a commercial request needs routing (pricing, deal review, discounts, partners, channels, policy, RFPs, forecasts): 'review this deal', 'should we discount'. Lists the commercial skills and routes to one.",
+    "path": "category/business-sales-crm/skills-commercial-skills"
+  },
+  {
     "id": "skills-competitive-brief",
     "name": "skills-competitive-brief",
     "category": "business-sales-crm",
@@ -4024,12 +4144,36 @@
     "path": "category/business-sales-crm/skills-competitive-brief"
   },
   {
+    "id": "skills-competitive-intel",
+    "name": "skills-competitive-intel",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for competitor analysis, battlecards, win/loss review or positioning against alternatives. Builds a tracking system that feeds positioning, sales and roadmap.",
+    "path": "category/business-sales-crm/skills-competitive-intel"
+  },
+  {
     "id": "skills-competitive-intelligence",
     "name": "skills-competitive-intelligence",
     "category": "business-sales-crm",
     "repository": "anthropics-knowledge-work",
     "description": "Competitive analysis two ways - the in-deal play against a named competitor, and win/loss patterns, competitor mentions, and battlecards across the book. Use when the user asks \"competitive intel\", \"research competitors\", \"how do we compare to [competitor]\", \"what's new with [competitor]\", \"battlecard for [competitor]\", \"how do we beat [competitor]\", \"what's the play against [competitor] in [deal]\", \"where are we losing to [competitor]\", \"win/loss patterns\", \"competitive analysis\", \"refresh the battlecards\", or on a weekly schedule.",
     "path": "category/business-sales-crm/skills-competitive-intelligence"
+  },
+  {
+    "id": "skills-competitor-profiling",
+    "name": "skills-competitor-profiling",
+    "category": "business-sales-crm",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to research competitors into dated profiles, or asks what a rival charges, claims, or is doing, or whether a conclusion about them is fair: positioning, pricing, features, reviews, SEO, observed facts kept apart from inference. For comparison pages, see competitors. For battle cards, see sales-enablement. For accounts you sell to, see prospecting. For how a competitor grew, see reverse-engineer-marketing.",
+    "path": "category/business-sales-crm/skills-competitor-profiling"
+  },
+  {
+    "id": "skills-competitors",
+    "name": "skills-competitors",
+    "category": "business-sales-crm",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to create or audit comparison and alternative pages ('X vs Y', 'X alternative', 'best X alternatives'), or asks what a public page may say about a competitor: page formats, fair claims, and outdated pages. For researching competitors, see competitor-profiling. For internal battle cards, see sales-enablement.",
+    "path": "category/business-sales-crm/skills-competitors"
   },
   {
     "id": "skills-compose-outreach",
@@ -4048,14 +4192,6 @@
     "path": "category/business-sales-crm/skills-contact-research"
   },
   {
-    "id": "skills-content-strategy",
-    "name": "skills-content-strategy",
-    "category": "business-sales-crm",
-    "repository": "anthropics-knowledge-work",
-    "description": "Analyzes sales data from PayPal and QuickBooks to find top performers and slow movers, layers in seasonality, and produces a prioritized 30-day content brief: what to push, what offers to run, what to hold. Strategic output only \u2014 no calendars or assets. Use when the user asks what to post, wants a content plan, asks what's selling, or what to promote this month.",
-    "path": "category/business-sales-crm/skills-content-strategy"
-  },
-  {
     "id": "skills-create-an-asset",
     "name": "skills-create-an-asset",
     "category": "business-sales-crm",
@@ -4070,6 +4206,22 @@
     "repository": "anthropics-knowledge-work",
     "description": "Read-only audit of your CRM opportunities for missing fields, stale dates, and stage mismatches - outputs a fix checklist to apply by hand or through update-opportunity. Use when the user asks \"check my CRM hygiene\", \"check my Salesforce or HubSpot data\", \"clean up my CRM\", \"audit my opps\", \"what's missing in the CRM\", or \"clean up my pipeline\".",
     "path": "category/business-sales-crm/skills-crm-hygiene-check"
+  },
+  {
+    "id": "skills-cro",
+    "name": "skills-cro",
+    "category": "business-sales-crm",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants more conversions from a page or form, or asks why a page isn't converting, what to change first, or whether to add or remove a field or element: landing and pricing pages, lead forms, or a URL shared for feedback. For signup flows, see signup. For activation, see onboarding. For popups, see popups. For running the test, see ab-testing.",
+    "path": "category/business-sales-crm/skills-cro"
+  },
+  {
+    "id": "skills-cro-review",
+    "name": "skills-cro-review",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Challenge a forecast, win-rate drop or sales hires. Use whenever asked or /c-level-agents:cro-review.",
+    "path": "category/business-sales-crm/skills-cro-review"
   },
   {
     "id": "skills-customer-billing-ops",
@@ -4096,12 +4248,28 @@
     "path": "category/business-sales-crm/skills-customer-health"
   },
   {
+    "id": "skills-customer-journey-mapping-workshop",
+    "name": "skills-customer-journey-mapping-workshop",
+    "category": "business-sales-crm",
+    "repository": "deanpeters-product-manager-skills",
+    "description": "Run a customer journey mapping workshop with adaptive questions and outputs. Use when you need to map stages, actions, emotions, pain points, and opportunities for a persona and scenario.",
+    "path": "category/business-sales-crm/skills-customer-journey-mapping-workshop"
+  },
+  {
     "id": "skills-customer-research",
     "name": "skills-customer-research",
     "category": "business-sales-crm",
     "repository": "anthropics-knowledge-work",
     "description": "Multi-source research on a customer question or topic with source attribution. Use when a customer asks something you need to look up, investigating whether a bug has been reported before, checking what was previously told to a specific account, or gathering background before drafting a response.",
     "path": "category/business-sales-crm/skills-customer-research"
+  },
+  {
+    "id": "skills-customer-success-manager",
+    "name": "skills-customer-success-manager",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when reviewing customer accounts for health, churn risk or expansion. Scores health with health_score_calculator.py, churn with churn_risk_analyzer.py and upsell with expansion_opportunity_scorer.py.",
+    "path": "category/business-sales-crm/skills-customer-success-manager"
   },
   {
     "id": "skills-daily-briefing",
@@ -4128,6 +4296,14 @@
     "path": "category/business-sales-crm/skills-deal-advance-gap"
   },
   {
+    "id": "skills-deal-desk",
+    "name": "skills-deal-desk",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use before closing a deal that needs a discount beyond AE authority, has a redlined MSA or unclear per-deal economics. Scores it with deal_scorer.py, names approvers with discount_approval_router.py and flags risky terms with terms_redliner.py. Never auto-approves.",
+    "path": "category/business-sales-crm/skills-deal-desk"
+  },
+  {
     "id": "skills-deal-review",
     "name": "skills-deal-review",
     "category": "business-sales-crm",
@@ -4152,6 +4328,22 @@
     "path": "category/business-sales-crm/skills-deal-slip-scenario"
   },
   {
+    "id": "skills-deep-scrape",
+    "name": "skills-deep-scrape",
+    "category": "business-sales-crm",
+    "repository": "davidondrej-skills",
+    "description": "Build sourced JSON dossiers on people, companies, or topics with DeepAPI. Use for profiles, prospects, vendor due diligence, or customer research across sources; use deep-research for recommendations.",
+    "path": "category/business-sales-crm/skills-deep-scrape"
+  },
+  {
+    "id": "skills-discovery-interview-prep",
+    "name": "skills-discovery-interview-prep",
+    "category": "business-sales-crm",
+    "repository": "deanpeters-product-manager-skills",
+    "description": "Plan customer discovery interviews with the right goal, segment, constraints, and method. Use when preparing interviews for problem validation, churn research, or new product ideas.",
+    "path": "category/business-sales-crm/skills-discovery-interview-prep"
+  },
+  {
     "id": "skills-draft-outreach",
     "name": "skills-draft-outreach",
     "category": "business-sales-crm",
@@ -4168,6 +4360,14 @@
     "path": "category/business-sales-crm/skills-draft-response"
   },
   {
+    "id": "skills-emails",
+    "name": "skills-emails",
+    "category": "business-sales-crm",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to create or improve automated email sequences, or asks what to send, when, or whether an email or flow is working: welcome, onboarding, nurture, and win-back flows. No AI tells like 'it's not X, it's Y', 'no X, no Y, no Z' lists, or fake 'Re:' subject lines. For cold outreach, see cold-email. For in-app onboarding, see onboarding. For texts, see sms.",
+    "path": "category/business-sales-crm/skills-emails"
+  },
+  {
     "id": "skills-end-of-day",
     "name": "skills-end-of-day",
     "category": "business-sales-crm",
@@ -4182,6 +4382,46 @@
     "repository": "anthropics-knowledge-work",
     "description": "Instant lead enrichment. Drop a name, company, LinkedIn URL, or email and get the full contact card with email, phone, title, company intel, and next actions.",
     "path": "category/business-sales-crm/skills-enrich-lead"
+  },
+  {
+    "id": "skills-events",
+    "name": "skills-events",
+    "category": "business-sales-crm",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to plan, run, sponsor, or speak at events, or asks whether an event or booth is worth the money: webinars, conferences, booths, meetups, show-up rates, and follow-up into pipeline. For launches, see launch. For joint webinars, see co-marketing. For community programs, see community-marketing. For podcasts, see public-relations. For event emails, see emails.",
+    "path": "category/business-sales-crm/skills-events"
+  },
+  {
+    "id": "skills-form-cro",
+    "name": "skills-form-cro",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when a lead, contact, demo or checkout form is underperforming or being designed, before changing fields. Scores field friction with form_field_analyzer.py. Signup forms: signup-flow-cro.",
+    "path": "category/business-sales-crm/skills-form-cro"
+  },
+  {
+    "id": "skills-free-tools",
+    "name": "skills-free-tools",
+    "category": "business-sales-crm",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to plan or build a free tool as marketing, or asks whether a tool idea is worth building or which one to pick: calculators, graders, generators, and other interactive tools for leads, SEO, and links. For downloadable lead magnets, see lead-magnets.",
+    "path": "category/business-sales-crm/skills-free-tools"
+  },
+  {
+    "id": "skills-gc-review",
+    "name": "skills-gc-review",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for /c-level-agents:gc-review, or to challenge a term sheet, customer MSA, IP assignment or regulatory exposure before signing.",
+    "path": "category/business-sales-crm/skills-gc-review"
+  },
+  {
+    "id": "skills-general-counsel-advisor",
+    "name": "skills-general-counsel-advisor",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Legal review of contracts and term sheets (MSA, SaaS, NDA, DPA, employment), IP strategy and regulatory exposure (HIPAA, GDPR, FDA, fintech). Use whenever the user asks if a contract is risky or what to watch in a deal; not a substitute for licensed counsel.",
+    "path": "category/business-sales-crm/skills-general-counsel-advisor"
   },
   {
     "id": "skills-gohighlevel",
@@ -4206,6 +4446,14 @@
     "repository": "anthropics-knowledge-work",
     "description": "Batch-process unread customer emails - classify, prioritize, and draft replies. Use when the user asks \"sweep my inbox\", \"what customer emails need a reply\", \"draft replies to my customer emails\", or \"what needs a response\".",
     "path": "category/business-sales-crm/skills-inbox-sweep"
+  },
+  {
+    "id": "skills-interview-mapper",
+    "name": "skills-interview-mapper",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when coding or making sense of one interview transcript (customer, JTBD, expert, usability, exit). Extracts verbatim-grounded nuggets with extract_nuggets.py, verifies quotes with verify_quotes.py and checks conclusions hold across reruns with consensus.py.",
+    "path": "category/business-sales-crm/skills-interview-mapper"
   },
   {
     "id": "skills-inventory-planner",
@@ -4240,6 +4488,14 @@
     "path": "category/business-sales-crm/skills-lead-intelligence"
   },
   {
+    "id": "skills-lead-magnets",
+    "name": "skills-lead-magnets",
+    "category": "business-sales-crm",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to plan or improve a lead magnet, or asks what to give away for emails or how much to ask in return (gating, form fields): checklists, templates, ebooks, gated guides, content upgrades. For interactive tools, see free-tools. For the follow-up sequence, see emails. For popups that capture emails, see popups.",
+    "path": "category/business-sales-crm/skills-lead-magnets"
+  },
+  {
     "id": "skills-lead-triage",
     "name": "skills-lead-triage",
     "category": "business-sales-crm",
@@ -4254,6 +4510,30 @@
     "repository": "anthropics-knowledge-work",
     "description": "Assess and classify legal risks using a severity-by-likelihood framework with escalation criteria. Use when evaluating contract risk, assessing deal exposure, classifying issues by severity, or determining whether a matter needs senior counsel or outside legal review.",
     "path": "category/business-sales-crm/skills-legal-risk-assessment"
+  },
+  {
+    "id": "skills-link-building",
+    "name": "skills-link-building",
+    "category": "business-sales-crm",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants backlinks and mentions that lift rankings and AI citations, or asks how to get sites to link or whether a link tactic is safe: link gaps, unlinked mentions, broken links, guest posts, best-of outreach. Never buy links that pass ranking credit: paid or exchanged placements get rel=sponsored or nofollow. For press, see public-relations. For directories, see directory-submissions. For reviews, see referrals. For communities, see community-marketing.",
+    "path": "category/business-sales-crm/skills-link-building"
+  },
+  {
+    "id": "skills-linkedin-engagement",
+    "name": "skills-linkedin-engagement",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for LinkedIn comments, connection notes, DMs or outreach plans, or checking outreach volume is safe. Plans targets with comment_target_planner.py, drafts notes with outreach_message_builder.py and checks limits with outreach_volume_guard.py.",
+    "path": "category/business-sales-crm/skills-linkedin-engagement"
+  },
+  {
+    "id": "skills-linkedin-skills",
+    "name": "skills-linkedin-skills",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for any organic LinkedIn growth request (strategy, profile, posts, cadence, outreach, analytics). Checks it against LinkedIn's rules with linkedin_policy_gate.py and routes with linkedin_goal_router.py. No automation or scraping.",
+    "path": "category/business-sales-crm/skills-linkedin-skills"
   },
   {
     "id": "skills-log-activity",
@@ -4278,6 +4558,14 @@
     "repository": "yuan1z0825-nature-skills",
     "description": "Complete automated literature discovery pipeline: multi-source search \u2192 six-dimension scoring \u2192 fine reading \u2192 formatted delivery \u2192 archival. Combines a configurable engine with daily cron-driven application layer. Works with Feishu, Telegram, or any messaging platform.",
     "path": "category/business-sales-crm/skills-nature-literature-pipeline"
+  },
+  {
+    "id": "skills-offers",
+    "name": "skills-offers",
+    "category": "business-sales-crm",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to design or improve the offer itself, or asks why it isn't selling or how to add urgency honestly: value stacking, bonuses, guarantees, scarcity, payment plans, upsells. Best for services, courses, coaching, and high-ticket B2B; for self-serve SaaS, read pricing first. For price and tiers, see pricing. For the page, see copywriting. For the launch, see launch. For sales collateral, see sales-enablement.",
+    "path": "category/business-sales-crm/skills-offers"
   },
   {
     "id": "skills-okx-guide",
@@ -4328,6 +4616,14 @@
     "path": "category/business-sales-crm/skills-opensource-pipeline"
   },
   {
+    "id": "skills-page-cro",
+    "name": "skills-page-cro",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Fix a page that is not converting: section by section audit with fixes ranked by impact. Use whenever a homepage, landing, pricing or feature page gets few signups, sales or clicks.",
+    "path": "category/business-sales-crm/skills-page-cro"
+  },
+  {
     "id": "skills-paid-ads-linkedin",
     "name": "skills-paid-ads-linkedin",
     "category": "business-sales-crm",
@@ -4336,12 +4632,36 @@
     "path": "category/business-sales-crm/skills-paid-ads-linkedin"
   },
   {
+    "id": "skills-passive-deal-screener",
+    "name": "skills-passive-deal-screener",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when a passive investor shares a private deal (syndication, preferred equity, bridge fund, private credit) to screen as an LP. Stress-tests it, computes fee drag with fee_drag_calculator.py and compares terms with benchmark_comparator.py.",
+    "path": "category/business-sales-crm/skills-passive-deal-screener"
+  },
+  {
     "id": "skills-pipeline-review",
     "name": "skills-pipeline-review",
     "category": "business-sales-crm",
     "repository": "anthropics-knowledge-work",
     "description": "Stage-by-stage pipeline health check - coverage, aging, conversion, and at-risk deals - from CRM opportunity data. Use when the user asks \"review my pipeline\", \"pipeline health\", \"where's my pipeline stuck\", \"weekly pipeline review\", \"which deals should I focus on this week\", \"any stale or stuck deals\", \"which deals have past close dates\", \"which deals are single-threaded\", or \"check my pipeline coverage against my number\".",
     "path": "category/business-sales-crm/skills-pipeline-review"
+  },
+  {
+    "id": "skills-positioning-workshop",
+    "name": "skills-positioning-workshop",
+    "category": "business-sales-crm",
+    "repository": "deanpeters-product-manager-skills",
+    "description": "Run a positioning workshop that surfaces target customer, unmet need, category, benefits, and differentiation. Use when your product messaging feels fuzzy, generic, or misaligned.",
+    "path": "category/business-sales-crm/skills-positioning-workshop"
+  },
+  {
+    "id": "skills-product-manager-toolkit",
+    "name": "skills-product-manager-toolkit",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "PM toolkit: RICE prioritization, customer interview synthesis, PRDs and go-to-market. Use whenever the user asks what to build next, to rank features, write a PRD or sum up interview notes.",
+    "path": "category/business-sales-crm/skills-product-manager-toolkit"
   },
   {
     "id": "skills-prospect",
@@ -4392,12 +4712,36 @@
     "path": "category/business-sales-crm/skills-review-contract"
   },
   {
+    "id": "skills-roast",
+    "name": "skills-roast",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Roast an idea: a 5-angle panel (Critic, Champion, Analyst, Investigator, Customer) attacks it, then a Judge returns one GO / RESHAPE / KILL verdict with the cheapest test to de-risk it. Use whenever the user wants to pressure-test or validate a business idea, asks for a brutal second opinion before building, asks is this a good idea, says convene the panel, or runs /roast.",
+    "path": "category/business-sales-crm/skills-roast"
+  },
+  {
     "id": "skills-route-lead",
     "name": "skills-route-lead",
     "category": "business-sales-crm",
     "repository": "anthropics-knowledge-work",
     "description": "Decide who owns an unrouted lead or opportunity and manage the handoff - deterministic routing by the org's own rules, a routing card the human router accepts or overrides, and drafted handoff notes. Use when the user says \"route this lead\", \"who should own [lead/opp]\", \"work the routing queue\", \"assign [company] to a rep\", or on a scheduled intake sweep.",
     "path": "category/business-sales-crm/skills-route-lead"
+  },
+  {
+    "id": "skills-sales-enablement",
+    "name": "skills-sales-enablement",
+    "category": "business-sales-crm",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants sales collateral, or asks what to give a champion or rep, or how to answer an objection or make the case: decks, one-pagers, objection handling, demo scripts, talk tracks, battle cards, proposals, win-loss. For public comparison pages, see competitors. For buyer research, see customer-research. For website copy, see copywriting. For cold emails, see cold-email. For the offer, see offers.",
+    "path": "category/business-sales-crm/skills-sales-enablement"
+  },
+  {
+    "id": "skills-sales-engineer",
+    "name": "skills-sales-engineer",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for pre-sales work: RFP coverage gaps, competitive feature matrices or planning and scoring a proof of concept. Runs rfp_response_analyzer.py, competitive_matrix_builder.py and poc_planner.py.",
+    "path": "category/business-sales-crm/skills-sales-engineer"
   },
   {
     "id": "skills-schedule-meeting",
@@ -4414,6 +4758,14 @@
     "repository": "anthropics-knowledge-work",
     "description": "Find leads matching criteria and bulk-add them to an Apollo outreach sequence. Handles enrichment, contact creation, deduplication, and enrollment in one flow.",
     "path": "category/business-sales-crm/skills-sequence-load"
+  },
+  {
+    "id": "skills-signup",
+    "name": "skills-signup",
+    "category": "business-sales-crm",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants better signup, registration, and trial start flows, or asks which fields or steps to cut or whether to require a card: SSO and drop-off before an account exists. For what happens after signup, see onboarding. For lead forms that don't create an account, see cro.",
+    "path": "category/business-sales-crm/skills-signup"
   },
   {
     "id": "skills-stakeholder-map",
@@ -4486,6 +4838,14 @@
     "repository": "anthropics-knowledge-work",
     "description": "Analyze recently closed opportunities to find patterns in what wins and what loses - stage of loss, common objections from transcripts, deal characteristics. Leader-focused. Use when the user asks \"win loss review\", \"why are we losing deals\", \"what's working\", or \"analyze closed opps\".",
     "path": "category/business-sales-crm/skills-win-loss-review"
+  },
+  {
+    "id": "skills-workflow-builder",
+    "name": "skills-workflow-builder",
+    "category": "business-sales-crm",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when writing or running a Claude Code Workflow-tool script (.js in .claude/workflows/) for fan-out, pipeline, loop or judge-panel sub-agents. Gathers intent with workflow_intake.py, scaffolds with scaffold_workflow.py and validates with validate_workflow.py.",
+    "path": "category/business-sales-crm/skills-workflow-builder"
   },
   {
     "id": "slides",
@@ -4870,6 +5230,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Diagnose slow weather-data workflows by measuring discovery, transfer, parsing, scientific processing, and rendering separately before changing code.",
     "path": "category/business-sales-crm/weather-pipeline-performance-diagnosis"
+  },
+  {
+    "id": "website-builder",
+    "name": "website-builder",
+    "category": "business-sales-crm",
+    "repository": "flowkit-labs-skills",
+    "description": "Build and preview a hosted website for a business from a plain-language brief. Use for a new business homepage, landing page, service showcase, portfolio, online store, or customer portal, and for updates to sites hosted by this builder. Add bookings, checkout, or member accounts as needed and automate reminders, customer follow-ups, and reports after launch. Follow the user's choice when they specify another host or ask to edit an existing codebase.",
+    "path": "category/business-sales-crm/website-builder"
   },
   {
     "id": "wiki-enrich",

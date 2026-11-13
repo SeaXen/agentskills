@@ -1,7 +1,7 @@
 # 🧊 3D Web Experiences & Three.js
 
 > **Category**: `3d-web-threejs`  
-> **Total Curated Skills**: 50 skills  
+> **Total Curated Skills**: 54 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -45,6 +45,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`melonjs-renderables`](../../library/melonjs-melonjs/skills/melonjs-renderables) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when subclassing Renderable, writing a custom draw() method, handling pointer or... |
 | [`optimize-web`](../../library/unity-technologies-skills/skills/optimize-web) | ⚪ Reserve | `unity-technologies-skills` | Optimizes Unity WebGL and WebGPU builds for smaller downloads, faster loading, and smoother bro... |
 | [`premium-3d-website`](../../library/sickn33-agentic-awesome-skills/skills/premium-3d-website) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Guidelines for building premium 3D websites, focusing on custom WebGL shaders, post-processing,... |
+| [`router`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/router) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Routes any game-development request to the right skills: detects the engine (Godot, Unity, Unre... |
 | [`scenario-unity-performance`](../../library/scenario-labs-skills/skills/scenario-unity-performance) | ⚪ Reserve | `scenario-labs-skills` | Use when a Unity 6.3 game is slow or stutters: low fps, frame spikes, hitches when entering are... |
 | [`shader-graph-create-custom-node`](../../library/unity-technologies-skills/skills/shader-graph-create-custom-node) | ⚪ Reserve | `unity-technologies-skills` | Generates custom Shader Graph nodes from HLSL code. Use when the user wants a new Shader Graph ... |
 | [`shader-programming-glsl`](../../library/sickn33-agentic-awesome-skills/skills/shader-programming-glsl) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Expert guide for writing efficient GLSL shaders (Vertex/Fragment) for web and game engines, cov... |
@@ -54,13 +55,16 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`threejs`](../../library/feimacode-open-design-agent-kit/skills/threejs) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Three.js skills for creating 3D elements and interactive experiences in the browser — scenes, m... |
 | [`threejs-asset-pipeline`](../../library/cloudai-x-threejs-skills/skills/threejs-asset-pipeline) | ⚪ Reserve | `cloudai-x-threejs-skills` | Shrinking glTF assets for three.js with gltf-transform: inspect, validate and optimize commands... |
 | [`threejs-geometry`](../../library/cloudai-x-threejs-skills/skills/threejs-geometry) | ⚪ Reserve | `cloudai-x-threejs-skills` | Creating and shaping three.js geometry: built-in shapes, 3D text, vertex buffers and attributes... |
+| [`threejs-gltf-loading`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/threejs-gltf-loading) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Loads glTF/GLB models into three.js r187 and plays their animations: GLTFLoader, DRACO, Meshopt... |
 | [`threejs-interaction`](../../library/cloudai-x-threejs-skills/skills/threejs-interaction) | ⚪ Reserve | `cloudai-x-threejs-skills` | Picking with raycasting, camera controls, transform gizmos, drag, hover and box selection for t... |
 | [`threejs-lighting`](../../library/cloudai-x-threejs-skills/skills/threejs-lighting) | ⚪ Reserve | `cloudai-x-threejs-skills` | Light types and physical units, shadow maps, HDR environment lighting, light probes, and lighti... |
 | [`threejs-loaders`](../../library/cloudai-x-threejs-skills/skills/threejs-loaders) | ⚪ Reserve | `cloudai-x-threejs-skills` | Loading three.js assets: glTF with Draco, meshopt and KTX2 compression, other model formats, te... |
+| [`threejs-materials-lighting`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/threejs-materials-lighting) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Lights and shades three.js r187 scenes: standard, physical and unlit materials, lights, shadows... |
 | [`threejs-shaders`](../../library/cloudai-x-threejs-skills/skills/threejs-shaders) | ⚪ Reserve | `cloudai-x-threejs-skills` | Custom GLSL vertex and fragment shaders: uniforms, varyings, shader chunks, extending built-in ... |
 | [`threejs-skills`](../../library/antigravity-awesome-skills/skills/threejs-skills) | ⚪ Reserve | `antigravity-awesome-skills` | Create 3D scenes, interactive experiences, and visual effects using Three.js. Use when user req... |
 | [`threejs-tresjs`](../../library/martinholovsky-claude-skills-generator/skills/threejs-tresjs) | ⚪ Reserve | `martinholovsky-claude-skills-generator` | 3D HUD rendering with Three.js and TresJS for JARVIS AI Assistant |
 | [`threejs-weather`](../../library/mengto-skills/skills/threejs-weather) | ⚪ Reserve | `mengto-skills` | Put weather into a Three.js scene that reads as weather — rain anchored inside the frustum, a s... |
+| [`unity-build-size`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/unity-build-size) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Finds and shrinks what makes a Unity 6.3 LTS build too big: Build Report reading, uncompressed ... |
 | [`vantajs`](../../library/mengto-skills/skills/vantajs) | ⚪ Reserve | `mengto-skills` | Use when adding animated WebGL background effects with Vanta.js (setup, parameters, resizing, p... |
 | [`webgl`](../../library/martinholovsky-claude-skills-generator/skills/webgl) | ⚪ Reserve | `martinholovsky-claude-skills-generator` | WebGL shaders and effects for JARVIS 3D HUD |
 | [`webgl-aurora-veil`](../../library/feimacode-open-design-agent-kit/skills/webgl-aurora-veil) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A self-contained WebGL2 hero: layered aurora light curtains warped over a night sky scattered w... |

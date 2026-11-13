@@ -180,6 +180,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link bmad-forge-idea"
   },
   {
+    "id": "bmad-founder-agent-advisor",
+    "name": "bmad-founder-agent-advisor",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "'Nadia, the Founder Advisor. Use when the user asks for Nadia, the founder advisor, the startup advisor or the advisor, or wants help with the business side of a startup: runway, pricing, unit economics or a cap table; a pitch deck, investor update, board pack, lean canvas, fundraising plan, grant or accelerator application; investor targets, outreach or meeting prep; reading a term sheet or SAFE; a co-founder agreement or first hire; rehearsing a pitch or a hard conversation.'",
+    "path": "library/bmad-code-org-bmad-method/skills/bmad-founder-agent-advisor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate bmad-founder-agent-advisor",
+    "link_cmd": "python .agents/library/activate_skill.py link bmad-founder-agent-advisor"
+  },
+  {
     "id": "bmad-ingest",
     "name": "bmad-ingest",
     "repository": "bmad-code-org-bmad-method",
@@ -350,6 +360,46 @@
     "link_cmd": "python .agents/library/activate_skill.py link bmod-toolsmith"
   },
   {
+    "id": "core-tools-bmad-customize",
+    "name": "core-tools-bmad-customize",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "Authors and updates customization overrides for installed BMad skills, and changes to the document templates their agents write from. Use when the user says 'customize bmad', 'override a skill', 'change agent behavior', 'customize a workflow', or wants a document such as the PRD to ask for, contain or render something different",
+    "path": "library/bmad-code-org-bmad-method/skills/core-tools-bmad-customize",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-tools-bmad-customize",
+    "link_cmd": "python .agents/library/activate_skill.py link core-tools-bmad-customize"
+  },
+  {
+    "id": "core-tools-bmad-facilitate",
+    "name": "core-tools-bmad-facilitate",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "'Coaches the user through writing, updating or validating a document. Use when invoked by skill name only'",
+    "path": "library/bmad-code-org-bmad-method/skills/core-tools-bmad-facilitate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-tools-bmad-facilitate",
+    "link_cmd": "python .agents/library/activate_skill.py link core-tools-bmad-facilitate"
+  },
+  {
+    "id": "core-tools-bmad-forge-idea",
+    "name": "core-tools-bmad-forge-idea",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "Test a half-formed idea in a questioning conversation, with different personas probing its weak points, until the user can act on it or drop it with confidence. Optionally writes a short brief for planning skills to build on. Use when the user says 'forge an idea', 'pressure-test this idea', 'stress-test my thinking', or 'harden this idea'",
+    "path": "library/bmad-code-org-bmad-method/skills/core-tools-bmad-forge-idea",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-tools-bmad-forge-idea",
+    "link_cmd": "python .agents/library/activate_skill.py link core-tools-bmad-forge-idea"
+  },
+  {
+    "id": "core-tools-bmad-shard-pro",
+    "name": "core-tools-bmad-shard-pro",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "'Makes long documents easy for agents to navigate. Use when the user says \"shard this document\", \"this file is too long for agents\", \"turn this document into a wiki\", \"add a table of contents so agents can find things\", or \"update the sharded document\".'",
+    "path": "library/bmad-code-org-bmad-method/skills/core-tools-bmad-shard-pro",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-tools-bmad-shard-pro",
+    "link_cmd": "python .agents/library/activate_skill.py link core-tools-bmad-shard-pro"
+  },
+  {
     "id": "deprecated-shim",
     "name": "deprecated-shim",
     "repository": "bmad-code-org-bmad-method",
@@ -358,6 +408,76 @@
     "path": "library/bmad-code-org-bmad-method/skills/deprecated-shim",
     "activation_cmd": "python .agents/library/activate_skill.py activate deprecated-shim",
     "link_cmd": "python .agents/library/activate_skill.py link deprecated-shim"
+  },
+  {
+    "id": "method-bmad-agent-analyst",
+    "name": "method-bmad-agent-analyst",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "'Mary, the Business Analyst. Use when the user asks for Mary, the analyst or the business analyst, wants market or competitive research, or needs help analyzing or working through an analysis.'",
+    "path": "library/bmad-code-org-bmad-method/skills/method-bmad-agent-analyst",
+    "activation_cmd": "python .agents/library/activate_skill.py activate method-bmad-agent-analyst",
+    "link_cmd": "python .agents/library/activate_skill.py link method-bmad-agent-analyst"
+  },
+  {
+    "id": "method-bmad-agent-architect",
+    "name": "method-bmad-agent-architect",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "System architect and technical design leader. Use when the user asks to talk to Winston or requests the architect",
+    "path": "library/bmad-code-org-bmad-method/skills/method-bmad-agent-architect",
+    "activation_cmd": "python .agents/library/activate_skill.py activate method-bmad-agent-architect",
+    "link_cmd": "python .agents/library/activate_skill.py link method-bmad-agent-architect"
+  },
+  {
+    "id": "method-bmad-agent-dev",
+    "name": "method-bmad-agent-dev",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "Senior software engineer who implements stories and code changes. Use when the user asks to talk to Amelia or requests the developer agent",
+    "path": "library/bmad-code-org-bmad-method/skills/method-bmad-agent-dev",
+    "activation_cmd": "python .agents/library/activate_skill.py activate method-bmad-agent-dev",
+    "link_cmd": "python .agents/library/activate_skill.py link method-bmad-agent-dev"
+  },
+  {
+    "id": "method-bmad-agent-pm",
+    "name": "method-bmad-agent-pm",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "'John, the Product Manager. Use when the user asks for John, the PM or the product manager, wants a planning document written, updated or reviewed.'",
+    "path": "library/bmad-code-org-bmad-method/skills/method-bmad-agent-pm",
+    "activation_cmd": "python .agents/library/activate_skill.py activate method-bmad-agent-pm",
+    "link_cmd": "python .agents/library/activate_skill.py link method-bmad-agent-pm"
+  },
+  {
+    "id": "method-bmad-agent-ux-designer",
+    "name": "method-bmad-agent-ux-designer",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "UX designer and UI specialist. Use when the user asks to talk to Sally or requests the UX designer",
+    "path": "library/bmad-code-org-bmad-method/skills/method-bmad-agent-ux-designer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate method-bmad-agent-ux-designer",
+    "link_cmd": "python .agents/library/activate_skill.py link method-bmad-agent-ux-designer"
+  },
+  {
+    "id": "method-bmad-architecture",
+    "name": "method-bmad-architecture",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "'Work out and record the architecture decisions that keep separately built parts of a system consistent, in a short architecture document. Creates, updates, or validates one; works from a ticket file, with an existing codebase or architecture document beside it. Use when the user says \"create the architecture\", \"create technical architecture\", \"architecture spine\", or \"create a solution design\"'",
+    "path": "library/bmad-code-org-bmad-method/skills/method-bmad-architecture",
+    "activation_cmd": "python .agents/library/activate_skill.py activate method-bmad-architecture",
+    "link_cmd": "python .agents/library/activate_skill.py link method-bmad-architecture"
+  },
+  {
+    "id": "method-bmad-ux",
+    "name": "method-bmad-ux",
+    "repository": "bmad-code-org-bmad-method",
+    "category": "general",
+    "description": "'Capture the user''s UX vision in two documents: DESIGN.md for how the product looks and EXPERIENCE.md for how it behaves. Use when the user says \"lets create UX design\" or \"create UX specifications\" or \"help me plan the UX\"'",
+    "path": "library/bmad-code-org-bmad-method/skills/method-bmad-ux",
+    "activation_cmd": "python .agents/library/activate_skill.py activate method-bmad-ux",
+    "link_cmd": "python .agents/library/activate_skill.py link method-bmad-ux"
   },
   {
     "id": "missing-trigger",

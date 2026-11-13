@@ -1,7 +1,7 @@
 # 📊 Technical Diagrams & Isometric SVG
 
 > **Category**: `diagrams-technical-visuals`  
-> **Total Curated Skills**: 98 skills  
+> **Total Curated Skills**: 101 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -98,8 +98,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`scenario-zbrush-character-creature`](../../library/scenario-labs-skills/skills/scenario-zbrush-character-creature) | ⚪ Reserve | `scenario-labs-skills` | Use when sculpting a realistic head, face, portrait, body or creature in ZBrush (anatomy, landm... |
 | [`skills-codex-mermaid-diagram`](../../library/wanshuiyin-auto-claude-code-research-in-sleep/skills/skills-codex-mermaid-diagram) | ⚪ Reserve | `wanshuiyin-auto-claude-code-research-in-sleep` | Generate Mermaid diagrams from user requirements. Save .mmd and .md files to figures/ with synt... |
 | [`skills-codex-pixel-art`](../../library/wanshuiyin-auto-claude-code-research-in-sleep/skills/skills-codex-pixel-art) | ⚪ Reserve | `wanshuiyin-auto-claude-code-research-in-sleep` | Generate pixel art SVG illustrations for READMEs, docs, or slides. Use when user says \"\u753b\... |
+| [`skills-company-os`](../../library/alirezarezvani-claude-skills/skills/skills-company-os) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when choosing or setting up how the company runs: EOS, Scaling Up or OKRs, accountability c... |
 | [`skills-create-viz`](../../library/anthropics-knowledge-work/skills/skills-create-viz) | ⚪ Reserve | `anthropics-knowledge-work` | Create publication-quality visualizations with Python. Use when turning query results or a Data... |
 | [`skills-diagram-design`](../../library/diagram-design/skills/skills-diagram-design) | ⚪ Reserve | `diagram-design` | Create branded architecture, architecture delta, IT current-state, flowchart, sequence, state m... |
+| [`skills-helm-chart-builder`](../../library/alirezarezvani-claude-skills/skills/skills-helm-chart-builder) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use for any Helm chart to create, review or harden (values.yaml, templates, subcharts, RBAC, po... |
 | [`skills-nature-image2ppt`](../../library/yuan1z0825-nature-skills/skills/skills-nature-image2ppt) | ⚪ Reserve | `yuan1z0825-nature-skills` | Reconstruct slide images, screenshots, scanned PDFs, or image-only PPTX files as object-level e... |
 | [`skills-sketch`](../../library/makenotion-notion-cookbook/skills/skills-sketch) | ⚪ Reserve | `makenotion-notion-cookbook` | Sketch an App workflow as a reviewable flow diagram when planning or iterating on its design wi... |
 | [`skills-stack-diagram`](../../library/caru-ini-stack-diagram/skills/skills-stack-diagram) | ⚪ Reserve | `caru-ini-stack-diagram` | Create cloud-architecture-style diagrams of tech stacks, system architectures, infra layouts, a... |
@@ -110,6 +112,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`traction-eos`](../../library/wondelai-skills/skills/traction-eos) | ⚪ Reserve | `wondelai-skills` | Implement the Entrepreneurial Operating System (EOS) to align vision and execution across a com... |
 | [`trader-alerts`](../../library/jakeschincariol-day-trader-skill/skills/trader-alerts) | ⚪ Reserve | `jakeschincariol-day-trader-skill` | Price Alerts. Rings when a price, a stop or the opening bell hits. Turns the trade plan into th... |
 | [`trader-scanner`](../../library/jakeschincariol-day-trader-skill/skills/trader-scanner) | ⚪ Reserve | `jakeschincariol-day-trader-skill` | Chart Scanner. Scans thousands of charts for setups: opening-range breakouts, flags, oversold b... |
+| [`unity-tilemap-2d`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/unity-tilemap-2d) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Unity 6.3 LTS 2D tilemaps: the Tile Palette, Tilemap Collider 2D with a Composite Collider, Rul... |
 | [`us-stock-analysis`](../../library/tradermonty-claude-trading-skills/skills/us-stock-analysis) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Comprehensive US stock analysis including fundamental analysis (financial metrics, business qua... |
 | [`vision-analysis`](../../library/minimax-ai-skills/skills/vision-analysis) | ⚪ Reserve | `minimax-ai-skills` | Analyze, describe, and extract information from images using the MiniMax vision MCP tool. Use w... |
 | [`visualize`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/visualize) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Create publication-quality figures that meet journal submission standards. APA 7th defaults wit... |

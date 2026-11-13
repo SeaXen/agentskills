@@ -240,6 +240,14 @@
     "path": "category/database-nosql-serverless/database-patterns"
   },
   {
+    "id": "database-skills-amazon-dynamodb",
+    "name": "database-skills-amazon-dynamodb",
+    "category": "database-nosql-serverless",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Designs, reviews, and debugs DynamoDB data layers from design axioms \u2014 enumerates access patterns, chooses partition/sort keys and GSIs, decides single-table vs. multi-table, configures Streams, Global Tables, TTL, vector indexes for similarity search, and zero-ETL integrations to OpenSearch/Redshift/SageMaker Lakehouse, and produces a defensible data-layer design with a monthly cost estimate and optional live validation. Applies whenever a user is designing, reviewing, or refactoring anything backed by DynamoDB \u2014 schemas, access patterns, GSIs, single- vs. multi-table choices, Streams consumers, transactional outboxes, Global Tables, zero-ETL pipelines, or storing embeddings and running semantic/vector similarity search with SearchVectors on items already in DynamoDB \u2014 even when they don't say \"axioms\" or \"design review.\" Also applies when debugging hot partitions, throttling, unbounded Scans, LWW conflicts, or surprise bills on DynamoDB workloads.",
+    "path": "category/database-nosql-serverless/database-skills-amazon-dynamodb"
+  },
+  {
     "id": "debug-buttercup",
     "name": "debug-buttercup",
     "category": "database-nosql-serverless",
@@ -846,6 +854,14 @@
     "repository": "metalbear-co-mirrord",
     "description": "Makes a codebase propagate W3C baggage (the `baggage` header carrying `mirrord-session=<key>`) end to end, so mirrord HTTP filters, preview environments, and queue splitting can route a whole request chain to one developer's session. Detects existing OpenTelemetry, Datadog, or other tracing that can already propagate baggage and enables it; otherwise adds a small propagation layer. Covers inbound/outbound HTTP and gRPC, publishing to and consuming from Kafka, RabbitMQ, SQS/SNS, GCP Pub/Sub, Azure Service Bus, NATS, Redis Pub/Sub, BullMQ and Temporal, per-message context restore in consumers, and storage hand-offs such as a GCS signed URL upload that triggers Pub/Sub or an S3 presigned upload that triggers SQS. Ends with a report of every flow found and which ones still drop the header. Use when the user asks to propagate headers, baggage, tracestate, the mirrord session key, or trace context across services or queues, or when a mirrord filter matches the first service but not downstream services or queue consumers.",
     "path": "category/database-nosql-serverless/skills-mirrord-header-propagation"
+  },
+  {
+    "id": "skills-rag-architect",
+    "name": "skills-rag-architect",
+    "category": "database-nosql-serverless",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Design a RAG pipeline: chunk size, embedding model, vector database and retrieval quality metrics. Use whenever the user builds search over their docs, picks a vector store or finds answers miss the right context.",
+    "path": "category/database-nosql-serverless/skills-rag-architect"
   },
   {
     "id": "skills-rag-implementation",

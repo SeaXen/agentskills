@@ -1,7 +1,7 @@
 # 🎬 Video Creation & Generative Motion
 
 > **Category**: `video-motion-production`  
-> **Total Curated Skills**: 277 skills  
+> **Total Curated Skills**: 290 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -88,6 +88,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`fal-ai-media`](../../library/affaan-m-ecc/skills/fal-ai-media) | ⚪ Reserve | `affaan-m-ecc` | Unified media generation via fal.ai MCP — image, video, and audio. Covers text-to-image (Nano B... |
 | [`fal-kling-o3`](../../library/feimacode-open-design-agent-kit/skills/fal-kling-o3) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Generate images and videos with Kling O3 — Kling's most powerful model family — via fal.ai. |
 | [`fal-lip-sync`](../../library/feimacode-open-design-agent-kit/skills/fal-lip-sync) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Create talking head videos and lip sync audio to video via fal.ai. Useful for explainer avatars... |
+| [`fastgen-add-modality`](../../library/nvidia-skills/skills/fastgen-add-modality) | ⚪ Reserve | `nvidia-skills` | Extend NVIDIA FastGen to a new generated or conditioning modality beyond the existing image, vi... |
 | [`film-crew`](../../library/sickn33-agentic-awesome-skills/skills/film-crew) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Turn a one-line AI video idea into a shot list and per-shot, model-ready prompts via a film cre... |
 | [`frame-light-leak-cinema`](../../library/feimacode-open-design-agent-kit/skills/frame-light-leak-cinema) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Light-Leak Cinematic Frame (Open Design) — use only when explicitly invoked, not for general de... |
 | [`frost-sequence-camera-orbit`](../../library/heygen-hyperframes/skills/frost-sequence-camera-orbit) | ⚪ Reserve | `heygen-hyperframes` | An orbiting camera follows an ice logo as it breaks apart, reforms into two text moments, and f... |
@@ -156,6 +157,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`od-video-video-hyperframes`](../../library/feimacode-open-design-agent-kit/skills/od-video-video-hyperframes) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Hyperframes Video (Open Design) — use only when the user explicitly runs this skill |
 | [`open-design-social-post`](../../library/feimacode-open-design-agent-kit/skills/open-design-social-post) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Design a social media post (X, Instagram, LinkedIn, Xiaohongshu, Stories/Reels, YouTube thumbna... |
 | [`opencli-reader`](../../library/himself65-finance-skills/skills/opencli-reader) | ⚪ Reserve | `himself65-finance-skills` | Generic read-only fallback for sources opencli supports but no dedicated skill covers: finance ... |
+| [`openmotion-production`](../../library/nexu-io-openmotion/skills/openmotion-production) | ⚪ Reserve | `nexu-io-openmotion` | 执行 OpenMotion 已有工程在既定创作决定下的局部修改、素材或音轨替换、预览、技术排错、导出与交付。重新设计叙事、动作或声画关系使用 openmotion-director；已有模板... |
+| [`openmotion-recreate`](../../library/nexu-io-openmotion/skills/openmotion-recreate) | ⚪ Reserve | `nexu-io-openmotion` | Recreate a reference video (a link or file) as the user's own film with OpenMotion: rebuild it ... |
+| [`openmotion-reference-video`](../../library/nexu-io-openmotion/skills/openmotion-reference-video) | ⚪ Reserve | `nexu-io-openmotion` | OpenMotion 原生 Hyperframes 编写的兼容入口，供旧引用继续使用。新的视频任务按本轮意图进入相应专业 Skill，工程操作复用 openmotion-production... |
+| [`openmotion-template-to-video`](../../library/nexu-io-openmotion/skills/openmotion-template-to-video) | ⚪ Reserve | `nexu-io-openmotion` | 使用 OpenMotion 基于已有可编辑动效模板、工程文件夹、ZIP 或已选画廊源码出片，原样交付或替换文案、品牌与素材，保留约定结构和动效。包含已接受的首次体验；续作沿用当前工程。只有参... |
+| [`openmotion-video-to-template`](../../library/nexu-io-openmotion/skills/openmotion-video-to-template) | ⚪ Reserve | `nexu-io-openmotion` | 使用 OpenMotion 将参考动效视频或链接重建为可反复换内容的可编辑模板，交付源码、素材、预览、编辑说明与文件夹或 ZIP。仅在用户要求可复用模板时使用；按参考制作本次成片走 open... |
 | [`orbit-card`](../../library/heygen-hyperframes/skills/orbit-card) | ⚪ Reserve | `heygen-hyperframes` | A single feature card orbits a dot sphere on approved Blender camera motion. HyperFrames block,... |
 | [`osint-investigation`](../../library/affaan-m-ecc/skills/osint-investigation) | ⚪ Reserve | `affaan-m-ecc` | Sparse-clue OSINT investigation methodology for extracting overlooked leads, connecting fragmen... |
 | [`oversized-cursor`](../../library/heygen-hyperframes/skills/oversized-cursor) | ⚪ Reserve | `heygen-hyperframes` | House-style oversized macOS cursor technique for HyperFrames launch videos. Load whenever a sce... |
@@ -168,6 +174,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`platforms-youtube-ads`](../../library/kostja94-marketing-skills/skills/platforms-youtube-ads) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to run YouTube ads, set up TrueView or Bumper campaigns, or optimize video ... |
 | [`podcast-ops`](../../library/ericosiu-ai-marketing-skills/skills/podcast-ops) | ⚪ Reserve | `ericosiu-ai-marketing-skills` | Podcast-to-Everything content pipeline. Takes a podcast RSS feed or raw transcript and generate... |
 | [`probe-sdk`](../../library/anthropics-knowledge-work/skills/probe-sdk) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom Probe SDK. Use after routing to a preflight workflow when testing brow... |
+| [`reference-video`](../../library/nexu-io-openmotion/skills/reference-video) | ⚪ Reserve | `nexu-io-openmotion` | Compatibility alias for OpenMotion openmotion-reference-video. Use openmotion-reference-video f... |
 | [`remotion`](../../library/davila7-claude-code-templates/skills/remotion) | ⚪ Reserve | `davila7-claude-code-templates` | Best practices and comprehensive guide for Remotion - programmatic video creation in React with... |
 | [`remotion-captions`](../../library/remotion-dev-skills/skills/remotion-captions) | ⚪ Reserve | `remotion-dev-skills` | Transcribing, displaying and animating captions |
 | [`remotion-create`](../../library/remotion-dev-skills/skills/remotion-create) | ⚪ Reserve | `remotion-dev-skills` | Create a new Remotion video |
@@ -212,8 +219,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-frame-liquid-bg-hero`](../../library/feimacode-open-design-agent-kit/skills/skills-frame-liquid-bg-hero) | ⚪ Reserve | `feimacode-open-design-agent-kit` | WebGL-style fluid displacement background with a quote overlay, suited to video intros, landing... |
 | [`skills-frame-logo-outro`](../../library/feimacode-open-design-agent-kit/skills/skills-frame-logo-outro) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Segmented logo assembly, glow bloom, and tagline reveal for video outros or brand closing frame... |
 | [`skills-frame-macos-notification`](../../library/feimacode-open-design-agent-kit/skills/skills-frame-macos-notification) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Realistic macOS notification banner with app icon, title, and body, suited to video overlays or... |
+| [`skills-image`](../../library/coreyhaines31-marketingskills/skills/skills-image) | ⚪ Reserve | `coreyhaines31-marketingskills` | When the user wants to create, generate, edit, or optimize marketing images, or asks which appr... |
 | [`skills-ketchup-video`](../../library/cursor-plugins/skills/skills-ketchup-video) | ⚪ Reserve | `cursor-plugins` | Catch the user up like /ketchup, with a short subtitled video of slides for what happened and t... |
+| [`skills-linkedin-content`](../../library/alirezarezvani-claude-skills/skills/skills-linkedin-content) | ⚪ Reserve | `alirezarezvani-claude-skills` | Write, edit or review a LinkedIn post: story, how-to, carousel, video script or poll. Use whene... |
 | [`skills-manim-video`](../../library/affaan-m-ecc/skills/skills-manim-video) | ⚪ Reserve | `affaan-m-ecc` | 日本語翻訳：このファイルは manim-video 用の日本語翻訳が必要です |
+| [`skills-notebooklm`](../../library/alirezarezvani-claude-skills/skills/skills-notebooklm) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use for anything in Google NotebookLM: querying notebooks, adding sources, generating Audio or ... |
 | [`skills-open-design-social-post`](../../library/feimacode-open-design-agent-kit/skills/skills-open-design-social-post) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Design a social media post (X, Instagram, LinkedIn, Xiaohongshu, Stories/Reels, YouTube thumbna... |
 | [`skills-probe-sdk`](../../library/anthropics-knowledge-work/skills/skills-probe-sdk) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom Probe SDK. Use after routing to a preflight workflow when testing brow... |
 | [`skills-remotion-best-practices`](../../library/remotion-dev-skills/skills/skills-remotion-best-practices) | ⚪ Reserve | `remotion-dev-skills` | Router for all Remotion skills |
@@ -228,6 +238,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-remotion-upgrade`](../../library/remotion-dev-skills/skills/skills-remotion-upgrade) | ⚪ Reserve | `remotion-dev-skills` | Upgrade Remotion, and related packages |
 | [`skills-remotion-video-creation`](../../library/affaan-m-ecc/skills/skills-remotion-video-creation) | ⚪ Reserve | `affaan-m-ecc` | Remotion のベストプラクティス - React で動画を作成する。3D、アニメーション、音声、字幕、チャート、トランジションなどをカバーするドメイン固有の29のルール。 |
 | [`skills-rtms`](../../library/anthropics-knowledge-work/skills/skills-rtms) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom RTMS. Use after routing to a live-media workflow when processing real-... |
+| [`skills-senior-computer-vision`](../../library/alirezarezvani-claude-skills/skills/skills-senior-computer-vision) | ⚪ Reserve | `alirezarezvani-claude-skills` | Computer vision models: object detection, segmentation, training a custom model, and optimizing... |
 | [`skills-social`](../../library/coreyhaines31-marketingskills/skills/skills-social) | ⚪ Reserve | `coreyhaines31-marketingskills` | When the user wants help creating, scheduling, or optimizing social media content for LinkedIn,... |
 | [`skills-social-reddit-card`](../../library/feimacode-open-design-agent-kit/skills/skills-social-reddit-card) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Realistic Reddit post card with vote rail and comment count, suited to video overlays or story ... |
 | [`skills-social-spotify-card`](../../library/feimacode-open-design-agent-kit/skills/skills-social-spotify-card) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Spotify Now Playing-style card with album art, progress bar, and playback controls, suited to v... |
@@ -235,6 +246,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-social-youtube-thumbnail`](../../library/feimacode-open-design-agent-kit/skills/skills-social-youtube-thumbnail) | ⚪ Reserve | `feimacode-open-design-agent-kit` | High-contrast 1280×720 YouTube video thumbnail that stays legible at small sizes, keeps the tim... |
 | [`skills-ui-toolkit`](../../library/anthropics-knowledge-work/skills/skills-ui-toolkit) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom Video SDK UI Toolkit. Use after routing to a web video workflow when y... |
 | [`skills-vfx-text-cursor`](../../library/feimacode-open-design-agent-kit/skills/skills-vfx-text-cursor) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Cursor light trail, chromatic rays, and directional flares for word-by-word quote reveals in vi... |
+| [`skills-video-content-strategist`](../../library/alirezarezvani-claude-skills/skills/skills-video-content-strategist) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use for video strategy, scripts, YouTube SEO, short-form pipelines (Reels, TikTok, Shorts) or t... |
 | [`skills-video-editing`](../../library/affaan-m-ecc/skills/skills-video-editing) | ⚪ Reserve | `affaan-m-ecc` | 実写素材のカット、構築、強化のためのAI支援ビデオ編集ワークフロー。生の撮影素材からFFmpeg、Remotion、ElevenLabs、fal.aiを経て、DescriptまたはCapCu... |
 | [`skills-video-sdk`](../../library/anthropics-knowledge-work/skills/skills-video-sdk) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom Video SDK. Use after routing to a custom-session workflow when the use... |
 | [`slideshow`](../../library/heygen-hyperframes/skills/slideshow) | ⚪ Reserve | `heygen-hyperframes` | Build a HyperFrames slideshow to present live - slides, fragment reveals, branching hotspots an... |
@@ -251,6 +263,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`tiktok-shop-conversion`](../../library/nexscope-ai-ecommerce-skills/skills/tiktok-shop-conversion) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Conversion optimization — product detail pages, video hooks, urgency tactics, checkout flow |
 | [`transcribe`](../../library/davila7-claude-code-templates/skills/transcribe) | ⚪ Reserve | `davila7-claude-code-templates` | Transcribe audio files to text with optional diarization and known-speaker hints. Use when a us... |
 | [`transcription-automation`](../../library/claude-office-skills-skills/skills/transcription-automation) | ⚪ Reserve | `claude-office-skills-skills` | Automate audio/video transcription, meeting notes, subtitle generation, and content processing |
+| [`trial-reel-distribution`](../../library/ericosiu-ai-marketing-skills/skills/trial-reel-distribution) | ⚪ Reserve | `ericosiu-ai-marketing-skills` | Use Instagram trial reels as a distribution channel instead of a testing lab. Rank your feed po... |
 | [`tribev2-brain-encoding`](../../library/reason-machines-trending-skills/skills/tribev2-brain-encoding) | ⚪ Reserve | `reason-machines-trending-skills` | Use TRIBE v2, Meta's multimodal foundation model for predicting fMRI brain responses to video, ... |
 | [`ugc-ad-scripts`](../../library/mbfinotti-advertising-skills/skills/ugc-ad-scripts) | ⚪ Reserve | `mbfinotti-advertising-skills` | Turn a product brief and target audience into UGC-style short-form video ad scripts a creator c... |
 | [`ui-toolkit`](../../library/anthropics-knowledge-work/skills/ui-toolkit) | ⚪ Reserve | `anthropics-knowledge-work` | Reference skill for Zoom Video SDK UI Toolkit. Use after routing to a web video workflow when y... |

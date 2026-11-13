@@ -120,6 +120,66 @@
     "link_cmd": "python .agents/library/activate_skill.py link runpod-build-template"
   },
   {
+    "id": "runpod-companion-clis",
+    "name": "runpod-companion-clis",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": "Companion CLIs for Runpod workflows \u2014 HuggingFace, GitHub, Docker, and AWS. Use runpod-build-template for complete template project authoring, and the ComfyUI model-repair guide in runpod-templates for imported workflows lacking model download metadata.",
+    "path": "library/runpod-runpod-plugins-official/skills/runpod-companion-clis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate runpod-companion-clis",
+    "link_cmd": "python .agents/library/activate_skill.py link runpod-companion-clis"
+  },
+  {
+    "id": "runpod-cost-audit",
+    "name": "runpod-cost-audit",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": "'Read-only Runpod spend audit: find idle spend, explain serverless billing when nothing seems",
+    "path": "library/runpod-runpod-plugins-official/skills/runpod-cost-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate runpod-cost-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link runpod-cost-audit"
+  },
+  {
+    "id": "runpod-discovery",
+    "name": "runpod-discovery",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": "'Answer what is available, what fits and the price against Runpod''s catalogs: GPU and CPU",
+    "path": "library/runpod-runpod-plugins-official/skills/runpod-discovery",
+    "activation_cmd": "python .agents/library/activate_skill.py activate runpod-discovery",
+    "link_cmd": "python .agents/library/activate_skill.py link runpod-discovery"
+  },
+  {
+    "id": "runpod-endpoint-ops",
+    "name": "runpod-endpoint-ops",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": "'Operate a Serverless endpoint that already exists: diagnose queued jobs and dying workers,",
+    "path": "library/runpod-runpod-plugins-official/skills/runpod-endpoint-ops",
+    "activation_cmd": "python .agents/library/activate_skill.py activate runpod-endpoint-ops",
+    "link_cmd": "python .agents/library/activate_skill.py link runpod-endpoint-ops"
+  },
+  {
+    "id": "runpod-flash",
+    "name": "runpod-flash",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": ">-",
+    "path": "library/runpod-runpod-plugins-official/skills/runpod-flash",
+    "activation_cmd": "python .agents/library/activate_skill.py activate runpod-flash",
+    "link_cmd": "python .agents/library/activate_skill.py link runpod-flash"
+  },
+  {
+    "id": "runpod-lifecycle-crud",
+    "name": "runpod-lifecycle-crud",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": "'Create, verify by read-back, and manage the lifecycle of Runpod''s reusable plumbing (templates,",
+    "path": "library/runpod-runpod-plugins-official/skills/runpod-lifecycle-crud",
+    "activation_cmd": "python .agents/library/activate_skill.py activate runpod-lifecycle-crud",
+    "link_cmd": "python .agents/library/activate_skill.py link runpod-lifecycle-crud"
+  },
+  {
     "id": "runpod-mcp",
     "name": "runpod-mcp",
     "repository": "runpod-runpod-plugins-official",
@@ -138,6 +198,36 @@
     "path": "library/runpod-runpod-plugins-official/skills/runpod-migrate",
     "activation_cmd": "python .agents/library/activate_skill.py activate runpod-migrate",
     "link_cmd": "python .agents/library/activate_skill.py link runpod-migrate"
+  },
+  {
+    "id": "runpod-pod-deploy",
+    "name": "runpod-pod-deploy",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": "Provision a Runpod Pod for interactive, development or training use and tell the user exactly",
+    "path": "library/runpod-runpod-plugins-official/skills/runpod-pod-deploy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate runpod-pod-deploy",
+    "link_cmd": "python .agents/library/activate_skill.py link runpod-pod-deploy"
+  },
+  {
+    "id": "runpod-pod-doctor",
+    "name": "runpod-pod-doctor",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": "'Diagnose a Runpod Pod that is unreachable, GPU-blind or stuck, and perform a recovery action",
+    "path": "library/runpod-runpod-plugins-official/skills/runpod-pod-doctor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate runpod-pod-doctor",
+    "link_cmd": "python .agents/library/activate_skill.py link runpod-pod-doctor"
+  },
+  {
+    "id": "runpod-serverless-deploy",
+    "name": "runpod-serverless-deploy",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": "'Bring any source (a HuggingFace repo, a ComfyUI workflow, a Hub release, a custom container",
+    "path": "library/runpod-runpod-plugins-official/skills/runpod-serverless-deploy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate runpod-serverless-deploy",
+    "link_cmd": "python .agents/library/activate_skill.py link runpod-serverless-deploy"
   },
   {
     "id": "runpod-templates",
@@ -160,6 +250,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link runpod-usage"
   },
   {
+    "id": "runpod-vllm",
+    "name": "runpod-vllm",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": "Serve a Hugging Face model with vLLM on Runpod (Hub worker-vllm queue endpoint, load-balancing",
+    "path": "library/runpod-runpod-plugins-official/skills/runpod-vllm",
+    "activation_cmd": "python .agents/library/activate_skill.py activate runpod-vllm",
+    "link_cmd": "python .agents/library/activate_skill.py link runpod-vllm"
+  },
+  {
     "id": "runpodctl",
     "name": "runpodctl",
     "repository": "runpod-runpod-plugins-official",
@@ -178,6 +278,166 @@
     "path": "library/runpod-runpod-plugins-official/skills/serverless-deploy",
     "activation_cmd": "python .agents/library/activate_skill.py activate serverless-deploy",
     "link_cmd": "python .agents/library/activate_skill.py link serverless-deploy"
+  },
+  {
+    "id": "skills-runpod",
+    "name": "skills-runpod",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": ">-",
+    "path": "library/runpod-runpod-plugins-official/skills/skills-runpod",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-runpod",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-runpod"
+  },
+  {
+    "id": "skills-runpod-build-template",
+    "name": "skills-runpod-build-template",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": ">-",
+    "path": "library/runpod-runpod-plugins-official/skills/skills-runpod-build-template",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-runpod-build-template",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-runpod-build-template"
+  },
+  {
+    "id": "skills-runpod-companion-clis",
+    "name": "skills-runpod-companion-clis",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": "Companion CLIs for Runpod workflows \u2014 HuggingFace, GitHub, Docker, and AWS. Use runpod-build-template for complete template project authoring, and the ComfyUI model-repair guide in runpod-templates for imported workflows lacking model download metadata.",
+    "path": "library/runpod-runpod-plugins-official/skills/skills-runpod-companion-clis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-runpod-companion-clis",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-runpod-companion-clis"
+  },
+  {
+    "id": "skills-runpod-cost-audit",
+    "name": "skills-runpod-cost-audit",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": "'Read-only Runpod spend audit: find idle spend, explain serverless billing when nothing seems",
+    "path": "library/runpod-runpod-plugins-official/skills/skills-runpod-cost-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-runpod-cost-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-runpod-cost-audit"
+  },
+  {
+    "id": "skills-runpod-discovery",
+    "name": "skills-runpod-discovery",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": "'Answer what is available, what fits and the price against Runpod''s catalogs: GPU and CPU",
+    "path": "library/runpod-runpod-plugins-official/skills/skills-runpod-discovery",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-runpod-discovery",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-runpod-discovery"
+  },
+  {
+    "id": "skills-runpod-endpoint-ops",
+    "name": "skills-runpod-endpoint-ops",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": "'Operate a Serverless endpoint that already exists: diagnose queued jobs and dying workers,",
+    "path": "library/runpod-runpod-plugins-official/skills/skills-runpod-endpoint-ops",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-runpod-endpoint-ops",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-runpod-endpoint-ops"
+  },
+  {
+    "id": "skills-runpod-flash",
+    "name": "skills-runpod-flash",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": ">-",
+    "path": "library/runpod-runpod-plugins-official/skills/skills-runpod-flash",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-runpod-flash",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-runpod-flash"
+  },
+  {
+    "id": "skills-runpod-lifecycle-crud",
+    "name": "skills-runpod-lifecycle-crud",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": "'Create, verify by read-back, and manage the lifecycle of Runpod''s reusable plumbing (templates,",
+    "path": "library/runpod-runpod-plugins-official/skills/skills-runpod-lifecycle-crud",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-runpod-lifecycle-crud",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-runpod-lifecycle-crud"
+  },
+  {
+    "id": "skills-runpod-mcp",
+    "name": "skills-runpod-mcp",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": ">-",
+    "path": "library/runpod-runpod-plugins-official/skills/skills-runpod-mcp",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-runpod-mcp",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-runpod-mcp"
+  },
+  {
+    "id": "skills-runpod-migrate",
+    "name": "skills-runpod-migrate",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": ">-",
+    "path": "library/runpod-runpod-plugins-official/skills/skills-runpod-migrate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-runpod-migrate",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-runpod-migrate"
+  },
+  {
+    "id": "skills-runpod-pod-deploy",
+    "name": "skills-runpod-pod-deploy",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": "Provision a Runpod Pod for interactive, development or training use and tell the user exactly",
+    "path": "library/runpod-runpod-plugins-official/skills/skills-runpod-pod-deploy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-runpod-pod-deploy",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-runpod-pod-deploy"
+  },
+  {
+    "id": "skills-runpod-pod-doctor",
+    "name": "skills-runpod-pod-doctor",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": "'Diagnose a Runpod Pod that is unreachable, GPU-blind or stuck, and perform a recovery action",
+    "path": "library/runpod-runpod-plugins-official/skills/skills-runpod-pod-doctor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-runpod-pod-doctor",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-runpod-pod-doctor"
+  },
+  {
+    "id": "skills-runpod-serverless-deploy",
+    "name": "skills-runpod-serverless-deploy",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": "'Bring any source (a HuggingFace repo, a ComfyUI workflow, a Hub release, a custom container",
+    "path": "library/runpod-runpod-plugins-official/skills/skills-runpod-serverless-deploy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-runpod-serverless-deploy",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-runpod-serverless-deploy"
+  },
+  {
+    "id": "skills-runpod-templates",
+    "name": "skills-runpod-templates",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": ">-",
+    "path": "library/runpod-runpod-plugins-official/skills/skills-runpod-templates",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-runpod-templates",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-runpod-templates"
+  },
+  {
+    "id": "skills-runpod-usage",
+    "name": "skills-runpod-usage",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": ">-",
+    "path": "library/runpod-runpod-plugins-official/skills/skills-runpod-usage",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-runpod-usage",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-runpod-usage"
+  },
+  {
+    "id": "skills-runpodctl",
+    "name": "skills-runpodctl",
+    "repository": "runpod-runpod-plugins-official",
+    "category": "general",
+    "description": ">-",
+    "path": "library/runpod-runpod-plugins-official/skills/skills-runpodctl",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-runpodctl",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-runpodctl"
   },
   {
     "id": "write-guide",

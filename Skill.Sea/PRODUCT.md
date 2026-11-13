@@ -21,7 +21,7 @@ Zero-runtime external dependencies. Pure vanilla HTML5, custom design tokens in 
 
 ## Product Purpose
 
-Skill.Sea is an ultra-fast, zero-dependency directory, leaderboard, and 1-click activation suite for curated AI Agent Skills. It indexes 22,678 skills discovered across 488 open GitHub repositories and organizes them into 38 distinct engineering disciplines. Success means zero-friction discovery, instant evaluation, and offline-capable workspace activation with zero token bloat.
+Skill.Sea is an ultra-fast, zero-dependency directory, leaderboard, and 1-click activation suite for curated AI Agent Skills. It indexes 23,580 skills discovered across 494 open GitHub repositories and organizes them into 38 distinct engineering disciplines. Success means zero-friction discovery, instant evaluation, and offline-capable workspace activation with zero token bloat.
 
 ## Positioning
 
@@ -46,14 +46,14 @@ Unlike bloated registries or monolithic skill packs that force thousands of inst
 
 - **Confirmed Functionality**:
   - Full-text instant search across names, descriptions, categories, and command snippets with keyboard shortcut (`/`).
-  - Edge-to-edge telemetry metrics cards showing real-time synchronized counts (22,678 Skills, 38 Categories, 488 Repositories, 131 Hot-Set).
+  - Edge-to-edge telemetry metrics cards showing real-time synchronized counts (23,580 Skills, 38 Categories, 494 Repositories, 132 Hot-Set).
   - Horizontal scrolling category rail with colored badges and item counts.
   - 1-Click install mode switcher supporting:
     1. Universal NPX (`npx skills add <url>`)
     2. Local CLI & Symlink activation (`python .agents/library/activate_skill.py activate <name>`)
     3. My Repo Vault installation (`git clone https://github.com/SeaXen/agentskills.git .agents`)
   - Detail slide-over drawer showing full markdown documentation, parameter lists, example prompts, and source repository links.
-  - Tab navigation across Skill Hub, Hot-Set, 38 Categories, 488 Git Repositories, and Install Guide.
+  - Tab navigation across Skill Hub, Hot-Set, 38 Categories, 494 Git Repositories, and Install Guide.
   - **URL Hash State Engine & Deep-Linking**: Full browser back/forward support and shareable URL routes (`#/hub`, `#/hotset`, `#/categories`, `#/library`, `#/guide`, `#/skill/:id`, and `#/stack=:ids`).
   - **Vanilla Typo-Tolerant Fuzzy Search**: Zero-dependency bounded Levenshtein matcher with 120ms debouncing, allowing fuzzy hits for misspellings like "dokcer" -> "docker-expert" or "palywright" -> "playwright".
   - **Agent Stack Builder & Cart Exporter**: Persistent skill collection dock with 1-click batch activation command export (Zero-Disk Symlink `python .agents/library/activate_skill.py link ...`, JSON bundle, and shareable hash URL).
@@ -74,10 +74,10 @@ Unlike bloated registries or monolithic skill packs that force thousands of inst
 
 ## Evidence on Hand
 
-- **Master Catalog Data**: `Skill.Sea/data/catalog.json` (29.80 MB, 22,678 validated items).
+- **Master Catalog Data**: `Skill.Sea/data/catalog.json` (31.03 MB, 23,580 validated items).
 - **Taxonomy Categories**: `Skill.Sea/data/categories.json` (38 domain definitions).
-- **Origin Repositories**: `Skill.Sea/data/repositories.json` (2.50 MB, 488 indexed repositories).
-- **Telemetry Statistics**: `Skill.Sea/data/stats.json` (22,678 skills, 38 categories, 488 repos, 131 hot-set).
+- **Origin Repositories**: `Skill.Sea/data/repositories.json` (2.59 MB, 494 indexed repositories).
+- **Telemetry Statistics**: `Skill.Sea/data/stats.json` (23,580 skills, 38 categories, 494 repos, 132 hot-set).
 - **Physical Skill Files**: Canonical source directories under `.agents/skills/` and `.agents/library/`.
 - **Cloudflare Edge Configuration**: `functions/data/[[path]].js`, `_headers`, and `_routes.json`.
 

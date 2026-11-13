@@ -100,6 +100,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link print3d"
   },
   {
+    "id": "render",
+    "name": "render",
+    "repository": "earthtojake-text-to-cad",
+    "category": "general",
+    "description": "Renders photoreal images and videos of a text-to-cad model, a STEP or an xbf with Blender, for people to look at, such as a hero shot, a README picture, a product post, a turntable or a film of a model's motion or animation. Exports a GLB, loads it with cad.blender, lights and frames it in a bpy script that `cad run` runs, drafts in EEVEE and finishes in Cycles on the GPU, and can save a .blend. Not for checking geometry, which a snapshot does.",
+    "path": "library/earthtojake-text-to-cad/skills/render",
+    "activation_cmd": "python .agents/library/activate_skill.py activate render",
+    "link_cmd": "python .agents/library/activate_skill.py link render"
+  },
+  {
     "id": "robot-simulation",
     "name": "robot-simulation",
     "repository": "earthtojake-text-to-cad",
@@ -148,6 +158,36 @@
     "path": "library/earthtojake-text-to-cad/skills/skills-engineering-drawing",
     "activation_cmd": "python .agents/library/activate_skill.py activate skills-engineering-drawing",
     "link_cmd": "python .agents/library/activate_skill.py link skills-engineering-drawing"
+  },
+  {
+    "id": "skills-fea",
+    "name": "skills-fea",
+    "repository": "earthtojake-text-to-cad",
+    "category": "general",
+    "description": "Checks whether a part or an assembly of bonded parts holds under its loads, as a linear static stress study of a STEP, an xbf or a text-to-cad model, meshed by netgen and solved by CalculiX, giving peak von Mises stress, safety factor against yield and deflection drawn on the part. Use when the person asks whether a part will hold, break or is strong enough, how much it bends or sags, where it is most stressed, how much load it takes, how to make it stronger or lighter without failing, or for FEA, a stress analysis or a strength simulation. Static loads and steady g-loads only.",
+    "path": "library/earthtojake-text-to-cad/skills/skills-fea",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-fea",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-fea"
+  },
+  {
+    "id": "skills-pcb",
+    "name": "skills-pcb",
+    "repository": "earthtojake-text-to-cad",
+    "category": "general",
+    "description": "Create, edit, lay out and review native KiCad circuit boards (.kicad_pcb) and their schematics (.kicad_sch) - parts and nets, ERC, placement and routing, DRC, and a review before ordering (fab limits, decoupling, track width for current, assembly and BOM sourcing for JLCPCB, PCBWay or another fab); exports fabrication files, the netlist and BOM, or STEP for enclosure design. Shows boards and schematics in the CAD Viewer.",
+    "path": "library/earthtojake-text-to-cad/skills/skills-pcb",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-pcb",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-pcb"
+  },
+  {
+    "id": "skills-robot-simulation",
+    "name": "skills-robot-simulation",
+    "repository": "earthtojake-text-to-cad",
+    "category": "general",
+    "description": "Robot and world descriptions (URDF, SRDF, MJCF) for ROS, MoveIt and MuJoCo. Use to generate a robot description or a MuJoCo scene from a CAD model's joints, materials and collision, or to write and review a `.urdf`, `.srdf` or MJCF `.xml` by hand (links, joints, inertials, meshes, MoveIt groups, MuJoCo classes, actuators, keyframes, model health). Not the CAD part itself, which the `cad` skill makes, nor a simulation run.",
+    "path": "library/earthtojake-text-to-cad/skills/skills-robot-simulation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-robot-simulation",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-robot-simulation"
   },
   {
     "id": "skills-sendcutsend",

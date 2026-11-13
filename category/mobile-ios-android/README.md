@@ -1,7 +1,7 @@
 # 📱 Mobile Development (iOS, Android, React Native)
 
 > **Category**: `mobile-ios-android`  
-> **Total Curated Skills**: 293 skills  
+> **Total Curated Skills**: 307 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -108,6 +108,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`display-glasses-with-jetpack-compose-glimmer`](../../library/android-skills/skills/display-glasses-with-jetpack-compose-glimmer) | ⚪ Reserve | `android-skills` | Provides guidelines for developing projected Android XR apps for display |
 | [`eas-observe`](../../library/expo-skills/skills/eas-observe) | ⚪ Reserve | `expo-skills` | Use for anything related to EAS Observe - adding `expo-observe` to an Expo project (AppMetricsR... |
 | [`eas-update`](../../library/expo-skills/skills/eas-update) | ⚪ Reserve | `expo-skills` | Configure and use EAS Update for over-the-air JavaScript and asset updates with expo-updates an... |
+| [`ebitengine-game`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/ebitengine-game) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Creates, debugs and packages 2D games in Go with Ebitengine v2: a play-and-retry loop, input, p... |
 | [`email-design`](../../library/101-skills-superpowers/skills/email-design) | ⚪ Reserve | `101-skills-superpowers` | Email marketing design with layout patterns, subject line formulas, and deliverability rules. C... |
 | [`examples-gamified-app`](../../library/feimacode-open-design-agent-kit/skills/examples-gamified-app) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A multi-frame gamified mobile-app prototype — three phone frames on a dark showcase stage. Fram... |
 | [`examples-mobile-onboarding`](../../library/feimacode-open-design-agent-kit/skills/examples-mobile-onboarding) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A multi-screen mobile onboarding flow rendered as three phone frames side by side — splash, val... |
@@ -252,6 +253,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`shopify-theme-optimization`](../../library/nexscope-ai-ecommerce-skills/skills/shopify-theme-optimization) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Theme speed and UX optimization — Core Web Vitals, Liquid code, image loading, mobile responsiv... |
 | [`skills`](../../library/android-skills/skills/skills) | ⚪ Reserve | `android-skills` | Migrates Android projects to Android Gradle Plugin 9 and updates the AGP DSL. |
 | [`skills-accessibility`](../../library/affaan-m-ecc/skills/skills-accessibility) | ⚪ Reserve | `affaan-m-ecc` | WCAG 2.2 レベル AA 標準を用いてインクルーシブなデジタルプロダクトを設計・実装・監査します。Web 用のセマンティック ARIA および Web・ネイティブプラットフォーム（iO... |
+| [`skills-antislop-layoutmobile`](../../library/miqdadbadjuber-anti-slop/skills/skills-antislop-layoutmobile) | ⚪ Reserve | `miqdadbadjuber-anti-slop` | Mobile layout skill for antislop. Use for layouts that reflow across screen sizes, phone to des... |
+| [`skills-app-store-optimization`](../../library/alirezarezvani-claude-skills/skills/skills-app-store-optimization) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use for any App Store or Google Play listing, keyword, ranking or review question, before writi... |
+| [`skills-apple-hig-expert`](../../library/alirezarezvani-claude-skills/skills/skills-apple-hig-expert) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when designing or reviewing iOS, macOS, watchOS or visionOS UI against Apple's Human Interf... |
 | [`skills-build-zoom-meeting-app`](../../library/anthropics-knowledge-work/skills/skills-build-zoom-meeting-app) | ⚪ Reserve | `anthropics-knowledge-work` | Build or embed a Zoom meeting flow. Use when implementing Meeting SDK joins, web or mobile meet... |
 | [`skills-cisco-ios-patterns`](../../library/affaan-m-ecc/skills/skills-cisco-ios-patterns) | ⚪ Reserve | `affaan-m-ecc` | showコマンド、コンフィグ階層、ワイルドカードマスク、ACL配置、インターフェースハイジーン、安全な変更ウィンドウ検証のためのCisco IOSおよびIOS-XEレビューパターン。 |
 | [`skills-clerk-android`](../../library/clerk-skills/skills/skills-clerk-android) | ⚪ Reserve | `clerk-skills` | Implement Clerk authentication for native Android apps using Kotlin and |
@@ -259,6 +263,15 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-dart-flutter-patterns`](../../library/affaan-m-ecc/skills/skills-dart-flutter-patterns) | ⚪ Reserve | `affaan-m-ecc` | 本番環境対応のDartおよびFlutterパターンは、null安全性、不変状態、非同期構成、ウィジェットアーキテクチャ、人気のある状態管理フレームワーク（BLoC、Riverpod、Prov... |
 | [`skills-dart-setup-ffi-assets`](../../library/dart-lang-skills/skills/skills-dart-setup-ffi-assets) | ⚪ Reserve | `dart-lang-skills` | Guides agents in compiling and packaging C/C++ source code into dynamic or static libraries (Co... |
 | [`skills-dart-use-ffigen`](../../library/dart-lang-skills/skills/skills-dart-use-ffigen) | ⚪ Reserve | `dart-lang-skills` | Guide agents to use `package:ffigen` to automatically generate FFI bindings instead of writing ... |
+| [`skills-eas-observe`](../../library/expo-skills/skills/skills-eas-observe) | ⚪ Reserve | `expo-skills` | Use for anything related to EAS Observe - adding `expo-observe` to an Expo project (AppMetricsR... |
+| [`skills-eas-update`](../../library/expo-skills/skills/skills-eas-update) | ⚪ Reserve | `expo-skills` | Configure and use EAS Update for over-the-air JavaScript and asset updates with expo-updates an... |
+| [`skills-expo-app-clip`](../../library/expo-skills/skills/skills-expo-app-clip) | ⚪ Reserve | `expo-skills` | Add an iOS App Clip target to an Expo app. Use when the user mentions App Clip, AASA, apple-app... |
+| [`skills-expo-brownfield`](../../library/expo-skills/skills/skills-expo-brownfield) | ⚪ Reserve | `expo-skills` | Integrate Expo and React Native into an existing native iOS or Android app. Use for brownfield,... |
+| [`skills-expo-dev-client`](../../library/expo-skills/skills/skills-expo-dev-client) | ⚪ Reserve | `expo-skills` | Build and distribute Expo development clients locally or via TestFlight for internal testing. F... |
+| [`skills-expo-overview`](../../library/expo-skills/skills/skills-expo-overview) | ⚪ Reserve | `expo-skills` | Entry point and router for every Expo or EAS task. Load this skill first — before writing code ... |
+| [`skills-expo-project-structure`](../../library/expo-skills/skills/skills-expo-project-structure) | ⚪ Reserve | `expo-skills` | Folder structure for a new Expo app. Use when scaffolding or laying out a new Expo project with... |
+| [`skills-expo-router`](../../library/expo-skills/skills/skills-expo-router) | ⚪ Reserve | `expo-skills` | Navigation and routing for Expo Router. Covers file-based routes, groups and dynamic routes, fo... |
+| [`skills-expo-upgrade`](../../library/expo-skills/skills/skills-expo-upgrade) | ⚪ Reserve | `expo-skills` | Guidelines for upgrading Expo SDK versions and fixing dependency issues |
 | [`skills-flutter-add-integration-test`](../../library/flutter-agent-plugins/skills/skills-flutter-add-integration-test) | ⚪ Reserve | `flutter-agent-plugins` | Configures Flutter Driver for app interaction and converts MCP actions into permanent integrati... |
 | [`skills-flutter-add-widget-preview`](../../library/flutter-agent-plugins/skills/skills-flutter-add-widget-preview) | ⚪ Reserve | `flutter-agent-plugins` | Adds interactive widget previews to the project using the previews.dart system. Use when creati... |
 | [`skills-flutter-build-responsive-layout`](../../library/flutter-agent-plugins/skills/skills-flutter-build-responsive-layout) | ⚪ Reserve | `flutter-agent-plugins` | Use `LayoutBuilder`, `MediaQuery`, or `Expanded/Flexible` to create a layout that adapts to dif... |
@@ -274,6 +287,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-limrun-expo-development`](../../library/limrun-inc-skills/skills/skills-limrun-expo-development) | ⚪ Reserve | `limrun-inc-skills` | Prepare and run Expo / React Native apps on Limrun with Expo dev-client iteration. Use when the... |
 | [`skills-limrun-ios-simulator`](../../library/limrun-inc-skills/skills/skills-limrun-ios-simulator) | ⚪ Reserve | `limrun-inc-skills` | Drive an app running on a Limrun cloud iOS simulator: launch, tap, type, read the accessibility... |
 | [`skills-open-design-site-audit`](../../library/feimacode-open-design-agent-kit/skills/skills-open-design-site-audit) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Audit a live website with Open Design's own checks — contrast, tap targets, phone layout, large... |
+| [`skills-paywalls`](../../library/coreyhaines31-marketingskills/skills/skills-paywalls) | ⚪ Reserve | `coreyhaines31-marketingskills` | When the user wants to create or improve in-app paywalls and upgrade moments, or asks when or h... |
 | [`skills-swift-actor-persistence`](../../library/affaan-m-ecc/skills/skills-swift-actor-persistence) | ⚪ Reserve | `affaan-m-ecc` | Swiftでactorを使用してスレッドセーフなデータ永続化を実装する——メモリキャッシュとファイルバックドストレージを組み合わせ、設計によってデータ競合を排除する。 |
 | [`skills-swift-concurrency-6-2`](../../library/affaan-m-ecc/skills/skills-swift-concurrency-6-2) | ⚪ Reserve | `affaan-m-ecc` | Swift 6.2のアクセシブルな並行処理——デフォルトはシングルスレッド、@concurrentは明示的なバックグラウンドオフロードに使用し、分離の一貫性はMainActor型に使用する。 |
 | [`skills-swift-protocol-di-testing`](../../library/affaan-m-ecc/skills/skills-swift-protocol-di-testing) | ⚪ Reserve | `affaan-m-ecc` | テスト可能なSwiftコードのためのプロトコルベースの依存性注入——焦点を絞ったプロトコルとSwift Testingを使用してファイルシステム、ネットワーク、外部APIをモックする。 |

@@ -1,7 +1,7 @@
 # 🎨 Visual Design, Branding & Graphics
 
 > **Category**: `graphics-branding-design`  
-> **Total Curated Skills**: 131 skills  
+> **Total Curated Skills**: 142 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -30,6 +30,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`audience-belief-mapper`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/audience-belief-mapper) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "map what our buyers believe", "capture the objections we keep hearin... |
 | [`axton-obsidian-visual`](../../library/axtonliu-axton-obsidian-visual-skills/skills/axton-obsidian-visual) | ⚪ Reserve | `axtonliu-axton-obsidian-visual-skills` | Generates Excalidraw, Mermaid, and Obsidian Canvas diagrams from text, supporting animations, m... |
 | [`blue-ocean-strategy`](../../library/wondelai-skills/skills/blue-ocean-strategy) | ⚪ Reserve | `wondelai-skills` | Create uncontested market space using value innovation instead of competing head-to-head. Use w... |
+| [`bmad-founder-agent-advisor`](../../library/bmad-code-org-bmad-method/skills/bmad-founder-agent-advisor) | ⚪ Reserve | `bmad-code-org-bmad-method` | Nadia, the Founder Advisor. Use when the user asks for Nadia, the founder advisor, the startup ... |
 | [`brand-growth-system-builder`](../../library/sickn33-agentic-awesome-skills/skills/brand-growth-system-builder) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Route requests across 13 brand and growth modules. Use when an SME needs help choosing branding... |
 | [`branding-favicon`](../../library/kostja94-marketing-skills/skills/branding-favicon) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to implement, optimize, or audit favicon and app icons. Also use when the u... |
 | [`browser-fingerprint-audit`](../../library/liarjsdev-liarjs-skills/skills/browser-fingerprint-audit) | ⚪ Reserve | `liarjsdev-liarjs-skills` | Audit a browser fingerprint for internal contradictions with the liarjs CLI - canvas, WebGL, We... |
@@ -132,8 +133,17 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-design-critique`](../../library/anthropics-knowledge-work/skills/skills-design-critique) | ⚪ Reserve | `anthropics-knowledge-work` | Get structured design feedback on usability, hierarchy, and consistency. Trigger with "review t... |
 | [`skills-design-system`](../../library/affaan-m-ecc/skills/skills-design-system) | ⚪ Reserve | `affaan-m-ecc` | アクセシビリティ、レスポンシブネス、テーマ設定、コンポーネント群、トークンを備えた本番環境対応デザインシステムの構築。Figma、Storybook、コンポーネントライブラリ統合。 |
 | [`skills-discover-brand`](../../library/anthropics-knowledge-work/skills/skills-discover-brand) | ⚪ Reserve | `anthropics-knowledge-work` | This skill orchestrates autonomous discovery of brand materials across enterprise platforms (No... |
+| [`skills-figma-generative-plugins`](../../library/figma-mcp-server-guide/skills/skills-figma-generative-plugins) | ⚪ Reserve | `figma-mcp-server-guide` | **MANDATORY prerequisite** — load this skill before calling `create_generative_plugin` or `upda... |
+| [`skills-figma-shaders`](../../library/figma-mcp-server-guide/skills/skills-figma-shaders) | ⚪ Reserve | `figma-mcp-server-guide` | **MANDATORY prerequisite** — load this skill before calling `create_shader` or `update_shader`.... |
+| [`skills-figma-spec`](../../library/figma-mcp-server-guide/skills/skills-figma-spec) | ⚪ Reserve | `figma-mcp-server-guide` | This skill is required to create, read, edit, review, or comment on Figma specs. You must read ... |
+| [`skills-figma-use`](../../library/figma-mcp-server-guide/skills/skills-figma-use) | ⚪ Reserve | `figma-mcp-server-guide` | **MANDATORY prerequisite** — you MUST invoke this skill BEFORE every `use_figma` tool call. NEV... |
+| [`skills-figma-use-slides`](../../library/figma-mcp-server-guide/skills/skills-figma-use-slides) | ⚪ Reserve | `figma-mcp-server-guide` | This skill helps agents use Figma's use_figma MCP tool in the Slides context. Can be used along... |
+| [`skills-figquery-figma-use`](../../library/figma-mcp-server-guide/skills/skills-figquery-figma-use) | ⚪ Reserve | `figma-mcp-server-guide` | **MANDATORY prerequisite** — you MUST invoke this skill BEFORE every `use_figma` tool call. NEV... |
+| [`skills-json-canvas`](../../library/kepano-obsidian-skills/skills/skills-json-canvas) | ⚪ Reserve | `kepano-obsidian-skills` | Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use whe... |
+| [`skills-lean-ux-canvas`](../../library/deanpeters-product-manager-skills/skills/skills-lean-ux-canvas) | ⚪ Reserve | `deanpeters-product-manager-skills` | Guide teams through Lean UX Canvas v2. Use when framing a business problem, surfacing assumptio... |
 | [`skills-om-figma-design-with-ds`](../../library/open-mercato-skills/skills/skills-om-figma-design-with-ds) | ⚪ Reserve | `open-mercato-skills` | Design in a design tool (Figma or similar) on the repository's design system — write a brief fo... |
 | [`skills-open-design-integrations`](../../library/feimacode-open-design-agent-kit/skills/skills-open-design-integrations) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Show which services Open Design can use directly (Canva, Figma, Notion, Google Drive, Slack, so... |
+| [`skills-popup-cro`](../../library/alirezarezvani-claude-skills/skills/skills-popup-cro) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when creating or fixing a popup, modal, exit-intent, slide-in or banner meant to convert. S... |
 | [`skills-rfc`](../../library/feimacode-open-design-agent-kit/skills/skills-rfc) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A request for comments: the problem, goals and non-goals, the proposal with the alternatives co... |
 | [`skills-social-content-engine`](../../library/anthropics-knowledge-work/skills/skills-social-content-engine) | ⚪ Reserve | `anthropics-knowledge-work` | Runs the owner's content operation as a standing thing rather than a one-off: keeps a rolling p... |
 | [`skills-ui-ugui`](../../library/unity-technologies-skills/skills/skills-ui-ugui) | ⚪ Reserve | `unity-technologies-skills` | Understands, edits, and generates Unity uGUI Canvas hierarchies, RectTransforms, Layout Groups,... |
@@ -144,6 +154,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`student-developer-programs`](../../library/samber-developer-relations-skills/skills/student-developer-programs) | ⚪ Reserve | `samber-developer-relations-skills` | Designs a company's student and university developer program: the one job it serves (adoption a... |
 | [`team-okrs`](../../library/feimacode-open-design-agent-kit/skills/team-okrs) | ⚪ Reserve | `feimacode-open-design-agent-kit` | OKR tracker page — quarter banner, three objectives with their key results as progress bars, ow... |
 | [`tech-employer-branding`](../../library/samber-developer-relations-skills/skills/tech-employer-branding) | ⚪ Reserve | `samber-developer-relations-skills` | Designs an employer-brand strategy for attracting software engineers - the engineering EVP, the... |
+| [`threejs-scene-setup`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/threejs-scene-setup) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Sets up and debugs a plain three.js r187 game or 3D scene: import maps, Scene, PerspectiveCamer... |
 | [`tiktok-shop-branding`](../../library/nexscope-ai-ecommerce-skills/skills/tiktok-shop-branding) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Brand building and positioning on TikTok Shop. Brand identity development, content pillars, com... |
 | [`tldraw-whiteboard-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/tldraw-whiteboard-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Guide to tldraw for infinite canvas whiteboarding and diagram creation |
 | [`trace-audience-belief-mapper`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/trace-audience-belief-mapper) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "map what our buyers believe", "capture the objections we keep hearin... |

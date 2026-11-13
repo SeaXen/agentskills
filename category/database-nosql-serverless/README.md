@@ -1,7 +1,7 @@
 # ⚡ NoSQL, Serverless & Vector DBs
 
 > **Category**: `database-nosql-serverless`  
-> **Total Curated Skills**: 132 skills  
+> **Total Curated Skills**: 134 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -49,6 +49,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`crash-analytics`](../../library/appeeky-aso-skills/skills/crash-analytics) | ⚪ Reserve | `appeeky-aso-skills` | When the user wants to monitor, triage, or reduce their app's crash rate — including setting up... |
 | [`cvss-scoring`](../../library/trailofbits-skills/skills/cvss-scoring) | ⚪ Reserve | `trailofbits-skills` | Produces CVSS v4.0 vector strings from plain-text vulnerability descriptions by systematically ... |
 | [`database-patterns`](../../library/majiayu000-spellbook/skills/database-patterns) | ⚪ Reserve | `majiayu000-spellbook` | Use when designing PostgreSQL + Redis data models, indexes, caching strategies, JSONB usage, ti... |
+| [`database-skills-amazon-dynamodb`](../../library/aws-agent-toolkit-for-aws/skills/database-skills-amazon-dynamodb) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Designs, reviews, and debugs DynamoDB data layers from design axioms — enumerates access patter... |
 | [`debug-buttercup`](../../library/sickn33-agentic-awesome-skills/skills/debug-buttercup) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | All pods run in namespace crs. Use when pods in the crs namespace are in CrashLoopBackOff, OOMK... |
 | [`deep-searcher-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/deep-searcher-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Open deep research alternative for private data with vector search |
 | [`deepeval-tracing`](../../library/confident-ai-deepeval/skills/deepeval-tracing) | ⚪ Reserve | `confident-ai-deepeval` | Instrument an AI application with DeepEval's native tracing so its behavior is visible in Confi... |
@@ -125,6 +126,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-firebase-security-rules-auditor`](../../library/firebase-agent-skills/skills/skills-firebase-security-rules-auditor) | ⚪ Reserve | `firebase-agent-skills` | Audits Firebase (Firestore, Cloud Storage) security rules for vulnerabilities, privilege escala... |
 | [`skills-firestore-rules-creation`](../../library/firebase-agent-skills/skills/skills-firestore-rules-creation) | ⚪ Reserve | `firebase-agent-skills` | Designs, authors, refactors, and hardens production-grade Cloud Firestore Security Rules (fires... |
 | [`skills-mirrord-header-propagation`](../../library/metalbear-co-mirrord/skills/skills-mirrord-header-propagation) | ⚪ Reserve | `metalbear-co-mirrord` | Makes a codebase propagate W3C baggage (the `baggage` header carrying `mirrord-session=<key>`) ... |
+| [`skills-rag-architect`](../../library/alirezarezvani-claude-skills/skills/skills-rag-architect) | ⚪ Reserve | `alirezarezvani-claude-skills` | Design a RAG pipeline: chunk size, embedding model, vector database and retrieval quality metri... |
 | [`skills-rag-implementation`](../../library/wshobson-agents/skills/skills-rag-implementation) | ⚪ Reserve | `wshobson-agents` | Build Retrieval-Augmented Generation (RAG) systems for LLM applications with vector databases a... |
 | [`skills-redis-patterns`](../../library/affaan-m-ecc/skills/skills-redis-patterns) | ⚪ Reserve | `affaan-m-ecc` | Redisデータ構造パターン、キャッシング戦略、分散ロック、レート制限、Pub/Sub、本番アプリケーション用コネクション管理。 |
 | [`skills-xcode-project-setup`](../../library/firebase-agent-skills/skills/skills-xcode-project-setup) | ⚪ Reserve | `firebase-agent-skills` | Safely modifies Xcode projects (.pbxproj) to add Swift Packages and link files. Use this skill ... |

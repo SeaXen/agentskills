@@ -4,7 +4,7 @@
     "name": "browser-use",
     "repository": "browser-use-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Direct browser control via CDP for web interaction: automation, scraping, testing, screenshots, and site/app work. Also covers hosted cloud browsers for AI agents: the browser-use Python library (Browser(use_cloud=True)), Playwright, Puppeteer or any CDP client.\"",
     "path": "library/browser-use-skills/skills/browser-use",
     "activation_cmd": "python .agents/library/activate_skill.py activate browser-use",
     "link_cmd": "python .agents/library/activate_skill.py link browser-use"
@@ -14,7 +14,7 @@
     "name": "cloud",
     "repository": "browser-use-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/browser-use-skills/skills/cloud",
     "activation_cmd": "python .agents/library/activate_skill.py activate cloud",
     "link_cmd": "python .agents/library/activate_skill.py link cloud"
@@ -24,7 +24,7 @@
     "name": "open-source",
     "repository": "browser-use-skills",
     "category": "general",
-    "description": "",
+    "description": ">",
     "path": "library/browser-use-skills/skills/open-source",
     "activation_cmd": "python .agents/library/activate_skill.py activate open-source",
     "link_cmd": "python .agents/library/activate_skill.py link open-source"
@@ -34,7 +34,7 @@
     "name": "qa",
     "repository": "browser-use-skills",
     "category": "general",
-    "description": "",
+    "description": "QA-test a website or web app and return a 1-5 quality score (5 = flawless, 1 = broken) with evidence. Use when the user wants to test, QA, evaluate, score, or \"check how good\" a site, page, flow, or app \u2014 including a local dev server (e.g. \"qa test localhost:5173\", \"does the checkout work?\", \"rate this landing page\"). Drives a real Browser Use cloud browser, tunneling localhost automatically.",
     "path": "library/browser-use-skills/skills/qa",
     "activation_cmd": "python .agents/library/activate_skill.py activate qa",
     "link_cmd": "python .agents/library/activate_skill.py link qa"
@@ -44,17 +44,57 @@
     "name": "remote-browser",
     "repository": "browser-use-skills",
     "category": "general",
-    "description": "",
+    "description": "Controls an isolated Browser Use Cloud browser from a sandboxed machine with the current Browser Use CLI.",
     "path": "library/browser-use-skills/skills/remote-browser",
     "activation_cmd": "python .agents/library/activate_skill.py activate remote-browser",
     "link_cmd": "python .agents/library/activate_skill.py link remote-browser"
+  },
+  {
+    "id": "skills-browser-use",
+    "name": "skills-browser-use",
+    "repository": "browser-use-skills",
+    "category": "general",
+    "description": "\"Direct browser control via CDP for web interaction: automation, scraping, testing, screenshots, and site/app work. Also covers hosted cloud browsers for AI agents: the browser-use Python library (Browser()), Playwright, Puppeteer or any CDP client.\"",
+    "path": "library/browser-use-skills/skills/skills-browser-use",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-browser-use",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-browser-use"
+  },
+  {
+    "id": "skills-open-source",
+    "name": "skills-open-source",
+    "repository": "browser-use-skills",
+    "category": "general",
+    "description": ">",
+    "path": "library/browser-use-skills/skills/skills-open-source",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-open-source",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-open-source"
+  },
+  {
+    "id": "skills-qa",
+    "name": "skills-qa",
+    "repository": "browser-use-skills",
+    "category": "general",
+    "description": "QA-test a website or web app and return a 1-5 quality score (5 = flawless, 1 = broken) with evidence. Use when the user wants to test, QA, evaluate, score, or \"check how good\" a site, page, flow, or app \u2014 including a local dev server (e.g. \"qa test localhost:5173\", \"does the checkout work?\", \"rate this landing page\"). Drives a real Browser Use cloud browser, tunneling localhost automatically.",
+    "path": "library/browser-use-skills/skills/skills-qa",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-qa",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-qa"
+  },
+  {
+    "id": "skills-x402",
+    "name": "skills-x402",
+    "repository": "browser-use-skills",
+    "category": "general",
+    "description": "Set up Browser Use Cloud payments with x402 \u2014 pay per request from a crypto wallet (USDC on Base mainnet), no signup or API key. Two setups it works out up front \u2014 \"just use it\" (set up a wallet so you or Claude Code can run cloud browser tasks paid from the wallet \u2014 Claude writes and runs throwaway scripts, nothing touches your codebase) or \"build it in\" (install the SDK and write the key + code into your project). Walks through wallet setup, funding, .env, and a ~$1 test run. Use when the user asks about x402, pay-per-use, USDC payments, or wants Browser Use Cloud without an API key. For an API key instead, run `browser-use login` or use the `cloud` skill.",
+    "path": "library/browser-use-skills/skills/skills-x402",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-x402",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-x402"
   },
   {
     "id": "x402",
     "name": "x402",
     "repository": "browser-use-skills",
     "category": "general",
-    "description": "",
+    "description": "Set up Browser Use Cloud payments with x402 \u2014 pay per request from a crypto wallet (USDC on Base mainnet), no signup or API key. Two setups it works out up front \u2014 \"just use it\" (set up a wallet so you or Claude Code can run cloud browser tasks paid from the wallet \u2014 Claude writes and runs throwaway scripts, nothing touches your codebase) or \"build it in\" (install the SDK and write the key + code into your project). Walks through wallet setup, funding, .env, and a ~$1 test run. Use when the user asks about x402, pay-per-use, USDC payments, or wants Browser Use Cloud without an API key. For the free-tier signup (reverse-CAPTCHA \u2192 API key), use `browser-use cloud signup` or the `cloud` skill instead.",
     "path": "library/browser-use-skills/skills/x402",
     "activation_cmd": "python .agents/library/activate_skill.py activate x402",
     "link_cmd": "python .agents/library/activate_skill.py link x402"

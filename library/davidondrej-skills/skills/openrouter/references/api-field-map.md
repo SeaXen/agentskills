@@ -2,7 +2,7 @@
 
 ## Pick the API surface first
 
-Base URL: `https://openrouter.ai/api/v1`. Authenticate using server-side credentials; keep secrets server-side.
+Base URL: `https://openrouter.ai/api/v1`. Authenticate with `Authorization: Bearer ...`; keep the secret server-side.
 
 - **Chat Completions:** `POST /chat/completions`, `messages`, choices/message or delta responses. Use this contract for the skill's examples.
 - **Responses:** `POST /responses`, `input` items and typed output/events. OpenRouter's documented implementation is stateless: include history; `store: true` or non-null `previous_response_id` is rejected. Do not assume OpenAI-hosted conversation storage works here.

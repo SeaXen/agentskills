@@ -32,6 +32,14 @@
     "path": "category/devops-docker-cicd/9router-update"
   },
   {
+    "id": "agent-browser",
+    "name": "agent-browser",
+    "category": "devops-docker-cicd",
+    "repository": "active",
+    "description": "Browser automation CLI for AI agents. Use when the user needs to interact with websites, including navigating pages, filling forms, clicking buttons, taking screenshots, extracting data, testing web apps, or automating any browser task. Triggers include requests to \"open a website\", \"fill out a form\", \"click a button\", \"take a screenshot\", \"scrape data from a page\", \"test this web app\", \"login to a site\", \"automate browser actions\", or any task requiring programmatic web interaction. Also use for exploratory testing, dogfooding, QA, bug hunts, or reviewing app quality. Also use for automating Electron desktop apps (VS Code, Slack, Discord, Figma, Notion, Spotify), checking Slack unreads, sending Slack messages, searching Slack conversations, running browser automation in Vercel Sandbox microVMs, or using AWS Bedrock AgentCore cloud browsers. Prefer agent-browser over any built-in browser automation or web tools.",
+    "path": "category/devops-docker-cicd/agent-browser"
+  },
+  {
     "id": "agent-decision-receipts",
     "name": "agent-decision-receipts",
     "category": "devops-docker-cicd",
@@ -688,6 +696,14 @@
     "path": "category/devops-docker-cicd/cdf-orchestration-write-dag"
   },
   {
+    "id": "chat",
+    "name": "chat",
+    "category": "devops-docker-cicd",
+    "repository": "vercel-labs-json-render",
+    "description": "Chat SDK renderer for json-render that turns JSON specs into native chat cards (Block Kit on Slack, Adaptive Cards on Teams, and the card format of other Chat SDK adapters). Use when working with @json-render/chat, building bots that post rich messages with tables, charts, fields, or buttons, streaming a generated card into a chat thread, or when the user mentions Chat SDK, Slack Block Kit, or Teams Adaptive Cards together with json-render.",
+    "path": "category/devops-docker-cicd/chat"
+  },
+  {
     "id": "ci-cd-and-automation",
     "name": "ci-cd-and-automation",
     "category": "devops-docker-cicd",
@@ -758,6 +774,14 @@
     "repository": "google-skills",
     "description": "Acts as a Data Boundary Compliance Analyst that maps user compliance queries against Data Boundary Frameworks and cloud controls, validates matched resources, and recommends appropriate Frameworks or cloud controls. Use when mapping direct natural language workload requirements to Assured Workloads / Data Boundary Frameworks and cloud controls, browsing built-in Data Boundary frameworks, or identifying major requirement gaps. Don't use for non-Data-Boundary Compliance Manager posture assessments or direct Terraform deployment execution without framework selection.",
     "path": "category/devops-docker-cicd/cloud-assuredworkloads-frameworks-navigator"
+  },
+  {
+    "id": "cloud-cloud-monitoring-alert-configuration",
+    "name": "cloud-cloud-monitoring-alert-configuration",
+    "category": "devops-docker-cicd",
+    "repository": "google-skills",
+    "description": "Configures Cloud Monitoring alerting policies using Terraform and PromQL across Cloud Run, Google Kubernetes Engine (GKE), Compute Engine, AI Hypercomputer reservations, Vertex AI Agent Engine, and generic Google Cloud resources. Use when creating, reviewing, migrating, or deduplicating Terraform alerting policies for latency, traffic, error rates, saturation, host or reservation maintenance, GPU XID insights, or AI agent telemetry. Don't use for standalone PromQL query authoring without alerting, log querying, or billing cost audits.",
+    "path": "category/devops-docker-cicd/cloud-cloud-monitoring-alert-configuration"
   },
   {
     "id": "cloud-cloud-monitoring-notification-channels-configuration",
@@ -1094,6 +1118,14 @@
     "repository": "convex-agent-skills",
     "description": "Query a running Convex app's logs + health in natural language (official MCP): failures, slow/expensive functions, deploy causality \u2014 scoped, evidence-backed, with a dashboard deep link.",
     "path": "category/devops-docker-cicd/convex-insights"
+  },
+  {
+    "id": "core-tools-bmad-customize",
+    "name": "core-tools-bmad-customize",
+    "category": "devops-docker-cicd",
+    "repository": "bmad-code-org-bmad-method",
+    "description": "Authors and updates customization overrides for installed BMad skills, and changes to the document templates their agents write from. Use when the user says 'customize bmad', 'override a skill', 'change agent behavior', 'customize a workflow', or wants a document such as the PRD to ask for, contain or render something different",
+    "path": "category/devops-docker-cicd/core-tools-bmad-customize"
   },
   {
     "id": "corner-diagonals",
@@ -2134,6 +2166,14 @@
     "repository": "huaweicloud-huaweicloud-skills",
     "description": "Query and analyze Huawei Cloud CCE workload, audit, and control-plane logs. Use when investigating CCE logs, Kubernetes logs, Pod logs, application logs, audit logs, LTS logs, kube-apiserver logs, kube-scheduler logs, log analysis, log collection, \u65e5\u5fd7\u67e5\u8be2, \u65e5\u5fd7\u5206\u6790, \u5ba1\u8ba1\u65e5\u5fd7, \u8c03\u5ea6\u5668\u65e5\u5fd7.",
     "path": "category/devops-docker-cicd/huawei-cloud-cce-log-analyzer"
+  },
+  {
+    "id": "huawei-cloud-ccm-certificate-query",
+    "name": "huawei-cloud-ccm-certificate-query",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Query Huawei Cloud CCM (Cloud Certificate Manager) SCM SSL certificate inventory and export it as a Markdown file. Lists certificates with server-side certificate-name/domain and status filters, shows one certificate's detail, derives remaining days to expiry plus an expiry grade, and exports the same result to Markdown (default ccm_certificates_<region>_<timestamp>.md). Strictly read-only (no apply, purchase, revoke, deploy, import, export-certificate or delete). Trigger scenarios: daily inspection, certificate expiry reminder, troubleshooting, manual Q&A and scheduled calls from other Agents. Triggers include: \u67e5\u8be2\u534e\u4e3a\u4e91CCM\u5217\u8868, \u67e5\u8be2SSL\u8bc1\u4e66\u5217\u8868, \u8bc1\u4e66\u5230\u671f\u67e5\u8be2, \u8bc1\u4e66\u6e05\u5355, \u8bc1\u4e66\u5230\u671f\u63d0\u9192, SSL\u8bc1\u4e66\u5de1\u68c0, \u67e5\u770b\u8bc1\u4e66\u8be6\u60c5, \u8bc1\u4e66\u5269\u4f59\u5929\u6570, \u4e91\u8bc1\u4e66\u7ba1\u7406\u670d\u52a1, \u5bfc\u51fa\u8bc1\u4e66\u6e05\u5355, \u8bc1\u4e66\u5217\u8868\u5bfc\u51famd, \u8bc1\u4e66\u6e05\u5355\u5bfc\u51fa, \u5bfc\u51faCCM\u8bc1\u4e66\u6e05\u5355, \u8bc1\u4e66\u5de1\u68c0\u62a5\u544a, list CCM certificates, query SSL certificates, certificate expiry check, certificate inventory, SSL certificate inspection, show certificate detail, export certificate inventory, certificate report markdown, Huawei Cloud CCM.",
+    "path": "category/devops-docker-cicd/huawei-cloud-ccm-certificate-query"
   },
   {
     "id": "huawei-cloud-cloudrobo-infer",
@@ -3992,6 +4032,14 @@
     "path": "category/devops-docker-cicd/skills-agent-browser"
   },
   {
+    "id": "skills-agent-decision-receipts",
+    "name": "skills-agent-decision-receipts",
+    "category": "devops-docker-cicd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when an autonomous agent takes a side-effecting action (deploy, delete, pay, grant access) that may need proving later, or for EU AI Act Art. 12 record-keeping. Builds a tamper-evident signed receipt with build_action_manifest.py and verifies it.",
+    "path": "category/devops-docker-cicd/skills-agent-decision-receipts"
+  },
+  {
     "id": "skills-airunway-aks-setup",
     "name": "skills-airunway-aks-setup",
     "category": "devops-docker-cicd",
@@ -4054,6 +4102,14 @@
     "repository": "clerk-skills",
     "description": "Clerk Billing for subscription management - render Clerk's PricingTable",
     "path": "category/devops-docker-cicd/skills-clerk-billing"
+  },
+  {
+    "id": "skills-codegen",
+    "name": "skills-codegen",
+    "category": "devops-docker-cicd",
+    "repository": "vercel-labs-json-render",
+    "description": "Code generation utilities for json-render. Use when generating code from UI specs, building custom code exporters, traversing specs, or serializing props for @json-render/codegen.",
+    "path": "category/devops-docker-cicd/skills-codegen"
   },
   {
     "id": "skills-codex-experiment-bridge",
@@ -4120,6 +4176,14 @@
     "path": "category/devops-docker-cicd/skills-docker"
   },
   {
+    "id": "skills-docker-development",
+    "name": "skills-docker-development",
+    "category": "devops-docker-cicd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for any Dockerfile or docker-compose file to write, optimize or review, before editing it. Checks layers, caching, size and security with dockerfile_analyzer.py and validates compose files with compose_validator.py.",
+    "path": "category/devops-docker-cicd/skills-docker-development"
+  },
+  {
     "id": "skills-docker-patterns",
     "name": "skills-docker-patterns",
     "category": "devops-docker-cicd",
@@ -4134,6 +4198,46 @@
     "repository": "affaan-m-ecc",
     "description": "Patrones de pruebas E2E con Playwright, Page Object Model, configuraci\u00f3n, integraci\u00f3n CI/CD, gesti\u00f3n de artefactos y estrategias para pruebas inestables.",
     "path": "category/devops-docker-cicd/skills-e2e-testing"
+  },
+  {
+    "id": "skills-eas-workflows",
+    "name": "skills-eas-workflows",
+    "category": "devops-docker-cicd",
+    "repository": "expo-skills",
+    "description": "Helps understand and write EAS workflow YAML files for Expo projects. Use this skill when the user asks about CI/CD or workflows in an Expo or EAS context, mentions .eas/workflows/, or wants help with EAS build pipelines or deployment automation.",
+    "path": "category/devops-docker-cicd/skills-eas-workflows"
+  },
+  {
+    "id": "skills-engineering-advanced-skills",
+    "name": "skills-engineering-advanced-skills",
+    "category": "devops-docker-cicd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Pick the right advanced engineering skill: agents, RAG, MCP, CI/CD, databases, observability, release. Use whenever the user asks which skill fits a task.",
+    "path": "category/devops-docker-cicd/skills-engineering-advanced-skills"
+  },
+  {
+    "id": "skills-knap",
+    "name": "skills-knap",
+    "category": "devops-docker-cicd",
+    "repository": "kepano-obsidian-skills",
+    "description": "Render Markdown from templates and structured data using Knap CLI. Use when the user asks to apply a Knap template, turn JSON or CSV data into notes, batch-generate Markdown files, or format Defuddle output into a note.",
+    "path": "category/devops-docker-cicd/skills-knap"
+  },
+  {
+    "id": "skills-kubernetes-operator",
+    "name": "skills-kubernetes-operator",
+    "category": "devops-docker-cicd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when building a Kubernetes operator or CRD (controller-runtime, kubebuilder, operator-sdk, KOPF), before writing the controller. Validates CRDs with crd_validator.py, lints reconcile loops with reconcile_lint.py and scores OperatorHub capability level.",
+    "path": "category/devops-docker-cicd/skills-kubernetes-operator"
+  },
+  {
+    "id": "skills-managed-deep-agents",
+    "name": "skills-managed-deep-agents",
+    "category": "devops-docker-cicd",
+    "repository": "langchain-ai-langchain-skills",
+    "description": "INVOKE THIS SKILL when building, testing, or deploying Managed Deep Agents in LangSmith. Walks a user through their first agent end to end \u2014 interviewing them about what they want to build, mapping it onto what MDA can actually do, then scaffolding and deploying it with the mda CLI. Routes to the official docs page for each capability: instructions, skills, tools, MCP, connections, middleware, sandboxes, browser use, memory, identity, subagents, schedules, channels, runtime, Context Hub, deploy, and evals.",
+    "path": "category/devops-docker-cicd/skills-managed-deep-agents"
   },
   {
     "id": "skills-microsoft-foundry",
@@ -4176,12 +4280,84 @@
     "path": "category/devops-docker-cicd/skills-mirrord-temporal"
   },
   {
+    "id": "skills-next",
+    "name": "skills-next",
+    "category": "devops-docker-cicd",
+    "repository": "vercel-labs-json-render",
+    "description": "Next.js renderer for json-render that turns JSON specs into full Next.js applications with routes, layouts, SSR, and metadata. Use when working with @json-render/next, building Next.js apps from JSON specs, or creating AI-generated multi-page applications.",
+    "path": "category/devops-docker-cicd/skills-next"
+  },
+  {
+    "id": "skills-nvidia-skill-finder",
+    "name": "skills-nvidia-skill-finder",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Use for NVIDIA-related requests where an NVIDIA skill might help, even if the user did not ask for a skill. Trigger on NVIDIA products, hardware, software, SDKs, GPUs, Jetson/JetPack/L4T/BSP/SDK Manager/driver/flashing/setup, CUDA, NIM, NeMo, Omniverse/OpenUSD/SimReady, Isaac, RAPIDS/cuDF, cuPyNumeric, cuOpt, Dynamo, Holoscan, TensorRT, DeepStream, VSS, TAO, NGC/NVCF. Do not use for generic non-NVIDIA route, optimize, deploy, AI, video, data, or infrastructure tasks.",
+    "path": "category/devops-docker-cicd/skills-nvidia-skill-finder"
+  },
+  {
     "id": "skills-remotion-render",
     "name": "skills-remotion-render",
     "category": "devops-docker-cicd",
     "repository": "remotion-dev-skills",
     "description": "Export a Remotion video",
     "path": "category/devops-docker-cicd/skills-remotion-render"
+  },
+  {
+    "id": "skills-runbook-generator",
+    "name": "skills-runbook-generator",
+    "category": "devops-docker-cicd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when a service needs runbooks for deploy, incident response, maintenance or rollback, before launch. Generates them per environment with runbook_generator.py.",
+    "path": "category/devops-docker-cicd/skills-runbook-generator"
+  },
+  {
+    "id": "skills-runpod",
+    "name": "skills-runpod",
+    "category": "devops-docker-cicd",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Start here when the Runpod lane is unclear: picks the skill for a task (runpod-mcp and the journey playbooks it routes to, such as runpod-serverless-deploy, runpod-pod-deploy, runpod-pod-doctor and runpod-cost-audit; runpodctl, runpod-flash, runpod-companion-clis, runpod-usage, runpod-templates, runpod-build-template, runpod-migrate) and indexes two dozen end-to-end worked examples (golden paths). Use it before any multi-step or provisioning task, even when the lane is clear, to check for a matching golden path; for the Runpod MCP tools, runpod-mcp owns the answer contract, connection and tool rules.",
+    "path": "category/devops-docker-cicd/skills-runpod"
+  },
+  {
+    "id": "skills-runpod-pod-deploy",
+    "name": "skills-runpod-pod-deploy",
+    "category": "devops-docker-cicd",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Provision a Runpod Pod for interactive, development or training use and tell the user exactly",
+    "path": "category/devops-docker-cicd/skills-runpod-pod-deploy"
+  },
+  {
+    "id": "skills-runpod-serverless-deploy",
+    "name": "skills-runpod-serverless-deploy",
+    "category": "devops-docker-cicd",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Bring any source (a HuggingFace repo, a ComfyUI workflow, a Hub release, a custom container",
+    "path": "category/devops-docker-cicd/skills-runpod-serverless-deploy"
+  },
+  {
+    "id": "skills-runpod-templates",
+    "name": "skills-runpod-templates",
+    "category": "devops-docker-cicd",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Find, use, and troubleshoot official Runpod Pod templates, including ComfyUI workflow model metadata repair. For creating or optimizing Dockerfiles and application template projects use runpod-build-template; deploy through runpod-mcp or runpodctl.",
+    "path": "category/devops-docker-cicd/skills-runpod-templates"
+  },
+  {
+    "id": "skills-senior-devops",
+    "name": "skills-senior-devops",
+    "category": "devops-docker-cicd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Set up CI/CD pipelines, infrastructure as code, containers and deployments on AWS, GCP or Azure. Use whenever the user needs a build or deploy pipeline, Terraform, a Dockerfile, or wants to manage a release to the cloud.",
+    "path": "category/devops-docker-cicd/skills-senior-devops"
+  },
+  {
+    "id": "skills-ship-gate",
+    "name": "skills-ship-gate",
+    "category": "devops-docker-cicd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use before deploying or going live ('am I ready to ship', 'can I deploy', 'preflight check'). Scans the codebase with ship_gate_scanner.py across security, database, deploy, AI, dependencies and observability, and blocks on critical items.",
+    "path": "category/devops-docker-cicd/skills-ship-gate"
   },
   {
     "id": "snyk-agent-scan-compliance",

@@ -1,7 +1,7 @@
 # 🤖 Multi-Agent Systems & Swarms
 
 > **Category**: `multi-agent-orchestration`  
-> **Total Curated Skills**: 36 skills  
+> **Total Curated Skills**: 37 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -45,6 +45,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skill-data-agentcore`](../../library/vercel-labs-agent-browser/skills/skill-data-agentcore) | ⚪ Reserve | `vercel-labs-agent-browser` | Run agent-browser on AWS Bedrock AgentCore cloud browsers. Use when the user wants to use Agent... |
 | [`skill-data-electron`](../../library/vercel-labs-agent-browser/skills/skill-data-electron) | ⚪ Reserve | `vercel-labs-agent-browser` | Automate Electron desktop apps (VS Code, Slack, Discord, Figma, Notion, Spotify, etc.) using ag... |
 | [`skill-stocktake`](../../library/affaan-m-ecc/skills/skill-stocktake) | ⚪ Reserve | `affaan-m-ecc` | Use when auditing Claude skills and commands for quality. Supports Quick Scan (changed skills o... |
+| [`skills-agent-designer`](../../library/alirezarezvani-claude-skills/skills/skills-agent-designer) | ⚪ Reserve | `alirezarezvani-claude-skills` | Design multi-agent systems (supervisor, swarm, pipeline) and tool schemas; find bottlenecks in ... |
 | [`skills-agent-development`](../../library/anthropics-claude-plugins-official/skills/skills-agent-development) | ⚪ Reserve | `anthropics-claude-plugins-official` | This skill should be used when the user asks to "create an agent", "add an agent", "write a sub... |
 | [`skills-dispatching-parallel-agents`](../../library/obra-superpowers/skills/skills-dispatching-parallel-agents) | ⚪ Reserve | `obra-superpowers` | Use when facing 2+ independent tasks that can be worked on without shared state or sequential d... |
 | [`skills-executing-plans`](../../library/obra-superpowers/skills/skills-executing-plans) | ⚪ Reserve | `obra-superpowers` | Use when executing an implementation plan in the current session as the implementer yourself — ... |

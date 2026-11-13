@@ -232,6 +232,14 @@
     "path": "category/testing-unit-tdd/agent-qa-testing"
   },
   {
+    "id": "agent-run-forensics",
+    "name": "agent-run-forensics",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when asked why an agent did something, what a past session or run changed, whether tests really passed, or to verify a session summary. Answers from the recorded transcript, not memory, with trace_finder.py, trace_timeline.py and claim_checker.py.",
+    "path": "category/testing-unit-tdd/agent-run-forensics"
+  },
+  {
     "id": "agent-security-hardening",
     "name": "agent-security-hardening",
     "category": "testing-unit-tdd",
@@ -528,6 +536,14 @@
     "path": "category/testing-unit-tdd/awesome-cursor-skills"
   },
   {
+    "id": "aws-emulator",
+    "name": "aws-emulator",
+    "category": "testing-unit-tdd",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Installs, starts and troubleshoots AWS Emulator, the local emulator of AWS service APIs, and checks whether a project or a single operation works on the installed build. Use when the user wants to install or start the emulator, point the AWS CLI or an AWS SDK at it, fix a connection, TLS, certificate or request-signing error against it, run it in containers, CI or an agent sandbox, or asks whether AWS Emulator supports, works with, or is faithful enough for their app, repo, tests or a specific AWS operation (any language, SDK, CLI or IaC). Covers AWS Emulator only. Does not apply when the user asks about LocalStack, moto or any other local emulator or mock, including what it supports or whether an app works on it, and not for deploying to real AWS or production use.",
+    "path": "category/testing-unit-tdd/aws-emulator"
+  },
+  {
     "id": "aws-resilience-lifecycle",
     "name": "aws-resilience-lifecycle",
     "category": "testing-unit-tdd",
@@ -670,6 +686,22 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Stop ineffective AI coding repair loops with stable failure fingerprints, a three-attempt budget, real-path proof, negative controls, and tested rollback.",
     "path": "category/testing-unit-tdd/break-ai-fix-loops"
+  },
+  {
+    "id": "breakdown-diagnosis",
+    "name": "breakdown-diagnosis",
+    "category": "testing-unit-tdd",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "When a machine goes down, reads the sensor window before the failure, the asset's maintenance history including the free-text close-out notes technicians actually wrote, photos of what they can see, and the manufacturer's troubleshooting tree \u2014 then ranks likely causes, each with its supporting evidence, the specific prior work orders behind it, and the cheapest test that would tell them apart. Surfaces any safety implication before any diagnosis. Drafts the PM interval change that would stop it recurring, and emits a downtime record for the next production report. Batch mode ranks bad actors across every asset. Use when someone says \\\"the machine is down,\\\" \\\"what's wrong with this machine,\\\" \\\"why does this keep failing,\\\" \\\"diagnose this,\\\" or \\\"which machines are hurting us most.\\",
+    "path": "category/testing-unit-tdd/breakdown-diagnosis"
+  },
+  {
+    "id": "breakdown-to-next-report",
+    "name": "breakdown-to-next-report",
+    "category": "testing-unit-tdd",
+    "repository": "anthropics-claude-plugins-official",
+    "description": "Runs the chain from a machine going down to the diagnosis landing in tomorrow's production report: reads the sensor window, the maintenance history and its free-text close-out notes, technician photographs and the manufacturer's manual together, ranks likely causes with the cheapest test that tells them apart, then folds the diagnosis and its downtime into the next morning's downtime log and exceptions. Use when someone says \\\"run the breakdown chain,\\\" \\\"a machine went down,\\\" \\\"diagnose this and get it into the report,\\\" or \\\"breakdown to next report.\\",
+    "path": "category/testing-unit-tdd/breakdown-to-next-report"
   },
   {
     "id": "brownfield-retrospective",
@@ -1118,6 +1150,14 @@
     "repository": "mvschwarz-openrig",
     "description": "Use when an agent is preparing or performing an OpenRig CLI/daemon upgrade and must preserve live seats, verify each mutation, or reconcile managed plugin and skill files without overwriting local work.",
     "path": "category/testing-unit-tdd/core-openrig-upgrade"
+  },
+  {
+    "id": "core-tools-bmad-forge-idea",
+    "name": "core-tools-bmad-forge-idea",
+    "category": "testing-unit-tdd",
+    "repository": "bmad-code-org-bmad-method",
+    "description": "Test a half-formed idea in a questioning conversation, with different personas probing its weak points, until the user can act on it or drop it with confidence. Optionally writes a short brief for planning skills to build on. Use when the user says 'forge an idea', 'pressure-test this idea', 'stress-test my thinking', or 'harden this idea",
+    "path": "category/testing-unit-tdd/core-tools-bmad-forge-idea"
   },
   {
     "id": "correlation-analysis",
@@ -1840,6 +1880,30 @@
     "path": "category/testing-unit-tdd/fact-check-x-complete"
   },
   {
+    "id": "fastgen-dataset",
+    "name": "fastgen-dataset",
+    "category": "testing-unit-tdd",
+    "repository": "nvidia-skills",
+    "description": "Prepare, register or repair datasets for NVIDIA FastGen loaders: class-conditional ZIPs, WebDataset shards of images, prompts, latents, videos, audio or camera data, and KD pairs or trajectories; then verify decoded batches. For experiment configuration over already prepared data, use fastgen-configure.",
+    "path": "category/testing-unit-tdd/fastgen-dataset"
+  },
+  {
+    "id": "fastgen-train",
+    "name": "fastgen-train",
+    "category": "testing-unit-tdd",
+    "repository": "nvidia-skills",
+    "description": "Run, resume or troubleshoot NVIDIA FastGen training: SFT or distillation with train.py, bounded smoke tests, distributed launches, checkpoints, validation and W&B evidence. Use it whenever training is executed or a training run misbehaves.",
+    "path": "category/testing-unit-tdd/fastgen-train"
+  },
+  {
+    "id": "fastgen-validate",
+    "name": "fastgen-validate",
+    "category": "testing-unit-tdd",
+    "repository": "nvidia-skills",
+    "description": "Validate NVIDIA FastGen integrations and training quality: numerical parity against reference implementations, seeded side-by-side media, gradient and trainability checks, checkpoint round trips and repository tests. Use it whenever a claim about correctness, parity or quality needs evidence.",
+    "path": "category/testing-unit-tdd/fastgen-validate"
+  },
+  {
     "id": "feature-flag-system",
     "name": "feature-flag-system",
     "category": "testing-unit-tdd",
@@ -1998,6 +2062,14 @@
     "repository": "ruvnet-ruflo",
     "description": "Walk through a complete GAIA benchmark\u2192submit flow \u2014 from key resolution through HAL-compatible package generation",
     "path": "category/testing-unit-tdd/gaia-submission"
+  },
+  {
+    "id": "game-docs",
+    "name": "game-docs",
+    "category": "testing-unit-tdd",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "Writes and maintains a game's design docs: a one-page GDD with a feature index and short feature notes, kept true to the code by a link and status checker. Use for \"draft a GDD\", \"spec out this mechanic\", or updating docs after a playtest or code change. Not for building a game when no docs were asked for (`prototype-fast`, `game-jam`), READMEs or level layouts (`level-design`).",
+    "path": "category/testing-unit-tdd/game-docs"
   },
   {
     "id": "game-theory",
@@ -2776,6 +2848,14 @@
     "path": "category/testing-unit-tdd/mechanistic-interpretability-pyvene"
   },
   {
+    "id": "medical-device-software",
+    "name": "medical-device-software",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use for any question about the software inside a medical device, SaMD or regulated health app - which IEC 62304 safety class (A/B/C) it is and how much process and documentation that class needs, what to record about open-source or third-party libraries (SOUP, SBOM), trace matrix and release testing, IEC 81001-5-1 security, or the FDA documentation level and 524B cyber-device duties. Checks the user's files with four scripts that cite the clause.",
+    "path": "category/testing-unit-tdd/medical-device-software"
+  },
+  {
     "id": "medical-fcps-mrcp-exam-notes",
     "name": "medical-fcps-mrcp-exam-notes",
     "category": "testing-unit-tdd",
@@ -3046,6 +3126,70 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Complete Odoo backup and restore strategy: database dumps, filestore backup, automated scheduling, cloud storage upload, and tested restore procedures.",
     "path": "category/testing-unit-tdd/odoo-backup-strategy"
+  },
+  {
+    "id": "offensive-deauth-disassoc",
+    "name": "offensive-deauth-disassoc",
+    "category": "testing-unit-tdd",
+    "repository": "snailsploit-claude-red",
+    "description": "Deauthentication and disassociation attacks against 802.11 networks \u2014 targeted single-client deauth for handshake capture, broadcast deauth for DoS (with authorization), action-frame attacks bypassing 802.11w (PMF), beacon flooding, mdk4 / aireplay-ng tooling, and rate-limit / PMF-aware operation. Use to coerce client reconnection (handshake capture, evil-twin roaming), as targeted DoS, or to test PMF posture.",
+    "path": "category/testing-unit-tdd/offensive-deauth-disassoc"
+  },
+  {
+    "id": "offensive-krack-fragattacks",
+    "name": "offensive-krack-fragattacks",
+    "category": "testing-unit-tdd",
+    "repository": "snailsploit-claude-red",
+    "description": "KRACK (CVE-2017-13077..082) and FragAttacks (CVE-2020-24586..588 + 26139-26147) \u2014 key reinstallation, fragmentation, and aggregation attacks against WPA2 supplicants. Covers Vanhoef's test scripts, viability against modern patched stacks (mostly mitigated post-2021), residual unpatched embedded devices and IoT vendors, and the practical limitations of these attacks in modern engagements. Use when assessing legacy supplicants, embedded clients, or vendors with poor patch cadence.",
+    "path": "category/testing-unit-tdd/offensive-krack-fragattacks"
+  },
+  {
+    "id": "offensive-race-condition",
+    "name": "offensive-race-condition",
+    "category": "testing-unit-tdd",
+    "repository": "snailsploit-claude-red",
+    "description": "Race condition (TOCTOU) testing checklist: identifying timing windows, Burp Suite Turbo Intruder, Last-Byte sync technique, rate limit bypass, double-spend attacks, and concurrent request exploitation. Use for web app race condition testing or bug bounty time-of-check-to-time-of-use bugs.",
+    "path": "category/testing-unit-tdd/offensive-race-condition"
+  },
+  {
+    "id": "offensive-request-smuggling",
+    "name": "offensive-request-smuggling",
+    "category": "testing-unit-tdd",
+    "repository": "snailsploit-claude-red",
+    "description": "HTTP request smuggling checklist: CL.TE, TE.CL, TE.TE variants, detection with timing and differential responses, WAF bypass, cache poisoning, credential hijacking, and request smuggling via HTTP/2. Use when testing reverse proxy/load balancer configurations.",
+    "path": "category/testing-unit-tdd/offensive-request-smuggling"
+  },
+  {
+    "id": "offensive-ssrf",
+    "name": "offensive-ssrf",
+    "category": "testing-unit-tdd",
+    "repository": "snailsploit-claude-red",
+    "description": "Server-Side Request Forgery testing checklist: SSRF discovery, blind SSRF with out-of-band, cloud metadata endpoints (AWS/GCP/Azure), SSRF filter bypass techniques (IP encoding, DNS rebinding, redirect chains), and SSRF to RCE escalation. Use for web app SSRF testing and bug bounty.",
+    "path": "category/testing-unit-tdd/offensive-ssrf"
+  },
+  {
+    "id": "offensive-wifi",
+    "name": "offensive-wifi",
+    "category": "testing-unit-tdd",
+    "repository": "snailsploit-claude-red",
+    "description": "Wireless / 802.11 attack methodology for red team engagements and wireless security assessments. Covers monitor-mode setup, WPA/WPA2-PSK handshake capture and PMKID attacks, WPA3 SAE downgrade and Dragonblood, WPA-Enterprise (EAP) attacks (MSCHAPv2 cracking, EAP-TLS cert theft, evil-twin RADIUS), Karma / Known Beacons / Mana evil twin attacks, captive-portal phishing, KRACK and FragAttacks, WPS Pixie Dust, deauthentication and disassociation attacks, rogue AP construction (hostapd-mana), 802.1X bypass, MAC randomization defeat, BLE/Zigbee/IEEE 802.15.4 sidebands, and Wi-Fi 6/6E/7 considerations. Use when scoping wireless pentest, war-driving an estate, or testing corporate wireless segmentation.",
+    "path": "category/testing-unit-tdd/offensive-wifi"
+  },
+  {
+    "id": "offensive-xss",
+    "name": "offensive-xss",
+    "category": "testing-unit-tdd",
+    "repository": "snailsploit-claude-red",
+    "description": "Cross-Site Scripting testing checklist: stored/reflected/DOM/blind XSS discovery, polyglot payloads, CSP bypass, XSS filter bypass, event handler injection, DOM clobbering, mutation XSS, and impact escalation (session hijack, phishing, keylogging). Use for web app XSS testing and bug bounty.",
+    "path": "category/testing-unit-tdd/offensive-xss"
+  },
+  {
+    "id": "offensive-z-wave",
+    "name": "offensive-z-wave",
+    "category": "testing-unit-tdd",
+    "repository": "snailsploit-claude-red",
+    "description": "Z-Wave attack methodology \u2014 sniffing with Z-Force / EZ-Wave / RTL-SDR + ZniffMobile, S0 (legacy) network-key derivation flaw and key reuse, S2 (modern) ECDH commissioning analysis, replay/injection on unauthenticated nodes, default-key brute-force on test deployments, and home-automation hub pivots. Use when targeting Z-Wave smart home devices (door locks, sensors, garage controllers) \u2014 common in mid-2010s smart home deployments still in production.",
+    "path": "category/testing-unit-tdd/offensive-z-wave"
   },
   {
     "id": "om-mockup-prototype",
@@ -3528,6 +3672,14 @@
     "path": "category/testing-unit-tdd/product-skills"
   },
   {
+    "id": "productivity-grilling",
+    "name": "productivity-grilling",
+    "category": "testing-unit-tdd",
+    "repository": "mattpocock-skills",
+    "description": "Grill the user relentlessly about a plan, decision, or idea. Use when the user wants to stress-test their thinking, or uses any 'grill' trigger phrases.",
+    "path": "category/testing-unit-tdd/productivity-grilling"
+  },
+  {
     "id": "project-builder",
     "name": "project-builder",
     "category": "testing-unit-tdd",
@@ -3558,6 +3710,14 @@
     "repository": "coreyhaines31-marketingskills",
     "description": "When the user wants to find, qualify, and build a list of prospects to reach out to, across B2B SaaS, general B2B, or local small businesses. Also use when the user mentions \"prospecting,\" \"build a prospect list,\" \"find leads,\" \"lead list,\" \"outbound list,\" \"target account list,\" \"ICP-fit accounts,\" \"find local businesses,\" \"find my first customers,\" \"design partners,\" \"signal-based outbound,\" \"gap plays,\" \"buying signals,\" \"intent data,\" \"job change alerts,\" \"waterfall enrichment,\" \"Clay table,\" \"lookalike accounts,\" \"catch-all emails,\" \"account tiering,\" or \"research this account before I reach out.\" Always verify emails before they reach a sequence, and never scrape LinkedIn. Define audiences in Sales Navigator and pull contacts from licensed data. Covers list building, signals, enrichment, verification, and account research. For the outreach itself (copy, sending setup, LinkedIn, cadences, replies), see cold-email. For researching competitors, see competitor-profiling.",
     "path": "category/testing-unit-tdd/prospecting"
+  },
+  {
+    "id": "prototype-fast",
+    "name": "prototype-fast",
+    "category": "testing-unit-tdd",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "Builds a throwaway playable prototype in about an hour to answer one question, usually \"is this mechanic fun?\": a one-question brief, a greybox, a debug HUD, a playtest and a keep, kill or retune call. Use for \"prototype this\", \"just get something playable\" or whether to keep prototype code. Not for a timed jam (`game-jam`) or level blockouts (`level-design`).",
+    "path": "category/testing-unit-tdd/prototype-fast"
   },
   {
     "id": "prototype-pollution",
@@ -3830,6 +3990,14 @@
     "repository": "davidondrej-skills",
     "description": "Verify assumptions before implementing large or risky changes to APIs, provider data, billing, pricing, quotas, or defaults. Use when a mistake could affect customers or the user asks if a change is safe to ship. Checks real-world impact beyond passing tests.",
     "path": "category/testing-unit-tdd/risky-changes"
+  },
+  {
+    "id": "roblox-studio-workflow",
+    "name": "roblox-studio-workflow",
+    "category": "testing-unit-tdd",
+    "repository": "gamedev-skills-awesome-gamedev-agent-skills",
+    "description": "Safely edits an existing Roblox place or Rojo project: finds the source of truth and proves changes with the right test mode or Studio MCP (execute_luau). Use when an agent edits a .rbxl or Rojo project, works through Studio MCP tools, or must report what was tested. Not for installing Studio MCP (`roblox-get-started`) or the feature code (`roblox-luau`, `roblox-ui`).",
+    "path": "category/testing-unit-tdd/roblox-studio-workflow"
   },
   {
     "id": "robot-framework-skill",
@@ -4224,6 +4392,30 @@
     "path": "category/testing-unit-tdd/skill-tester-ci"
   },
   {
+    "id": "skills-ab-test-setup",
+    "name": "skills-ab-test-setup",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use before planning or launching any A/B, split or multivariate test, or when asked if a result is significant. Sizes the test with sample_size_calculator.py and writes the hypothesis, metric and stop rule first, so it is not called early on noise.",
+    "path": "category/testing-unit-tdd/skills-ab-test-setup"
+  },
+  {
+    "id": "skills-ab-testing",
+    "name": "skills-ab-testing",
+    "category": "testing-unit-tdd",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to plan, run, or read A/B tests, or asks a judgement call on one: is the result real, can we stop, which version won, is this worth testing at all: sample size, duration, significance, hypotheses, and experiment backlogs. For tracking setup, see analytics. For page-level conversion fixes, see cro.",
+    "path": "category/testing-unit-tdd/skills-ab-testing"
+  },
+  {
+    "id": "skills-analytics",
+    "name": "skills-analytics",
+    "category": "testing-unit-tdd",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to set up or audit analytics, or asks whether a metric or number is calculated right, what to track, or how to name events: tracking plans, GA4, GTM, Mixpanel, PostHog, UTMs. Rate metrics divide matching closed windows, never full-period spend by partial-period results. For conversions in ad platforms, see conversion-tracking. For attribution or platforms that over-claim, see attribution. For tests, see ab-testing.",
+    "path": "category/testing-unit-tdd/skills-analytics"
+  },
+  {
     "id": "skills-asc-id-resolver",
     "name": "skills-asc-id-resolver",
     "category": "testing-unit-tdd",
@@ -4254,6 +4446,14 @@
     "repository": "bmad-code-org-bmad-method",
     "description": "Test a half-formed idea in a questioning conversation, with different personas probing its weak points, until the user can act on it or drop it with confidence. Optionally writes a short brief for planning skills to build on. Use when the user says 'forge an idea', 'pressure-test this idea', 'stress-test my thinking', or 'harden this idea",
     "path": "category/testing-unit-tdd/skills-bmad-forge-idea"
+  },
+  {
+    "id": "skills-browser-harness",
+    "name": "skills-browser-harness",
+    "category": "testing-unit-tdd",
+    "repository": "davidondrej-skills",
+    "description": "Direct browser control via CDP. Use when the user wants to automate, scrape, test, or interact with web pages. Connects to the user's already-running Chrome.",
+    "path": "category/testing-unit-tdd/skills-browser-harness"
   },
   {
     "id": "skills-capacity-plan",
@@ -4376,6 +4576,22 @@
     "path": "category/testing-unit-tdd/skills-codex-proof-checker"
   },
   {
+    "id": "skills-conversion-tracking",
+    "name": "skills-conversion-tracking",
+    "category": "testing-unit-tdd",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to set up, audit, or fix conversion tracking to Google Ads, Meta, GA4, LinkedIn, and TikTok, or asks why conversions are missing or doubled: GTM, pixels, CAPI, Enhanced Conversions, offline imports. Fire on confirmed success, not the submit click; verify a test conversion arrives; diagnose before changing; offer free paths and disclose partner tools. For tracking plans, see analytics. For attribution, see attribution. For bidding, see ads.",
+    "path": "category/testing-unit-tdd/skills-conversion-tracking"
+  },
+  {
+    "id": "skills-coverage",
+    "name": "skills-coverage",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Find what is not tested: map untested pages and flows and coverage gaps. Use whenever the user asks what needs tests, about missing tests or test coverage.",
+    "path": "category/testing-unit-tdd/skills-coverage"
+  },
+  {
     "id": "skills-dart-fix-runtime-errors",
     "name": "skills-dart-fix-runtime-errors",
     "category": "testing-unit-tdd",
@@ -4390,6 +4606,14 @@
     "repository": "dart-lang-skills",
     "description": "Define and generate mock objects for external dependencies using `package:mockito` and `build_runner`. Use when unit testing classes that depend on complex external services like APIs or databases.",
     "path": "category/testing-unit-tdd/skills-dart-generate-test-mocks"
+  },
+  {
+    "id": "skills-derisk-measurement-advisor",
+    "name": "skills-derisk-measurement-advisor",
+    "category": "testing-unit-tdd",
+    "repository": "deanpeters-product-manager-skills",
+    "description": "Identify what to measure, test, or track to de-risk a product or AI idea. Use when stress-testing an idea across internal (DUFV) and external (PESTEL) dimensions.",
+    "path": "category/testing-unit-tdd/skills-derisk-measurement-advisor"
   },
   {
     "id": "skills-dev-browser",
@@ -4414,6 +4638,14 @@
     "repository": "google-elephant-goldfish-model",
     "description": "The Elephant resolution skill. Ingests flat deficiency reports from concurrent Goldfish reviewers, applies automated fixes for PROPOSE FIX items via UI multiple-choice gates, and presents interactive negotiation/re-sync checkpoints.",
     "path": "category/testing-unit-tdd/skills-egm-resolve"
+  },
+  {
+    "id": "skills-experiment-designer",
+    "name": "skills-experiment-designer",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Plan A/B tests and product experiments: hypotheses, sample size, priority, reading results. Use whenever the user asks if a test won, how long to run it or what to test.",
+    "path": "category/testing-unit-tdd/skills-experiment-designer"
   },
   {
     "id": "skills-fix-merge-conflicts",
@@ -4560,6 +4792,14 @@
     "path": "category/testing-unit-tdd/skills-nature-statistics"
   },
   {
+    "id": "skills-nemo-mbridge-recipe-recommender",
+    "name": "skills-nemo-mbridge-recipe-recommender",
+    "category": "testing-unit-tdd",
+    "repository": "nvidia-skills",
+    "description": "Recommend and customize Megatron Bridge library and benchmark recipes for a user's model, GPU count, hardware, sequence length, and pretrain/SFT/PEFT goal. Use when selecting a starting recipe, comparing library and benchmark configs, resizing parallelism for a GPU allocation, or distinguishing convergence changes, semantics-preserving execution tuning, and benchmark-only shortcuts.",
+    "path": "category/testing-unit-tdd/skills-nemo-mbridge-recipe-recommender"
+  },
+  {
     "id": "skills-om-mockup-prototype",
     "name": "skills-om-mockup-prototype",
     "category": "testing-unit-tdd",
@@ -4590,6 +4830,14 @@
     "repository": "feimacode-open-design-agent-kit",
     "description": "Get a second opinion on an Open Design artifact from a design critic, judged from its latest check screenshots, the brief and the design system against a fixed rubric, with one verdict (ship, polish or rework) and at most five fixes \u2014 use before telling the user a design is done (the open-design skill's check step), and whenever the user asks for a second opinion, another opinion, a critique or a review of an Open Design artifact, or asks \"is this good?",
     "path": "category/testing-unit-tdd/skills-open-design-critique"
+  },
+  {
+    "id": "skills-opportunity-solution-tree",
+    "name": "skills-opportunity-solution-tree",
+    "category": "testing-unit-tdd",
+    "repository": "deanpeters-product-manager-skills",
+    "description": "Build an Opportunity Solution Tree from outcomes to opportunities, solutions, and tests. Use when a stakeholder request needs problem framing before you decide what to build.",
+    "path": "category/testing-unit-tdd/skills-opportunity-solution-tree"
   },
   {
     "id": "skills-paid-ads-creative",
@@ -4656,6 +4904,22 @@
     "path": "category/testing-unit-tdd/skills-product-brainstorming"
   },
   {
+    "id": "skills-product-discovery",
+    "name": "skills-product-discovery",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Validate product ideas: map assumptions, plan discovery sprints, test problem-solution fit. Use whenever the user asks if an idea is worth building.",
+    "path": "category/testing-unit-tdd/skills-product-discovery"
+  },
+  {
+    "id": "skills-prospecting",
+    "name": "skills-prospecting",
+    "category": "testing-unit-tdd",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to find and qualify prospects for outbound, or asks who to target first, which signal to prioritize, or where to spot buyers with the problem: buying signals, enrichment, verification, account research. Verify emails before a sequence, never scrape LinkedIn: define audiences in Sales Navigator and pull contacts from licensed data. For outreach, see cold-email. For competitor research, see competitor-profiling.",
+    "path": "category/testing-unit-tdd/skills-prospecting"
+  },
+  {
     "id": "skills-python-testing",
     "name": "skills-python-testing",
     "category": "testing-unit-tdd",
@@ -4664,12 +4928,36 @@
     "path": "category/testing-unit-tdd/skills-python-testing"
   },
   {
+    "id": "skills-red-green-proof",
+    "name": "skills-red-green-proof",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Turns a suspected bug into a proven one. Verify the cause against reality before claiming it, write a test that FAILS on the current code, apply the fix, watch it pass \u2014 then revert the fix and confirm the test goes red again, because a test that passes both ways proves nothing. Invoked bare after a debugging conversation, it takes the target from context rather than asking. Use when fixing a bug, investigating an incident, hardening a flaky area, or when asked to \"add tests that reveal the bug\". Triggers on \"/red-green-proof\", \"prove the bug\", \"red-green\", \"make the test fail first\", \"is that test load-bearing\", \"reveal the bug with a test\".",
+    "path": "category/testing-unit-tdd/skills-red-green-proof"
+  },
+  {
     "id": "skills-requesting-code-review",
     "name": "skills-requesting-code-review",
     "category": "testing-unit-tdd",
     "repository": "obra-superpowers",
     "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
     "path": "category/testing-unit-tdd/skills-requesting-code-review"
+  },
+  {
+    "id": "skills-runpod-lifecycle-crud",
+    "name": "skills-runpod-lifecycle-crud",
+    "category": "testing-unit-tdd",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Create, verify by read-back, and manage the lifecycle of Runpod''s reusable plumbing (templates,",
+    "path": "category/testing-unit-tdd/skills-runpod-lifecycle-crud"
+  },
+  {
+    "id": "skills-senior-data-scientist",
+    "name": "skills-senior-data-scientist",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Design experiments and analyze tabular data: A/B tests, causal inference, feature engineering, model evaluation. Use whenever the user asks how to set up or read an A/B test, whether a change caused a lift, which features to build, or how good a model is.",
+    "path": "category/testing-unit-tdd/skills-senior-data-scientist"
   },
   {
     "id": "skills-setup-cms",
@@ -4688,12 +4976,28 @@
     "path": "category/testing-unit-tdd/skills-skill-creator"
   },
   {
+    "id": "skills-skill-tester",
+    "name": "skills-skill-tester",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when authoring or auditing a skill in this ecosystem, before release. Validates structure with skill_validator.py, runs its scripts with script_tester.py and grades quality and security with quality_scorer.py and security_scorer.py.",
+    "path": "category/testing-unit-tdd/skills-skill-tester"
+  },
+  {
     "id": "skills-spec",
     "name": "skills-spec",
     "category": "testing-unit-tdd",
     "repository": "codewithmukesh-dotnet-claude-kit",
     "description": "Turn a vague feature or product idea into an agreed, persisted specification through relentless structured questioning. Never assumes \u2014 every gap, ambiguity, or \"probably\" becomes a question to the developer, and the spec cannot be approved while open questions remain. Produces docs/specs/<NNN>-<slug>.md with acceptance criteria that /plan, /scaffold, and /tdd consume. Use when: \"spec\", \"write a spec\", \"spec this out\", \"requirements\", \"PRD\", \"acceptance criteria\", \"define the feature\", \"user stories\", \"what should we build\", or before planning any feature too big to describe in one sentence.",
     "path": "category/testing-unit-tdd/skills-spec"
+  },
+  {
+    "id": "skills-spec-driven-workflow",
+    "name": "skills-spec-driven-workflow",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when a feature should be specified before coding (acceptance criteria, spec-first, tests from specs). Writes the spec with spec_generator.py, checks it with spec_validator.py and extracts tests with test_extractor.py.",
+    "path": "category/testing-unit-tdd/skills-spec-driven-workflow"
   },
   {
     "id": "skills-springboot-tdd",
@@ -4718,6 +5022,22 @@
     "repository": "anthropics-knowledge-work",
     "description": "Apply statistical methods including descriptive stats, trend analysis, outlier detection, and hypothesis testing. Use when analyzing distributions, testing for significance, detecting anomalies, computing correlations, or interpreting statistical results.",
     "path": "category/testing-unit-tdd/skills-statistical-analysis"
+  },
+  {
+    "id": "skills-statistical-analyst",
+    "name": "skills-statistical-analyst",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Is a difference real? Significance tests, confidence intervals, sample size and test duration for A/B results. Load whenever the user asks if a lift is real or noise, which variant won, or how many users a test needs.",
+    "path": "category/testing-unit-tdd/skills-statistical-analyst"
+  },
+  {
+    "id": "skills-stress-test",
+    "name": "skills-stress-test",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Stress-test a plan built on untested assumptions. Use whenever the user bets on a hockey-stick model or long pilot.",
+    "path": "category/testing-unit-tdd/skills-stress-test"
   },
   {
     "id": "skills-stripe-pay",
@@ -4750,6 +5070,14 @@
     "repository": "nowork-studio-notfair-plugin",
     "description": "Upgrade the NotFair plugin to the latest version. Updates the marketplace repo, installs the new version to the plugin cache, and updates installed_plugins.json. Use when asked to \"upgrade notfair\", \"update notfair\", or \"get latest version\". Also handles inline upgrade prompts when a skill detects UPGRADE_AVAILABLE at startup.",
     "path": "category/testing-unit-tdd/skills-upgrade"
+  },
+  {
+    "id": "skills-ux-researcher-designer",
+    "name": "skills-ux-researcher-designer",
+    "category": "testing-unit-tdd",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "UX research: personas, journey maps, usability test plans, synthesis. Use whenever the user asks who their users are or why they struggle.",
+    "path": "category/testing-unit-tdd/skills-ux-researcher-designer"
   },
   {
     "id": "skills-verify-this",

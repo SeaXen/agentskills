@@ -1,7 +1,7 @@
 # 🪙 Web3, Solidity & DeFi Architecture
 
 > **Category**: `web3-smart-contracts`  
-> **Total Curated Skills**: 113 skills  
+> **Total Curated Skills**: 115 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -27,6 +27,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`analyzing-ethereum-smart-contract-vulnerabilities`](../../library/mukul975-anthropic-cybersecurity-skills/skills/analyzing-ethereum-smart-contract-vulnerabilities) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Perform static and symbolic analysis of Solidity smart contracts using |
 | [`bankr-partner`](../../library/buzzbysolcex-buzz-bd-agent/skills/bankr-partner) | ⚪ Reserve | `buzzbysolcex-buzz-bd-agent` | Web3 / Crypto Business Development & ecosystem partnership intelligence |
 | [`binance-web3`](../../library/binance-binance-skills-hub/skills/binance-web3) | ⚪ Reserve | `binance-binance-skills-hub` | Binance Skills Hub for crypto market data, order management, account balances, and automated tr... |
+| [`binance-web3-meme-rush`](../../library/binance-binance-skills-hub/skills/binance-web3-meme-rush) | ⚪ Reserve | `binance-binance-skills-hub` | Live launchpad feed + AI hot topics for meme tokens. (1) meme-rush: real-time lifecycle feed on... |
 | [`birdeye-plugin`](../../library/okx-plugin-store/skills/birdeye-plugin) | ⚪ Reserve | `okx-plugin-store` | Birdeye DeFi analytics with dual live access mode (apikey full coverage, x402 supported subset)... |
 | [`blockchain-developer`](../../library/antigravity-awesome-skills/skills/blockchain-developer) | ⚪ Reserve | `antigravity-awesome-skills` | Build production-ready Web3 applications, smart contracts, and |
 | [`bnbchain-mcp`](../../library/internet-court-internet-court-skill/skills/bnbchain-mcp) | ⚪ Reserve | `internet-court-internet-court-skill` | BNB Chain MCP server connection and tool usage. Covers npx @bnb-chain/mcp@latest, PRIVATE_KEY a... |
@@ -83,6 +84,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`okx`](../../library/starchild-ai-agent-official-skills/skills/okx) | ⚪ Reserve | `starchild-ai-agent-official-skills` | OKX OnChainOS: on-chain trading, analytics, security, DeFi across 20+ chains. |
 | [`okx-buildx-hackathon-agent-track`](../../library/okx-plugin-store/skills/okx-buildx-hackathon-agent-track) | ⚪ Reserve | `okx-plugin-store` | Use when participating in the OKX Build X AI Hackathon, building on X Layer with OnchainOS or U... |
 | [`okx-growth-competition`](../../library/internet-court-internet-court-skill/skills/okx-growth-competition) | ⚪ Reserve | `internet-court-internet-court-skill` | List OKX Agentic Wallet exclusive trading competitions, register users for contests, track part... |
+| [`okx-mcp-services`](../../library/okx-onchainos-skills/skills/okx-mcp-services) | ⚪ Reserve | `okx-onchainos-skills` | Access NewsLiquid / 6551 through the OnchainOS CLI. Use for explicitly chosen NewsLiquid, News ... |
 | [`onchain-pay`](../../library/binance-binance-skills-hub/skills/onchain-pay) | ⚪ Reserve | `binance-binance-skills-hub` | Binance Onchain Pay enables users to buy cryptocurrency with fiat (e.g., EUR, USD) or send exis... |
 | [`passkit`](../../library/dpearson2699-swift-ios-skills/skills/passkit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Integrate Apple Pay payments and Wallet passes using PassKit. Use when adding Apple Pay buttons... |
 | [`payment`](../../library/binance-binance-skills-hub/skills/payment) | ⚪ Reserve | `binance-binance-skills-hub` | Binance Pay Assistant - Send and Receive crypto payments. Send: QR code payment from Funding Wa... |

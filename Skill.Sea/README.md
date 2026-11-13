@@ -5,15 +5,15 @@
 [![Primary Domain](https://img.shields.io/badge/Primary_Domain-skill.drsea.top-0f6e56?style=for-the-badge&logo=cloudflare)](https://skill.drsea.top)
 [![EU Mirror](https://img.shields.io/badge/EU_Mirror-skill.drsea.eu.org-1d9e75?style=for-the-badge)](https://skill.drsea.eu.org)
 [![Worker Direct](https://img.shields.io/badge/Worker_Direct-skill--sea.drsea.workers.dev-2563EB?style=for-the-badge)](https://skill-sea.drsea.workers.dev)
-[![Skills Tracked](https://img.shields.io/badge/Skills-22,679_Tracked-1d9e75?style=for-the-badge)](https://skill.drsea.top)
+[![Skills Tracked](https://img.shields.io/badge/Skills-23,581_Tracked-1d9e75?style=for-the-badge)](https://skill.drsea.top)
 [![Categories](https://img.shields.io/badge/Categories-38_Disciplines-1d9e75?style=for-the-badge)](./data/categories.json)
-[![Repositories](https://img.shields.io/badge/Origin_Repos-487_Upstreams-2563EB?style=for-the-badge)](./data/repositories.json)
+[![Repositories](https://img.shields.io/badge/Origin_Repos-493_Upstreams-2563EB?style=for-the-badge)](./data/repositories.json)
 [![Active Hot-Set](https://img.shields.io/badge/Active_HotSet-130_Skills-D97706?style=for-the-badge)](../skills)
 [![License](https://img.shields.io/badge/License-MIT-gray?style=for-the-badge)](./LICENSE)
 
 <br/>
 
-**An ultra-fast, zero-dependency directory, leaderboard, and 1-click activation suite for 22,678+ AI Agent Skills across 38 functional disciplines from 488 open repositories.**  
+**An ultra-fast, zero-dependency directory, leaderboard, and 1-click activation suite for 23,580+ AI Agent Skills across 38 functional disciplines from 494 open repositories.**  
 *Inspired by [skillleaderboard.com](https://www.skillleaderboard.com/) • Engineered with the **ExamForge Design System** • 100% Zero Runtime Dependencies.*
 
 🌐 **Live Web Endpoints**:
@@ -33,7 +33,7 @@ Modern autonomous AI agents (Google Antigravity, Claude Code, Cursor, Windsurf, 
 
 **Skill.Sea** addresses this by providing an independent, high-performance visual interface, search index, and activation engine for the **SeaXen AgentSkills Vault**:
 
-- **⚡ 22,678 Ingested Skills**: Discovered and cataloged from 488 official and community GitHub repositories.
+- **⚡ 23,580 Ingested Skills**: Discovered and cataloged from 494 official and community GitHub repositories.
 - **🏛️ 38 Functional Disciplines**: Structured classification from backend systems, databases, and Docker/DevOps to web security, web3, and machine learning.
 - **🔥 130 Hot-Set Skills**: Lean, pre-linked daily-driver skills available in the local session with zero token latency.
 - **🖱️ 1-Click Activation**: Instant copy commands for Python CLI, symbolic linking, or cURL installation into any workspace.

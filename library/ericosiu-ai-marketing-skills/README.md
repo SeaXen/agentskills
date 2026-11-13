@@ -10,8 +10,12 @@ These aren't prompts. They're complete workflows — scripts, scoring algorithms
 
 | Category | What It Does | Key Skills |
 |----------|-------------|------------|
+| [**Relationship Intelligence**](./relationship-intelligence/) | Consolidate lead feeds, verified prior touches and five independent opportunity lanes | Identity Reconciliation, Touch Attribution, Evidence Gates, Owner Review |
+| [**ManyChat IG Lead Magnet**](./manychat-ig-lead-magnet/) | Newsletter-signup-gated resources with explicit consent, attribution and advisory lead triage | Post/Story Triggers, Beehiiv/CRM, Five-Lane Fit, S-Tier Alerts |
 | [**Growth Engine**](./growth-engine/) | Autonomous marketing experiments that run, measure, and optimize themselves | Experiment Engine, Pacing Alerts, Weekly Scorecard |
 | [**Sales Pipeline**](./sales-pipeline/) | Turn anonymous website visitors into qualified pipeline | RB2B Router, Deal Resurrector, Trigger Prospector, ICP Learner |
+| [**Event Research and Follow-up**](./event-research-follow-up/) | Research events, qualify evidence-backed leads and execute only approved follow-up | Roster and Photo Leads, Company Fit, Delivery Ledgers, Reply Outcomes |
+| [**Proactive Helpfulness**](./proactive-helpfulness/) | Prioritize useful lead follow-ups and relationship commitments with verified evidence | Cross-Channel Reconciliation, Introductions, Approval Gates, Deduplicated Funnel |
 | [**Content Ops**](./content-ops/) | Ship content that scores 90+ every time | Expert Panel, Quality Gate, Editorial Brain, Quote Miner |
 | [**Growth Signal Charts**](./growth-signal-charts/) | Turn original content and measured audience signals into cited social charts | Content Spikes, Recent Research, Desk Edition, PNG/PDF Exports |
 | [**Content OS Portable Starter**](./content-os-portable-starter/) | Bootstrap a vendor-neutral, draft-first content control loop | Config Schema, Approval Gates, Connector Matrix, Readback Templates |

@@ -1,7 +1,7 @@
 # 📊 Data Pipelines, BigQuery & Machine Learning
 
 > **Category**: `data-engineering-ml`  
-> **Total Curated Skills**: 3297 skills  
+> **Total Curated Skills**: 3311 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -1046,6 +1046,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`faradaysec`](../../library/membranedev-application-skills/skills/faradaysec) | ⚪ Reserve | `membranedev-application-skills` | Faraday integration. Manage data, records, and automate workflows. Use when the user wants to i... |
 | [`faros`](../../library/membranedev-application-skills/skills/faros) | ⚪ Reserve | `membranedev-application-skills` | Faros integration. Manage Organizations. Use when the user wants to interact with Faros data. |
 | [`faspay`](../../library/membranedev-application-skills/skills/faspay) | ⚪ Reserve | `membranedev-application-skills` | Faspay integration. Manage data, records, and automate workflows. Use when the user wants to in... |
+| [`fastgen-configure`](../../library/nvidia-skills/skills/fastgen-configure) | ⚪ Reserve | `nvidia-skills` | Create or adapt an NVIDIA FastGen experiment config for a network, task, dataset and training o... |
 | [`fastly`](../../library/membranedev-application-skills/skills/fastly) | ⚪ Reserve | `membranedev-application-skills` | Fastly integration. Manage data, records, and automate workflows. Use when the user wants to in... |
 | [`fattmerchant`](../../library/membranedev-application-skills/skills/fattmerchant) | ⚪ Reserve | `membranedev-application-skills` | Fattmerchant integration. Manage data, records, and automate workflows. Use when the user wants... |
 | [`fatture-in-cloud`](../../library/membranedev-application-skills/skills/fatture-in-cloud) | ⚪ Reserve | `membranedev-application-skills` | Fatture in Cloud integration. Manage data, records, and automate workflows. Use when the user w... |
@@ -2440,6 +2441,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ro-innovation`](../../library/membranedev-application-skills/skills/ro-innovation) | ⚪ Reserve | `membranedev-application-skills` | Ro Innovation integration. Manage data, records, and automate workflows. Use when the user want... |
 | [`roas-forecasting`](../../library/irinabuht12-oss-marketing-skills/skills/roas-forecasting) | ⚪ Reserve | `irinabuht12-oss-marketing-skills` | Projects your ROAS for the next 30, 60, and 90 days based on current performance trends, season... |
 | [`robius-state-management`](../../library/sickn33-agentic-awesome-skills/skills/robius-state-management) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | CRITICAL: Use for Robius state management patterns. Triggers on: AppState, persistence, theme s... |
+| [`roblox-datastores`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/roblox-datastores) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Roblox DataStoreService persistence: load on join, save on leave and BindToClose, UpdateAsync v... |
+| [`roblox-luau`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/roblox-luau) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Roblox Luau scripting and code structure: services, Instances, Script vs LocalScript vs ModuleS... |
 | [`robly`](../../library/membranedev-application-skills/skills/robly) | ⚪ Reserve | `membranedev-application-skills` | Robly integration. Manage Organizations, Users. Use when the user wants to interact with Robly ... |
 | [`robocorp`](../../library/membranedev-application-skills/skills/robocorp) | ⚪ Reserve | `membranedev-application-skills` | Robocorp integration. Manage Organizations. Use when the user wants to interact with Robocorp d... |
 | [`roboflow`](../../library/membranedev-application-skills/skills/roboflow) | ⚪ Reserve | `membranedev-application-skills` | Roboflow integration. Manage Projects. Use when the user wants to interact with Roboflow data. |
@@ -2645,10 +2648,13 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-account-research`](../../library/anthropics-knowledge-work/skills/skills-account-research) | ⚪ Reserve | `anthropics-knowledge-work` | Research a company using Common Room data. Triggers on 'research [company]', 'tell me about [do... |
 | [`skills-azure-kusto`](../../library/microsoft-azure-skills/skills/skills-azure-kusto) | ⚪ Reserve | `microsoft-azure-skills` | Query and analyze data in Azure Data Explorer (Kusto/ADX) using KQL for log analytics, telemetr... |
 | [`skills-card-twitter`](../../library/feimacode-open-design-agent-kit/skills/skills-card-twitter) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Twitter quote or data card designed to pair with a post. |
+| [`skills-claude-history-ingest`](../../library/ar9av-obsidian-wiki/skills/skills-claude-history-ingest) | ⚪ Reserve | `ar9av-obsidian-wiki` | Ingest Claude Code conversation/session history into Obsidian as distilled knowledge. Use for i... |
 | [`skills-clickhouse-io`](../../library/affaan-m-ecc/skills/skills-clickhouse-io) | ⚪ Reserve | `affaan-m-ecc` | ClickHouse database patterns, query optimization, analytics, and data engineering best practice... |
+| [`skills-cloud-sync`](../../library/thedotmack-claude-mem/skills/skills-cloud-sync) | ⚪ Reserve | `thedotmack-claude-mem` | Set up or check claude-mem cloud sync with cmem.ai Pro. Use when the user says "set up cloud sy... |
 | [`skills-codex-analyze-results`](../../library/wanshuiyin-auto-claude-code-research-in-sleep/skills/skills-codex-analyze-results) | ⚪ Reserve | `wanshuiyin-auto-claude-code-research-in-sleep` | Analyze ML experiment results, compute statistics, generate comparison tables and insights. Use... |
 | [`skills-dart-use-path-package`](../../library/dart-lang-skills/skills/skills-dart-use-path-package) | ⚪ Reserve | `dart-lang-skills` | Cross-platform file and directory path manipulation, segment splitting, extension extraction, a... |
 | [`skills-data-context-extractor`](../../library/anthropics-knowledge-work/skills/skills-data-context-extractor) | ⚪ Reserve | `anthropics-knowledge-work` | Generate or improve a company-specific data analysis skill by extracting tribal knowledge from ... |
+| [`skills-data-quality-auditor`](../../library/alirezarezvani-claude-skills/skills/skills-data-quality-auditor) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use before analysis or model training on any dataset, or when asked to profile data or hunt mis... |
 | [`skills-experiment-readout`](../../library/feimacode-open-design-agent-kit/skills/skills-experiment-readout) | ⚪ Reserve | `feimacode-open-design-agent-kit` | 假设 + 指标 + 结果 + 解释 + 决策, 把 A/B 或产品实验转成行动建议 |
 | [`skills-explore-data`](../../library/anthropics-knowledge-work/skills/skills-explore-data) | ⚪ Reserve | `anthropics-knowledge-work` | Profile and explore a dataset to understand its shape, quality, and patterns. Use when encounte... |
 | [`skills-firecrawl-scrape`](../../library/firecrawl-cli/skills/skills-firecrawl-scrape) | ⚪ Reserve | `firecrawl-cli` | Read a known webpage or execute a discovered workflow or data-provider capability. Use for page... |
@@ -2657,10 +2663,17 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-keyword-research`](../../library/kostja94-marketing-skills/skills/skills-keyword-research) | ⚪ Reserve | `kostja94-marketing-skills` | Coordinates keyword research from a seed or existing keyword data through discovery, intent clu... |
 | [`skills-nature-data`](../../library/yuan1z0825-nature-skills/skills/skills-nature-data) | ⚪ Reserve | `yuan1z0825-nature-skills` | Draft or audit manuscript Data/Code Availability statements, dataset access routes, repository ... |
 | [`skills-nuxt4-patterns`](../../library/affaan-m-ecc/skills/skills-nuxt4-patterns) | ⚪ Reserve | `affaan-m-ecc` | ハイドレーション安全性、パフォーマンス、ルートルール、遅延ロード、useFetchとuseAsyncDataを使ったSSR安全なデータフェッチングのためのNuxt 4アプリパターン。 |
+| [`skills-obsidian-bases`](../../library/kepano-obsidian-skills/skills/skills-obsidian-bases) | ⚪ Reserve | `kepano-obsidian-skills` | Create and edit Obsidian Bases (.base files) with views, filters, formulas, and summaries. Use ... |
+| [`skills-openclaw-history-ingest`](../../library/ar9av-obsidian-wiki/skills/skills-openclaw-history-ingest) | ⚪ Reserve | `ar9av-obsidian-wiki` | Ingest OpenClaw session/history data into Obsidian as distilled knowledge. Use for importing or... |
 | [`skills-paid-ads-tiktok`](../../library/nowork-studio-notfair-plugin/skills/skills-paid-ads-tiktok) | ⚪ Reserve | `nowork-studio-notfair-plugin` | Audit, diagnose, and safely operate connected TikTok Ads accounts through the NotFair MCP. Use ... |
 | [`skills-parallel-data-enrichment`](../../library/parallel-web-parallel-agent-skills/skills/skills-parallel-data-enrichment) | ⚪ Reserve | `parallel-web-parallel-agent-skills` | Bulk data enrichment. Adds web-sourced fields (CEO names, funding, contact info) to lists of co... |
 | [`skills-physical-ai-neural-reconstruction`](../../library/nvidia-skills/skills/skills-physical-ai-neural-reconstruction) | ⚪ Reserve | `nvidia-skills` | Router for NVIDIA NuRec/NRE: USDZ rendering, NCore conversion, 3DGS, gRPC sensor sim, carline a... |
 | [`skills-reconciliation`](../../library/anthropics-knowledge-work/skills/skills-reconciliation) | ⚪ Reserve | `anthropics-knowledge-work` | Reconcile accounts by comparing GL balances to subledgers, bank statements, or third-party data... |
+| [`skills-senior-data-engineer`](../../library/alirezarezvani-claude-skills/skills/skills-senior-data-engineer) | ⚪ Reserve | `alirezarezvani-claude-skills` | Data pipelines: Airflow DAGs, Spark, dbt, Kafka, ETL/ELT, data quality checks. Load whenever a ... |
+| [`skills-seo-bing`](../../library/agricidaniel-claude-seo/skills/skills-seo-bing) | ⚪ Reserve | `agricidaniel-claude-seo` | Bing Webmaster Tools + IndexNow extension. Microsoft Copilot citations are fed by the Bing inde... |
+| [`skills-seo-images`](../../library/agricidaniel-claude-seo/skills/skills-seo-images) | ⚪ Reserve | `agricidaniel-claude-seo` | Image optimization analysis for SEO and performance. Checks alt text, file sizes, formats, resp... |
+| [`skills-seo-programmatic`](../../library/agricidaniel-claude-seo/skills/skills-seo-programmatic) | ⚪ Reserve | `agricidaniel-claude-seo` | Programmatic SEO planning and analysis for pages generated at scale from data sources. Covers t... |
+| [`skills-stock-analysis`](../../library/alirezarezvani-claude-skills/skills/skills-stock-analysis) | ⚪ Reserve | `alirezarezvani-claude-skills` | Analyze, research or value a listed stock or company (US, global, NSE or BSE) with verified dat... |
 | [`skills-why`](../../library/cursor-plugins/skills/skills-why) | ⚪ Reserve | `cursor-plugins` | Use for 'why does X work this way', 'why we picked Y', design rationale, regressions, postmorte... |
 | [`skillzrun`](../../library/membranedev-application-skills/skills/skillzrun) | ⚪ Reserve | `membranedev-application-skills` | SkillzRun integration. Manage Organizations, Leads, Projects, Pipelines, Users, Goals and more.... |
 | [`skin-health-analyzer`](../../library/sickn33-agentic-awesome-skills/skills/skin-health-analyzer) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Analyze skin health data, identify skin problem patterns, assess skin health status. Supports c... |
@@ -3049,6 +3062,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`unifiedto`](../../library/membranedev-application-skills/skills/unifiedto) | ⚪ Reserve | `membranedev-application-skills` | Unified.to integration. Manage data, records, and automate workflows. Use when the user wants t... |
 | [`uniify`](../../library/membranedev-application-skills/skills/uniify) | ⚪ Reserve | `membranedev-application-skills` | Uniify integration. Manage data, records, and automate workflows. Use when the user wants to in... |
 | [`unione`](../../library/membranedev-application-skills/skills/unione) | ⚪ Reserve | `membranedev-application-skills` | UniOne integration. Manage data, records, and automate workflows. Use when the user wants to in... |
+| [`unity-scriptableobjects`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/unity-scriptableobjects) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Unity 6.3 LTS data and decoupling with ScriptableObjects: CreateAssetMenu config assets, shared... |
 | [`unlaunch`](../../library/membranedev-application-skills/skills/unlaunch) | ⚪ Reserve | `membranedev-application-skills` | Unlaunch integration. Manage data, records, and automate workflows. Use when the user wants to ... |
 | [`unleash`](../../library/membranedev-application-skills/skills/unleash) | ⚪ Reserve | `membranedev-application-skills` | Unleash integration. Manage data, records, and automate workflows. Use when the user wants to i... |
 | [`unstructured`](../../library/membranedev-application-skills/skills/unstructured) | ⚪ Reserve | `membranedev-application-skills` | Unstructured integration. Manage data, records, and automate workflows. Use when the user wants... |

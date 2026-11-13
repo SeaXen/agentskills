@@ -400,6 +400,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link aws-deployment"
   },
   {
+    "id": "aws-emulator",
+    "name": "aws-emulator",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">-",
+    "path": "library/aws-agent-toolkit-for-aws/skills/aws-emulator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate aws-emulator",
+    "link_cmd": "python .agents/library/activate_skill.py link aws-emulator"
+  },
+  {
     "id": "aws-fault-injection-service",
     "name": "aws-fault-injection-service",
     "repository": "aws-agent-toolkit-for-aws",
@@ -860,6 +870,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link creating-secrets-using-best-practices"
   },
   {
+    "id": "database-skills-amazon-dynamodb",
+    "name": "database-skills-amazon-dynamodb",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "Designs, reviews, and debugs DynamoDB data layers from design axioms \u2014 enumerates access patterns, chooses partition/sort keys and GSIs, decides single-table vs. multi-table, configures Streams, Global Tables, TTL, vector indexes for similarity search, and zero-ETL integrations to OpenSearch/Redshift/SageMaker Lakehouse, and produces a defensible data-layer design with a monthly cost estimate and optional live validation. Applies whenever a user is designing, reviewing, or refactoring anything backed by DynamoDB \u2014 schemas, access patterns, GSIs, single- vs. multi-table choices, Streams consumers, transactional outboxes, Global Tables, zero-ETL pipelines, or storing embeddings and running semantic/vector similarity search with SearchVectors on items already in DynamoDB \u2014 even when they don't say \"axioms\" or \"design review.\" Also applies when debugging hot partitions, throttling, unbounded Scans, LWW conflicts, or surprise bills on DynamoDB workloads.",
+    "path": "library/aws-agent-toolkit-for-aws/skills/database-skills-amazon-dynamodb",
+    "activation_cmd": "python .agents/library/activate_skill.py activate database-skills-amazon-dynamodb",
+    "link_cmd": "python .agents/library/activate_skill.py link database-skills-amazon-dynamodb"
+  },
+  {
+    "id": "database-skills-timestream-influxdb",
+    "name": "database-skills-timestream-influxdb",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "Retrieves authoritative guidance on Amazon Timestream for InfluxDB across its supported engine variants. Applicable to any InfluxDB-on-AWS request including engine variant and licensing selection, provisioning and IAM, encryption at rest (AWS-owned and customer-managed KMS keys, key policies, and key lifecycle), schema design (tags vs fields, cardinality, HTTP/sensor/metric data modeling), migration from LiveAnalytics, Processing Engine plugins, connectivity (database endpoints and private or public access), and write/query errors.",
+    "path": "library/aws-agent-toolkit-for-aws/skills/database-skills-timestream-influxdb",
+    "activation_cmd": "python .agents/library/activate_skill.py activate database-skills-timestream-influxdb",
+    "link_cmd": "python .agents/library/activate_skill.py link database-skills-timestream-influxdb"
+  },
+  {
     "id": "debugging-lambda-timeouts",
     "name": "debugging-lambda-timeouts",
     "repository": "aws-agent-toolkit-for-aws",
@@ -1130,6 +1160,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link migrating-to-amazon-redshift"
   },
   {
+    "id": "migration-and-modernization-skills-dms-schema-conversion",
+    "name": "migration-and-modernization-skills-dms-schema-conversion",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Handles the full DMS Schema Conversion lifecycle including creating migration projects, converting database schemas to a target engine, running compatibility assessments, navigating metadata trees, exporting converted DDL to S3, applying schema changes to a target database, and converting SQL statements between database engines. Applies when migrating database schemas between heterogeneous engines using AWS DMS Schema Conversion.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/migration-and-modernization-skills-dms-schema-conversion",
+    "activation_cmd": "python .agents/library/activate_skill.py activate migration-and-modernization-skills-dms-schema-conversion",
+    "link_cmd": "python .agents/library/activate_skill.py link migration-and-modernization-skills-dms-schema-conversion"
+  },
+  {
     "id": "networking-and-content-delivery-skills-cloudfront",
     "name": "networking-and-content-delivery-skills-cloudfront",
     "repository": "aws-agent-toolkit-for-aws",
@@ -1158,6 +1198,16 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/operate-on-aws",
     "activation_cmd": "python .agents/library/activate_skill.py activate operate-on-aws",
     "link_cmd": "python .agents/library/activate_skill.py link operate-on-aws"
+  },
+  {
+    "id": "operations-skills-setting-up-cloudwatch-observability",
+    "name": "operations-skills-setting-up-cloudwatch-observability",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">-",
+    "path": "library/aws-agent-toolkit-for-aws/skills/operations-skills-setting-up-cloudwatch-observability",
+    "activation_cmd": "python .agents/library/activate_skill.py activate operations-skills-setting-up-cloudwatch-observability",
+    "link_cmd": "python .agents/library/activate_skill.py link operations-skills-setting-up-cloudwatch-observability"
   },
   {
     "id": "pentesting-with-aws-security-agent",
@@ -1530,6 +1580,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link sitetositevpn"
   },
   {
+    "id": "skills-agent-advisor",
+    "name": "skills-agent-advisor",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Entry point for AI-agent work on AWS: pick a runtime, plan a migration, and build an executable POC in one phased flow. Triggers on: which runtime for my agent, AgentCore vs ECS vs EKS vs Lambda, AgentCore vs Lambda MicroVMs, deploy an AI agent on AWS, agent architecture on AWS, is my agent on the right runtime, I have an agent idea what do I build, move/migrate my agents to AWS, agent migration plan, add AgentCore services (memory, gateway, identity, policy, observability) to an agent already on AWS, Temporal on AWS (migrate/run Temporal workers on AWS, a service orchestrated by Temporal, Temporal Cloud vs self-hosted). Temporal Workflow code is never rewritten into Step Functions. Requires at least one agentic component; purely non-agent systems (plain services, batch jobs, HTTP endpoints, non-agent Temporal Activities) go to gcp-to-aws / heroku-to-aws / llm-to-bedrock. Not for: compute/data migration with no AI agent; pure LLM SDK rewrite (use llm-to-bedrock); per-model pricing; Well-Architected reviews.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-agent-advisor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-agent-advisor",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-agent-advisor"
+  },
+  {
+    "id": "skills-analyzing-release-readiness",
+    "name": "skills-analyzing-release-readiness",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">-",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-analyzing-release-readiness",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-analyzing-release-readiness",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-analyzing-release-readiness"
+  },
+  {
     "id": "skills-aws-observability",
     "name": "skills-aws-observability",
     "repository": "aws-agent-toolkit-for-aws",
@@ -1538,6 +1608,16 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/skills-aws-observability",
     "activation_cmd": "python .agents/library/activate_skill.py activate skills-aws-observability",
     "link_cmd": "python .agents/library/activate_skill.py link skills-aws-observability"
+  },
+  {
+    "id": "skills-aws-secrets-manager",
+    "name": "skills-aws-secrets-manager",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-aws-secrets-manager",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-aws-secrets-manager",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-aws-secrets-manager"
   },
   {
     "id": "skills-aws-serverless",
