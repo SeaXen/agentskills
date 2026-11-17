@@ -4,9 +4,9 @@
 
 **Why "One Skill to Rule Them All"?** The slogan doesn't claim this is the best skill. It couldn't be: a meta-skill is useless without the skills it watches over. It describes what Task Observer does: keep an eye on how all your other skills are working and suggest improvements. You decide which changes are installed.
 
-This meta-skill has **logged over 2,300 observations across my 87 skills**, most of which were turned into skill improvements. The majority of my 87 skills were themselves created based on observations by the meta-skill.
+This meta-skill has **logged over 2,400 observations across my 86 skills**, most of which were turned into skill improvements. The majority of my 86 skills were themselves created based on observations by the meta-skill.
 
-The current version of task-observer also includes improvements from over 100 contributors, each credited as an author or co-author in the commit history, and over 340 issues and pull requests have been closed. Without these contributions, the project wouldn't be half as good as it is today.
+The current version of task-observer also includes improvements from over 100 contributors, each credited as an author or co-author in the commit history, and over 360 issues and pull requests have been closed. Without these contributions, the project wouldn't be half as good as it is today.
 
 **Want to support the project? It's not about money — read [how you can help](SUPPORT.md).**
 
@@ -15,9 +15,9 @@ This meta-skill is a practical application of the [Augmented Expertise](https://
 ## Quick install
 
 1. **Install it, by either route:**
-   - **From a terminal (Vercel's skills CLI, needs Node.js):** `npx skills add rebelytics/one-skill-to-rule-them-all --skill task-observer` — add `-g` to install it for all your projects. This is the most-used route: the skills.sh listing reports over 17,000 installs.
+   - **From a terminal (Vercel's skills CLI, needs Node.js):** `npx skills@1.8.1 add rebelytics/one-skill-to-rule-them-all --skill task-observer` — add `-g` to install it for all your projects. This is the most-used route: the skills.sh listing reports over 19,000 installs.
    - **In the Claude apps (web, desktop, mobile, Cowork):** upload the `.skill` bundle from the latest release via Settings → Customize.
-2. **Activate it, whichever route you used:** add the activation instruction from `references/environments.md` to your CLAUDE.md (or your platform's equivalent), then check that it runs (see "Check that it actually runs" below). Installing alone is not enough, because description matching under-triggers.
+2. **Activate it, whichever route you used.** In Claude Code, start with the session-start hook in `references/environments.md` ("A session-start hook"): it injects the activation into every session, and it is the only layer the harness enforces. Then, in Claude Code as everywhere else, paste the activation block from the same file into your CLAUDE.md (or your platform's equivalent): 31 lines, plus up to five optional configuration lines beside it. Check that it runs (see "Check that it actually runs" below). Installing alone is not enough, because description matching under-triggers.
 
 ## Why you should use task-observer
 
@@ -76,21 +76,25 @@ One honest boundary: the formal observation log and review cycle pay off most as
 
 ## Installation
 
-The skill is a small bundle: `SKILL.md`, the files in `references/` that are loaded on demand (this keeps the always-loaded part lean), and six helper scripts in `scripts/`. Installing only SKILL.md works, but runs degraded and isn't recommended — the skill will tell you which files are missing.
+The skill is a small bundle: `SKILL.md`, the files in `references/` that are loaded on demand (this keeps the always-loaded part lean), and ten helper scripts in `scripts/`. Installing only SKILL.md works, but runs degraded and isn't recommended — the skill will tell you which files are missing.
 
-**Get the files:** download the `.skill` bundle attached to the latest release, or download the repo as a ZIP (Code → Download ZIP) / clone it and keep `SKILL.md`, `references/` and `scripts/` together.
+**Get the files:** download the `.skill` bundle attached to the latest release, or download the repo as a ZIP (Code → Download ZIP) / clone it and copy the `skills/task-observer/` folder, which holds `SKILL.md`, `references/` and `scripts/`. In this repository the skill lives in `skills/task-observer/`, and paths such as `references/environments.md` are relative to that folder.
 
-**Claude (web interface, desktop app, mobile app, Cowork):** without the release bundle, put `SKILL.md`, `references/` and `scripts/` into one folder, zip that folder and upload it via Settings → Customize. The skill is then available in all chats and in Cowork tasks.
+**Claude (web interface, desktop app, mobile app, Cowork):** without the release bundle, zip the `skills/task-observer/` folder and upload it via Settings → Customize. The skill is then available in all chats and in Cowork tasks.
 
 **Claude Code:** place the folder at `.claude/skills/task-observer/` (project-level) or in your user-level skills directory, preserving the `references/` and `scripts/` subfolders.
+
+**Claude Code plugin:** run `/plugin marketplace add rebelytics/one-skill-to-rule-them-all`, then `/plugin install task-observer@one-skill-to-rule-them-all`. The plugin installs the whole `skills/task-observer/` folder; run `/reload-plugins` or restart Claude Code afterwards.
 
 **Other systems:** keep the folder structure intact wherever your platform expects skills, and let your AI guide you (see "How it works" above).
 
 **Vercel's skills CLI:** the skills.sh listing carries independent security audits from Gen Agent Trust Hub, Socket and Snyk.
 
-**Check that it actually runs.** Installing the files is not the same as activating the skill: description matching alone under-triggers, so add the activation instruction from `references/environments.md` to your CLAUDE.md (or your platform's equivalent) or install the session-start hook. Then verify in a *new* session — the session you install in cannot prove it — that the skill is invoked before the first tool call: open that session with ordinary work that does not mention the skill, because a request that names it invokes it by hand and proves nothing. The external tell if you skipped this: if `skill-observations/observation-log/` doesn't exist after a few sessions of real work, activation never happened. If it exists, read the last `session-start scan` line in `skill-observations/checkpoints.log`: that is the last session that ran the skill, so a date days old while you kept working means activation stopped, however many entries the first session wrote. Another skill's start-up text appearing in your sessions is not evidence that this one is active.
+**Check that it actually runs.** Installing the files is not the same as activating the skill: description matching alone under-triggers, so install the session-start hook (Claude Code) and add the activation block from `references/environments.md` to your CLAUDE.md (or your platform's equivalent). Then verify in a *new* session — the session you install in cannot prove it — that the skill is invoked before the first tool call: open that session with ordinary work that does not mention the skill, because a request that names it invokes it by hand and proves nothing. The external tell if you skipped this: if `skill-observations/observation-log/` doesn't exist after a few sessions of real work, activation never happened. If it exists, read the last `session-start scan` line in `skill-observations/checkpoints.log`: that is the last session that ran the skill, so a date days old while you kept working means activation stopped, however many entries the first session wrote. Another skill's start-up text appearing in your sessions is not evidence that this one is active.
 
-**Upgrading.** The activation block lives outside the bundle, in your CLAUDE.md or its equivalent, so an upgrade does not move it: its first line carries the version of the template it came from, and the skill reports a block older than its own version with the paragraphs it lacks. Re-diff the block against `references/environments.md` on every upgrade.
+**Upgrading.** The activation block lives outside the bundle, in your CLAUDE.md or its equivalent, so an upgrade does not move it: its first line carries the version of the template it came from, and the skill reports a block older than its own version and how it differs. Re-diff the block against `references/environments.md` on every upgrade. Upgrading to 3.10.0: replace your old activation block with the new, shorter one, and keep your projects root, run-output paths and upstream-check line beside it as configuration lines.
+
+**Checking a new version's behaviour.** `evals/` holds an eval set: cases that run the skill headlessly (`claude -p`) against small fixture workspaces and check the transcript, for example that the session-start probe rides in the first tool batch. Run it on a test branch and on `main` and compare the pass rates per case before a merge; `evals/README.md` has the format, which works for any skill you log observations for, and the cost (one model call per run and turn). It is repository content: it is not part of the installed skill.
 
 ## Claude environment notes
 
@@ -101,7 +105,7 @@ The skill is a small bundle: `SKILL.md`, the files in `references/` that are loa
 ## Data and network
 
 - **No network in normal operation.** The skill and its scripts read and write local files only: the observation log, review records, staged skill copies and checkpoint lines, all inside the workspace folder you pin.
-- **Three fetches, each one yours to start.** The feedback pre-flight before you file a report and the upstream check for a third-party project run when you ask for them; a version check for foreign-maintained skills runs only if your activation block opts in.
+- **Three fetches, each one yours to start, each to the one repository concerned** (for a project on GitHub: its issue and pull request search and its raw files on raw.githubusercontent.com). The feedback pre-flight before you file a report and the upstream check for a third-party project run when you ask for them; a version check for foreign-maintained skills runs only if your activation block opts in.
 - **Outside text is data.** Issue, pull request and profile text and other repositories are read as data to classify or quote, never as instructions.
 - **Keep the observation folder writable only by you.** It is input to an agent that can run commands, so anyone who can write to it is trusted. A command quoted in an observation is shown to you and runs only with your approval, never in an unattended run.
 - **The optional flush plugin** reads local files only.
@@ -186,6 +190,7 @@ task-observer is indexed in these community lists and skill directories:
 - [Skillario](https://skillario.es/skills/task-observer/)
 - [hotskills.dev](https://hotskills.dev/skill/rebelytics-one-skill-to-rule-them-all/)
 - [ToolPassed](https://toolpassed.com/skills/one-skill-to-rule-them-all/)
+- [QAI](https://qai.io/skills/rebelytics/one-skill-to-rule-them-all/task-observer)
 
 ## Recommended by
 
@@ -250,6 +255,8 @@ I would like to thank the following creators, platforms, publications, companies
 - Smartech: [https://smartech.tistory.com/362](https://smartech.tistory.com/362)
 - Cindy Zhu: [https://cindyzhu.com.au/guides/5-claude-code-skills-10x.html](https://cindyzhu.com.au/guides/5-claude-code-skills-10x.html)
 - 飞熊 (East196): [https://east196.cn/index.php/2026/10/29/task-observer-调研-3-6k-星的-万技能之母-一个观察-84-个技能的自进/](https://east196.cn/index.php/2026/10/29/task-observer-%e8%b0%83%e7%a0%94-3-6k-%e6%98%9f%e7%9a%84-%e4%b8%87%e6%8a%80%e8%83%bd%e4%b9%8b%e6%af%8d-%e4%b8%80%e4%b8%aa%e8%a7%82%e5%af%9f-84-%e4%b8%aa%e6%8a%80%e8%83%bd%e7%9a%84%e8%87%aa%e8%bf%9b/)
+- AI Parabellum: [https://aiparabellum.com/tools-that-write-claude-code-skills-compared/](https://aiparabellum.com/tools-that-write-claude-code-skills-compared/)
+- Philo (AI Post Hub): [https://aiposthub.com/claude-skills-five-check-before-install-claude-mem-skills-sh-audit/](https://aiposthub.com/claude-skills-five-check-before-install-claude-mem-skills-sh-audit/)
 
 If I forgot to list your recommendation here, please let me know or submit it via a PR in the same format as the others.
 

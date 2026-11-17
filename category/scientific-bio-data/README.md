@@ -1,7 +1,7 @@
 # 🔬 Scientific, Bio-Informatics & Astrophysics
 
 > **Category**: `scientific-bio-data`  
-> **Total Curated Skills**: 149 skills  
+> **Total Curated Skills**: 152 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -112,6 +112,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`research-engineer`](../../library/antigravity-awesome-skills/skills/research-engineer) | ⚪ Reserve | `antigravity-awesome-skills` | An uncompromising Academic Research Engineer. Operates with absolute scientific rigor, objectiv... |
 | [`resilience-program-design`](../../library/aws-agent-toolkit-for-aws/skills/resilience-program-design) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Designs a resilience program: how to structure and standardize resilience policies across an or... |
 | [`results-analysis`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/results-analysis) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | This skill should be used when the user asks to "analyze experimental results", "run strict sta... |
+| [`retention-diagnostic-advisor`](../../library/deanpeters-product-manager-skills/skills/retention-diagnostic-advisor) | ⚪ Reserve | `deanpeters-product-manager-skills` | Find why customers leave or go quiet, then pick the fix that fits. Use when churn or renewal nu... |
 | [`roblox-characters`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/roblox-characters) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Roblox player characters: CharacterAdded lifecycle, Humanoid and HumanoidRootPart, R6, R15 and ... |
 | [`roblox-networking`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/roblox-networking) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Roblox client-server networking and anti-exploit: RemoteEvent and RemoteFunction contracts, ser... |
 | [`roblox-physics`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/roblox-physics) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Roblox physics and spatial queries: assemblies, constraints, collision groups, Raycast and Shap... |
@@ -146,11 +147,13 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-marketing-ops`](../../library/alirezarezvani-claude-skills/skills/skills-marketing-ops) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when a marketing request spans several skills (a campaign across content, SEO, CRO and chan... |
 | [`skills-marketing-skills`](../../library/alirezarezvani-claude-skills/skills/skills-marketing-skills) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when looking for which of the 44 marketing skills fits a task. Lists them by pod and routes... |
 | [`skills-mdr-745-specialist`](../../library/alirezarezvani-claude-skills/skills/skills-mdr-745-specialist) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use for EU MDR 2017/745 work: device classification under Annex VIII, technical file gaps (Anne... |
+| [`skills-melonjs-physics`](../../library/melonjs-melonjs/skills/skills-melonjs-physics) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for collision, physics bodies, movement, and spatial queries in melonJS: the bui... |
 | [`skills-nature-figure`](../../library/yuan1z0825-nature-skills/skills/skills-nature-figure) | ⚪ Reserve | `yuan1z0825-nature-skills` | Create, revise, audit, and export manuscript scientific figures in Python or R. Use for 论文配图、科研... |
 | [`skills-nature-reviewer`](../../library/yuan1z0825-nature-skills/skills/skills-nature-reviewer) | ⚪ Reserve | `yuan1z0825-nature-skills` | Provide evidence-grounded mock peer review of scientific manuscripts or excerpts, covering sign... |
 | [`skills-nature-writing`](../../library/yuan1z0825-nature-skills/skills/skills-nature-writing) | ⚪ Reserve | `yuan1z0825-nature-skills` | Draft or restructure scientific manuscript arguments, sections, and initial-submission material... |
 | [`skills-nextflow-development`](../../library/anthropics-knowledge-work/skills/skills-nextflow-development) | ⚪ Reserve | `anthropics-knowledge-work` | Run nf-core bioinformatics pipelines (rnaseq, sarek, atacseq) on sequencing data. Use when anal... |
 | [`skills-physics-3d-collision`](../../library/unity-technologies-skills/skills/skills-physics-3d-collision) | ⚪ Reserve | `unity-technologies-skills` | Diagnoses 3D PhysX collision and trigger problems. Use when OnCollisionEnter or OnTriggerEnter ... |
+| [`skills-retention-diagnostic-advisor`](../../library/deanpeters-product-manager-skills/skills/skills-retention-diagnostic-advisor) | ⚪ Reserve | `deanpeters-product-manager-skills` | Find why customers leave or go quiet, then pick the fix that fits. Use when churn or renewal nu... |
 | [`skills-runpod-discovery`](../../library/runpod-runpod-plugins-official/skills/skills-runpod-discovery) | ⚪ Reserve | `runpod-runpod-plugins-official` | Answer what is available, what fits and the price against Runpod''s catalogs: GPU and CPU |
 | [`skills-scientific-db-uspto-database`](../../library/affaan-m-ecc/skills/skills-scientific-db-uspto-database) | ⚪ Reserve | `affaan-m-ecc` | 公式記録の検索、PatentSearch クエリ、TSDR チェック、譲渡データ、および再現可能な IP 調査ログのための USPTO 特許・商標データワークフロー。 |
 | [`skills-scientific-pkg-gget`](../../library/affaan-m-ecc/skills/skills-scientific-pkg-gget) | ⚪ Reserve | `affaan-m-ecc` | ゲノムデータベースへのクイック検索、配列検索、BLAST スタイルの検索、エンリッチメントチェック、および再現可能なバイオインフォマティクス証拠ログのための gget CLI および Pyt... |

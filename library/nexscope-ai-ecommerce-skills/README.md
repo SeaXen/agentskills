@@ -4,15 +4,16 @@
 
 # E-Commerce Skills by Nexscope
 
-**157 free AI agent skills for Amazon, Shopify, eBay, Etsy, TikTok Shop & Walmart sellers.**
+**Free AI agent skills for Amazon, Shopify, eBay, Etsy, TikTok Shop & Walmart sellers.**
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 [![GitHub stars](https://img.shields.io/github/stars/nexscope-ai/eCommerce-Skills?style=social)](https://github.com/nexscope-ai/eCommerce-Skills)
-![Skill Count](https://img.shields.io/badge/skills-157-10b981?style=flat)
 ![Downloads](https://img.shields.io/badge/downloads-16K+-orange?style=flat)
 [![Discord](https://img.shields.io/badge/Discord-Join%20us-5865F2?logo=discord&logoColor=white)](https://discord.com/invite/t7dfcMTmkH)
 
-Works with **OpenClaw** · **Claude Code** · **Cursor** · **Windsurf** · **Codex** · any [Skills](https://www.nexscope.ai/skillhub?co-from=github)-compatible agent
+Works with **OpenClaw** · **Claude Code** · **Cursor** · **Windsurf** · **Codex** · any agent that supports the Skills format
+
+[Explore Nexscope MCP tools →](https://www.nexscope.ai/mcp?co-from=github&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=ecommerce-skills_readme_header_mcp) · [Explore Nexscope APIs →](https://www.nexscope.ai/api-docs?co-from=github&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=ecommerce-skills_readme_header_api)
 
 </div>
 
@@ -20,7 +21,7 @@ Works with **OpenClaw** · **Claude Code** · **Cursor** · **Windsurf** · **Co
 
 ## Quick Start
 
-Install all 142 skills at once:
+Install the collection:
 
 ```bash
 npx skills add nexscope-ai/eCommerce-Skills -g
@@ -56,25 +57,37 @@ Install a skill, ask your AI assistant a question about your store, and get expe
 
 ## ⭐ Most Popular
 
-🏆 **[E-Commerce Growth Strategy](https://www.nexscope.ai/skillhub/skill/ecommerce-growth-strategy?co-from=github)**
+🏆 **E-Commerce Growth Strategy**
 Diagnoses your business health using unit economics (CAC, LTV, AOV), identifies the #1 growth lever, and builds a 90-day roadmap.
 
-📦 **[Cross-Border E-Commerce](https://www.nexscope.ai/skillhub/skill/cross-border-ecommerce?co-from=github)**
+[Explore ecommerce MCP tools →](https://www.nexscope.ai/mcp?co-from=github&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=ecommerce-skills_popular_ecommerce-growth-strategy_mcp) · [Explore ecommerce APIs →](https://www.nexscope.ai/api-docs?co-from=github&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=ecommerce-skills_popular_ecommerce-growth-strategy_api)
+
+📦 **Cross-Border E-Commerce**
 Scores 15+ international markets, handles VAT/IOSS/GST compliance, plans logistics and localization strategy.
 
-📣 **[Marketing Strategy Builder](https://www.nexscope.ai/skillhub/skill/ecommerce-marketing-strategy-builder?co-from=github)**
+[Explore cross-platform MCP tools →](https://www.nexscope.ai/mcp?co-from=github&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=ecommerce-skills_popular_cross-border-ecommerce_mcp) · [Explore cross-platform data APIs →](https://www.nexscope.ai/api-docs?co-from=github&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=ecommerce-skills_popular_cross-border-ecommerce_api)
+
+📣 **Marketing Strategy Builder**
 Full-stack omnichannel marketing — paid ads, SEO, email/SMS, content, social media, and influencer partnerships.
 
-💰 **[Amazon Profit Calculator](https://www.nexscope.ai/skillhub/skill/profit-margin-calculator-amazon?co-from=github)**
+[Explore marketing and SEO MCP tools →](https://www.nexscope.ai/mcp?co-from=github&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=ecommerce-skills_popular_ecommerce-marketing-strategy-builder_mcp) · [Explore marketing and SEO APIs →](https://www.nexscope.ai/api-docs?tab=marketing&co-from=github&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=ecommerce-skills_popular_ecommerce-marketing-strategy-builder_api)
+
+💰 **Amazon Profit Calculator**
 Complete FBA fee breakdown — referral fees, fulfillment, storage costs, break-even analysis, pricing recommendations.
 
-📢 **[PPC Strategy Planner](https://www.nexscope.ai/skillhub/skill/ecommerce-ppc-strategy-planner?co-from=github)**
+[Explore ecommerce MCP data tools →](https://www.nexscope.ai/mcp?co-from=github&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=ecommerce-skills_popular_profit-margin-calculator-amazon_mcp) · [Explore ecommerce data APIs →](https://www.nexscope.ai/api-docs?co-from=github&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=ecommerce-skills_popular_profit-margin-calculator-amazon_api)
+
+📢 **PPC Strategy Planner**
 Cross-platform PPC strategy for Google, Meta & TikTok with ROAS targets and budget allocation.
 
-📝 **[Product Description Generator](https://www.nexscope.ai/skillhub/skill/product-description-generator?co-from=github)**
+[Explore advertising MCP tools →](https://www.nexscope.ai/mcp?co-from=github&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=ecommerce-skills_popular_ecommerce-ppc-strategy-planner_mcp) · [Explore marketing APIs →](https://www.nexscope.ai/api-docs?tab=marketing&co-from=github&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=ecommerce-skills_popular_ecommerce-ppc-strategy-planner_api)
+
+📝 **Product Description Generator**
 SEO-optimized product descriptions for any platform — Amazon, eBay, Walmart, Shopify, Etsy, TikTok Shop.
 
-> **🔍 Need Amazon-specific tools?** See [Amazon Skills](https://github.com/nexscope-ai/Amazon-Skills) — 51 skills for FBA, PPC, listing optimization, keyword research & more.
+[Generate product descriptions with MCP →](https://www.nexscope.ai/mcp-map/product-description-generator?co-from=github&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=ecommerce-skills_popular_product-description-generator_mcp) · [View the Product Description Generator API →](https://www.nexscope.ai/api-docs/product-description-generator?co-from=github&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=ecommerce-skills_popular_product-description-generator_api)
+
+> **🔍 Need Amazon-specific tools?** See [Amazon Skills](https://github.com/nexscope-ai/Amazon-Skills) — 52 skills for FBA, PPC, listing optimization, keyword research & more.
 
 ---
 
@@ -290,6 +303,10 @@ SEO-optimized product descriptions for any platform — Amazon, eBay, Walmart, S
 These skills use publicly available data and proven frameworks — no API key, no paid subscription, no setup friction. Install and go.
 
 These skills give your AI agent e-commerce expertise — but skills alone can't access live marketplace data.
+
+**Need live marketplace data?** Browse Nexscope MCP tools for product, keyword, competitor, and review research. Connect a compatible AI assistant and check each tool’s access requirements and credit cost before running it.
+
+[Browse MCP tools](https://www.nexscope.ai/mcp?co-from=github&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=ecommerce-skills_readme_tools) · [Connection guide](https://www.nexscope.ai/mcp-map?co-from=github&utm_source=github&utm_medium=referral&utm_campaign=github_mcp_launch&utm_content=ecommerce-skills_readme_setup)
 
 **[Nexscope](https://www.nexscope.ai/?co-from=github)** is an ecommerce data and creative platform. Its marketplace intelligence tools and Data APIs support product, keyword, competitor, pricing, review, seller, sourcing, and store research, while its online image and video generators and Creative APIs support ecommerce content production.
 

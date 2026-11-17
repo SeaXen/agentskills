@@ -4,7 +4,7 @@
     "name": "gmgn-callout",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": "Read GMGN call-outs (\u558a\u5355) \u2014 public token calls that wallets publish on GMGN, with call price, call market cap, multiplier since the call, thesis text and the caller's current holding. Use when user asks who is calling a token, what a wallet has called, a wallet's call-out track record (hit rate, best multiplier), or wants the latest call-out feed (KOL-only, paid declarations, safe tokens). Read-only; publishing a call-out is not supported.",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-callout",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-callout",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-callout"
@@ -14,7 +14,7 @@
     "name": "gmgn-callout-score",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-callout-score",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-callout-score",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-callout-score"
@@ -24,7 +24,7 @@
     "name": "gmgn-contract-dd",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": "\"Contract due-diligence score for one token address \u2014 contract safety, holder structure and price action combined into a single 0-100 composite, capped by GMGN's own rug label, where every deduction names the field it read and an absent field is never a passing check. Use when the user wants one verdict number rather than fields: \u5c3d\u8c03, CA \u5c3d\u8c03, \u7ed9\u8fd9\u4e2a\u5e01\u6253\u4e2a\u5206, \u8fd9\u4e2a\u5e01\u5b89\u5168\u5417, \u80fd\u4e0d\u80fd\u4e70, \u6709\u6ca1\u6709\u8c94\u8c85, is this token safe, rug check, honeypot check, due-diligence score, score this contract, or pastes a bare token contract address. A bare address may equally be a wallet \u2014 Step 0 resolves which and hands wallets to gmgn-wallet-analysis. Prefer this over gmgn-token whenever the ask is a verdict rather than a field dump; the raw fields themselves \u2014 price, market cap, liquidity, holder and trader lists, the unscored security fields \u2014 are gmgn-token, chip structure is gmgn-holder-analysis, chart-pattern naming is gmgn-kline-pattern. Buy intent narrows to this skill only when the ask is a bare address: the input is --address, and no name is ever resolved here. When the user names the token instead \u2014 \u5e2e\u6211\u4e70 200u \u7684 PENGU, XX \u80fd\u4e0d\u80fd\u4e70, \u80fd\u4e0d\u80fd\u51b2, \u6211\u60f3\u68ad, buy me $500 of BONK \u2014 or wants a position size, gmgn-token-buy owns it, because picking the one right contract out of the same-name copycats and sizing slippage and gas are both outside this skill's input. That skill calls this one for the safety verdict rather than replacing it, so a bare address with no name and no amount still scores here exactly as before.\"",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-contract-dd",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-contract-dd",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-contract-dd"
@@ -34,7 +34,7 @@
     "name": "gmgn-cooking",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": "\"[FINANCIAL EXECUTION] Create and launch meme coins and crypto tokens on launchpads (Pump.fun, FourMeme, Bonk, BAGS, Flap, Klik, Clanker, etc.) via bonding curve fair launch, or query token creation stats by launchpad via GMGN API. Use when user asks to create a token, launch a meme coin, cook a coin, deploy on a launchpad, or check launchpad creation stats on Solana, BSC, or Base.\"",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-cooking",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-cooking",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-cooking"
@@ -44,7 +44,7 @@
     "name": "gmgn-dev-score",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-dev-score",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-dev-score",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-dev-score"
@@ -54,7 +54,7 @@
     "name": "gmgn-heat-rank",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-heat-rank",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-heat-rank",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-heat-rank"
@@ -64,7 +64,7 @@
     "name": "gmgn-holder-analysis",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": "Token holder chip analysis \u2014 deep analysis of holder structure including chip distribution, entry cost, whale/dev/KOL behavior, risk wallets (rat traders, bundlers, snipers), related wallets, smart money signals, and an AI rating based purely on token structure. Use when user asks about holder analysis, \u7b79\u7801\u5206\u6790, \u6301\u4ed3\u5206\u6790, chip structure, who is holding, or whether a token is safe to buy based on its holder composition.",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-holder-analysis",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-holder-analysis",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-holder-analysis"
@@ -74,7 +74,7 @@
     "name": "gmgn-kline-pattern",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": "Price-action pattern reading \u2014 classifies a token's candles into a named pattern (uptrend channel, breakdown, bounce off the lows, distribution at highs, basing, wide chop, consolidation) and scores it 0-100 from six measurements you compute directly from the kline response. Every point added or deducted states its reason. Use when the user asks about K \u7ebf, K\u7ebf\u5f62\u6001, \u8d70\u52bf, \u8d8b\u52bf, \u5f62\u6001, price action, chart pattern, whether a chart looks strong or weak, is it breaking down, is it consolidating, or wants a technical read of a token's chart rather than the raw numbers.",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-kline-pattern",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-kline-pattern",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-kline-pattern"
@@ -84,7 +84,7 @@
     "name": "gmgn-market",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": "Get crypto and meme token price charts (K-line, candlestick, OHLCV), trending meme coin rankings by volume, newly launched tokens on launchpads (pump.fun, fourmeme, letsbonk, Raydium, etc.), the hot-search ranking (most-searched tokens), and search for a specific token or wallet by name, symbol, contract address, wallet address, or ENS via GMGN API on Solana, BSC, Base, or Ethereum. Use when user asks for price chart, trending tokens, what's pumping, hot coins, most searched tokens, new launches, token signals, wants to look up / find / search a specific token or wallet by name or address, or wants to discover early-stage opportunities.",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-market",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-market",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-market"
@@ -94,7 +94,7 @@
     "name": "gmgn-narrative",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": "Independently research and write an AI-narrative / due-diligence card for a crypto token \u2014 the kind of \"\u53d9\u4e8b\u5206\u6790\" card that covers what story a token is telling and what's independently verifiable about its social spread. Use whenever the user asks for a token's \"\u53d9\u4e8b\"\u3001\"\u8206\u60c5\"\u3001\"\u4f20\u64ad\u60c5\u51b5\"\u3001\"\u793e\u5a92\u70ed\u5ea6\", wants to know \"\u8fd9\u4e2a\u5e01\u5728\u8bb2\u4ec0\u4e48\u6545\u4e8b\"/\"\u8fd9\u4e2a\u5e01\u662f\u4e0d\u662f\u5728\u8e6d\u70ed\u70b9\", asks to analyze or fact-check a token's X/Twitter narrative, or gives a bare contract address together with a request to understand its story rather than just its price/security numbers. This is not a raw safety score (`gmgn-contract-dd` owns that), not a screened hot list (`gmgn-heat-rank` owns that), and not a buy decision (`gmgn-token-buy` / `gmgn-swap` own that) \u2014 route here only when the ask is specifically about story and spread.",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-narrative",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-narrative",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-narrative"
@@ -104,7 +104,7 @@
     "name": "gmgn-portfolio",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": "Analyze one or many crypto wallets by address \u2014 holdings, batch realized/unrealized P&L, win rate, trading history, performance stats, specific token balance, and tokens created by a developer wallet (with ATH market cap and DEX graduation status) via GMGN API on Solana, BSC, Base, or Ethereum. Use when user asks about wallet holdings, P&L (including comparing up to 100 wallets), win rate, what tokens a dev has launched, the highest ATH token a dev ever created, or wants a wallet report to decide whether to copy-trade or follow.",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-portfolio",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-portfolio",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-portfolio"
@@ -114,7 +114,7 @@
     "name": "gmgn-swap",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-swap",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-swap",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-swap"
@@ -124,7 +124,7 @@
     "name": "gmgn-token",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": "Research any crypto or meme token by address \u2014 real-time price, market cap, liquidity, holder list, trader list, top Smart Money and KOL positions, security audit (honeypot, rug pull risk, dev wallet, renounced status), social links (Twitter/X, website) via GMGN API on Solana, BSC, Base, or Ethereum. Use when user asks about a token's price, safety, holders, traders, smart money exposure, or wants due diligence before buying.",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-token",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-token",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-token"
@@ -134,7 +134,7 @@
     "name": "gmgn-token-buy",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-token-buy",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-token-buy",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-token-buy"
@@ -144,7 +144,7 @@
     "name": "gmgn-track",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": "Get real-time crypto buy/sell activity from Smart Money wallets, KOL influencer wallets, and personally followed wallets via GMGN API \u2014 alpha signals, whale tracking, meme token copy-trading ideas on Solana, BSC, Base, or Ethereum. Also query which tokens a wallet has followed (bookmarked) on GMGN. Use when user asks what smart money or KOLs are buying, wants whale alerts, on-chain alpha, copy-trade signals, or wants to check a wallet's followed tokens. (For a specific wallet address's portfolio, use gmgn-portfolio.)",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-track",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-track",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-track"
@@ -154,7 +154,7 @@
     "name": "gmgn-wallet-analysis",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-wallet-analysis",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-wallet-analysis",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-wallet-analysis"
@@ -164,7 +164,7 @@
     "name": "gmgn-wallet-review",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": "A short trading portrait of ONE wallet address \u2014 a single style tag (\u78e8\u635f\u6237 / P\u5c0f\u5c06 / \u5370\u949e\u673a \u2026 plus a speed subtitle), one sentence recapping its record and one sentence of next-step advice, for 1D / 7D / 30D / \u5168\u90e8, voiced \u4f60 for the user's own wallet and \u4ed6 for anyone else's; SOL and all 8 EVM chains, chain auto-detected for a 0x address; can render it as a page. USE WHEN a wallet address comes with a request for a brief recap or for what to change \u2014 \u300c\u5e2e\u6211\u590d\u76d8\u4e00\u4e0b\u8fd9\u4e2a\u94b1\u5305\u300d, \u300c\u4e00\u53e5\u8bdd\u603b\u7ed3\u4ed6\u7684\u6218\u7ee9\u300d, \u300c\u6211\u7684\u6253\u6cd5\u6709\u4ec0\u4e48\u95ee\u9898\u300d, \u300c\u6211\u94b1\u5305\u4e0b\u4e00\u6b65\u8be5\u600e\u4e48\u6253\u300d, \u300c\u4ea4\u6613\u753b\u50cf\u300d, \u300c\u94b1\u5305\u98ce\u683c\u52a0\u5efa\u8bae\uff0c\u7b80\u77ed\u70b9\u300d, \"sum up this wallet in one line\". NOT FOR \u2014 a bare address, \u300c\u80fd\u4e0d\u80fd\u8ddf\u300d or \u300c\u8ddf\u7740\u4ed6\u4e70\u6211\u80fd\u5403\u5230\u5417\u300d (gmgn-wallet-analysis); the full tag-and-badge breakdown or \u300c\u662f\u4e0d\u662f\u673a\u5668\u4eba\u300d (gmgn-wallet-style); scores or copy-trade backtests (gmgn-wallet-score); a creator's launches (gmgn-dev-score); current holdings (gmgn-portfolio); a token address or a buy (gmgn-contract-dd, gmgn-token-buy). TIE-BREAK \u2014 \u6253\u6cd5 / \u98ce\u683c / \u6218\u7ee9 paired with \u95ee\u9898, \u5efa\u8bae, \u590d\u76d8 or \u4e00\u53e5\u8bdd routes here; asked alone, they go to the skills above.",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-wallet-review",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-wallet-review",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-wallet-review"
@@ -174,7 +174,7 @@
     "name": "gmgn-wallet-score",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": ">-",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-wallet-score",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-wallet-score",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-wallet-score"
@@ -184,9 +184,169 @@
     "name": "gmgn-wallet-style",
     "repository": "gmgnai-gmgn-skills",
     "category": "general",
-    "description": "",
+    "description": "Tag any wallet's trading style \u2014 one main title from a 20-cell frequency\u00d7P&L grid (\u5370\u949e\u673a, \u78e8\u635f\u6237, P\u5c0f\u5c06, \u4e00\u51fb\u5fc5\u6740, and 16 others), one holding-speed subtitle (\u79d2\u6740\u6d41/\u65e5\u5185\u6d41/\u6ce2\u6bb5\u6d41/\u957f\u6301\u6d41), and any of 14 orthogonal badges plus a wash-trader flag. Every tag states the number that triggered it. Use when the user asks what kind of trader a wallet is \u2014 \u300c\u8fd9\u4e2a\u94b1\u5305\u4ec0\u4e48\u98ce\u683c\u300d, \u300c\u4ea4\u6613\u98ce\u683c\u300d, \u300c\u6253\u6cd5\u300d, \u300c\u662f\u4e0d\u662f\u673a\u5668\u4eba\u300d, \u300c\u662f\u4e0d\u662f\u72d9\u51fb\u76d8\u7684\u300d, \u300c\u5e2e\u6211\u7ed9\u8fd9\u4e2a\u94b1\u5305\u6253\u6807\u7b7e\u300d, \"what's this wallet's trading style\", \"tag this wallet\". A bare wallet address with no question goes to gmgn-wallet-analysis. If the user also wants the tag shown on a real GMGN screenshot or as a clickable interactive page (\"\u751f\u6210\u6807\u7b7e\u9884\u89c8\", \"\u628a\u6807\u7b7e\u53e0\u52a0\u5230\u8fd9\u5f20\u622a\u56fe\u4e0a\", \"1:1\u8fd8\u539f\u94b1\u5305\u9875\u5e76\u52a0\u6807\u7b7e\", \"\u53ef\u4ea4\u4e92\u4ea4\u6613\u98ce\u683c\u6807\u7b7e\"), answer with Part A below and then also do Part B \u2014 the same algorithm, rendered. When \u6253\u6cd5 / \u98ce\u683c comes with \u95ee\u9898, \u5efa\u8bae, \u590d\u76d8 or \u4e00\u53e5\u8bdd\u603b\u7ed3, hand off to gmgn-wallet-review, which returns one tag plus a one-line recap and next step.",
     "path": "library/gmgnai-gmgn-skills/skills/gmgn-wallet-style",
     "activation_cmd": "python .agents/library/activate_skill.py activate gmgn-wallet-style",
     "link_cmd": "python .agents/library/activate_skill.py link gmgn-wallet-style"
+  },
+  {
+    "id": "skills-gmgn-callout",
+    "name": "skills-gmgn-callout",
+    "repository": "gmgnai-gmgn-skills",
+    "category": "general",
+    "description": "Read GMGN call-outs (\u558a\u5355) \u2014 public token calls that wallets publish on GMGN, with call price, call market cap, multiplier since the call, thesis text and the caller's current holding. Use when user asks who is calling a token, what a wallet has called, a wallet's call-out track record (hit rate, best multiplier), or wants the latest call-out feed (KOL-only, paid declarations, safe tokens). Read-only; publishing a call-out is not supported.",
+    "path": "library/gmgnai-gmgn-skills/skills/skills-gmgn-callout",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gmgn-callout",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gmgn-callout"
+  },
+  {
+    "id": "skills-gmgn-callout-score",
+    "name": "skills-gmgn-callout-score",
+    "repository": "gmgnai-gmgn-skills",
+    "category": "general",
+    "description": ">-",
+    "path": "library/gmgnai-gmgn-skills/skills/skills-gmgn-callout-score",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gmgn-callout-score",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gmgn-callout-score"
+  },
+  {
+    "id": "skills-gmgn-contract-dd",
+    "name": "skills-gmgn-contract-dd",
+    "repository": "gmgnai-gmgn-skills",
+    "category": "general",
+    "description": "\"Contract due-diligence score for one token address \u2014 contract safety, holder structure and price action combined into a single 0-100 composite, capped by GMGN's own rug label, where every deduction names the field it read and an absent field is never a passing check. Use when the user wants one verdict number rather than fields: \u5c3d\u8c03, CA \u5c3d\u8c03, \u7ed9\u8fd9\u4e2a\u5e01\u6253\u4e2a\u5206, \u8fd9\u4e2a\u5e01\u5b89\u5168\u5417, \u80fd\u4e0d\u80fd\u4e70, \u6709\u6ca1\u6709\u8c94\u8c85, is this token safe, rug check, honeypot check, due-diligence score, score this contract, or pastes a bare token contract address. A bare address may equally be a wallet \u2014 Step 0 resolves which and hands wallets to gmgn-wallet-analysis. Prefer this over gmgn-token whenever the ask is a verdict rather than a field dump; the raw fields themselves \u2014 price, market cap, liquidity, holder and trader lists, the unscored security fields \u2014 are gmgn-token, chip structure is gmgn-holder-analysis, chart-pattern naming is gmgn-kline-pattern. Buy intent narrows to this skill only when the ask is a bare address: the input is --address, and no name is ever resolved here. When the user names the token instead \u2014 \u5e2e\u6211\u4e70 200u \u7684 PENGU, XX \u80fd\u4e0d\u80fd\u4e70, \u80fd\u4e0d\u80fd\u51b2, \u6211\u60f3\u68ad, buy me $500 of BONK \u2014 or wants a position size, gmgn-token-buy owns it, because picking the one right contract out of the same-name copycats and sizing slippage and gas are both outside this skill's input. That skill calls this one for the safety verdict rather than replacing it, so a bare address with no name and no amount still scores here exactly as before.\"",
+    "path": "library/gmgnai-gmgn-skills/skills/skills-gmgn-contract-dd",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gmgn-contract-dd",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gmgn-contract-dd"
+  },
+  {
+    "id": "skills-gmgn-dev-score",
+    "name": "skills-gmgn-dev-score",
+    "repository": "gmgnai-gmgn-skills",
+    "category": "general",
+    "description": ">-",
+    "path": "library/gmgnai-gmgn-skills/skills/skills-gmgn-dev-score",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gmgn-dev-score",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gmgn-dev-score"
+  },
+  {
+    "id": "skills-gmgn-holder-analysis",
+    "name": "skills-gmgn-holder-analysis",
+    "repository": "gmgnai-gmgn-skills",
+    "category": "general",
+    "description": "Token holder chip analysis \u2014 deep analysis of holder structure including chip distribution, entry cost, whale/dev/KOL behavior, risk wallets (rat traders, bundlers, snipers), related wallets, smart money signals, and an AI rating based purely on token structure. Use when user asks about holder analysis, \u7b79\u7801\u5206\u6790, \u6301\u4ed3\u5206\u6790, chip structure, who is holding, or whether a token is safe to buy based on its holder composition.",
+    "path": "library/gmgnai-gmgn-skills/skills/skills-gmgn-holder-analysis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gmgn-holder-analysis",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gmgn-holder-analysis"
+  },
+  {
+    "id": "skills-gmgn-kline-pattern",
+    "name": "skills-gmgn-kline-pattern",
+    "repository": "gmgnai-gmgn-skills",
+    "category": "general",
+    "description": "Price-action pattern reading \u2014 classifies a token's candles into a named pattern (uptrend channel, breakdown, bounce off the lows, distribution at highs, basing, wide chop, consolidation) and scores it 0-100 from six measurements you compute directly from the kline response. Every point added or deducted states its reason. Use when the user asks about K \u7ebf, K\u7ebf\u5f62\u6001, \u8d70\u52bf, \u8d8b\u52bf, \u5f62\u6001, price action, chart pattern, whether a chart looks strong or weak, is it breaking down, is it consolidating, or wants a technical read of a token's chart rather than the raw numbers.",
+    "path": "library/gmgnai-gmgn-skills/skills/skills-gmgn-kline-pattern",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gmgn-kline-pattern",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gmgn-kline-pattern"
+  },
+  {
+    "id": "skills-gmgn-market",
+    "name": "skills-gmgn-market",
+    "repository": "gmgnai-gmgn-skills",
+    "category": "general",
+    "description": "Get crypto and meme token price charts (K-line, candlestick, OHLCV), trending meme coin rankings by volume, newly launched tokens on launchpads (pump.fun, fourmeme, letsbonk, Raydium, etc.), the hot-search ranking (most-searched tokens), and search for a specific token or wallet by name, symbol, contract address, wallet address, or ENS via GMGN API on Solana, BSC, Base, or Ethereum. Use when user asks for price chart, trending tokens, what's pumping, hot coins, most searched tokens, new launches, token signals, wants to look up / find / search a specific token or wallet by name or address, or wants to discover early-stage opportunities.",
+    "path": "library/gmgnai-gmgn-skills/skills/skills-gmgn-market",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gmgn-market",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gmgn-market"
+  },
+  {
+    "id": "skills-gmgn-narrative",
+    "name": "skills-gmgn-narrative",
+    "repository": "gmgnai-gmgn-skills",
+    "category": "general",
+    "description": "Independently research and write an AI-narrative / due-diligence card for a crypto token \u2014 the kind of \"\u53d9\u4e8b\u5206\u6790\" card that covers what story a token is telling and what's independently verifiable about its social spread. Use whenever the user asks for a token's \"\u53d9\u4e8b\"\u3001\"\u8206\u60c5\"\u3001\"\u4f20\u64ad\u60c5\u51b5\"\u3001\"\u793e\u5a92\u70ed\u5ea6\", wants to know \"\u8fd9\u4e2a\u5e01\u5728\u8bb2\u4ec0\u4e48\u6545\u4e8b\"/\"\u8fd9\u4e2a\u5e01\u662f\u4e0d\u662f\u5728\u8e6d\u70ed\u70b9\", asks to analyze or fact-check a token's X/Twitter narrative, or gives a bare contract address together with a request to understand its story rather than just its price/security numbers. This is not a raw safety score (`gmgn-contract-dd` owns that), not a screened hot list (`gmgn-heat-rank` owns that), and not a buy decision (`gmgn-token-buy` / `gmgn-swap` own that) \u2014 route here only when the ask is specifically about story and spread.",
+    "path": "library/gmgnai-gmgn-skills/skills/skills-gmgn-narrative",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gmgn-narrative",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gmgn-narrative"
+  },
+  {
+    "id": "skills-gmgn-portfolio",
+    "name": "skills-gmgn-portfolio",
+    "repository": "gmgnai-gmgn-skills",
+    "category": "general",
+    "description": "Analyze one or many crypto wallets by address \u2014 holdings, batch realized/unrealized P&L, win rate, trading history, performance stats, specific token balance, and tokens created by a developer wallet (with ATH market cap and DEX graduation status) via GMGN API on Solana, BSC, Base, or Ethereum. Use when user asks about wallet holdings, P&L (including comparing up to 100 wallets), win rate, what tokens a dev has launched, the highest ATH token a dev ever created, or wants a wallet report to decide whether to copy-trade or follow.",
+    "path": "library/gmgnai-gmgn-skills/skills/skills-gmgn-portfolio",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gmgn-portfolio",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gmgn-portfolio"
+  },
+  {
+    "id": "skills-gmgn-swap",
+    "name": "skills-gmgn-swap",
+    "repository": "gmgnai-gmgn-skills",
+    "category": "general",
+    "description": ">-",
+    "path": "library/gmgnai-gmgn-skills/skills/skills-gmgn-swap",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gmgn-swap",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gmgn-swap"
+  },
+  {
+    "id": "skills-gmgn-token",
+    "name": "skills-gmgn-token",
+    "repository": "gmgnai-gmgn-skills",
+    "category": "general",
+    "description": "Research any crypto or meme token by address \u2014 real-time price, market cap, liquidity, holder list, trader list, top Smart Money and KOL positions, security audit (honeypot, rug pull risk, dev wallet, renounced status), social links (Twitter/X, website) via GMGN API on Solana, BSC, Base, or Ethereum. Use when user asks about a token's price, safety, holders, traders, smart money exposure, or wants due diligence before buying.",
+    "path": "library/gmgnai-gmgn-skills/skills/skills-gmgn-token",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gmgn-token",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gmgn-token"
+  },
+  {
+    "id": "skills-gmgn-track",
+    "name": "skills-gmgn-track",
+    "repository": "gmgnai-gmgn-skills",
+    "category": "general",
+    "description": "Get real-time crypto buy/sell activity from Smart Money wallets, KOL influencer wallets, and personally followed wallets via GMGN API \u2014 alpha signals, whale tracking, meme token copy-trading ideas on Solana, BSC, Base, or Ethereum. Also query which tokens a wallet has followed (bookmarked) on GMGN. Use when user asks what smart money or KOLs are buying, wants whale alerts, on-chain alpha, copy-trade signals, or wants to check a wallet's followed tokens. (For a specific wallet address's portfolio, use gmgn-portfolio.)",
+    "path": "library/gmgnai-gmgn-skills/skills/skills-gmgn-track",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gmgn-track",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gmgn-track"
+  },
+  {
+    "id": "skills-gmgn-wallet-analysis",
+    "name": "skills-gmgn-wallet-analysis",
+    "repository": "gmgnai-gmgn-skills",
+    "category": "general",
+    "description": ">-",
+    "path": "library/gmgnai-gmgn-skills/skills/skills-gmgn-wallet-analysis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gmgn-wallet-analysis",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gmgn-wallet-analysis"
+  },
+  {
+    "id": "skills-gmgn-wallet-review",
+    "name": "skills-gmgn-wallet-review",
+    "repository": "gmgnai-gmgn-skills",
+    "category": "general",
+    "description": "A short trading portrait of ONE wallet address \u2014 a single style tag (\u78e8\u635f\u6237 / P\u5c0f\u5c06 / \u5370\u949e\u673a \u2026 plus a speed subtitle), one sentence recapping its record and one sentence of next-step advice, for 1D / 7D / 30D / \u5168\u90e8, voiced \u4f60 for the user's own wallet and \u4ed6 for anyone else's; SOL and all 8 EVM chains, chain auto-detected for a 0x address; can render it as a page. USE WHEN a wallet address comes with a request for a brief recap or for what to change \u2014 \u300c\u5e2e\u6211\u590d\u76d8\u4e00\u4e0b\u8fd9\u4e2a\u94b1\u5305\u300d, \u300c\u4e00\u53e5\u8bdd\u603b\u7ed3\u4ed6\u7684\u6218\u7ee9\u300d, \u300c\u6211\u7684\u6253\u6cd5\u6709\u4ec0\u4e48\u95ee\u9898\u300d, \u300c\u6211\u94b1\u5305\u4e0b\u4e00\u6b65\u8be5\u600e\u4e48\u6253\u300d, \u300c\u4ea4\u6613\u753b\u50cf\u300d, \u300c\u94b1\u5305\u98ce\u683c\u52a0\u5efa\u8bae\uff0c\u7b80\u77ed\u70b9\u300d, \"sum up this wallet in one line\". NOT FOR \u2014 a bare address, \u300c\u80fd\u4e0d\u80fd\u8ddf\u300d or \u300c\u8ddf\u7740\u4ed6\u4e70\u6211\u80fd\u5403\u5230\u5417\u300d (gmgn-wallet-analysis); the full tag-and-badge breakdown or \u300c\u662f\u4e0d\u662f\u673a\u5668\u4eba\u300d (gmgn-wallet-style); scores or copy-trade backtests (gmgn-wallet-score); a creator's launches (gmgn-dev-score); current holdings (gmgn-portfolio); a token address or a buy (gmgn-contract-dd, gmgn-token-buy). TIE-BREAK \u2014 \u6253\u6cd5 / \u98ce\u683c / \u6218\u7ee9 paired with \u95ee\u9898, \u5efa\u8bae, \u590d\u76d8 or \u4e00\u53e5\u8bdd routes here; asked alone, they go to the skills above.",
+    "path": "library/gmgnai-gmgn-skills/skills/skills-gmgn-wallet-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gmgn-wallet-review",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gmgn-wallet-review"
+  },
+  {
+    "id": "skills-gmgn-wallet-score",
+    "name": "skills-gmgn-wallet-score",
+    "repository": "gmgnai-gmgn-skills",
+    "category": "general",
+    "description": ">-",
+    "path": "library/gmgnai-gmgn-skills/skills/skills-gmgn-wallet-score",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gmgn-wallet-score",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gmgn-wallet-score"
+  },
+  {
+    "id": "skills-gmgn-wallet-style",
+    "name": "skills-gmgn-wallet-style",
+    "repository": "gmgnai-gmgn-skills",
+    "category": "general",
+    "description": "Tag any wallet's trading style \u2014 one main title from a 20-cell frequency\u00d7P&L grid (\u5370\u949e\u673a, \u78e8\u635f\u6237, P\u5c0f\u5c06, \u4e00\u51fb\u5fc5\u6740, and 16 others), one holding-speed subtitle (\u79d2\u6740\u6d41/\u65e5\u5185\u6d41/\u6ce2\u6bb5\u6d41/\u957f\u6301\u6d41), and any of 14 orthogonal badges plus a wash-trader flag. Every tag states the number that triggered it. Use when the user asks what kind of trader a wallet is \u2014 \u300c\u8fd9\u4e2a\u94b1\u5305\u4ec0\u4e48\u98ce\u683c\u300d, \u300c\u4ea4\u6613\u98ce\u683c\u300d, \u300c\u6253\u6cd5\u300d, \u300c\u662f\u4e0d\u662f\u673a\u5668\u4eba\u300d, \u300c\u662f\u4e0d\u662f\u72d9\u51fb\u76d8\u7684\u300d, \u300c\u5e2e\u6211\u7ed9\u8fd9\u4e2a\u94b1\u5305\u6253\u6807\u7b7e\u300d, \"what's this wallet's trading style\", \"tag this wallet\". A bare wallet address with no question goes to gmgn-wallet-analysis. If the user also wants the tag shown on a real GMGN screenshot or as a clickable interactive page (\"\u751f\u6210\u6807\u7b7e\u9884\u89c8\", \"\u628a\u6807\u7b7e\u53e0\u52a0\u5230\u8fd9\u5f20\u622a\u56fe\u4e0a\", \"1:1\u8fd8\u539f\u94b1\u5305\u9875\u5e76\u52a0\u6807\u7b7e\", \"\u53ef\u4ea4\u4e92\u4ea4\u6613\u98ce\u683c\u6807\u7b7e\"), answer with Part A below and then also do Part B \u2014 the same algorithm, rendered. When \u6253\u6cd5 / \u98ce\u683c comes with \u95ee\u9898, \u5efa\u8bae, \u590d\u76d8 or \u4e00\u53e5\u8bdd\u603b\u7ed3, hand off to gmgn-wallet-review, which returns one tag plus a one-line recap and next step.",
+    "path": "library/gmgnai-gmgn-skills/skills/skills-gmgn-wallet-style",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gmgn-wallet-style",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gmgn-wallet-style"
   }
 ]

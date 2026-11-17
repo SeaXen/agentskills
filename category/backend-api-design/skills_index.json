@@ -632,6 +632,14 @@
     "path": "category/backend-api-design/analytics-google-analytics-data-api-basics"
   },
   {
+    "id": "analytics-skills-managing-amazon-msk",
+    "name": "analytics-skills-managing-amazon-msk",
+    "category": "backend-api-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Operates Amazon MSK Provisioned clusters (Standard and Express brokers). Required for ANY MSK Provisioned task \u2014 training data conflates Standard and Express. Covers performance, consumer lag, storage, traffic shaping; sizing Standard vs Express; Kafka client tuning; CloudWatch alarms; cluster configs; maintenance, patching, rolling restarts; topic management; MSK Replicator setup for DR and active-active/active-passive replication (same-/cross-account), including throughput and partition sizing; Streaming Tables for S3 Tables and Data Delivery for General Purpose S3 \u2014 setup, IAM, monitoring. Prefer Flink for Kafka Iceberg sink questions. Migrations: use migrate-to-msk. Triggers: MSK Provisioned, Kafka, `kafka.*`/`express.*` types, AWS/Kafka namespace, cross-cluster replication, Kafka to Iceberg on S3 Tables, Kafka to S3, lakehouse, data lake from Kafka, Kafka Connect S3 Sink or Firehose alternative. DO NOT USE for MSK Connect \u2014 search docs instead. Serverless: only S3 Tables/data delivery eligibility.",
+    "path": "category/backend-api-design/analytics-skills-managing-amazon-msk"
+  },
+  {
     "id": "analyzing-api-gateway-access-logs",
     "name": "analyzing-api-gateway-access-logs",
     "category": "backend-api-design",
@@ -1544,6 +1552,14 @@
     "path": "category/backend-api-design/aspnet-core"
   },
   {
+    "id": "aspnet-minimal-api-openapi",
+    "name": "aspnet-minimal-api-openapi",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Create ASP.NET Minimal API endpoints with proper OpenAPI documentation",
+    "path": "category/backend-api-design/aspnet-minimal-api-openapi"
+  },
+  {
     "id": "assay",
     "name": "assay",
     "category": "backend-api-design",
@@ -1904,6 +1920,14 @@
     "path": "category/backend-api-design/azure-monitor-ingestion-py"
   },
   {
+    "id": "azure-pricing",
+    "name": "azure-pricing",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Fetches real-time Azure retail pricing using the Azure Retail Prices API (prices.azure.com) and estimates Copilot Studio agent credit consumption. Use when the user asks about the cost of any Azure service, wants to compare SKU prices, needs pricing data for a cost estimate, mentions Azure pricing, Azure costs, Azure billing, or asks about Copilot Studio pricing, Copilot Credits, or agent usage estimation. Covers compute, storage, networking, databases, AI, Copilot Studio, and all other Azure service families.",
+    "path": "category/backend-api-design/azure-pricing"
+  },
+  {
     "id": "azure-search-nav",
     "name": "azure-search-nav",
     "category": "backend-api-design",
@@ -2014,6 +2038,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Run and configure Bifrost, the open-source AI gateway: one OpenAI-compatible API for 20+ LLM providers with fallbacks, virtual keys and budgets, semantic caching, observability and an MCP gateway.",
     "path": "category/backend-api-design/bifrost-gateway"
+  },
+  {
+    "id": "binary-ninja-reverse",
+    "name": "binary-ninja-reverse",
+    "category": "backend-api-design",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Use for authorized binary analysis in Binary Ninja, including HLIL/MLIL/LLIL inspection, strings/imports/exports, cross-references, types, patch review, Python API automation, and optional Binary Ninja MCP or localhost HTTP integration.",
+    "path": "category/backend-api-design/binary-ninja-reverse"
   },
   {
     "id": "bioc-pmc-api",
@@ -2254,6 +2286,14 @@
     "repository": "unity-technologies-skills",
     "description": "Builds node-based Editor tools with Unity Graph Toolkit (GTK) on Unity 6.6+: graphs, nodes, ports and validation, State Machine API tools on 6.7+, and runtime assets via a scripted importer. Use for custom graph, node or state machine editors, or migrating a GraphView tool. Not for Shader Graph, VFX Graph or Animator Controllers.",
     "path": "category/backend-api-design/build-gtk"
+  },
+  {
+    "id": "build-multiplayer-game",
+    "name": "build-multiplayer-game",
+    "category": "backend-api-design",
+    "repository": "unity-technologies-skills",
+    "description": "Builds Unity online multiplayer, from matchmaking to gameplay sync. Make sure to use this skill when the user asks to add online play, host or join games, or fix lag, desync or connection failures. Not for voice chat or backend features.",
+    "path": "category/backend-api-design/build-multiplayer-game"
   },
   {
     "id": "build-zoom-bot",
@@ -3000,6 +3040,54 @@
     "path": "category/backend-api-design/common-huawei-cloud-skill-tester"
   },
   {
+    "id": "competition-dpapi-credential-chain",
+    "name": "competition-dpapi-credential-chain",
+    "category": "backend-api-design",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for DPAPI masterkeys, vault blobs, browser credential stores, protected secrets, domain backup keys, and secret-to-acceptance replay chains. Use when the user asks to inspect DPAPI blobs or masterkeys, recover browser or vault credentials, trace DPAPI context or backup-key use, or explain how protected Windows secrets become accepted access or privilege. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/backend-api-design/competition-dpapi-credential-chain"
+  },
+  {
+    "id": "competition-file-parser-chain",
+    "name": "competition-file-parser-chain",
+    "category": "backend-api-design",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for file uploads, imports, previews, archive extraction, format conversion, parser invocation, and deserialization chains. Use when the user asks to inspect an upload or import path, trace archive extraction, preview or converter behavior, explain how a file reaches a parser or deserializer, or connect one uploaded artifact to the decisive backend effect. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/backend-api-design/competition-file-parser-chain"
+  },
+  {
+    "id": "competition-graphql-rpc-drift",
+    "name": "competition-graphql-rpc-drift",
+    "category": "backend-api-design",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for GraphQL schemas, persisted queries, RPC manifests, generated clients, OpenAPI drift, hidden operations, and contract-to-handler mismatches. Use when the user asks to inspect GraphQL or RPC requests, compare client contracts to live handlers, recover hidden operations, trace generated clients, or explain how schema or contract drift produces the decisive behavior. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/backend-api-design/competition-graphql-rpc-drift"
+  },
+  {
+    "id": "competition-k8s-control-plane",
+    "name": "competition-k8s-control-plane",
+    "category": "backend-api-design",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for Kubernetes API analysis, service-account trust, RBAC edges, admission and controller behavior, cluster secrets, workload mutation, and namespace-scoped drift. Use when the user asks to inspect kube API permissions, service-account tokens, RoleBinding or ClusterRoleBinding edges, admission webhooks, controller-created pods, secret exposure, or why live workloads differ from manifests. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/backend-api-design/competition-k8s-control-plane"
+  },
+  {
+    "id": "competition-request-normalization-smuggling",
+    "name": "competition-request-normalization-smuggling",
+    "category": "backend-api-design",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for parser differentials, HTTP normalization gaps, ambiguous headers, path decoding drift, transfer-framing mismatches, and request smuggling routes. Use when the user asks to trace proxy and backend parse differences, conflicting path normalization, Host or forwarded-header ambiguity, CL/TE issues, or routing outcomes that differ across hops. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/backend-api-design/competition-request-normalization-smuggling"
+  },
+  {
+    "id": "competition-web-runtime",
+    "name": "competition-web-runtime",
+    "category": "backend-api-design",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for CTF web, API, SSR, frontend, queue-backed app, and routing challenges. Use when the user asks to inspect a site or API, follow real browser requests, debug auth or session flow, trace uploads or workers, find hidden routes, or explain why frontend and backend behavior diverge under sandbox-internal routing. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/backend-api-design/competition-web-runtime"
+  },
+  {
     "id": "conducting-api-security-testing",
     "name": "conducting-api-security-testing",
     "category": "backend-api-design",
@@ -3278,6 +3366,14 @@
     "repository": "sanity-io-context",
     "description": "Build AI agents with structured access to Sanity content via Sanity Context. Use when setting up a Sanity-powered chatbot, connecting an AI assistant to Sanity content, or adding client-side tools to an agent. Covers MCP endpoint setup in the Context app or with the Sanity CLI (GROQ mode over a dataset, or Knowledge Base mode), agent implementation, Insights, and advanced patterns. Always use this skill when users mention building a chatbot with Sanity, creating an AI assistant for their content, setting up the Sanity Context MCP server, integrating Sanity with Claude/GPT/any LLM, making content searchable by AI, implementing semantic search over Sanity data, or connecting their CMS to an AI agent.",
     "path": "category/backend-api-design/create-agent-with-sanity-context"
+  },
+  {
+    "id": "create-quarkus-project",
+    "name": "create-quarkus-project",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Create a new Quarkus project (Maven or Gradle) with the Quarkus CLI, code.quarkus.io API or Maven plugin, choose extensions, and run it in dev mode. Use when asked to scaffold, bootstrap or start a Quarkus application or REST API.",
+    "path": "category/backend-api-design/create-quarkus-project"
   },
   {
     "id": "creating-api-gateway-stage",
@@ -3800,6 +3896,22 @@
     "path": "category/backend-api-design/development"
   },
   {
+    "id": "device-ai-ml-kit-genai-prompt-api",
+    "name": "device-ai-ml-kit-genai-prompt-api",
+    "category": "backend-api-design",
+    "repository": "android-skills",
+    "description": "Analyzes Android codebases to implement ML Kit GenAI Prompt API. Use",
+    "path": "category/backend-api-design/device-ai-ml-kit-genai-prompt-api"
+  },
+  {
+    "id": "device-ai-mlkit-agent-api",
+    "name": "device-ai-mlkit-agent-api",
+    "category": "backend-api-design",
+    "repository": "android-skills",
+    "description": "Builds autonomous on-device agentic workflows in Android apps using the",
+    "path": "category/backend-api-design/device-ai-mlkit-agent-api"
+  },
+  {
     "id": "devops-troubleshooter",
     "name": "devops-troubleshooter",
     "category": "backend-api-design",
@@ -4304,6 +4416,14 @@
     "path": "category/backend-api-design/economic-calendar-fetcher"
   },
   {
+    "id": "economics-nber-working-papers-api",
+    "name": "economics-nber-working-papers-api",
+    "category": "backend-api-design",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Access NBER working papers and economic research datasets",
+    "path": "category/backend-api-design/economics-nber-working-papers-api"
+  },
+  {
     "id": "edgeone-makers-tools",
     "name": "edgeone-makers-tools",
     "category": "backend-api-design",
@@ -4318,6 +4438,14 @@
     "repository": "forcedotcom-sf-skills",
     "description": "Use this skill to set up and configure the Education Cloud Student Recruitment Agent (SRA) \u2014 the packaged Agentforce agent (namespace sturecruitment) that answers admissions FAQs, captures inquiries, registers campus tours, and files applications for prospective students. TRIGGER when the user wants to: create or configure an admissions, recruitment, or enrollment agent, set up the Student Recruitment Agent, deploy SRA to an Experience Cloud site, clone the SRA flows or permission sets, add the SRA subagents (Admissions and Enrollments FAQ; Admissions Application; Campus Tours, Visits, and Events Registration; Request for Information), wire Learning Program grounding, or build the escalation subagent. Guides platform enablement, permissions, grounding, agent creation, and channel deployment \u2014 API-first with UI fallback. DO NOT TRIGGER for the Transfer Credit Agent, generic Agentforce authoring (use agentforce-generate), or base Education Cloud domain enablement (use education-cloud-domain-configure).",
     "path": "category/backend-api-design/education-cloud-student-recruitment-agent-configure"
+  },
+  {
+    "id": "efcore-d2-db-diagram",
+    "name": "efcore-d2-db-diagram",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Generate D2 database diagrams from Entity Framework Core models. USE FOR: EF Core database diagram, Entity Framework Core ERD, DbContext diagram, C# entity relationship diagram, PostgreSQL schema visualization, generate .d2 file from EF Core entities, Fluent API mapping diagram, migrations-based database diagram, table relationships, owned types, many-to-many join tables, indexes and constraints. DO NOT USE FOR: runtime debugging, database migration execution, schema deployment, SQL performance tuning, or draw.io diagrams.",
+    "path": "category/backend-api-design/efcore-d2-db-diagram"
   },
   {
     "id": "element14",
@@ -4486,6 +4614,14 @@
     "repository": "davila7-claude-code-templates",
     "description": "Evaluates LLMs across 60+ academic benchmarks (MMLU, HumanEval, GSM8K, TruthfulQA, HellaSwag). Use when benchmarking model quality, comparing models, reporting academic results, or tracking training progress. Industry standard used by EleutherAI, HuggingFace, and major labs. Supports HuggingFace, vLLM, APIs.",
     "path": "category/backend-api-design/evaluation-lm-evaluation-harness"
+  },
+  {
+    "id": "experience-afv-analytics-query",
+    "name": "experience-afv-analytics-query",
+    "category": "backend-api-design",
+    "repository": "forcedotcom-sf-skills",
+    "description": "System-of-record for the public Lightning Instrumentation Headless Connect REST API route that retrieves Agentforce Vibes (AFV) metrics, analytics, data, and adoption/usage insights, including token/LOC, weekly active-user, and per-user activity. Supports local result filtering by period (default current), orgType (default All), recordType, modelName (default All), and other explicitly returned row fields after one parameterless API call.",
+    "path": "category/backend-api-design/experience-afv-analytics-query"
   },
   {
     "id": "experience-ui-bundle-file-upload-generate",
@@ -4936,12 +5072,28 @@
     "path": "category/backend-api-design/flowdriver-covert-transport"
   },
   {
+    "id": "flowstudio-power-automate-debug",
+    "name": "flowstudio-power-automate-debug",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Debug failing Power Automate cloud flows using the FlowStudio MCP server. The Graph API only shows top-level status codes. This skill gives your agent action-level inputs and outputs to find the actual root cause. Load this skill when asked to: debug a flow, investigate a failed run, why is this flow failing, inspect action outputs, find the root cause of a flow error, fix a broken Power Automate flow, diagnose a timeout, trace a DynamicOperationRequestFailure, check connector auth errors, read error details from a run, or troubleshoot expression failures. Requires a FlowStudio MCP subscription \u2014 see https://mcp.flowstudio.app",
+    "path": "category/backend-api-design/flowstudio-power-automate-debug"
+  },
+  {
     "id": "flutter-use-http-package",
     "name": "flutter-use-http-package",
     "category": "backend-api-design",
     "repository": "flutter-agent-plugins",
     "description": "Use the `http` package to execute GET, POST, PUT, or DELETE requests. Use when you need to fetch from or send data to a REST API.",
     "path": "category/backend-api-design/flutter-use-http-package"
+  },
+  {
+    "id": "foundry-agent-sync",
+    "name": "foundry-agent-sync",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Create and synchronize prompt-based AI agents directly within Azure AI Foundry via REST API, from a local JSON manifest. Unlike scaffolding skills that only generate local code, this skill registers agents in the Foundry service itself \u2014 making them immediately available for invocation. Use when the user asks to create agents in Foundry, sync, deploy, register, or push agents to Foundry, update agent instructions, or scaffold the manifest and sync script for a new repository. Triggers: 'create agent in foundry', 'sync foundry agents', 'deploy agents to foundry', 'register agents in foundry', 'push agents', 'create foundry agent manifest', 'scaffold agent sync'.",
+    "path": "category/backend-api-design/foundry-agent-sync"
   },
   {
     "id": "fp-async",
@@ -4982,6 +5134,14 @@
     "repository": "reason-machines-trending-skills",
     "description": "OpenAI-compatible proxy server for Freebuff that translates standard OpenAI API requests into Freebuff's backend format with multi-token rotation and Docker deployment.",
     "path": "category/backend-api-design/freebuff2api-openai-proxy"
+  },
+  {
+    "id": "freecad-scripts",
+    "name": "freecad-scripts",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Expert skill for writing FreeCAD Python scripts, macros, and automation. Use when asked to create FreeCAD models, parametric objects, Part/Mesh/Sketcher scripts, workbench tools, GUI dialogs with PySide, Coin3D scenegraph manipulation, or any FreeCAD Python API task. Covers FreeCAD scripting basics, geometry creation, FeaturePython objects, interface tools, and macro development.",
+    "path": "category/backend-api-design/freecad-scripts"
   },
   {
     "id": "frontend-api-integration-patterns",
@@ -6760,6 +6920,14 @@
     "path": "category/backend-api-design/institutional-flow-tracker"
   },
   {
+    "id": "integrate-context-matic",
+    "name": "integrate-context-matic",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Discovers and integrates third-party APIs using the context-matic MCP server. Uses `fetch_api` to find available API SDKs, `ask` for integration guidance, `model_search` and `endpoint_search` for SDK details. Use when the user asks to integrate a third-party API, add an API client, implement features with an external API, or work with any third-party API or SDK.",
+    "path": "category/backend-api-design/integrate-context-matic"
+  },
+  {
     "id": "integrating-jupiter",
     "name": "integrating-jupiter",
     "category": "backend-api-design",
@@ -7560,6 +7728,14 @@
     "path": "category/backend-api-design/microservices-resilience"
   },
   {
+    "id": "microsoft-code-reference",
+    "name": "microsoft-code-reference",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Look up Microsoft API references, find working code samples, and verify SDK code is correct. Use when working with Azure SDKs, .NET libraries, or Microsoft APIs\u2014to find the right method, check parameters, get working examples, or troubleshoot errors. Catches hallucinated methods, wrong signatures, and deprecated patterns by querying official docs.",
+    "path": "category/backend-api-design/microsoft-code-reference"
+  },
+  {
     "id": "microsoft-graph-api",
     "name": "microsoft-graph-api",
     "category": "backend-api-design",
@@ -7734,6 +7910,14 @@
     "repository": "elevenlabs-skills",
     "description": "Generate music using ElevenLabs Music API. Use when creating instrumental tracks, songs with lyrics, background music, jingles, or any AI-generated music composition. Supports prompt-based generation, composition plans for granular control, and detailed output with metadata.",
     "path": "category/backend-api-design/music"
+  },
+  {
+    "id": "namecheap",
+    "name": "namecheap",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Manage DNS records for domains registered with Namecheap via their API. List domains, view/add/update/remove DNS host entries (A, AAAA, CNAME, MX, TXT, etc.), and guide users through API setup including public IP detection and credential configuration. Use when the user mentions Namecheap, DNS records, domain management, or wants to add/change/remove A records, CNAME records, MX records, or TXT records for their domains.",
+    "path": "category/backend-api-design/namecheap"
   },
   {
     "id": "nano-banana-edit",
@@ -8224,6 +8408,14 @@
     "path": "category/backend-api-design/okx-dex-market"
   },
   {
+    "id": "onboard-context-matic",
+    "name": "onboard-context-matic",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Interactive onboarding tour for the context-matic MCP server. Walks the user through what the server does, shows all available APIs, lets them pick one to explore, explains it in their project language, demonstrates model_search and endpoint_search live, and ends with a menu of things the user can ask the agent to do. USE FOR: first-time setup; \"what can this MCP do?\"; \"show me the available APIs\"; \"onboard me\"; \"how do I use the context-matic server\"; \"give me a tour\". DO NOT USE FOR: actually integrating an API end-to-end (use integrate-context-matic instead).",
+    "path": "category/backend-api-design/onboard-context-matic"
+  },
+  {
     "id": "onesignal-rest-api-automation",
     "name": "onesignal-rest-api-automation",
     "category": "backend-api-design",
@@ -8358,6 +8550,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Generate complete, production-ready OpenAPI 3.x and Swagger 2.0 specifications from natural language descriptions, code, or partial specs.",
     "path": "category/backend-api-design/openapi-spec-generator"
+  },
+  {
+    "id": "openapi-to-application-code",
+    "name": "openapi-to-application-code",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Generate a complete, production-ready application from an OpenAPI specification",
+    "path": "category/backend-api-design/openapi-to-application-code"
   },
   {
     "id": "opencitations-api",
@@ -9184,6 +9384,14 @@
     "path": "category/backend-api-design/proof-checker"
   },
   {
+    "id": "protobuf-grpc-api-review",
+    "name": "protobuf-grpc-api-review",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Review Protocol Buffer (.proto) and gRPC API changes for wire and JSON compatibility, safe schema evolution, rollout hazards, and RPC contract quality. Use when reviewing proto diffs, adding or changing messages and services, planning migrations, or diagnosing cross-version failures.",
+    "path": "category/backend-api-design/protobuf-grpc-api-review"
+  },
+  {
     "id": "protocolsio-integration",
     "name": "protocolsio-integration",
     "category": "backend-api-design",
@@ -9280,6 +9488,14 @@
     "path": "category/backend-api-design/python-fastapi-development"
   },
   {
+    "id": "python-mcp-server-generator",
+    "name": "python-mcp-server-generator",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Use this skill when the user wants to create a new Model Context Protocol (MCP) server in Python. Also use it to expose Python functions, an API, or a database to AI clients as MCP tools. The skill makes a uv project with the MCP Python SDK v2 (MCPServer), typed tools, in-memory tests, and client configuration. Do not use it for an MCP client or for a server in another language.",
+    "path": "category/backend-api-design/python-mcp-server-generator"
+  },
+  {
     "id": "python-sdk",
     "name": "python-sdk",
     "category": "backend-api-design",
@@ -9302,6 +9518,14 @@
     "repository": "garrytan-gstack",
     "description": "Report browser/API/CLI/job/worker/webhook bugs. (gstack)",
     "path": "category/backend-api-design/qa-only"
+  },
+  {
+    "id": "quarkus-application-development",
+    "name": "quarkus-application-development",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Write Quarkus application code: REST with Quarkus REST, validation, exception mappers, OpenAPI, configuration, CDI (ArC), Hibernate ORM with Panache, Mutiny and virtual threads, Reactive Messaging with Kafka, OIDC security, health, metrics, OpenTelemetry, fault tolerance, REST Client, scheduler and cache. Use when implementing or changing features in an existing Quarkus project.",
+    "path": "category/backend-api-design/quarkus-application-development"
   },
   {
     "id": "quarkus-tdd",
@@ -9350,6 +9574,14 @@
     "repository": "davila7-claude-code-templates",
     "description": "Open-source embedding database for AI applications. Store embeddings and metadata, perform vector and full-text search, filter by metadata. Simple 4-function API. Scales from notebooks to production clusters. Use for semantic search, RAG applications, or document retrieval. Best for local development and open-source projects.",
     "path": "category/backend-api-design/rag-chroma"
+  },
+  {
+    "id": "rails-security",
+    "name": "rails-security",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "Ruby on Rails security practices for Rails 7.1+ and 8.x apps. Covers production configuration, authentication, authorization, strong parameters, SQL injection, XSS and output escaping, CSRF, file uploads, API security, credentials, untrusted boundaries, and dependency scanning. Use when reviewing or writing Rails authentication, authorization, input handling, uploads, or deployment configuration.",
+    "path": "category/backend-api-design/rails-security"
   },
   {
     "id": "raindrop-api",
@@ -9414,6 +9646,22 @@
     "repository": "aj-geddes-useful-ai-prompts",
     "description": "Build cross-platform mobile apps with React Native. Covers navigation with React Navigation, state management with Redux/Context API, API integration, and platform-specific features.",
     "path": "category/backend-api-design/react-native-app"
+  },
+  {
+    "id": "react18-enzyme-to-rtl",
+    "name": "react18-enzyme-to-rtl",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Provides exact Enzyme \u2192 React Testing Library migration patterns for React 18 upgrades. Use this skill whenever Enzyme tests need to be rewritten - shallow, mount, wrapper.find(), wrapper.simulate(), wrapper.prop(), wrapper.state(), wrapper.instance(), Enzyme configure/Adapter calls, or any test file that imports from enzyme. This skill covers the full API mapping and the philosophy shift from implementation testing to behavior testing. Always read this skill before rewriting Enzyme tests - do not translate Enzyme APIs 1:1, that produces brittle RTL tests.",
+    "path": "category/backend-api-design/react18-enzyme-to-rtl"
+  },
+  {
+    "id": "react19-source-patterns",
+    "name": "react19-source-patterns",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Reference for React 19 source-file migration patterns, including API changes, ref handling, and context updates.",
+    "path": "category/backend-api-design/react19-source-patterns"
   },
   {
     "id": "reactome-database",
@@ -9688,6 +9936,14 @@
     "path": "category/backend-api-design/runpod-vllm"
   },
   {
+    "id": "ruvllm-runtime",
+    "name": "ruvllm-runtime",
+    "category": "backend-api-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Tell apart and check the RuVLLM packages \u2014 the WASM add-on behind ruvllm_* tools, the @ruvector/ruvllm 4.1 native runtime and the GPU-loop harness. Use when ruvllm_status shows a backend unavailable or an install resolved the broken 4.0.x.",
+    "path": "category/backend-api-design/ruvllm-runtime"
+  },
+  {
     "id": "saas-economics-efficiency-metrics",
     "name": "saas-economics-efficiency-metrics",
     "category": "backend-api-design",
@@ -9790,6 +10046,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Access Latin American and developing world research via SciELO API",
     "path": "category/backend-api-design/scielo-api"
+  },
+  {
+    "id": "scientific-db-openalex-database",
+    "name": "scientific-db-openalex-database",
+    "category": "backend-api-design",
+    "repository": "affaan-m-ecc",
+    "description": "OpenAlex REST API workflows for cross-disciplinary literature search, DOI/PMID lookup, open-access links, citation counts, and reproducible search logs. Use when a task needs scholarly works from every field (not only biomedicine), or needs to resolve a DOI, PMID or OpenAlex ID to full metadata.",
+    "path": "category/backend-api-design/scientific-db-openalex-database"
   },
   {
     "id": "scientific-db-pubmed-database",
@@ -9934,6 +10198,14 @@
     "repository": "browser-act-skills",
     "description": "AI-powered web research assistant that leverages BrowserAct API to supplement restricted web access by searching the internet for additional information. Designed for OpenClaw and Claude Code.",
     "path": "category/backend-api-design/search-research-web-research-assistant"
+  },
+  {
+    "id": "search-strategies",
+    "name": "search-strategies",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Guides Qdrant search strategy selection. Use when someone asks 'should I use hybrid search?', 'BM25 or sparse vectors?', 'how to rerank?', 'results are not relevant', 'I don't get needed results from my dataset but they're there', 'retrieval quality is not good enough', 'results too similar', 'need diversity', 'MMR', 'relevance feedback', 'recommendation API', 'discovery API', 'ColBERT reranking', or 'missing keyword matches",
+    "path": "category/backend-api-design/search-strategies"
   },
   {
     "id": "secret-serialization",
@@ -10528,6 +10800,14 @@
     "path": "category/backend-api-design/skills-api-versioning"
   },
   {
+    "id": "skills-asc-apple-ads",
+    "name": "skills-asc-apple-ads",
+    "category": "backend-api-design",
+    "repository": "rorkai-app-store-connect-cli-skills",
+    "description": "Use when managing Apple Ads with asc, including OAuth profiles, ad-account discovery, Platform API v1 campaigns and targeting, reports, assets, recommendations, guarded mutations, raw requests, and migrating existing v5 scripts.",
+    "path": "category/backend-api-design/skills-asc-apple-ads"
+  },
+  {
     "id": "skills-asc-subscription-localization",
     "name": "skills-asc-subscription-localization",
     "category": "backend-api-design",
@@ -10550,6 +10830,22 @@
     "repository": "codewithmukesh-dotnet-claude-kit",
     "description": "Authentication and authorization for ASP.NET Core. Covers JWT bearer tokens, OpenID Connect, ASP.NET Identity, authorization policies, role and claim-based authorization, and API key authentication. Load this skill when implementing login, protecting endpoints, designing authorization rules, or when the user mentions \"auth\", \"JWT\", \"bearer token\", \"OIDC\", \"OpenID Connect\", \"Identity\", \"claims\", \"roles\", \"authorize\", \"RequireAuthorization\", \"API key\", or \"cookie auth\".",
     "path": "category/backend-api-design/skills-authentication"
+  },
+  {
+    "id": "skills-auto-review-loop-llm",
+    "name": "skills-auto-review-loop-llm",
+    "category": "backend-api-design",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Autonomous research review loop using any OpenAI-compatible LLM API. Configure via llm-chat MCP server or environment variables. Trigger with \"auto review loop llm\" or \"llm review\".",
+    "path": "category/backend-api-design/skills-auto-review-loop-llm"
+  },
+  {
+    "id": "skills-auto-review-loop-minimax",
+    "name": "skills-auto-review-loop-minimax",
+    "category": "backend-api-design",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Autonomous multi-round research review loop using MiniMax API. Use when you want to use MiniMax instead of Codex MCP for external review. Trigger with \"auto review loop minimax\" or \"minimax review\".",
+    "path": "category/backend-api-design/skills-auto-review-loop-minimax"
   },
   {
     "id": "skills-aws-observability",
@@ -10608,12 +10904,28 @@
     "path": "category/backend-api-design/skills-baoyu-danger-gemini-web"
   },
   {
+    "id": "skills-bb-local-toolkit",
+    "name": "skills-bb-local-toolkit",
+    "category": "backend-api-design",
+    "repository": "elementalsouls-claude-bughunter",
+    "description": "Use the full bug bounty workflow when you also need the local path of a tool, wordlist, or clone (SecLists, jhaddix, ffuf, dalfox, ghauri, trufflehog). Covers recon, pre-hunt research, source code audit, web and API vulnerability testing (IDOR, SSRF, XSS, SQLi, OAuth), LLM security testing, bug chaining, finding validation, and reporting. For general workflow routing without local tooling, use bug-bounty. \u4e2d\u6587\u89e6\u53d1\u8bcd\uff1a\u6f0f\u6d1e\u8d4f\u91d1\u3001\u5b89\u5168\u6d4b\u8bd5\u3001\u6e17\u900f\u6d4b\u8bd5\u3001\u6f0f\u6d1e\u6316\u6398\u3001\u4fe1\u606f\u6536\u96c6\u3001\u5b50\u57df\u540d\u679a\u4e3e\u3001XSS\u6d4b\u8bd5\u3001SQL\u6ce8\u5165\u3001SSRF\u3001\u5b89\u5168\u5ba1\u8ba1\u3001\u6f0f\u6d1e\u62a5\u544a",
+    "path": "category/backend-api-design/skills-bb-local-toolkit"
+  },
+  {
     "id": "skills-boat",
     "name": "skills-boat",
     "category": "backend-api-design",
     "repository": "davidondrej-skills",
     "description": "Manage Boat (boat.dev, formerly Box by Ascii) cloud sandboxes via API, CLI, and SSH. Use for provisioning, environments, secrets, templates, snapshots, stop/resume/fork, or running BB and coding agents on Boat.",
     "path": "category/backend-api-design/skills-boat"
+  },
+  {
+    "id": "skills-bug-bounty",
+    "name": "skills-bug-bounty",
+    "category": "backend-api-design",
+    "repository": "elementalsouls-claude-bughunter",
+    "description": "Guide a bug bounty task from recon and HackerOne scope through research, vulnerability testing, finding validation, and reporting. Use for subdomain and asset discovery, fingerprinting, disclosed report research, threat modeling, source code audit, web and API bugs (IDOR, SSRF, XSS, SQLi, OAuth, request smuggling), LLM and AI security testing, bug chaining, proof-of-concept validation, CVSS, or preparing a submission. For local tool and wordlist paths, use bb-local-toolkit. \u4e2d\u6587\u89e6\u53d1\u8bcd\uff1a\u6f0f\u6d1e\u8d4f\u91d1\u3001\u5b89\u5168\u6d4b\u8bd5\u3001\u6e17\u900f\u6d4b\u8bd5\u3001\u6f0f\u6d1e\u6316\u6398\u3001\u4fe1\u606f\u6536\u96c6\u3001\u5b50\u57df\u540d\u679a\u4e3e\u3001XSS\u6d4b\u8bd5\u3001SQL\u6ce8\u5165\u3001SSRF\u3001\u5b89\u5168\u5ba1\u8ba1\u3001\u6f0f\u6d1e\u62a5\u544a",
+    "path": "category/backend-api-design/skills-bug-bounty"
   },
   {
     "id": "skills-build-connector",
@@ -10699,7 +11011,7 @@
     "id": "skills-codex-auto-review-loop-llm",
     "name": "skills-codex-auto-review-loop-llm",
     "category": "backend-api-design",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Autonomous research review loop using any OpenAI-compatible LLM API. Configure via llm-chat MCP server or environment variables. Trigger with \\\"auto review loop llm\\\" or \\\"llm review\\\".",
     "path": "category/backend-api-design/skills-codex-auto-review-loop-llm"
   },
@@ -10707,7 +11019,7 @@
     "id": "skills-codex-auto-review-loop-minimax",
     "name": "skills-codex-auto-review-loop-minimax",
     "category": "backend-api-design",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Autonomous multi-round research review loop using MiniMax API. Use when you want to use MiniMax instead of Codex MCP for external review. Trigger with \\\"auto review loop minimax\\\" or \\\"minimax review\\\".",
     "path": "category/backend-api-design/skills-codex-auto-review-loop-minimax"
   },
@@ -10731,7 +11043,7 @@
     "id": "skills-codex-openalex",
     "name": "skills-codex-openalex",
     "category": "backend-api-design",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Search academic papers via OpenAlex API for open citation data, institutional affiliations, and funding information. Use when user says \"openalex search\", \"search openalex\", \"open citation graph\", or wants comprehensive academic metadata beyond arXiv/Semantic Scholar.",
     "path": "category/backend-api-design/skills-codex-openalex"
   },
@@ -10739,7 +11051,7 @@
     "id": "skills-codex-semantic-scholar",
     "name": "skills-codex-semantic-scholar",
     "category": "backend-api-design",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Search published venue papers (IEEE, ACM, Springer, etc.) via Semantic Scholar API. Complements /arxiv (preprints) with citation counts, venue metadata, and TLDR. Use when user says \"search semantic scholar\", \"find IEEE papers\", \"find journal papers\", \"venue papers\", \"citation search\", or wants published literature beyond arXiv preprints.",
     "path": "category/backend-api-design/skills-codex-semantic-scholar"
   },
@@ -10816,6 +11128,14 @@
     "path": "category/backend-api-design/skills-eas-hosting"
   },
   {
+    "id": "skills-education-cloud-student-recruitment-agent-configure",
+    "name": "skills-education-cloud-student-recruitment-agent-configure",
+    "category": "backend-api-design",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Use this skill to set up and configure the Education Cloud Student Recruitment Agent (SRA) \u2014 the packaged Agentforce agent (namespace sturecruitment) that answers admissions FAQs, captures inquiries, registers campus tours, and files applications for prospective students. TRIGGER when the user wants to: create or configure an admissions, recruitment, or enrollment agent, set up the Student Recruitment Agent, deploy SRA to an Experience Cloud site, clone the SRA flows or permission sets, add the SRA subagents (Admissions and Enrollments FAQ; Admissions Application; Campus Tours, Visits, and Events Registration; Request for Information), wire Learning Program grounding, or build the escalation subagent. Guides platform enablement, permissions, grounding, agent creation, and channel deployment \u2014 API-first with UI fallback. DO NOT TRIGGER for the Transfer Credit Agent, generic Agentforce authoring (use agentforce-generate), or base Education Cloud domain enablement (use education-cloud-domain-configure).",
+    "path": "category/backend-api-design/skills-education-cloud-student-recruitment-agent-configure"
+  },
+  {
     "id": "skills-entra-app-registration",
     "name": "skills-entra-app-registration",
     "category": "backend-api-design",
@@ -10838,6 +11158,22 @@
     "repository": "affaan-m-ecc",
     "description": "\u975e\u540c\u671fAPI\u3001\u4f9d\u5b58\u6027\u6ce8\u5165\u3001Pydantic\u306e\u30ea\u30af\u30a8\u30b9\u30c8\u30fb\u30ec\u30b9\u30dd\u30f3\u30b9\u30e2\u30c7\u30eb\u3001OpenAPI\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8\u3001\u30c6\u30b9\u30c8\u3001\u30bb\u30ad\u30e5\u30ea\u30c6\u30a3\u3001\u672c\u756a\u5bfe\u5fdc\u306e\u305f\u3081\u306eFastAPI\u30d1\u30bf\u30fc\u30f3\u3002",
     "path": "category/backend-api-design/skills-fastapi-patterns"
+  },
+  {
+    "id": "skills-figma-3d-transforms",
+    "name": "skills-figma-3d-transforms",
+    "category": "backend-api-design",
+    "repository": "figma-mcp-server-guide",
+    "description": "Add or edit 3D transforms \u2014 depth, perspective, z-axis rotation, tilt, isometric, and parallax looks that flat 2D rotation cannot express. Use whenever a request reaches into the third dimension \u2014 \"make it 3D\", \"add depth/perspective\", \"tilt/rotate it back\", \"z-plane\", \"isometric\", \"flip it like a card\", \"parallax\", \"vanishing point\", \"receding into the distance\", \"make it pop out\".",
+    "path": "category/backend-api-design/skills-figma-3d-transforms"
+  },
+  {
+    "id": "skills-figquery-figma-3d-transforms",
+    "name": "skills-figquery-figma-3d-transforms",
+    "category": "backend-api-design",
+    "repository": "figma-mcp-server-guide",
+    "description": "Add or edit 3D transforms \u2014 depth, perspective, z-axis rotation, tilt, isometric, and parallax looks that flat 2D rotation cannot express. Use whenever a request reaches into the third dimension \u2014 \"make it 3D\", \"add depth/perspective\", \"tilt/rotate it back\", \"z-plane\", \"isometric\", \"flip it like a card\", \"parallax\", \"vanishing point\", \"receding into the distance\", \"make it pop out\".",
+    "path": "category/backend-api-design/skills-figquery-figma-3d-transforms"
   },
   {
     "id": "skills-find-skills",
@@ -10912,6 +11248,46 @@
     "path": "category/backend-api-design/skills-general"
   },
   {
+    "id": "skills-gmgn-market",
+    "name": "skills-gmgn-market",
+    "category": "backend-api-design",
+    "repository": "gmgnai-gmgn-skills",
+    "description": "Get crypto and meme token price charts (K-line, candlestick, OHLCV), trending meme coin rankings by volume, newly launched tokens on launchpads (pump.fun, fourmeme, letsbonk, Raydium, etc.), the hot-search ranking (most-searched tokens), and search for a specific token or wallet by name, symbol, contract address, wallet address, or ENS via GMGN API on Solana, BSC, Base, or Ethereum. Use when user asks for price chart, trending tokens, what's pumping, hot coins, most searched tokens, new launches, token signals, wants to look up / find / search a specific token or wallet by name or address, or wants to discover early-stage opportunities.",
+    "path": "category/backend-api-design/skills-gmgn-market"
+  },
+  {
+    "id": "skills-gmgn-portfolio",
+    "name": "skills-gmgn-portfolio",
+    "category": "backend-api-design",
+    "repository": "gmgnai-gmgn-skills",
+    "description": "Analyze one or many crypto wallets by address \u2014 holdings, batch realized/unrealized P&L, win rate, trading history, performance stats, specific token balance, and tokens created by a developer wallet (with ATH market cap and DEX graduation status) via GMGN API on Solana, BSC, Base, or Ethereum. Use when user asks about wallet holdings, P&L (including comparing up to 100 wallets), win rate, what tokens a dev has launched, the highest ATH token a dev ever created, or wants a wallet report to decide whether to copy-trade or follow.",
+    "path": "category/backend-api-design/skills-gmgn-portfolio"
+  },
+  {
+    "id": "skills-gmgn-swap",
+    "name": "skills-gmgn-swap",
+    "category": "backend-api-design",
+    "repository": "gmgnai-gmgn-skills",
+    "description": "[FINANCIAL EXECUTION] Buy and sell meme coins and crypto tokens on Solana, BSC, Base, or Ethereum \u2014 single swap, multi-wallet batch trading, limit orders, stop loss, take profit, trailing stop loss, trailing take profit via GMGN API. Use when user asks to buy, sell, or swap a token, trade from multiple wallets, set a limit order, stop loss, take profit, or check order status. This skill SUBMITS the trade \u2014 it is the only skill holding a private key, and every buy still ends here. It is not the entry point for a buy that has not been vetted yet: \u300c\u5e2e\u6211\u4e70 200u \u7684 PENGU\u300d, \"buy me $500 of BONK\", \u300c\u5e2e\u6211\u4e70\u70b9 dogwifhat\u300d, \u300cXX \u80fd\u4e0d\u80fd\u4e70\u300d start at gmgn-token-buy, which resolves the name to the one right contract among its copycats, gates volume / depth / security, sizes slippage and gas, then hands the confirmed parameters back here to execute. Come straight here for a buy only once the contract is settled AND the user says they do not want a pre-buy check (\"skip the security check\", \"I already checked\", \u300c\u76f4\u63a5\u4e70\u300d, \u300c\u4e0d\u7528\u5c3d\u8c03\u300d, \u300c\u6211\u5f88\u6025\u300d). Two facts make the split unavoidable rather than a preference: the pre-swap check here reads only `is_honeypot` and `rug_ratio`, and there is no name resolution at all \u2014 `--output-token` takes a contract address and the only names resolved here are the SOL/BNB/ETH/USDC currencies \u2014 so a same-name copycat is a total loss this skill has no way to catch. Everything else is unchanged and unconditionally this skill's: selling, percentage sells, swaps, multi-wallet batch trading, limit orders, stop loss, take profit, trailing orders, order status, gas prices.",
+    "path": "category/backend-api-design/skills-gmgn-swap"
+  },
+  {
+    "id": "skills-gmgn-token",
+    "name": "skills-gmgn-token",
+    "category": "backend-api-design",
+    "repository": "gmgnai-gmgn-skills",
+    "description": "Research any crypto or meme token by address \u2014 real-time price, market cap, liquidity, holder list, trader list, top Smart Money and KOL positions, security audit (honeypot, rug pull risk, dev wallet, renounced status), social links (Twitter/X, website) via GMGN API on Solana, BSC, Base, or Ethereum. Use when user asks about a token's price, safety, holders, traders, smart money exposure, or wants due diligence before buying.",
+    "path": "category/backend-api-design/skills-gmgn-token"
+  },
+  {
+    "id": "skills-gmgn-track",
+    "name": "skills-gmgn-track",
+    "category": "backend-api-design",
+    "repository": "gmgnai-gmgn-skills",
+    "description": "Get real-time crypto buy/sell activity from Smart Money wallets, KOL influencer wallets, and personally followed wallets via GMGN API \u2014 alpha signals, whale tracking, meme token copy-trading ideas on Solana, BSC, Base, or Ethereum. Also query which tokens a wallet has followed (bookmarked) on GMGN. Use when user asks what smart money or KOLs are buying, wants whale alerts, on-chain alpha, copy-trade signals, or wants to check a wallet's followed tokens. (For a specific wallet address's portfolio, use gmgn-portfolio.)",
+    "path": "category/backend-api-design/skills-gmgn-track"
+  },
+  {
     "id": "skills-google-workspace-ops",
     "name": "skills-google-workspace-ops",
     "category": "backend-api-design",
@@ -10966,6 +11342,38 @@
     "repository": "affaan-m-ecc",
     "description": "Patrones de arquitectura Laravel, routing/controladores, Eloquent ORM, capas de servicio, colas, eventos, cach\u00e9 y API resources para aplicaciones en producci\u00f3n.",
     "path": "category/backend-api-design/skills-laravel-patterns"
+  },
+  {
+    "id": "skills-managing-amazon-msk",
+    "name": "skills-managing-amazon-msk",
+    "category": "backend-api-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Operates Amazon MSK Provisioned clusters (Standard and Express brokers). Required for ANY MSK Provisioned task \u2014 training data conflates Standard and Express. Covers performance, consumer lag, storage, traffic shaping; sizing Standard vs Express; Kafka client tuning; CloudWatch alarms; cluster configs; maintenance, patching, rolling restarts; topic management; MSK Replicator setup for DR and active-active/active-passive replication (same-/cross-account), including throughput and partition sizing; Streaming Tables for S3 Tables and Data Delivery for General Purpose S3 \u2014 setup, IAM, monitoring. Prefer Flink for Kafka Iceberg sink questions. Migrations: use migrate-to-msk. Triggers: MSK Provisioned, Kafka, `kafka.*`/`express.*` types, AWS/Kafka namespace, cross-cluster replication, Kafka to Iceberg on S3 Tables, Kafka to S3, lakehouse, data lake from Kafka, Kafka Connect S3 Sink or Firehose alternative. DO NOT USE for MSK Connect \u2014 search docs instead. Serverless: only S3 Tables/data delivery eligibility.",
+    "path": "category/backend-api-design/skills-managing-amazon-msk"
+  },
+  {
+    "id": "skills-melonjs-lighting",
+    "name": "skills-melonjs-lighting",
+    "category": "backend-api-design",
+    "repository": "melonjs-melonjs",
+    "description": "Use this skill for 2D dynamic lighting in melonJS \u2014 Light2d, ambient light on a Stage, multiple lights, and per-pixel normal-mapped sprites authored in SpriteIlluminator. Covers specular highlights via shininess, the ambient-cutout model, which parts need a GPU backend, and why Light2d does not survive a Camera3d. Triggers on: Light2d, softness, soft light, lightHeight, setRadii, specular, shininess, highlight, glint, lighting, ambientLight, ambientLightingColor, normalMap, SpriteIlluminator, per-pixel lighting, drawLight, torch, glow, darkness.",
+    "path": "category/backend-api-design/skills-melonjs-lighting"
+  },
+  {
+    "id": "skills-melonjs-renderer-backends",
+    "name": "skills-melonjs-renderer-backends",
+    "category": "backend-api-design",
+    "repository": "melonjs-melonjs",
+    "description": "Use this skill when a feature works on one machine and not another, when choosing or pinning a renderer, or when writing code that must degrade gracefully. Covers the WebGPU to WebGL 2 to Canvas fallback ladder, what each backend supports, capability detection, and the subsystems that warn once and then stop working on Canvas. Triggers on: video.AUTO, video.WEBGPU, video.WEBGL, video.CANVAS, renderer.type, supportsDepthBuffer, shaderLanguage, WebGPU, WebGL2, Canvas fallback, failIfMajorPerformanceCaveat, software rendering, supportsHDR, hdrOutput, context loss, backend, works on my machine.",
+    "path": "category/backend-api-design/skills-melonjs-renderer-backends"
+  },
+  {
+    "id": "skills-melonjs-tilemaps",
+    "name": "skills-melonjs-tilemaps",
+    "category": "backend-api-design",
+    "repository": "melonjs-melonjs",
+    "description": "Use this skill for Tiled maps in melonJS \u2014 loading TMX/TSX levels, spawning entities from Tiled objects, collision shapes authored in Tiled, isometric and hexagonal maps, and image layers, and reading or changing tiles while the game runs. Covers registerTiledObjectClass and the pool.register name contract, camera bounds, compressed maps needing the inflate plugin, and the level director API. Triggers on: Tiled, TMX, TSX, tilemap, setTile, clearTile, cellAt, getTile, getTileById, change a tile, tile at run time, game board, grid, tile properties at run time, getTileProperties, map properties, level.load, level.load async, await level.load, tileset, ImageLayer, infinite map, render order, isometric, hexagonal, staggered, pool.register, Collectable, Trigger, object layer, collision layer, parallax, registerTiledObjectClass, registerTiledObjectFactory, TMXObject, resolvedProperty, resolvedProperties, tile class, tile properties.",
+    "path": "category/backend-api-design/skills-melonjs-tilemaps"
   },
   {
     "id": "skills-migrate-to-parallel",
@@ -11040,12 +11448,36 @@
     "path": "category/backend-api-design/skills-nodejs-keccak256"
   },
   {
+    "id": "skills-nonprofit-fundraising-configure",
+    "name": "skills-nonprofit-fundraising-configure",
+    "category": "backend-api-design",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Configure Nonprofit Cloud Fundraising on an org headlessly \u2014 assign permission sets/groups org-wide, enable Fundraising, create a default Gift Designation, configure gift/recurring-donation-failure settings and feature toggles, and offer optional enhanced features (Interest Tags, Interaction Summaries, Record Alerts, Life Events, Timeline). Use when the user asks to set up or enable Nonprofit Cloud Fundraising, configure gift/donation settings, provision an org for fundraising, assign Fundraising permission sets/groups, or create a default gift designation. Also: turn on Fundraising, set up recurring donations, prep an org for testing. Toggle writes use headless-360 operations, never the `IndustriesSettings` Metadata API; the Person Account profile-visibility fix is the one Profile metadata write. DO NOT TRIGGER when: enabling Person Accounts on its own (this skill's Layer 0 gate only), creating gift/donation records post-configuration, or configuring NPSP/Nonprofit Success Pack.",
+    "path": "category/backend-api-design/skills-nonprofit-fundraising-configure"
+  },
+  {
+    "id": "skills-nvidia-ontology-query",
+    "name": "skills-nvidia-ontology-query",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "Query Auto Ontology and validate generated SQL, rows, and answers. Use for MCP or REST access, readiness, authentication, conversations, and grounded questions.",
+    "path": "category/backend-api-design/skills-nvidia-ontology-query"
+  },
+  {
     "id": "skills-okx-agent-payments-protocol",
     "name": "skills-okx-agent-payments-protocol",
     "category": "backend-api-design",
     "repository": "okx-onchainos-skills",
     "description": "Handle agent payments and paid endpoints via x402, MPP, payment links, a2a-pay, and HTTP-payment recurring or metered billing. Use for HTTP 402/payment-required; paid Agent or A2MCP endpoints; x402/Permit2; MPP channels, vouchers, or sessions; HTTP-payment subscriptions; or paymentId/link operations or status. Trigger phrases: x402/x402Version, X-PAYMENT, PAYMENT-REQUIRED, PAYMENT-SIGNATURE, WWW-Authenticate: Payment, x402 exact/exact+Permit2/upto/aggr_deferred, MPP charge/session, channelId/channel_id, payment-channel voucher/topup/settle/refund, metered billing, paymentId, a2a_, payment link, A2MCP, paid endpoint, and HTTP 402 period/permit2_subscription.",
     "path": "category/backend-api-design/skills-okx-agent-payments-protocol"
+  },
+  {
+    "id": "skills-openalex",
+    "name": "skills-openalex",
+    "category": "backend-api-design",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Search academic papers via OpenAlex API for open citation data, institutional affiliations, and funding information. Use when user says \"openalex search\", \"search openalex\", \"open citation graph\", or wants comprehensive academic metadata beyond arXiv/Semantic Scholar.",
+    "path": "category/backend-api-design/skills-openalex"
   },
   {
     "id": "skills-openapi",
@@ -11086,6 +11518,22 @@
     "repository": "anthropics-knowledge-work",
     "description": "Choose the right Zoom building surface for a use case and explain the tradeoffs clearly. Use when deciding between REST API, Webhooks, WebSockets, Meeting SDK, Video SDK, Zoom Apps SDK, Phone, Contact Center, or MCP for a specific product idea or integration goal.",
     "path": "category/backend-api-design/skills-plan-zoom-product"
+  },
+  {
+    "id": "skills-platform-custom-metadata-type-generate",
+    "name": "skills-platform-custom-metadata-type-generate",
+    "category": "backend-api-design",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Use to create, generate, or validate Salesforce Custom Metadata Type metadata \u2014 the __mdt object, fields, and deployable records. Trigger on custom metadata types, CMDT, __mdt objects, .md-meta.xml files, or cross-org reference/config data; also admin-maintained mapping/lookup/crosswalk tables (config that changes without a deploy belongs in a CMDT, never hardcoded in Apex/Flow), and CMDT deploy errors. DO NOT TRIGGER for Custom Settings (use platform-custom-setting-generate), business-record objects (use platform-custom-object-generate), or secrets/API keys (use a Named Credential).",
+    "path": "category/backend-api-design/skills-platform-custom-metadata-type-generate"
+  },
+  {
+    "id": "skills-platform-dataspace-access-configure",
+    "name": "skills-platform-dataspace-access-configure",
+    "category": "backend-api-design",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Grant a permission set Data Cloud access two ways: (1) data-space (dataspace) access via dataspaceScopes in PermissionSet XML (MDAPI) \u2014 create, change, or remove it; (2) object-level access to a DMO/DLO/CIO object (e.g. Account__dlm) via the Object Access Grants Connect API (ssot/data-governance/object-access-grants) \u2014 grant, list, revoke; plus read-only scope inspection. TRIGGER on: dataspace scope / data space access for a permission set, dataAccessLevel / objectAccessLevel, 'use the Connect API to grant a permission set access to an <object>__dlm', RBAC object grants. DO NOT TRIGGER for creating the dataspace itself (the Data 360 data-space skill), a generic permission set with no dataspace access (platform-permission-set-generate), or an access policy / policy rule / tag-based access (platform-policy-rule-generate). For a vague object-access ask, ask permission-set way vs policy way.",
+    "path": "category/backend-api-design/skills-platform-dataspace-access-configure"
   },
   {
     "id": "skills-principle-migrate-callers-then-delete-legacy-apis",
@@ -11200,6 +11648,14 @@
     "path": "category/backend-api-design/skills-security-review"
   },
   {
+    "id": "skills-semantic-scholar",
+    "name": "skills-semantic-scholar",
+    "category": "backend-api-design",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Search published venue papers (IEEE, ACM, Springer, etc.) via Semantic Scholar API. Complements /arxiv (preprints) with citation counts, venue metadata, and TLDR. Use when user says \"search semantic scholar\", \"find IEEE papers\", \"find journal papers\", \"venue papers\", \"citation search\", or wants published literature beyond arXiv preprints.",
+    "path": "category/backend-api-design/skills-semantic-scholar"
+  },
+  {
     "id": "skills-senior-backend",
     "name": "skills-senior-backend",
     "category": "backend-api-design",
@@ -11270,6 +11726,38 @@
     "repository": "agricidaniel-claude-seo",
     "description": "Multi-page Lighthouse audit via the MIT-licensed Unlighthouse CLI. Free-tier alternative to running PageSpeed against every URL on a site, no API quota burn, runs locally.",
     "path": "category/backend-api-design/skills-seo-unlighthouse"
+  },
+  {
+    "id": "skills-service-digital-engagement-channel-configure",
+    "name": "skills-service-digital-engagement-channel-configure",
+    "category": "backend-api-design",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Configures and deploys enhanced chat Messaging Channels for Messaging for In-App and Web (MIAW). Use when the user needs to create, deploy, and activate a messaging channel configured with Omni-Channel Flow, Omni-Channel Queue, User, or Agentforce Service Agent routing. Generates MessagingChannel metadata, deploys it to the target org, and activates the channel with User Verification, pre-chat forms, automated responses, consent settings, and all customizable channel options via Metadata API. TRIGGER when the user mentions messaging channel, MIAW, enhanced chat, in-app messaging, web messaging setup, or references a .messagingChannel-meta.xml file. DO NOT TRIGGER when the user is configuring legacy Live Agent chat, Embedded Service deployments without messaging, or standard Omni-Channel routing rules without a messaging channel.",
+    "path": "category/backend-api-design/skills-service-digital-engagement-channel-configure"
+  },
+  {
+    "id": "skills-service-digital-engagement-deployment-configure",
+    "name": "skills-service-digital-engagement-deployment-configure",
+    "category": "backend-api-design",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Configures Embedded Messaging Deployments for Messaging for In-App and Web (MIAW). Use when the user needs to create a new embedded messaging deployment from scratch using Connect API with defaults, or update an existing deployment's settings using Metadata API. Produces Connect API request payloads for new deployments and EmbeddedServiceConfig metadata XML for updates. TRIGGER when the user mentions embedded messaging deployment, embedded service deployment, MIAW deployment, messaging widget setup, chat widget configuration, embedded chat deployment, or references a .EmbeddedServiceConfig-meta.xml file. DO NOT TRIGGER when the user is creating a messaging channel (use service-digital-engagement-channel-configure), configuring legacy Live Agent embedded service, or generating the JavaScript code snippet for website embedding.",
+    "path": "category/backend-api-design/skills-service-digital-engagement-deployment-configure"
+  },
+  {
+    "id": "skills-service-itsm-agentic-setup-agentforce-studio-configure",
+    "name": "skills-service-itsm-agentic-setup-agentforce-studio-configure",
+    "category": "backend-api-design",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Enable the Agentforce for IT Service Salesforce Go feature toggles (Agentforce Studio, Einstein Generative AI, the parent umbrella, and the Fulfiller/Employee agent templates) using the Salesforce CLI (sf). Turns ON org prefs via the Setup Discovery feature/{apiName}/enable Connect API route. Write-capable, idempotent, dependency-ordered, confirm-to-write required. Use when asked to enable Agentforce Studio, turn on Agentforce for IT Service, enable Einstein generative AI, or configure the org-level Agentforce for IT Service prerequisites. Triggers: enable agentforce studio, turn on agentforce for it service, enable einstein generative ai, configure agentforce org prefs. DO NOT TRIGGER: read-only prerequisite check (service-itsm-agentic-setup-agentforce-studio-validate), create/activate an agent (service-itsm-agentic-setup-fulfiller-agent-configure), or assigning permission sets.",
+    "path": "category/backend-api-design/skills-service-itsm-agentic-setup-agentforce-studio-configure"
+  },
+  {
+    "id": "skills-service-itsm-agentic-setup-agentforce-studio-validate",
+    "name": "skills-service-itsm-agentic-setup-agentforce-studio-validate",
+    "category": "backend-api-design",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Validate the Agentforce for IT Service prerequisites for a Fulfiller or Employee agent, using the Salesforce CLI (sf). The READ-ONLY prerequisite check: it reads the Salesforce Go feature toggles behind the Agentforce for IT Service setup page (Agentforce Studio, the IT Service Fulfiller Template / IT Service Employee Template, Specialized Agent Templates for Employee) via one Connect API call, then a helper script classifies the chosen path into a READY / NOT-READY verdict. It never enables anything; when a toggle is off it hands off to agentforce-studio-configure to enable it. Use when asked to check Agentforce prerequisites, validate the org is ready for an ITSM agent, or verify Agentforce Studio is enabled. Triggers: check agentforce prerequisites, validate agentforce readiness, is my org ready for the fulfiller agent, verify agentforce studio enabled. DO NOT TRIGGER: enabling or turning on the toggles, creating the fulfiller agent (service-itsm-agentic-setup-fulfiller-agent-configure), or CMDB CRUD.",
+    "path": "category/backend-api-design/skills-service-itsm-agentic-setup-agentforce-studio-validate"
   },
   {
     "id": "skills-setup-multiplayer-services",
@@ -11550,6 +12038,22 @@
     "repository": "giuseppe-trisciuoglio-developer-kit",
     "description": "Provides patterns to generate comprehensive REST API documentation using SpringDoc OpenAPI 3.0 and Swagger UI in Spring Boot 3.x applications. Use when setting up API documentation, configuring Swagger UI, adding OpenAPI annotations, implementing security documentation, or enhancing REST endpoints with examples and schemas.",
     "path": "category/backend-api-design/spring-boot-openapi-documentation"
+  },
+  {
+    "id": "spring-observability",
+    "name": "spring-observability",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Add and review observability in Spring Boot 3/4 apps: Actuator exposure and health probes, Micrometer metrics, Observation API, OpenTelemetry tracing and OTLP/Prometheus export, structured logging with correlation ids, and safe use of heapdump/threaddump. Use when instrumenting, monitoring or troubleshooting a Spring Boot service.",
+    "path": "category/backend-api-design/spring-observability"
+  },
+  {
+    "id": "src-hunter",
+    "name": "src-hunter",
+    "category": "backend-api-design",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "\u5b9e\u6218 SRC / \u4f17\u6d4b / Bug bounty \u6f0f\u6d1e\u6316\u6398\u5de5\u4f5c\u6d41 skill\u3002\u5305\u542b\uff1a5 \u9636\u6bb5\u65b9\u6cd5\u8bba\uff08intake \u2192 recon \u2192 enum \u2192 hunt \u2192 report\uff09\u300119 \u4e2a\u653b\u51fb\u7c7b playbook\uff08SQLi/XSS/RCE/SSRF/IDOR/CSRF/Path Traversal/File Upload/SSTI/XXE/Race/HTTP Smuggling/OAuth/JWT/SAML/GraphQL/Mobile/LLM/DoS\uff09\u3001305 \u4e2a\u7ed3\u6784\u5316 payload\u3001263 \u4e2a WAF/EDR \u7ed5\u8fc7\u53d8\u4f53\u30012887 \u4efd HackerOne \u771f\u5b9e High/Critical \u5df2\u62ab\u9732\u6848\u4f8b\u300177,000+ WooYun \u6848\u4f8b\u7edf\u8ba1\u3001\u56fd\u4ea7 OA / \u4e2d\u95f4\u4ef6\u6307\u7eb9\u5e93\u3001\u94f6\u884c / \u7535\u4fe1\u884c\u4e1a\u5782\u76f4 playbook\u3002\u5f53\u7528\u6237\u63d0\u5230 \"src \u6316\u6d1e / src \u6f0f\u6d1e\u6316\u6398 / bug bounty / \u4f17\u6d4b / hackerone / \u6f0f\u6d1e\u8d4f\u91d1 / SRC / \u4efb\u610f X \u6f0f\u6d1e / \u6e17\u900f\u6d4b\u8bd5\" \u6216\u95ee\"\u5982\u4f55\u6316\u67d0\u4e2a\u76ee\u6807 / \u600e\u4e48\u6d4b\u67d0\u4e2a API / \u5982\u4f55\u7ed5\u8fc7 WAF\" \u65f6\u89e6\u53d1\u3002",
+    "path": "category/backend-api-design/src-hunter"
   },
   {
     "id": "sslmate-cert-spotter-api",
@@ -12128,6 +12632,22 @@
     "path": "category/backend-api-design/twitter-automation"
   },
   {
+    "id": "typespec-api-operations",
+    "name": "typespec-api-operations",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Add GET, POST, PATCH, and DELETE operations to a TypeSpec API plugin with proper routing, parameters, and adaptive cards",
+    "path": "category/backend-api-design/typespec-api-operations"
+  },
+  {
+    "id": "typespec-create-api-plugin",
+    "name": "typespec-create-api-plugin",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Generate a TypeSpec API plugin with REST operations, authentication, and Adaptive Cards for Microsoft 365 Copilot",
+    "path": "category/backend-api-design/typespec-create-api-plugin"
+  },
+  {
     "id": "uk-gov-vehicle-enquiry-api",
     "name": "uk-gov-vehicle-enquiry-api",
     "category": "backend-api-design",
@@ -12694,6 +13214,14 @@
     "repository": "yaklang-hack-skills",
     "description": "AV/EDR evasion playbook for Windows. Use when bypassing AMSI, ETW, .NET assembly detection, shellcode execution, process injection, API hooking, and signature-based detection on Windows endpoints.",
     "path": "category/backend-api-design/windows-av-evasion"
+  },
+  {
+    "id": "winmd-api-search",
+    "name": "winmd-api-search",
+    "category": "backend-api-design",
+    "repository": "github-awesome-copilot",
+    "description": "Find and explore Windows desktop APIs. Use when building features that need platform capabilities \u2014 camera, file access, notifications, UI controls, AI/ML, sensors, networking, etc. Discovers the right API for a task and retrieves full type details (methods, properties, events, enumeration values).",
+    "path": "category/backend-api-design/winmd-api-search"
   },
   {
     "id": "wiremock-standalone-docker",

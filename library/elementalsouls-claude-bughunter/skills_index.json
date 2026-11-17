@@ -790,6 +790,46 @@
     "link_cmd": "python .agents/library/activate_skill.py link security-arsenal"
   },
   {
+    "id": "skills-bb-local-toolkit",
+    "name": "skills-bb-local-toolkit",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "\"Use the full bug bounty workflow when you also need the local path of a tool, wordlist, or clone (SecLists, jhaddix, ffuf, dalfox, ghauri, trufflehog). Covers recon, pre-hunt research, source code audit, web and API vulnerability testing (IDOR, SSRF, XSS, SQLi, OAuth), LLM security testing, bug chaining, finding validation, and reporting. For general workflow routing without local tooling, use bug-bounty. \u4e2d\u6587\u89e6\u53d1\u8bcd\uff1a\u6f0f\u6d1e\u8d4f\u91d1\u3001\u5b89\u5168\u6d4b\u8bd5\u3001\u6e17\u900f\u6d4b\u8bd5\u3001\u6f0f\u6d1e\u6316\u6398\u3001\u4fe1\u606f\u6536\u96c6\u3001\u5b50\u57df\u540d\u679a\u4e3e\u3001XSS\u6d4b\u8bd5\u3001SQL\u6ce8\u5165\u3001SSRF\u3001\u5b89\u5168\u5ba1\u8ba1\u3001\u6f0f\u6d1e\u62a5\u544a\"",
+    "path": "library/elementalsouls-claude-bughunter/skills/skills-bb-local-toolkit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-bb-local-toolkit",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-bb-local-toolkit"
+  },
+  {
+    "id": "skills-bug-bounty",
+    "name": "skills-bug-bounty",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "\"Guide a bug bounty task from recon and HackerOne scope through research, vulnerability testing, finding validation, and reporting. Use for subdomain and asset discovery, fingerprinting, disclosed report research, threat modeling, source code audit, web and API bugs (IDOR, SSRF, XSS, SQLi, OAuth, request smuggling), LLM and AI security testing, bug chaining, proof-of-concept validation, CVSS, or preparing a submission. For local tool and wordlist paths, use bb-local-toolkit. \u4e2d\u6587\u89e6\u53d1\u8bcd\uff1a\u6f0f\u6d1e\u8d4f\u91d1\u3001\u5b89\u5168\u6d4b\u8bd5\u3001\u6e17\u900f\u6d4b\u8bd5\u3001\u6f0f\u6d1e\u6316\u6398\u3001\u4fe1\u606f\u6536\u96c6\u3001\u5b50\u57df\u540d\u679a\u4e3e\u3001XSS\u6d4b\u8bd5\u3001SQL\u6ce8\u5165\u3001SSRF\u3001\u5b89\u5168\u5ba1\u8ba1\u3001\u6f0f\u6d1e\u62a5\u544a\"",
+    "path": "library/elementalsouls-claude-bughunter/skills/skills-bug-bounty",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-bug-bounty",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-bug-bounty"
+  },
+  {
+    "id": "skills-hunt-auth-bypass",
+    "name": "skills-hunt-auth-bypass",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "Hunting skill for auth bypass vulnerabilities. Built from 12 public bug bounty reports across SAML XSW / parser-differential (GitHub Enterprise CVE-2025-25291/25292), SAML signature stripping (Uber, Rocket.Chat, samlify CVE-2025-47949), SAML domain enforcement bypass via control characters (HackerOne 2024), partner-portal cross-IdP assertion reuse (Slack), WordPress XMLRPC bypassing SSO (Uber), JWT alg-confusion HS256/RS256 (Jitsi), JWT signature-validation skip (Linktree, Newspack), and token-audience confusion (Argo CD CVE-2023-22482). For standalone JWT signature/crypto forging (alg:none, key confusion, kid/jku) see hunt-jwt-crypto; this skill covers JWT only inside SSO/SAML/token-trust bypass chains. SAML assertion-layer attacks (XSW, comment injection, signature stripping, XXE-in-assertion) are owned by hunt-saml; this skill owns the broader cross-protocol auth-bypass taxonomy. Use when hunting auth bypass \u2014 see the Legacy-Protocol Matrix for branded-UI vs legacy-endpoint patterns.",
+    "path": "library/elementalsouls-claude-bughunter/skills/skills-hunt-auth-bypass",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-hunt-auth-bypass",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-hunt-auth-bypass"
+  },
+  {
+    "id": "skills-osint-methodology",
+    "name": "skills-osint-methodology",
+    "repository": "elementalsouls-claude-bughunter",
+    "category": "general",
+    "description": "\"Plan and run OSINT for authorized red-team reconnaissance and external attack-surface assessments. Use for seed discovery, asset expansion and enrichment, exposure analysis, and reporting. Covers asset graphs, identity and authentication mapping, APIs, JavaScript, mobile and cloud surfaces, exposure confidence and severity, detectability-aware probing, read-only validation, CVE/EPSS/KEV prioritization, threat-actor attribution, cryptocurrency tracing, image and video forensics, and chronolocation.\"",
+    "path": "library/elementalsouls-claude-bughunter/skills/skills-osint-methodology",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-osint-methodology",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-osint-methodology"
+  },
+  {
     "id": "supply-chain-attack-recon",
     "name": "supply-chain-attack-recon",
     "repository": "elementalsouls-claude-bughunter",

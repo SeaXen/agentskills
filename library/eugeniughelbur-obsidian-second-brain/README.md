@@ -7,7 +7,7 @@
 <h1 align="center">obsidian-second-brain: AI second brain for Obsidian - persistent memory for Claude Code, Codex, Cursor and Grok Bot</h1>
 
 <p align="center">
-  <b>Your AI second brain for <a href="https://obsidian.md">Obsidian</a>. Free, open source, and plain Markdown you own.</b><br />
+  <b>Your AI second brain for Obsidian. Free, open source, and plain Markdown you own.</b><br />
   Talk to Claude as usual. It saves what matters to your vault and remembers it next time.
 </p>
 
@@ -26,8 +26,9 @@
   <img src="https://img.shields.io/github/v/release/eugeniughelbur/obsidian-second-brain?color=green" alt="Release" />
   <img src="https://img.shields.io/badge/license-MIT-blue" alt="License: MIT" />
   <img src="https://img.shields.io/github/stars/eugeniughelbur/obsidian-second-brain?color=yellow" alt="Stars" />
-  <a href="https://theaioperator.io/subscribe?utm_source=github&utm_medium=readme&utm_campaign=top"><img src="https://img.shields.io/badge/Substack-The_AI_Operator-FF6719?logo=substack&logoColor=white" alt="Subscribe on Substack" /></a>
 </p>
+
+<p align="center"><b>Free newsletter:</b> what I learn building this, 3 posts a week. <a href="https://theaioperator.io/subscribe?utm_source=github&utm_medium=readme&utm_campaign=top-text"><b>Subscribe to The AI Operator &rarr;</b></a></p>
 
 **Claude forgets you when a chat ends. Your Obsidian vault doesn't.** This skill connects the two, so every chat adds to one set of linked notes that the next chat reads.
 
@@ -43,10 +44,10 @@ Your notes stay as Markdown files on your computer. The core commands need no AP
 
 <p align="center">
   <a href="DEMOS.md">
-    <img src="media/obsidian-save.gif" alt="One /obsidian-save command turns a conversation into five cross-linked AI-first notes: a person, a project with the decision, a task, a board card, and the daily note." width="100%" />
+    <img src="media/obsidian-save-explainer.gif" alt="Animated walkthrough: you tell Claude Code about a meeting, type /obsidian-save, and five linked notes land in Obsidian. Then /obsidian-ingest reads a PDF checklist and updates the project and task notes you already have. The graph view connects them, and the next day Claude answers from the vault." width="100%" />
   </a>
   <br />
-  <em>One <code>/obsidian-save</code>, five linked notes. Real footage, made-up vault. <a href="DEMOS.md">More demos &rarr;</a></em>
+  <em>Save a chat, feed it a PDF, and Claude remembers. Animated walkthrough of a made-up example. <a href="DEMOS.md">Real terminal footage &rarr;</a></em>
 </p>
 
 ## Quick start
@@ -67,6 +68,8 @@ Then tell Claude where your vault is. Add this to the `env` section of `~/.claud
 Restart Claude Code and run `/obsidian-second-brain:obsidian-init` inside your vault. Start with three commands: `obsidian-init` to set up, `obsidian-save` to capture and `obsidian-find` to recall.
 
 No vault yet, another AI tool, or bare command names? See the [full install guide](#install).
+
+**On Grok Bot?** Start with one prompt and no install: [GROK-BOT.md](GROK-BOT.md).
 
 <p align="center">
   <em>If this helps you, a <a href="https://github.com/eugeniughelbur/obsidian-second-brain">star</a> helps other people find it.</em>
@@ -96,7 +99,9 @@ You take notes in Obsidian. Hundreds of files. They just sit there. You make the
 
 I'm Eugeniu Ghelbur, an AI automation engineer. I built this for my own vault, and I still run my work on it every day. I review and merge every change myself, and close to 50 people have shipped fixes so far ([see who](#contributors)).
 
-I write up what I learn twice a week on [The AI Operator](https://theaioperator.io/subscribe?utm_source=github&utm_medium=readme&utm_campaign=who-builds-this), and post shorter notes on [X](https://x.com/eugeniu_ghelbur) and [LinkedIn](https://www.linkedin.com/in/eugeniu-ghelbur/).
+I write up what I learn 3 times a week on [The AI Operator](https://theaioperator.io/subscribe?utm_source=github&utm_medium=readme&utm_campaign=who-builds-this), and post shorter notes on [X](https://x.com/eugeniu_ghelbur) and [LinkedIn](https://www.linkedin.com/in/eugeniu-ghelbur/).
+
+Not a coder? [The Vault](https://theaioperator.io/s/vault?utm_source=github&utm_medium=readme&utm_campaign=vault) has 7 ready-made AI tools for paid readers, including Claude memory and an Obsidian folder set up for AI. Each one takes 10 minutes or less, with no code.
 
 ---
 
@@ -194,6 +199,7 @@ Each agent sees what the others finished and can leave a lesson for review.
 
 - Grok Bot joins the same team through its existing runner.
 - A lesson becomes a rule only when a human runs `keep`.
+- A new session's hook read shows other agents' recent jobs first, then open lessons. Kept and dropped lessons stay in `show` and `digest`. The read stays short enough for the host to inject the whole text.
 - Crew runs no background loop.
 
 ```bash
@@ -796,6 +802,8 @@ The **Pi build emits a native [Pi](https://pi.dev) package**: prompt templates u
 Obsidian Second Brain turns what's on your mind into linked notes in your Obsidian vault, keeps your daily notes, and answers your questions from your own notes with links back to the source.
 
 Start from the official Obsidian Second Brain bot template: https://x.ai/bot/Oj_doyprowDl817Yk5Rbh
+
+To try it with no setup first, paste the starter prompt from [GROK-BOT.md](GROK-BOT.md) into a Grok Bot chat.
 
 ### Grok Bot / Sand
 

@@ -1,7 +1,7 @@
 # 🧮 Algorithms, Logic & Math
 
 > **Category**: `algorithms-logic`  
-> **Total Curated Skills**: 255 skills  
+> **Total Curated Skills**: 269 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -48,6 +48,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`authbypass-authentication-flaws`](../../library/yaklang-hack-skills/skills/authbypass-authentication-flaws) | ⚪ Reserve | `yaklang-hack-skills` | Authentication bypass testing playbook. Use when assessing login flows, password reset logic, a... |
 | [`aws-networking`](../../library/aws-agent-toolkit-for-aws/skills/aws-networking) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Routes AWS networking requests to the correct service skill for implementation. Covers Route 53... |
 | [`awwwards-animations-skill`](../../library/devmartinese-awwwards-animations-skill/skills/awwwards-animations-skill) | ⚪ Reserve | `devmartinese-awwwards-animations-skill` | Professional React animation skill for creating Awwwards/FWA-level animations using GSAP (useGS... |
+| [`azure-logic-apps-standard-cli`](../../library/github-awesome-copilot/skills/azure-logic-apps-standard-cli) | ⚪ Reserve | `github-awesome-copilot` | Create, inspect, validate, test, run, debug, package, and deploy Azure Logic Apps Standard proj... |
 | [`backtesting-frameworks`](../../library/antigravity-awesome-skills/skills/backtesting-frameworks) | ⚪ Reserve | `antigravity-awesome-skills` | Build robust backtesting systems for trading strategies with proper handling of look-ahead bias... |
 | [`baoyu-diagram`](../../library/jimliu-baoyu-skills/skills/baoyu-diagram) | ⚪ Reserve | `jimliu-baoyu-skills` | Create professional diagrams with configurable dark/light theme via CSS custom properties. Use ... |
 | [`baoyu-markdown-to-html`](../../library/jimliu-baoyu-skills/skills/baoyu-markdown-to-html) | ⚪ Reserve | `jimliu-baoyu-skills` | Converts Markdown to styled HTML with WeChat-compatible themes. Supports code highlighting, mat... |
@@ -68,6 +69,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cloud-bigquery-observability`](../../library/google-skills/skills/cloud-bigquery-observability) | ⚪ Reserve | `google-skills` | Provides data-retrieval best practices, tool selection guidance, and performant SQL query synta... |
 | [`cloud-secops-detection-engineering`](../../library/google-skills/skills/cloud-secops-detection-engineering) | ⚪ Reserve | `google-skills` | Author, validate, test, and deploy YARA-L 2.0 detection rules and evaluate end-to-end detection... |
 | [`code-polish`](../../library/sickn33-agentic-awesome-skills/skills/code-polish) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Rewrites unprofessional code comments into clear ones and performs non-semantic cleanup. Use to... |
+| [`competition-crypto-mobile`](../../library/zhaoxuya520-reverse-skill/skills/competition-crypto-mobile) | ⚪ Reserve | `zhaoxuya520-reverse-skill` | Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for crypto, encodi... |
+| [`competition-oauth-oidc-chain`](../../library/zhaoxuya520-reverse-skill/skills/competition-oauth-oidc-chain) | ⚪ Reserve | `zhaoxuya520-reverse-skill` | Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for OAuth, OIDC, r... |
+| [`competition-websocket-runtime`](../../library/zhaoxuya520-reverse-skill/skills/competition-websocket-runtime) | ⚪ Reserve | `zhaoxuya520-reverse-skill` | Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for WebSocket and ... |
 | [`complexity-cuts`](../../library/sickn33-agentic-awesome-skills/skills/complexity-cuts) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Lower Big-O on existing code via a one-transformation-at-a-time playbook with verify-revert-sto... |
 | [`consumer-goods-accruals-datakit-deploy`](../../library/forcedotcom-sf-skills/skills/consumer-goods-accruals-datakit-deploy) | ⚪ Reserve | `forcedotcom-sf-skills` | Use this skill to deploy the TPM Liability Accruals data kit end to end to a Salesforce org. In... |
 | [`continuous-claude-v3`](../../library/parcadei-continuous-claude-v3/skills/continuous-claude-v3) | ⚪ Reserve | `parcadei-continuous-claude-v3` | 155 agent skills from parcadei/continuous-claude-v3 — including discovery-interview, premortem,... |
@@ -85,6 +89,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`doca-pcc`](../../library/nvidia-skills/skills/doca-pcc) | ⚪ Reserve | `nvidia-skills` | Use this skill when the user is doing hands-on host-side DOCA PCC work to load a CUSTOM Program... |
 | [`doca-sha`](../../library/nvidia-skills/skills/doca-sha) | ⚪ Reserve | `nvidia-skills` | Use this skill when the user needs SHA-1, SHA-256, or SHA-512 digest acceleration on BlueField-... |
 | [`doca-spcx-cc`](../../library/nvidia-skills/skills/doca-spcx-cc) | ⚪ Reserve | `nvidia-skills` | Use this skill when the user is invoking `doca_spcx_cc` (the host-side CLI under /opt/mellanox/... |
+| [`doubt-driven-development`](../../skills/doubt-driven-development) | 🟢 Active | `active` | Subjects every non-trivial decision to a fresh-context adversarial review before it stands. Use... |
 | [`douyin-video-search`](../../library/browser-act-skills/skills/douyin-video-search) | ⚪ Reserve | `browser-act-skills` | Searches Douyin (douyin.com) for videos by keyword and returns structured video data including ... |
 | [`dyl-mode`](../../library/cursor-plugins/skills/dyl-mode) | ⚪ Reserve | `cursor-plugins` | Dylan's agent style on top of pstack: concise verified delivery, root causes over symptom patch... |
 | [`dynamic-pricing-ecommerce`](../../library/nexscope-ai-ecommerce-skills/skills/dynamic-pricing-ecommerce) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Design a controlled dynamic-pricing or repricing system for ecommerce products. Use when a sell... |
@@ -122,6 +127,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`latex-thesis-zh`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/latex-thesis-zh) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Chinese LaTeX thesis assistant for existing .tex degree thesis projects (XeLaTeX/LuaLaTeX/latex... |
 | [`latex-translation-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/latex-translation-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Translate LaTeX documents preserving math formulas and structure |
 | [`launch-retro-analyzer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/launch-retro-analyzer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "run a launch retro / post-mortem", "compare launch results vs target... |
+| [`legacy-circuit-mockups`](../../library/github-awesome-copilot/skills/legacy-circuit-mockups) | ⚪ Reserve | `github-awesome-copilot` | Generate breadboard circuit mockups and visual diagrams using HTML5 Canvas drawing techniques. ... |
 | [`lemmaly`](../../library/sickn33-agentic-awesome-skills/skills/lemmaly) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Algorithm-first discipline: state Big-O, data structure, and algorithm family BEFORE writing lo... |
 | [`lifi-stablecoin-swap`](../../library/internet-court-internet-court-skill/skills/lifi-stablecoin-swap) | ⚪ Reserve | `internet-court-internet-court-skill` | Build a production 1:1 stablecoin swap with LI.FI Intents — an interface or backend where the a... |
 | [`logic-analyzer`](../../library/leokemp223-embed-ai-tool/skills/logic-analyzer) | ⚪ Reserve | `leokemp223-embed-ai-tool` | 当需要用 Saleae 逻辑分析仪在线采集数字波形并解码 I2C/SPI/UART/CAN 时使用，通过 Logic 2 自动化服务驱动硬件采集、添加协议解码器并导出数据。 |
@@ -130,6 +136,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`logic-fix-all`](../../library/sickn33-agentic-awesome-skills/skills/logic-fix-all) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Autonomous repository-wide audit-and-fix pipeline: health → review → locate/explain → fix → dif... |
 | [`logic-locate`](../../library/sickn33-agentic-awesome-skills/skills/logic-locate) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Locate the root cause of a CONFIRMED failure via backward-then-forward semi-formal tracing. |
 | [`logic-review`](../../library/sickn33-agentic-awesome-skills/skills/logic-review) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Find logic bugs in a single file or function via semi-formal execution tracing (Premises → Trac... |
+| [`logicapps-custom-code-net10-migration`](../../library/github-awesome-copilot/skills/logicapps-custom-code-net10-migration) | ⚪ Reserve | `github-awesome-copilot` | Migrate Azure Logic Apps Standard local-function custom-code projects from .NET 8 to .NET 10. U... |
 | [`m365-entra-attack`](../../library/elementalsouls-claude-bughunter/skills/m365-entra-attack) | ⚪ Reserve | `elementalsouls-claude-bughunter` | Microsoft 365 / Entra ID red-team attack chain — current 2026 reality. AADSTS code reference, u... |
 | [`machine`](../../library/airsuphq-machine-skill/skills/machine) | ⚪ Reserve | `airsuphq-machine-skill` | Turn one line ("a turbofan jet engine", "a mechanical watch", "an LVAD heart pump") into a phot... |
 | [`math`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/math) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | 6 mathematics skills. Trigger: mathematical proofs, theorem proving, numerical methods, linear ... |
@@ -200,6 +207,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`report-performance-analyzer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/report-performance-analyzer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "analyze influencer campaign performance", "compare influencers", or ... |
 | [`resilience`](../../library/codewithmukesh-dotnet-claude-kit/skills/resilience) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Resilience patterns for .NET 10 applications using Polly v8. Covers retry, circuit breaker, tim... |
 | [`retargeting-funnel`](../../library/mbfinotti-advertising-skills/skills/retargeting-funnel) | ⚪ Reserve | `mbfinotti-advertising-skills` | Design a multi-stage retargeting sequence from a site's own funnel data - recency windows and b... |
+| [`reviewing-oracle-to-postgres-migration`](../../library/github-awesome-copilot/skills/reviewing-oracle-to-postgres-migration) | ⚪ Reserve | `github-awesome-copilot` | Identifies Oracle-to-PostgreSQL migration risks by cross-referencing code against known behavio... |
 | [`risk-metrics-calculation`](../../library/antigravity-awesome-skills/skills/risk-metrics-calculation) | ⚪ Reserve | `antigravity-awesome-skills` | Calculate portfolio risk metrics including VaR, CVaR, Sharpe, Sortino, and drawdown analysis. U... |
 | [`sales-market-sizing`](../../library/mbfinotti-sales-skills/skills/sales-market-sizing) | ⚪ Reserve | `mbfinotti-sales-skills` | Estimates TAM, SAM, and SOM for a market or sub-segment to ground sales capacity, territory, an... |
 | [`sales-objection-handling`](../../library/mbfinotti-sales-skills/skills/sales-objection-handling) | ⚪ Reserve | `mbfinotti-sales-skills` | Diagnoses what a sales objection really means and writes rebuttal scripts a rep can say out lou... |
@@ -220,7 +228,13 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-dyl-mode`](../../library/cursor-plugins/skills/skills-dyl-mode) | ⚪ Reserve | `cursor-plugins` | Dylan's agent style on top of pstack: concise verified delivery, root causes over symptom patch... |
 | [`skills-firebase-ai-logic-basics`](../../library/firebase-agent-skills/skills/skills-firebase-ai-logic-basics) | ⚪ Reserve | `firebase-agent-skills` | Integrates Firebase AI Logic (formerly Vertex AI for Firebase) into mobile and web apps (Androi... |
 | [`skills-firecrawl-research-index`](../../library/firecrawl-cli/skills/skills-firecrawl-research-index) | ⚪ Reserve | `firecrawl-cli` | Find the papers that answer a research query in Firecrawl's research paper index — a corpus of ... |
+| [`skills-gmgn-wallet-style`](../../library/gmgnai-gmgn-skills/skills/skills-gmgn-wallet-style) | ⚪ Reserve | `gmgnai-gmgn-skills` | Tag any wallet's trading style — one main title from a 20-cell frequency×P&L grid (印钞机, 磨损户, P小... |
 | [`skills-math-olympiad`](../../library/anthropics-claude-plugins-official/skills/skills-math-olympiad) | ⚪ Reserve | `anthropics-claude-plugins-official` | Solve competition math problems (IMO, Putnam, USAMO, AIME) with adversarial |
+| [`skills-melonjs-20-migration`](../../library/melonjs-melonjs/skills/skills-melonjs-20-migration) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when writing melonJS code that may be based on pre-20.x knowledge, when migratin... |
+| [`skills-melonjs-3d`](../../library/melonjs-melonjs/skills/skills-melonjs-3d) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for anything 3D or 2.5D in melonJS — Camera3d, Mesh, InstancedMesh, Sprite3d bil... |
+| [`skills-melonjs-math`](../../library/melonjs-melonjs/skills/skills-melonjs-math) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for vector and matrix maths in melonJS — Vector2d, Vector3d, their observable va... |
+| [`skills-melonjs-renderables`](../../library/melonjs-melonjs/skills/skills-melonjs-renderables) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when subclassing Renderable, writing a custom draw() method, handling pointer or... |
+| [`skills-platform-metadata-grounding-get`](../../library/forcedotcom-sf-skills/skills/skills-platform-metadata-grounding-get) | ⚪ Reserve | `forcedotcom-sf-skills` | Find metadata that already exists in a Salesforce org by meaning, when you do not know its exac... |
 | [`skills-principle-boundary-discipline`](../../library/cursor-plugins/skills/skills-principle-boundary-discipline) | ⚪ Reserve | `cursor-plugins` | Apply when wiring validation, error handling, or framework adapters. Concentrate guards at syst... |
 | [`skills-principle-foundational-thinking`](../../library/cursor-plugins/skills/skills-principle-foundational-thinking) | ⚪ Reserve | `cursor-plugins` | Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-fea... |
 | [`skills-principle-model-the-domain`](../../library/cursor-plugins/skills/skills-principle-model-the-domain) | ⚪ Reserve | `cursor-plugins` | Apply when writing stateful logic, or when code branches a lot or repeats a shape assumption ac... |

@@ -1,7 +1,7 @@
 # 🪙 Web3, Solidity & DeFi Architecture
 
 > **Category**: `web3-smart-contracts`  
-> **Total Curated Skills**: 115 skills  
+> **Total Curated Skills**: 116 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -99,6 +99,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-okx-agentic-wallet`](../../library/okx-onchainos-skills/skills/skills-okx-agentic-wallet) | ⚪ Reserve | `okx-onchainos-skills` | Operate OKX Onchain OS wallets and execute or inspect on-chain transactions. Use for wallet log... |
 | [`skills-okx-dapp-discovery`](../../library/okx-onchainos-skills/skills/skills-okx-dapp-discovery) | ⚪ Reserve | `okx-onchainos-skills` | Discover supported third-party DApps and route protocol-specific requests to OKX plugins withou... |
 | [`skills-okx-defi`](../../library/okx-onchainos-skills/skills/skills-okx-defi) | ⚪ Reserve | `okx-onchainos-skills` | Discover and manage OKX-aggregated DeFi products and positions across protocols and chains. Use... |
+| [`skills-okx-mcp-services`](../../library/okx-onchainos-skills/skills/skills-okx-mcp-services) | ⚪ Reserve | `okx-onchainos-skills` | Access NewsLiquid / 6551 through the OnchainOS CLI. Use for explicitly chosen NewsLiquid, News ... |
 | [`slo-implementation`](../../library/antigravity-awesome-skills/skills/slo-implementation) | ⚪ Reserve | `antigravity-awesome-skills` | Define and implement Service Level Indicators (SLIs) and Service Level Objectives (SLOs) with e... |
 | [`smart-contract-formal-verification`](../../library/sickn33-agentic-awesome-skills/skills/smart-contract-formal-verification) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Foundry and Soroban formal invariant verification register: state transition rules, boundary in... |
 | [`smart-money-signal-copy-trade`](../../library/okx-plugin-store/skills/smart-money-signal-copy-trade) | ⚪ Reserve | `okx-plugin-store` | Smart Money Signal Copy Trade v1.0 — onchainos Agentic Wallet + Cost-Aware TP + Dev/Bundler Saf... |

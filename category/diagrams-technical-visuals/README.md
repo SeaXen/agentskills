@@ -1,7 +1,7 @@
 # 📊 Technical Diagrams & Isometric SVG
 
 > **Category**: `diagrams-technical-visuals`  
-> **Total Curated Skills**: 101 skills  
+> **Total Curated Skills**: 106 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -43,6 +43,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`competitor-tracking`](../../library/appeeky-aso-skills/skills/competitor-tracking) | ⚪ Reserve | `appeeky-aso-skills` | When the user wants to monitor competitor apps on an ongoing basis — tracking metadata changes,... |
 | [`concept-diagrams`](../../library/nousresearch-hermes-optional-skills/skills/concept-diagrams) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Generate flat, minimal educational SVG visuals as HTML. |
 | [`context-fundamentals`](../../library/antigravity-awesome-skills/skills/context-fundamentals) | ⚪ Reserve | `antigravity-awesome-skills` | Understand what context is, why it matters, and the anatomy of context in agent systems |
+| [`convert-excel-to-md`](../../library/github-awesome-copilot/skills/convert-excel-to-md) | ⚪ Reserve | `github-awesome-copilot` | Converts Excel (.xlsx) workbooks into Markdown so their contents can be accurately analyzed, su... |
 | [`create-chart`](../../library/amplitude-mcp-marketplace/skills/create-chart) | ⚪ Reserve | `amplitude-mcp-marketplace` | Creates Amplitude charts from natural language descriptions, handling event selection, filters,... |
 | [`create-viz`](../../library/anthropics-knowledge-work/skills/create-viz) | ⚪ Reserve | `anthropics-knowledge-work` | Create publication-quality visualizations with Python. Use when turning query results or a Data... |
 | [`d3-visualization`](../../library/feimacode-open-design-agent-kit/skills/d3-visualization) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Teaches the agent to produce D3 charts and interactive data visualizations. A comprehensive D3.... |
@@ -73,6 +74,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`isometric-style`](../../library/arjun988-blender-skills/skills/isometric-style) | ⚪ Reserve | `arjun988-blender-skills` | Isometric and strategy-game art direction for Blender including diorama framing, true-iso camer... |
 | [`journey-map`](../../library/owl-listener-designer-skills/skills/journey-map) | ⚪ Reserve | `owl-listener-designer-skills` | Map one persona's end-to-end experience with stages, touchpoints, emotions, and pain points. Us... |
 | [`markdown-mermaid-writing`](../../library/k-dense-ai-scientific-agent-skills/skills/markdown-mermaid-writing) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Writes scientific Markdown documentation and Mermaid diagrams for workflows, relationships, tim... |
+| [`markdown-to-word-mermaid`](../../library/github-awesome-copilot/skills/markdown-to-word-mermaid) | ⚪ Reserve | `github-awesome-copilot` | Export Markdown containing Mermaid code fences to Word (.docx) with embedded SVG diagrams and P... |
 | [`market-movers`](../../library/appeeky-aso-skills/skills/market-movers) | ⚪ Reserve | `appeeky-aso-skills` | When the user wants to track App Store chart rank changes, find top gainers and losers, detect ... |
 | [`market-pulse`](../../library/appeeky-aso-skills/skills/market-pulse) | ⚪ Reserve | `appeeky-aso-skills` | When the user wants a comprehensive App Store market overview, daily/weekly market briefing, or... |
 | [`matplotlib`](../../library/davila7-claude-code-templates/skills/matplotlib) | ⚪ Reserve | `davila7-claude-code-templates` | Foundational plotting library. Create line plots, scatter, bar, histograms, heatmaps, 3D, subpl... |
@@ -96,13 +98,16 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`sap-fiori-add-visual-filter`](../../library/cline-skills/skills/sap-fiori-add-visual-filter) | ⚪ Reserve | `cline-skills` | Add visual filters (chart-based) to SAP Fiori Elements filter bar/value help using CAP or ABAP ... |
 | [`sap-fiori-analytical-chart`](../../library/sap-open-ux-tools/skills/sap-fiori-analytical-chart) | ⚪ Reserve | `sap-open-ux-tools` | Add analytical chart (chart + table hybrid) to SAP Fiori Elements List Report using aggregated ... |
 | [`scenario-zbrush-character-creature`](../../library/scenario-labs-skills/skills/scenario-zbrush-character-creature) | ⚪ Reserve | `scenario-labs-skills` | Use when sculpting a realistic head, face, portrait, body or creature in ZBrush (anatomy, landm... |
-| [`skills-codex-mermaid-diagram`](../../library/wanshuiyin-auto-claude-code-research-in-sleep/skills/skills-codex-mermaid-diagram) | ⚪ Reserve | `wanshuiyin-auto-claude-code-research-in-sleep` | Generate Mermaid diagrams from user requirements. Save .mmd and .md files to figures/ with synt... |
-| [`skills-codex-pixel-art`](../../library/wanshuiyin-auto-claude-code-research-in-sleep/skills/skills-codex-pixel-art) | ⚪ Reserve | `wanshuiyin-auto-claude-code-research-in-sleep` | Generate pixel art SVG illustrations for READMEs, docs, or slides. Use when user says \"\u753b\... |
+| [`skills-codex-mermaid-diagram`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/skills-codex-mermaid-diagram) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate Mermaid diagrams from user requirements. Save .mmd and .md files to figures/ with synt... |
+| [`skills-codex-pixel-art`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/skills-codex-pixel-art) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate pixel art SVG illustrations for READMEs, docs, or slides. Use when user says \"\u753b\... |
 | [`skills-company-os`](../../library/alirezarezvani-claude-skills/skills/skills-company-os) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when choosing or setting up how the company runs: EOS, Scaling Up or OKRs, accountability c... |
 | [`skills-create-viz`](../../library/anthropics-knowledge-work/skills/skills-create-viz) | ⚪ Reserve | `anthropics-knowledge-work` | Create publication-quality visualizations with Python. Use when turning query results or a Data... |
 | [`skills-diagram-design`](../../library/diagram-design/skills/skills-diagram-design) | ⚪ Reserve | `diagram-design` | Create branded architecture, architecture delta, IT current-state, flowchart, sequence, state m... |
 | [`skills-helm-chart-builder`](../../library/alirezarezvani-claude-skills/skills/skills-helm-chart-builder) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use for any Helm chart to create, review or harden (values.yaml, templates, subcharts, RBAC, po... |
+| [`skills-melonjs-camera-and-drawing`](../../library/melonjs-melonjs/skills/skills-melonjs-camera-and-drawing) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for camera control and immediate-mode drawing in melonJS — following a target, v... |
+| [`skills-mermaid-diagram`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/skills-mermaid-diagram) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate Mermaid diagrams from user requirements. Supports flowcharts, sequence diagrams, class... |
 | [`skills-nature-image2ppt`](../../library/yuan1z0825-nature-skills/skills/skills-nature-image2ppt) | ⚪ Reserve | `yuan1z0825-nature-skills` | Reconstruct slide images, screenshots, scanned PDFs, or image-only PPTX files as object-level e... |
+| [`skills-pixel-art`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/skills-pixel-art) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate pixel art SVG illustrations for READMEs, docs, or slides. Use when user says "画像素图", "... |
 | [`skills-sketch`](../../library/makenotion-notion-cookbook/skills/skills-sketch) | ⚪ Reserve | `makenotion-notion-cookbook` | Sketch an App workflow as a reviewable flow diagram when planning or iterating on its design wi... |
 | [`skills-stack-diagram`](../../library/caru-ini-stack-diagram/skills/skills-stack-diagram) | ⚪ Reserve | `caru-ini-stack-diagram` | Create cloud-architecture-style diagrams of tech stacks, system architectures, infra layouts, a... |
 | [`stack-diagram`](../../library/caru-ini-stack-diagram/skills/stack-diagram) | ⚪ Reserve | `caru-ini-stack-diagram` | Create cloud-architecture-style diagrams of tech stacks, system architectures, infra layouts, a... |

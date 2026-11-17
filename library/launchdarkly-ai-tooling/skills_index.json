@@ -30,6 +30,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link agentcontrol-agent-graphs"
   },
   {
+    "id": "agentcontrol-built-in-metrics",
+    "name": "agentcontrol-built-in-metrics",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Instrument an existing codebase so LaunchDarkly records config metrics (duration, tokens, success/error, tool calls). Walks the ladder (convenience function \u2192 config() with a handler package \u2192 custom handler \u2192 manual track()) and picks the lowest-ceremony option that still captures what the Monitoring tab needs.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/agentcontrol-built-in-metrics",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agentcontrol-built-in-metrics",
+    "link_cmd": "python .agents/library/activate_skill.py link agentcontrol-built-in-metrics"
+  },
+  {
     "id": "agentcontrol-configs-create",
     "name": "agentcontrol-configs-create",
     "repository": "launchdarkly-ai-tooling",
@@ -760,6 +770,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link launchdarkly-release-plans"
   },
   {
+    "id": "legacy-sdk-migrate",
+    "name": "legacy-sdk-migrate",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Migrate an app from the legacy LaunchDarkly AI SDKs (Python `launchdarkly-server-sdk-ai` / `ldai`, Node.js `@launchdarkly/server-sdk-ai`, Go `go-server-sdk-ai/ldai` or `go-server-sdk/ldai`) to the current handler-based AI SDKs (`launchdarkly-ai-server`, `@launchdarkly/ai-node` / `@launchdarkly/ai-server`, `github.com/launchdarkly/go-ai-sdk` plus handlers). Use when code calls `LDAIClient`, `initAi`, `ldai.NewClient`, `CompletionConfig`, `AgentConfig`, `AgentGraph`, `CreateTracker`, `completion_config` / `completionConfig`, `agent_config` / `agentConfig`, `agent_configs`, `create_tracker` / `trackMetricsOf`, `create_judge`, `create_model`, or `agent_graph`, or when the user asks to upgrade between LaunchDarkly AI SDKs. For apps with hardcoded LLM prompts that aren't on LaunchDarkly yet, use `migrate` instead.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/legacy-sdk-migrate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate legacy-sdk-migrate",
+    "link_cmd": "python .agents/library/activate_skill.py link legacy-sdk-migrate"
+  },
+  {
     "id": "mcp-configure",
     "name": "mcp-configure",
     "repository": "launchdarkly-ai-tooling",
@@ -948,6 +968,16 @@
     "path": "library/launchdarkly-ai-tooling/skills/release-autopilot-launchdarkly-release-autopilot-settings",
     "activation_cmd": "python .agents/library/activate_skill.py activate release-autopilot-launchdarkly-release-autopilot-settings",
     "link_cmd": "python .agents/library/activate_skill.py link release-autopilot-launchdarkly-release-autopilot-settings"
+  },
+  {
+    "id": "release-autopilot-launchdarkly-release-plans",
+    "name": "release-autopilot-launchdarkly-release-plans",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"List, create, edit, make default, and delete LaunchDarkly release plans of both kinds: environment release plans (one environment's phases, rollout steps, and rollback metrics, with starter plans) and flag release plans (a project's environments in release order, each with its environment release plan, which Release Autopilot proposes releases from on pull requests). Also starts a flag's release from a flag release plan. Use when the user wants to see, list, build, change, or remove a release plan (such as 'show me the flag release plans' or 'what release plans does production have'), set an environment's or a project's default plan, or when another skill such as Release Autopilot onboarding needs release plans planned or created. For first-time Release Autopilot setup, use launchdarkly-release-autopilot-onboarding, which follows this skill.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/release-autopilot-launchdarkly-release-plans",
+    "activation_cmd": "python .agents/library/activate_skill.py activate release-autopilot-launchdarkly-release-plans",
+    "link_cmd": "python .agents/library/activate_skill.py link release-autopilot-launchdarkly-release-plans"
   },
   {
     "id": "sdk-install",

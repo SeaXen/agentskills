@@ -1,12 +1,892 @@
 [
   {
+    "id": "api-security",
+    "name": "api-security",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized security assessment of REST, GraphQL, WebSocket, or SOAP APIs, including discovery, authentication, authorization, rate-limit, and CI/CD testing.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/api-security",
+    "activation_cmd": "python .agents/library/activate_skill.py activate api-security",
+    "link_cmd": "python .agents/library/activate_skill.py link api-security"
+  },
+  {
+    "id": "apk-reverse",
+    "name": "apk-reverse",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "\u5728 CLI \u73af\u5883\u4e0b\u505a Android APK \u9006\u5411\u65f6\u4f7f\u7528\u3002\u9002\u7528\u4e8e APK \u89e3\u5305\u3001Java \u53cd\u7f16\u8bd1\u3001smali \u4fee\u6539\u3001\u91cd\u6253\u5305\u3001Frida \u52a8\u6001 Hook\uff0c\u4ee5\u53ca\u6309\u9700\u5207\u6362\u5230 so/native \u5206\u6790\u3002\u4f18\u5148\u4f7f\u7528\u672c\u673a\u5df2\u5b89\u88c5\u7684 jadx\u3001apktool\u3001frida\u3001adb\u3001ida-reverse\u3001radare2\u3002",
+    "path": "library/zhaoxuya520-reverse-skill/skills/apk-reverse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate apk-reverse",
+    "link_cmd": "python .agents/library/activate_skill.py link apk-reverse"
+  },
+  {
+    "id": "attack-chain",
+    "name": "attack-chain",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized multi-stage attack-path planning and orchestration when a task spans reconnaissance, initial access, privilege escalation, lateral movement, or impact assessment. Route single-stage tasks directly to their specialist skill.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/attack-chain",
+    "activation_cmd": "python .agents/library/activate_skill.py activate attack-chain",
+    "link_cmd": "python .agents/library/activate_skill.py link attack-chain"
+  },
+  {
+    "id": "binary-diff",
+    "name": "binary-diff",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "|",
+    "path": "library/zhaoxuya520-reverse-skill/skills/binary-diff",
+    "activation_cmd": "python .agents/library/activate_skill.py activate binary-diff",
+    "link_cmd": "python .agents/library/activate_skill.py link binary-diff"
+  },
+  {
+    "id": "binary-ninja-reverse",
+    "name": "binary-ninja-reverse",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized binary analysis in Binary Ninja, including HLIL/MLIL/LLIL inspection, strings/imports/exports, cross-references, types, patch review, Python API automation, and optional Binary Ninja MCP or localhost HTTP integration.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/binary-ninja-reverse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate binary-ninja-reverse",
+    "link_cmd": "python .agents/library/activate_skill.py link binary-ninja-reverse"
+  },
+  {
+    "id": "browser-automation",
+    "name": "browser-automation",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "|",
+    "path": "library/zhaoxuya520-reverse-skill/skills/browser-automation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate browser-automation",
+    "link_cmd": "python .agents/library/activate_skill.py link browser-automation"
+  },
+  {
+    "id": "browser-extension-reverse",
+    "name": "browser-extension-reverse",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized reverse engineering of browser extensions (Chrome/Firefox) including manifest analysis, background workers, and extension-based credential or traffic logic recovery.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/browser-extension-reverse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate browser-extension-reverse",
+    "link_cmd": "python .agents/library/activate_skill.py link browser-extension-reverse"
+  },
+  {
+    "id": "case-review",
+    "name": "case-review",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Reviews a reverse-skill case package for scope readiness, Evidence to Finding to Path traceability, work item coverage, timeline references, and optional artifact hash integrity before report handoff.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/case-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate case-review",
+    "link_cmd": "python .agents/library/activate_skill.py link case-review"
+  },
+  {
+    "id": "cloud-k8s",
+    "name": "cloud-k8s",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized cloud, container, and Kubernetes security assessment including metadata SSRF, IAM misconfig, container escape paths, and cluster RBAC review.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/cloud-k8s",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cloud-k8s",
+    "link_cmd": "python .agents/library/activate_skill.py link cloud-k8s"
+  },
+  {
+    "id": "code-audit",
+    "name": "code-audit",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized source-code security review and SAST workflows including Semgrep, CodeQL patterns, dangerous API hunting, and fix verification.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/code-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate code-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link code-audit"
+  },
+  {
+    "id": "competition-ad-certificate-abuse",
+    "name": "competition-ad-certificate-abuse",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for AD CS, certificate templates, enrollment rights, EKUs, SAN controls, PKINIT, certificate mapping, and cert-based privilege paths. Use when the user asks about ESC-style abuse, certificate templates, enrollment agents, EKUs, SAN or subject controls, smartcard or PKINIT logon, CA policy, or how an issued cert turns into accepted privilege. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-ad-certificate-abuse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-ad-certificate-abuse",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-ad-certificate-abuse"
+  },
+  {
+    "id": "competition-agent-cloud",
+    "name": "competition-agent-cloud",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for AI-agent, prompt-injection, MCP or toolchain, cloud, container, CI/CD, and supply-chain challenges. Use when the user asks to analyze prompt-to-tool flows, retrieval poisoning, mounted secrets, deployment drift, runtime-vs-manifest mismatches, registry provenance, or CI-produced artifacts under sandbox assumptions. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-agent-cloud",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-agent-cloud",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-agent-cloud"
+  },
+  {
+    "id": "competition-android-hooking",
+    "name": "competition-android-hooking",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for Android APK hooking, Frida tracing, request-signing recovery, SSL pinning bypass, JNI boundary inspection, and app trust-boundary analysis. Use when the user asks to hook an APK, inspect signer logic, trace Java or native boundaries, bypass pinning or root checks, inspect shared prefs or app databases, or replay accepted mobile requests. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-android-hooking",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-android-hooking",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-android-hooking"
+  },
+  {
+    "id": "competition-browser-persistence",
+    "name": "competition-browser-persistence",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for browser cookies, localStorage, sessionStorage, IndexedDB, Cache Storage, service workers, offline caches, and client-side session persistence. Use when the user asks to inspect browser state, replay cached auth or session behavior, explain why a page behaves differently after load, or trace how stored client state changes requests, rendering, or access. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-browser-persistence",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-browser-persistence",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-browser-persistence"
+  },
+  {
+    "id": "competition-bundle-sourcemap-recovery",
+    "name": "competition-bundle-sourcemap-recovery",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for source maps, build manifests, chunk registries, emitted bundles, obfuscated loader flow, and frontend runtime recovery. Use when the user asks to reconstruct served JavaScript structure, inspect source maps or chunk maps, trace bundle loading, recover hidden routes or APIs from emitted assets, or explain runtime behavior from built frontend artifacts. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-bundle-sourcemap-recovery",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-bundle-sourcemap-recovery",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-bundle-sourcemap-recovery"
+  },
+  {
+    "id": "competition-cloud-metadata-path",
+    "name": "competition-cloud-metadata-path",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for cloud metadata services, instance identity, workload identity, link-local credential paths, role assumption, and metadata-to-privilege trust edges. Use when the user asks to inspect metadata-service access, instance credentials, pod or workload identity, link-local token paths, SSRF-to-metadata escalation, or explain how metadata-derived credentials turn into accepted cloud or control-plane privilege. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-cloud-metadata-path",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-cloud-metadata-path",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-cloud-metadata-path"
+  },
+  {
+    "id": "competition-container-runtime",
+    "name": "competition-container-runtime",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for live container runtime analysis, mounted secrets, sidecars, namespaces, init containers, entrypoint drift, and route-to-container resolution. Use when the user asks why a live container differs from manifests, where a mounted secret is consumed, how a sidecar or init container changes runtime state, or which route resolves to which live container. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-container-runtime",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-container-runtime",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-container-runtime"
+  },
+  {
+    "id": "competition-crypto-mobile",
+    "name": "competition-crypto-mobile",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for crypto, encoding, steganography, APK, IPA, and mobile trust-boundary challenges. Use when the user asks to decode a blob, recover a transform chain or key, inspect hidden media payloads, hook an APK or IPA signer, inspect app storage, or replay mobile request-signing logic. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-crypto-mobile",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-crypto-mobile",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-crypto-mobile"
+  },
+  {
+    "id": "competition-custom-protocol-replay",
+    "name": "competition-custom-protocol-replay",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for custom binary or text protocol recovery, handshake reconstruction, framing, sequence control, checksums, stateful replay, and accepted-session reproduction. Use when the user asks to decode an unknown protocol, recover custom framing, build a replay harness, satisfy sequence or checksum rules, replay a captured session, or prove the smallest message order that reaches an accepted branch. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-custom-protocol-replay",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-custom-protocol-replay",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-custom-protocol-replay"
+  },
+  {
+    "id": "competition-dpapi-credential-chain",
+    "name": "competition-dpapi-credential-chain",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for DPAPI masterkeys, vault blobs, browser credential stores, protected secrets, domain backup keys, and secret-to-acceptance replay chains. Use when the user asks to inspect DPAPI blobs or masterkeys, recover browser or vault credentials, trace DPAPI context or backup-key use, or explain how protected Windows secrets become accepted access or privilege. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-dpapi-credential-chain",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-dpapi-credential-chain",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-dpapi-credential-chain"
+  },
+  {
+    "id": "competition-file-parser-chain",
+    "name": "competition-file-parser-chain",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for file uploads, imports, previews, archive extraction, format conversion, parser invocation, and deserialization chains. Use when the user asks to inspect an upload or import path, trace archive extraction, preview or converter behavior, explain how a file reaches a parser or deserializer, or connect one uploaded artifact to the decisive backend effect. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-file-parser-chain",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-file-parser-chain",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-file-parser-chain"
+  },
+  {
+    "id": "competition-firmware-layout",
+    "name": "competition-firmware-layout",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for firmware images, partition tables, boot chains, update packages, extracted filesystems, embedded configs, and device-facing trust boundaries. Use when the user asks to unpack firmware, map partition layout, inspect bootloader or init chains, recover update keys or credentials, trace config loading, or explain how a device surface reaches the decisive artifact. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-firmware-layout",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-firmware-layout",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-firmware-layout"
+  },
+  {
+    "id": "competition-forensic-timeline",
+    "name": "competition-forensic-timeline",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for DFIR chronology, cross-artifact correlation, persistence chains, and incident timeline reconstruction. Use when the user asks to build a forensic timeline, correlate EVTX, PCAP, registry, disk, memory, mailbox, or browser artifacts, explain the order of attacker actions, or pinpoint the stage where the decisive artifact appears. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-forensic-timeline",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-forensic-timeline",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-forensic-timeline"
+  },
+  {
+    "id": "competition-graphql-rpc-drift",
+    "name": "competition-graphql-rpc-drift",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for GraphQL schemas, persisted queries, RPC manifests, generated clients, OpenAPI drift, hidden operations, and contract-to-handler mismatches. Use when the user asks to inspect GraphQL or RPC requests, compare client contracts to live handlers, recover hidden operations, trace generated clients, or explain how schema or contract drift produces the decisive behavior. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-graphql-rpc-drift",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-graphql-rpc-drift",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-graphql-rpc-drift"
+  },
+  {
+    "id": "competition-identity-windows",
+    "name": "competition-identity-windows",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for Active Directory, Kerberos, LDAP, OAuth, enterprise messaging, Windows host forensics, credential material, and lateral-movement challenges. Use when the user asks to trace tickets or tokens, inspect mailbox rules, analyze Windows host evidence, understand an AD trust path, or explain a lateral-movement chain across sandbox-linked nodes. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-identity-windows",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-identity-windows",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-identity-windows"
+  },
+  {
+    "id": "competition-ios-runtime",
+    "name": "competition-ios-runtime",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for IPA runtime analysis, Frida hooks, Objective-C or Swift method tracing, Keychain inspection, SSL pinning bypass, URL scheme handling, and iOS request-signing recovery. Use when the user asks to hook an IPA, trace Objective-C or Swift runtime behavior, inspect Keychain or plist state, bypass pinning, analyze deeplinks or universal links, or replay accepted iOS requests. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-ios-runtime",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-ios-runtime",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-ios-runtime"
+  },
+  {
+    "id": "competition-jwt-claim-confusion",
+    "name": "competition-jwt-claim-confusion",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for JWT, JWS, and JWE validation paths, header parsing, key selection, claim acceptance, audience and issuer checks, role derivation, and token-to-identity confusion bugs. Use when the user asks to inspect JWT headers or claims, key lookup, `kid` handling, `alg` confusion, audience or issuer validation, role claims, or explain how a token becomes accepted identity or privilege. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-jwt-claim-confusion",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-jwt-claim-confusion",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-jwt-claim-confusion"
+  },
+  {
+    "id": "competition-k8s-control-plane",
+    "name": "competition-k8s-control-plane",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for Kubernetes API analysis, service-account trust, RBAC edges, admission and controller behavior, cluster secrets, workload mutation, and namespace-scoped drift. Use when the user asks to inspect kube API permissions, service-account tokens, RoleBinding or ClusterRoleBinding edges, admission webhooks, controller-created pods, secret exposure, or why live workloads differ from manifests. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-k8s-control-plane",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-k8s-control-plane",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-k8s-control-plane"
+  },
+  {
+    "id": "competition-kerberos-delegation",
+    "name": "competition-kerberos-delegation",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for Kerberos delegation, SPN trust edges, S4U abuse, RBCD, constrained or unconstrained delegation, and service-ticket acceptance. Use when the user asks about constrained delegation, unconstrained delegation, RBCD, S4U, SPNs, ticket acceptance, or how a Kerberos trust edge turns into effective privilege under sandbox assumptions. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-kerberos-delegation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-kerberos-delegation",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-kerberos-delegation"
+  },
+  {
+    "id": "competition-kernel-container-escape",
+    "name": "competition-kernel-container-escape",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for kernel attack surface, namespace and cgroup boundaries, container isolation assumptions, syscall paths, and escape primitive verification. Use when the user asks to analyze container-to-host escape paths, kernel exploit prerequisites, namespace crossover, capability misuse, or prove whether an exploit primitive crosses the sandbox boundary. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-kernel-container-escape",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-kernel-container-escape",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-kernel-container-escape"
+  },
+  {
+    "id": "competition-linux-credential-pivot",
+    "name": "competition-linux-credential-pivot",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for Linux credential artifacts, service tokens, SSH material, cloud and container secrets, socket-level trust, and host-to-host pivot chains. Use when the user asks to trace Linux auth artifacts, accepted token or key replay, socket or service-account trust edges, sudo or capability abuse, or explain lateral movement across Linux challenge nodes. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-linux-credential-pivot",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-linux-credential-pivot",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-linux-credential-pivot"
+  },
+  {
+    "id": "competition-lsass-ticket-material",
+    "name": "competition-lsass-ticket-material",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for LSASS-resident secrets, Windows logon sessions, Kerberos ticket caches, DPAPI-backed material, SSP artifacts, and replayable credential extraction. Use when the user asks to inspect LSASS memory, recover tickets or logon sessions, trace DPAPI or SSP material, distinguish which credential artifacts are replayable, or connect host-resident credential material to an accepted pivot or privilege edge. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-lsass-ticket-material",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-lsass-ticket-material",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-lsass-ticket-material"
+  },
+  {
+    "id": "competition-mailbox-abuse",
+    "name": "competition-mailbox-abuse",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for enterprise mail abuse, OAuth consent, inbox or forwarding rules, transport rules, shared mailbox access, phishing chains, and token-to-mailbox side effects. Use when the user asks to trace mailbox rules, OAuth consent grants, forwarding or delegate abuse, shared mailbox access, message-trace evidence, or explain how mail artifacts turn into persistence, exfiltration, or privilege. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-mailbox-abuse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-mailbox-abuse",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-mailbox-abuse"
+  },
+  {
+    "id": "competition-malware-config",
+    "name": "competition-malware-config",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for malware configuration recovery, staged payload boundaries, beacon parameter extraction, and IOC decoding. Use when the user asks to recover a malware config, decode C2 or beacon fields, unpack staged payloads, extract bot or campaign IDs, or tie recovered config to observed protocol behavior under sandbox assumptions. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-malware-config",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-malware-config",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-malware-config"
+  },
+  {
+    "id": "competition-oauth-oidc-chain",
+    "name": "competition-oauth-oidc-chain",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for OAuth, OIDC, redirect flows, state or nonce handling, PKCE, token exchange, refresh logic, claim mapping, and accepted login paths. Use when the user asks to trace redirects, callback parameters, scopes, state, nonce, PKCE, refresh tokens, consent, or explain how an OAuth or OIDC chain turns into accepted identity or privilege. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-oauth-oidc-chain",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-oauth-oidc-chain",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-oauth-oidc-chain"
+  },
+  {
+    "id": "competition-pcap-protocol",
+    "name": "competition-pcap-protocol",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for packet capture analysis, session reconstruction, application-protocol decoding, stream reassembly, beacon timing, and packet-to-process correlation. Use when the user asks to analyze a PCAP, rebuild TCP or UDP sessions, decode HTTP, WebSocket, DNS, custom C2, or binary protocols, extract transferred artifacts, or tie packet sequences to host or malware behavior. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-pcap-protocol",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-pcap-protocol",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-pcap-protocol"
+  },
+  {
+    "id": "competition-prompt-injection",
+    "name": "competition-prompt-injection",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for prompt-injection, retrieval poisoning, memory contamination, planner drift, MCP or tool-boundary abuse, and agent exfiltration challenges. Use when the user asks to analyze prompt injection, retrieval poisoning, memory contamination, planner drift, tool-argument corruption, or secret exposure caused by an agent chain. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-prompt-injection",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-prompt-injection",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-prompt-injection"
+  },
+  {
+    "id": "competition-queue-worker-drift",
+    "name": "competition-queue-worker-drift",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for queues, async workers, cron jobs, delayed tasks, retry behavior, worker-only config drift, and payload-to-side-effect chains. Use when the user asks to trace a queue payload, inspect async job execution, explain worker-only behavior, follow retries or dead-letter handling, or connect an enqueued item to a later file, cache, email, or privilege-bearing side effect. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-queue-worker-drift",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-queue-worker-drift",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-queue-worker-drift"
+  },
+  {
+    "id": "competition-race-condition-state-drift",
+    "name": "competition-race-condition-state-drift",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for race windows, ordering bugs, idempotency failures, lock gaps, concurrent worker drift, and state inconsistencies that produce decisive effects. Use when the user asks to reproduce timing-sensitive bugs, concurrent state corruption, duplicate actions, stale reads, or privilege or balance drift caused by request ordering. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-race-condition-state-drift",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-race-condition-state-drift",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-race-condition-state-drift"
+  },
+  {
+    "id": "competition-relay-coercion-chain",
+    "name": "competition-relay-coercion-chain",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for forced-auth coercion, relay chains, target selection, NTLM or related acceptance paths, and coercion-to-privilege transitions. Use when the user asks to trace a coercion primitive, follow a relay path, analyze forced authentication, determine which service accepts relayed auth, or connect a coercion step to resulting privilege, enrollment, or code execution. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-relay-coercion-chain",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-relay-coercion-chain",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-relay-coercion-chain"
+  },
+  {
+    "id": "competition-request-normalization-smuggling",
+    "name": "competition-request-normalization-smuggling",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for parser differentials, HTTP normalization gaps, ambiguous headers, path decoding drift, transfer-framing mismatches, and request smuggling routes. Use when the user asks to trace proxy and backend parse differences, conflicting path normalization, Host or forwarded-header ambiguity, CL/TE issues, or routing outcomes that differ across hops. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-request-normalization-smuggling",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-request-normalization-smuggling",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-request-normalization-smuggling"
+  },
+  {
+    "id": "competition-reverse-pwn",
+    "name": "competition-reverse-pwn",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for reverse engineering, malware, DFIR, firmware, pwnable, and native exploit challenges. Use when the user asks to reverse a binary, unpack a sample, inspect a memory dump or PCAP, recover malware behavior, debug a crash, or build or verify an exploit chain under sandbox assumptions. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-reverse-pwn",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-reverse-pwn",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-reverse-pwn"
+  },
+  {
+    "id": "competition-runtime-routing",
+    "name": "competition-runtime-routing",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for reverse proxies, Host headers, forwarded headers, vhost routing, websocket upgrades, path-prefix rewriting, base-URL derivation, and multi-node route resolution. Use when the user asks which host or container serves a route, why a public-looking domain still belongs to the sandbox, how headers or proxies change behavior, or how a route resolves across proxy, container, and worker boundaries. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-runtime-routing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-runtime-routing",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-runtime-routing"
+  },
+  {
+    "id": "competition-ssrf-metadata-pivot",
+    "name": "competition-ssrf-metadata-pivot",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for SSRF reachability, internal route probing, metadata-service access, credential pivoting, and token-to-accepted-privilege chains. Use when the user asks to trace SSRF sources, internal hosts, metadata endpoints, link-local tokens, service-account credentials, or explain how a server-side fetch edge turns into accepted access. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-ssrf-metadata-pivot",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-ssrf-metadata-pivot",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-ssrf-metadata-pivot"
+  },
+  {
+    "id": "competition-stego-media",
+    "name": "competition-stego-media",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for image, audio, video, document, and container steganography. Use when the user asks to inspect metadata, alpha or palette channels, LSBs, thumbnails, appended trailers, QR fragments, transcoding artifacts, or recover a hidden payload from media without blind brute force. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-stego-media",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-stego-media",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-stego-media"
+  },
+  {
+    "id": "competition-supply-chain",
+    "name": "competition-supply-chain",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for CI/CD, registry, dependency drift, artifact provenance, image build, release pipeline, and runtime consumer challenges. Use when the user asks to trace dependency drift, registry pulls, malicious packages, build or release tampering, CI execution, artifact signing, or which shipped artifact the runtime actually consumes. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-supply-chain",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-supply-chain",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-supply-chain"
+  },
+  {
+    "id": "competition-template-render-path",
+    "name": "competition-template-render-path",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for SSR, template rendering, route loaders, hydration payloads, server-client render boundaries, and template-to-handler enforcement gaps. Use when the user asks to inspect SSR or template routes, trace render context or hydration data, compare template gating with handler enforcement, explain preview or hidden-route rendering, or connect render pipeline behavior to the decisive branch. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-template-render-path",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-template-render-path",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-template-render-path"
+  },
+  {
+    "id": "competition-web-runtime",
+    "name": "competition-web-runtime",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for CTF web, API, SSR, frontend, queue-backed app, and routing challenges. Use when the user asks to inspect a site or API, follow real browser requests, debug auth or session flow, trace uploads or workers, find hidden routes, or explain why frontend and backend behavior diverge under sandbox-internal routing. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-web-runtime",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-web-runtime",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-web-runtime"
+  },
+  {
+    "id": "competition-websocket-runtime",
+    "name": "competition-websocket-runtime",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for WebSocket and SSE handshakes, auth material, subscription state, realtime message schemas, reconnect behavior, and frame-driven runtime effects. Use when the user asks to inspect a WebSocket or SSE handshake, decode frames, trace subscriptions, follow reconnect logic, inspect auth material sent during realtime setup, or explain how live frames change rendered or persisted state. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-websocket-runtime",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-websocket-runtime",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-websocket-runtime"
+  },
+  {
+    "id": "competition-windows-pivot",
+    "name": "competition-windows-pivot",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for Kerberos, WinRM, SMB, RDP, Windows credential material, replayable tickets, delegation edges, and host-to-host pivot chains. Use when the user asks to replay Kerberos material, trace a WinRM, SMB, or RDP pivot, understand host-to-host privilege movement, or prove which Windows service accepted a credential or ticket. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-windows-pivot",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-windows-pivot",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-windows-pivot"
+  },
+  {
+    "id": "competition-zip-archive",
+    "name": "competition-zip-archive",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for ZIP and PKZIP archive challenges, legacy ZipCrypto identification, known-plaintext recovery with bkcrack, key-based decryption, and reproducible extraction. Use when the user asks to solve an encrypted ZIP challenge, inspect ZipCrypto metadata, recover keys from a known file prefix, or unlock an archive without starting with password brute force. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/competition-zip-archive",
+    "activation_cmd": "python .agents/library/activate_skill.py activate competition-zip-archive",
+    "link_cmd": "python .agents/library/activate_skill.py link competition-zip-archive"
+  },
+  {
+    "id": "ctf-sandbox",
+    "name": "ctf-sandbox",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Thin PRIMARY for CTF / AWD / \u9776\u573a multi-type orchestration. Hands off to the sidecar CTF-Sandbox-Orchestrator. Use when the user says CTF, AWD, \u9776\u573a, or \u6bd4\u8d5b\u9898 and no more specific pwn/APK/IDA route already won.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/ctf-sandbox",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ctf-sandbox",
+    "link_cmd": "python .agents/library/activate_skill.py link ctf-sandbox"
+  },
+  {
+    "id": "ctf-sandbox-orchestrator",
+    "name": "ctf-sandbox-orchestrator",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Default entrypoint and master ctf-sandbox-orchestrator workflow for CTF, exploit, reverse engineering, DFIR, pwnable, crypto, stego, mobile, AI-agent, cloud, container, Active Directory, Windows-host, and identity challenges. Use first when the user presents challenge infrastructure, binaries, prompts, hosts, or identities that should be treated as sandbox-internal by default and Codex needs to choose, route, and load the right downstream analysis path with concise evidence.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/ctf-sandbox-orchestrator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ctf-sandbox-orchestrator",
+    "link_cmd": "python .agents/library/activate_skill.py link ctf-sandbox-orchestrator"
+  },
+  {
+    "id": "database-security",
+    "name": "database-security",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized database security assessment covering PostgreSQL/MySQL/MSSQL/Mongo/Redis exposure, authz, UDF/command paths, and misconfiguration review.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/database-security",
+    "activation_cmd": "python .agents/library/activate_skill.py activate database-security",
+    "link_cmd": "python .agents/library/activate_skill.py link database-security"
+  },
+  {
+    "id": "diagram-generator",
+    "name": "diagram-generator",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "generate, refine, validate, and render diagrams from natural language, notes, code snippets, schemas, tables, or existing diagram source. use for flowcharts, swimlanes, sequence diagrams, state diagrams, er diagrams, class diagrams, architecture/c4-style diagrams, dependency graphs, gantt charts, mind maps, user journeys, sankey-style flows, org charts, network graphs, and other visual models. supports mermaid by default, graphviz dot for complex graph layout, plantuml for uml-heavy engineering diagrams, and svg output when direct markup is more reliable.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/diagram-generator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate diagram-generator",
+    "link_cmd": "python .agents/library/activate_skill.py link diagram-generator"
+  },
+  {
+    "id": "digital-forensics",
+    "name": "digital-forensics",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized digital forensics including memory dumps, disk timelines, PCAP investigation, artifact triage, and IR evidence preservation.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/digital-forensics",
+    "activation_cmd": "python .agents/library/activate_skill.py activate digital-forensics",
+    "link_cmd": "python .agents/library/activate_skill.py link digital-forensics"
+  },
+  {
+    "id": "docs-generator",
+    "name": "docs-generator",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "|",
+    "path": "library/zhaoxuya520-reverse-skill/skills/docs-generator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate docs-generator",
+    "link_cmd": "python .agents/library/activate_skill.py link docs-generator"
+  },
+  {
+    "id": "dotnet-reverse",
+    "name": "dotnet-reverse",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": ".NET / C# \u4e8c\u8fdb\u5236\u9006\u5411\u3002\u5f53\u76ee\u6807\u662f .NET assembly\uff08PE \u5934\u542b CLR\u3001.exe/.dll \u6258\u7ba1\u7a0b\u5e8f\uff09\u3001C# \u7f16\u8bd1\u4ea7\u7269\uff08\u542b NativeAOT\uff09\u3001\u7ea2\u961f Sharp* \u5de5\u5177\uff08Rubeus / SharpHound / SharpHound \u7b49\uff09\u3001.NET \u6df7\u6dc6\u7a0b\u5e8f\uff08ConfuserEx / SmartAssembly / Babel / Eazfuscator\uff09\u3001.NET loader / info-stealer / \u5957\u58f3 malware \u65f6\u4f7f\u7528\u3002\u4f18\u5148\u7528 dnSpyEx + de4dot\uff0c\u9700\u8981 AI \u76f4\u63a5\u64cd\u4f5c\u65f6\u8054\u52a8 dnSpy MCP\u3002\u4e0d\u7528\u4e8e\u7eaf native \u4e8c\u8fdb\u5236\uff08\u8d70 reverse-engineering / ida-reverse\uff09\u3002",
+    "path": "library/zhaoxuya520-reverse-skill/skills/dotnet-reverse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dotnet-reverse",
+    "link_cmd": "python .agents/library/activate_skill.py link dotnet-reverse"
+  },
+  {
+    "id": "dsl-vm-reverse",
+    "name": "dsl-vm-reverse",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Reverse JavaScript-based custom DSL/VM interpreters, non-standard WASM-like runtimes, and risk-control engines. Use when analyzing IIFE or switch-based opcode dispatchers, extracting instruction tables, recovering bytecode semantics, capturing VM state at runtime, or reconstructing execution flow.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/dsl-vm-reverse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate dsl-vm-reverse",
+    "link_cmd": "python .agents/library/activate_skill.py link dsl-vm-reverse"
+  },
+  {
+    "id": "edr-bypass-re",
+    "name": "edr-bypass-re",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "|",
+    "path": "library/zhaoxuya520-reverse-skill/skills/edr-bypass-re",
+    "activation_cmd": "python .agents/library/activate_skill.py activate edr-bypass-re",
+    "link_cmd": "python .agents/library/activate_skill.py link edr-bypass-re"
+  },
+  {
+    "id": "email-security",
+    "name": "email-security",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized email security review including phishing analysis, header authentication (SPF/DKIM/DMARC), BEC patterns, and mailbox token abuse research.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/email-security",
+    "activation_cmd": "python .agents/library/activate_skill.py activate email-security",
+    "link_cmd": "python .agents/library/activate_skill.py link email-security"
+  },
+  {
+    "id": "firmware-pentest",
+    "name": "firmware-pentest",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "|",
+    "path": "library/zhaoxuya520-reverse-skill/skills/firmware-pentest",
+    "activation_cmd": "python .agents/library/activate_skill.py activate firmware-pentest",
+    "link_cmd": "python .agents/library/activate_skill.py link firmware-pentest"
+  },
+  {
+    "id": "ghidra-reverse",
+    "name": "ghidra-reverse",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for free/open reverse engineering with Ghidra (headless or GUI), including decompile, cross-refs, and optional Ghidra MCP workflows when IDA is unavailable.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/ghidra-reverse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ghidra-reverse",
+    "link_cmd": "python .agents/library/activate_skill.py link ghidra-reverse"
+  },
+  {
+    "id": "go-rust-reverse",
+    "name": "go-rust-reverse",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for reverse engineering stripped Go and Rust binaries including runtime recognition, pclntab/moduel data recovery, panic strings, and idiomatic decompilation recovery.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/go-rust-reverse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate go-rust-reverse",
+    "link_cmd": "python .agents/library/activate_skill.py link go-rust-reverse"
+  },
+  {
+    "id": "hardware-security",
+    "name": "hardware-security",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized hardware and embedded interface security research including UART/JTAG discovery, debug pad triage, secure boot overview, and offline firmware extraction support.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/hardware-security",
+    "activation_cmd": "python .agents/library/activate_skill.py activate hardware-security",
+    "link_cmd": "python .agents/library/activate_skill.py link hardware-security"
+  },
+  {
+    "id": "ida-reverse",
+    "name": "ida-reverse",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "|",
+    "path": "library/zhaoxuya520-reverse-skill/skills/ida-reverse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ida-reverse",
+    "link_cmd": "python .agents/library/activate_skill.py link ida-reverse"
+  },
+  {
+    "id": "identity-federation",
+    "name": "identity-federation",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized assessment of federated identity systems including SAML, OIDC, OAuth2 flows, SSO misconfiguration, and token confusion issues.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/identity-federation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate identity-federation",
+    "link_cmd": "python .agents/library/activate_skill.py link identity-federation"
+  },
+  {
+    "id": "js-reverse",
+    "name": "js-reverse",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "\u5728\u4f7f\u7528 js-reverse-mcp \u505a\u524d\u7aef JavaScript \u9006\u5411\u65f6\u4f7f\u7528\uff0c\u9002\u7528\u4e8e\u7b7e\u540d\u94fe\u8def\u5b9a\u4f4d\u3001\u9875\u9762\u89c2\u5bdf\u53d6\u8bc1\u3001\u8fd0\u884c\u65f6\u91c7\u6837\u3001\u672c\u5730\u8865\u73af\u5883\u590d\u73b0\u4e0e\u8bc1\u636e\u5316\u8f93\u51fa\u3002\u4f18\u5148\u9002\u914d\u5f53\u524d\u73af\u5883\u91cc\u7684 js-reverse_* \u5de5\u5177\uff0c\u9700\u8981\u66f4\u5f3a\u7684\u6d4f\u89c8\u5668/CDP/Hook \u9762\u65f6\u8054\u52a8 jshookmcp\u3002",
+    "path": "library/zhaoxuya520-reverse-skill/skills/js-reverse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate js-reverse",
+    "link_cmd": "python .agents/library/activate_skill.py link js-reverse"
+  },
+  {
+    "id": "llm-security",
+    "name": "llm-security",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized security assessment of LLM applications and AI agents, including prompt injection, tool abuse, RAG exposure, memory poisoning, and model supply-chain risks.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/llm-security",
+    "activation_cmd": "python .agents/library/activate_skill.py activate llm-security",
+    "link_cmd": "python .agents/library/activate_skill.py link llm-security"
+  },
+  {
+    "id": "macos-reverse",
+    "name": "macos-reverse",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized macOS and Mach-O reverse engineering including codesign, Objective-C/Swift recovery, endpoint security surfaces, and Apple platform malware analysis.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/macos-reverse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate macos-reverse",
+    "link_cmd": "python .agents/library/activate_skill.py link macos-reverse"
+  },
+  {
+    "id": "malware-analysis",
+    "name": "malware-analysis",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use when analyzing suspected malware through static, dynamic, and behavioral techniques, including IOC extraction, YARA or Sigma rules, sandboxing, and anti-analysis behavior.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/malware-analysis",
+    "activation_cmd": "python .agents/library/activate_skill.py activate malware-analysis",
+    "link_cmd": "python .agents/library/activate_skill.py link malware-analysis"
+  },
+  {
+    "id": "mobile-reverse",
+    "name": "mobile-reverse",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized Android or iOS application reverse engineering and security testing, including APK or IPA analysis, runtime instrumentation, SSL pinning, and platform protection checks.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/mobile-reverse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mobile-reverse",
+    "link_cmd": "python .agents/library/activate_skill.py link mobile-reverse"
+  },
+  {
+    "id": "ot-ics",
+    "name": "ot-ics",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized OT/ICS security assessment covering Purdue model zoning, PLC/SCADA exposure, industrial protocol discovery, and safe passive-first evaluation.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/ot-ics",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ot-ics",
+    "link_cmd": "python .agents/library/activate_skill.py link ot-ics"
+  },
+  {
+    "id": "patch-diff-exploit",
+    "name": "patch-diff-exploit",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "|",
+    "path": "library/zhaoxuya520-reverse-skill/skills/patch-diff-exploit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate patch-diff-exploit",
+    "link_cmd": "python .agents/library/activate_skill.py link patch-diff-exploit"
+  },
+  {
+    "id": "pentest-tools",
+    "name": "pentest-tools",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "|",
+    "path": "library/zhaoxuya520-reverse-skill/skills/pentest-tools",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pentest-tools",
+    "link_cmd": "python .agents/library/activate_skill.py link pentest-tools"
+  },
+  {
+    "id": "protocol-reverse",
+    "name": "protocol-reverse",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized reverse engineering of custom binary protocols, Protobuf/gRPC, WebSocket frames, and PCAP-driven protocol recovery.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/protocol-reverse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate protocol-reverse",
+    "link_cmd": "python .agents/library/activate_skill.py link protocol-reverse"
+  },
+  {
+    "id": "pwn-chain",
+    "name": "pwn-chain",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "|",
+    "path": "library/zhaoxuya520-reverse-skill/skills/pwn-chain",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pwn-chain",
+    "link_cmd": "python .agents/library/activate_skill.py link pwn-chain"
+  },
+  {
+    "id": "radare2",
+    "name": "radare2",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "|",
+    "path": "library/zhaoxuya520-reverse-skill/skills/radare2",
+    "activation_cmd": "python .agents/library/activate_skill.py activate radare2",
+    "link_cmd": "python .agents/library/activate_skill.py link radare2"
+  },
+  {
+    "id": "radio-sdr",
+    "name": "radio-sdr",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized RF/SDR security research including signal identification, replay feasibility study in shielded labs, and wireless protocol analysis outside classic Wi-Fi.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/radio-sdr",
+    "activation_cmd": "python .agents/library/activate_skill.py activate radio-sdr",
+    "link_cmd": "python .agents/library/activate_skill.py link radio-sdr"
+  },
+  {
+    "id": "reverse-engineering",
+    "name": "reverse-engineering",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Provides reverse engineering techniques. Use when the main job is to understand how a compiled, obfuscated, packed, or virtualized target works before exploiting or solving it, including binaries, APKs, WASM, firmware, custom VMs, bytecode, malware-like loaders, and anti-debug or anti-analysis logic. Do not use it when the vulnerability is already understood and the remaining task is exploitation; use pwn instead. Do not use it for pure web workflows, log or disk forensics, or standalone crypto problems unless reversing the implementation is the real blocker.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/reverse-engineering",
+    "activation_cmd": "python .agents/library/activate_skill.py activate reverse-engineering",
+    "link_cmd": "python .agents/library/activate_skill.py link reverse-engineering"
+  },
+  {
     "id": "reverse-skill-router",
     "name": "reverse-skill-router",
     "repository": "zhaoxuya520-reverse-skill",
-    "category": "general",
-    "description": "",
+    "category": "security-compliance-auth",
+    "description": "Use the reverse-skill repository from Codex for authorized reverse engineering, security analysis, CTF, and defensive testing tasks. Requires the reverse-skill repository to be available as the current workspace or an explicitly supplied local path.",
     "path": "library/zhaoxuya520-reverse-skill/skills/reverse-skill-router",
     "activation_cmd": "python .agents/library/activate_skill.py activate reverse-skill-router",
     "link_cmd": "python .agents/library/activate_skill.py link reverse-skill-router"
+  },
+  {
+    "id": "skills-reverse-skill-router",
+    "name": "skills-reverse-skill-router",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use the reverse-skill repository from Codex for authorized reverse engineering, security analysis, CTF, and defensive testing tasks. Requires the reverse-skill repository to be available as the current workspace or an explicitly supplied local path.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/skills-reverse-skill-router",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-reverse-skill-router",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-reverse-skill-router"
+  },
+  {
+    "id": "src-hunter",
+    "name": "src-hunter",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "\u5b9e\u6218 SRC / \u4f17\u6d4b / Bug bounty \u6f0f\u6d1e\u6316\u6398\u5de5\u4f5c\u6d41 skill\u3002\u5305\u542b\uff1a5 \u9636\u6bb5\u65b9\u6cd5\u8bba\uff08intake \u2192 recon \u2192 enum \u2192 hunt \u2192 report\uff09\u300119 \u4e2a\u653b\u51fb\u7c7b playbook\uff08SQLi/XSS/RCE/SSRF/IDOR/CSRF/Path Traversal/File Upload/SSTI/XXE/Race/HTTP Smuggling/OAuth/JWT/SAML/GraphQL/Mobile/LLM/DoS\uff09\u3001305 \u4e2a\u7ed3\u6784\u5316 payload\u3001263 \u4e2a WAF/EDR \u7ed5\u8fc7\u53d8\u4f53\u30012887 \u4efd HackerOne \u771f\u5b9e High/Critical \u5df2\u62ab\u9732\u6848\u4f8b\u300177,000+ WooYun \u6848\u4f8b\u7edf\u8ba1\u3001\u56fd\u4ea7 OA / \u4e2d\u95f4\u4ef6\u6307\u7eb9\u5e93\u3001\u94f6\u884c / \u7535\u4fe1\u884c\u4e1a\u5782\u76f4 playbook\u3002\u5f53\u7528\u6237\u63d0\u5230 \"src \u6316\u6d1e / src \u6f0f\u6d1e\u6316\u6398 / bug bounty / \u4f17\u6d4b / hackerone / \u6f0f\u6d1e\u8d4f\u91d1 / SRC / \u4efb\u610f X \u6f0f\u6d1e / \u6e17\u900f\u6d4b\u8bd5\" \u6216\u95ee\"\u5982\u4f55\u6316\u67d0\u4e2a\u76ee\u6807 / \u600e\u4e48\u6d4b\u67d0\u4e2a API / \u5982\u4f55\u7ed5\u8fc7 WAF\" \u65f6\u89e6\u53d1\u3002",
+    "path": "library/zhaoxuya520-reverse-skill/skills/src-hunter",
+    "activation_cmd": "python .agents/library/activate_skill.py activate src-hunter",
+    "link_cmd": "python .agents/library/activate_skill.py link src-hunter"
+  },
+  {
+    "id": "supply-chain-security",
+    "name": "supply-chain-security",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for software supply-chain security assessment covering SBOM, SCA, CI/CD pipelines, container images, build integrity, dependency provenance, and vulnerability reachability.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/supply-chain-security",
+    "activation_cmd": "python .agents/library/activate_skill.py activate supply-chain-security",
+    "link_cmd": "python .agents/library/activate_skill.py link supply-chain-security"
+  },
+  {
+    "id": "thick-client",
+    "name": "thick-client",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized security testing of desktop thick clients including local storage, update channels, IPC, traffic, and client-side trust boundaries.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/thick-client",
+    "activation_cmd": "python .agents/library/activate_skill.py activate thick-client",
+    "link_cmd": "python .agents/library/activate_skill.py link thick-client"
+  },
+  {
+    "id": "threat-hunting",
+    "name": "threat-hunting",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for blue-team threat hunting, detection engineering with Sigma/YARA, SIEM query design, and incident detection validation.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/threat-hunting",
+    "activation_cmd": "python .agents/library/activate_skill.py activate threat-hunting",
+    "link_cmd": "python .agents/library/activate_skill.py link threat-hunting"
+  },
+  {
+    "id": "threat-intelligence",
+    "name": "threat-intelligence",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized OSINT and cyber threat intelligence that enriches IOCs, campaigns, impersonation, scams, or threat actors from public sources. Includes bounded X/Twitter search through Xquik, source preservation, corroboration, and evidence handoff.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/threat-intelligence",
+    "activation_cmd": "python .agents/library/activate_skill.py activate threat-intelligence",
+    "link_cmd": "python .agents/library/activate_skill.py link threat-intelligence"
+  },
+  {
+    "id": "wifi-wireless",
+    "name": "wifi-wireless",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized wireless security assessment including Wi-Fi capture, WPA handshake analysis, rogue AP detection research, and lab-only deauth testing.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/wifi-wireless",
+    "activation_cmd": "python .agents/library/activate_skill.py activate wifi-wireless",
+    "link_cmd": "python .agents/library/activate_skill.py link wifi-wireless"
+  },
+  {
+    "id": "windows-ad",
+    "name": "windows-ad",
+    "repository": "zhaoxuya520-reverse-skill",
+    "category": "general",
+    "description": "Use for authorized Active Directory and Windows identity attacks including Kerberos, AD CS, BloodHound paths, NTLM relay, and domain privilege escalation research.",
+    "path": "library/zhaoxuya520-reverse-skill/skills/windows-ad",
+    "activation_cmd": "python .agents/library/activate_skill.py activate windows-ad",
+    "link_cmd": "python .agents/library/activate_skill.py link windows-ad"
   }
 ]

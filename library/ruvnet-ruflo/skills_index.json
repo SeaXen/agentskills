@@ -4,7 +4,7 @@
     "name": "adr-create",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Create a new Architecture Decision Record with sequential numbering and AgentDB registration",
     "path": "library/ruvnet-ruflo/skills/adr-create",
     "activation_cmd": "python .agents/library/activate_skill.py activate adr-create",
     "link_cmd": "python .agents/library/activate_skill.py link adr-create"
@@ -14,7 +14,7 @@
     "name": "adr-index",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Build or rebuild the ADR index + dependency graph by running scripts/import.mjs (handles v3-style and plugin-style ADR formats; one Bash call vs hundreds of MCP round-trips)",
     "path": "library/ruvnet-ruflo/skills/adr-index",
     "activation_cmd": "python .agents/library/activate_skill.py activate adr-index",
     "link_cmd": "python .agents/library/activate_skill.py link adr-index"
@@ -24,7 +24,7 @@
     "name": "adr-reindex",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Reconcile the ADR index against a DELETED ADR file or relation line by dropping and rebuilding adr-patterns + adr-edges from scratch (scripts/reindex.mjs). Use when adr-index alone leaves stale rows behind.",
     "path": "library/ruvnet-ruflo/skills/adr-reindex",
     "activation_cmd": "python .agents/library/activate_skill.py activate adr-reindex",
     "link_cmd": "python .agents/library/activate_skill.py link adr-reindex"
@@ -34,7 +34,7 @@
     "name": "adr-review",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Review code changes against accepted ADRs for compliance violations",
     "path": "library/ruvnet-ruflo/skills/adr-review",
     "activation_cmd": "python .agents/library/activate_skill.py activate adr-review",
     "link_cmd": "python .agents/library/activate_skill.py link adr-review"
@@ -44,17 +44,27 @@
     "name": "adr-verify",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Read back adr-patterns + adr-edges namespaces, surface dangling refs / supersede cycles / Unknown statuses; exit 1 on cycles",
     "path": "library/ruvnet-ruflo/skills/adr-verify",
     "activation_cmd": "python .agents/library/activate_skill.py activate adr-verify",
     "link_cmd": "python .agents/library/activate_skill.py link adr-verify"
+  },
+  {
+    "id": "agent-teams-grok",
+    "name": "agent-teams-grok",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": ">",
+    "path": "library/ruvnet-ruflo/skills/agent-teams-grok",
+    "activation_cmd": "python .agents/library/activate_skill.py activate agent-teams-grok",
+    "link_cmd": "python .agents/library/activate_skill.py link agent-teams-grok"
   },
   {
     "id": "agentdb-query",
     "name": "agentdb-query",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Query AgentDB through the controller bridge -- semantic routing, hierarchical recall, causal graphs, context synthesis, pattern store/search",
     "path": "library/ruvnet-ruflo/skills/agentdb-query",
     "activation_cmd": "python .agents/library/activate_skill.py activate agentdb-query",
     "link_cmd": "python .agents/library/activate_skill.py link agentdb-query"
@@ -64,7 +74,7 @@
     "name": "agntcy-status",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "\"Show AGNTCY/SLIM/CASA integration status: whether the SLIM runtime is installed, an endpoint configured, which transport is default, and what the agntcy mod saw this session. Use when the user asks whether AGNTCY is configured. Read-only; no network call.\"",
     "path": "library/ruvnet-ruflo/skills/agntcy-status",
     "activation_cmd": "python .agents/library/activate_skill.py activate agntcy-status",
     "link_cmd": "python .agents/library/activate_skill.py link agntcy-status"
@@ -74,7 +84,7 @@
     "name": "analyze-app",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Statically inspect a local JavaScript or Electron app you are authorized to study and explain how a feature works with file+line evidence. Use when the user wants to understand or reimplement a feature from an app whose source they have. Parses only; never executes the target.",
     "path": "library/ruvnet-ruflo/skills/analyze-app",
     "activation_cmd": "python .agents/library/activate_skill.py activate analyze-app",
     "link_cmd": "python .agents/library/activate_skill.py link analyze-app"
@@ -84,7 +94,7 @@
     "name": "api-docs",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Generate API documentation from source code with JSDoc and OpenAPI support",
     "path": "library/ruvnet-ruflo/skills/api-docs",
     "activation_cmd": "python .agents/library/activate_skill.py activate api-docs",
     "link_cmd": "python .agents/library/activate_skill.py link api-docs"
@@ -94,7 +104,7 @@
     "name": "autopilot-loop",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Run an autonomous /loop iteration -- check progress, work on next task, schedule next wake",
     "path": "library/ruvnet-ruflo/skills/autopilot-loop",
     "activation_cmd": "python .agents/library/activate_skill.py activate autopilot-loop",
     "link_cmd": "python .agents/library/activate_skill.py link autopilot-loop"
@@ -104,17 +114,27 @@
     "name": "autopilot-predict",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Use learned patterns and current state to predict the optimal next action",
     "path": "library/ruvnet-ruflo/skills/autopilot-predict",
     "activation_cmd": "python .agents/library/activate_skill.py activate autopilot-predict",
     "link_cmd": "python .agents/library/activate_skill.py link autopilot-predict"
+  },
+  {
+    "id": "browser",
+    "name": "browser",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Web browser automation with AI-optimized snapshots for claude-flow agents",
+    "path": "library/ruvnet-ruflo/skills/browser",
+    "activation_cmd": "python .agents/library/activate_skill.py activate browser",
+    "link_cmd": "python .agents/library/activate_skill.py link browser"
   },
   {
     "id": "browser-auth-flow",
     "name": "browser-auth-flow",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Probe a site's authentication flow for redirect leaks, missing CSRF, weak session cookies, and OAuth misconfiguration; produces an auth findings.md",
     "path": "library/ruvnet-ruflo/skills/browser-auth-flow",
     "activation_cmd": "python .agents/library/activate_skill.py activate browser-auth-flow",
     "link_cmd": "python .agents/library/activate_skill.py link browser-auth-flow"
@@ -124,7 +144,7 @@
     "name": "browser-extract",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Extract structured data via stored browser-templates or one-shot DOM queries, with mandatory AIDefence PII + prompt-injection gates before content reaches the model",
     "path": "library/ruvnet-ruflo/skills/browser-extract",
     "activation_cmd": "python .agents/library/activate_skill.py activate browser-extract",
     "link_cmd": "python .agents/library/activate_skill.py link browser-extract"
@@ -134,7 +154,7 @@
     "name": "browser-form-fill",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Fill a web form by mapping field-name \u2192 value, with optional template lookup from browser-templates for known forms",
     "path": "library/ruvnet-ruflo/skills/browser-form-fill",
     "activation_cmd": "python .agents/library/activate_skill.py activate browser-form-fill",
     "link_cmd": "python .agents/library/activate_skill.py link browser-form-fill"
@@ -144,7 +164,7 @@
     "name": "browser-intent",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Execute a natural-language browser intent via page-agent (browser_act) when the target is easier to describe than to select \u2014 degrades gracefully when page-agent or an OpenAI-compatible LLM provider isn't configured",
     "path": "library/ruvnet-ruflo/skills/browser-intent",
     "activation_cmd": "python .agents/library/activate_skill.py activate browser-intent",
     "link_cmd": "python .agents/library/activate_skill.py link browser-intent"
@@ -154,7 +174,7 @@
     "name": "browser-login",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Drive an authentication flow once, sanitize cookies through AIDefence, and vault a reusable cookie handle in browser-cookies for future sessions",
     "path": "library/ruvnet-ruflo/skills/browser-login",
     "activation_cmd": "python .agents/library/activate_skill.py activate browser-login",
     "link_cmd": "python .agents/library/activate_skill.py link browser-login"
@@ -164,7 +184,7 @@
     "name": "browser-record",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Open a named, traced browser session into an RVF cognitive container with a ruvector trajectory recording every action",
     "path": "library/ruvnet-ruflo/skills/browser-record",
     "activation_cmd": "python .agents/library/activate_skill.py activate browser-record",
     "link_cmd": "python .agents/library/activate_skill.py link browser-record"
@@ -174,7 +194,7 @@
     "name": "browser-replay",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Replay a recorded session trajectory against the same URL or a mutated variant; uses browser-selectors embedding similarity to recover from DOM drift",
     "path": "library/ruvnet-ruflo/skills/browser-replay",
     "activation_cmd": "python .agents/library/activate_skill.py activate browser-replay",
     "link_cmd": "python .agents/library/activate_skill.py link browser-replay"
@@ -184,7 +204,7 @@
     "name": "browser-scrape",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "DEPRECATED in v0.2.0 -- use browser-extract instead; this is a thin shim for backward compatibility, kept as a shim and slated for removal in the next minor release",
     "path": "library/ruvnet-ruflo/skills/browser-scrape",
     "activation_cmd": "python .agents/library/activate_skill.py activate browser-scrape",
     "link_cmd": "python .agents/library/activate_skill.py link browser-scrape"
@@ -194,7 +214,7 @@
     "name": "browser-screenshot-diff",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Visual + DOM diff between two recorded sessions at matching trajectory step ids; used for visual regression and replay verification",
     "path": "library/ruvnet-ruflo/skills/browser-screenshot-diff",
     "activation_cmd": "python .agents/library/activate_skill.py activate browser-screenshot-diff",
     "link_cmd": "python .agents/library/activate_skill.py link browser-screenshot-diff"
@@ -204,7 +224,7 @@
     "name": "browser-test",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "UI test recipe -- composes browser-record (capture) + browser-replay (verify) so every test produces a replayable RVF artifact, not an ephemeral run",
     "path": "library/ruvnet-ruflo/skills/browser-test",
     "activation_cmd": "python .agents/library/activate_skill.py activate browser-test",
     "link_cmd": "python .agents/library/activate_skill.py link browser-test"
@@ -214,7 +234,7 @@
     "name": "chat-format",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Format chat messages in a local model's template (llama3, mistral, chatml, phi, gemma, or a model id) and route queries over a small WASM HNSW pattern index (about 11 patterns). Use when preparing prompts for local runtimes.",
     "path": "library/ruvnet-ruflo/skills/chat-format",
     "activation_cmd": "python .agents/library/activate_skill.py activate chat-format",
     "link_cmd": "python .agents/library/activate_skill.py link chat-format"
@@ -224,17 +244,27 @@
     "name": "cognitive-pattern",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Define and manage cognitive patterns for agent reasoning and decision-making",
     "path": "library/ruvnet-ruflo/skills/cognitive-pattern",
     "activation_cmd": "python .agents/library/activate_skill.py activate cognitive-pattern",
     "link_cmd": "python .agents/library/activate_skill.py link cognitive-pattern"
+  },
+  {
+    "id": "coordinate-ruflo-swarm",
+    "name": "coordinate-ruflo-swarm",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Coordinate work across a RuFlo AI-agent swarm by discovering channels, reading signed updates, checking claims, and choosing safe next actions. Use for multi-agent status, handoffs, ownership conflicts, or shared-work planning.",
+    "path": "library/ruvnet-ruflo/skills/coordinate-ruflo-swarm",
+    "activation_cmd": "python .agents/library/activate_skill.py activate coordinate-ruflo-swarm",
+    "link_cmd": "python .agents/library/activate_skill.py link coordinate-ruflo-swarm"
   },
   {
     "id": "coordinate-team-work",
     "name": "coordinate-team-work",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Creates, assigns, and updates tasks in an AI team run so work has one owner and one deliverable each. Use when the user asks to break down, assign, claim, block, or complete tasks in a run. Changes recorded task state only.",
     "path": "library/ruvnet-ruflo/skills/coordinate-team-work",
     "activation_cmd": "python .agents/library/activate_skill.py activate coordinate-team-work",
     "link_cmd": "python .agents/library/activate_skill.py link coordinate-team-work"
@@ -244,7 +274,7 @@
     "name": "cost-advise",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Optimisation findings from your own Claude Code and Codex logs \u2014 low cache hit ratio, 1-hour cache writes that did not pay back, sub-agents on a top-tier model, Codex reasoning share, bloated sessions \u2014 each with evidence and a what-if saving. Use when asked how to cut spend or why it is high.",
     "path": "library/ruvnet-ruflo/skills/cost-advise",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-advise",
     "link_cmd": "python .agents/library/activate_skill.py link cost-advise"
@@ -254,7 +284,7 @@
     "name": "cost-anomaly",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "\"MAD-based outlier detection on session spend: lists anomalous sessions with modified-z scores, with an optional --alert-on-outliers exit code for CI. Use when asked which individual session is the cost outlier; cost-burn covers the aggregate trend.\"",
     "path": "library/ruvnet-ruflo/skills/cost-anomaly",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-anomaly",
     "link_cmd": "python .agents/library/activate_skill.py link cost-anomaly"
@@ -264,7 +294,7 @@
     "name": "cost-benchmark",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Run the corpus benchmark \u2014 booster locally, optional Gemini/Sonnet/Opus baselines \u2014 and persist a verifiable measured-vs-claimed table",
     "path": "library/ruvnet-ruflo/skills/cost-benchmark",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-benchmark",
     "link_cmd": "python .agents/library/activate_skill.py link cost-benchmark"
@@ -274,7 +304,7 @@
     "name": "cost-booster-edit",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Apply a simple code transform via agent-booster's WASM engine \u2014 sub-millisecond, deterministic, $0 (no LLM call). Companion to cost-booster-route.",
     "path": "library/ruvnet-ruflo/skills/cost-booster-edit",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-booster-edit",
     "link_cmd": "python .agents/library/activate_skill.py link cost-booster-edit"
@@ -284,7 +314,7 @@
     "name": "cost-booster-route",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Route tasks through hooks_route, partition by Agent Booster availability, and report Tier 1 bypass utilization with $0 cost",
     "path": "library/ruvnet-ruflo/skills/cost-booster-route",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-booster-route",
     "link_cmd": "python .agents/library/activate_skill.py link cost-booster-route"
@@ -294,7 +324,7 @@
     "name": "cost-budget-check",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Read accumulated cost-tracking spend + budget config, compute utilization, emit 50/75/90/100% alert ladder",
     "path": "library/ruvnet-ruflo/skills/cost-budget-check",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-budget-check",
     "link_cmd": "python .agents/library/activate_skill.py link cost-budget-check"
@@ -304,7 +334,7 @@
     "name": "cost-burn",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Burn-rate trend over time with optional drift-alert exit code. Bins session spend into buckets, surfaces window-over-window delta, and can exit 1 when latest bucket exceeds prior mean by a configurable %. Distinct from `cost-trend` (benchmark drift); this tracks PRODUCTION spend trajectory.",
     "path": "library/ruvnet-ruflo/skills/cost-burn",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-burn",
     "link_cmd": "python .agents/library/activate_skill.py link cost-burn"
@@ -314,7 +344,7 @@
     "name": "cost-compact-context",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Wrap getTokenOptimizer().getCompactContext() to retrieve compacted ReasoningBank context for cost-analysis queries; report bridge-reported tokensSaved",
     "path": "library/ruvnet-ruflo/skills/cost-compact-context",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-compact-context",
     "link_cmd": "python .agents/library/activate_skill.py link cost-compact-context"
@@ -324,7 +354,7 @@
     "name": "cost-conversation",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Per-conversation cost view \u2014 list every session in cost-tracking with started-at, message count, top model, and total cost",
     "path": "library/ruvnet-ruflo/skills/cost-conversation",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-conversation",
     "link_cmd": "python .agents/library/activate_skill.py link cost-conversation"
@@ -334,7 +364,7 @@
     "name": "cost-counterfactual",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Multi-baseline counterfactual cost analysis. Compares actual session spend to hypothetical always-haiku / always-sonnet / always-opus routing baselines. Answers \"is the routing earning its keep?\" Negative savings flag over-escalation; positive savings quantify the router's win.",
     "path": "library/ruvnet-ruflo/skills/cost-counterfactual",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-counterfactual",
     "link_cmd": "python .agents/library/activate_skill.py link cost-counterfactual"
@@ -344,7 +374,7 @@
     "name": "cost-diff",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Snapshot delta between two cost-summary JSON outputs. PR-level cost regression detection \u2014 answers \"what changed between these two specific snapshots?\". Pairs with cost-summary's stable JSON contract.",
     "path": "library/ruvnet-ruflo/skills/cost-diff",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-diff",
     "link_cmd": "python .agents/library/activate_skill.py link cost-diff"
@@ -354,7 +384,7 @@
     "name": "cost-export",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Export cost-tracking telemetry in Prometheus textfile or webhook JSON formats \u2014 for external observability (Grafana, Datadog, custom dashboards)",
     "path": "library/ruvnet-ruflo/skills/cost-export",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-export",
     "link_cmd": "python .agents/library/activate_skill.py link cost-export"
@@ -364,7 +394,7 @@
     "name": "cost-federation",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Consumer-side wiring for ADR-097 Phase 3 federation_spend events \u2014 per-peer rolling windows + suspension-threshold check",
     "path": "library/ruvnet-ruflo/skills/cost-federation",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-federation",
     "link_cmd": "python .agents/library/activate_skill.py link cost-federation"
@@ -374,7 +404,7 @@
     "name": "cost-health",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Composite CI gate \u2014 runs cost-budget-check + cost-burn + cost-anomaly + cost-projection in parallel and surfaces a single combined health status with max exit code. The operationally-useful entry point \u2014 one shell-out covers all four alert ladders.",
     "path": "library/ruvnet-ruflo/skills/cost-health",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-health",
     "link_cmd": "python .agents/library/activate_skill.py link cost-health"
@@ -384,7 +414,7 @@
     "name": "cost-ledger",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "One cost view across Claude Code, Codex and Grok on this machine \u2014 spend, tokens, cache hit ratio per provider and model, with unpriced models flagged. Use when asked \"what did I spend\", \"how much did Codex cost\", or to compare providers. Local logs only, nothing is sent.",
     "path": "library/ruvnet-ruflo/skills/cost-ledger",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-ledger",
     "link_cmd": "python .agents/library/activate_skill.py link cost-ledger"
@@ -394,7 +424,7 @@
     "name": "cost-local",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Cost per million tokens on hardware you own (Ollama, llama.cpp, vLLM, LM Studio) from watts, electricity price, hardware price and measured tokens/second, and the utilisation at which local beats a hosted model. Use for local-vs-API break-even questions.",
     "path": "library/ruvnet-ruflo/skills/cost-local",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-local",
     "link_cmd": "python .agents/library/activate_skill.py link cost-local"
@@ -404,7 +434,7 @@
     "name": "cost-openrouter",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "OpenRouter real spend \u2014 key limit and usage today/week/month, one request's billed cost by generation id, account credits. Use when asked what OpenRouter charged or whether a key is near its limit. Network and API key: asks first.",
     "path": "library/ruvnet-ruflo/skills/cost-openrouter",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-openrouter",
     "link_cmd": "python .agents/library/activate_skill.py link cost-openrouter"
@@ -414,7 +444,7 @@
     "name": "cost-optimize",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Analyze token usage patterns and recommend cost optimizations with estimated savings",
     "path": "library/ruvnet-ruflo/skills/cost-optimize",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-optimize",
     "link_cmd": "python .agents/library/activate_skill.py link cost-optimize"
@@ -424,7 +454,7 @@
     "name": "cost-projection",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Forward-looking spend extrapolation. Computes a USD-per-day rate from the recent measurement window, projects to 7d/30d/90d/365d horizons, and surfaces \"days until budget exhausted\" when a budget is configured. Predictive counterpart to `cost-budget-check` (reactive).",
     "path": "library/ruvnet-ruflo/skills/cost-projection",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-projection",
     "link_cmd": "python .agents/library/activate_skill.py link cost-projection"
@@ -434,7 +464,7 @@
     "name": "cost-report",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Generate a cost report showing token usage and USD costs by agent and model",
     "path": "library/ruvnet-ruflo/skills/cost-report",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-report",
     "link_cmd": "python .agents/library/activate_skill.py link cost-report"
@@ -444,7 +474,7 @@
     "name": "cost-session",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Per-message cost breakdown within a single session. The drill-down companion to cost-anomaly \u2014 when an outlier session is flagged, this surfaces the specific expensive messages so operators can see whether the cost came from output tokens, cache writes, or model escalations.",
     "path": "library/ruvnet-ruflo/skills/cost-session",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-session",
     "link_cmd": "python .agents/library/activate_skill.py link cost-session"
@@ -454,7 +484,7 @@
     "name": "cost-summary",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Single-shot programmatic dump of all cost data \u2014 total spend, per-tier, top session, budget status, federation aggregate. JSON or markdown.",
     "path": "library/ruvnet-ruflo/skills/cost-summary",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-summary",
     "link_cmd": "python .agents/library/activate_skill.py link cost-summary"
@@ -464,7 +494,7 @@
     "name": "cost-track",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Auto-capture per-session token usage from the Claude Code session jsonl and persist to the cost-tracking namespace",
     "path": "library/ruvnet-ruflo/skills/cost-track",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-track",
     "link_cmd": "python .agents/library/activate_skill.py link cost-track"
@@ -474,7 +504,7 @@
     "name": "cost-trend",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Read every docs/benchmarks/runs/*.json and surface drift in win rate, latency, escalation rate, and LLM-baseline cost over time",
     "path": "library/ruvnet-ruflo/skills/cost-trend",
     "activation_cmd": "python .agents/library/activate_skill.py activate cost-trend",
     "link_cmd": "python .agents/library/activate_skill.py link cost-trend"
@@ -484,7 +514,7 @@
     "name": "create-mod",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Scaffold a Claude Code mod (a plugin with a function-hooks module) from ruflo's governed template, then validate and test it. Use when the user asks for a mod, a function hook, or wants Claude Code to modify itself.",
     "path": "library/ruvnet-ruflo/skills/create-mod",
     "activation_cmd": "python .agents/library/activate_skill.py activate create-mod",
     "link_cmd": "python .agents/library/activate_skill.py link create-mod"
@@ -494,7 +524,7 @@
     "name": "create-plugin",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Scaffold a new Claude Code plugin with proper directory structure, plugin.json, skills, commands, and agents",
     "path": "library/ruvnet-ruflo/skills/create-plugin",
     "activation_cmd": "python .agents/library/activate_skill.py activate create-plugin",
     "link_cmd": "python .agents/library/activate_skill.py link create-plugin"
@@ -504,7 +534,7 @@
     "name": "cron-schedule",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Schedule persistent background workers via CronCreate",
     "path": "library/ruvnet-ruflo/skills/cron-schedule",
     "activation_cmd": "python .agents/library/activate_skill.py activate cron-schedule",
     "link_cmd": "python .agents/library/activate_skill.py link cron-schedule"
@@ -514,7 +544,7 @@
     "name": "cross-host-federation",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Join and operate a signed cross-host agentbbs federation and coordinate work claims across nodes. Use when connecting ruflo agents across machines, sharing tasks or results between hosts, or standing up a federation hub; skip for single-host work.",
     "path": "library/ruvnet-ruflo/skills/cross-host-federation",
     "activation_cmd": "python .agents/library/activate_skill.py activate cross-host-federation",
     "link_cmd": "python .agents/library/activate_skill.py link cross-host-federation"
@@ -524,7 +554,7 @@
     "name": "daa-agent",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Create and adapt Dynamic Agentic Architecture agents that learn and evolve",
     "path": "library/ruvnet-ruflo/skills/daa-agent",
     "activation_cmd": "python .agents/library/activate_skill.py activate daa-agent",
     "link_cmd": "python .agents/library/activate_skill.py link daa-agent"
@@ -534,7 +564,7 @@
     "name": "ddd-aggregate",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Scaffold an aggregate root with entity, value objects, repository interface, domain events, and test stubs. Use when adding a new aggregate to an existing bounded context, modeling a new business concept that owns invariants, or generating the boilerplate for an entity + repo + events triplet.",
     "path": "library/ruvnet-ruflo/skills/ddd-aggregate",
     "activation_cmd": "python .agents/library/activate_skill.py activate ddd-aggregate",
     "link_cmd": "python .agents/library/activate_skill.py link ddd-aggregate"
@@ -544,7 +574,7 @@
     "name": "ddd-context",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Create and manage a DDD bounded context with standard directory structure. Use when starting a new subdomain, splitting a monolith into bounded contexts, or scaffolding the domain/application/infrastructure layout for a fresh module.",
     "path": "library/ruvnet-ruflo/skills/ddd-context",
     "activation_cmd": "python .agents/library/activate_skill.py activate ddd-context",
     "link_cmd": "python .agents/library/activate_skill.py link ddd-context"
@@ -554,7 +584,7 @@
     "name": "ddd-validate",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Validate domain boundaries -- detect cross-context import violations and aggregate invariant issues. Use when auditing a DDD codebase for leaks between bounded contexts, before merging cross-cutting changes, or as a CI gate to catch boundary erosion early.",
     "path": "library/ruvnet-ruflo/skills/ddd-validate",
     "activation_cmd": "python .agents/library/activate_skill.py activate ddd-validate",
     "link_cmd": "python .agents/library/activate_skill.py link ddd-validate"
@@ -564,7 +594,7 @@
     "name": "deep-research",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Orchestrate multi-phase deep research with web search, memory retrieval, pattern matching, and synthesis into structured findings",
     "path": "library/ruvnet-ruflo/skills/deep-research",
     "activation_cmd": "python .agents/library/activate_skill.py activate deep-research",
     "link_cmd": "python .agents/library/activate_skill.py link deep-research"
@@ -574,7 +604,7 @@
     "name": "deepseek-chat",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "One-shot chat completion against DeepSeek's `deepseek-chat` model. Use for non-reasoning tasks such as summarization, extraction or quick classification. Reads DEEPSEEK_API_KEY; returns status:degraded when the key is missing or the API is unreachable.",
     "path": "library/ruvnet-ruflo/skills/deepseek-chat",
     "activation_cmd": "python .agents/library/activate_skill.py activate deepseek-chat",
     "link_cmd": "python .agents/library/activate_skill.py link deepseek-chat"
@@ -584,7 +614,7 @@
     "name": "deepseek-reason",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Reasoning completion against DeepSeek's `deepseek-reasoner` (R1), returning the chain of thought apart from the answer. Use when a task needs step-by-step reasoning from DeepSeek. Reads DEEPSEEK_API_KEY; returns status:degraded when unset or unreachable.",
     "path": "library/ruvnet-ruflo/skills/deepseek-reason",
     "activation_cmd": "python .agents/library/activate_skill.py activate deepseek-reason",
     "link_cmd": "python .agents/library/activate_skill.py link deepseek-reason"
@@ -594,7 +624,7 @@
     "name": "dependency-check",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Scan project dependencies for known vulnerabilities and CVEs. Use when auditing third-party packages, before releases, after `npm install`/lockfile changes, or when investigating reported CVE advisories.",
     "path": "library/ruvnet-ruflo/skills/dependency-check",
     "activation_cmd": "python .agents/library/activate_skill.py activate dependency-check",
     "link_cmd": "python .agents/library/activate_skill.py link dependency-check"
@@ -604,7 +634,7 @@
     "name": "diff-analyze",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Analyze git diffs for risk scoring, reviewer recommendations, and change classification. Use when preparing a PR, reviewing a large or cross-module change, or before merging to assess risk and pick reviewers.",
     "path": "library/ruvnet-ruflo/skills/diff-analyze",
     "activation_cmd": "python .agents/library/activate_skill.py activate diff-analyze",
     "link_cmd": "python .agents/library/activate_skill.py link diff-analyze"
@@ -614,7 +644,7 @@
     "name": "discover-plugins",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Discover and recommend ruflo plugins based on your workflow, installed MCP tools, and current task",
     "path": "library/ruvnet-ruflo/skills/discover-plugins",
     "activation_cmd": "python .agents/library/activate_skill.py activate discover-plugins",
     "link_cmd": "python .agents/library/activate_skill.py link discover-plugins"
@@ -624,7 +654,7 @@
     "name": "doc-gen",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Generate and maintain documentation with drift detection. Use when the user asks to write/update/refresh docs, detect doc drift against code, or schedule recurring documentation maintenance.",
     "path": "library/ruvnet-ruflo/skills/doc-gen",
     "activation_cmd": "python .agents/library/activate_skill.py activate doc-gen",
     "link_cmd": "python .agents/library/activate_skill.py link doc-gen"
@@ -634,7 +664,7 @@
     "name": "dossier-collect",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Build a graph-structured dossier on a seed entity via parallel fan-out + recursive expansion across web, memory, knowledge-graph, codebase, ADR index, and git intel",
     "path": "library/ruvnet-ruflo/skills/dossier-collect",
     "activation_cmd": "python .agents/library/activate_skill.py activate dossier-collect",
     "link_cmd": "python .agents/library/activate_skill.py link dossier-collect"
@@ -644,7 +674,7 @@
     "name": "federation-audit",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Query federation audit logs with compliance filtering",
     "path": "library/ruvnet-ruflo/skills/federation-audit",
     "activation_cmd": "python .agents/library/activate_skill.py activate federation-audit",
     "link_cmd": "python .agents/library/activate_skill.py link federation-audit"
@@ -654,7 +684,7 @@
     "name": "federation-init",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Initialize federation on this node \u2014 generate keypair and configure peers",
     "path": "library/ruvnet-ruflo/skills/federation-init",
     "activation_cmd": "python .agents/library/activate_skill.py activate federation-init",
     "link_cmd": "python .agents/library/activate_skill.py link federation-init"
@@ -664,7 +694,7 @@
     "name": "federation-status",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Show federation health \u2014 peers, sessions, trust levels, and message metrics. Use when the user asks \"is federation healthy?\", \"show peers\", \"federation status\", or wants to inspect cross-installation agent connectivity.",
     "path": "library/ruvnet-ruflo/skills/federation-status",
     "activation_cmd": "python .agents/library/activate_skill.py activate federation-status",
     "link_cmd": "python .agents/library/activate_skill.py link federation-status"
@@ -674,7 +704,7 @@
     "name": "gaia-architecture-comparison",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Side-by-side comparison of ruflo vs HAL vs other GAIA harnesses \u2014 capability gaps, design decisions, and improvement roadmap",
     "path": "library/ruvnet-ruflo/skills/gaia-architecture-comparison",
     "activation_cmd": "python .agents/library/activate_skill.py activate gaia-architecture-comparison",
     "link_cmd": "python .agents/library/activate_skill.py link gaia-architecture-comparison"
@@ -684,7 +714,7 @@
     "name": "gaia-debugging",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Diagnose why a GAIA question failed \u2014 extract trace, classify failure mode, and propose a fix. Use when a GAIA benchmark run reports a failed/incorrect task_id and you need to root-cause it before resubmitting.",
     "path": "library/ruvnet-ruflo/skills/gaia-debugging",
     "activation_cmd": "python .agents/library/activate_skill.py activate gaia-debugging",
     "link_cmd": "python .agents/library/activate_skill.py link gaia-debugging"
@@ -694,7 +724,7 @@
     "name": "gaia-submission",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Walk through a complete GAIA benchmark\u2192submit flow \u2014 from key resolution through HAL-compatible package generation",
     "path": "library/ruvnet-ruflo/skills/gaia-submission",
     "activation_cmd": "python .agents/library/activate_skill.py activate gaia-submission",
     "link_cmd": "python .agents/library/activate_skill.py link gaia-submission"
@@ -704,7 +734,7 @@
     "name": "generate-console-theme",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Generate a data-only animated theme preset for Ruflo Console Theme Studio. Use when the user requests a new console color palette, cyberpunk theme, or variation of Orbital globe, stars, and swarm animation in Claude or Codex.",
     "path": "library/ruvnet-ruflo/skills/generate-console-theme",
     "activation_cmd": "python .agents/library/activate_skill.py activate generate-console-theme",
     "link_cmd": "python .agents/library/activate_skill.py link generate-console-theme"
@@ -714,7 +744,7 @@
     "name": "git-workflow",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Advanced git workflows with branch management, conflict resolution, and PR lifecycle",
     "path": "library/ruvnet-ruflo/skills/git-workflow",
     "activation_cmd": "python .agents/library/activate_skill.py activate git-workflow",
     "link_cmd": "python .agents/library/activate_skill.py link git-workflow"
@@ -724,7 +754,7 @@
     "name": "goal-plan",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Create and execute Goal-Oriented Action Plans (GOAP) with precondition analysis, cost optimization, and adaptive replanning",
     "path": "library/ruvnet-ruflo/skills/goal-plan",
     "activation_cmd": "python .agents/library/activate_skill.py activate goal-plan",
     "link_cmd": "python .agents/library/activate_skill.py link goal-plan"
@@ -734,7 +764,7 @@
     "name": "harness-bench",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Create (`bench create {repo}`) or verify (`bench verify {suite.json}`) a @metaharness/darwin bench suite, the fixed corpus `harness-evolve --bench` scores variants against. Use when preparing an evolution benchmark. Degrades gracefully without darwin.",
     "path": "library/ruvnet-ruflo/skills/harness-bench",
     "activation_cmd": "python .agents/library/activate_skill.py activate harness-bench",
     "link_cmd": "python .agents/library/activate_skill.py link harness-bench"
@@ -744,7 +774,7 @@
     "name": "harness-drift-from-history",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "\"One-command drift detection: run a fresh metaharness audit, diff it against the latest stored audit by ADR-152 similarity, and alert when the distance crosses `--threshold`. Use when checking whether a harness has drifted since its last audit.\"",
     "path": "library/ruvnet-ruflo/skills/harness-drift-from-history",
     "activation_cmd": "python .agents/library/activate_skill.py activate harness-drift-from-history",
     "link_cmd": "python .agents/library/activate_skill.py link harness-drift-from-history"
@@ -754,7 +784,7 @@
     "name": "harness-evolve",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "\"Run `@metaharness/darwin evolve {repo}`: mutate a harness's seven policy surfaces, sandbox-score each variant and promote only measured wins. Use when evolving a harness against its tests or a bench suite. Degrades gracefully without darwin (ADR-150/153).\"",
     "path": "library/ruvnet-ruflo/skills/harness-evolve",
     "activation_cmd": "python .agents/library/activate_skill.py activate harness-evolve",
     "link_cmd": "python .agents/library/activate_skill.py link harness-evolve"
@@ -764,7 +794,7 @@
     "name": "harness-genome",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "7-section repo readiness report from `metaharness genome {path}`. Returns repo_type / agent_topology / risk_score / mcp_surface / test_confidence / publish_readiness. Pure-read; degrades gracefully (ADR-150).",
     "path": "library/ruvnet-ruflo/skills/harness-genome",
     "activation_cmd": "python .agents/library/activate_skill.py activate harness-genome",
     "link_cmd": "python .agents/library/activate_skill.py link harness-genome"
@@ -774,7 +804,7 @@
     "name": "harness-gepa",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Load, validate or render a GEPA genome, or classify failure modes in a run transcript, via @metaharness/darwin/gepa. Use when inspecting or auditing a genome; use harness-evolve for sandbox-scored evolution. Degrades gracefully without darwin.",
     "path": "library/ruvnet-ruflo/skills/harness-gepa",
     "activation_cmd": "python .agents/library/activate_skill.py activate harness-gepa",
     "link_cmd": "python .agents/library/activate_skill.py link harness-gepa"
@@ -784,7 +814,7 @@
     "name": "harness-learn",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Run a GEPA learning cycle via `metaharness learn`, optimizing a harness genome against a SWE-bench-style slice. Use when training a harness genome. $0 dry-run by default; `--run` opts into spend. Needs a metaharness checkout (--repo or $METAHARNESS_REPO).",
     "path": "library/ruvnet-ruflo/skills/harness-learn",
     "activation_cmd": "python .agents/library/activate_skill.py activate harness-learn",
     "link_cmd": "python .agents/library/activate_skill.py link harness-learn"
@@ -794,7 +824,7 @@
     "name": "harness-mcp-scan",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Static security scan of a harness's declared MCP surface via `harness mcp-scan {path}`. Reads `.mcp/servers.json` + `.harness/claims.json`. Pure-read, no dispatch. Exits 1 on findings at or above `--fail-on` severity.",
     "path": "library/ruvnet-ruflo/skills/harness-mcp-scan",
     "activation_cmd": "python .agents/library/activate_skill.py activate harness-mcp-scan",
     "link_cmd": "python .agents/library/activate_skill.py link harness-mcp-scan"
@@ -804,7 +834,7 @@
     "name": "harness-mint",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Scaffold a custom AI agent harness via `metaharness new {name} --template {id} --host {id}`. Use when the user wants a new standalone harness. Dry-run unless --confirm is passed, and refuses to write inside the calling repo.",
     "path": "library/ruvnet-ruflo/skills/harness-mint",
     "activation_cmd": "python .agents/library/activate_skill.py activate harness-mint",
     "link_cmd": "python .agents/library/activate_skill.py link harness-mint"
@@ -814,7 +844,7 @@
     "name": "harness-oia-audit",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Composite Phase-2 audit worker (ADR-150). Bundles harness oia-manifest + threat-model + mcp-scan into one timestamped audit record stored in the `metaharness-audit` memory namespace. Designed for cron-scheduled drift detection.",
     "path": "library/ruvnet-ruflo/skills/harness-oia-audit",
     "activation_cmd": "python .agents/library/activate_skill.py activate harness-oia-audit",
     "link_cmd": "python .agents/library/activate_skill.py link harness-oia-audit"
@@ -824,7 +854,7 @@
     "name": "harness-score",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "5-dimension harness readiness scorecard from `metaharness score {path}` (harnessFit, compileConfidence, taskCoverage, toolSafety, memoryUsefulness, plus cost per run). Use when rating a repo as an agent harness. Pure-read; degrades gracefully without MetaHarness.",
     "path": "library/ruvnet-ruflo/skills/harness-score",
     "activation_cmd": "python .agents/library/activate_skill.py activate harness-score",
     "link_cmd": "python .agents/library/activate_skill.py link harness-score"
@@ -834,7 +864,7 @@
     "name": "harness-security-bench",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "\"Run `@metaharness/darwin security bench` (Darwin Shield): evolve a security-detection harness on a 10-vuln/9-decoy corpus and grade TPR/FPR/patch/repro against four baselines. Use when benchmarking security-harness detection. Degrades gracefully without darwin.\"",
     "path": "library/ruvnet-ruflo/skills/harness-security-bench",
     "activation_cmd": "python .agents/library/activate_skill.py activate harness-security-bench",
     "link_cmd": "python .agents/library/activate_skill.py link harness-security-bench"
@@ -844,7 +874,7 @@
     "name": "harness-similarity",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "\"Weighted similarity (ADR-152) between two harness fingerprints (genome + score JSON): an overall score in [0,1] plus per-component breakdown. Use when comparing two harnesses or detecting drift between them. Pure TypeScript; needs no @metaharness package.\"",
     "path": "library/ruvnet-ruflo/skills/harness-similarity",
     "activation_cmd": "python .agents/library/activate_skill.py activate harness-similarity",
     "link_cmd": "python .agents/library/activate_skill.py link harness-similarity"
@@ -854,7 +884,7 @@
     "name": "harness-threat-model",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Enterprise-review-grade threat model from `harness threat-model {path}`. Categorizes MCP-surface threats; emits `worst: 'clean'|'low'|'medium'|'high'` + per-threat findings. Pure-read.",
     "path": "library/ruvnet-ruflo/skills/harness-threat-model",
     "activation_cmd": "python .agents/library/activate_skill.py activate harness-threat-model",
     "link_cmd": "python .agents/library/activate_skill.py link harness-threat-model"
@@ -864,7 +894,7 @@
     "name": "horizon-track",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Track long-horizon objectives across multiple sessions with milestone checkpoints, progress persistence, and drift detection",
     "path": "library/ruvnet-ruflo/skills/horizon-track",
     "activation_cmd": "python .agents/library/activate_skill.py activate horizon-track",
     "link_cmd": "python .agents/library/activate_skill.py link horizon-track"
@@ -874,7 +904,7 @@
     "name": "init-project",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Initialize a new Ruflo project with MCP tools, hooks, and agent configuration. Use when setting up Ruflo in a fresh repo, or when the user says \"init ruflo\", \"set up ruflo\", or asks how to bootstrap the MCP server, hooks, and agent configs from scratch.",
     "path": "library/ruvnet-ruflo/skills/init-project",
     "activation_cmd": "python .agents/library/activate_skill.py activate init-project",
     "link_cmd": "python .agents/library/activate_skill.py link init-project"
@@ -884,7 +914,7 @@
     "name": "intelligence-route",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Route tasks via the 3-tier model selector and learned patterns; emits a routing rationale via hooks_explain",
     "path": "library/ruvnet-ruflo/skills/intelligence-route",
     "activation_cmd": "python .agents/library/activate_skill.py activate intelligence-route",
     "link_cmd": "python .agents/library/activate_skill.py link intelligence-route"
@@ -894,7 +924,7 @@
     "name": "intelligence-transfer",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Copy learned patterns from another local project, or browse, download and publish patterns through the IPFS pattern marketplace. Use when a new project should start with patterns an older one already learned, or when sharing patterns with a peer.",
     "path": "library/ruvnet-ruflo/skills/intelligence-transfer",
     "activation_cmd": "python .agents/library/activate_skill.py activate intelligence-transfer",
     "link_cmd": "python .agents/library/activate_skill.py link intelligence-transfer"
@@ -904,7 +934,7 @@
     "name": "iot-anomalies",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Detect and classify telemetry anomalies on Cognitum Seed devices. Use when investigating a device that's reporting odd metrics, before approving a firmware canary advancement, or when triaging fleet-wide health alerts.",
     "path": "library/ruvnet-ruflo/skills/iot-anomalies",
     "activation_cmd": "python .agents/library/activate_skill.py activate iot-anomalies",
     "link_cmd": "python .agents/library/activate_skill.py link iot-anomalies"
@@ -914,7 +944,7 @@
     "name": "iot-firmware",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Orchestrate firmware rollouts with canary deployment and anomaly-gated advancement",
     "path": "library/ruvnet-ruflo/skills/iot-firmware",
     "activation_cmd": "python .agents/library/activate_skill.py activate iot-firmware",
     "link_cmd": "python .agents/library/activate_skill.py link iot-firmware"
@@ -924,7 +954,7 @@
     "name": "iot-fleet",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Create and manage Cognitum Seed device fleets with firmware policies",
     "path": "library/ruvnet-ruflo/skills/iot-fleet",
     "activation_cmd": "python .agents/library/activate_skill.py activate iot-fleet",
     "link_cmd": "python .agents/library/activate_skill.py link iot-fleet"
@@ -934,7 +964,7 @@
     "name": "iot-register",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Register a Cognitum Seed device by endpoint and establish agent bridge",
     "path": "library/ruvnet-ruflo/skills/iot-register",
     "activation_cmd": "python .agents/library/activate_skill.py activate iot-register",
     "link_cmd": "python .agents/library/activate_skill.py link iot-register"
@@ -944,7 +974,7 @@
     "name": "iot-witness-verify",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Verify witness chain integrity and detect provenance gaps",
     "path": "library/ruvnet-ruflo/skills/iot-witness-verify",
     "activation_cmd": "python .agents/library/activate_skill.py activate iot-witness-verify",
     "link_cmd": "python .agents/library/activate_skill.py link iot-witness-verify"
@@ -954,7 +984,7 @@
     "name": "kg-extract",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Extract entities and relations from source files to build a knowledge graph",
     "path": "library/ruvnet-ruflo/skills/kg-extract",
     "activation_cmd": "python .agents/library/activate_skill.py activate kg-extract",
     "link_cmd": "python .agents/library/activate_skill.py link kg-extract"
@@ -964,7 +994,7 @@
     "name": "kg-traverse",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Pathfinder traversal of the knowledge graph starting from a seed entity",
     "path": "library/ruvnet-ruflo/skills/kg-traverse",
     "activation_cmd": "python .agents/library/activate_skill.py activate kg-traverse",
     "link_cmd": "python .agents/library/activate_skill.py link kg-traverse"
@@ -974,7 +1004,7 @@
     "name": "launch-ai-team",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Plans and creates an AI team for a goal, with roles, a run that carries a unit budget, and bounded tasks. Use when the user asks to start, set up or staff a team, or to split a larger goal across roles. Records coordination state only; nothing is executed.",
     "path": "library/ruvnet-ruflo/skills/launch-ai-team",
     "activation_cmd": "python .agents/library/activate_skill.py activate launch-ai-team",
     "link_cmd": "python .agents/library/activate_skill.py link launch-ai-team"
@@ -984,7 +1014,7 @@
     "name": "llm-config",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Configure RuVLLM local inference helpers: generate a config, and create and adapt in-process MicroLoRA and SONA instances from quality signals. Use when you need local, air-gapped inference tooling, not for fine-tuning hosted models.",
     "path": "library/ruvnet-ruflo/skills/llm-config",
     "activation_cmd": "python .agents/library/activate_skill.py activate llm-config",
     "link_cmd": "python .agents/library/activate_skill.py link llm-config"
@@ -994,7 +1024,7 @@
     "name": "loop-worker",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Run Ruflo background workers using Claude Code native /loop scheduling",
     "path": "library/ruvnet-ruflo/skills/loop-worker",
     "activation_cmd": "python .agents/library/activate_skill.py activate loop-worker",
     "link_cmd": "python .agents/library/activate_skill.py link loop-worker"
@@ -1004,7 +1034,7 @@
     "name": "manage-team-lifecycle",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Pauses, resumes, or completes an AI team, or marks a run complete, while keeping its evidence. Use when the user asks to pause, stop, resume, wrap up, or close a team or run. Changes coordination state only and deletes nothing.",
     "path": "library/ruvnet-ruflo/skills/manage-team-lifecycle",
     "activation_cmd": "python .agents/library/activate_skill.py activate manage-team-lifecycle",
     "link_cmd": "python .agents/library/activate_skill.py link manage-team-lifecycle"
@@ -1014,7 +1044,7 @@
     "name": "managed-agent",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Run an Anthropic Claude Managed Agent \u2014 a cloud agent harness (container + filesystem + tools), the cloud counterpart of the local wasm-agent runtime",
     "path": "library/ruvnet-ruflo/skills/managed-agent",
     "activation_cmd": "python .agents/library/activate_skill.py activate managed-agent",
     "link_cmd": "python .agents/library/activate_skill.py link managed-agent"
@@ -1024,7 +1054,7 @@
     "name": "managed-workflow",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Discover and run bounded remote dynamic workflows with Ruflo mod policy, worker inspection and independent acceptance gates",
     "path": "library/ruvnet-ruflo/skills/managed-workflow",
     "activation_cmd": "python .agents/library/activate_skill.py activate managed-workflow",
     "link_cmd": "python .agents/library/activate_skill.py link managed-workflow"
@@ -1034,7 +1064,7 @@
     "name": "market-ingest",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Ingest and normalize market data into OHLCV vectors stored by symbol and date for later pattern detection. Use when you need to load price and volume history for a symbol before running pattern detection or comparison. Read-only analysis; it never places orders.",
     "path": "library/ruvnet-ruflo/skills/market-ingest",
     "activation_cmd": "python .agents/library/activate_skill.py activate market-ingest",
     "link_cmd": "python .agents/library/activate_skill.py link market-ingest"
@@ -1044,7 +1074,7 @@
     "name": "market-pattern",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Detect and classify candlestick patterns from ingested OHLCV data",
     "path": "library/ruvnet-ruflo/skills/market-pattern",
     "activation_cmd": "python .agents/library/activate_skill.py activate market-pattern",
     "link_cmd": "python .agents/library/activate_skill.py link market-pattern"
@@ -1054,7 +1084,7 @@
     "name": "memory-bridge",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Bridge Claude Code auto-memory into AgentDB with ONNX embeddings, deduplicate, and enable unified cross-project search",
     "path": "library/ruvnet-ruflo/skills/memory-bridge",
     "activation_cmd": "python .agents/library/activate_skill.py activate memory-bridge",
     "link_cmd": "python .agents/library/activate_skill.py link memory-bridge"
@@ -1064,7 +1094,7 @@
     "name": "memory-search",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Search Ruflo memory with semantic retrieval, keyword/semantic union, or optional SmartRetrieval reranking",
     "path": "library/ruvnet-ruflo/skills/memory-search",
     "activation_cmd": "python .agents/library/activate_skill.py activate memory-search",
     "link_cmd": "python .agents/library/activate_skill.py link memory-search"
@@ -1074,7 +1104,7 @@
     "name": "migrate-create",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Create a new sequentially numbered database migration with up/down SQL files",
     "path": "library/ruvnet-ruflo/skills/migrate-create",
     "activation_cmd": "python .agents/library/activate_skill.py activate migrate-create",
     "link_cmd": "python .agents/library/activate_skill.py link migrate-create"
@@ -1084,7 +1114,7 @@
     "name": "migrate-validate",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Validate pending migrations for foreign key consistency, rollback safety, and best practices",
     "path": "library/ruvnet-ruflo/skills/migrate-validate",
     "activation_cmd": "python .agents/library/activate_skill.py activate migrate-validate",
     "link_cmd": "python .agents/library/activate_skill.py link migrate-validate"
@@ -1094,7 +1124,7 @@
     "name": "monitor-ai-team",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Reports an AI team's progress, blockers, task ownership, and recorded budget. Use when the user asks for status, what is blocked, who owns what, or how much of the budget is recorded as used. Read-only.",
     "path": "library/ruvnet-ruflo/skills/monitor-ai-team",
     "activation_cmd": "python .agents/library/activate_skill.py activate monitor-ai-team",
     "link_cmd": "python .agents/library/activate_skill.py link monitor-ai-team"
@@ -1104,7 +1134,7 @@
     "name": "monitor-stream",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Stream live swarm events using the Monitor tool for real-time observability",
     "path": "library/ruvnet-ruflo/skills/monitor-stream",
     "activation_cmd": "python .agents/library/activate_skill.py activate monitor-stream",
     "link_cmd": "python .agents/library/activate_skill.py link monitor-stream"
@@ -1114,7 +1144,7 @@
     "name": "music-connect",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "One-time setup \u2014 mint a Cognitum Music personal access token and register the cogmusic MCP server with Claude Code",
     "path": "library/ruvnet-ruflo/skills/music-connect",
     "activation_cmd": "python .agents/library/activate_skill.py activate music-connect",
     "link_cmd": "python .agents/library/activate_skill.py link music-connect"
@@ -1124,7 +1154,7 @@
     "name": "music-generate",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Generate a new song from a creative brief (genre, mood, language, BPM, theme) via the cogmusic MCP create_production tool",
     "path": "library/ruvnet-ruflo/skills/music-generate",
     "activation_cmd": "python .agents/library/activate_skill.py activate music-generate",
     "link_cmd": "python .agents/library/activate_skill.py link music-generate"
@@ -1134,7 +1164,7 @@
     "name": "music-get",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Fetch metadata and audio_url for a single production by id",
     "path": "library/ruvnet-ruflo/skills/music-get",
     "activation_cmd": "python .agents/library/activate_skill.py activate music-get",
     "link_cmd": "python .agents/library/activate_skill.py link music-get"
@@ -1144,7 +1174,7 @@
     "name": "music-list",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "List the account's saved music productions with metadata and audio_url",
     "path": "library/ruvnet-ruflo/skills/music-list",
     "activation_cmd": "python .agents/library/activate_skill.py activate music-list",
     "link_cmd": "python .agents/library/activate_skill.py link music-list"
@@ -1154,7 +1184,7 @@
     "name": "music-master",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Run a mastering pass (LUFS loudness normalization + peak limiting) on an existing production",
     "path": "library/ruvnet-ruflo/skills/music-master",
     "activation_cmd": "python .agents/library/activate_skill.py activate music-master",
     "link_cmd": "python .agents/library/activate_skill.py link music-master"
@@ -1164,7 +1194,7 @@
     "name": "music-midi",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Extract MIDI/score from an existing production",
     "path": "library/ruvnet-ruflo/skills/music-midi",
     "activation_cmd": "python .agents/library/activate_skill.py activate music-midi",
     "link_cmd": "python .agents/library/activate_skill.py link music-midi"
@@ -1174,7 +1204,7 @@
     "name": "music-stems",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Run 4-stem separation (vocals/drums/bass/other) on an existing production",
     "path": "library/ruvnet-ruflo/skills/music-stems",
     "activation_cmd": "python .agents/library/activate_skill.py activate music-stems",
     "link_cmd": "python .agents/library/activate_skill.py link music-stems"
@@ -1184,7 +1214,7 @@
     "name": "nested-subagents",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Spawn nested sub-agents (agents that spawn sub-agents, up to depth=5) via Claude Code's native Task tool \u2014 for context-managed deep delegation",
     "path": "library/ruvnet-ruflo/skills/nested-subagents",
     "activation_cmd": "python .agents/library/activate_skill.py activate nested-subagents",
     "link_cmd": "python .agents/library/activate_skill.py link nested-subagents"
@@ -1194,7 +1224,7 @@
     "name": "neural-train",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Train SONA + MicroLoRA neural patterns from successful task completions; runs the DISTILL + CONSOLIDATE phases of the 4-step pipeline",
     "path": "library/ruvnet-ruflo/skills/neural-train",
     "activation_cmd": "python .agents/library/activate_skill.py activate neural-train",
     "link_cmd": "python .agents/library/activate_skill.py link neural-train"
@@ -1204,7 +1234,7 @@
     "name": "observe-metrics",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Aggregate and display system metrics with anomaly detection for a time period",
     "path": "library/ruvnet-ruflo/skills/observe-metrics",
     "activation_cmd": "python .agents/library/activate_skill.py activate observe-metrics",
     "link_cmd": "python .agents/library/activate_skill.py link observe-metrics"
@@ -1214,7 +1244,7 @@
     "name": "observe-trace",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Trace agent execution by collecting spans and building a trace tree for a task",
     "path": "library/ruvnet-ruflo/skills/observe-trace",
     "activation_cmd": "python .agents/library/activate_skill.py activate observe-trace",
     "link_cmd": "python .agents/library/activate_skill.py link observe-trace"
@@ -1224,7 +1254,7 @@
     "name": "pii-detect",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Detect and flag personally identifiable information (PII) in text, code, and configurations. Use before committing code, writing logs, storing data, or sending model responses that might contain emails, phone numbers, SSNs, API keys, or passwords.",
     "path": "library/ruvnet-ruflo/skills/pii-detect",
     "activation_cmd": "python .agents/library/activate_skill.py activate pii-detect",
     "link_cmd": "python .agents/library/activate_skill.py link pii-detect"
@@ -1234,17 +1264,27 @@
     "name": "pod-sales",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "\"Run one dry-run tick of the sales business-pod (ADR-164): validate templates/sales.json, reserve budget, post a summary envelope to the \\\"sales\\\" room and print a status line for /loop. Use when a person or a /loop asks for the next sales-pod tick.\"",
     "path": "library/ruvnet-ruflo/skills/pod-sales",
     "activation_cmd": "python .agents/library/activate_skill.py activate pod-sales",
     "link_cmd": "python .agents/library/activate_skill.py link pod-sales"
+  },
+  {
+    "id": "publish-ruflo-update",
+    "name": "publish-ruflo-update",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Prepare and publish a concise, gateway-attributed RuFlo federation update when the user explicitly asks to announce status, tasks, results, or help. Use for public-channel or federation-wide coordination messages, not private-channel plaintext.",
+    "path": "library/ruvnet-ruflo/skills/publish-ruflo-update",
+    "activation_cmd": "python .agents/library/activate_skill.py activate publish-ruflo-update",
+    "link_cmd": "python .agents/library/activate_skill.py link publish-ruflo-update"
   },
   {
     "id": "remember-team-context",
     "name": "remember-team-context",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Stores approved context for one AI team and searches it later, with provenance. Use when the user asks to remember a decision, constraint, or fact for the team, or to recall what the team already knows. Memory is separate for each team and tenant.",
     "path": "library/ruvnet-ruflo/skills/remember-team-context",
     "activation_cmd": "python .agents/library/activate_skill.py activate remember-team-context",
     "link_cmd": "python .agents/library/activate_skill.py link remember-team-context"
@@ -1254,7 +1294,7 @@
     "name": "research-synthesize",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Synthesize research findings from memory into structured reports with evidence grading, contradiction resolution, and actionable recommendations",
     "path": "library/ruvnet-ruflo/skills/research-synthesize",
     "activation_cmd": "python .agents/library/activate_skill.py activate research-synthesize",
     "link_cmd": "python .agents/library/activate_skill.py link research-synthesize"
@@ -1264,7 +1304,7 @@
     "name": "review-team-deliverables",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Checks an AI team run against its acceptance criteria using the evidence bundle. Use when the user asks whether the work is done or correct, or before completing a run. Separates verified evidence from agent claims.",
     "path": "library/ruvnet-ruflo/skills/review-team-deliverables",
     "activation_cmd": "python .agents/library/activate_skill.py activate review-team-deliverables",
     "link_cmd": "python .agents/library/activate_skill.py link review-team-deliverables"
@@ -1274,7 +1314,7 @@
     "name": "ruflo",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Ruflo is a multi-agent orchestration platform for AI coding agents (Claude Code, Cursor, Codex, Copilot, Gemini, Amp, +12 more). Use this skill when the user wants to (1) install/init ruflo in a project, (2) run multi-agent swarms with hierarchical coordination, (3) use ruflo's 314+ MCP tools for memory, routing, hooks, sub-agents, or workflows, (4) check ruflo status/version/doctor health, or (5) discover which of ruflo's 30+ plugins fits their task.",
     "path": "library/ruvnet-ruflo/skills/ruflo",
     "activation_cmd": "python .agents/library/activate_skill.py activate ruflo",
     "link_cmd": "python .agents/library/activate_skill.py link ruflo"
@@ -1284,7 +1324,7 @@
     "name": "ruflo-doctor",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Run health checks on the Ruflo installation and fix common issues",
     "path": "library/ruvnet-ruflo/skills/ruflo-doctor",
     "activation_cmd": "python .agents/library/activate_skill.py activate ruflo-doctor",
     "link_cmd": "python .agents/library/activate_skill.py link ruflo-doctor"
@@ -1294,7 +1334,7 @@
     "name": "ruflo-status",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Diagnose Ruflo health, then report system, MCP server, and active-agent status without changing the installation",
     "path": "library/ruvnet-ruflo/skills/ruflo-status",
     "activation_cmd": "python .agents/library/activate_skill.py activate ruflo-status",
     "link_cmd": "python .agents/library/activate_skill.py link ruflo-status"
@@ -1304,17 +1344,37 @@
     "name": "ruos-host-run",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Run a ruflo swarm agent on the user's own ruOS cloud desktop through the fleet MCP, stream its output and record it in swarm state. Use when the user wants an agent to run on a ruOS desktop or places a swarm agent on a remote ruOS host.",
     "path": "library/ruvnet-ruflo/skills/ruos-host-run",
     "activation_cmd": "python .agents/library/activate_skill.py activate ruos-host-run",
     "link_cmd": "python .agents/library/activate_skill.py link ruos-host-run"
+  },
+  {
+    "id": "ruvllm-runtime",
+    "name": "ruvllm-runtime",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Tell apart and check the RuVLLM packages \u2014 the WASM add-on behind ruvllm_* tools, the @ruvector/ruvllm 4.1 native runtime and the GPU-loop harness. Use when ruvllm_status shows a backend unavailable or an install resolved the broken 4.0.x.",
+    "path": "library/ruvnet-ruflo/skills/ruvllm-runtime",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ruvllm-runtime",
+    "link_cmd": "python .agents/library/activate_skill.py link ruvllm-runtime"
+  },
+  {
+    "id": "ruvnet-ruflo",
+    "name": "ruvnet-ruflo",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Ruflo is a multi-agent orchestration platform for AI coding agents (Claude Code, Cursor, Codex, Copilot, Gemini, Amp, +12 more). Use this skill when the user wants to (1) install/init ruflo in a project, (2) run multi-agent swarms with hierarchical coordination, (3) use ruflo's 314+ MCP tools for memory, routing, hooks, sub-agents, or workflows, (4) check ruflo status/version/doctor health, or (5) discover which of ruflo's 30+ plugins fits their task.",
+    "path": "library/ruvnet-ruflo/skills/ruvnet-ruflo",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ruvnet-ruflo",
+    "link_cmd": "python .agents/library/activate_skill.py link ruvnet-ruflo"
   },
   {
     "id": "rvf-manage",
     "name": "rvf-manage",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Manage RVF (Ruflo Vector Format) files for portable agent memory and cross-platform transfer",
     "path": "library/ruvnet-ruflo/skills/rvf-manage",
     "activation_cmd": "python .agents/library/activate_skill.py activate rvf-manage",
     "link_cmd": "python .agents/library/activate_skill.py link rvf-manage"
@@ -1324,7 +1384,7 @@
     "name": "safety-scan",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Scan inputs for prompt injection, unsafe content, and adversarial attacks using AIDefence. Use when processing untrusted input (user submissions, API payloads, webhook data, tool outputs) before passing it to a model or executing it.",
     "path": "library/ruvnet-ruflo/skills/safety-scan",
     "activation_cmd": "python .agents/library/activate_skill.py activate safety-scan",
     "link_cmd": "python .agents/library/activate_skill.py link safety-scan"
@@ -1334,7 +1394,7 @@
     "name": "security-scan",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Run full security scans on the codebase using Ruflo security tools. Use when reviewing PRs for security regressions, auditing auth/input-handling code, before production deploys, or when the user asks for a security check at quick/standard/deep depth.",
     "path": "library/ruvnet-ruflo/skills/security-scan",
     "activation_cmd": "python .agents/library/activate_skill.py activate security-scan",
     "link_cmd": "python .agents/library/activate_skill.py link security-scan"
@@ -1344,17 +1404,207 @@
     "name": "session-persist",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Persist and restore agent sessions across conversations with state snapshots",
     "path": "library/ruvnet-ruflo/skills/session-persist",
     "activation_cmd": "python .agents/library/activate_skill.py activate session-persist",
     "link_cmd": "python .agents/library/activate_skill.py link session-persist"
+  },
+  {
+    "id": "skills-agentdb-query",
+    "name": "skills-agentdb-query",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Query AgentDB through the controller bridge -- semantic routing, hierarchical recall, causal graphs, context synthesis, pattern store/search",
+    "path": "library/ruvnet-ruflo/skills/skills-agentdb-query",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-agentdb-query",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-agentdb-query"
+  },
+  {
+    "id": "skills-browser-record",
+    "name": "skills-browser-record",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Open a named, traced browser session into an RVF cognitive container with a ruvector trajectory recording every action",
+    "path": "library/ruvnet-ruflo/skills/skills-browser-record",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-browser-record",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-browser-record"
+  },
+  {
+    "id": "skills-browser-replay",
+    "name": "skills-browser-replay",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Replay a recorded session trajectory against the same URL or a mutated variant; uses browser-selectors embedding similarity to recover from DOM drift",
+    "path": "library/ruvnet-ruflo/skills/skills-browser-replay",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-browser-replay",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-browser-replay"
+  },
+  {
+    "id": "skills-browser-screenshot-diff",
+    "name": "skills-browser-screenshot-diff",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Visual + DOM diff between two recorded sessions at matching trajectory step ids; used for visual regression and replay verification",
+    "path": "library/ruvnet-ruflo/skills/skills-browser-screenshot-diff",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-browser-screenshot-diff",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-browser-screenshot-diff"
+  },
+  {
+    "id": "skills-browser-test",
+    "name": "skills-browser-test",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "UI test recipe -- composes browser-record (capture) + browser-replay (verify) so every test produces a replayable RVF artifact, not an ephemeral run",
+    "path": "library/ruvnet-ruflo/skills/skills-browser-test",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-browser-test",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-browser-test"
+  },
+  {
+    "id": "skills-create-plugin",
+    "name": "skills-create-plugin",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Scaffold a new Claude Code plugin with proper directory structure, plugin.json, skills, commands, and agents",
+    "path": "library/ruvnet-ruflo/skills/skills-create-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-create-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-create-plugin"
+  },
+  {
+    "id": "skills-federation-audit",
+    "name": "skills-federation-audit",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Review the signed coordination evidence visible through RuFlo Federation. Use to inspect recent messages, channel activity, and work-claim history for inconsistencies or follow-up without changing shared state.",
+    "path": "library/ruvnet-ruflo/skills/skills-federation-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-federation-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-federation-audit"
+  },
+  {
+    "id": "skills-federation-init",
+    "name": "skills-federation-init",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Guide a user through connecting to RuFlo Federation with the public x.ruv.io MCP service. Use for onboarding, connection details, available channels, or an explicitly requested gateway presence announcement.",
+    "path": "library/ruvnet-ruflo/skills/skills-federation-init",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-federation-init",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-federation-init"
+  },
+  {
+    "id": "skills-federation-status",
+    "name": "skills-federation-status",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Summarize the observable health and activity of the public RuFlo Federation gateway. Use when the user asks whether the federation is active, what channels or claims exist, or what agents are currently coordinating.",
+    "path": "library/ruvnet-ruflo/skills/skills-federation-status",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-federation-status",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-federation-status"
+  },
+  {
+    "id": "skills-gaia-debugging",
+    "name": "skills-gaia-debugging",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Diagnose why a GAIA question failed \u2014 extract trace, classify failure mode, and propose a fix. Use when a GAIA benchmark run reports a failed/incorrect task_id and you need to root-cause it before resubmitting.",
+    "path": "library/ruvnet-ruflo/skills/skills-gaia-debugging",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-gaia-debugging",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-gaia-debugging"
+  },
+  {
+    "id": "skills-intelligence-route",
+    "name": "skills-intelligence-route",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Route tasks via the 3-tier model selector and learned patterns; emits a routing rationale via hooks_explain",
+    "path": "library/ruvnet-ruflo/skills/skills-intelligence-route",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-intelligence-route",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-intelligence-route"
+  },
+  {
+    "id": "skills-memory-search",
+    "name": "skills-memory-search",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Search Ruflo memory with semantic retrieval, keyword/semantic union, or optional SmartRetrieval reranking",
+    "path": "library/ruvnet-ruflo/skills/skills-memory-search",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-memory-search",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-memory-search"
+  },
+  {
+    "id": "skills-observe-trace",
+    "name": "skills-observe-trace",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Trace agent execution by collecting spans and building a trace tree for a task",
+    "path": "library/ruvnet-ruflo/skills/skills-observe-trace",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-observe-trace",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-observe-trace"
+  },
+  {
+    "id": "skills-research-synthesize",
+    "name": "skills-research-synthesize",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Synthesize research findings from memory into structured reports with evidence grading, contradiction resolution, and actionable recommendations",
+    "path": "library/ruvnet-ruflo/skills/skills-research-synthesize",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-research-synthesize",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-research-synthesize"
+  },
+  {
+    "id": "skills-validate-plugin",
+    "name": "skills-validate-plugin",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Validate a Claude Code plugin structure, frontmatter, and MCP tool references",
+    "path": "library/ruvnet-ruflo/skills/skills-validate-plugin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-validate-plugin",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-validate-plugin"
+  },
+  {
+    "id": "skills-vector-cluster",
+    "name": "skills-vector-cluster",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Cluster code by graph community detection via npx ruvector@0.3.13 hooks graph-cluster (spectral / Louvain)",
+    "path": "library/ruvnet-ruflo/skills/skills-vector-cluster",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-vector-cluster",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-vector-cluster"
+  },
+  {
+    "id": "skills-vector-embed",
+    "name": "skills-vector-embed",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Generate embeddings via npx ruvector@0.3.13 embed text (ONNX all-MiniLM-L6-v2, 384-dim), normalize, and store in HNSW index",
+    "path": "library/ruvnet-ruflo/skills/skills-vector-embed",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-vector-embed",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-vector-embed"
+  },
+  {
+    "id": "skills-vector-hyperbolic",
+    "name": "skills-vector-hyperbolic",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Place hierarchical data in the Poincare ball using depth for the radius and npx ruvector@0.3.13 embed text for direction (a unit-norm text embedding alone has no depth)",
+    "path": "library/ruvnet-ruflo/skills/skills-vector-hyperbolic",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-vector-hyperbolic",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-vector-hyperbolic"
+  },
+  {
+    "id": "skills-vector-setup",
+    "name": "skills-vector-setup",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "First-run setup for ruvector@0.3.13 \u2014 installs ONNX/Brain/SONA add-ons, registers the MCP server, and verifies the install via `doctor`",
+    "path": "library/ruvnet-ruflo/skills/skills-vector-setup",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-vector-setup",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-vector-setup"
   },
   {
     "id": "sparc-implement",
     "name": "sparc-implement",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Run the SPARC Pseudocode and Architecture phases (2 and 3) \u2014 write algorithm pseudocode, design module boundaries and API contracts, then implement",
     "path": "library/ruvnet-ruflo/skills/sparc-implement",
     "activation_cmd": "python .agents/library/activate_skill.py activate sparc-implement",
     "link_cmd": "python .agents/library/activate_skill.py link sparc-implement"
@@ -1364,7 +1614,7 @@
     "name": "sparc-refine",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Run the SPARC Refinement and Completion phases \u2014 review code, improve test coverage, validate against specification, and generate documentation",
     "path": "library/ruvnet-ruflo/skills/sparc-refine",
     "activation_cmd": "python .agents/library/activate_skill.py activate sparc-refine",
     "link_cmd": "python .agents/library/activate_skill.py link sparc-refine"
@@ -1374,17 +1624,27 @@
     "name": "sparc-spec",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Run the SPARC Specification phase \u2014 gather requirements, define acceptance criteria, identify constraints, and store the spec in memory",
     "path": "library/ruvnet-ruflo/skills/sparc-spec",
     "activation_cmd": "python .agents/library/activate_skill.py activate sparc-spec",
     "link_cmd": "python .agents/library/activate_skill.py link sparc-spec"
+  },
+  {
+    "id": "sublinear-core",
+    "name": "sublinear-core",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Personalized PageRank, local forward/backward push and sparse diagonally dominant solves with the zero-dependency @ruvnet/sublinear-core. Use for relevance around a few nodes of a large graph or a few entries of A\u207b\u00b9b; for ruflo's own knowledge graph use agentdb_graph-pathfinder.",
+    "path": "library/ruvnet-ruflo/skills/sublinear-core",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sublinear-core",
+    "link_cmd": "python .agents/library/activate_skill.py link sublinear-core"
   },
   {
     "id": "swarm-init",
     "name": "swarm-init",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Initialize a multi-agent swarm with anti-drift configuration. Use when starting a complex multi-file task that needs 3+ coordinated agents (feature implementation, refactor across modules, security audit). Skip for single-file edits or quick questions.",
     "path": "library/ruvnet-ruflo/skills/swarm-init",
     "activation_cmd": "python .agents/library/activate_skill.py activate swarm-init",
     "link_cmd": "python .agents/library/activate_skill.py link swarm-init"
@@ -1394,7 +1654,7 @@
     "name": "tdd-repair",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "\"Test-Driven Repair: given a failing test, spawn a bounded headless `claude -p` (Read/Edit/Bash only, --max-budget-usd capped) that makes the test pass without modifying it. Use when a failing test should drive the fix to the code under test.\"",
     "path": "library/ruvnet-ruflo/skills/tdd-repair",
     "activation_cmd": "python .agents/library/activate_skill.py activate tdd-repair",
     "link_cmd": "python .agents/library/activate_skill.py link tdd-repair"
@@ -1404,7 +1664,7 @@
     "name": "tdd-workflow",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "TDD London School workflow -- mock-first, outside-in test development",
     "path": "library/ruvnet-ruflo/skills/tdd-workflow",
     "activation_cmd": "python .agents/library/activate_skill.py activate tdd-workflow",
     "link_cmd": "python .agents/library/activate_skill.py link tdd-workflow"
@@ -1414,7 +1674,7 @@
     "name": "test-gaps",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Detect missing test coverage and generate test suggestions. Use when the user asks about coverage gaps, untested code, or what tests to write next; also after adding a feature to find what still needs tests.",
     "path": "library/ruvnet-ruflo/skills/test-gaps",
     "activation_cmd": "python .agents/library/activate_skill.py activate test-gaps",
     "link_cmd": "python .agents/library/activate_skill.py link test-gaps"
@@ -1424,7 +1684,7 @@
     "name": "trader-backtest",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Run a historical backtest using npx neural-trader with Rust/NAPI engine (8-19x faster) and walk-forward validation; Ed25519-sign the result for paper\u2192live tamper evidence (ADR-126 Phase 4)",
     "path": "library/ruvnet-ruflo/skills/trader-backtest",
     "activation_cmd": "python .agents/library/activate_skill.py activate trader-backtest",
     "link_cmd": "python .agents/library/activate_skill.py link trader-backtest"
@@ -1434,7 +1694,7 @@
     "name": "trader-cloud-backtest",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Run a heavy neural-trader job (long walk-forward, big Monte-Carlo, parameter sweep, model training) on the Anthropic Managed Agent cloud runtime instead of locally",
     "path": "library/ruvnet-ruflo/skills/trader-cloud-backtest",
     "activation_cmd": "python .agents/library/activate_skill.py activate trader-cloud-backtest",
     "link_cmd": "python .agents/library/activate_skill.py link trader-cloud-backtest"
@@ -1444,7 +1704,7 @@
     "name": "trader-explain",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Regulator-grade feature attribution for any LSTM/Transformer signal \u2014 single-entry PageRank ranks the top-K features that drove the prediction (ADR-126 Phase 6, ADR-123 single-entry PR)",
     "path": "library/ruvnet-ruflo/skills/trader-explain",
     "activation_cmd": "python .agents/library/activate_skill.py activate trader-explain",
     "link_cmd": "python .agents/library/activate_skill.py link trader-explain"
@@ -1454,7 +1714,7 @@
     "name": "trader-portfolio",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Optimize portfolio allocation using npx neural-trader mean-variance engine with risk constraints and rebalancing plan",
     "path": "library/ruvnet-ruflo/skills/trader-portfolio",
     "activation_cmd": "python .agents/library/activate_skill.py activate trader-portfolio",
     "link_cmd": "python .agents/library/activate_skill.py link trader-portfolio"
@@ -1464,7 +1724,7 @@
     "name": "trader-portfolio-cg",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Mean-variance portfolio optimization via Conjugate Gradient \u2014 40-60\u00d7 faster than the legacy Neumann path (ADR-126 Phase 3, ADR-123 Wedge 8)",
     "path": "library/ruvnet-ruflo/skills/trader-portfolio-cg",
     "activation_cmd": "python .agents/library/activate_skill.py activate trader-portfolio-cg",
     "link_cmd": "python .agents/library/activate_skill.py link trader-portfolio-cg"
@@ -1474,7 +1734,7 @@
     "name": "trader-regime",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Detect current market regime using npx neural-trader \u2014 bull/bear/ranging/volatile classification with recommended strategy. Use when the user asks about market conditions, wants to pick a strategy for current conditions, or before running a backtest/signal that should be regime-aware.",
     "path": "library/ruvnet-ruflo/skills/trader-regime",
     "activation_cmd": "python .agents/library/activate_skill.py activate trader-regime",
     "link_cmd": "python .agents/library/activate_skill.py link trader-regime"
@@ -1484,7 +1744,7 @@
     "name": "trader-risk",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Assess portfolio risk using npx neural-trader \u2014 VaR, CVaR, Sharpe, position sizing, circuit breaker status",
     "path": "library/ruvnet-ruflo/skills/trader-risk",
     "activation_cmd": "python .agents/library/activate_skill.py activate trader-risk",
     "link_cmd": "python .agents/library/activate_skill.py link trader-risk"
@@ -1494,7 +1754,7 @@
     "name": "trader-signal",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Generate trading signals using npx neural-trader anomaly detection engine with Z-score scoring and neural prediction",
     "path": "library/ruvnet-ruflo/skills/trader-signal",
     "activation_cmd": "python .agents/library/activate_skill.py activate trader-signal",
     "link_cmd": "python .agents/library/activate_skill.py link trader-signal"
@@ -1504,17 +1764,27 @@
     "name": "trader-train",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Train neural models (LSTM, Transformer, N-BEATS) on market data using npx neural-trader with confidence intervals",
     "path": "library/ruvnet-ruflo/skills/trader-train",
     "activation_cmd": "python .agents/library/activate_skill.py activate trader-train",
     "link_cmd": "python .agents/library/activate_skill.py link trader-train"
+  },
+  {
+    "id": "triage-ruflo-work",
+    "name": "triage-ruflo-work",
+    "repository": "ruvnet-ruflo",
+    "category": "general",
+    "description": "Triage a RuFlo swarm without changing coordination state by inspecting channels, signed updates, and work claims. Use to identify blockers, collisions, stale work, or the best next task before anyone publishes or claims work.",
+    "path": "library/ruvnet-ruflo/skills/triage-ruflo-work",
+    "activation_cmd": "python .agents/library/activate_skill.py activate triage-ruflo-work",
+    "link_cmd": "python .agents/library/activate_skill.py link triage-ruflo-work"
   },
   {
     "id": "validate-plugin",
     "name": "validate-plugin",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Validate a Claude Code plugin structure, frontmatter, and MCP tool references",
     "path": "library/ruvnet-ruflo/skills/validate-plugin",
     "activation_cmd": "python .agents/library/activate_skill.py activate validate-plugin",
     "link_cmd": "python .agents/library/activate_skill.py link validate-plugin"
@@ -1524,7 +1794,7 @@
     "name": "vector-cluster",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Cluster code by graph community detection via npx ruvector@0.3.3 hooks graph-cluster (spectral / Louvain)",
     "path": "library/ruvnet-ruflo/skills/vector-cluster",
     "activation_cmd": "python .agents/library/activate_skill.py activate vector-cluster",
     "link_cmd": "python .agents/library/activate_skill.py link vector-cluster"
@@ -1534,7 +1804,7 @@
     "name": "vector-embed",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Generate embeddings via npx ruvector@0.3.3 embed text (ONNX all-MiniLM-L6-v2, 384-dim), normalize, and store in HNSW index",
     "path": "library/ruvnet-ruflo/skills/vector-embed",
     "activation_cmd": "python .agents/library/activate_skill.py activate vector-embed",
     "link_cmd": "python .agents/library/activate_skill.py link vector-embed"
@@ -1544,7 +1814,7 @@
     "name": "vector-hyperbolic",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Place hierarchical data in the Poincare ball using depth for the radius and npx ruvector@0.3.3 embed text for direction (a unit-norm text embedding alone has no depth)",
     "path": "library/ruvnet-ruflo/skills/vector-hyperbolic",
     "activation_cmd": "python .agents/library/activate_skill.py activate vector-hyperbolic",
     "link_cmd": "python .agents/library/activate_skill.py link vector-hyperbolic"
@@ -1554,7 +1824,7 @@
     "name": "vector-search",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Vector search via embeddings_* (large-scale HNSW) and ruvllm_hnsw_* (WASM router for \u226411 hot patterns), with RaBitQ 1-bit quantization for 32\u00d7 memory reduction",
     "path": "library/ruvnet-ruflo/skills/vector-search",
     "activation_cmd": "python .agents/library/activate_skill.py activate vector-search",
     "link_cmd": "python .agents/library/activate_skill.py link vector-search"
@@ -1564,7 +1834,7 @@
     "name": "vector-setup",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "First-run setup for ruvector@0.3.3 \u2014 installs ONNX/Brain/SONA add-ons, registers the MCP server, and verifies the install via `doctor`",
     "path": "library/ruvnet-ruflo/skills/vector-setup",
     "activation_cmd": "python .agents/library/activate_skill.py activate vector-setup",
     "link_cmd": "python .agents/library/activate_skill.py link vector-setup"
@@ -1574,7 +1844,7 @@
     "name": "wasm-agent",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Create and manage sandboxed WASM agents for isolated code execution",
     "path": "library/ruvnet-ruflo/skills/wasm-agent",
     "activation_cmd": "python .agents/library/activate_skill.py activate wasm-agent",
     "link_cmd": "python .agents/library/activate_skill.py link wasm-agent"
@@ -1584,7 +1854,7 @@
     "name": "wasm-gallery",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Browse, publish, and install WASM agents from the community gallery",
     "path": "library/ruvnet-ruflo/skills/wasm-gallery",
     "activation_cmd": "python .agents/library/activate_skill.py activate wasm-gallery",
     "link_cmd": "python .agents/library/activate_skill.py link wasm-gallery"
@@ -1594,7 +1864,7 @@
     "name": "witness",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Sign, verify and track fix-marker regressions over time with an Ed25519 witness manifest. Use when registering fixes or checking a release for regressed fixes. The default seed proves integrity only; set RUFLO_WITNESS_SEED/RUFLO_WITNESS_PUBLIC_KEY for authorship.",
     "path": "library/ruvnet-ruflo/skills/witness",
     "activation_cmd": "python .agents/library/activate_skill.py activate witness",
     "link_cmd": "python .agents/library/activate_skill.py link witness"
@@ -1604,7 +1874,7 @@
     "name": "workflow-create",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Author a workflow \u2014 either an MCP workflow template (persisted, lifecycle) or a native .claude/workflows/*.js orchestration script (agent/parallel/pipeline fan-out)",
     "path": "library/ruvnet-ruflo/skills/workflow-create",
     "activation_cmd": "python .agents/library/activate_skill.py activate workflow-create",
     "link_cmd": "python .agents/library/activate_skill.py link workflow-create"
@@ -1614,7 +1884,7 @@
     "name": "workflow-run",
     "repository": "ruvnet-ruflo",
     "category": "general",
-    "description": "",
+    "description": "Run a workflow \u2014 drive an MCP workflow lifecycle (execute/pause/resume/cancel) or invoke + resume a native .claude/workflows/*.js orchestration via the Workflow tool",
     "path": "library/ruvnet-ruflo/skills/workflow-run",
     "activation_cmd": "python .agents/library/activate_skill.py activate workflow-run",
     "link_cmd": "python .agents/library/activate_skill.py link workflow-run"

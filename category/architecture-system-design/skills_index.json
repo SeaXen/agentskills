@@ -24,6 +24,14 @@
     "path": "category/architecture-system-design/academic-plotting"
   },
   {
+    "id": "acquire-codebase-knowledge",
+    "name": "acquire-codebase-knowledge",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Use this skill when the user explicitly asks to map, document, or onboard into an existing codebase. Trigger for prompts like \"map this codebase\", \"document this architecture\", \"onboard me to this repo\", or \"create codebase docs\". Do not trigger for routine feature implementation, bug fixes, or narrow code edits unless the user asks for repository-level discovery.",
+    "path": "category/architecture-system-design/acquire-codebase-knowledge"
+  },
+  {
     "id": "adhd",
     "name": "adhd",
     "category": "architecture-system-design",
@@ -408,6 +416,14 @@
     "path": "category/architecture-system-design/architecture-advisor"
   },
   {
+    "id": "architecture-blueprint-generator",
+    "name": "architecture-blueprint-generator",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Comprehensive project architecture blueprint generator that analyzes codebases to create detailed architectural documentation. Automatically detects technology stacks and architectural patterns, generates visual diagrams, documents implementation patterns, and provides extensible blueprints for maintaining architectural consistency and guiding new development.",
+    "path": "category/architecture-system-design/architecture-blueprint-generator"
+  },
+  {
     "id": "architecture-decision",
     "name": "architecture-decision",
     "category": "architecture-system-design",
@@ -656,6 +672,14 @@
     "path": "category/architecture-system-design/azure-app-onboard-scaffold"
   },
   {
+    "id": "azure-architecture-autopilot",
+    "name": "azure-architecture-autopilot",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Design Azure infrastructure using natural language, or analyze existing Azure resources to auto-generate architecture diagrams, refine them through conversation, and deploy with Bicep.",
+    "path": "category/architecture-system-design/azure-architecture-autopilot"
+  },
+  {
     "id": "azure-identity-java",
     "name": "azure-identity-java",
     "category": "architecture-system-design",
@@ -683,9 +707,17 @@
     "id": "azure-resource-visualizer",
     "name": "azure-resource-visualizer",
     "category": "architecture-system-design",
-    "repository": "microsoft-azure-skills",
-    "description": "Analyze Azure resource groups and generate detailed Mermaid architecture diagrams showing the relationships between individual resources. WHEN: create architecture diagram, visualize Azure resources, show resource relationships, generate Mermaid diagram, analyze resource group, diagram my resources, architecture visualization, resource topology, map Azure infrastructure.",
+    "repository": "github-awesome-copilot",
+    "description": "Analyze Azure resource groups and generate detailed Mermaid architecture diagrams showing the relationships between individual resources. Use this skill when the user asks for a diagram of their Azure resources or help in understanding how the resources relate to each other.",
     "path": "category/architecture-system-design/azure-resource-visualizer"
+  },
+  {
+    "id": "azure-smart-city-iot-solution-builder",
+    "name": "azure-smart-city-iot-solution-builder",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Design and plan end-to-end Azure IoT and Smart City solutions: requirements, architecture, security, operations, cost, and a phased delivery plan with concrete implementation artifacts.",
+    "path": "category/architecture-system-design/azure-smart-city-iot-solution-builder"
   },
   {
     "id": "azure-to-aws",
@@ -694,6 +726,14 @@
     "repository": "aws-agent-toolkit-for-aws",
     "description": "Migrate workloads from Microsoft Azure to AWS. Triggers on: migrate from Azure, Azure to AWS, migrate AKS to EKS, migrate App Service or Azure VMs to AWS compute, migrate Azure SQL or Azure Database to RDS, migrate Cosmos DB to DynamoDB, migrate Azure OpenAI to Bedrock, estimate AWS costs for Azure, what-if workshop. Runs a 6-phase process: discover Azure resources from Terraform, the live `az` CLI, a customer-supplied Resource Discovery for Azure (RDfA) report, and app code, then clarify, design, estimate, optionally reprice, generate artifacts, and collect feedback. Clarify gates Design, Estimate, and Generate; Generate is opt-in at the post-Estimate gate. Bicep/ARM discovery is not yet implemented; a Bicep/ARM-only workspace halts. Azure Cost Management billing-export discovery is not implemented. Do not use for: GCP (see gcp-to-aws) or Heroku (see heroku-to-aws) migrations, general AWS architecture advice (see architect-for-startups), AWS-to-Azure reverse migration, or Azure-to-Azure refactoring.",
     "path": "category/architecture-system-design/azure-to-aws"
+  },
+  {
+    "id": "azure-well-architected-review",
+    "name": "azure-well-architected-review",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Perform an Azure Well-Architected Framework review of the current workload IaC and architecture, generating findings and GitHub issues for improvements.",
+    "path": "category/architecture-system-design/azure-well-architected-review"
   },
   {
     "id": "backend-dev-guidelines",
@@ -822,6 +862,22 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Interview the user to turn project vision and decisions into README and ADR documentation.",
     "path": "category/architecture-system-design/brain-to-docs"
+  },
+  {
+    "id": "breakdown-epic-arch",
+    "name": "breakdown-epic-arch",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Prompt for creating the high-level technical architecture for an Epic, based on a Product Requirements Document.",
+    "path": "category/architecture-system-design/breakdown-epic-arch"
+  },
+  {
+    "id": "breakdown-epic-pm",
+    "name": "breakdown-epic-pm",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Prompt for creating an Epic Product Requirements Document (PRD) for a new epic. This PRD will be used as input for generating a technical architecture specification.",
+    "path": "category/architecture-system-design/breakdown-epic-pm"
   },
   {
     "id": "brooks-audit",
@@ -1128,12 +1184,28 @@
     "path": "category/architecture-system-design/clean-ddd-hexagonal"
   },
   {
+    "id": "cloud-agent-platform-architecture",
+    "name": "cloud-agent-platform-architecture",
+    "category": "architecture-system-design",
+    "repository": "google-skills",
+    "description": "Designs, engineers, and validates enterprise Gemini platform architectures. Use when designing multi-project hierarchies (Host, Central Governance Hub, Runtime Spoke, Tool/MCP Spoke), configuring Agent Gateway, authoring Agent Connectivity Templates (ALL_TRAFFIC vs PRIVATE_RANGES_ONLY), deploying Secure Web Proxy (SWP) with Policy-Based Routing (PBR) or Cross-Cloud mTLS Egress Hubs, configuring Private CA TrustConfig with Internal ALB + Serverless NEG, implementing Unified Access Policies (UAP Policy V2 CEL) and Semantic Governance (SGP), configuring 3P IdP Token Exchange (EntraID/Ping/Okta via ext_proc + STS) or Agent Identity Auth Manager (SPIFFE), enforcing Model Armor Floor Settings and Fail-Closed guardrails, deploying Cross-Project Registry sync, binding ADK agents on Agent Runtime, or executing Day-2 lifecycle operations. Don't use for read-only live log triage or incident diagnosis, or generic Google Cloud Identity and Access Management (IAM) debugging.",
+    "path": "category/architecture-system-design/cloud-agent-platform-architecture"
+  },
+  {
     "id": "cloud-cloud-operator",
     "name": "cloud-cloud-operator",
     "category": "architecture-system-design",
     "repository": "google-skills",
     "description": "Google Cloud (GCP) assistant and operator via the autocloud MCP server. Use for any GCP request: how-to, resources, Terraform/Kubernetes/Helm, rollouts, incidents, costs. Invoke it before answering a GCP question from your own knowledge or documentation search, and before proposing an architecture or backend, even when no cloud is named. Invoke it before reading or editing local *.tf or Kubernetes YAML. Don't use for non-GCP tasks or local machine setup like installing gcloud and setting up GCP.",
     "path": "category/architecture-system-design/cloud-cloud-operator"
+  },
+  {
+    "id": "cloud-design-patterns",
+    "name": "cloud-design-patterns",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Cloud design patterns for distributed systems architecture covering 42 industry-standard patterns across reliability, performance, messaging, security, and deployment categories. Use when designing, reviewing, or implementing distributed system architectures.",
+    "path": "category/architecture-system-design/cloud-design-patterns"
   },
   {
     "id": "cloud-gke-custom-golden-image-discovery",
@@ -1216,6 +1288,14 @@
     "path": "category/architecture-system-design/cloud-operator"
   },
   {
+    "id": "cloud-operator-share-context",
+    "name": "cloud-operator-share-context",
+    "category": "architecture-system-design",
+    "repository": "google-skills",
+    "description": "Shares Google Cloud operating context the user or their team already have \u2014 environments, projects, services and regions, product preferences, best practices, architecture guidance, runbooks \u2014 found in agent instruction files, local memory, skills and workflows, and the repository's GCP docs, with the operator agent's memory after the user reviews the list. Use when the user runs this skill, accepts the cloud-operator or cloud-operator-setup skill's offer to share their existing Google Cloud context, or asks to share, import or save that context or a GCP fact for the operator agent. Don't use for ordinary GCP requests, which go to the cloud-operator skill.",
+    "path": "category/architecture-system-design/cloud-operator-share-context"
+  },
+  {
     "id": "code-audit",
     "name": "code-audit",
     "category": "architecture-system-design",
@@ -1256,20 +1336,20 @@
     "path": "category/architecture-system-design/codebase-audit"
   },
   {
+    "id": "codebase-memory-mcp",
+    "name": "codebase-memory-mcp",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Use when exploring unfamiliar code, mapping architecture, finding symbols or relationships, tracing callers, callees, data flow or dependencies, assessing impact, auditing dead or complex code, or handling explicit Codebase Memory requests. Otherwise skip tasks confined to a supplied known file, tiny one-file check, exact literal, configuration value, error string, or non-code text.",
+    "path": "category/architecture-system-design/codebase-memory-mcp"
+  },
+  {
     "id": "codebase-onboarding",
     "name": "codebase-onboarding",
     "category": "architecture-system-design",
     "repository": "affaan-m-ecc",
     "description": "Analyze an unfamiliar codebase and generate a structured onboarding guide with architecture map, key entry points, conventions, and a starter CLAUDE.md. Use when joining a new project or setting up Claude Code for the first time in a repo.",
     "path": "category/architecture-system-design/codebase-onboarding"
-  },
-  {
-    "id": "codeql",
-    "name": "codeql",
-    "category": "architecture-system-design",
-    "repository": "trailofbits-skills",
-    "description": "Scans a codebase for security vulnerabilities using CodeQL's interprocedural data flow and taint tracking analysis. Triggers on \"run codeql\", \"codeql scan\", \"build codeql database\", \"SAST scan\", \"taint analysis\", \"dataflow analysis\", or \"find vulnerabilities in this repo\". Covers Python, JavaScript/TypeScript, Go, Java/Kotlin, C/C++, C#, Ruby, and Swift. Supports \"run all\" (security-and-quality + security-experimental) and \"important only\" (high-precision) scan modes, and creates data extension models for project-specific sources and sinks. For fast single-file pattern matching, or when no build is available for a compiled language, use the semgrep skill; to parse SARIF that already exists rather than produce it, use the sarif-parsing skill.",
-    "path": "category/architecture-system-design/codeql"
   },
   {
     "id": "codex-pet",
@@ -1512,12 +1592,36 @@
     "path": "category/architecture-system-design/convex-suggest"
   },
   {
+    "id": "copilot-instructions-blueprint-generator",
+    "name": "copilot-instructions-blueprint-generator",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Technology-agnostic blueprint generator for creating comprehensive copilot-instructions.md files that guide GitHub Copilot to produce code consistent with project standards, architecture patterns, and exact technology versions by analyzing existing codebase patterns and avoiding assumptions.",
+    "path": "category/architecture-system-design/copilot-instructions-blueprint-generator"
+  },
+  {
+    "id": "core-watchdog",
+    "name": "core-watchdog",
+    "category": "architecture-system-design",
+    "repository": "mvschwarz-openrig",
+    "description": "Use when configuring `rig watchdog` policies, authoring wake/refocus/alignment-checkpoint messages, or choosing the right intervention level for a stale-owner situation. The 3-level continuity-check stack (wake / refocus / alignment-checkpoint), the discipline that prevents cadence pollution and bureaucracy theater, and the artifact-pool loop-edge pattern for evidence-aware waking.",
+    "path": "category/architecture-system-design/core-watchdog"
+  },
+  {
     "id": "cost-federation",
     "name": "cost-federation",
     "category": "architecture-system-design",
     "repository": "ruvnet-ruflo",
     "description": "Consumer-side wiring for ADR-097 Phase 3 federation_spend events \u2014 per-peer rolling windows + suspension-threshold check",
     "path": "category/architecture-system-design/cost-federation"
+  },
+  {
+    "id": "create-architectural-decision-record",
+    "name": "create-architectural-decision-record",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Create an Architectural Decision Record (ADR) document for AI-optimized decision documentation.",
+    "path": "category/architecture-system-design/create-architectural-decision-record"
   },
   {
     "id": "create-architecture",
@@ -1542,6 +1646,14 @@
     "repository": "donchitos-claude-code-game-studios",
     "description": "Turns the GDDs and architecture into epics, one per architectural module. Use when the user wants to break the game into epics or plan the work before writing stories. Not for splitting one epic into stories.",
     "path": "category/architecture-system-design/create-epics"
+  },
+  {
+    "id": "create-implementation-plan",
+    "name": "create-implementation-plan",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Create a new implementation plan file for new features, refactoring existing code or upgrading packages, design, architecture or infrastructure.",
+    "path": "category/architecture-system-design/create-implementation-plan"
   },
   {
     "id": "creative-diagrams",
@@ -1582,6 +1694,14 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "/c-level-agents:cto-review [plan] \u2014 Architecture and scaling interrogation. Tech debt, scaling cliffs, team scaling, build-vs-buy. Use when committing to an architecture, planning for 10x load, or weighing a rebuild against a vendor.",
     "path": "category/architecture-system-design/cto-review"
+  },
+  {
+    "id": "d365-solution-blueprint",
+    "name": "d365-solution-blueprint",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Authors a Dynamics 365 Finance and Supply Chain Management Solution Blueprint from scratch through a structured, section-by-section architect interview, establishing scope, target operating model, application and data architecture, integration landscape, migration strategy, security model, ALM, testing, deployment, and support approach, with a decision log capturing rationale and rejected alternatives. Use when the user wants to create D365 implementation architecture documentation, start a D365 implementation, design the architecture, prepare a Solution Blueprint, or identify the architectural decisions the programme must make. Do not use for critique of an existing design; that is a review task rather than blueprint authoring.",
+    "path": "category/architecture-system-design/d365-solution-blueprint"
   },
   {
     "id": "daa-agent",
@@ -1638,6 +1758,14 @@
     "repository": "reason-machines-data-skills",
     "description": "600+ patterns and concepts for Azure Databricks, Microsoft Fabric, and PySpark data engineering - covering lakehouse architecture, Delta Lake, pipelines, and production best practices.",
     "path": "category/architecture-system-design/data-engineering-patterns-fabric-databricks"
+  },
+  {
+    "id": "dataverse-python-usecase-builder",
+    "name": "dataverse-python-usecase-builder",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Generate complete solutions for specific Dataverse SDK use cases with architecture recommendations",
+    "path": "category/architecture-system-design/dataverse-python-usecase-builder"
   },
   {
     "id": "ddd",
@@ -1734,6 +1862,14 @@
     "repository": "wondelai-skills",
     "description": "Guided journey from an app idea to a deliberate architecture: boundaries, domain model, data decisions, and resilience, making only the expensive-to-reverse decisions and deferring the rest. Orchestrates eight skills phase by phase - clean-architecture, domain-driven-design, system-design, ddia-systems, software-design-philosophy, release-it, pragmatic-programmer, 37signals-way - asking the user questions at every decision point and recording results in the project docs/ folder (ARCHITECTURE.md, DESIGN-CODE-ARCHITECTURE-PLAN.md) so the journey resumes across sessions. Use when the user wants to design a new app''s architecture, choose boundaries and a domain model, decide monolith versus microservices, or says ''how should I structure this app''. If a codebase already exists, use remove-technical-debt (aged), improve-code-quality (fresh prototype), or architecture-optimization (slow but working); if unvalidated, run create-business or create-app first. For one framework in isolation, invoke that skill directly.",
     "path": "category/architecture-system-design/design-code-architecture"
+  },
+  {
+    "id": "design-doc-mermaid",
+    "name": "design-doc-mermaid",
+    "category": "architecture-system-design",
+    "repository": "spillwavesolutions-design-doc-mermaid",
+    "description": "Create Mermaid diagrams (flowchart, sequence, class, ER, state, C4, architecture) from text or source code. Default for GitHub wiki. Use when asked to create a diagram, generate mermaid, document architecture, or convert code to diagram. PlantUML is only for leftover types. Confluence needs PNG/SVG as well as the fence.",
+    "path": "category/architecture-system-design/design-doc-mermaid"
   },
   {
     "id": "design-patterns-implementation",
@@ -1888,6 +2024,14 @@
     "path": "category/architecture-system-design/dhdna-profiler"
   },
   {
+    "id": "diagnose",
+    "name": "diagnose",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Perform a systematic diagnostic scan of an AI workflow across 5 quality dimensions \u2014 prompt quality, context efficiency, tool health, architecture fitness, and safety \u2014 producing a scored report with prioritized remediation actions.",
+    "path": "category/architecture-system-design/diagnose"
+  },
+  {
     "id": "diagram",
     "name": "diagram",
     "category": "architecture-system-design",
@@ -1966,6 +2110,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "This skill should be used when the user asks to \"/do-agent\", asks for \"Execute complex tasks using multi-agent architecture with context protection\", or needs the workflow previously provided by the /do-agent slash command.",
     "path": "category/architecture-system-design/do-agent"
+  },
+  {
+    "id": "doc-and-modernize",
+    "name": "doc-and-modernize",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Two related workflows for a locally-cloned codebase, in one skill. Documentation mode produces a single, comprehensive, verifiable architecture document primarily by reading files on disk (local-first) \u2014 use it whenever the user wants to understand, map, document, research, or onboard onto a codebase (\"research this repo\", \"write up the architecture\", \"do an architecture deep dive\", \"document how this codebase works\", \"map the system design\", \"create an onboarding doc\"). Modernization mode generates a phased plan to modernize, migrate, upgrade, or rewrite a legacy system (\"modernize this\", \"plan the migration\", \"how would we rewrite this\", \"how do we get off this legacy stack\"); if no architecture document exists yet it first runs Documentation mode, then continues straight through to the plan. It assumes the legacy stack may be dead, runs a time-boxed feasibility spike, and picks the highest achievable rung on a safety ladder instead of demanding a fully-green legacy CI gate up front.",
+    "path": "category/architecture-system-design/doc-and-modernize"
   },
   {
     "id": "docker-safe-update",
@@ -2096,12 +2248,28 @@
     "path": "category/architecture-system-design/dotnet-core-expert"
   },
   {
+    "id": "dotnet-design-pattern-review",
+    "name": "dotnet-design-pattern-review",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Review the C#/.NET code for design pattern implementation and suggest improvements.",
+    "path": "category/architecture-system-design/dotnet-design-pattern-review"
+  },
+  {
     "id": "dotnet-init",
     "name": "dotnet-init",
     "category": "architecture-system-design",
     "repository": "codewithmukesh-dotnet-claude-kit",
     "description": "Interactive project initialization. Detects project type, asks architecture questions, and generates a customized CLAUDE.md \u2014 no manual template copying. Use when: \"init project\", \"setup project\", \"initialize\", \"new project setup\", \"generate CLAUDE.md\", \"configure for dotnet-claude-kit\", or starting Claude Code on a fresh or existing .NET codebase.",
     "path": "category/architecture-system-design/dotnet-init"
+  },
+  {
+    "id": "draw-io-diagram-generator",
+    "name": "draw-io-diagram-generator",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Use when creating, editing, or generating draw.io diagram files (.drawio, .drawio.svg, .drawio.png). Covers mxGraph XML authoring, shape libraries, style strings, flowcharts, system architecture, sequence diagrams, ER diagrams, UML class diagrams, network topology, layout strategy, the hediet.vscode-drawio VS Code extension, and the full agent workflow from request to a ready-to-open file.",
+    "path": "category/architecture-system-design/draw-io-diagram-generator"
   },
   {
     "id": "drawio",
@@ -2360,6 +2528,14 @@
     "path": "category/architecture-system-design/excalidraw"
   },
   {
+    "id": "excalidraw-diagram-generator",
+    "name": "excalidraw-diagram-generator",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Generate Excalidraw diagrams from natural language descriptions. Use when asked to \"create a diagram\", \"make a flowchart\", \"visualize a process\", \"draw a system architecture\", \"create a mind map\", or \"generate an Excalidraw file\". Supports flowcharts, relationship diagrams, mind maps, and system architecture diagrams. Outputs .excalidraw JSON files that can be opened directly in Excalidraw.",
+    "path": "category/architecture-system-design/excalidraw-diagram-generator"
+  },
+  {
     "id": "expo-examples",
     "name": "expo-examples",
     "category": "architecture-system-design",
@@ -2446,6 +2622,14 @@
     "repository": "flutter-agent-plugins",
     "description": "Architects a Flutter application using the recommended layered approach (UI, Logic, Data). Use when structuring a new project or refactoring for scalability.",
     "path": "category/architecture-system-design/flutter-apply-architecture-best-practices"
+  },
+  {
+    "id": "foundry-agentic-loop",
+    "name": "foundry-agentic-loop",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Build agentic solutions on Microsoft Foundry, GitHub and Azure: hosted agents, toolbox tools and skills, Foundry IQ grounding and a React/FastAPI app. Three modes: rapid prototyping in an existing Foundry project; spec-driven development (SDD), where the foundry-agentic-loop-workflow runs Specify, Implement, Verify and Deploy to create the Foundry project and deploy with azd, or one phase runs alone; and Improve, which refines this skill and the workflow from past runs. Use for Agentic Loop requests and canvas actions, or end-to-end agent solutions from architecture to Azure deployment. Not for isolated Azure administration or unrelated UI edits.",
+    "path": "category/architecture-system-design/foundry-agentic-loop"
   },
   {
     "id": "framework-migration-legacy-modernize",
@@ -2558,6 +2742,14 @@
     "repository": "useosint-skills",
     "description": "Geolocate and chronolocate a photo or video from visual evidence alone \u2014 plate and phone number formats, road markings, utility poles, bollards, signage typefaces, architecture and vegetation for place; shadow direction and length with SunCalc for time and date. Use when asked where or when a picture was taken, to verify a claimed location without GPS or EXIF, or to match a scene against Google Earth, Street View, Yandex Panoramas, Mapillary or KartaView. Applies to GEOINT and conflict monitoring, insurance and claims verification, journalism fact-checking, and evidence review. Reference at useosint.com/skills/geolocate-from-pixels.",
     "path": "category/architecture-system-design/geolocate-from-pixels"
+  },
+  {
+    "id": "github-actions-hardening",
+    "name": "github-actions-hardening",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Security hardening reviewer for GitHub Actions workflow files (.github/workflows/*.yml). Reasons about the Actions threat model that pattern matchers and general code linters miss \u2014 untrusted-input script injection, privileged triggers running fork code, mutable action references, and over-scoped tokens. Use this skill when asked to review, audit, harden, or secure a GitHub Actions workflow, when writing a new workflow, or for any request like \"is this workflow safe?\", \"review my CI for security issues\", \"why is pull_request_target dangerous here?\", \"pin my actions\", or \"lock down GITHUB_TOKEN permissions\". Covers script injection via ${{ }} interpolation, pull_request_target / workflow_run privilege escalation, SHA-pinning of third-party actions, least-privilege permissions, GITHUB_ENV/GITHUB_OUTPUT injection, secret exposure, OIDC over long-lived credentials, and self-hosted runner exposure on public repositories.",
+    "path": "category/architecture-system-design/github-actions-hardening"
   },
   {
     "id": "gke-custom-golden-image-discovery",
@@ -2758,6 +2950,38 @@
     "repository": "aj-geddes-useful-ai-prompts",
     "description": "Build high-performance gRPC services with Protocol Buffers, bidirectional streaming, and microservice communication. Use when building gRPC servers, defining service contracts, or implementing inter-service communication.",
     "path": "category/architecture-system-design/grpc-service-development"
+  },
+  {
+    "id": "gtm-board-and-investor-communication",
+    "name": "gtm-board-and-investor-communication",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Board meeting preparation, investor updates, and executive communication. Use when preparing board decks, writing investor updates, handling bad news with the board, structuring QBRs, or building board-level metric discipline. Includes the \"Three Things\" narrative model, the 4-tier metric hierarchy, and the pre-brief pattern that prevents board surprises.",
+    "path": "category/architecture-system-design/gtm-board-and-investor-communication"
+  },
+  {
+    "id": "gtm-enterprise-account-planning",
+    "name": "gtm-enterprise-account-planning",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Strategic account planning and execution for enterprise deals. Use when planning complex sales cycles, managing multiple stakeholders, applying MEDDICC qualification, tracking deal health, or building mutual action plans. Includes the \"stale MAP equals dead deal\" pattern.",
+    "path": "category/architecture-system-design/gtm-enterprise-account-planning"
+  },
+  {
+    "id": "gtm-enterprise-onboarding",
+    "name": "gtm-enterprise-onboarding",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Four-phase framework for onboarding enterprise customers from contract to value realization. Use when implementing new enterprise customers, preventing churn during onboarding, or solving the adoption cliff that kills deals post-go-live. Includes the Week 4 ghosting pattern.",
+    "path": "category/architecture-system-design/gtm-enterprise-onboarding"
+  },
+  {
+    "id": "gtm-partnership-architecture",
+    "name": "gtm-partnership-architecture",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Build and scale partner ecosystems that drive revenue and platform adoption. Use when building partner programs from scratch, tiering partnerships, managing co-marketing, making build-vs-partner decisions, or structuring crawl-walk-run partner deployment.",
+    "path": "category/architecture-system-design/gtm-partnership-architecture"
   },
   {
     "id": "guarding-architecture",
@@ -2976,6 +3200,14 @@
     "path": "category/architecture-system-design/idea-generation"
   },
   {
+    "id": "impediment-prioritization",
+    "name": "impediment-prioritization",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Ranks any list of impediments and their countermeasures using a value-stream scoring model (ROI, Cost to Implement, Ease of Deployment, Risk Factor) and a fixed prioritization formula. Use when someone asks to prioritize, rank, sequence, or triage impediments, countermeasures, remediation items, risks, findings, gaps, action items, or backlog entries; or mentions value-stream prioritization, A3 / lean countermeasure ranking, ROI vs. effort scoring, or building a remediation / improvement backlog. Works with GHQR findings, audit results, retrospective action items, risk registers, architecture review gaps, or any free-form `{impediment, countermeasure}` list.",
+    "path": "category/architecture-system-design/impediment-prioritization"
+  },
+  {
     "id": "implementing-aws-macie-for-data-classification",
     "name": "implementing-aws-macie-for-data-classification",
     "category": "architecture-system-design",
@@ -3086,6 +3318,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "Master Java 21+ with modern features like virtual threads, pattern",
     "path": "category/architecture-system-design/java-pro"
+  },
+  {
+    "id": "java-upgrade",
+    "name": "java-upgrade",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Upgrade a Java project to a newer JDK (11 to 17, 17 to 21, 21 to 25) and adopt the new language and library features. Detects the current Java version from the build files, then loads only the matching per-version guide. Use when the user asks to upgrade Java, modernize Java code, or adopt records, sealed classes, pattern matching, virtual threads or other new Java features. For automated end-to-end upgrades see the modernize-java plugin.",
+    "path": "category/architecture-system-design/java-upgrade"
   },
   {
     "id": "javascript-mastery",
@@ -3464,6 +3704,14 @@
     "path": "category/architecture-system-design/migrate-to-rust"
   },
   {
+    "id": "mini-context-graph",
+    "name": "mini-context-graph",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "A persistent, compounding knowledge base combining Karpathy's LLM Wiki pattern with a structured knowledge graph. Ingest documents once \u2014 the LLM writes wiki pages, extracts entities/relations into the graph, and stores raw content for evidence retrieval. Knowledge accumulates and cross-references; it is never re-derived from scratch.",
+    "path": "category/architecture-system-design/mini-context-graph"
+  },
+  {
     "id": "model-architecture-litgpt",
     "name": "model-architecture-litgpt",
     "category": "architecture-system-design",
@@ -3792,6 +4040,22 @@
     "path": "category/architecture-system-design/open-design-deck-from-source"
   },
   {
+    "id": "openmotion-design-remix",
+    "name": "openmotion-design-remix",
+    "category": "architecture-system-design",
+    "repository": "nexu-io-openmotion",
+    "description": "OpenMotion \u2014 Adapt one of six bundled motion compositions using its MOTION_DESIGN.md, preserving timing and movement while replacing the user's copy. Use for these source-backed examples or as a concrete pattern for a reusable motion design package.",
+    "path": "category/architecture-system-design/openmotion-design-remix"
+  },
+  {
+    "id": "openmotion-media",
+    "name": "openmotion-media",
+    "category": "architecture-system-design",
+    "repository": "nexu-io-openmotion",
+    "description": "Generate, poll and inspect individual image, video, speech or music assets through openmotion_assets_use after openmotion_media_use discovery (configured Atlas Cloud, fal.ai, WaveSpeedAI or OpenDesign Cloud BYOK providers, or a signed-in OpenDesign account), either when delegated by an OpenMotion film workflow or for a standalone asset-generation request. Native-only tasks with no new speech or music stay outside generation unless explicitly requested. Not a whole-film entry point: route original video creation to openmotion-director, template adaptation to openmotion-template-to-video, reference-video recreation to openmotion-recreate, reusable template packaging to openmotion-video-to-template, and existing-project edits or exports to openmotion-production.",
+    "path": "category/architecture-system-design/openmotion-media"
+  },
+  {
     "id": "operate-on-aws",
     "name": "operate-on-aws",
     "category": "architecture-system-design",
@@ -3960,6 +4224,22 @@
     "path": "category/architecture-system-design/post-training-openrlhf"
   },
   {
+    "id": "power-bi-model-design-review",
+    "name": "power-bi-model-design-review",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Comprehensive Power BI data model design review prompt for evaluating model architecture, relationships, and optimization opportunities.",
+    "path": "category/architecture-system-design/power-bi-model-design-review"
+  },
+  {
+    "id": "power-platform-architect",
+    "name": "power-platform-architect",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Use this skill when the user needs to transform business requirements, use case descriptions, or meeting transcripts into a technical Power Platform solution architecture, including component selection and Mermaid.js diagrams.",
+    "path": "category/architecture-system-design/power-platform-architect"
+  },
+  {
     "id": "preservation-verifier",
     "name": "preservation-verifier",
     "category": "architecture-system-design",
@@ -4006,6 +4286,14 @@
     "repository": "affaan-m-ecc",
     "description": "Project-specific skill template covering architecture, patterns, testing, and deployment guidance.",
     "path": "category/architecture-system-design/project-guidelines-example"
+  },
+  {
+    "id": "project-workflow-analysis-blueprint-generator",
+    "name": "project-workflow-analysis-blueprint-generator",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Comprehensive technology-agnostic prompt generator for documenting end-to-end application workflows. Automatically detects project architecture patterns, technology stacks, and data flow patterns to generate detailed implementation blueprints covering entry points, service layers, data access, error handling, and testing approaches across multiple technologies including .NET, Java/Spring, React, and microservices architectures.",
+    "path": "category/architecture-system-design/project-workflow-analysis-blueprint-generator"
   },
   {
     "id": "projection-patterns",
@@ -4136,12 +4424,28 @@
     "path": "category/architecture-system-design/rag-methodology-guide"
   },
   {
+    "id": "react-audit-grep-patterns",
+    "name": "react-audit-grep-patterns",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Provides the complete, verified grep scan command library for auditing React codebases before a React 18.3.1 or React 19 upgrade. Use this skill whenever running a migration audit - for both the react18-auditor and react19-auditor agents. Contains every grep pattern needed to find deprecated APIs, removed APIs, unsafe lifecycle methods, batching vulnerabilities, test file issues, dependency conflicts, and React 19 specific removals. Always use this skill when writing audit scan commands - do not rely on memory for grep syntax, especially for the multi-line async setState patterns which require context flags.",
+    "path": "category/architecture-system-design/react-audit-grep-patterns"
+  },
+  {
     "id": "react-component-architecture",
     "name": "react-component-architecture",
     "category": "architecture-system-design",
     "repository": "aj-geddes-useful-ai-prompts",
     "description": "Design scalable React components using functional components, hooks, composition patterns, and TypeScript. Use when building reusable component libraries and maintainable UI systems.",
     "path": "category/architecture-system-design/react-component-architecture"
+  },
+  {
+    "id": "react-container-presentation-component",
+    "name": "react-container-presentation-component",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Create a React component using the Container/Presentation pattern in src/components by asking for the component name and type (ui or features), then scaffold files that follow this repository's TypeScript, Storybook, and SCSS conventions. Use when the user explicitly asks for a Container/Presentation-based component or runs /react-container-presentation-component.",
+    "path": "category/architecture-system-design/react-container-presentation-component"
   },
   {
     "id": "react-native-architecture",
@@ -4158,6 +4462,30 @@
     "repository": "antigravity-awesome-skills",
     "description": "Modern React UI patterns for loading states, error handling, and data fetching. Use when building UI components, handling async data, or managing UI states.",
     "path": "category/architecture-system-design/react-ui-patterns"
+  },
+  {
+    "id": "react18-legacy-context",
+    "name": "react18-legacy-context",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Provides the complete migration pattern for React legacy context API (contextTypes, childContextTypes, getChildContext) to the modern createContext API. Use this skill whenever migrating legacy context in class components - this is always a cross-file migration requiring the provider AND all consumers to be updated together. Use it before touching any contextTypes or childContextTypes code, because migrating only the provider without the consumers (or vice versa) will cause a runtime failure. Always read this skill before writing any context migration - the cross-file coordination steps here prevent the most common context migration bugs.",
+    "path": "category/architecture-system-design/react18-legacy-context"
+  },
+  {
+    "id": "react18-lifecycle-patterns",
+    "name": "react18-lifecycle-patterns",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Provides exact before/after migration patterns for the three unsafe class component lifecycle methods - componentWillMount, componentWillReceiveProps, and componentWillUpdate - targeting React 18.3.1. Use this skill whenever a class component needs its lifecycle methods migrated, when deciding between getDerivedStateFromProps vs componentDidUpdate, when adding getSnapshotBeforeUpdate, or when fixing React 18 UNSAFE_ lifecycle warnings. Always use this skill before writing any lifecycle migration code - do not guess the pattern from memory, the decision trees here prevent the most common migration mistakes.",
+    "path": "category/architecture-system-design/react18-lifecycle-patterns"
+  },
+  {
+    "id": "react18-string-refs",
+    "name": "react18-string-refs",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Provides exact migration patterns for React string refs (ref=\"name\" + this.refs.name) to React.createRef() in class components. Use this skill whenever migrating string ref usage - including single element refs, multiple refs in a component, refs in lists, callback refs, and refs passed to child components. Always use this skill before writing any ref migration code - the multiple-refs-in-list pattern is particularly tricky and this skill prevents the most common mistakes. Use it for React 18.3.1 migration (string refs warn) and React 19 migration (string refs removed).",
+    "path": "category/architecture-system-design/react18-string-refs"
   },
   {
     "id": "read-all-adrs",
@@ -4190,6 +4518,14 @@
     "repository": "wondelai-skills",
     "description": "Build production-ready systems with stability patterns: circuit breakers, bulkheads, timeouts, and retry logic. Use when the user mentions \"production outage\", \"circuit breaker\", \"deployment pipeline\", \"chaos engineering\", \"retry storm\", \"health checks\", \"my service keeps crashing\", \"prevent cascading failures\", or \"make it resilient\". Also trigger when designing resilient microservices, planning zero-downtime deployments, or capacity-planning for peak load. Covers stability patterns, capacity planning, deploy/release decoupling, and observability. For data systems, see ddia-systems. For system architecture, see system-design.",
     "path": "category/architecture-system-design/release-it"
+  },
+  {
+    "id": "render-to-aws",
+    "name": "render-to-aws",
+    "category": "architecture-system-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Migrate Render workloads to AWS through consented read-only discovery, mandatory clarification, architecture design, cost estimation, an optional what-if workshop, and opt-in artifact generation. Covers Render Blueprints, services, static sites, workers, cron jobs, private services, Workflows, PostgreSQL, Key Value, persistent disks, Build Sources, projects, environments, and provider-neutral AI workload discovery. Does not use Render MCP or perform Render-side mutations.",
+    "path": "category/architecture-system-design/render-to-aws"
   },
   {
     "id": "replica-architect",
@@ -4358,6 +4694,22 @@
     "repository": "mbfinotti-revops-skills",
     "description": "Design the sales-to-CS handoff process after a deal closes - what data transfers, when, in what artifact, and who is accountable - producing a handoff spec with a gated closed-won trigger, a required handoff packet, timing SLAs, a kickoff meeting pattern, and a CS acceptance/rejection step. For RevOps and Sales Ops designing and enforcing the process, not a CSM running one handoff. Use whenever the user mentions sales to CS handoff, post-close transition, closed-won to kickoff, handoff accountability, \"the CSM starts from zero\", or \"customers repeat themselves after signing\" - even if they never say \"handoff\". Covers B2B high-touch through PLG/self-serve and B2C subscription. Do NOT use for account health scoring - use mbfinotti/revops-skills@customer-health-score instead.",
     "path": "category/architecture-system-design/sales-to-cs-handoff"
+  },
+  {
+    "id": "salesforce-component-standards",
+    "name": "salesforce-component-standards",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Quality standards for Salesforce Lightning Web Components (LWC), Aura components, and Visualforce pages. Covers SLDS 2 compliance, accessibility (WCAG 2.1 AA), data access pattern selection, component communication rules, XSS prevention, CSRF enforcement, FLS/CRUD in AuraEnabled methods, view state management, and Jest test requirements. Use this skill when building or reviewing any Salesforce UI component to enforce platform-specific security and quality standards.",
+    "path": "category/architecture-system-design/salesforce-component-standards"
+  },
+  {
+    "id": "salesforce-flow-design",
+    "name": "salesforce-flow-design",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Salesforce Flow architecture decisions, flow type selection, bulk safety validation, and fault handling standards. Use this skill when designing or reviewing Record-Triggered, Screen, Autolaunched, Scheduled, or Platform Event flows to ensure correct type selection, no DML/Get Records in loops, proper fault connectors on all data-changing elements, and appropriate automation density checks before deployment.",
+    "path": "category/architecture-system-design/salesforce-flow-design"
   },
   {
     "id": "scaffold",
@@ -4584,6 +4936,14 @@
     "path": "category/architecture-system-design/skills-agent-workflow-designer"
   },
   {
+    "id": "skills-agentdb-query",
+    "name": "skills-agentdb-query",
+    "category": "architecture-system-design",
+    "repository": "ruvnet-ruflo",
+    "description": "Query AgentDB through the controller bridge -- semantic routing, hierarchical recall, causal graphs, context synthesis, pattern store/search",
+    "path": "category/architecture-system-design/skills-agentdb-query"
+  },
+  {
     "id": "skills-agentmemory-architecture",
     "name": "skills-agentmemory-architecture",
     "category": "architecture-system-design",
@@ -4622,6 +4982,14 @@
     "repository": "codewithmukesh-dotnet-claude-kit",
     "description": "Architecture conformance check: verifies an existing codebase against its declared architecture (VSA, Clean Architecture, DDD, Modular Monolith) \u2014 dependency direction, layer violations, module boundary leaks, and cycles \u2014 using token-cheap Roslyn MCP analysis. Invoke when: \"check architecture\", \"architecture violations\", \"layer violations\", \"dependency direction\", \"module boundaries\", \"arch check\", \"is my architecture clean\", \"enforce architecture\", \"conformance check\". For CHOOSING an architecture, use architecture-advisor instead.",
     "path": "category/architecture-system-design/skills-arch-check"
+  },
+  {
+    "id": "skills-architect-for-startups",
+    "name": "skills-architect-for-startups",
+    "category": "architecture-system-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Startup-tailored AWS architecture advice for non-agent workloads, adjusted to stage (pre-revenue through Series B+), team size, runway, and credits. Not for AI agents: deploying one, picking its runtime, or any agentic architecture is agent-advisor. Use when a founder wants guidance or a recommendation rather than code changes: which services to choose, designing or reviewing an architecture, tenant isolation for a multi-tenant SaaS, stretching credits and controlling cost, or preparing for a fundraise or technical diligence. Interactive scaffolding into the codebase is start-building-for-startups. Do not use for: writing code, Activate / programs / credits lookups (knowledge-base-for-startups), a copy-paste prompt (prompt-library-for-startups), pricing an infrastructure change before it ships (cost-regression-check), self-hosted LLM batch inference (self-hosted-llm-batch-inference), or migration intent (`gcp-to-aws`, `azure-to-aws`, `heroku-to-aws`, `llm-to-bedrock`).",
+    "path": "category/architecture-system-design/skills-architect-for-startups"
   },
   {
     "id": "skills-architecture",
@@ -4723,7 +5091,7 @@
     "id": "skills-codex-dse-loop",
     "name": "skills-codex-dse-loop",
     "category": "architecture-system-design",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Autonomous design space exploration loop for computer architecture and EDA. Runs a program, analyzes results, tunes parameters, and iterates until objective is met or timeout. Use when user says \\\\\\\"DSE\\\\\\\", \\\\\\\"design space exploration\\\\\\\", \\\\\\\"sweep parameters\\\\\\\", \\\\\\\"optimize\\\\\\\", \\\\\\\"find best config\\\\\\\", or wants iterative parameter tuning.",
     "path": "category/architecture-system-design/skills-codex-dse-loop"
   },
@@ -4731,7 +5099,7 @@
     "id": "skills-codex-figure-spec",
     "name": "skills-codex-figure-spec",
     "category": "architecture-system-design",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Generate deterministic publication-quality architecture, workflow, and pipeline diagrams from structured JSON (FigureSpec) into editable SVG. Use when user says \\\"\u67b6\u6784\u56fe\\\", \\\"workflow \u56fe\\\", \\\"pipeline \u56fe\\\", \\\"\u786e\u5b9a\u6027\u77e2\u91cf\u56fe\\\", \\\"figure spec\\\", \\\"draw architecture\\\", or needs precise, editable, publication-ready vector diagrams. Preferred over AI illustration for formal architecture/workflow figures.",
     "path": "category/architecture-system-design/skills-codex-figure-spec"
   },
@@ -4747,7 +5115,7 @@
     "id": "skills-codex-research-wiki",
     "name": "skills-codex-research-wiki",
     "category": "architecture-system-design",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Persistent research knowledge base that accumulates papers, ideas, experiments, claims, and their relationships across the entire research lifecycle. Inspired by Karpathy's LLM Wiki pattern. Use when user says \\\"\u77e5\u8bc6\u5e93\\\", \\\"research wiki\\\", \\\"add paper\\\", \\\"wiki query\\\", \\\"\u67e5\u77e5\u8bc6\u5e93\\\", or wants to build/query a persistent field map.",
     "path": "category/architecture-system-design/skills-codex-research-wiki"
   },
@@ -4832,6 +5200,22 @@
     "path": "category/architecture-system-design/skills-documentation"
   },
   {
+    "id": "skills-documentation-and-adrs",
+    "name": "skills-documentation-and-adrs",
+    "category": "architecture-system-design",
+    "repository": "addyosmani-agent-skills",
+    "description": "Records decisions and documentation, and detects when documentation has drifted from the code it describes. Use when you need to document an architecture decision (ADR) or the reasoning behind a design choice, when changing public APIs, shipping features, when docs may be stale or out of sync with the code they describe, when working out which module docs are still accurate, or when setting up a check so docs cannot silently go out of date again.",
+    "path": "category/architecture-system-design/skills-documentation-and-adrs"
+  },
+  {
+    "id": "skills-dse-loop",
+    "name": "skills-dse-loop",
+    "category": "architecture-system-design",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Autonomous design space exploration loop for computer architecture and EDA. Runs a program, analyzes results, tunes parameters, and iterates until objective is met or timeout. Use when user says \\\"DSE\\\", \\\"design space exploration\\\", \\\"sweep parameters\\\", \\\"optimize\\\", \\\"find best config\\\", or wants iterative parameter tuning.",
+    "path": "category/architecture-system-design/skills-dse-loop"
+  },
+  {
     "id": "skills-engineering-skills",
     "name": "skills-engineering-skills",
     "category": "architecture-system-design",
@@ -4880,6 +5264,14 @@
     "path": "category/architecture-system-design/skills-gcp-to-aws"
   },
   {
+    "id": "skills-gmgn-kline-pattern",
+    "name": "skills-gmgn-kline-pattern",
+    "category": "architecture-system-design",
+    "repository": "gmgnai-gmgn-skills",
+    "description": "Price-action pattern reading \u2014 classifies a token's candles into a named pattern (uptrend channel, breakdown, bounce off the lows, distribution at highs, basing, wide chop, consolidation) and scores it 0-100 from six measurements you compute directly from the kline response. Every point added or deducted states its reason. Use when the user asks about K \u7ebf, K\u7ebf\u5f62\u6001, \u8d70\u52bf, \u8d8b\u52bf, \u5f62\u6001, price action, chart pattern, whether a chart looks strong or weak, is it breaking down, is it consolidating, or wants a technical read of a token's chart rather than the raw numbers.",
+    "path": "category/architecture-system-design/skills-gmgn-kline-pattern"
+  },
+  {
     "id": "skills-grill-with-docs",
     "name": "skills-grill-with-docs",
     "category": "architecture-system-design",
@@ -4907,7 +5299,7 @@
     "id": "skills-how",
     "name": "skills-how",
     "category": "architecture-system-design",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Use for \\\"how does X work\\\", code walkthroughs before changing something, and placement / ownership / layering questions (\\\"where should this live\\\", \\\"which package owns this\\\", \\\"is this the right layer\\\"). Explains subsystem architecture, runtime flow, onboarding mental models. Use why for motivation.",
     "path": "category/architecture-system-design/skills-how"
   },
@@ -4918,6 +5310,14 @@
     "repository": "codewithmukesh-dotnet-claude-kit",
     "description": "Unified learning-and-memory system: confidence-scored instincts (observe-hypothesize-confirm, stored in .claude/instincts.md), user corrections captured as permanent rules in MEMORY.md, and organic discoveries logged to .claude/learning-log.md. Includes status, export, and import modes. Load this skill when you notice a recurring pattern, a user corrects your output, or you discover something non-obvious. Triggers: \"show instincts\", \"what have you learned\", \"list instincts\", \"export instincts\", \"share instincts\", \"import instincts\", \"load instincts from\", \"learn this\", \"I think they always\", \"notice a pattern\", \"instinct\", \"hypothesis\", \"confidence\", \"learn from mistakes\", \"remember this\", \"don't do that again\", \"log this\", \"document this finding\", \"gotcha\", \"what did we learn\", \"learnings\", \"discoveries\", or at session start (to load existing knowledge).",
     "path": "category/architecture-system-design/skills-instinct-system"
+  },
+  {
+    "id": "skills-knowledge-base-for-startups",
+    "name": "skills-knowledge-base-for-startups",
+    "category": "architecture-system-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "AWS Startups reference content \u2014 Activate FAQ, credits guide, programs, partner offers, sample architectures, and hundreds of learn articles spanning generative AI, cloud architecture, cost optimization, security, fundraising, go-to-market, and real-world startup case studies. Use when the user asks factual questions about AWS Activate (eligibility, credits, programs, providers), wants a sample architecture or solution guide, or needs an AWS-curated learn article on a specific startup topic. For copy-paste AI prompts (RAG chatbot, MVP scaffold, security baseline, GPU quota, etc.), see the prompt-library-for-startups skill. Do not use for: account-specific lookups (credits balance, Activate membership status, application status), real-time event listings beyond the events stub, or content not present in the bundled `references/` tree.",
+    "path": "category/architecture-system-design/skills-knowledge-base-for-startups"
   },
   {
     "id": "skills-linkedin-analytics",
@@ -4934,6 +5334,22 @@
     "repository": "unity-technologies-skills",
     "description": "Manages SpriteAtlas assets through a prebuild pipeline, covering master and variant atlases, packing settings, and platform overrides. Use when asked to create or optimize sprite atlases.",
     "path": "category/architecture-system-design/skills-manage-sprite-atlas"
+  },
+  {
+    "id": "skills-melonjs-sprites-and-animation",
+    "name": "skills-melonjs-sprites-and-animation",
+    "category": "architecture-system-design",
+    "repository": "melonjs-melonjs",
+    "description": "Use this skill when creating sprites, playing frame animations, or working with texture atlases in melonJS. Covers Sprite construction from a plain image or an atlas region, addAnimation/setCurrentAnimation, TextureAtlas for TexturePacker/ShoeBox/Aseprite, tint, flip, NineSliceSprite, and the centred anchorPoint that offsets naive positioning. Triggers on: Sprite, new Sprite, addAnimation, setCurrentAnimation, isCurrentAnimation, onFrame, onComplete, play, pause, flicker, anchorPoint, TextureAtlas, TexturePacker, Aseprite, ShoeBox, atlas, region, framewidth, frameheight, tint, flipX, flipY, NineSliceSprite, animation.",
+    "path": "category/architecture-system-design/skills-melonjs-sprites-and-animation"
+  },
+  {
+    "id": "skills-melonjs-ui-and-text",
+    "name": "skills-melonjs-ui-and-text",
+    "category": "architecture-system-design",
+    "repository": "melonjs-melonjs",
+    "description": "Use this skill for HUDs, buttons, menus, options screens, dialogue panels, progress bars and on-screen text in melonJS. Covers UIBaseElement/UISpriteElement/UITextButton, UICheckbox, UISlider, ProgressBar, UIPanel (skins, layout, scrolling), keyboard and gamepad focus, Draggable and DropTarget, the floating screen-space container pattern, which of two overlapping panels gets the pointer, Text and BitmapText, web font loading, and NineSliceSprite panels. Triggers on: UI, HUD, button, checkbox, radio button, slider, volume slider, options menu, settings screen, scrolling list, UI skin, progress bar, health bar, menu, dialogue, moveToTop, onOver, onClick, bindKey, keyboard shortcut, Tween, animate a label, wavy text, glyphEffect, rainbow text, typewriter, visibleRatio, drag and drop, isDraggable, focus, fillStyle, fillGradient, gradient text, tint, font, fontface, wordWrapWidth, score display, fullscreen, requestFullscreen, fullscreen button.",
+    "path": "category/architecture-system-design/skills-melonjs-ui-and-text"
   },
   {
     "id": "skills-messaging",
@@ -4974,6 +5390,14 @@
     "repository": "feimacode-open-design-agent-kit",
     "description": "Turn a document (a report, spec, spreadsheet, PDF, existing deck, or repository files such as a CHANGELOG) into a deck or one-pager, storyline first, with every number traced back to the source \u2014 use whenever the user wants slides, a deck, a presentation or a one-pager made from an existing document, spreadsheet, PDF or deck, or from repository files (CHANGELOG, RFCs, architecture decision records, metrics CSVs), even if they don't mention Open Design",
     "path": "category/architecture-system-design/skills-open-design-deck-from-source"
+  },
+  {
+    "id": "skills-paper-illustration",
+    "name": "skills-paper-illustration",
+    "category": "architecture-system-design",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Generate publication-quality AI illustrations for academic papers using Gemini image generation. Creates architecture diagrams, method illustrations with Claude-supervised iterative refinement loop. Use when user says \\\"\u751f\u6210\u56fe\u8868\\\", \\\"\u753b\u67b6\u6784\u56fe\\\", \\\"AI\u7ed8\u56fe\\\", \\\"paper illustration\\\", \\\"generate diagram\\\", or needs visual figures for papers.",
+    "path": "category/architecture-system-design/skills-paper-illustration"
   },
   {
     "id": "skills-plan",
@@ -5344,6 +5768,14 @@
     "path": "category/architecture-system-design/strategic-narrative-designer"
   },
   {
+    "id": "stripe-implementation-planner",
+    "name": "stripe-implementation-planner",
+    "category": "architecture-system-design",
+    "repository": "stripe-ai",
+    "description": "Plans Stripe product selection and integration architecture for an initial Stripe setup or a material expansion of an existing setup. Use when the user needs personalized recommendations based on their business model, payment models, sales channels, geography, or platform requirements, including requests to plan and build an integration. Don't use for API-version upgrades, product-availability questions, existing-integration debugging, webhook troubleshooting, narrow code changes, product explanations, PR review alone, unrelated implementation planning, or when the user explicitly asks to skip planning.",
+    "path": "category/architecture-system-design/stripe-implementation-planner"
+  },
+  {
     "id": "structure-website-structure",
     "name": "structure-website-structure",
     "category": "architecture-system-design",
@@ -5406,6 +5838,14 @@
     "repository": "makenotion-notion-cookbook",
     "description": "Comprehensive guide to building Notion Workers syncs \u2014 covers the two-sync architecture (backfill+delta), replace mode, pagination, consistency buffers, pacers, deletion strategies, and common pitfalls. Auto-loads when sync-related work is detected.",
     "path": "category/architecture-system-design/sync-guide"
+  },
+  {
+    "id": "system-commandline-cli",
+    "name": "system-commandline-cli",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Use this skill when adding, modifying, or reviewing CLI commands in a .NET project built with System.CommandLine. Triggers include: creating a new CLI command, adding options or arguments, wiring command handlers, registering subcommands, building command groups, or any architecture decision about CLI command structure. Also use when the user mentions 'System.CommandLine', 'CommandBase', 'SetAction', 'ParseResult', 'RootCommand', 'subcommand', or asks to add a verb to the CLI. Do NOT use for general C# coding, web APIs, UI work, or non-CLI projects.",
+    "path": "category/architecture-system-design/system-commandline-cli"
   },
   {
     "id": "system-design",
@@ -5592,6 +6032,14 @@
     "path": "category/architecture-system-design/thinking-and-docs-adr-verbatim"
   },
   {
+    "id": "threat-model-analyst",
+    "name": "threat-model-analyst",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Full STRIDE-A threat model analysis and incremental update skill for repositories and systems. Supports two modes: (1) Single analysis \u2014 full STRIDE-A threat model of a repository, producing architecture overviews, DFD diagrams, STRIDE-A analysis, prioritized findings, and executive assessments. (2) Incremental analysis \u2014 takes a previous threat model report as baseline, compares the codebase at the latest (or a given commit), and produces an updated report with change tracking (new, resolved, still-present threats), STRIDE heatmap, findings diff, and an embedded HTML comparison. Only activate when the user explicitly requests a threat model analysis, incremental update, or invokes /threat-model-analyst directly.",
+    "path": "category/architecture-system-design/threat-model-analyst"
+  },
+  {
     "id": "threat-modeling-expert",
     "name": "threat-modeling-expert",
     "category": "architecture-system-design",
@@ -5726,6 +6174,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Inspect the current product architecture, dependencies, and validation",
     "path": "category/architecture-system-design/understand-project-yylo"
+  },
+  {
+    "id": "update-implementation-plan",
+    "name": "update-implementation-plan",
+    "category": "architecture-system-design",
+    "repository": "github-awesome-copilot",
+    "description": "Update an existing implementation plan file with new or update requirements to provide new features, refactoring existing code or upgrading packages, design, architecture or infrastructure.",
+    "path": "category/architecture-system-design/update-implementation-plan"
   },
   {
     "id": "use-igniteui-blazor",

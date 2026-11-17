@@ -15,7 +15,7 @@ This package provides CLI interface into Playwright. If you are using **coding a
 - **Token-efficient**. Does not force page data into LLM.
 
 ### Requirements
-- Node.js 18 or newer
+- Node.js 20 or newer
 - Claude Code, GitHub Copilot, or any other coding agent.
 
 ## Getting Started
@@ -422,7 +422,7 @@ playwright-cli kill-all                 # forcefully kill all browser processes
 
 ### Local installation
 
-If global `playwright-cli` command is not available, try a local version via `npx playwright cli`:
+If global `playwright-cli` command is not available, try a local version via `npx playwright cli`. It needs Playwright 1.59 or newer:
 
 ```bash
 npx --no-install playwright --version

@@ -1,3 +1,5 @@
+<div align="center">
+
 <a href="https://docs.aitoearn.ai/zh/home"><img src="presentation/aitoearn-logo.png" alt="AiToEarn" width="360"></a>
 
 **OPC（一人公司）的 AI 内容营销智能体**
@@ -6,9 +8,12 @@
 [![License](https://img.shields.io/badge/license-MIT-3ECF8E?style=flat-square)](LICENSE)
 [![Node](https://img.shields.io/badge/node-20.18.x-3ECF8E?style=flat-square\&logo=node.js)](https://nodejs.org/about/releases)
 [![Docs](https://img.shields.io/badge/docs-aitoearn.ai-3ECF8E?style=flat-square)](https://docs.aitoearn.ai/zh/home)
-[![Trendshift](https://trendshift.io/api/badge/repositories/20785)](https://trendshift.io/repositories/20785)
+
+<a href="https://trendshift.io/repositories/20785"><img src="https://trendshift.io/api/badge/repositories/20785" alt="Trendshift"></a>
 
 简体中文 · [English](README_EN.md) · [日本語](README_JA.md)
+
+</div>
 
 **Monetize · Publish · Engage · Create —— 一站式 AI 内容变现平台。**
 
@@ -53,8 +58,26 @@ AiToEarn 通过 AI Agent 自动化，帮助一人公司、创作者、品牌与�
       商务对接可加微信：metasota12
     </td>
   </tr>
+  <tr>
+    <td align="center" width="120">
+      <a href="https://www.fastaitoken.com/register?aff=AITOEARN&promo=AITOEARN&utm=aiearn"><img src="docs/sponsors/fastaitoken-logo.png" alt="FastAIToken" width="100"></a><br>
+      <a href="https://www.fastaitoken.com/register?aff=AITOEARN&promo=AITOEARN&utm=aiearn"><strong>FastAIToken</strong></a>
+    </td>
+    <td align="left">
+      感谢<a href="https://www.fastaitoken.com/register?aff=AITOEARN&promo=AITOEARN&utm=aiearn">FastAIToken</a>对本项目的赞助！<br>
+      <strong>大模型文本-图片-视频一站式接入｜FastAIToken</strong><br>
+      FastAIToken 提供 Claude / GPT / Gemini / DeepSeek 等大模型文本-图片-视频一站式接入方案：<br>
+      · ChatGPT / OpenAI 0.06x 超低倍率<br>
+      · MiniMax H3 768P 0.07 元/秒<br>
+      · Seedance 480P 0.1 元/秒<br>
+      · 支持对公开票<br>
+      🎁 通过 <a href="https://www.fastaitoken.com/register?aff=AITOEARN&promo=AITOEARN&utm=aiearn">AiToEarn 专属链接注册</a>，即可享受专属优惠。<br>
+      官网：<a href="https://www.fastaitoken.com/register?aff=AITOEARN&promo=AITOEARN&utm=aiearn">www.fastaitoken.com</a> ｜ QQ 服务群：1054566214
+    </td>
+  </tr>
 </table>
 
+***
 
 ## 目录
 
@@ -210,10 +233,10 @@ docker compose up -d
 我们欢迎通过 Issue 提出需求与反馈，但暂不接受外部 Pull Request——新功能与修复由官方团队评估后排期实现。
 
 - **Telegram**：[t.me/+447704864210](https://t.me/+447704864210)
-- **微信扫码**：见下方二维码
+- **企业微信**：见下方二维码
 - **贡献指南**：[docs 站贡献指南](https://docs.aitoearn.ai/zh/use/contributing)
 
-<img src="presentation/wechat-1029.png" alt="微信二维码" width="200">
+<img src="presentation/wecom-qr.jpg" alt="企业微信二维码" width="200">
 
 ***
 

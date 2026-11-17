@@ -1,7 +1,7 @@
 # 👁️ Visual Taste, Critique & Typography
 
 > **Category**: `frontend-visual-taste`  
-> **Total Curated Skills**: 194 skills  
+> **Total Curated Skills**: 196 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -110,6 +110,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`higgsfield-product-photoshoot`](../../library/higgsfield-ai-skills/skills/higgsfield-product-photoshoot) | ⚪ Reserve | `higgsfield-ai-skills` | Generate brand-quality product images through Higgsfield product-photoshoot prompt enhancement ... |
 | [`high-perf-browser`](../../library/wondelai-skills/skills/high-perf-browser) | ⚪ Reserve | `wondelai-skills` | Optimize web performance through network protocols, resource loading, and browser rendering int... |
 | [`hps-bauhaus`](../../library/feimacode-open-design-agent-kit/skills/hps-bauhaus) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A visual-design fundamentals course for new brand designers — grid, type, color, and the exerci... |
+| [`image-annotations`](../../library/github-awesome-copilot/skills/image-annotations) | ⚪ Reserve | `github-awesome-copilot` | Annotate screenshots, diagrams, and images with callout rectangles, arrows, labels, and color-c... |
 | [`imagegen-frontend-mobile`](../../library/feimacode-open-design-agent-kit/skills/imagegen-frontend-mobile) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Elite mobile app image-generation skill for creating premium, app-native screen concepts and fl... |
 | [`improve-website`](../../library/wondelai-skills/skills/improve-website) | ⚪ Reserve | `wondelai-skills` | Guided journey from a live website that underperforms to a prioritized, evidence-backed backlog... |
 | [`indie-horror-aesthetics`](../../library/arjun988-blender-skills/skills/indie-horror-aesthetics) | ⚪ Reserve | `arjun988-blender-skills` | Indie horror aesthetic pack for Blender covering Silent Hill, Fear to Fathom, Puppet Combo, cor... |
@@ -127,6 +128,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`mono`](../../library/bergside-awesome-design-skills/skills/mono) | ⚪ Reserve | `bergside-awesome-design-skills` | Monospace-driven, matrix-inspired design with high-contrast elements, compact density, and a ha... |
 | [`no-ai-design-slop`](../../library/mengto-skills/skills/no-ai-design-slop) | ⚪ Reserve | `mengto-skills` | Prevent and remove generic AI-generated design defaults, incoherent visual choices, and establi... |
 | [`noir-style`](../../library/arjun988-blender-skills/skills/noir-style) | ⚪ Reserve | `arjun988-blender-skills` | Noir art direction for Blender with high-contrast lighting, wet streets, silhouettes, and monoc... |
+| [`noob-mode`](../../library/github-awesome-copilot/skills/noob-mode) | ⚪ Reserve | `github-awesome-copilot` | Plain-English translation layer for non-technical Copilot CLI users. Translates every approval ... |
 | [`optimize-text-mesh-pro`](../../library/unity-technologies-skills/skills/optimize-text-mesh-pro) | ⚪ Reserve | `unity-technologies-skills` | Optimizes TextMeshPro rendering, memory, and font setup, including font asset stacks, fallback ... |
 | [`paper`](../../library/bergside-awesome-design-skills/skills/paper) | ⚪ Reserve | `bergside-awesome-design-skills` | Paper-textured, print-inspired design with minimal colors, clean serif/sans typography, and tac... |
 | [`pixijs-blend-modes`](../../library/pixijs-pixijs-skills/skills/pixijs-blend-modes) | ⚪ Reserve | `pixijs-pixijs-skills` | Use this skill when compositing display objects with blend modes in PixiJS v8. Covers standard ... |

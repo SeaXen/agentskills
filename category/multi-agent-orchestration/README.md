@@ -1,7 +1,7 @@
 # 🤖 Multi-Agent Systems & Swarms
 
 > **Category**: `multi-agent-orchestration`  
-> **Total Curated Skills**: 37 skills  
+> **Total Curated Skills**: 41 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -26,6 +26,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`bug-hunt-swarm`](../../library/dimillian-skills/skills/bug-hunt-swarm) | ⚪ Reserve | `dimillian-skills` | Parallel read-only multi-agent root-cause investigation for bugs, regressions, crashes, flaky b... |
 | [`clawteam-agent-swarm`](../../library/reason-machines-trending-skills/skills/clawteam-agent-swarm) | ⚪ Reserve | `reason-machines-trending-skills` | name: clawteam-agent-swarm |
 | [`clawteam-openclaw-swarm`](../../library/reason-machines-trending-skills/skills/clawteam-openclaw-swarm) | ⚪ Reserve | `reason-machines-trending-skills` | name: clawteam-openclaw-swarm |
+| [`coordinate-ruflo-swarm`](../../library/ruvnet-ruflo/skills/coordinate-ruflo-swarm) | ⚪ Reserve | `ruvnet-ruflo` | Coordinate work across a RuFlo AI-agent swarm by discovering channels, reading signed updates, ... |
 | [`daaf-orchestrator`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/daaf-orchestrator) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Operational framework for the DAAF orchestrator. Defines engagement modes, confirmation protoco... |
 | [`delegating-work`](../../library/mvschwarz-openrig/skills/delegating-work) | ⚪ Reserve | `mvschwarz-openrig` | Use when you have a task and must decide WHO does it — yourself, a spawned subagent, or another... |
 | [`dispatching-parallel-agents`](../../skills/dispatching-parallel-agents) | 🟢 Active | `active` | Use when facing 2+ independent tasks that can be worked on without shared state or sequential d... |
@@ -47,6 +48,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skill-stocktake`](../../library/affaan-m-ecc/skills/skill-stocktake) | ⚪ Reserve | `affaan-m-ecc` | Use when auditing Claude skills and commands for quality. Supports Quick Scan (changed skills o... |
 | [`skills-agent-designer`](../../library/alirezarezvani-claude-skills/skills/skills-agent-designer) | ⚪ Reserve | `alirezarezvani-claude-skills` | Design multi-agent systems (supervisor, swarm, pipeline) and tool schemas; find bottlenecks in ... |
 | [`skills-agent-development`](../../library/anthropics-claude-plugins-official/skills/skills-agent-development) | ⚪ Reserve | `anthropics-claude-plugins-official` | This skill should be used when the user asks to "create an agent", "add an agent", "write a sub... |
+| [`skills-auto-review-loop`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/skills-auto-review-loop) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Autonomous multi-round research review loop. In Copilot CLI it defaults to the native complemen... |
 | [`skills-dispatching-parallel-agents`](../../library/obra-superpowers/skills/skills-dispatching-parallel-agents) | ⚪ Reserve | `obra-superpowers` | Use when facing 2+ independent tasks that can be worked on without shared state or sequential d... |
 | [`skills-executing-plans`](../../library/obra-superpowers/skills/skills-executing-plans) | ⚪ Reserve | `obra-superpowers` | Use when executing an implementation plan in the current session as the implementer yourself — ... |
 | [`skills-subagent-driven-development`](../../library/obra-superpowers/skills/skills-subagent-driven-development) | ⚪ Reserve | `obra-superpowers` | Use when executing implementation plans with independent tasks in the current session |
@@ -55,4 +57,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`subagent-driven-development`](../../skills/subagent-driven-development) | 🟢 Active | `active` | Use when executing implementation plans with independent tasks in the current session |
 | [`subagent-driven-review`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/subagent-driven-review) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Use parallel subagents for large-scale paper screening and deep dive analysis |
 | [`subagent-orchestrator`](../../library/sickn33-agentic-awesome-skills/skills/subagent-orchestrator) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Coordinate quota-aware parallel subagents for large, multi-file Antigravity tasks. |
+| [`task-observer`](../../library/rebelytics-one-skill-to-rule-them-all/skills/task-observer) | ⚪ Reserve | `rebelytics-one-skill-to-rule-them-all` | Turns corrections, repeated workflows and judgement calls from work sessions into small, eviden... |
+| [`triage-ruflo-work`](../../library/ruvnet-ruflo/skills/triage-ruflo-work) | ⚪ Reserve | `ruvnet-ruflo` | Triage a RuFlo swarm without changing coordination state by inspecting channels, signed updates... |
 | [`weekly-digests`](../../library/thedotmack-claude-mem/skills/weekly-digests) | ⚪ Reserve | `thedotmack-claude-mem` | Generate a serial week-by-week narrative digest of a project's full claude-mem timeline. Splits... |

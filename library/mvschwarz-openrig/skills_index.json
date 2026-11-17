@@ -120,6 +120,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link core-cross-host-rig-commands"
   },
   {
+    "id": "core-messaging-the-human",
+    "name": "core-messaging-the-human",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": "\"Use when project policy calls for a human decision or update, a human delivery is pending or failed, or a reply must resume the right work.\"",
+    "path": "library/mvschwarz-openrig/skills/core-messaging-the-human",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-messaging-the-human",
+    "link_cmd": "python .agents/library/activate_skill.py link core-messaging-the-human"
+  },
+  {
     "id": "core-openrig-architect",
     "name": "core-openrig-architect",
     "repository": "mvschwarz-openrig",
@@ -128,6 +138,16 @@
     "path": "library/mvschwarz-openrig/skills/core-openrig-architect",
     "activation_cmd": "python .agents/library/activate_skill.py activate core-openrig-architect",
     "link_cmd": "python .agents/library/activate_skill.py link core-openrig-architect"
+  },
+  {
+    "id": "core-openrig-herdr",
+    "name": "core-openrig-herdr",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": ">",
+    "path": "library/mvschwarz-openrig/skills/core-openrig-herdr",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-openrig-herdr",
+    "link_cmd": "python .agents/library/activate_skill.py link core-openrig-herdr"
   },
   {
     "id": "core-openrig-skills",
@@ -158,6 +178,26 @@
     "path": "library/mvschwarz-openrig/skills/core-rig-lifecycle",
     "activation_cmd": "python .agents/library/activate_skill.py activate core-rig-lifecycle",
     "link_cmd": "python .agents/library/activate_skill.py link core-rig-lifecycle"
+  },
+  {
+    "id": "core-watchdog",
+    "name": "core-watchdog",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": "Use when configuring `rig watchdog` policies, authoring wake/refocus/alignment-checkpoint messages, or choosing the right intervention level for a stale-owner situation. The 3-level continuity-check stack (wake / refocus / alignment-checkpoint), the discipline that prevents cadence pollution and bureaucracy theater, and the artifact-pool loop-edge pattern for evidence-aware waking.",
+    "path": "library/mvschwarz-openrig/skills/core-watchdog",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-watchdog",
+    "link_cmd": "python .agents/library/activate_skill.py link core-watchdog"
+  },
+  {
+    "id": "core-working-with-an-openrig-team",
+    "name": "core-working-with-an-openrig-team",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": ">-",
+    "path": "library/mvschwarz-openrig/skills/core-working-with-an-openrig-team",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-working-with-an-openrig-team",
+    "link_cmd": "python .agents/library/activate_skill.py link core-working-with-an-openrig-team"
   },
   {
     "id": "cross-host-rig-commands",
@@ -540,6 +580,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link skills-agent-operated-software"
   },
   {
+    "id": "skills-claude-compaction-restore",
+    "name": "skills-claude-compaction-restore",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": "Use when a Claude Code session is about to compact, has just compacted, reached its context limit, resumed after /compact, or must rebuild its working picture of a long-running seat from its own restore map, its JSONL transcript and the files it touched.",
+    "path": "library/mvschwarz-openrig/skills/skills-claude-compaction-restore",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-claude-compaction-restore",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-claude-compaction-restore"
+  },
+  {
+    "id": "skills-messaging-the-human",
+    "name": "skills-messaging-the-human",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": "\"Use when project policy calls for a human decision or update, a human delivery is pending or failed, or a reply must resume the right work.\"",
+    "path": "library/mvschwarz-openrig/skills/skills-messaging-the-human",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-messaging-the-human",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-messaging-the-human"
+  },
+  {
     "id": "skills-openrig-skills",
     "name": "skills-openrig-skills",
     "repository": "mvschwarz-openrig",
@@ -560,6 +620,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link skills-openrig-user"
   },
   {
+    "id": "skills-orienting-to-an-inherited-seat",
+    "name": "skills-orienting-to-an-inherited-seat",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": "Use when you have just been primed into an EXISTING seat through a planned handover \u2014 a different agent retired and handed you the seat plus its earned context \u2014 and you need a world model of what just happened to you. Covers how a handover differs from compaction and from a fresh launch, the inherit-the-seat-not-the-identity rule, treating the handover packet as testimony you verify (and following the current row over a stale ghost prompt, and verifying your OWN identity surfaces), why a seat is a COMPOUNDING LINEAGE (inherit the state, acquire the predecessor's epistemology, then improve and re-deposit so the next generation is better), how to query your predecessor, your duty to stream feedback and re-deposit your earned wisdom, and how to route to role-specific onboarding. NOT the driver-side handover mechanic (retiring-and-inheriting-a-seat) and NOT unplanned compaction/crash recovery (claude-compaction-restore / session-compaction-and-restore).",
+    "path": "library/mvschwarz-openrig/skills/skills-orienting-to-an-inherited-seat",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-orienting-to-an-inherited-seat",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-orienting-to-an-inherited-seat"
+  },
+  {
     "id": "skills-refocusing",
     "name": "skills-refocusing",
     "repository": "mvschwarz-openrig",
@@ -568,6 +638,16 @@
     "path": "library/mvschwarz-openrig/skills/skills-refocusing",
     "activation_cmd": "python .agents/library/activate_skill.py activate skills-refocusing",
     "link_cmd": "python .agents/library/activate_skill.py link skills-refocusing"
+  },
+  {
+    "id": "skills-retiring-and-inheriting-a-seat",
+    "name": "skills-retiring-and-inheriting-a-seat",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": "Use when you are a sitting agent near your context threshold (~85%) and a PLANNED seat transition is due \u2014 retire deliberately and hand your seat to a fresh successor primed from a packet, rather than let compaction degrade you. Covers the handover packet, the append-only lineage ledger (one row per tenure), physical-seat continuity, the do-not-over-inherit framing, the optional warm-handoff window, and wake-v0 (consulting a retired predecessor). NOT for unplanned compaction/crash recovery (session-compaction-and-restore / claude-compaction-restore) and NOT the seat-binding primitive mechanics (seat-continuity-and-handover).",
+    "path": "library/mvschwarz-openrig/skills/skills-retiring-and-inheriting-a-seat",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-retiring-and-inheriting-a-seat",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-retiring-and-inheriting-a-seat"
   },
   {
     "id": "skills-rigs",
@@ -588,6 +668,26 @@
     "path": "library/mvschwarz-openrig/skills/skills-seat-continuity-and-handover",
     "activation_cmd": "python .agents/library/activate_skill.py activate skills-seat-continuity-and-handover",
     "link_cmd": "python .agents/library/activate_skill.py link skills-seat-continuity-and-handover"
+  },
+  {
+    "id": "skills-session-compaction-and-restore",
+    "name": "skills-session-compaction-and-restore",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": "Use when reasoning about what survives compaction/context-loss/restart/seat-refresh, designing a high-fidelity restore packet, or distinguishing native runtime resume vs fork vs artifact-backed mental-model rebuild. Covers the 4 failure modes that prevent honest restore (compacted seat drops hot potato; restore packet preserves details but loses product intent; runtime resume mistaken for handover or fork; rebuilt seat starts with stale instructions).",
+    "path": "library/mvschwarz-openrig/skills/skills-session-compaction-and-restore",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-session-compaction-and-restore",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-session-compaction-and-restore"
+  },
+  {
+    "id": "skills-working-with-an-openrig-team",
+    "name": "skills-working-with-an-openrig-team",
+    "repository": "mvschwarz-openrig",
+    "category": "general",
+    "description": ">-",
+    "path": "library/mvschwarz-openrig/skills/skills-working-with-an-openrig-team",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-working-with-an-openrig-team",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-working-with-an-openrig-team"
   },
   {
     "id": "software-for-agents",

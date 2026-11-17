@@ -1,7 +1,7 @@
 # ⚡ NoSQL, Serverless & Vector DBs
 
 > **Category**: `database-nosql-serverless`  
-> **Total Curated Skills**: 134 skills  
+> **Total Curated Skills**: 140 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -45,6 +45,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cloud-firebase-basics`](../../library/google-skills/skills/cloud-firebase-basics) | ⚪ Reserve | `google-skills` | Provides foundational Firebase CLI setup, CLI installation, version checks (`firebase-tools@lat... |
 | [`cosmos-vulnerability-scanner`](../../library/trailofbits-skills/skills/cosmos-vulnerability-scanner) | ⚪ Reserve | `trailofbits-skills` | Scans Cosmos SDK blockchain modules and CosmWasm contracts for consensus-critical vulnerabiliti... |
 | [`cosmosdb-best-practices`](../../library/cline-skills/skills/cosmosdb-best-practices) | ⚪ Reserve | `cline-skills` | Azure Cosmos DB performance optimization and best practices guidelines for NoSQL, partitioning,... |
+| [`cosmosdb-datamodeling`](../../library/github-awesome-copilot/skills/cosmosdb-datamodeling) | ⚪ Reserve | `github-awesome-copilot` | Step-by-step guide for capturing key application requirements for NoSQL use-case and produce Az... |
 | [`cost-analysis`](../../library/microsoft-azure-skills/skills/cost-analysis) | ⚪ Reserve | `microsoft-azure-skills` | Analyze actual Azure spend, bill changes, and AKS or AI costs. WHEN: \"Azure cost breakdown\", ... |
 | [`crash-analytics`](../../library/appeeky-aso-skills/skills/crash-analytics) | ⚪ Reserve | `appeeky-aso-skills` | When the user wants to monitor, triage, or reduce their app's crash rate — including setting up... |
 | [`cvss-scoring`](../../library/trailofbits-skills/skills/cvss-scoring) | ⚪ Reserve | `trailofbits-skills` | Produces CVSS v4.0 vector strings from plain-text vulnerability descriptions by systematically ... |
@@ -126,9 +127,14 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-firebase-security-rules-auditor`](../../library/firebase-agent-skills/skills/skills-firebase-security-rules-auditor) | ⚪ Reserve | `firebase-agent-skills` | Audits Firebase (Firestore, Cloud Storage) security rules for vulnerabilities, privilege escala... |
 | [`skills-firestore-rules-creation`](../../library/firebase-agent-skills/skills/skills-firestore-rules-creation) | ⚪ Reserve | `firebase-agent-skills` | Designs, authors, refactors, and hardens production-grade Cloud Firestore Security Rules (fires... |
 | [`skills-mirrord-header-propagation`](../../library/metalbear-co-mirrord/skills/skills-mirrord-header-propagation) | ⚪ Reserve | `metalbear-co-mirrord` | Makes a codebase propagate W3C baggage (the `baggage` header carrying `mirrord-session=<key>`) ... |
+| [`skills-neon-auth`](../../library/neondatabase-agent-skills/skills/skills-neon-auth) | ⚪ Reserve | `neondatabase-agent-skills` | Add authentication to a new app. Use for "add auth", "add login", Neon Auth (Managed Better Aut... |
 | [`skills-rag-architect`](../../library/alirezarezvani-claude-skills/skills/skills-rag-architect) | ⚪ Reserve | `alirezarezvani-claude-skills` | Design a RAG pipeline: chunk size, embedding model, vector database and retrieval quality metri... |
 | [`skills-rag-implementation`](../../library/wshobson-agents/skills/skills-rag-implementation) | ⚪ Reserve | `wshobson-agents` | Build Retrieval-Augmented Generation (RAG) systems for LLM applications with vector databases a... |
 | [`skills-redis-patterns`](../../library/affaan-m-ecc/skills/skills-redis-patterns) | ⚪ Reserve | `affaan-m-ecc` | Redisデータ構造パターン、キャッシング戦略、分散ロック、レート制限、Pub/Sub、本番アプリケーション用コネクション管理。 |
+| [`skills-vector-cluster`](../../library/ruvnet-ruflo/skills/skills-vector-cluster) | ⚪ Reserve | `ruvnet-ruflo` | Cluster code by graph community detection via npx ruvector@0.3.13 hooks graph-cluster (spectral... |
+| [`skills-vector-embed`](../../library/ruvnet-ruflo/skills/skills-vector-embed) | ⚪ Reserve | `ruvnet-ruflo` | Generate embeddings via npx ruvector@0.3.13 embed text (ONNX all-MiniLM-L6-v2, 384-dim), normal... |
+| [`skills-vector-hyperbolic`](../../library/ruvnet-ruflo/skills/skills-vector-hyperbolic) | ⚪ Reserve | `ruvnet-ruflo` | Place hierarchical data in the Poincare ball using depth for the radius and npx ruvector@0.3.13... |
+| [`skills-vector-setup`](../../library/ruvnet-ruflo/skills/skills-vector-setup) | ⚪ Reserve | `ruvnet-ruflo` | First-run setup for ruvector@0.3.13 — installs ONNX/Brain/SONA add-ons, registers the MCP serve... |
 | [`skills-xcode-project-setup`](../../library/firebase-agent-skills/skills/skills-xcode-project-setup) | ⚪ Reserve | `firebase-agent-skills` | Safely modifies Xcode projects (.pbxproj) to add Swift Packages and link files. Use this skill ... |
 | [`spring-boot-cache`](../../library/giuseppe-trisciuoglio-developer-kit/skills/spring-boot-cache) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides patterns for implementing Spring Boot caching: configures Redis/Caffeine/EhCache provi... |
 | [`supabase`](../../library/membranedev-application-skills/skills/supabase) | ⚪ Reserve | `membranedev-application-skills` | Supabase integration. Manage data, records, and automate workflows. Use when the user wants to ... |
@@ -138,7 +144,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`tao-run-deft-cr-its-mining`](../../library/nvidia-skills/skills/tao-run-deft-cr-its-mining) | ⚪ Reserve | `nvidia-skills` | Run the mining-based DEFT improvement workflow for ITS Cosmos-Reason binary video questions, fo... |
 | [`turboquant-pytorch`](../../library/reason-machines-trending-skills/skills/turboquant-pytorch) | ⚪ Reserve | `reason-machines-trending-skills` | PyTorch implementation of TurboQuant for LLM KV cache compression using two-stage vector quanti... |
 | [`unauthorized-access-common-services`](../../library/yaklang-hack-skills/skills/unauthorized-access-common-services) | ⚪ Reserve | `yaklang-hack-skills` | Unauthorized access playbook for common exposed services. Use when Redis, Rsync, PHP-FPM, AJP/G... |
-| [`upstash-redis`](../../library/membranedev-application-skills/skills/upstash-redis) | ⚪ Reserve | `membranedev-application-skills` | Upstash Redis integration. Manage data, records, and automate workflows. Use when the user want... |
+| [`upstash-redis`](../../library/github-awesome-copilot/skills/upstash-redis) | ⚪ Reserve | `github-awesome-copilot` | Use Redis over HTTP from serverless and edge runtimes with @upstash/redis, and add rate limitin... |
 | [`vector-cluster`](../../library/ruvnet-ruflo/skills/vector-cluster) | ⚪ Reserve | `ruvnet-ruflo` | Cluster code by graph community detection via npx ruvector@0.3.3 hooks graph-cluster (spectral ... |
 | [`vector-database-engineer`](../../library/antigravity-awesome-skills/skills/vector-database-engineer) | ⚪ Reserve | `antigravity-awesome-skills` | Expert in vector databases, embedding strategies, and semantic search implementation. Masters P... |
 | [`vector-database-ops`](../../library/sickn33-agentic-awesome-skills/skills/vector-database-ops) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Deploy, manage, and optimize vector databases for AI applications. |

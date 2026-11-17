@@ -288,6 +288,46 @@
     "path": "category/cloudflare-edge/coding-agent"
   },
   {
+    "id": "competition-browser-persistence",
+    "name": "competition-browser-persistence",
+    "category": "cloudflare-edge",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for browser cookies, localStorage, sessionStorage, IndexedDB, Cache Storage, service workers, offline caches, and client-side session persistence. Use when the user asks to inspect browser state, replay cached auth or session behavior, explain why a page behaves differently after load, or trace how stored client state changes requests, rendering, or access. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/cloudflare-edge/competition-browser-persistence"
+  },
+  {
+    "id": "competition-kerberos-delegation",
+    "name": "competition-kerberos-delegation",
+    "category": "cloudflare-edge",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for Kerberos delegation, SPN trust edges, S4U abuse, RBCD, constrained or unconstrained delegation, and service-ticket acceptance. Use when the user asks about constrained delegation, unconstrained delegation, RBCD, S4U, SPNs, ticket acceptance, or how a Kerberos trust edge turns into effective privilege under sandbox assumptions. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/cloudflare-edge/competition-kerberos-delegation"
+  },
+  {
+    "id": "competition-lsass-ticket-material",
+    "name": "competition-lsass-ticket-material",
+    "category": "cloudflare-edge",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for LSASS-resident secrets, Windows logon sessions, Kerberos ticket caches, DPAPI-backed material, SSP artifacts, and replayable credential extraction. Use when the user asks to inspect LSASS memory, recover tickets or logon sessions, trace DPAPI or SSP material, distinguish which credential artifacts are replayable, or connect host-resident credential material to an accepted pivot or privilege edge. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/cloudflare-edge/competition-lsass-ticket-material"
+  },
+  {
+    "id": "competition-queue-worker-drift",
+    "name": "competition-queue-worker-drift",
+    "category": "cloudflare-edge",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for queues, async workers, cron jobs, delayed tasks, retry behavior, worker-only config drift, and payload-to-side-effect chains. Use when the user asks to trace a queue payload, inspect async job execution, explain worker-only behavior, follow retries or dead-letter handling, or connect an enqueued item to a later file, cache, email, or privilege-bearing side effect. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/cloudflare-edge/competition-queue-worker-drift"
+  },
+  {
+    "id": "competition-ssrf-metadata-pivot",
+    "name": "competition-ssrf-metadata-pivot",
+    "category": "cloudflare-edge",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for SSRF reachability, internal route probing, metadata-service access, credential pivoting, and token-to-accepted-privilege chains. Use when the user asks to trace SSRF sources, internal hosts, metadata endpoints, link-local tokens, service-account credentials, or explain how a server-side fetch edge turns into accepted access. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/cloudflare-edge/competition-ssrf-metadata-pivot"
+  },
+  {
     "id": "coordinator-mode",
     "name": "coordinator-mode",
     "category": "cloudflare-edge",
@@ -462,6 +502,14 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "Use when delegating grunt work to free opencode workers instead of spending Claude tokens: one worker or a scout, coder and tester swarm in worktrees. Triggers on 'spawn a worker', 'swarm', 'delegate to opencode' or /oc.",
     "path": "category/cloudflare-edge/engineering-hivemind"
+  },
+  {
+    "id": "entra-agent-user",
+    "name": "entra-agent-user",
+    "category": "cloudflare-edge",
+    "repository": "github-awesome-copilot",
+    "description": "Create Agent Users in Microsoft Entra ID from Agent Identities, enabling AI agents to act as digital workers with user identity capabilities in Microsoft 365 and Azure environments.",
+    "path": "category/cloudflare-edge/entra-agent-user"
   },
   {
     "id": "evaluate-narrative-drift-monitor",
@@ -824,6 +872,22 @@
     "path": "category/cloudflare-edge/pwa-development"
   },
   {
+    "id": "python-azure-iot-edge-modules",
+    "name": "python-azure-iot-edge-modules",
+    "category": "cloudflare-edge",
+    "repository": "github-awesome-copilot",
+    "description": "Build and operate Python Azure IoT Edge modules with robust messaging, deployment manifests, observability, and production readiness checks.",
+    "path": "category/cloudflare-edge/python-azure-iot-edge-modules"
+  },
+  {
+    "id": "qdrant-deployment-options",
+    "name": "qdrant-deployment-options",
+    "category": "cloudflare-edge",
+    "repository": "github-awesome-copilot",
+    "description": "Guides Qdrant deployment selection. Use when someone asks 'how to deploy Qdrant', 'Docker vs Cloud', 'local mode', 'embedded Qdrant', 'Qdrant EDGE', 'which deployment option', 'self-hosted vs cloud', or 'need lowest latency deployment'. Also use when choosing between deployment types for a new project.",
+    "path": "category/cloudflare-edge/qdrant-deployment-options"
+  },
+  {
     "id": "rails-expert",
     "name": "rails-expert",
     "category": "cloudflare-edge",
@@ -984,6 +1048,14 @@
     "path": "category/cloudflare-edge/skills-demo-video"
   },
   {
+    "id": "skills-gmgn-wallet-analysis",
+    "name": "skills-gmgn-wallet-analysis",
+    "category": "cloudflare-edge",
+    "repository": "gmgnai-gmgn-skills",
+    "description": "The trader's decision dossier on a wallet \u2014 four pass/fail gates (is the record real, is the edge still working THIS week, can you actually get filled, does it cut losses) plus what the wallet is holding and buying right now, its entry market-cap band, its copy window in seconds, and a concrete size cap. Answers the question a memecoin trader actually has: \"the numbers look good, but if I copy this wallet what happens to me?\" Use when the user asks \u300c\u8fd9\u4e2a\u94b1\u5305\u80fd\u8ddf\u5417\u300d, \u300c\u5e2e\u6211\u5206\u6790\u4e00\u4e0b\u8fd9\u4e2a\u94b1\u5305\u300d, \u300c\u5b83\u73b0\u5728\u5728\u4e70\u4ec0\u4e48\u300d, \u300c\u8fd9\u4e2a\u94b1\u5305\u6700\u8fd1\u8fd8\u884c\u5417\u300d, \u300c\u8ddf\u7740\u4ed6\u4e70\u6211\u80fd\u5403\u5230\u5417\u300d, \u300c\u4ed6\u662f\u4e0d\u662f\u5df2\u7ecf\u4e0d\u884c\u4e86\u300d, \u300c\u5b83\u662f\u4ec0\u4e48\u7c7b\u578b\u7684\u300d, \"can I copy this wallet\", \"analyze this wallet\", \"what is this wallet buying now\", \"is this wallet still hot\", \"would I actually get filled following this\", or pastes a bare wallet address. This is the default for a bare wallet address, answering \"what kind of trader is this\" and \"should I act on it\" in one pass. A one-line recap or \u6253\u6cd5 advice (\u590d\u76d8, \u4e00\u53e5\u8bdd\u603b\u7ed3, \u4e0b\u4e00\u6b65\u600e\u4e48\u6253) goes to gmgn-wallet-review; style-only asks (\u8fd9\u4e2a\u94b1\u5305\u4ec0\u4e48\u98ce\u683c, \u6253\u6cd5) to gmgn-wallet-style.",
+    "path": "category/cloudflare-edge/skills-gmgn-wallet-analysis"
+  },
+  {
     "id": "skills-mirrord-propagation-discovery",
     "name": "skills-mirrord-propagation-discovery",
     "category": "cloudflare-edge",
@@ -1051,7 +1123,7 @@
     "id": "skills-swarm",
     "name": "skills-swarm",
     "category": "cloudflare-edge",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Fan out N parallel workers, drain them, and return one report. Use for /swarm, 'swarm this', or parallel coverage, races, gauntlets, and exploration.",
     "path": "category/cloudflare-edge/skills-swarm"
   },
@@ -1174,6 +1246,14 @@
     "repository": "cloudflare-skills",
     "description": "Audit, diagnose, or optimize website loading and interaction performance, Core Web Vitals, and Lighthouse performance scores.",
     "path": "category/cloudflare-edge/web-perf"
+  },
+  {
+    "id": "web-perimeter-owasp-2025-audit",
+    "name": "web-perimeter-owasp-2025-audit",
+    "category": "cloudflare-edge",
+    "repository": "affaan-m-ecc",
+    "description": "Passive, non-destructive web perimeter security auditing mapped to OWASP Top 10:2025 surface leads, CDN Unkeyed Header Web Cache Poisoning (X-Forwarded-Host), supply chain manifest exposure, git object dumping prevention (/.git/HEAD), cryptographic headers, and AI crawler boundary governance (llms.txt, robots.txt). Use when auditing production domains, configuring Cloudflare/Vercel/Nginx edge security, or preparing pre-launch perimeter checks.",
+    "path": "category/cloudflare-edge/web-perimeter-owasp-2025-audit"
   },
   {
     "id": "workday-automation",

@@ -1,7 +1,7 @@
 # 🎭 Playwright & Browser Automation
 
 > **Category**: `testing-playwright-e2e`  
-> **Total Curated Skills**: 184 skills  
+> **Total Curated Skills**: 194 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -40,6 +40,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cloud`](../../library/browser-use-skills/skills/cloud) | ⚪ Reserve | `browser-use-skills` | Documentation reference for using Browser Use Cloud — the hosted API and SDK for browser automa... |
 | [`comprehensive-testing`](../../library/majiayu000-spellbook/skills/comprehensive-testing) | ⚪ Reserve | `majiayu000-spellbook` | Complete testing strategy covering TDD workflow, test pyramid, unit/integration/E2E/property te... |
 | [`consumer-goods-tpe-dashboard-configure`](../../library/forcedotcom-sf-skills/skills/consumer-goods-tpe-dashboard-configure) | ⚪ Reserve | `forcedotcom-sf-skills` | End-to-end headless setup of Trade Promotion Effectiveness (TPE) dashboards for a Trade Promoti... |
+| [`content-management-systems`](../../library/github-awesome-copilot/skills/content-management-systems) | ⚪ Reserve | `github-awesome-copilot` | Workflow for building and modifying content management systems across WordPress, Shopify, Wix, ... |
 | [`contentful-automation`](../../library/composio-community-awesome-codex-skills/skills/contentful-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate headless CMS operations in Contentful -- list spaces, retrieve space metadata, and upd... |
 | [`dev`](../../library/microsoft-playwright-cli/skills/dev) | ⚪ Reserve | `microsoft-playwright-cli` | Development workflows for the playwright-cli repository. Use when the user asks about rolling d... |
 | [`e2e-seo-assistant`](../../library/irinabuht12-oss-marketing-skills/skills/e2e-seo-assistant) | ⚪ Reserve | `irinabuht12-oss-marketing-skills` | Full SEO workflow covering technical audits, content gaps, backlink opportunities, on-page fixe... |
@@ -74,6 +75,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`etsy-shop-catalog`](../../library/browser-act-skills/skills/etsy-shop-catalog) | ⚪ Reserve | `browser-act-skills` | Etsy shop catalog scraper: given an Etsy shop URL (e.g. https://www.etsy.com/shop/{shop-name}) ... |
 | [`experience-portal-create`](../../library/forcedotcom-sf-skills/skills/experience-portal-create) | ⚪ Reserve | `forcedotcom-sf-skills` | Create / provision / set up a NEW Digital Experience (Communities) / Experience Cloud site — em... |
 | [`fix`](../../library/alirezarezvani-claude-skills/skills/fix) | ⚪ Reserve | `alirezarezvani-claude-skills` | Fix failing or flaky Playwright tests. Use when user says "fix test", "flaky test", "test faili... |
+| [`game-dev-character-model`](../../library/mengto-skills/skills/game-dev-character-model) | ⚪ Reserve | `mengto-skills` | Create a realistic, AAA-looking 3D character model for a game or web scene, from a description ... |
 | [`geo-crawlers`](../../library/sickn33-agentic-awesome-skills/skills/geo-crawlers) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | AI crawler access analysis. |
 | [`ghidra-headless`](../../library/trailofbits-skills-curated/skills/ghidra-headless) | ⚪ Reserve | `trailofbits-skills-curated` | Reverse engineers binaries using Ghidra's headless analyzer. Use when decompiling executables, ... |
 | [`ghidra-reverse`](../../library/sickn33-agentic-awesome-skills/skills/ghidra-reverse) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Free/open reverse engineering with Ghidra (headless or GUI): decompilation, cross-references, s... |
@@ -81,6 +83,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`godot-3d-essentials`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/godot-3d-essentials) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Godot 4.7 3D scene setup: Camera3D, lights, WorldEnvironment (sky, ambient, tonemap, fog), Stan... |
 | [`godot-multiplayer`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/godot-multiplayer) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Godot 4.7 high-level multiplayer: ENet host and join, @rpc with rpc_id(), MultiplayerSpawner an... |
 | [`godot-shaders`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/godot-shaders) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Godot 4.7 Shading Language syntax and pipeline: canvas_item, spatial and particle shaders, buil... |
+| [`godot-testing`](../../library/affaan-m-ecc/skills/godot-testing) | ⚪ Reserve | `affaan-m-ecc` | Testing Godot 4 GDScript projects - a zero-dependency headless check scene, gdUnit4 and GUT sui... |
 | [`goofish-search-list`](../../library/browser-act-skills/skills/goofish-search-list) | ⚪ Reserve | `browser-act-skills` | Scrapes second-hand item search results from Goofish (闲鱼/xianyu, goofish.com) — China's largest... |
 | [`google-maps-contact-extract`](../../library/browser-act-skills/skills/google-maps-contact-extract) | ⚪ Reserve | `browser-act-skills` | Extracts business contact details from Google Maps search results and place detail pages, then ... |
 | [`google-scholar-scraper`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/google-scholar-scraper) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Ethical Google Scholar data collection techniques and best practices |
@@ -110,8 +113,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`open-source`](../../library/browser-use-skills/skills/open-source) | ⚪ Reserve | `browser-use-skills` | Documentation reference for writing Python code using the browser-use open-source library. Use ... |
 | [`opengame-agentic-game-creation`](../../library/reason-machines-trending-skills/skills/opengame-agentic-game-creation) | ⚪ Reserve | `reason-machines-trending-skills` | OpenGame is an open-source agentic framework for end-to-end web game creation from a single tex... |
 | [`playwright-automation`](../../library/majiayu000-spellbook/skills/playwright-automation) | ⚪ Reserve | `majiayu000-spellbook` | Browser automation and testing with Playwright. Use when testing web applications, automating b... |
+| [`playwright-automation-fill-in-form`](../../library/github-awesome-copilot/skills/playwright-automation-fill-in-form) | ⚪ Reserve | `github-awesome-copilot` | Automate filling in a form using Playwright MCP |
 | [`playwright-cli`](../../skills/playwright-cli) | 🟢 Active | `active` | Automate browser interactions, test web pages and work with Playwright tests. |
 | [`playwright-e2e-builder`](../../library/davila7-claude-code-templates/skills/playwright-e2e-builder) | ⚪ Reserve | `davila7-claude-code-templates` | Plan and build comprehensive Playwright E2E test suites with Page Object Model, authentication ... |
+| [`playwright-explore-website`](../../library/github-awesome-copilot/skills/playwright-explore-website) | ⚪ Reserve | `github-awesome-copilot` | Website exploration for testing using Playwright MCP |
+| [`playwright-generate-test`](../../library/github-awesome-copilot/skills/playwright-generate-test) | ⚪ Reserve | `github-awesome-copilot` | Generate a Playwright test based on a scenario using Playwright MCP |
 | [`playwright-interactive`](../../skills/playwright-interactive) | 🟢 Active | `active` | Persistent browser and Electron interaction through `js_repl` for fast iterative UI debugging. |
 | [`playwright-skill`](../../library/antigravity-awesome-skills/skills/playwright-skill) | ⚪ Reserve | `antigravity-awesome-skills` | Complete browser automation with Playwright. Auto-detects dev servers, writes clean test script... |
 | [`pptx-author`](../../library/anthropics-financial-services/skills/pptx-author) | ⚪ Reserve | `anthropics-financial-services` | Produce a .pptx file on disk (headless) instead of driving a live PowerPoint document — for man... |
@@ -138,6 +144,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`screenstudio-alt`](../../library/sickn33-agentic-awesome-skills/skills/screenstudio-alt) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Open-source headless Screen Studio alternative: auto speed-up of idle, auto-zoom on click clust... |
 | [`self-improvement`](../../library/pskoett-pskoett-ai-skills/skills/self-improvement) | ⚪ Reserve | `pskoett-pskoett-ai-skills` | Captures learnings, errors, corrections, and feature requests to enable continuous improvement.... |
 | [`seo-geo`](../../library/agricidaniel-claude-seo/skills/seo-geo) | ⚪ Reserve | `agricidaniel-claude-seo` | Audit and improve content for AI Overviews and answer engines, including citability, entity cla... |
+| [`seo-shopify`](../../library/agricidaniel-claude-seo/skills/seo-shopify) | ⚪ Reserve | `agricidaniel-claude-seo` | Uncapped, sitemap-complete crawl of a Shopify storefront using the merchant's Crawler Access si... |
 | [`service-de-channel-routing-configure`](../../library/forcedotcom-sf-skills/skills/service-de-channel-routing-configure) | ⚪ Reserve | `forcedotcom-sf-skills` | Configure routing on a newly-inserted Enhanced `MessagingChannel` so activation will accept it.... |
 | [`service-de-headless-channel-configure`](../../library/forcedotcom-sf-skills/skills/service-de-headless-channel-configure) | ⚪ Reserve | `forcedotcom-sf-skills` | Top-level orchestrator: given a messaging channel type and its inputs, produces an activated En... |
 | [`service-itsm-agentic-setup-uel-user-create`](../../library/forcedotcom-sf-skills/skills/service-itsm-agentic-setup-uel-user-create) | ⚪ Reserve | `forcedotcom-sf-skills` | Provision and enable a Unified Employee License (UEL) user in Salesforce with the full entity c... |
@@ -160,6 +167,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-report`](../../library/alirezarezvani-claude-skills/skills/skills-report) | ⚪ Reserve | `alirezarezvani-claude-skills` | Summarize Playwright results. Use whenever the user asks how tests went, for a test report or s... |
 | [`skills-run-smoke-tests`](../../library/cursor-plugins/skills/skills-run-smoke-tests) | ⚪ Reserve | `cursor-plugins` | Run Playwright smoke tests, debug failures, and verify fixes |
 | [`skills-seo-geo`](../../library/agricidaniel-claude-seo/skills/skills-seo-geo) | ⚪ Reserve | `agricidaniel-claude-seo` | Audit and improve content for AI Overviews and answer engines, including citability, entity cla... |
+| [`skills-service-de-channel-routing-configure`](../../library/forcedotcom-sf-skills/skills/skills-service-de-channel-routing-configure) | ⚪ Reserve | `forcedotcom-sf-skills` | Configure routing on a newly-inserted Enhanced `MessagingChannel` so activation will accept it.... |
+| [`skills-service-de-headless-channel-configure`](../../library/forcedotcom-sf-skills/skills/skills-service-de-headless-channel-configure) | ⚪ Reserve | `forcedotcom-sf-skills` | Top-level orchestrator: given a messaging channel type and its inputs, produces an activated En... |
 | [`skills-tdd-workflow`](../../library/affaan-m-ecc/skills/skills-tdd-workflow) | ⚪ Reserve | `affaan-m-ecc` | Usar este skill al escribir nuevas funcionalidades, corregir bugs o refactorizar código. Aplica... |
 | [`skills-testrail`](../../library/alirezarezvani-claude-skills/skills/skills-testrail) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when syncing Playwright tests with TestRail ('testrail', 'sync test cases', 'push results t... |
 | [`skills-windows-desktop-e2e`](../../library/affaan-m-ecc/skills/skills-windows-desktop-e2e) | ⚪ Reserve | `affaan-m-ecc` | E2E testing for Windows native desktop apps (WPF, WinForms, Win32/MFC, Qt) using pywinauto and ... |
@@ -183,6 +192,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`tiktok-video-detail`](../../library/browser-act-skills/skills/tiktok-video-detail) | ⚪ Reserve | `browser-act-skills` | TikTok single video detail scraper: input a TikTok video URL → output full video metadata (auth... |
 | [`trustpilot-reviews`](../../library/browser-act-skills/skills/trustpilot-reviews) | ⚪ Reserve | `browser-act-skills` | Trustpilot customer reviews scraper for any company listed on trustpilot.com — given a company ... |
 | [`ui-demo`](../../library/affaan-m-ecc/skills/ui-demo) | ⚪ Reserve | `affaan-m-ecc` | Record polished UI demo videos using Playwright. Use when the user asks to create a demo, walkt... |
+| [`ui-screenshots`](../../library/github-awesome-copilot/skills/ui-screenshots) | ⚪ Reserve | `github-awesome-copilot` | Capture screenshots of web apps during development using Playwright and PIL. Supports full-page... |
 | [`unity-build-pipeline`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/unity-build-pipeline) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Builds and ships Unity 6.3 LTS players: Build Profiles, IL2CPP vs Mono, managed stripping with ... |
 | [`video-platforms-tiktok-hashtag-videos`](../../library/browser-act-skills/skills/video-platforms-tiktok-hashtag-videos) | ⚪ Reserve | `browser-act-skills` | TikTok hashtag video scraper: input a hashtag name → output paginated video list with full meta... |
 | [`video-platforms-tiktok-profile-videos`](../../library/browser-act-skills/skills/video-platforms-tiktok-profile-videos) | ⚪ Reserve | `browser-act-skills` | TikTok user profile video scraper: input a TikTok username → output the user's profile info plu... |

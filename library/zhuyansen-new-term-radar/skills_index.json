@@ -28,5 +28,35 @@
     "path": "library/zhuyansen-new-term-radar/skills/seo-new-keywords-research",
     "activation_cmd": "python .agents/library/activate_skill.py activate seo-new-keywords-research",
     "link_cmd": "python .agents/library/activate_skill.py link seo-new-keywords-research"
+  },
+  {
+    "id": "skills-ai-listening",
+    "name": "skills-ai-listening",
+    "repository": "zhuyansen-new-term-radar",
+    "category": "general",
+    "description": "Collect what is new in AI in the last 24 hours across X, Hugging Face, GitHub and sitemaps, deduplicated, as one report of names that are starting to surge. Use when the user asks what is new or trending in AI today, wants a daily AI listening report, or needs fresh names of models, products and repositories to feed keyword research. Runs the new-term-radar command line; needs an AISA_API_KEY.",
+    "path": "library/zhuyansen-new-term-radar/skills/skills-ai-listening",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-ai-listening",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-ai-listening"
+  },
+  {
+    "id": "skills-new-term-radar",
+    "name": "skills-new-term-radar",
+    "repository": "zhuyansen-new-term-radar",
+    "category": "general",
+    "description": "One run from signal to decision. Finds the names of new AI models, products and repositories seen in the last 24 hours (X, Hugging Face, GitHub, sitemaps), then builds a keyword priority table for them, each new name and the generic search terms behind it, sized against Google Ads volume and DataForSEO Trends (an estimate of Google search interest), with prioritize, watch or skip. Use when the user wants today's new AI keywords, an AI trend radar, or asks what new AI terms are worth building a page or tool for. Also takes names the user already has. Runs the new-term-radar command line; needs an AISA_API_KEY.",
+    "path": "library/zhuyansen-new-term-radar/skills/skills-new-term-radar",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-new-term-radar",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-new-term-radar"
+  },
+  {
+    "id": "skills-seo-new-keywords-research",
+    "name": "skills-seo-new-keywords-research",
+    "repository": "zhuyansen-new-term-radar",
+    "category": "general",
+    "description": "Turn new AI names or unstructured AI market signals into a keyword priority table. For each name it finds the generic search terms downstream of it, screens them for relevance, and checks novelty, demand size and momentum against Google Ads volume and DataForSEO Trends (an estimate of Google search interest), ending in prioritize, watch or skip. Use when the user has new model, product or repository names (or an AI listening report, a batch of posts, a changelog) and asks which keywords to build pages or tools for. Runs the new-term-radar command line; needs an AISA_API_KEY, and a GOANYAPI_API_KEY improves it.",
+    "path": "library/zhuyansen-new-term-radar/skills/skills-seo-new-keywords-research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-seo-new-keywords-research",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-seo-new-keywords-research"
   }
 ]

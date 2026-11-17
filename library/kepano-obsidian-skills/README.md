@@ -46,6 +46,12 @@ To use ssh instead, if you have a GitHub SSH key set up:
 npx skills add git@github.com:obsidianmd/obsidian-skills.git
 ```
 
+### Gemini CLI
+
+```sh
+gemini extensions install https://github.com/obsidianmd/obsidian-skills
+```
+
 ### Manually
 
 #### Claude Code
@@ -77,6 +83,8 @@ Update the plugin version in every manifest with:
 ```
 
 The script also accepts `major`, `minor`, or an explicit version like `1.1.0`.
+
+Gemini CLI installs from the latest GitHub release, so publish a release for each version, tagged with the version number. The `Gemini release archive` workflow then attaches `obsidian-gemini.tar.gz`, which has real copies of the skills. Don't attach other files to a release, because Gemini CLI only picks a file when there's exactly one; otherwise it falls back to the source archive, which has no Gemini manifest. To build the archive locally, run `./scripts/package-gemini.sh`.
 
 ## Skills
 

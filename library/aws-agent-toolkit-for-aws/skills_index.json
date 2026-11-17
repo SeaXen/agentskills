@@ -230,6 +230,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link amazon-workspaces-agent-access"
   },
   {
+    "id": "analytics-skills-developing-applications-on-managed-service-for-apache-flink",
+    "name": "analytics-skills-developing-applications-on-managed-service-for-apache-flink",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">",
+    "path": "library/aws-agent-toolkit-for-aws/skills/analytics-skills-developing-applications-on-managed-service-for-apache-flink",
+    "activation_cmd": "python .agents/library/activate_skill.py activate analytics-skills-developing-applications-on-managed-service-for-apache-flink",
+    "link_cmd": "python .agents/library/activate_skill.py link analytics-skills-developing-applications-on-managed-service-for-apache-flink"
+  },
+  {
+    "id": "analytics-skills-managing-amazon-msk",
+    "name": "analytics-skills-managing-amazon-msk",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">",
+    "path": "library/aws-agent-toolkit-for-aws/skills/analytics-skills-managing-amazon-msk",
+    "activation_cmd": "python .agents/library/activate_skill.py activate analytics-skills-managing-amazon-msk",
+    "link_cmd": "python .agents/library/activate_skill.py link analytics-skills-managing-amazon-msk"
+  },
+  {
     "id": "analyzing-release-readiness",
     "name": "analyzing-release-readiness",
     "repository": "aws-agent-toolkit-for-aws",
@@ -820,6 +840,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link core-skills-aws-storage"
   },
   {
+    "id": "cost-regression-check",
+    "name": "cost-regression-check",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"This skill should be used when a company that pays its AWS bill from a fixed monthly ceiling, often funded by credits, asks what a pull request or other infrastructure-as-code change (Terraform, AWS CDK, or AWS CloudFormation) will add to that bill before apply, or wants that cost on every pull request, including through Infracost or another estimator in CI. It reports two numbers at list price before credits: the fixed monthly floor added at zero traffic, and the change in cost per unit of the team's own usage, against absolute thresholds derived from the ceiling and kept in the repository. It sets up a CI job and a repository-owned script so the author and the bill owner decide on each pull request. Not for spend that already happened (aws-core:aws-billing-and-cost-management), price lookups with no change under review, advice on infrastructure code as it stands, general release risk, or choosing services that avoid a floor.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/cost-regression-check",
+    "activation_cmd": "python .agents/library/activate_skill.py activate cost-regression-check",
+    "link_cmd": "python .agents/library/activate_skill.py link cost-regression-check"
+  },
+  {
     "id": "creating-amazon-aurora-db-cluster-with-instances",
     "name": "creating-amazon-aurora-db-cluster-with-instances",
     "repository": "aws-agent-toolkit-for-aws",
@@ -980,6 +1010,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link enabling-lambda-vpc-internet-access"
   },
   {
+    "id": "end-user-computing-skills-amazon-workspaces-agent-access",
+    "name": "end-user-computing-skills-amazon-workspaces-agent-access",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "Connects AI agents to Windows desktops on Amazon WorkSpaces Applications (AppStream 2.0) fleets and image builders through the Agent Access MCP server, and guides reliable desktop automation. Covers the MCP endpoint and SigV4 signing, naming the session (stack and user ID, streaming URL, or AD SAML/OIDC), connecting to an image builder as one of its Windows accounts (switch_user), BLOCKING vs POLLING connect modes, the computer-use tools and computer use interface header, screenshot and batching discipline, forwarded MCP tools (forwarded___), screenshot uploads and Replay Session recordings in S3, agentaccess-mcp IAM, session lifecycle, and errors like \"dcv session not ready\", \"client_disconnected\" and 400 signing-region. Use when building or debugging an agent that drives a desktop or GUI app on WorkSpaces Applications / AppStream. Not for setting up or configuring desktops, fleets, stacks, image builders or agent access (see setting-up-workspaces-applications), or for Amazon WorkSpaces Personal/Core.",
+    "path": "library/aws-agent-toolkit-for-aws/skills/end-user-computing-skills-amazon-workspaces-agent-access",
+    "activation_cmd": "python .agents/library/activate_skill.py activate end-user-computing-skills-amazon-workspaces-agent-access",
+    "link_cmd": "python .agents/library/activate_skill.py link end-user-computing-skills-amazon-workspaces-agent-access"
+  },
+  {
     "id": "exploring-data-catalog",
     "name": "exploring-data-catalog",
     "repository": "aws-agent-toolkit-for-aws",
@@ -1128,6 +1168,16 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/managing-data-catalog",
     "activation_cmd": "python .agents/library/activate_skill.py activate managing-data-catalog",
     "link_cmd": "python .agents/library/activate_skill.py link managing-data-catalog"
+  },
+  {
+    "id": "managing-glue-jobs",
+    "name": "managing-glue-jobs",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Guides AWS Glue customers through automatic version upgrades (auto upgrade, GlueVersion = auto) for Spark ETL jobs, step by step as the AWS Glue user guide describes: assess jobs, confirm they are safe to retry, turn on auto upgrade, set up email notifications, review the eligibility summary, approve or decline one job, monitor upgraded runs, and read the auto upgrade evaluation summary. Use when the user asks to assess Glue jobs for auto upgrade, turn auto upgrade on or off, proceed with eligible jobs, get auto upgrade emails, see which jobs wait for upgrade approval, approve or decline an upgrade, or find out why an upgrade failed. Not for debugging job runs or editing job scripts.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/managing-glue-jobs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate managing-glue-jobs",
+    "link_cmd": "python .agents/library/activate_skill.py link managing-glue-jobs"
   },
   {
     "id": "migrate-to-msk",
@@ -1380,6 +1430,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link remediating-with-aws-security-agent"
   },
   {
+    "id": "render-to-aws",
+    "name": "render-to-aws",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Migrate Render workloads to AWS through consented read-only discovery, mandatory clarification, architecture design, cost estimation, an optional what-if workshop, and opt-in artifact generation. Covers Render Blueprints, services, static sites, workers, cron jobs, private services, Workflows, PostgreSQL, Key Value, persistent disks, Build Sources, projects, environments, and provider-neutral AI workload discovery. Does not use Render MCP or perform Render-side mutations.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/render-to-aws",
+    "activation_cmd": "python .agents/library/activate_skill.py activate render-to-aws",
+    "link_cmd": "python .agents/library/activate_skill.py link render-to-aws"
+  },
+  {
     "id": "resilience-hub-failure-mode-assessment",
     "name": "resilience-hub-failure-mode-assessment",
     "repository": "aws-agent-toolkit-for-aws",
@@ -1470,6 +1530,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link securing-s3-buckets"
   },
   {
+    "id": "self-hosted-llm-batch-inference",
+    "name": "self-hosted-llm-batch-inference",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"This skill should be used when a startup without a dedicated ML platform team needs recurring, latency-tolerant offline inference for a self-hosted 1B to 8B generative language model on AWS while minimizing GPU spend and recovering automatically from Spot interruption. It prescribes AWS Batch backed by Amazon ECS Managed Instances Spot, with model artifacts staged in Amazon S3, deterministic input shards, vLLM offline inference on one GPU, bounded retries, and output reconciliation before success. Covers sizing from the real prompt and model footprint, choosing networking without an avoidable idle cost floor, and verifying that results are complete and GPU capacity is gone. Not for online endpoints, training, embeddings, other inference engines, multi-GPU or distributed inference, or one-off experiments where manual rerun is acceptable.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/self-hosted-llm-batch-inference",
+    "activation_cmd": "python .agents/library/activate_skill.py activate self-hosted-llm-batch-inference",
+    "link_cmd": "python .agents/library/activate_skill.py link self-hosted-llm-batch-inference"
+  },
+  {
     "id": "serverless-skills-aws-lambda-microvms",
     "name": "serverless-skills-aws-lambda-microvms",
     "repository": "aws-agent-toolkit-for-aws",
@@ -1518,6 +1588,16 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/setting-up-ec2-instance-profiles",
     "activation_cmd": "python .agents/library/activate_skill.py activate setting-up-ec2-instance-profiles",
     "link_cmd": "python .agents/library/activate_skill.py link setting-up-ec2-instance-profiles"
+  },
+  {
+    "id": "setting-up-workspaces-applications",
+    "name": "setting-up-workspaces-applications",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "Provisions Amazon WorkSpaces Applications (AppStream 2.0) environments, from images and image builders to fleets and stacks, through a guided flow, for an AI agent or for human users. Covers turning a described workflow into configuration (instance type, ALWAYS_ON vs ON_DEMAND, scaling, session timeouts, OS and licensing), custom images (image builder and Image Assistant, with an agent doing the installs through image builder agent access), AgentAccessConfig on stacks and image builders, the screenshot S3 bucket, user-pool access for people, creating, updating and tearing down fleets and stacks with auto scaling, the GnuCash sample desktop, and provisioning errors. Routes SAML/SSO, domain join, entitlements, and Elastic and multi-session fleets to the docs. Use when a user wants to set up a desktop for an agent or for people, try the sample, plan or size the infrastructure, or turn on agent access. Not for connecting an agent to a desktop or image builder; see the amazon-workspaces-agent-access skill.",
+    "path": "library/aws-agent-toolkit-for-aws/skills/setting-up-workspaces-applications",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setting-up-workspaces-applications",
+    "link_cmd": "python .agents/library/activate_skill.py link setting-up-workspaces-applications"
   },
   {
     "id": "setup",
@@ -1600,6 +1680,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link skills-analyzing-release-readiness"
   },
   {
+    "id": "skills-architect-for-startups",
+    "name": "skills-architect-for-startups",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">-",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-architect-for-startups",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-architect-for-startups",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-architect-for-startups"
+  },
+  {
     "id": "skills-aws-observability",
     "name": "skills-aws-observability",
     "repository": "aws-agent-toolkit-for-aws",
@@ -1660,6 +1750,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link skills-bedrock-migration-assessment"
   },
   {
+    "id": "skills-developing-applications-on-managed-service-for-apache-flink",
+    "name": "skills-developing-applications-on-managed-service-for-apache-flink",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-developing-applications-on-managed-service-for-apache-flink",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-developing-applications-on-managed-service-for-apache-flink",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-developing-applications-on-managed-service-for-apache-flink"
+  },
+  {
     "id": "skills-gcp-to-aws",
     "name": "skills-gcp-to-aws",
     "repository": "aws-agent-toolkit-for-aws",
@@ -1680,6 +1780,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link skills-heroku-to-aws"
   },
   {
+    "id": "skills-knowledge-base-for-startups",
+    "name": "skills-knowledge-base-for-startups",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"AWS Startups reference content \u2014 Activate FAQ, credits guide, programs, partner offers, sample architectures, and hundreds of learn articles spanning generative AI, cloud architecture, cost optimization, security, fundraising, go-to-market, and real-world startup case studies. Use when the user asks factual questions about AWS Activate (eligibility, credits, programs, providers), wants a sample architecture or solution guide, or needs an AWS-curated learn article on a specific startup topic. For copy-paste AI prompts (RAG chatbot, MVP scaffold, security baseline, GPU quota, etc.), see the prompt-library-for-startups skill. Do not use for: account-specific lookups (credits balance, Activate membership status, application status), real-time event listings beyond the events stub, or content not present in the bundled `references/` tree.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-knowledge-base-for-startups",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-knowledge-base-for-startups",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-knowledge-base-for-startups"
+  },
+  {
     "id": "skills-llm-to-bedrock",
     "name": "skills-llm-to-bedrock",
     "repository": "aws-agent-toolkit-for-aws",
@@ -1688,6 +1798,26 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/skills-llm-to-bedrock",
     "activation_cmd": "python .agents/library/activate_skill.py activate skills-llm-to-bedrock",
     "link_cmd": "python .agents/library/activate_skill.py link skills-llm-to-bedrock"
+  },
+  {
+    "id": "skills-managing-amazon-msk",
+    "name": "skills-managing-amazon-msk",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-managing-amazon-msk",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-managing-amazon-msk",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-managing-amazon-msk"
+  },
+  {
+    "id": "skills-setup-devops-agent",
+    "name": "skills-setup-devops-agent",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "Setup and diagnostics for the AWS DevOps Agent MCP connection. Triggers when aws-devops-agent is missing from .mcp.json, when the connection is broken, or when the user says \"set up devops agent\" / \"configure agent\". Does NOT trigger if the MCP is already connected and working.",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-setup-devops-agent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-setup-devops-agent",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-setup-devops-agent"
   },
   {
     "id": "skills-tf-best-practices",
@@ -1788,6 +1918,16 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/troubleshooting-application-failures",
     "activation_cmd": "python .agents/library/activate_skill.py activate troubleshooting-application-failures",
     "link_cmd": "python .agents/library/activate_skill.py link troubleshooting-application-failures"
+  },
+  {
+    "id": "troubleshooting-aws-device-farm-runs",
+    "name": "troubleshooting-aws-device-farm-runs",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">-",
+    "path": "library/aws-agent-toolkit-for-aws/skills/troubleshooting-aws-device-farm-runs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate troubleshooting-aws-device-farm-runs",
+    "link_cmd": "python .agents/library/activate_skill.py link troubleshooting-aws-device-farm-runs"
   },
   {
     "id": "troubleshooting-efs",

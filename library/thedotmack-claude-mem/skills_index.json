@@ -310,6 +310,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link skills-cloud-sync"
   },
   {
+    "id": "skills-design-is",
+    "name": "skills-design-is",
+    "repository": "thedotmack-claude-mem",
+    "category": "general",
+    "description": "Audit a design against Dieter Rams' ten \"Good design is...\" principles, then hand off a /make-plan prompt for one of three outcomes \u2014 new design, refine design, or redesign. Use when the user says \"audit this design\", \"design review\", \"check this UI against Rams\", \"is this UI good\", \"critique this design\", \"design audit\", or asks for a critique that should lead to a plan.",
+    "path": "library/thedotmack-claude-mem/skills/skills-design-is",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-design-is",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-design-is"
+  },
+  {
     "id": "skills-do",
     "name": "skills-do",
     "repository": "thedotmack-claude-mem",
@@ -318,6 +328,16 @@
     "path": "library/thedotmack-claude-mem/skills/skills-do",
     "activation_cmd": "python .agents/library/activate_skill.py activate skills-do",
     "link_cmd": "python .agents/library/activate_skill.py link skills-do"
+  },
+  {
+    "id": "skills-handoff",
+    "name": "skills-handoff",
+    "repository": "thedotmack-claude-mem",
+    "category": "general",
+    "description": "Generate a HANDOFF.md that captures goal, current state, files touched, failed attempts, and next steps \u2014 so a fresh Claude session can continue exactly where this one left off. Use when sessions are getting long, Claude keeps retrying the same broken solution, or the user wants to step away and resume later.",
+    "path": "library/thedotmack-claude-mem/skills/skills-handoff",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-handoff",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-handoff"
   },
   {
     "id": "skills-how-it-works",

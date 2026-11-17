@@ -18,21 +18,23 @@ The skill stays free and open source. Install it below and run it yourself anyti
 
 ## New: `/brag-slim`
 
-**The same /brag, rebuilt lean for Opus 5.5.**
+**The same /brag, rebuilt lean for Opus 5.5, Sonnet 5.5 and Fable 5.2.**
 
 A smooth launch video, designed for your specific project, with its own soundtrack and share copy.
 
 No Hyperframes, no bundled assets, same creative rules.
 
-Just tell Opus 5.5: *let's /brag about this.*
+Just tell Claude: *let's /brag about this.*
 
-On Opus 5.5, `/brag` switches to `/brag-slim` automatically. Run `/brag --full` to keep the classic Hyperframes workflow.
+On Opus 5.5, Sonnet 5.5 or Fable 5.2, `/brag` switches to `/brag-slim` automatically. Run `/brag --full` to keep the classic Hyperframes workflow.
 
 **Install just `/brag-slim`:**
 
 ```bash
 npx skills add https://github.com/latent-spaces/brag --skill brag-slim
 ```
+
+([browse /brag-slim on skills.sh](https://www.skills.sh/latent-spaces/brag/brag-slim))
 
 Already have the Claude Code `/brag` plugin? `/brag-slim` is included from version 0.4.0. Run `claude plugin update brag` to get it.
 
@@ -51,6 +53,8 @@ To update it later:
 codex plugin marketplace upgrade brag
 codex plugin add brag@brag
 ```
+
+The Codex plugin includes `/brag-slim` as well as `/brag`.
 
 **Claude Code:**
 
@@ -132,15 +136,18 @@ You get a `brag-output/` folder with the plan, a composition brief, share copy, 
 ## What's in this repo
 
 - `skills/brag/` — the skill, references, and bundled music + SFX
-- `skills/brag-slim/` — `/brag-slim`, the single-file skill for Claude Opus 5.5
+- `skills/brag-slim/` — `/brag-slim`, the single-file skill for Claude Opus 5.5, Sonnet 5.5 and Fable 5.2
 - `examples/` — fake product sites used as a benchmark suite
 - `docs/` — the launch site (GitHub Pages)
 - `plugin.json` — portable Agent Plugins manifest
 - `.codex-plugin/` — Codex compatibility manifest
 - `.claude-plugin/` — Claude Code manifest + shared marketplace catalog (also recognized by Codex)
 - `.claude/skills/brag/` — symlink → `skills/brag/` (Claude Code discovery)
+- `.claude/skills/brag-slim/` — symlink → `skills/brag-slim/`
 - `.agents/skills/brag/` — symlink → `skills/brag/` (Codex CLI + opencode discovery)
+- `.agents/skills/brag-slim/` — symlink → `skills/brag-slim/`
 - `.opencode/skills/brag/` — symlink → `skills/brag/` (opencode discovery)
+- `.opencode/skills/brag-slim/` — symlink → `skills/brag-slim/`
 
 ## Credits
 

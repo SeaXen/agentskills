@@ -510,6 +510,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link config-gc"
   },
   {
+    "id": "config-health",
+    "name": "config-health",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "Runtime configuration integrity monitoring for Claude Code. Detects config drift, rule staleness, and hook wiring gaps at startup, with an optional per-tool mode. Complements delivery-gate with startup soft monitoring.",
+    "path": "library/affaan-m-ecc/skills/config-health",
+    "activation_cmd": "python .agents/library/activate_skill.py activate config-health",
+    "link_cmd": "python .agents/library/activate_skill.py link config-health"
+  },
+  {
     "id": "configure-ecc",
     "name": "configure-ecc",
     "repository": "affaan-m-ecc",
@@ -850,6 +860,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link dev-team"
   },
   {
+    "id": "devfleet",
+    "name": "devfleet",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "Claude DevFleet\u7d4c\u7531\u3067\u30de\u30eb\u30c1\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0\u30bf\u30b9\u30af\u3092\u30aa\u30fc\u30b1\u30b9\u30c8\u30ec\u30fc\u30b7\u30e7\u30f3 \u2014 \u30d7\u30ed\u30b8\u30a7\u30af\u30c8\u3092\u8a08\u753b\u3057\u3001\u5206\u96e2\u3055\u308c\u305f\u4f5c\u696d\u30c4\u30ea\u30fc\u5185\u3067\u5e73\u884c\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u3092\u6d3e\u9063\u3057\u3001\u9032\u6357\u3092\u76e3\u8996\u3057\u3001\u69cb\u9020\u5316\u30ec\u30dd\u30fc\u30c8\u3092\u8aad\u3080\u3002",
+    "path": "library/affaan-m-ecc/skills/devfleet",
+    "activation_cmd": "python .agents/library/activate_skill.py activate devfleet",
+    "link_cmd": "python .agents/library/activate_skill.py link devfleet"
+  },
+  {
     "id": "django-celery",
     "name": "django-celery",
     "repository": "affaan-m-ecc",
@@ -968,6 +988,16 @@
     "path": "library/affaan-m-ecc/skills/e2e-testing",
     "activation_cmd": "python .agents/library/activate_skill.py activate e2e-testing",
     "link_cmd": "python .agents/library/activate_skill.py link e2e-testing"
+  },
+  {
+    "id": "ecc-contribution-review",
+    "name": "ecc-contribution-review",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "Prepare an ECC skill contribution for review by organizing repository, install-surface, cross-harness, validation, security, and commit observations into a local proposal. Use when preparing a skill contribution for review.",
+    "path": "library/affaan-m-ecc/skills/ecc-contribution-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ecc-contribution-review",
+    "link_cmd": "python .agents/library/activate_skill.py link ecc-contribution-review"
   },
   {
     "id": "ecc-council",
@@ -1248,6 +1278,26 @@
     "path": "library/affaan-m-ecc/skills/github-ops",
     "activation_cmd": "python .agents/library/activate_skill.py activate github-ops",
     "link_cmd": "python .agents/library/activate_skill.py link github-ops"
+  },
+  {
+    "id": "godot-patterns",
+    "name": "godot-patterns",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "Idiomatic Godot 4 GDScript patterns - static typing, scene and node design, signals, resources, autoloads, input, and lifecycle safety. Use when writing or reviewing GDScript, designing scenes, or deciding where game state should live.",
+    "path": "library/affaan-m-ecc/skills/godot-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate godot-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link godot-patterns"
+  },
+  {
+    "id": "godot-testing",
+    "name": "godot-testing",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "Testing Godot 4 GDScript projects - a zero-dependency headless check scene, gdUnit4 and GUT suites, scene-runner tests, signal assertions, and CI commands. Use when adding tests to a Godot project, setting up CI, or proving a change did not break the game.",
+    "path": "library/affaan-m-ecc/skills/godot-testing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate godot-testing",
+    "link_cmd": "python .agents/library/activate_skill.py link godot-testing"
   },
   {
     "id": "golang-patterns",
@@ -1718,6 +1768,16 @@
     "path": "library/affaan-m-ecc/skills/lead-intelligence",
     "activation_cmd": "python .agents/library/activate_skill.py activate lead-intelligence",
     "link_cmd": "python .agents/library/activate_skill.py link lead-intelligence"
+  },
+  {
+    "id": "leanrea",
+    "name": "leanrea",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "Reverse engineers shipped software with bounded local CLI inspection. Covers PE headers, Electron archives, custom binary formats, SQLite databases, and JavaScript bundles while separating observed evidence from inference.",
+    "path": "library/affaan-m-ecc/skills/leanrea",
+    "activation_cmd": "python .agents/library/activate_skill.py activate leanrea",
+    "link_cmd": "python .agents/library/activate_skill.py link leanrea"
   },
   {
     "id": "liquid-glass-design",
@@ -2230,6 +2290,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link plankton-code-quality"
   },
   {
+    "id": "platform-factory",
+    "name": "platform-factory",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "Build deterministic OCI images, SBOM/provenance evidence and hardened container or microVM runs from a compiled executable with the Platform Factory (pf) CLI, and keep its freeze lock in sync with a companion Claude Code hook. Use when a project contains .platform-factory/, when the user runs or asks about pf/platform-factory (detect, plan, freeze, build, verify, run, launch), or wants reproducible OCI builds without a Docker daemon.",
+    "path": "library/affaan-m-ecc/skills/platform-factory",
+    "activation_cmd": "python .agents/library/activate_skill.py activate platform-factory",
+    "link_cmd": "python .agents/library/activate_skill.py link platform-factory"
+  },
+  {
     "id": "postgres-patterns",
     "name": "postgres-patterns",
     "repository": "affaan-m-ecc",
@@ -2440,6 +2510,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link rails-patterns"
   },
   {
+    "id": "rails-security",
+    "name": "rails-security",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "Ruby on Rails security practices for Rails 7.1+ and 8.x apps. Covers production configuration, authentication, authorization, strong parameters, SQL injection, XSS and output escaping, CSRF, file uploads, API security, credentials, untrusted boundaries, and dependency scanning. Use when reviewing or writing Rails authentication, authorization, input handling, uploads, or deployment configuration.",
+    "path": "library/affaan-m-ecc/skills/rails-security",
+    "activation_cmd": "python .agents/library/activate_skill.py activate rails-security",
+    "link_cmd": "python .agents/library/activate_skill.py link rails-security"
+  },
+  {
     "id": "ralphinho-rfc-pipeline",
     "name": "ralphinho-rfc-pipeline",
     "repository": "affaan-m-ecc",
@@ -2570,6 +2650,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link returns-reverse-logistics"
   },
   {
+    "id": "roundhouse-x402",
+    "name": "roundhouse-x402",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "Discover x402-paid services and ERC-8004 agent identity via Roundhouse (open catalog, paid SQL, MCP server, rh-x402 CLI), and optionally settle through Roundhouse's Base mainnet facilitator. Use when searching the x402 bazaar/index, vetting a payee or wallet, querying settlement or agent data, configuring Roundhouse MCP, or pointing a paywall at a hosted facilitator on Base.",
+    "path": "library/affaan-m-ecc/skills/roundhouse-x402",
+    "activation_cmd": "python .agents/library/activate_skill.py activate roundhouse-x402",
+    "link_cmd": "python .agents/library/activate_skill.py link roundhouse-x402"
+  },
+  {
     "id": "rules-distill",
     "name": "rules-distill",
     "repository": "affaan-m-ecc",
@@ -2618,6 +2708,16 @@
     "path": "library/affaan-m-ecc/skills/santa-method",
     "activation_cmd": "python .agents/library/activate_skill.py activate santa-method",
     "link_cmd": "python .agents/library/activate_skill.py link santa-method"
+  },
+  {
+    "id": "scientific-db-openalex-database",
+    "name": "scientific-db-openalex-database",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "OpenAlex REST API workflows for cross-disciplinary literature search, DOI/PMID lookup, open-access links, citation counts, and reproducible search logs. Use when a task needs scholarly works from every field (not only biomedicine), or needs to resolve a DOI, PMID or OpenAlex ID to full metadata.",
+    "path": "library/affaan-m-ecc/skills/scientific-db-openalex-database",
+    "activation_cmd": "python .agents/library/activate_skill.py activate scientific-db-openalex-database",
+    "link_cmd": "python .agents/library/activate_skill.py link scientific-db-openalex-database"
   },
   {
     "id": "scientific-db-pubmed-database",
@@ -2720,6 +2820,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link seo"
   },
   {
+    "id": "short-video-distribution",
+    "name": "short-video-distribution",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "Ship a finished vertical video to TikTok, YouTube Shorts, and Instagram Reels. Checks the file against each platform's limits, writes native captions and titles, handles privacy and disclosure choices, gets explicit approval, then publishes through whichever path the user has (a connected publishing MCP server, the platform APIs, or a manual upload sheet) and returns the live links. Use after a video is rendered or edited and the user wants it posted as a Short, Reel, or TikTok.",
+    "path": "library/affaan-m-ecc/skills/short-video-distribution",
+    "activation_cmd": "python .agents/library/activate_skill.py activate short-video-distribution",
+    "link_cmd": "python .agents/library/activate_skill.py link short-video-distribution"
+  },
+  {
     "id": "skill-comply",
     "name": "skill-comply",
     "repository": "affaan-m-ecc",
@@ -2818,6 +2928,16 @@
     "path": "library/affaan-m-ecc/skills/skills-agent-payment-x402",
     "activation_cmd": "python .agents/library/activate_skill.py activate skills-agent-payment-x402",
     "link_cmd": "python .agents/library/activate_skill.py link skills-agent-payment-x402"
+  },
+  {
+    "id": "skills-agent-self-evaluation",
+    "name": "skills-agent-self-evaluation",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "Use after completing any non-trivial task. The agent self-rates its output on 5 axes \u2014 accuracy, completeness, clarity, actionability, conciseness \u2014 with concrete evidence per criterion. Produces a structured 1-5 scorecard with specific improvement suggestions.",
+    "path": "library/affaan-m-ecc/skills/skills-agent-self-evaluation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-agent-self-evaluation",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-agent-self-evaluation"
   },
   {
     "id": "skills-agent-sort",
@@ -2978,6 +3098,26 @@
     "path": "library/affaan-m-ecc/skills/skills-benchmark",
     "activation_cmd": "python .agents/library/activate_skill.py activate skills-benchmark",
     "link_cmd": "python .agents/library/activate_skill.py link skills-benchmark"
+  },
+  {
+    "id": "skills-benchmark-optimization-loop",
+    "name": "skills-benchmark-optimization-loop",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": ">-",
+    "path": "library/affaan-m-ecc/skills/skills-benchmark-optimization-loop",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-benchmark-optimization-loop",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-benchmark-optimization-loop"
+  },
+  {
+    "id": "skills-blender-motion-state-inspection",
+    "name": "skills-blender-motion-state-inspection",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "Inspects Blender characters, rigs, poses, animation retargeting, ground contact, facing direction, or model-vs-motion alignment where screenshots alone are not enough.",
+    "path": "library/affaan-m-ecc/skills/skills-blender-motion-state-inspection",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-blender-motion-state-inspection",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-blender-motion-state-inspection"
   },
   {
     "id": "skills-blueprint",
@@ -3378,6 +3518,16 @@
     "path": "library/affaan-m-ecc/skills/skills-design-system",
     "activation_cmd": "python .agents/library/activate_skill.py activate skills-design-system",
     "link_cmd": "python .agents/library/activate_skill.py link skills-design-system"
+  },
+  {
+    "id": "skills-devfleet",
+    "name": "skills-devfleet",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "\u901a\u8fc7Claude DevFleet\u534f\u8c03\u591a\u667a\u80fd\u4f53\u7f16\u7801\u4efb\u52a1\u2014\u2014\u89c4\u5212\u9879\u76ee\u3001\u5728\u9694\u79bb\u7684\u5de5\u4f5c\u6811\u4e2d\u5e76\u884c\u8c03\u5ea6\u667a\u80fd\u4f53\u3001\u76d1\u63a7\u8fdb\u5ea6\u5e76\u8bfb\u53d6\u7ed3\u6784\u5316\u62a5\u544a\u3002",
+    "path": "library/affaan-m-ecc/skills/skills-devfleet",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-devfleet",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-devfleet"
   },
   {
     "id": "skills-django-celery",
@@ -3870,6 +4020,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link skills-hookify-rules"
   },
   {
+    "id": "skills-intent-driven-development",
+    "name": "skills-intent-driven-development",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "Turn ambiguous or high-impact product and engineering changes into scoped, verifiable acceptance criteria before or alongside implementation. Use when a user asks to clarify a feature, define acceptance criteria, de-risk a security/data/migration/integration change, prepare implementation requirements for another agent, or make a complex request testable. Do not trigger for trivial edits, straightforward fixes, active debugging, code review, or implementation requests whose acceptance conditions are already clear unless the user explicitly invokes this skill.",
+    "path": "library/affaan-m-ecc/skills/skills-intent-driven-development",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-intent-driven-development",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-intent-driven-development"
+  },
+  {
     "id": "skills-inventory-demand-planning",
     "name": "skills-inventory-demand-planning",
     "repository": "affaan-m-ecc",
@@ -4008,6 +4168,16 @@
     "path": "library/affaan-m-ecc/skills/skills-kotlin-testing",
     "activation_cmd": "python .agents/library/activate_skill.py activate skills-kotlin-testing",
     "link_cmd": "python .agents/library/activate_skill.py link skills-kotlin-testing"
+  },
+  {
+    "id": "skills-kubernetes-patterns",
+    "name": "skills-kubernetes-patterns",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "Kubernetes workload patterns, resource management, RBAC, probes, autoscaling, ConfigMap/Secret handling, and kubectl debugging for production-grade deployments. Use when writing or reviewing Kubernetes manifests, or debugging probes, RBAC, autoscaling, resource limits, or pods that keep getting evicted.",
+    "path": "library/affaan-m-ecc/skills/skills-kubernetes-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-kubernetes-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-kubernetes-patterns"
   },
   {
     "id": "skills-laravel-patterns",
@@ -5260,6 +5430,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link terminal-ops"
   },
   {
+    "id": "terraform-patterns",
+    "name": "terraform-patterns",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "Terraform and OpenTofu infrastructure-as-code patterns for project layout, remote state, modules, variables, secrets, safe plan/apply workflows, and CI. Use when writing or reviewing .tf files, structuring modules or environments, configuring backends and state locking, or debugging plan drift, state, and provider errors.",
+    "path": "library/affaan-m-ecc/skills/terraform-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate terraform-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link terraform-patterns"
+  },
+  {
     "id": "test-collaboration",
     "name": "test-collaboration",
     "repository": "affaan-m-ecc",
@@ -5420,6 +5600,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link vue-patterns"
   },
   {
+    "id": "web-perimeter-owasp-2025-audit",
+    "name": "web-perimeter-owasp-2025-audit",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "Passive, non-destructive web perimeter security auditing mapped to OWASP Top 10:2025 surface leads, CDN Unkeyed Header Web Cache Poisoning (X-Forwarded-Host), supply chain manifest exposure, git object dumping prevention (/.git/HEAD), cryptographic headers, and AI crawler boundary governance (llms.txt, robots.txt). Use when auditing production domains, configuring Cloudflare/Vercel/Nginx edge security, or preparing pre-launch perimeter checks.",
+    "path": "library/affaan-m-ecc/skills/web-perimeter-owasp-2025-audit",
+    "activation_cmd": "python .agents/library/activate_skill.py activate web-perimeter-owasp-2025-audit",
+    "link_cmd": "python .agents/library/activate_skill.py link web-perimeter-owasp-2025-audit"
+  },
+  {
     "id": "windows-desktop-e2e",
     "name": "windows-desktop-e2e",
     "repository": "affaan-m-ecc",
@@ -5448,5 +5638,15 @@
     "path": "library/affaan-m-ecc/skills/x-api",
     "activation_cmd": "python .agents/library/activate_skill.py activate x-api",
     "link_cmd": "python .agents/library/activate_skill.py link x-api"
+  },
+  {
+    "id": "yoruba-localization-testing",
+    "name": "yoruba-localization-testing",
+    "repository": "affaan-m-ecc",
+    "category": "general",
+    "description": "Test Yoruba (yo) and English bilingual interfaces for tone marks, underdots, Unicode normalization, translation fallback, and accessibility.",
+    "path": "library/affaan-m-ecc/skills/yoruba-localization-testing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate yoruba-localization-testing",
+    "link_cmd": "python .agents/library/activate_skill.py link yoruba-localization-testing"
   }
 ]

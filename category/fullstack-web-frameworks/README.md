@@ -1,7 +1,7 @@
 # 🌐 Fullstack Web Frameworks & Apps
 
 > **Category**: `fullstack-web-frameworks`  
-> **Total Curated Skills**: 60 skills  
+> **Total Curated Skills**: 62 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -32,6 +32,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`higgsfield-websites`](../../library/higgsfield-ai-skills/skills/higgsfield-websites) | ⚪ Reserve | `higgsfield-ai-skills` | Build, edit, and deploy full-stack websites, apps and games via the Higgsfield CLI (`higgsfield... |
 | [`hunt-nextjs`](../../library/elementalsouls-claude-bughunter/skills/hunt-nextjs) | ⚪ Reserve | `elementalsouls-claude-bughunter` | Hunt Next.js specific vulnerabilities — Server Actions arbitrary function execution, Middleware... |
 | [`ink-app-builder`](../../library/android-skills/skills/ink-app-builder) | ⚪ Reserve | `android-skills` | Adds inking and freehand drawing capabilities to an Android app using |
+| [`ink-ink-app-builder`](../../library/android-skills/skills/ink-ink-app-builder) | ⚪ Reserve | `android-skills` | Adds inking and freehand drawing capabilities to an Android app using |
 | [`material-ui-nextjs`](../../library/mui-material-ui/skills/material-ui-nextjs) | ⚪ Reserve | `mui-material-ui` | Integrates Material UI with Next.js App and Pages routers using @mui/material-nextjs, Emotion c... |
 | [`neon-realtime`](../../library/neondatabase-agent-skills/skills/neon-realtime) | ⚪ Reserve | `neondatabase-agent-skills` | Neon Realtime makes any SQL query live. Build realtime, reactive apps and agents on Lakebase Po... |
 | [`nextjs-action-id-extraction`](../../library/seaxen-skills-backup/skills/nextjs-action-id-extraction) | ⚪ Reserve | `seaxen-skills-backup` | Find Next.js Server Action IDs for a given site URL. |
@@ -56,6 +57,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`react-router-v7`](../../library/mindrally-skills/skills/react-router-v7) | ⚪ Reserve | `mindrally-skills` | React Router v7 framework mode conventions for route modules, data loaders, actions, and progre... |
 | [`react-vite-dashboard`](../../library/google-labs-code-stitch-skills/skills/react-vite-dashboard) | ⚪ Reserve | `google-labs-code-stitch-skills` | Convert Stitch designs into production React + Vite dashboards with TanStack Query, accessible ... |
 | [`reference-design-contract`](../../library/feimacode-open-design-agent-kit/skills/reference-design-contract) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Turn vague taste, screenshots, URLs, product notes, or "make it feel like this" references into... |
+| [`remix`](../../library/builderio-skills/skills/remix) | ⚪ Reserve | `builderio-skills` | Rebuild website effects in your repo or Design with exact behavior and original code. Use when ... |
 | [`rtx-remix-modding`](../../library/nvidia-skills/skills/rtx-remix-modding) | ⚪ Reserve | `nvidia-skills` | Mod or remaster a game with RTX Remix - open and edit projects, swap textures and models. Conne... |
 | [`scenario-reve`](../../library/scenario-labs-skills/skills/scenario-reve) | ⚪ Reserve | `scenario-labs-skills` | Use when generating or editing images with Reve models on Scenario via MCP: text-to-image from ... |
 | [`sentry-nextjs-sdk`](../../library/getsentry-sentry-for-ai/skills/sentry-nextjs-sdk) | ⚪ Reserve | `getsentry-sentry-for-ai` | Full Sentry SDK setup for Next.js. Use when asked to "add Sentry to Next.js", "install @sentry/... |

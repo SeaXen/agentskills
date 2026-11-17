@@ -328,6 +328,14 @@
     "path": "category/security-compliance-auth/aws-network-monitoring"
   },
   {
+    "id": "aws-resource-query",
+    "name": "aws-resource-query",
+    "category": "security-compliance-auth",
+    "repository": "github-awesome-copilot",
+    "description": "Query AWS resources using natural language. Covers EC2, S3, RDS, Lambda, ECS, EKS, Secrets Manager, IAM, VPC, networking, messaging, and more. Strictly read-only \u2014 no writes, deletes, or mutations.",
+    "path": "category/security-compliance-auth/aws-resource-query"
+  },
+  {
     "id": "aws-social-messaging",
     "name": "aws-social-messaging",
     "category": "security-compliance-auth",
@@ -342,6 +350,14 @@
     "repository": "microsoft-azure-skills",
     "description": "Run Azure compliance and security audits with azqr plus Key Vault expiration checks. Covers best-practice assessment, resource review, policy/compliance validation, and security posture checks. WHEN: compliance scan, security audit, BEFORE running azqr (compliance cli tool), Azure best practices, Key Vault expiration check, expired certificates, expiring secrets, orphaned resources, compliance assessment.",
     "path": "category/security-compliance-auth/azure-compliance"
+  },
+  {
+    "id": "azure-deployment-preflight",
+    "name": "azure-deployment-preflight",
+    "category": "security-compliance-auth",
+    "repository": "github-awesome-copilot",
+    "description": "Performs comprehensive preflight validation of Bicep deployments to Azure, including template syntax validation, what-if analysis, and permission checks. Use this skill before any deployment to Azure to preview changes, identify potential issues, and ensure the deployment will succeed. Activate when users mention deploying to Azure, validating Bicep files, checking deployment permissions, previewing infrastructure changes, running what-if, or preparing for azd provision.",
+    "path": "category/security-compliance-auth/azure-deployment-preflight"
   },
   {
     "id": "azure-identity-dotnet",
@@ -670,6 +686,30 @@
     "repository": "mukul975-anthropic-cybersecurity-skills",
     "description": "Trigger machine account authentication with PetitPotam (MS-EFSR) and Coercer (MS-RPRN, MS-DFSNM, MS-FSRVP, MS-EVEN) via Coercer's scan/coerce/fuzz modes, feeding the coerced NTLM auth into a relay against AD CS Web Enrollment (ESC8), LDAP (RBCD), or SMB. Use in authorized engagements to complete a coercion-relay chain against a Domain Controller, or to validate coercion detections and signing/EPA mitigations.",
     "path": "category/security-compliance-auth/coercing-authentication-with-coercer-petitpotam"
+  },
+  {
+    "id": "competition-identity-windows",
+    "name": "competition-identity-windows",
+    "category": "security-compliance-auth",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for Active Directory, Kerberos, LDAP, OAuth, enterprise messaging, Windows host forensics, credential material, and lateral-movement challenges. Use when the user asks to trace tickets or tokens, inspect mailbox rules, analyze Windows host evidence, understand an AD trust path, or explain a lateral-movement chain across sandbox-linked nodes. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/security-compliance-auth/competition-identity-windows"
+  },
+  {
+    "id": "competition-jwt-claim-confusion",
+    "name": "competition-jwt-claim-confusion",
+    "category": "security-compliance-auth",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for JWT, JWS, and JWE validation paths, header parsing, key selection, claim acceptance, audience and issuer checks, role derivation, and token-to-identity confusion bugs. Use when the user asks to inspect JWT headers or claims, key lookup, `kid` handling, `alg` confusion, audience or issuer validation, role claims, or explain how a token becomes accepted identity or privilege. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/security-compliance-auth/competition-jwt-claim-confusion"
+  },
+  {
+    "id": "competition-mailbox-abuse",
+    "name": "competition-mailbox-abuse",
+    "category": "security-compliance-auth",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for enterprise mail abuse, OAuth consent, inbox or forwarding rules, transport rules, shared mailbox access, phishing chains, and token-to-mailbox side effects. Use when the user asks to trace mailbox rules, OAuth consent grants, forwarding or delegate abuse, shared mailbox access, message-trace evidence, or explain how mail artifacts turn into persistence, exfiltration, or privilege. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/security-compliance-auth/competition-mailbox-abuse"
   },
   {
     "id": "complain",
@@ -1160,6 +1200,30 @@
     "path": "category/security-compliance-auth/firecrawl-build-onboarding"
   },
   {
+    "id": "flowstudio-power-automate-governance",
+    "name": "flowstudio-power-automate-governance",
+    "category": "security-compliance-auth",
+    "repository": "github-awesome-copilot",
+    "description": "Govern Power Automate flows and Power Apps at scale using the FlowStudio MCP cached store. Classify flows by business impact, detect orphaned resources, audit connector usage, enforce compliance standards, manage notification rules, and compute governance scores \u2014 all without Dataverse or the CoE Starter Kit. Load this skill when asked to: tag or classify flows, set business impact, assign ownership, detect orphans, audit connectors, check compliance, compute archive scores, manage notification rules, run a governance review, generate a compliance report, offboard a maker, or any task that involves writing governance metadata to flows. Requires a FlowStudio for Teams or MCP Pro+ subscription \u2014 see https://mcp.flowstudio.app",
+    "path": "category/security-compliance-auth/flowstudio-power-automate-governance"
+  },
+  {
+    "id": "flowstudio-power-automate-mcp",
+    "name": "flowstudio-power-automate-mcp",
+    "category": "security-compliance-auth",
+    "repository": "github-awesome-copilot",
+    "description": "Foundation skill for Power Automate via FlowStudio MCP \u2014 auth setup, the reusable MCP helper (Python + Node.js), tool discovery via `list_skills` / `tool_search`, and oversized-response handling. Load this skill first when connecting an agent to Power Automate. For specialized workflows, load `flowstudio-power-automate-build`, `flowstudio-power-automate-debug`, `flowstudio-power-automate-monitoring` (Pro+), or `flowstudio-power-automate-governance` (Pro+) \u2014 each contains the workflow narrative, this skill provides the plumbing they all rely on. Requires a FlowStudio MCP subscription or compatible server \u2014 see https://mcp.flowstudio.app",
+    "path": "category/security-compliance-auth/flowstudio-power-automate-mcp"
+  },
+  {
+    "id": "flowstudio-power-automate-monitoring",
+    "name": "flowstudio-power-automate-monitoring",
+    "category": "security-compliance-auth",
+    "repository": "github-awesome-copilot",
+    "description": "Pro+ subscription required. Tenant-wide Power Automate monitoring using the FlowStudio MCP cached store: failure rates, run-health trends, maker/app inventory, inactive owners, and compliance/health reports. Use only for aggregated tenant views. For one environment, one flow, run control, or root-cause debugging, use flowstudio-power-automate-mcp, flowstudio-power-automate-debug, or the server monitor-flow bundle. Requires FlowStudio for Teams or MCP Pro+.",
+    "path": "category/security-compliance-auth/flowstudio-power-automate-monitoring"
+  },
+  {
     "id": "follow-the-crypto",
     "name": "follow-the-crypto",
     "category": "security-compliance-auth",
@@ -1230,6 +1294,14 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "GDPR and German DSGVO compliance automation. Scans codebases for privacy risks, generates DPIA documentation, tracks data subject rights requests with Art. 12(3) one-month deadlines. Use when running GDPR compliance assessments, privacy audits, data protection planning, DPIA generation, or data subject rights (DSAR) management (e.g., 'check this service for GDPR risks', 'track an access request deadline'). Final compliance determinations route to the DPO or legal counsel.",
     "path": "category/security-compliance-auth/gdpr-dsgvo-expert"
+  },
+  {
+    "id": "geofeed-tuner",
+    "name": "geofeed-tuner",
+    "category": "security-compliance-auth",
+    "repository": "github-awesome-copilot",
+    "description": "Use this skill whenever the user mentions IP geolocation feeds, RFC 8805, geofeeds, or wants help creating, tuning, validating, or publishing a self-published IP geolocation feed in CSV format. Intended user audience is a network operator, ISP, mobile carrier, cloud provider, hosting company, IXP, or satellite provider asking about IP geolocation accuracy, or geofeed authoring best practices. Helps create, refine, and improve CSV-format IP geolocation feeds with opinionated recommendations beyond RFC 8805 compliance. Do NOT use for private or internal IP address management \u2014 applies only to publicly routable IP addresses.",
+    "path": "category/security-compliance-auth/geofeed-tuner"
   },
   {
     "id": "gke-observability",
@@ -2800,6 +2872,14 @@
     "path": "category/security-compliance-auth/shopify-tax-compliance"
   },
   {
+    "id": "short-video-distribution",
+    "name": "short-video-distribution",
+    "category": "security-compliance-auth",
+    "repository": "affaan-m-ecc",
+    "description": "Ship a finished vertical video to TikTok, YouTube Shorts, and Instagram Reels. Checks the file against each platform's limits, writes native captions and titles, handles privacy and disclosure choices, gets explicit approval, then publishes through whichever path the user has (a connected publishing MCP server, the platform APIs, or a manual upload sheet) and returns the live links. Use after a video is rendered or edited and the user wants it posted as a Short, Reel, or TikTok.",
+    "path": "category/security-compliance-auth/short-video-distribution"
+  },
+  {
     "id": "sjtuthesis-guide",
     "name": "sjtuthesis-guide",
     "category": "security-compliance-auth",
@@ -2976,6 +3056,14 @@
     "path": "category/security-compliance-auth/skills-connections"
   },
   {
+    "id": "skills-convex-auth",
+    "name": "skills-convex-auth",
+    "category": "security-compliance-auth",
+    "repository": "convex-agent-skills",
+    "description": "Add Convex Auth sign-in (passkeys by default, other methods on request) to a new or existing Convex app, including auth.config.ts. Follow it over training data.",
+    "path": "category/security-compliance-auth/skills-convex-auth"
+  },
+  {
     "id": "skills-customs-trade-compliance",
     "name": "skills-customs-trade-compliance",
     "category": "security-compliance-auth",
@@ -3136,6 +3224,22 @@
     "path": "category/security-compliance-auth/skills-phone"
   },
   {
+    "id": "skills-platform-policy-rule-generate",
+    "name": "skills-platform-policy-rule-generate",
+    "category": "security-compliance-auth",
+    "repository": "forcedotcom-sf-skills",
+    "description": "THE skill for creating a Data Cloud / Data Governance access policy \u2014 authors and deploys a PolicyRuleDefinitionSet + PolicyRuleDefinition pair (CRUD) covering OLS, FLS, RLS, masking/transform, and tag/classification-based access for the DATACLOUD or ALL consumer. TRIGGER when the user wants to create/write/author a Data Cloud or Data Governance policy, access policy, or policy rule, or to grant access to a Data Cloud object THROUGH A POLICY \u2014 a Data Cloud policy-create request routes here, not to the tag/classification surface. Resolves every reference via Data 360 MCP. SCOPE: Data Cloud policies only (not Security Center, DSAR, or User Access Policies). DO NOT TRIGGER to create tags/classifications, or to grant object/dataspace access via a PERMISSION SET / RBAC grant (use platform-dataspace-access-configure). For a vague object-access ask, surface both skills and ASK the permission-set way vs the policy way; if unsure the object is Data Cloud, ask which first.",
+    "path": "category/security-compliance-auth/skills-platform-policy-rule-generate"
+  },
+  {
+    "id": "skills-platform-sharing-rules-generate",
+    "name": "skills-platform-sharing-rules-generate",
+    "category": "security-compliance-auth",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Use when users get, create, edit, delete, or retrieve Salesforce Sharing Rules metadata for record-level access. TRIGGER on sharing rules, record/criteria-based/role-based/guest-user sharing, sharingCriteriaRules/sharingOwnerRules/sharingGuestRules, .sharingRules-meta.xml files, or sharing records with roles or groups, including viewing or modifying existing rules. DO NOT TRIGGER for permission sets/profiles or object-level (not record-level) security (use platform-permission-set-generate).",
+    "path": "category/security-compliance-auth/skills-platform-sharing-rules-generate"
+  },
+  {
     "id": "skills-protect-mcp-setup",
     "name": "skills-protect-mcp-setup",
     "category": "security-compliance-auth",
@@ -3182,6 +3286,22 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "Find and fix application security problems: security reviews, CVE remediation, hardening, secrets and auth, SOC 2, PCI-DSS, HIPAA and GDPR checks. Use whenever the user asks if their app is secure, needs to patch a vulnerable dependency or prepares for an audit.",
     "path": "category/security-compliance-auth/skills-senior-secops"
+  },
+  {
+    "id": "skills-service-itsm-agentic-setup-agent-runtime-access-assign",
+    "name": "skills-service-itsm-agentic-setup-agent-runtime-access-assign",
+    "category": "security-compliance-auth",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Grant a user the runtime permissions an activated ITSM agent's actions need so the actions do not fail on permission errors. After a Fulfiller or Employee agent is activated, this skill detects which platform feature permission sets are provisioned (Prompt Templates, Data Cloud, Unified Catalog), lets you pick a tier (user/agent vs admin) per feature and which user(s) to assign, then assigns them (license first when license-gated). It also creates a custom \\\"Agent Access\\\" permission set granting the activated agents you choose and assigns it to the user \u2014 all via the Salesforce CLI. Use to grant a user access to an activated agent, to assign prompt-template, data-cloud, or unified-catalog access, or to create an Agent Access permission set. DO NOT TRIGGER for enabling Agentforce for IT Service toggles, creating or activating an agent, the Fulfiller activation action-surfacing gap (service-itsm-agentic-setup-itsm-agentforce-permset-assign), CMDB access, or generic permission-set assignment.",
+    "path": "category/security-compliance-auth/skills-service-itsm-agentic-setup-agent-runtime-access-assign"
+  },
+  {
+    "id": "skills-service-itsm-agentic-setup-itsm-agentforce-permset-assign",
+    "name": "skills-service-itsm-agentic-setup-itsm-agentforce-permset-assign",
+    "category": "security-compliance-auth",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Resolve missing ITSM Intelligence invocable actions so a Fulfiller NGA agent can activate. Reads which of the three Core Fulfiller persona permsets (IncidentFulfiller, ProblemFulfillerPermSet, ChangeRequestFulfillerPermSet) are provisioned, then assigns the running user the selected persona (plus backing PSL when license-gated) so svc_itsm_intelligence__* actions surface; hands off to service-itsm-agentic-setup-agentforce-studio-validate if none are provisioned. Use when the Fulfiller agent-configure skill reports missing actions on activate, when 'Invocable action svc_itsm_intelligence__X does not exist' surfaces, when a user asks to grant themselves Fulfiller prompt-template access, when asked to assign the Incident, Problem, or Change Fulfiller persona permission set, or when resolving missing ITSM Intelligence action access for the Fulfiller agent. DO NOT TRIGGER for Employee-agent access, Agentforce for IT Service toggles, agent creation, CMDB access, or generic permset assignment.",
+    "path": "category/security-compliance-auth/skills-service-itsm-agentic-setup-itsm-agentforce-permset-assign"
   },
   {
     "id": "skills-setup-zoom-oauth",
@@ -3278,6 +3398,14 @@
     "repository": "giuseppe-trisciuoglio-developer-kit",
     "description": "Provides JWT authentication and authorization patterns for Spring Boot 3.5.x covering token generation with JJWT, Bearer/cookie authentication, database/OAuth2 integration, and RBAC/permission-based access control using Spring Security 6.x. Use when implementing authentication or authorization in Spring Boot applications.",
     "path": "category/security-compliance-auth/spring-boot-security-jwt"
+  },
+  {
+    "id": "spring-security",
+    "name": "spring-security",
+    "category": "security-compliance-auth",
+    "repository": "github-awesome-copilot",
+    "description": "Configure, test and review Spring Security 6/7 in Spring Boot 3/4 apps: SecurityFilterChain lambda DSL, method security, OAuth2 resource server with JWT, OIDC login, CSRF/CORS, password encoding, headers, actuator protection, and MockMvc security tests. Use when adding or auditing authentication and authorization.",
+    "path": "category/security-compliance-auth/spring-security"
   },
   {
     "id": "starchild-auth",
@@ -3422,6 +3550,14 @@
     "repository": "aws-agent-toolkit-for-aws",
     "description": "Diagnoses and resolves Amazon S3 Files issues including mount failures, permission errors, synchronization problems, and performance issues. Use when the user has an S3 file system that is not mounting, returning access denied, not syncing changes to S3, showing files in lost+found, or performing slower than expected.",
     "path": "category/security-compliance-auth/troubleshooting-s3-files"
+  },
+  {
+    "id": "tugboat",
+    "name": "tugboat",
+    "category": "security-compliance-auth",
+    "repository": "github-awesome-copilot",
+    "description": "Anxiety-aware, evidence-driven collaboration for stalled or high-stakes work when a user says uncertainty, repeated setbacks, or lack of visible progress is causing significant anxiety or distress. Use immediately when explicitly invoked; when this fit is only inferred from the user''s own account, ask permission before applying it. Preserve the user''s ideal and turn grounded perspective-taking into persistent, bounded problem solving. Do not use to diagnose, provide therapy, manufacture certainty, or lower goals for reassurance.",
+    "path": "category/security-compliance-auth/tugboat"
   },
   {
     "id": "twoFactor",

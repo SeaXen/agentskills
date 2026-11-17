@@ -1,7 +1,7 @@
 # ⚔️ Core Antigravity Kit Protocols
 
 > **Category**: `core-antigravity-protocols`  
-> **Total Curated Skills**: 37 skills  
+> **Total Curated Skills**: 42 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -49,7 +49,12 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`session-compaction-and-restore`](../../library/mvschwarz-openrig/skills/session-compaction-and-restore) | ⚪ Reserve | `mvschwarz-openrig` | Use when reasoning about what survives compaction/context-loss/restart/seat-refresh, designing ... |
 | [`session-guard`](../../library/wshobson-agents/skills/session-guard) | ⚪ Reserve | `wshobson-agents` | Use when working on complex multi-step tasks, when a session is getting long (40+ tool calls), ... |
 | [`skill-porter`](../../library/sickn33-agentic-awesome-skills/skills/skill-porter) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Preview conservative tool-name translations and copy complete local skill bundles for manual ad... |
+| [`skills-battle-card-builder`](../../library/deanpeters-product-manager-skills/skills/skills-battle-card-builder) | ⚪ Reserve | `deanpeters-product-manager-skills` | Research and draft a competitive battle card from public evidence — every claim labeled and sou... |
 | [`skills-bmad-customize`](../../library/bmad-code-org-bmad-method/skills/skills-bmad-customize) | ⚪ Reserve | `bmad-code-org-bmad-method` | Authors and updates customization overrides for installed BMad skills. Use when the user says '... |
+| [`skills-claude-compaction-restore`](../../library/mvschwarz-openrig/skills/skills-claude-compaction-restore) | ⚪ Reserve | `mvschwarz-openrig` | Use when a Claude Code session is about to compact, has just compacted, reached its context lim... |
+| [`skills-competitive-intel-watch`](../../library/deanpeters-product-manager-skills/skills/skills-competitive-intel-watch) | ⚪ Reserve | `deanpeters-product-manager-skills` | Scheduled delta monitoring against a prior competitive snapshot. Use when tracking competitors ... |
+| [`skills-retiring-and-inheriting-a-seat`](../../library/mvschwarz-openrig/skills/skills-retiring-and-inheriting-a-seat) | ⚪ Reserve | `mvschwarz-openrig` | Use when you are a sitting agent near your context threshold (~85%) and a PLANNED seat transiti... |
+| [`skills-session-compaction-and-restore`](../../library/mvschwarz-openrig/skills/skills-session-compaction-and-restore) | ⚪ Reserve | `mvschwarz-openrig` | Use when reasoning about what survives compaction/context-loss/restart/seat-refresh, designing ... |
 | [`skills-session-guard`](../../library/wshobson-agents/skills/skills-session-guard) | ⚪ Reserve | `wshobson-agents` | Use when working on complex multi-step tasks, when a session is getting long (40+ tool calls), ... |
 | [`skills-story-setup`](../../library/zenstory-ai-oh-story-claudecode/skills/skills-story-setup) | ⚪ Reserve | `zenstory-ai-oh-story-claudecode` | 网文写作工具集基础设施部署与检查。为 Claude Code / OpenCode / Codex / Google Antigravity / ZCode / OpenClaw / Rea... |
 | [`story-setup`](../../library/zenstory-ai-oh-story-claudecode/skills/story-setup) | ⚪ Reserve | `zenstory-ai-oh-story-claudecode` | 网文写作工具集基础设施部署与检查。为 Claude Code / OpenCode / Codex / Google Antigravity / ZCode / OpenClaw / Rea... |

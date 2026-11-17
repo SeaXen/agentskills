@@ -1,7 +1,7 @@
 # ☁️ Cloudflare Workers, Pages & Edge
 
 > **Category**: `cloudflare-edge`  
-> **Total Curated Skills**: 153 skills  
+> **Total Curated Skills**: 163 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -55,6 +55,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cloudfront`](../../library/aws-agent-toolkit-for-aws/skills/cloudfront) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Configures Amazon CloudFront content delivery across six workflows: when to use CloudFront and ... |
 | [`code-review`](../../library/anthropics-knowledge-work/skills/code-review) | ⚪ Reserve | `anthropics-knowledge-work` | Review code changes for security, performance, and correctness. Trigger with a PR URL or diff, ... |
 | [`coding-agent`](../../library/openclaw-openclaw/skills/coding-agent) | ⚪ Reserve | `openclaw-openclaw` | Delegate coding work to Codex, Claude Code, or OpenCode as background workers; not simple edits... |
+| [`competition-browser-persistence`](../../library/zhaoxuya520-reverse-skill/skills/competition-browser-persistence) | ⚪ Reserve | `zhaoxuya520-reverse-skill` | Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for browser cookie... |
+| [`competition-kerberos-delegation`](../../library/zhaoxuya520-reverse-skill/skills/competition-kerberos-delegation) | ⚪ Reserve | `zhaoxuya520-reverse-skill` | Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for Kerberos deleg... |
+| [`competition-lsass-ticket-material`](../../library/zhaoxuya520-reverse-skill/skills/competition-lsass-ticket-material) | ⚪ Reserve | `zhaoxuya520-reverse-skill` | Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for LSASS-resident... |
+| [`competition-queue-worker-drift`](../../library/zhaoxuya520-reverse-skill/skills/competition-queue-worker-drift) | ⚪ Reserve | `zhaoxuya520-reverse-skill` | Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for queues, async ... |
+| [`competition-ssrf-metadata-pivot`](../../library/zhaoxuya520-reverse-skill/skills/competition-ssrf-metadata-pivot) | ⚪ Reserve | `zhaoxuya520-reverse-skill` | Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for SSRF reachabil... |
 | [`coordinator-mode`](../../library/vudovn-antigravity-kit/skills/coordinator-mode) | ⚪ Reserve | `vudovn-antigravity-kit` | Advanced multi-agent orchestration with parallel workers, synthesis protocols, and coordinator ... |
 | [`cron-schedule`](../../library/ruvnet-ruflo/skills/cron-schedule) | ⚪ Reserve | `ruvnet-ruflo` | Schedule persistent background workers via CronCreate |
 | [`custom-blocks`](../../library/makenotion-notion-cookbook/skills/custom-blocks) | ⚪ Reserve | `makenotion-notion-cookbook` | Create, modify, and troubleshoot custom blocks in Notion Workers. Use when the user wants to bu... |
@@ -77,6 +82,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`emc`](../../library/aklofas-kicad-happy/skills/emc) | ⚪ Reserve | `aklofas-kicad-happy` | EMC pre-compliance risk analysis for KiCad PCB designs — 18 check categories, 44 rule IDs cover... |
 | [`engage-subject-line-lab`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/engage-subject-line-lab) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "generate subject line variants", "pre-score my subject lines", or "w... |
 | [`engineering-hivemind`](../../library/alirezarezvani-claude-skills/skills/engineering-hivemind) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when delegating grunt work to free opencode workers instead of spending Claude tokens: one ... |
+| [`entra-agent-user`](../../library/github-awesome-copilot/skills/entra-agent-user) | ⚪ Reserve | `github-awesome-copilot` | Create Agent Users in Microsoft Entra ID from Agent Identities, enabling AI agents to act as di... |
 | [`evaluate-narrative-drift-monitor`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/evaluate-narrative-drift-monitor) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "check if our surfaces have drifted from the canon", "watch for compe... |
 | [`file-uploads`](../../library/antigravity-awesome-skills/skills/file-uploads) | ⚪ Reserve | `antigravity-awesome-skills` | Expert at handling file uploads and cloud storage. Covers S3, Cloudflare R2, presigned URLs, mu... |
 | [`find-exposed-servers`](../../library/useosint-skills/skills/find-exposed-servers) | ⚪ Reserve | `useosint-skills` | Find internet-exposed hosts, ports, services and devices using third-party internet-scan data i... |
@@ -122,6 +128,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`process-doc`](../../library/anthropics-knowledge-work/skills/process-doc) | ⚪ Reserve | `anthropics-knowledge-work` | Document a business process — flowcharts, RACI, and SOPs. Use when formalizing a process that l... |
 | [`progressive-web-app`](../../library/aj-geddes-useful-ai-prompts/skills/progressive-web-app) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Build progressive web apps using service workers, web manifest, offline support, and installabi... |
 | [`pwa-development`](../../library/mindrally-skills/skills/pwa-development) | ⚪ Reserve | `mindrally-skills` | Progressive Web App development guidelines covering service workers, caching strategies, offlin... |
+| [`python-azure-iot-edge-modules`](../../library/github-awesome-copilot/skills/python-azure-iot-edge-modules) | ⚪ Reserve | `github-awesome-copilot` | Build and operate Python Azure IoT Edge modules with robust messaging, deployment manifests, ob... |
+| [`qdrant-deployment-options`](../../library/github-awesome-copilot/skills/qdrant-deployment-options) | ⚪ Reserve | `github-awesome-copilot` | Guides Qdrant deployment selection. Use when someone asks 'how to deploy Qdrant', 'Docker vs Cl... |
 | [`rails-expert`](../../library/jeffallan-claude-skills/skills/rails-expert) | ⚪ Reserve | `jeffallan-claude-skills` | Rails 7+ specialist that optimizes Active Record queries with includes/eager_load, implements T... |
 | [`react-flow-architect`](../../library/antigravity-awesome-skills/skills/react-flow-architect) | ⚪ Reserve | `antigravity-awesome-skills` | Expert ReactFlow architect for building interactive graph applications with hierarchical node-e... |
 | [`regex-vs-llm-structured-text`](../../library/affaan-m-ecc/skills/regex-vs-llm-structured-text) | ⚪ Reserve | `affaan-m-ecc` | Decision framework for parsing structured text (quizzes, forms, invoices, receipts, tables) wit... |
@@ -142,6 +150,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-cloudflare-one`](../../library/cloudflare-skills/skills/skills-cloudflare-one) | ⚪ Reserve | `cloudflare-skills` | Design, configure, troubleshoot, or review Cloudflare One Zero Trust and SASE deployments. Use ... |
 | [`skills-code-review`](../../library/anthropics-knowledge-work/skills/skills-code-review) | ⚪ Reserve | `anthropics-knowledge-work` | Review code changes for security, performance, and correctness. Trigger with a PR URL or diff, ... |
 | [`skills-demo-video`](../../library/alirezarezvani-claude-skills/skills/skills-demo-video) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when asked for a demo video, product walkthrough, feature showcase or GIF from screenshots ... |
+| [`skills-gmgn-wallet-analysis`](../../library/gmgnai-gmgn-skills/skills/skills-gmgn-wallet-analysis) | ⚪ Reserve | `gmgnai-gmgn-skills` | The trader's decision dossier on a wallet — four pass/fail gates (is the record real, is the ed... |
 | [`skills-mirrord-propagation-discovery`](../../library/metalbear-co-mirrord/skills/skills-mirrord-propagation-discovery) | ⚪ Reserve | `metalbear-co-mirrord` | Scans a live Kubernetes environment with `mirrord dump` to find an identifier mirrord can filte... |
 | [`skills-om-fix-issue-multi-optimized`](../../library/open-mercato-skills/skills/skills-om-fix-issue-multi-optimized) | ⚪ Reserve | `open-mercato-skills` | Thin combined alias for om-fix-issue that uses configured implementation workers and independen... |
 | [`skills-om-fix-issue-optimized`](../../library/open-mercato-skills/skills/skills-om-fix-issue-optimized) | ⚪ Reserve | `open-mercato-skills` | Thin worker-optimized alias for om-fix-issue that delegates bounded implementation packets to c... |
@@ -150,7 +159,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-om-setup-agent-harness`](../../library/open-mercato-skills/skills/skills-om-setup-agent-harness) | ⚪ Reserve | `open-mercato-skills` | Configure or diagnose the staged-only multi-model harness, including selectable implementation ... |
 | [`skills-orchestrate`](../../library/cursor-plugins/skills/skills-orchestrate) | ⚪ Reserve | `cursor-plugins` | Use only when the user explicitly types `/orchestrate <goal>` to decompose a large task, spawn ... |
 | [`skills-process-doc`](../../library/anthropics-knowledge-work/skills/skills-process-doc) | ⚪ Reserve | `anthropics-knowledge-work` | Document a business process — flowcharts, RACI, and SOPs. Use when formalizing a process that l... |
-| [`skills-swarm`](../../library/cursor-plugins/skills/skills-swarm) | ⚪ Reserve | `cursor-plugins` | Fan out N parallel workers, drain them, and return one report. Use for /swarm, 'swarm this', or... |
+| [`skills-swarm`](../../library/backnotprop-pstack/skills/skills-swarm) | ⚪ Reserve | `backnotprop-pstack` | Fan out N parallel workers, drain them, and return one report. Use for /swarm, 'swarm this', or... |
 | [`soak-test`](../../library/donchitos-claude-code-game-studios/skills/soak-test) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Soak test protocol for extended play — what to observe and log for slow leaks, fatigue, late-ap... |
 | [`spreadsheet-formula-helper`](../../library/composio-community-awesome-codex-skills/skills/spreadsheet-formula-helper) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Write and debug spreadsheet formulas (Excel/Google Sheets), pivot tables, and array formulas; t... |
 | [`stockbee-20pct-study`](../../library/tradermonty-claude-trading-skills/skills/stockbee-20pct-study) | ⚪ Reserve | `tradermonty-claude-trading-skills` | Build and maintain a Stockbee-style daily 20% mover study for US equities by scanning +20%/-20%... |
@@ -166,6 +175,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`vercel-development`](../../library/mindrally-skills/skills/vercel-development) | ⚪ Reserve | `mindrally-skills` | Vercel and Next.js deployment best practices including server components, edge functions, AI SD... |
 | [`vercel-xhttp-relay`](../../library/reason-machines-trending-skills/skills/vercel-xhttp-relay) | ⚪ Reserve | `reason-machines-trending-skills` | Deploy an XHTTP relay on Vercel Edge Functions to proxy Xray/V2Ray traffic and hide your origin... |
 | [`web-perf`](../../library/cloudflare-skills/skills/web-perf) | ⚪ Reserve | `cloudflare-skills` | Audit, diagnose, or optimize website loading and interaction performance, Core Web Vitals, and ... |
+| [`web-perimeter-owasp-2025-audit`](../../library/affaan-m-ecc/skills/web-perimeter-owasp-2025-audit) | ⚪ Reserve | `affaan-m-ecc` | Passive, non-destructive web perimeter security auditing mapped to OWASP Top 10:2025 surface le... |
 | [`workday-automation`](../../library/composio-community-awesome-codex-skills/skills/workday-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate HR operations in Workday -- manage workers, time off requests, absence balances, and e... |
 | [`workers-best-practices`](../../skills/workers-best-practices) | 🟢 Active | `active` | Cloudflare Workers best practices for production applications. Use when writing, reviewing, or ... |
 | [`workers-development`](../../library/cloudflare-skills/skills/workers-development) | ⚪ Reserve | `cloudflare-skills` | Run, inspect, and debug Cloudflare Workers during local development with cf dev, wrangler dev, ... |

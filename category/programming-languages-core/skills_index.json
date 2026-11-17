@@ -112,6 +112,14 @@
     "path": "category/programming-languages-core/antigravity-manager"
   },
   {
+    "id": "api-breaking-change-detector",
+    "name": "api-breaking-change-detector",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Cross-references C# Web API controllers/DTOs against their TypeScript/JavaScript consumers (React, Angular, Vue, Svelte, Node.js, or hand-written/auto-generated HTTP clients like Fetch, Axios, NSwag) to catch contract drift in both directions: backend changes that break client applications (renamed/removed JSON keys, new required parameters, status code shifts) and frontend code sending fields the backend no longer reads. Works directly against source code, not exported OpenAPI spec files. Use when the user asks to check for breaking API changes, verify frontend/backend contract sync, or audit a DTO/controller change against its TypeScript/JS consumers before merging. Not for generating new API code from a spec (see openapi-to-application-code) or scaffolding new endpoints (see aspnet-minimal-api-openapi).",
+    "path": "category/programming-languages-core/api-breaking-change-detector"
+  },
+  {
     "id": "apk-reverse",
     "name": "apk-reverse",
     "category": "programming-languages-core",
@@ -800,6 +808,14 @@
     "path": "category/programming-languages-core/cmux-backend"
   },
   {
+    "id": "code-exemplars-blueprint-generator",
+    "name": "code-exemplars-blueprint-generator",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Technology-agnostic prompt generator that creates customizable AI prompts for scanning codebases and identifying high-quality code exemplars. Supports multiple programming languages (.NET, Java, JavaScript, TypeScript, React, Angular, Python) with configurable analysis depth, categorization methods, and documentation formats to establish coding standards and maintain consistency across development teams.",
+    "path": "category/programming-languages-core/code-exemplars-blueprint-generator"
+  },
+  {
     "id": "code-flow-visualizer",
     "name": "code-flow-visualizer",
     "category": "programming-languages-core",
@@ -814,6 +830,14 @@
     "repository": "dotnet-skills",
     "description": "Provides file paths to language-specific extension files for the code-testing pipeline. Read this reference-only catalog for extension guidance files (e.g., dotnet.md for .NET, cpp.md for C++). Agents and skills read its bundled files directly; do not invoke this catalog through the model's skill tool.",
     "path": "category/programming-languages-core/code-testing-extensions"
+  },
+  {
+    "id": "competition-android-hooking",
+    "name": "competition-android-hooking",
+    "category": "programming-languages-core",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for Android APK hooking, Frida tracing, request-signing recovery, SSL pinning bypass, JNI boundary inspection, and app trust-boundary analysis. Use when the user asks to hook an APK, inspect signer logic, trace Java or native boundaries, bypass pinning or root checks, inspect shared prefs or app databases, or replay accepted mobile requests. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/programming-languages-core/competition-android-hooking"
   },
   {
     "id": "convex",
@@ -888,12 +912,28 @@
     "path": "category/programming-languages-core/create-auth"
   },
   {
+    "id": "create-spring-boot-java-project",
+    "name": "create-spring-boot-java-project",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Create a new Spring Boot Java project (Maven or Gradle) from start.spring.io with sensible defaults for configuration, PostgreSQL, logging, security, testing and Docker. Use when asked to scaffold, bootstrap or generate a Spring Boot application. Detects existing project versions and never upgrades implicitly.",
+    "path": "category/programming-languages-core/create-spring-boot-java-project"
+  },
+  {
     "id": "create-toolset",
     "name": "create-toolset",
     "category": "programming-languages-core",
     "repository": "epicgames-unreal-engine-skills-for-claude-code-plugin",
     "description": "Use this skill when authoring or extending an Unreal Engine toolset, a class of static, AI-callable functions registered with `ToolsetRegistry` and exposed through the unreal-mcp server. Trigger when the user wants to add, expose, or register a new tool method, create a new toolset, or extend an existing one such as `BlueprintTools`, `StaticMeshTools`, `ObjectTools`, `LevelTools`, or `MaterialTools`. Concrete triggers: 'add a tool to X', 'expose this via MCP', 'register a function so Claude/the agent can call it', 'wire this into the toolset registry', 'create a new toolset for Y', 'add a Python toolset', 'make this AI-callable'; adding a `static` method to a `*Tools.cpp/.h/.py` file; editing files under a `Toolsets/` folder; designing tool parameters, return types, or struct schemas for a toolset. SKIP for: invoking existing tools at runtime (use unreal-mcp instead), authoring an Agent Skill (use unreal-skill), generic refactors that happen to touch a toolset file but don't add or redesign a tool, or unrelated uses of the word 'toolset'.",
     "path": "category/programming-languages-core/create-toolset"
+  },
+  {
+    "id": "csharp-async",
+    "name": "csharp-async",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Get best practices for C# async programming",
+    "path": "category/programming-languages-core/csharp-async"
   },
   {
     "id": "csharp-developer",
@@ -904,6 +944,14 @@
     "path": "category/programming-languages-core/csharp-developer"
   },
   {
+    "id": "csharp-docs",
+    "name": "csharp-docs",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Ensure that C# types are documented with XML comments and follow best practices for documentation.",
+    "path": "category/programming-languages-core/csharp-docs"
+  },
+  {
     "id": "csharp-expert",
     "name": "csharp-expert",
     "category": "programming-languages-core",
@@ -912,12 +960,44 @@
     "path": "category/programming-languages-core/csharp-expert"
   },
   {
+    "id": "csharp-mstest",
+    "name": "csharp-mstest",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Get best practices for MSTest 3.x/4.x unit testing, including modern assertion APIs and data-driven tests",
+    "path": "category/programming-languages-core/csharp-mstest"
+  },
+  {
+    "id": "csharp-nunit",
+    "name": "csharp-nunit",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Get best practices for NUnit unit testing, including data-driven tests",
+    "path": "category/programming-languages-core/csharp-nunit"
+  },
+  {
     "id": "csharp-testing",
     "name": "csharp-testing",
     "category": "programming-languages-core",
     "repository": "affaan-m-ecc",
     "description": "C# and .NET testing patterns with xUnit, FluentAssertions, mocking, integration tests, and test organization best practices. Use when writing or reviewing xUnit tests, mocks, or integration tests in a C# / .NET project.",
     "path": "category/programming-languages-core/csharp-testing"
+  },
+  {
+    "id": "csharp-tunit",
+    "name": "csharp-tunit",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Get best practices for TUnit unit testing, including data-driven tests",
+    "path": "category/programming-languages-core/csharp-tunit"
+  },
+  {
+    "id": "csharp-xunit",
+    "name": "csharp-xunit",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Get best practices for XUnit unit testing, including data-driven tests",
+    "path": "category/programming-languages-core/csharp-xunit"
   },
   {
     "id": "cucumber-skill",
@@ -1744,12 +1824,68 @@
     "path": "category/programming-languages-core/java"
   },
   {
+    "id": "java-add-graalvm-native-image-support",
+    "name": "java-add-graalvm-native-image-support",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "GraalVM Native Image skill for Spring Boot, Micronaut and plain Java: detects the build tool and framework, adds native image support, builds the executable, analyzes errors, and iterates until the native build succeeds and the binary runs correctly. For Quarkus projects it only dispatches to the quarkus-native-and-container skill.",
+    "path": "category/programming-languages-core/java-add-graalvm-native-image-support"
+  },
+  {
     "id": "java-architect",
     "name": "java-architect",
     "category": "programming-languages-core",
     "repository": "jeffallan-claude-skills",
     "description": "Use when building, configuring, or debugging enterprise Java applications with Spring Boot 3.x, microservices, or reactive programming. Invoke to implement WebFlux endpoints, optimize JPA queries and database performance, configure Spring Security with OAuth2/JWT, or resolve authentication issues and async processing challenges in cloud-native Spring applications.",
     "path": "category/programming-languages-core/java-architect"
+  },
+  {
+    "id": "java-debugging",
+    "name": "java-debugging",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Debug Java applications systematically: JDWP remote debugging, jdb, VS Code and IntelliJ attach, debugging Maven/Gradle tests, Spring Boot and Quarkus dev mode, containers, breakpoints/logpoints, and reading stack traces. Use when the user needs to find the cause of a Java bug, exception, wrong behavior, or failing test, or asks how to attach a debugger.",
+    "path": "category/programming-languages-core/java-debugging"
+  },
+  {
+    "id": "java-diagnostics",
+    "name": "java-diagnostics",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Symptom-first runtime diagnostics for JVM applications using JDK tools: jcmd, jstack, jmap, jstat, JFR, GC logs, async-profiler, Native Memory Tracking, and Eclipse MAT. Use when a Java app has high CPU, memory leaks or OutOfMemoryError, slow startup, deadlocks or thread starvation, long GC pauses, native memory growth, or slow requests. Includes permission tiers for safe use.",
+    "path": "category/programming-languages-core/java-diagnostics"
+  },
+  {
+    "id": "java-docs",
+    "name": "java-docs",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Ensure that Java types are documented with Javadoc comments and follow best practices for documentation.",
+    "path": "category/programming-languages-core/java-docs"
+  },
+  {
+    "id": "java-helidon",
+    "name": "java-helidon",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Get best practices for developing applications with Helidon 4 (SE and MP). Use when working with Helidon SE or Helidon MP, HttpService routing, Helidon DB Client, MicroProfile Config, Helidon Security, or Helidon testing in Java 21+ projects.",
+    "path": "category/programming-languages-core/java-helidon"
+  },
+  {
+    "id": "java-hibernate-jpa",
+    "name": "java-hibernate-jpa",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Diagnose and fix Hibernate ORM / Jakarta Persistence problems in plain Java: N+1 queries, lazy loading errors, identifier generation, entity equals/hashCode, cascades, pagination, batching, locking, caching, Lombok on entities, and Hibernate 6/7 differences. Use when reviewing or writing JPA entities, mappings, and queries. Framework-neutral.",
+    "path": "category/programming-languages-core/java-hibernate-jpa"
+  },
+  {
+    "id": "java-junit",
+    "name": "java-junit",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Write, review and fix Java unit tests with JUnit 5 and JUnit 6 (Jupiter), AssertJ and Mockito: assertions, parameterized and nested tests, mocking rules, deterministic time and randomness, Surefire vs Failsafe, JaCoCo coverage, optional PIT mutation testing, and guardrails for agents (never skip or delete failing tests). Use when adding, refactoring or debugging tests in Maven or Gradle projects. Framework-neutral.",
+    "path": "category/programming-languages-core/java-junit"
   },
   {
     "id": "java-quarkus-development",
@@ -1760,6 +1896,22 @@
     "path": "category/programming-languages-core/java-quarkus-development"
   },
   {
+    "id": "java-refactoring-extract-method",
+    "name": "java-refactoring-extract-method",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Refactoring using Extract Methods in Java Language",
+    "path": "category/programming-languages-core/java-refactoring-extract-method"
+  },
+  {
+    "id": "java-refactoring-remove-parameter",
+    "name": "java-refactoring-remove-parameter",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Refactoring using Remove Parameter in Java Language",
+    "path": "category/programming-languages-core/java-refactoring-remove-parameter"
+  },
+  {
     "id": "java-spring-development",
     "name": "java-spring-development",
     "category": "programming-languages-core",
@@ -1768,12 +1920,44 @@
     "path": "category/programming-languages-core/java-spring-development"
   },
   {
+    "id": "java-springboot",
+    "name": "java-springboot",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Write and review application code in an existing Spring Boot 3/4 project: controllers, validation and ProblemDetail errors, Spring Data JPA/JDBC, RestClient and HTTP interfaces, configuration properties, Kafka/AMQP, caching, scheduling, virtual threads, AOT and startup tuning. Use when adding or changing features. To scaffold a new project use create-spring-boot-java-project instead.",
+    "path": "category/programming-languages-core/java-springboot"
+  },
+  {
+    "id": "java-testcontainers",
+    "name": "java-testcontainers",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Write reliable integration tests in plain Java with Testcontainers 2.x: JUnit Jupiter lifecycle, singleton containers, reuse, generic containers, wait strategies, networks, init scripts, Docker Compose, CI and Docker/Podman setup. Use when adding or fixing Testcontainers tests, or migrating from 1.x. Framework-neutral.",
+    "path": "category/programming-languages-core/java-testcontainers"
+  },
+  {
     "id": "javascript-sdk",
     "name": "javascript-sdk",
     "category": "programming-languages-core",
     "repository": "101-skills-superpowers",
     "description": "JavaScript/TypeScript SDK for inference.sh - run AI apps, build agents, integrate with all models. Package: @inferencesh/sdk (npm install). Full TypeScript support, streaming, file uploads. Build agents with template or ad-hoc patterns, tool builder API, skills, human approval. Use for: JavaScript integration, TypeScript, Node.js, React, Next.js, frontend apps. Triggers: javascript sdk, typescript sdk, npm install, node.js api, js client, react ai, next.js ai, frontend sdk, @inferencesh/sdk, typescript agent, browser sdk, js integration",
     "path": "category/programming-languages-core/javascript-sdk"
+  },
+  {
+    "id": "javascript-typescript-jest",
+    "name": "javascript-typescript-jest",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Best practices for writing JavaScript/TypeScript tests using Jest, including mocking strategies, test structure, and common patterns.",
+    "path": "category/programming-languages-core/javascript-typescript-jest"
+  },
+  {
+    "id": "javax-to-jakarta-migration",
+    "name": "javax-to-jakarta-migration",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Migrate Java code from javax.* to jakarta.* namespace. Use only when the user explicitly asks for a javax to jakarta namespace or framework migration (for example to Tomcat 10+/11 or Jakarta EE), or when java-upgrade or spring-boot-4-migration delegates it. Finding javax imports alone does not authorize a migration.",
+    "path": "category/programming-languages-core/javax-to-jakarta-migration"
   },
   {
     "id": "jest",
@@ -1926,6 +2110,14 @@
     "repository": "limrun-inc-skills",
     "description": "Create and revoke Limrun access tokens through the CLI or TypeScript SDK. Use when delegating temporary instance control, interactive streaming, asset access, device installation, or service access, or choosing permissions and token lifetimes.",
     "path": "category/programming-languages-core/limrun-access-tokens"
+  },
+  {
+    "id": "line-art-animation",
+    "name": "line-art-animation",
+    "category": "programming-languages-core",
+    "repository": "jdhruv14-line-art-animation",
+    "description": "Build animated line-art components in SVG and TypeScript \u2014 thin ink lines on paper, people and animals that walk, run, cycle and react, scenes with wind, lit windows and a day/night cycle, exported to video if needed. Use this whenever someone asks for a line art (or ink, pen, doodle, hand-drawn) animation, an animated illustration or scene component, little characters doing everyday things, a living street/village/shop/park, a day-night cycle illustration, \"make it like this clip\" for a drawn animation, or a video of such a component \u2014 even if they never say \"SVG\" or \"line art\".",
+    "path": "category/programming-languages-core/line-art-animation"
   },
   {
     "id": "llm-integration",
@@ -2136,6 +2328,14 @@
     "path": "category/programming-languages-core/msbuild-modernization"
   },
   {
+    "id": "msgraph-sdk",
+    "name": "msgraph-sdk",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Integrate Microsoft Graph SDK into any project \u2014 .NET, TypeScript/JavaScript, or Python. Covers auth patterns (client credentials, OBO, managed identity), SDK setup, calling Graph APIs, batching, delta queries, change notifications, throttling, and permission scopes. Use when accessing Microsoft 365 data (users, mail, calendar, Teams, files, SharePoint) from any application type.",
+    "path": "category/programming-languages-core/msgraph-sdk"
+  },
+  {
     "id": "mybatis-patterns",
     "name": "mybatis-patterns",
     "category": "programming-languages-core",
@@ -2270,6 +2470,14 @@
     "repository": "reason-machines-trending-skills",
     "description": "Expertise in using open-multi-agent, a TypeScript framework for building production-grade multi-agent AI teams with task scheduling, dependency graphs, and inter-agent communication.",
     "path": "category/programming-languages-core/open-multi-agent-orchestration"
+  },
+  {
+    "id": "openapi-to-application-java-spring-boot",
+    "name": "openapi-to-application-java-spring-boot",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Generate a Spring Boot (Java) application from an OpenAPI 3 specification using the spec-first approach: openapi-generator (Maven or Gradle) produces API interfaces and DTOs, you implement controllers, services, persistence, security and tests. Use when asked to build, scaffold or implement a Spring Boot API from an OpenAPI/Swagger file.",
+    "path": "category/programming-languages-core/openapi-to-application-java-spring-boot"
   },
   {
     "id": "openapi-to-typescript",
@@ -2496,14 +2704,6 @@
     "path": "category/programming-languages-core/redux-toolkit"
   },
   {
-    "id": "remix",
-    "name": "remix",
-    "category": "programming-languages-core",
-    "repository": "mindrally-skills",
-    "description": "Expert guidance for Remix development with TypeScript, loaders/actions, nested routes, and full-stack web application best practices",
-    "path": "category/programming-languages-core/remix"
-  },
-  {
     "id": "reverse-engineering",
     "name": "reverse-engineering",
     "category": "programming-languages-core",
@@ -2608,6 +2808,14 @@
     "path": "category/programming-languages-core/rust-learner"
   },
   {
+    "id": "rust-mcp-server-generator",
+    "name": "rust-mcp-server-generator",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Generate a complete Rust Model Context Protocol server project with tools, prompts, resources, and tests using the official rmcp SDK",
+    "path": "category/programming-languages-core/rust-mcp-server-generator"
+  },
+  {
     "id": "rust-patterns",
     "name": "rust-patterns",
     "category": "programming-languages-core",
@@ -2702,6 +2910,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "This skill should be used when the user asks for patterns, best practices, creation, or fixing of Sankhya dashboards using HTML, JSP, Java, and SQL.",
     "path": "category/programming-languages-core/sankhya-dashboard-html-jsp-custom-best-pratices"
+  },
+  {
+    "id": "sap-cloud-integration",
+    "name": "sap-cloud-integration",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "SAP Cloud Integration (CPI, part of SAP Integration Suite) runtime-specific guidance for building and troubleshooting iFlows. Use when writing or reviewing CPI Groovy scripts, choosing headers vs. exchange properties, designing exception subprocesses, JMS retry, idempotency or data store patterns, or diagnosing adapter errors (SFTP, HTTP/OAuth, SOAP, IDoc, OData, AS2, Cloud Connector) from Message Processing Log (MPL) text. Not for SAP PI/PO, ABAP development, or generic Java/Groovy outside CPI.",
+    "path": "category/programming-languages-core/sap-cloud-integration"
   },
   {
     "id": "scala-pro",
@@ -3024,6 +3240,14 @@
     "path": "category/programming-languages-core/springboot-security"
   },
   {
+    "id": "sql-object-impact-analysis",
+    "name": "sql-object-impact-analysis",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Before modifying a table, column, stored procedure, view, or trigger in a legacy codebase, trace every place that references it \u2014 across other SQL objects (procs, views, triggers) AND application code (C#, Angular/TypeScript, JS, or any language in the repo) \u2014 and produce a structured blast-radius report so you know what breaks before you change it. Use when the user asks 'what uses this column/table/procedure', 'is it safe to change X', 'what depends on this', 'impact of renaming/dropping X', or before any schema/proc modification in an unfamiliar or legacy codebase. Not for privacy/PII exposure analysis (see data-breach-blast-radius) or query performance tuning (see sql-optimization).",
+    "path": "category/programming-languages-core/sql-object-impact-analysis"
+  },
+  {
     "id": "structural-modeling",
     "name": "structural-modeling",
     "category": "programming-languages-core",
@@ -3054,6 +3278,14 @@
     "repository": "mindrally-skills",
     "description": "Tauri development guidelines for building cross-platform desktop applications with TypeScript, Rust, and modern web technologies",
     "path": "category/programming-languages-core/tauri-development"
+  },
+  {
+    "id": "technology-stack-blueprint-generator",
+    "name": "technology-stack-blueprint-generator",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Comprehensive technology stack blueprint generator that analyzes codebases to create detailed architectural documentation. Automatically detects technology stacks, programming languages, and implementation patterns across multiple platforms (.NET, Java, JavaScript, React, Python). Generates configurable blueprints with version information, licensing details, usage patterns, coding conventions, and visual diagrams. Provides implementation-ready templates and maintains architectural consistency for guided development.",
+    "path": "category/programming-languages-core/technology-stack-blueprint-generator"
   },
   {
     "id": "temporal-golang-pro",
@@ -3192,6 +3424,14 @@
     "path": "category/programming-languages-core/typescript-magician"
   },
   {
+    "id": "typescript-mcp-server-generator",
+    "name": "typescript-mcp-server-generator",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Generate a complete MCP server project in TypeScript using the MCP TypeScript SDK v2 (@modelcontextprotocol/server) with tools, resources, and proper configuration",
+    "path": "category/programming-languages-core/typescript-mcp-server-generator"
+  },
+  {
     "id": "typescript-patterns",
     "name": "typescript-patterns",
     "category": "programming-languages-core",
@@ -3238,6 +3478,14 @@
     "repository": "giuseppe-trisciuoglio-developer-kit",
     "description": "Provides parameterized testing patterns with JUnit 5, generates data-driven unit tests using @ParameterizedTest, @ValueSource, @CsvSource, @MethodSource. Creates tests that run the same logic with multiple input values. Use when writing data-driven Java tests, multiple test cases from single method, or boundary value analysis.",
     "path": "category/programming-languages-core/unit-test-parameterized"
+  },
+  {
+    "id": "unit-test-vue-pinia",
+    "name": "unit-test-vue-pinia",
+    "category": "programming-languages-core",
+    "repository": "github-awesome-copilot",
+    "description": "Write and review unit tests for Vue 3 + TypeScript + Vitest + Pinia codebases. Use when creating or updating tests for components, composables, and stores; mocking Pinia with createTestingPinia; applying Vue Test Utils patterns; and enforcing black-box assertions over implementation details.",
+    "path": "category/programming-languages-core/unit-test-vue-pinia"
   },
   {
     "id": "unreal-blueprints",

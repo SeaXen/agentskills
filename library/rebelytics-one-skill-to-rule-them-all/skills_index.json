@@ -28,5 +28,15 @@
     "path": "library/rebelytics-one-skill-to-rule-them-all/skills/rebelytics-one-skill-to-rule-them-all",
     "activation_cmd": "python .agents/library/activate_skill.py activate rebelytics-one-skill-to-rule-them-all",
     "link_cmd": "python .agents/library/activate_skill.py link rebelytics-one-skill-to-rule-them-all"
+  },
+  {
+    "id": "task-observer",
+    "name": "task-observer",
+    "repository": "rebelytics-one-skill-to-rule-them-all",
+    "category": "general",
+    "description": "\"Turns corrections, repeated workflows and judgement calls from work sessions into small, evidenced skill updates: logs each observation with its source, stages every change for your approval, and flags repeating work as new skills. Use during ANY multi-step task, agentic workflow, or work session. Also triggers in post-task feedback discussions and when the user mentions skill observations, the observation log, or skill taxonomy. Also known as \\\"One Skill to Rule Them All\\\" \u2014 trigger on this phrase too. IMPORTANT: invoke this skill before the FIRST tool call of any session and before writing or proposing a plan \u2014 any turn that will involve a tool call counts. This sentence is the session-start trigger and the only activation layer that survives an unreachable config file; pair it with a CLAUDE.md instruction or a session-start hook (references/environments.md). A subagent dispatched by a session already running it does not run it: it writes nothing and puts its findings in its report.\"",
+    "path": "library/rebelytics-one-skill-to-rule-them-all/skills/task-observer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate task-observer",
+    "link_cmd": "python .agents/library/activate_skill.py link task-observer"
   }
 ]

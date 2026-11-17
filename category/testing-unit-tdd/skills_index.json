@@ -8,6 +8,14 @@
     "path": "category/testing-unit-tdd/03-specification-search"
   },
   {
+    "id": "04-K-Dense-AI-claude-scientific-writer-citation-management",
+    "name": "04-K-Dense-AI-claude-scientific-writer-citation-management",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Comprehensive citation management for academic research. Search Google Scholar and PubMed for papers, extract accurate metadata, validate citations, and generate properly formatted BibTeX entries. This skill should be used when you need to find papers, verify citation information, convert DOIs to BibTeX, or ensure reference accuracy in scientific writing.",
+    "path": "category/testing-unit-tdd/04-K-Dense-AI-claude-scientific-writer-citation-management"
+  },
+  {
     "id": "04-framing-attacks",
     "name": "04-framing-attacks",
     "category": "testing-unit-tdd",
@@ -123,8 +131,8 @@
     "id": "ad-campaign-analyzer",
     "name": "ad-campaign-analyzer",
     "category": "testing-unit-tdd",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Analyze cross-channel campaign data, quantify uncertainty, and propose evidence-labeled budget tests without overstating causality.",
+    "repository": "github-awesome-copilot",
+    "description": "Use this skill when the user shares ad campaign performance data and asks what to cut, scale, or test. Trigger for prompts like \"analyze my ad campaigns\", \"where am I wasting ad spend\", \"reallocate my ad budget\", \"which ads are actually working\", or \"ROAS analysis\". Do not trigger for campaign planning or creative generation without performance data.",
     "path": "category/testing-unit-tdd/ad-campaign-analyzer"
   },
   {
@@ -248,6 +256,22 @@
     "path": "category/testing-unit-tdd/agent-security-hardening"
   },
   {
+    "id": "agent-supply-chain",
+    "name": "agent-supply-chain",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Verify supply chain integrity for AI agent plugins, tools, and dependencies. Use this skill when: - Generating SHA-256 integrity manifests for agent plugins or tool packages - Verifying that installed plugins match their published manifests - Detecting tampered, modified, or untracked files in agent tool directories - Auditing dependency pinning and version policies for agent components - Building provenance chains for agent plugin promotion (dev \u2192 staging \u2192 production) - Any request like \"verify plugin integrity\", \"generate manifest\", \"check supply chain\", or \"sign this plugin",
+    "path": "category/testing-unit-tdd/agent-supply-chain"
+  },
+  {
+    "id": "agent-teams-grok",
+    "name": "agent-teams-grok",
+    "category": "testing-unit-tdd",
+    "repository": "ruvnet-ruflo",
+    "description": "Run Ruflo-style named Agent Teams on Grok Build using the host-agnostic team bus (scripts/grok-team-bus.mjs). Use when coordinating multi-agent pipelines, feature development with architect\u2192coder\u2192tester\u2192reviewer, or replacing Claude SendMessage.",
+    "path": "category/testing-unit-tdd/agent-teams-grok"
+  },
+  {
     "id": "agentcontrol-configs-create",
     "name": "agentcontrol-configs-create",
     "category": "testing-unit-tdd",
@@ -270,6 +294,14 @@
     "repository": "forcedotcom-sf-skills",
     "description": "Analyze production Agentforce agent behavior using session traces and Data Cloud, and manage Agent Health Monitoring (AHM) alerts. TRIGGER when: user queries STDM session data or Data Cloud trace records; investigates production agent failures, regressions, or performance issues; asks about session traces, conversation logs, or agent metrics; wants to reproduce a reported production issue in preview; runs findSessions or trace analysis queries; creates, lists, updates, or deletes an AHM data alert on an agent metric (escalation rate, deflection, etc.); asks why an alert is not firing or wants to check whether alerts have fired (notification counts, or the per-alert Incidents view). DO NOT TRIGGER when: user creates, modifies, or debugs .agent files during development (use agentforce-generate); writes or runs test specs (use agentforce-test); uses sf agent preview for local development iteration; deploys or publishes agents.",
     "path": "category/testing-unit-tdd/agentforce-observe"
+  },
+  {
+    "id": "agentic-eval",
+    "name": "agentic-eval",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Patterns and techniques for evaluating and improving AI agent outputs. Use this skill when: - Implementing self-critique and reflection loops - Building evaluator-optimizer pipelines for quality-critical generation - Creating test-driven code refinement workflows - Designing rubric-based or LLM-as-judge evaluation systems - Adding iterative improvement to agent outputs (code, reports, analysis) - Measuring and improving agent response quality",
+    "path": "category/testing-unit-tdd/agentic-eval"
   },
   {
     "id": "agentic-test-audit",
@@ -416,6 +448,22 @@
     "path": "category/testing-unit-tdd/arbor"
   },
   {
+    "id": "arize-dataset",
+    "name": "arize-dataset",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Creates, manages, and queries Arize datasets and examples. Covers dataset CRUD, appending examples, exporting data, and file-based dataset creation using the ax CLI. Use when the user needs test data, evaluation examples, or mentions create dataset, list datasets, export dataset, append examples, dataset version, golden dataset, or test set.",
+    "path": "category/testing-unit-tdd/arize-dataset"
+  },
+  {
+    "id": "arize-experiment",
+    "name": "arize-experiment",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Creates, runs, and analyzes Arize experiments for evaluating and comparing model performance. Covers experiment CRUD, exporting runs, comparing results, and evaluation workflows using the ax CLI. Use when the user mentions create experiment, run experiment, compare models, model performance, evaluate AI, experiment results, benchmark, A/B test models, or measure accuracy.",
+    "path": "category/testing-unit-tdd/arize-experiment"
+  },
+  {
     "id": "asc-ad-hoc-distribution",
     "name": "asc-ad-hoc-distribution",
     "category": "testing-unit-tdd",
@@ -496,6 +544,14 @@
     "path": "category/testing-unit-tdd/attack-surface-mapping"
   },
   {
+    "id": "audit-integrity",
+    "name": "audit-integrity",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Enforce output quality, evidence verification, and quality gates across security audits. Use this skill when you perform SAST, SCA, threat modeling, or security code reviews. Use this skill to verify code locations and taint traces for all findings. Use this skill to prevent the suppression of valid security findings. Use this skill to evaluate reports against quality thresholds (score \u2265 8/10) before delivery.",
+    "path": "category/testing-unit-tdd/audit-integrity"
+  },
+  {
     "id": "audit-prep-assistant",
     "name": "audit-prep-assistant",
     "category": "testing-unit-tdd",
@@ -558,6 +614,14 @@
     "repository": "microsoft-azure-skills",
     "description": "Apply IRQL graph functions to KQL or IRQL query results for Kusto Explorer visualization. Generates Lift_To_Graph mappings and composes Graph_Render_View, Graph_Fold_By_Property, Extract_Node_*, Enrich_Node_*, and Enrich_Graph_* calls. Accepts a supplied query or limited basic natural-language source request; it is not a general natural-language-to-KQL/IRQL skill. WHEN: Lift_To_Graph, Graph_Render_View, Graph_Fold_By_Property, IRQL graph enrichment, graph mapping for existing query results, icon-decorated graph, fold graph nodes. Use azure-kusto-graph for native make-graph analysis, graph-match, shortest paths, components, or persistent graphs.",
     "path": "category/testing-unit-tdd/azure-kusto-irql-graph"
+  },
+  {
+    "id": "backlog-refinement-advisor",
+    "name": "backlog-refinement-advisor",
+    "category": "testing-unit-tdd",
+    "repository": "deanpeters-product-manager-skills",
+    "description": "Get backlog items ready for planning: understood, small, testable. Use when planning stalls on unclear tickets, or items keep growing and bouncing back mid-sprint.",
+    "path": "category/testing-unit-tdd/backlog-refinement-advisor"
   },
   {
     "id": "backtest",
@@ -750,6 +814,14 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "Run tests on BrowserStack. Use when user mentions \"browserstack\", \"cross-browser\", \"cloud testing\", \"browser matrix\", \"test on safari\", \"test on firefox\", or \"browser compatibility\".",
     "path": "category/testing-unit-tdd/browserstack"
+  },
+  {
+    "id": "build-evidence-map",
+    "name": "build-evidence-map",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Build an auditable evidence map for a contested technical choice, research synthesis, proposal review, or consequential decision. Use when Copilot must preserve supporting, contradicting, qualifying, and missing evidence with exact source regions instead of collapsing disagreement into prose.",
+    "path": "category/testing-unit-tdd/build-evidence-map"
   },
   {
     "id": "building-patch-tuesday-response-process",
@@ -998,6 +1070,14 @@
     "repository": "huaweicloud-huaweicloud-skills",
     "description": "Audit Huawei Cloud skills for quality, security, and compliance using a three-check pipeline: skillspector (AI security), gitleaks (credential leak), and runtime_security (CWE \u9ad8\u5371\u8fd0\u884c\u6a21\u5f0f). Generates structured reports with issue details and fix strategies. Triggers include: \"\u5ba1\u8ba1\u6280\u80fd\",\"\u6280\u80fd\u5ba1\u8ba1\",\"\u68c0\u67e5\u6280\u80fd\u8d28\u91cf\",\"\u626b\u63cf\u6280\u80fd\u95ee\u9898\",\"\u6280\u80fd\u5b89\u5168\u5ba1\u8ba1\", \"audit skill\",\"check skill quality\",\"scan skills for issues\",\"skill audit\", \"\u534e\u4e3a\u4e91\u6280\u80fd\u5ba1\u8ba1\",\"\u6280\u80fd\u5408\u89c4\u68c0\u67e5\",\"skill gate\",\"\u8d28\u91cf\u95e8\u7981\",\"\u6280\u80fd\u68c0\u67e5\", \"audit huawei cloud skill\",\"verify skill compliance\",\"\u6280\u80fd\u8d28\u91cf\u68c0\u67e5\",\"\u8dd1\u5ba1\u8ba1\",\"\u5b89\u5168\u626b\u63cf\".",
     "path": "category/testing-unit-tdd/common-huawei-cloud-skill-audit"
+  },
+  {
+    "id": "competition-reverse-pwn",
+    "name": "competition-reverse-pwn",
+    "category": "testing-unit-tdd",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for reverse engineering, malware, DFIR, firmware, pwnable, and native exploit challenges. Use when the user asks to reverse a binary, unpack a sample, inspect a memory dump or PCAP, recover malware behavior, debug a crash, or build or verify an exploit chain under sandbox assumptions. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/testing-unit-tdd/competition-reverse-pwn"
   },
   {
     "id": "competitive-analysis",
@@ -1600,6 +1680,14 @@
     "path": "category/testing-unit-tdd/dx-devops-test-pipeline-configure"
   },
   {
+    "id": "dx-packaging-convert-1gp-to-2gp-create",
+    "name": "dx-packaging-convert-1gp-to-2gp-create",
+    "category": "testing-unit-tdd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Use this skill when users want to convert a managed-released 1GP package to a 2GP package with `sf package convert`, verify the converted package version and its code coverage, and optionally promote it to released. TRIGGER when: the user asks to convert a 1GP managed package to 2GP, create a converted 2GP package version from a released 1GP version, check whether a converted version passed code coverage, or troubleshoot an `sf package convert` failure. DO NOT TRIGGER for: migrating subscriber orgs from 1GP to 2GP, finalizing the irreversible move to 2GP development (use dx-packaging-move-to-2gp-migrate), creating or promoting native 2GP package versions that were not converted from 1GP, or enabling Dev Hub (use dx-org-devhub-configure).",
+    "path": "category/testing-unit-tdd/dx-packaging-convert-1gp-to-2gp-create"
+  },
+  {
     "id": "early-access-designer",
     "name": "early-access-designer",
     "category": "testing-unit-tdd",
@@ -1694,6 +1782,14 @@
     "repository": "pskoett-pskoett-ai-skills",
     "description": "[Beta] Creates permanent eval cases from promoted learnings and runs regression checks against them. Turns failures into test cases that prevent silent regression. This is the outer loop's regress-test step. Use when a learning is promoted and has a clear pass/fail condition, or on cadence to verify promoted rules still hold.",
     "path": "category/testing-unit-tdd/eval-creator"
+  },
+  {
+    "id": "eval-driven-dev",
+    "name": "eval-driven-dev",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Improve AI application with evaluation-driven development. Define eval criteria, instrument the application, build golden datasets, observe and evaluate application runs, analyze results, and produce a concrete action plan for improvements. ALWAYS USE THIS SKILL when the user asks to set up QA, add tests, add evals, evaluate, benchmark, fix wrong behaviors, improve quality, or do quality assurance for any Python project that calls an LLM model.",
+    "path": "category/testing-unit-tdd/eval-driven-dev"
   },
   {
     "id": "eval-engineering",
@@ -1862,6 +1958,14 @@
     "repository": "mukul975-anthropic-cybersecurity-skills",
     "description": "Testing WebSocket implementations for authentication bypass, cross-site",
     "path": "category/testing-unit-tdd/exploiting-websocket-vulnerabilities"
+  },
+  {
+    "id": "eyeball",
+    "name": "eyeball",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Document analysis with inline source screenshots. When you ask Copilot to analyze a document, Eyeball generates a Word doc where every factual claim includes a highlighted screenshot from the source material so you can verify it with your own eyes.",
+    "path": "category/testing-unit-tdd/eyeball"
   },
   {
     "id": "f5",
@@ -2174,6 +2278,14 @@
     "repository": "ruvnet-ruflo",
     "description": "Create (`bench create {repo}`) or verify (`bench verify {suite.json}`) a @metaharness/darwin bench suite, the fixed corpus `harness-evolve --bench` scores variants against. Use when preparing an evolution benchmark. Degrades gracefully without darwin.",
     "path": "category/testing-unit-tdd/harness-bench"
+  },
+  {
+    "id": "harness-engineering",
+    "name": "harness-engineering",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Adopt repository-level harness engineering for coding agents. Use when a user wants to prevent repeated AI coding-agent mistakes by turning failures into durable instructions, drift checks, regression tests, failure memory, and adoption reports tailored to the target repository.",
+    "path": "category/testing-unit-tdd/harness-engineering"
   },
   {
     "id": "hash-attack-techniques",
@@ -2608,6 +2720,22 @@
     "path": "category/testing-unit-tdd/land-proof-point-packager"
   },
   {
+    "id": "langchain-build-agent",
+    "name": "langchain-build-agent",
+    "category": "testing-unit-tdd",
+    "repository": "langchain-ai-langchain-skills",
+    "description": "Provides the latest guidance for building or modifying LLM applications with the LangChain open source libraries: Deep Agents, LangGraph, and LangChain, including how the libraries best fit together. The stack evolves quickly, so it's important to verify prior knowledge against this guidance. Also covers when Managed Deep Agents fits.",
+    "path": "category/testing-unit-tdd/langchain-build-agent"
+  },
+  {
+    "id": "langchain-eval-engineering",
+    "name": "langchain-eval-engineering",
+    "category": "testing-unit-tdd",
+    "repository": "langchain-ai-langchain-skills",
+    "description": "Inspect an agent repository and optional traces, interview the user, write reviewed Task Specs, build and audit Harbor tasks, and bootstrap reusable project World Knowledge Skills. Use for agent evals, benchmark design, Task generation, controlled Environments, synthetic data, Verifiers, Harbor runs, calibration, or continuous benchmark maintenance.",
+    "path": "category/testing-unit-tdd/langchain-eval-engineering"
+  },
+  {
     "id": "laravel-tdd",
     "name": "laravel-tdd",
     "category": "testing-unit-tdd",
@@ -2840,6 +2968,14 @@
     "path": "category/testing-unit-tdd/mcore-testing"
   },
   {
+    "id": "mcp-release-qa",
+    "name": "mcp-release-qa",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Verify an MCP server before release by exercising a real protocol session, comparing runtime capabilities with source and documentation, testing failure paths, and recording reproducible evidence. Use when shipping or reviewing an MCP server, tool, resource, prompt, catalog, or install path.",
+    "path": "category/testing-unit-tdd/mcp-release-qa"
+  },
+  {
     "id": "mechanistic-interpretability-pyvene",
     "name": "mechanistic-interpretability-pyvene",
     "category": "testing-unit-tdd",
@@ -2998,6 +3134,14 @@
     "repository": "active",
     "description": "Configures mewt or muton campaigns, analyzes surviving mutants, and investigates bugs exposed by testing gaps. Use when setting up mutation testing, reviewing campaign results, identifying equivalent mutants, or finding bugs from surviving mutations.",
     "path": "category/testing-unit-tdd/mutation-testing"
+  },
+  {
+    "id": "mvvm-toolkit-di",
+    "name": "mvvm-toolkit-di",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Wire CommunityToolkit.Mvvm ViewModels into Microsoft.Extensions.DependencyInjection. Covers the .NET Generic Host composition root, constructor injection, service lifetimes (Singleton / Transient / Scoped), IMessenger registration, resolving ViewModels in Views, keyed services, testing seams, and the legacy Ioc.Default escape hatch. Use across WPF, WinUI 3, .NET MAUI, Uno, and Avalonia.",
+    "path": "category/testing-unit-tdd/mvvm-toolkit-di"
   },
   {
     "id": "n8n-multi-instance",
@@ -3488,6 +3632,14 @@
     "path": "category/testing-unit-tdd/personal-strategic-signal-intelligence"
   },
   {
+    "id": "php-mcp-server-generator",
+    "name": "php-mcp-server-generator",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Generate a complete PHP Model Context Protocol server project with tools, resources, prompts, and tests using the official PHP SDK",
+    "path": "category/testing-unit-tdd/php-mcp-server-generator"
+  },
+  {
     "id": "physicsnemo-shard-tensor",
     "name": "physicsnemo-shard-tensor",
     "category": "testing-unit-tdd",
@@ -3736,6 +3888,14 @@
     "path": "category/testing-unit-tdd/prototype-strategy"
   },
   {
+    "id": "prune-tests",
+    "name": "prune-tests",
+    "category": "testing-unit-tdd",
+    "repository": "caldoai-skills",
+    "description": "Prune tests that guard no behavior from a codebase.",
+    "path": "category/testing-unit-tdd/prune-tests"
+  },
+  {
     "id": "push-skills",
     "name": "push-skills",
     "category": "testing-unit-tdd",
@@ -3774,6 +3934,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "Pairwise test generation",
     "path": "category/testing-unit-tdd/pypict-skill"
+  },
+  {
+    "id": "pytest-coverage",
+    "name": "pytest-coverage",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Run pytest tests with coverage, discover lines missing coverage, and increase coverage to 100%.",
+    "path": "category/testing-unit-tdd/pytest-coverage"
   },
   {
     "id": "pytest-skill",
@@ -3832,6 +4000,14 @@
     "path": "category/testing-unit-tdd/quantized-export"
   },
   {
+    "id": "quarkus-dev-services-and-testing",
+    "name": "quarkus-dev-services-and-testing",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Quarkus Dev Services and testing: zero-config containers, @QuarkusTest, @QuarkusIntegrationTest, test resources, RestAssured, @InjectMock, profiles and continuous testing. Use when writing or fixing tests in a Quarkus project.",
+    "path": "category/testing-unit-tdd/quarkus-dev-services-and-testing"
+  },
+  {
     "id": "race-condition",
     "name": "race-condition",
     "category": "testing-unit-tdd",
@@ -3862,6 +4038,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "Upgrade React applications to latest versions, migrate from class components to hooks, and adopt concurrent features. Use when modernizing React codebases, migrating to React Hooks, or upgrading to...",
     "path": "category/testing-unit-tdd/react-modernization"
+  },
+  {
+    "id": "react19-test-patterns",
+    "name": "react19-test-patterns",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Provides before/after patterns for migrating test files to React 19 compatibility, including act() imports, Simulate removal, and StrictMode call count changes.",
+    "path": "category/testing-unit-tdd/react19-test-patterns"
   },
   {
     "id": "recap",
@@ -3902,6 +4086,14 @@
     "repository": "donchitos-claude-code-game-studios",
     "description": "Map test coverage to GDD critical paths, find fixed bugs lacking regression tests, flag drift from new features.",
     "path": "category/testing-unit-tdd/regression-suite"
+  },
+  {
+    "id": "release-readiness",
+    "name": "release-readiness",
+    "category": "testing-unit-tdd",
+    "repository": "deanpeters-product-manager-skills",
+    "description": "Check a release is safe to ship: tests, rollout, monitoring, rollback, support. Use when a build is about to go out and you need to know what could hurt, and how you'd undo it.",
+    "path": "category/testing-unit-tdd/release-readiness"
   },
   {
     "id": "replica-diff",
@@ -3976,6 +4168,14 @@
     "path": "category/testing-unit-tdd/researchers-verifier"
   },
   {
+    "id": "resemble-detect",
+    "name": "resemble-detect",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Deepfake detection and media safety \u2014 detect AI-generated audio, images, video, and text, trace synthesis sources, apply watermarks, verify speaker identity, and analyze media intelligence using Resemble AI",
+    "path": "category/testing-unit-tdd/resemble-detect"
+  },
+  {
     "id": "risk-modeling-guide",
     "name": "risk-modeling-guide",
     "category": "testing-unit-tdd",
@@ -4014,6 +4214,14 @@
     "repository": "mindrally-skills",
     "description": "Best practices for ROS 2 robotics development, covering package structure, nodes, topics/services/actions, launch files, QoS, tf2 transforms, and testing. Use when creating ROS 2 packages, writing nodes in rclpy or rclcpp, defining custom messages/services/actions, writing launch files, configuring QoS profiles, working with tf2 transforms, or building and testing a colcon workspace.",
     "path": "category/testing-unit-tdd/ros2-robotics"
+  },
+  {
+    "id": "roslyn-analyzers",
+    "name": "roslyn-analyzers",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Build, review, debug, package, and test Roslyn diagnostic analyzers, code fix providers, and incremental source generators. Use for DiagnosticAnalyzer, CodeFixProvider, IIncrementalGenerator, IOperation analysis, Microsoft.CodeAnalysis dependency pinning, Roslyn test harnesses, C#/VB tests, and analyzer NuGet packaging.",
+    "path": "category/testing-unit-tdd/roslyn-analyzers"
   },
   {
     "id": "rspec",
@@ -4198,6 +4406,14 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "Cross-functional what-if modeling for cascading multi-variable scenarios. Unlike single-assumption stress testing, this models compound adversity across all business functions simultaneously. Use when facing complex risk scenarios, strategic decisions with major downside, or when the user asks 'what if X AND Y both happen?",
     "path": "category/testing-unit-tdd/scenario-war-room"
+  },
+  {
+    "id": "scoutqa-test",
+    "name": "scoutqa-test",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "This skill should be used when the user asks to \"test this website\", \"run exploratory testing\", \"check for accessibility issues\", \"verify the login flow works\", \"find bugs on this page\", or requests automated QA testing. Triggers on web application testing scenarios including smoke tests, accessibility audits, e-commerce flows, and user flow validation using ScoutQA CLI. Use this skill proactively after implementing web application features to verify they work correctly.",
+    "path": "category/testing-unit-tdd/scoutqa-test"
   },
   {
     "id": "screenshot-optimization",
@@ -4424,6 +4640,14 @@
     "path": "category/testing-unit-tdd/skills-asc-id-resolver"
   },
   {
+    "id": "skills-asc-workflow",
+    "name": "skills-asc-workflow",
+    "category": "testing-unit-tdd",
+    "repository": "rorkai-app-store-connect-cli-skills",
+    "description": "Define, validate, run, resume, and audit repo-local multi-step automations with current `asc workflow` and `.asc/workflow.json`, including step outputs and safe release/TestFlight workflows.",
+    "path": "category/testing-unit-tdd/skills-asc-workflow"
+  },
+  {
     "id": "skills-benchmark",
     "name": "skills-benchmark",
     "category": "testing-unit-tdd",
@@ -4440,6 +4664,14 @@
     "path": "category/testing-unit-tdd/skills-benchmark-checklist"
   },
   {
+    "id": "skills-benchmark-optimization-loop",
+    "name": "skills-benchmark-optimization-loop",
+    "category": "testing-unit-tdd",
+    "repository": "affaan-m-ecc",
+    "description": "Turn a user's improvement goal into a bounded benchmark-guided loop: define success and hard constraints, establish a baseline, test one-hypothesis variants, and promote the best measured admissible result with reproducible commands. Use for repeated measured improvements to correctness, quality, task completion, reliability, speed, or cost, including recursive optimization and implementation comparisons.",
+    "path": "category/testing-unit-tdd/skills-benchmark-optimization-loop"
+  },
+  {
     "id": "skills-bmad-forge-idea",
     "name": "skills-bmad-forge-idea",
     "category": "testing-unit-tdd",
@@ -4454,6 +4686,14 @@
     "repository": "davidondrej-skills",
     "description": "Direct browser control via CDP. Use when the user wants to automate, scrape, test, or interact with web pages. Connects to the user's already-running Chrome.",
     "path": "category/testing-unit-tdd/skills-browser-harness"
+  },
+  {
+    "id": "skills-browser-test",
+    "name": "skills-browser-test",
+    "category": "testing-unit-tdd",
+    "repository": "ruvnet-ruflo",
+    "description": "UI test recipe -- composes browser-record (capture) + browser-replay (verify) so every test produces a replayable RVF artifact, not an ephemeral run",
+    "path": "category/testing-unit-tdd/skills-browser-test"
   },
   {
     "id": "skills-capacity-plan",
@@ -4491,7 +4731,7 @@
     "id": "skills-codex-citation-audit",
     "name": "skills-codex-citation-audit",
     "category": "testing-unit-tdd",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Zero-context verification that every bibliographic entry in the paper is real, correctly attributed, and used in a context the cited paper actually supports \u2014 catching hallucinated authors, wrong years, fabricated venues, version mismatches, and wrong-context citations. Use when user says \\\"\u5ba1\u67e5\u5f15\u7528\\\", \\\"check citations\\\", \\\"citation audit\\\", \\\"verify references\\\", \\\"\u5f15\u7528\u6838\u5bf9\\\", or before submission to ensure bibliography integrity.",
     "path": "category/testing-unit-tdd/skills-codex-citation-audit"
   },
@@ -4499,7 +4739,7 @@
     "id": "skills-codex-citation-crosscheck",
     "name": "skills-codex-citation-crosscheck",
     "category": "testing-unit-tdd",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Conditionally double-blind bibliographic cross-check (double-blind only when the host can isolate the web agent; a flag-only heuristic when isolation can't be attested): one agent extracts each cited entry verbatim from the local .bib, a second independently re-fetches the same paper's record from the web while blind to the .bib, and a third extractor emits a mechanical field-by-field delta to catch dropped/re-ordered authors, wrong years, wrong venues, and bad DOIs/arXiv ids. The main agent (never a shard) assigns the MATCH/MINOR/MISMATCH verdict per reference, and exports a side-by-side spreadsheet. Use when user says \\\"citation crosscheck\\\", \\\"double-blind citation check\\\", \\\"verify bib against scholar\\\", \\\"bib field audit\\\", \\\"\u5f15\u7528\u4ea4\u53c9\u6838\u5bf9\\\", or before submission when bibliography FIELD accuracy (not just existence) must be certified.",
     "path": "category/testing-unit-tdd/skills-codex-citation-crosscheck"
   },
@@ -4507,7 +4747,7 @@
     "id": "skills-codex-claude-review-novelty-check",
     "name": "skills-codex-claude-review-novelty-check",
     "category": "testing-unit-tdd",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Verify research idea novelty against recent literature. Use when user says \\\"\u67e5\u65b0\\\", \\\"novelty check\\\", \\\"\u6709\u6ca1\u6709\u4eba\u505a\u8fc7\\\", \\\"check novelty\\\", or wants to verify a research idea is novel before implementing.",
     "path": "category/testing-unit-tdd/skills-codex-claude-review-novelty-check"
   },
@@ -4515,7 +4755,7 @@
     "id": "skills-codex-gemini-review-idea-discovery-robot",
     "name": "skills-codex-gemini-review-idea-discovery-robot",
     "category": "testing-unit-tdd",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Workflow 1 adaptation for robotics and embodied AI. Orchestrates robotics-aware literature survey, idea generation, novelty check, and critical review to go from a broad robotics direction to benchmark-grounded, simulation-first ideas. Use when user says \\\\\\\"robotics idea discovery\\\\\\\", \\\\\\\"\\u673a\\u5668\\u4eba\\u627eidea\\\\\\\", \\\\\\\"embodied AI idea\\\\\\\", \\\\\\\"\\u673a\\u5668\\u4eba\\u65b9\\u5411\\u63a2\\u7d22\\\\\\\", \\\\\\\"sim2real \\u9009\\u9898\\\\\\\", or wants ideas for manipulation, locomotion, navigation, drones, humanoids, or general robot learning.",
     "path": "category/testing-unit-tdd/skills-codex-gemini-review-idea-discovery-robot"
   },
@@ -4523,7 +4763,7 @@
     "id": "skills-codex-gemini-review-novelty-check",
     "name": "skills-codex-gemini-review-novelty-check",
     "category": "testing-unit-tdd",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Verify research idea novelty against recent literature. Use when user says \\\"\u67e5\u65b0\\\", \\\"novelty check\\\", \\\"\u6709\u6ca1\u6709\u4eba\u505a\u8fc7\\\", \\\"check novelty\\\", or wants to verify a research idea is novel before implementing.",
     "path": "category/testing-unit-tdd/skills-codex-gemini-review-novelty-check"
   },
@@ -4531,7 +4771,7 @@
     "id": "skills-codex-idea-discovery-robot",
     "name": "skills-codex-idea-discovery-robot",
     "category": "testing-unit-tdd",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Workflow 1 adaptation for robotics and embodied AI. Orchestrates robotics-aware literature survey, idea generation, novelty check, and critical review to go from a broad robotics direction to benchmark-grounded, simulation-first ideas. Use when user says \\\\\\\"robotics idea discovery\\\\\\\", \\\\\\\"\\u673a\\u5668\\u4eba\\u627eidea\\\\\\\", \\\\\\\"embodied AI idea\\\\\\\", \\\\\\\"\\u673a\\u5668\\u4eba\\u65b9\\u5411\\u63a2\\u7d22\\\\\\\", \\\\\\\"sim2real \\u9009\\u9898\\\\\\\", or wants ideas for manipulation, locomotion, navigation, drones, humanoids, or general robot learning.",
     "path": "category/testing-unit-tdd/skills-codex-idea-discovery-robot"
   },
@@ -4539,7 +4779,7 @@
     "id": "skills-codex-lean-formalize",
     "name": "skills-codex-lean-formalize",
     "category": "testing-unit-tdd",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Develop and verify a mathematical proof in Lean, continue an incomplete Lean project, or audit whether it proves the original statement. Connect actual inputs to intermediate lemmas, assemble the target theorem, check its transitive axioms, and provide a reproducible handoff. Use when Lean is requested or a specific proof obligation benefits from formal verification; use proof-writer for ordinary mathematical drafting.",
     "path": "category/testing-unit-tdd/skills-codex-lean-formalize"
   },
@@ -4547,7 +4787,7 @@
     "id": "skills-codex-novelty-check",
     "name": "skills-codex-novelty-check",
     "category": "testing-unit-tdd",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Verify research idea novelty against recent literature. Use when user says \\\"\\u67e5\\u65b0\\\", \\\"novelty check\\\", \\\"\\u6709\\u6ca1\\u6709\\u4eba\\u505a\\u8fc7\\\", \\\"check novelty\\\", or wants to verify a research idea is novel before implementing.",
     "path": "category/testing-unit-tdd/skills-codex-novelty-check"
   },
@@ -4555,7 +4795,7 @@
     "id": "skills-codex-paper-claim-audit",
     "name": "skills-codex-paper-claim-audit",
     "category": "testing-unit-tdd",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Zero-context verification that every number, comparison, and scope claim in the paper matches raw result files. Uses a fresh Codex reviewer with no prior context; base output is same-family provisional. Use when user says \\\"\u5ba1\u67e5\u8bba\u6587\u6570\u636e\\\", \\\"check paper claims\\\", \\\"verify numbers\\\", \\\"\u8bba\u6587\u6570\u5b57\u6838\u5bf9\\\", or before submission to ensure paper-to-evidence fidelity.",
     "path": "category/testing-unit-tdd/skills-codex-paper-claim-audit"
   },
@@ -4563,7 +4803,7 @@
     "id": "skills-codex-paper-compile",
     "name": "skills-codex-paper-compile",
     "category": "testing-unit-tdd",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Compile LaTeX paper to PDF, fix errors, and verify output. Use when user says \\\\\\\"\\u7f16\\u8bd1\\u8bba\\u6587\\\\\\\", \\\\\\\"compile paper\\\\\\\", \\\\\\\"build PDF\\\\\\\", \\\\\\\"\\u751f\\u6210PDF\\\\\\\", or wants to compile LaTeX into a submission-ready PDF.",
     "path": "category/testing-unit-tdd/skills-codex-paper-compile"
   },
@@ -4571,9 +4811,17 @@
     "id": "skills-codex-proof-checker",
     "name": "skills-codex-proof-checker",
     "category": "testing-unit-tdd",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Rigorous mathematical proof verification and fixing workflow. Reads a LaTeX proof, identifies gaps via fresh-agent Codex GPT-6-Astra ultra review, fixes each gap with full derivations, re-reviews, and generates an audit report. Base review is same-family provisional. Use when user says \"\u68c0\u67e5\u8bc1\u660e\", \"verify proof\", \"proof check\", \"\u5ba1\u8bc1\u660e\", \"check this proof\", or wants rigorous mathematical verification of a theory paper.",
     "path": "category/testing-unit-tdd/skills-codex-proof-checker"
+  },
+  {
+    "id": "skills-codex-system-profile",
+    "name": "skills-codex-system-profile",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Profile a target (script, process, GPU, memory, interconnect) for performance analysis. Use when user says \\\"profile\\\", \\\"benchmark\\\", \\\"bottleneck\\\", or wants performance analysis.",
+    "path": "category/testing-unit-tdd/skills-codex-system-profile"
   },
   {
     "id": "skills-conversion-tracking",
@@ -4606,6 +4854,14 @@
     "repository": "dart-lang-skills",
     "description": "Define and generate mock objects for external dependencies using `package:mockito` and `build_runner`. Use when unit testing classes that depend on complex external services like APIs or databases.",
     "path": "category/testing-unit-tdd/skills-dart-generate-test-mocks"
+  },
+  {
+    "id": "skills-debugging-and-error-recovery",
+    "name": "skills-debugging-and-error-recovery",
+    "category": "testing-unit-tdd",
+    "repository": "addyosmani-agent-skills",
+    "description": "Guides systematic root-cause debugging. Use when tests fail, builds break, something that worked yesterday broke, behavior doesn't match expectations, or you encounter any unexpected error. Use when you need to figure out what broke and why \u2014 a systematic approach to finding and fixing the root cause rather than guessing. Use when asked what broke, why a test started failing, or why code throws, even when the diff, the function, or the stack trace is pasted inline and the cause looks obvious from reading it, so that the cause is named, the fix is minimal, and the reply says how to confirm it.",
+    "path": "category/testing-unit-tdd/skills-debugging-and-error-recovery"
   },
   {
     "id": "skills-derisk-measurement-advisor",
@@ -4664,6 +4920,14 @@
     "path": "category/testing-unit-tdd/skills-fsharp-testing"
   },
   {
+    "id": "skills-gaia-debugging",
+    "name": "skills-gaia-debugging",
+    "category": "testing-unit-tdd",
+    "repository": "ruvnet-ruflo",
+    "description": "Diagnose why a GAIA question failed \u2014 extract trace, classify failure mode, and propose a fix. Use when a GAIA benchmark run reports a failed/incorrect task_id and you need to root-cause it before resubmitting.",
+    "path": "category/testing-unit-tdd/skills-gaia-debugging"
+  },
+  {
     "id": "skills-google-ads-copy",
     "name": "skills-google-ads-copy",
     "category": "testing-unit-tdd",
@@ -4686,6 +4950,14 @@
     "repository": "codewithmukesh-dotnet-claude-kit",
     "description": "IHttpClientFactory and typed HTTP clients for .NET 10 applications. Covers named/typed/keyed clients, DelegatingHandlers, resilience with Microsoft.Extensions.Http.Resilience, and testing patterns. Load this skill when configuring HTTP clients, adding retry/circuit breaker policies, or when the user mentions \"HttpClient\", \"IHttpClientFactory\", \"AddHttpClient\", \"typed client\", \"named client\", \"DelegatingHandler\", \"resilience\", \"retry\", \"circuit breaker\", \"hedging\", \"Polly\", \"AddStandardResilienceHandler\", \"socket exhaustion\", or \"Refit\".",
     "path": "category/testing-unit-tdd/skills-httpclient-factory"
+  },
+  {
+    "id": "skills-idea-discovery-robot",
+    "name": "skills-idea-discovery-robot",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Workflow 1 adaptation for robotics and embodied AI. Orchestrates robotics-aware literature survey, idea generation, novelty check, and critical review to go from a broad robotics direction to benchmark-grounded, simulation-first ideas. Use when user says \\\"robotics idea discovery\\\", \\\"\u673a\u5668\u4eba\u627eidea\\\", \\\"embodied AI idea\\\", \\\"\u673a\u5668\u4eba\u65b9\u5411\u63a2\u7d22\\\", \\\"sim2real \u9009\u9898\\\", or wants ideas for manipulation, locomotion, navigation, drones, humanoids, or general robot learning.",
+    "path": "category/testing-unit-tdd/skills-idea-discovery-robot"
   },
   {
     "id": "skills-interrogate",
@@ -4800,6 +5072,14 @@
     "path": "category/testing-unit-tdd/skills-nemo-mbridge-recipe-recommender"
   },
   {
+    "id": "skills-novelty-check",
+    "name": "skills-novelty-check",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Verify research idea novelty against recent literature. Use when user says \"\u67e5\u65b0\", \"novelty check\", \"\u6709\u6ca1\u6709\u4eba\u505a\u8fc7\", \"check novelty\", or wants to verify a research idea is novel before implementing.",
+    "path": "category/testing-unit-tdd/skills-novelty-check"
+  },
+  {
     "id": "skills-om-mockup-prototype",
     "name": "skills-om-mockup-prototype",
     "category": "testing-unit-tdd",
@@ -4840,6 +5120,14 @@
     "path": "category/testing-unit-tdd/skills-opportunity-solution-tree"
   },
   {
+    "id": "skills-orienting-to-an-inherited-seat",
+    "name": "skills-orienting-to-an-inherited-seat",
+    "category": "testing-unit-tdd",
+    "repository": "mvschwarz-openrig",
+    "description": "Use when you have just been primed into an EXISTING seat through a planned handover \u2014 a different agent retired and handed you the seat plus its earned context \u2014 and you need a world model of what just happened to you. Covers how a handover differs from compaction and from a fresh launch, the inherit-the-seat-not-the-identity rule, treating the handover packet as testimony you verify (and following the current row over a stale ghost prompt, and verifying your OWN identity surfaces), why a seat is a COMPOUNDING LINEAGE (inherit the state, acquire the predecessor's epistemology, then improve and re-deposit so the next generation is better), how to query your predecessor, your duty to stream feedback and re-deposit your earned wisdom, and how to route to role-specific onboarding. NOT the driver-side handover mechanic (retiring-and-inheriting-a-seat) and NOT unplanned compaction/crash recovery (claude-compaction-restore / session-compaction-and-restore).",
+    "path": "category/testing-unit-tdd/skills-orienting-to-an-inherited-seat"
+  },
+  {
     "id": "skills-paid-ads-creative",
     "name": "skills-paid-ads-creative",
     "category": "testing-unit-tdd",
@@ -4864,12 +5152,28 @@
     "path": "category/testing-unit-tdd/skills-paid-ads-launch"
   },
   {
+    "id": "skills-paper-compile",
+    "name": "skills-paper-compile",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Compile LaTeX paper to PDF, fix errors, and verify output. Use when user says \\\"\u7f16\u8bd1\u8bba\u6587\\\", \\\"compile paper\\\", \\\"build PDF\\\", \\\"\u751f\u6210PDF\\\", or wants to compile LaTeX into a submission-ready PDF.",
+    "path": "category/testing-unit-tdd/skills-paper-compile"
+  },
+  {
     "id": "skills-perl-testing",
     "name": "skills-perl-testing",
     "category": "testing-unit-tdd",
     "repository": "affaan-m-ecc",
     "description": "\u65e5\u672c\u8a9e\u7ffb\u8a33\uff1a\u3053\u306e\u30d5\u30a1\u30a4\u30eb\u306f perl-testing \u7528\u306e\u65e5\u672c\u8a9e\u7ffb\u8a33\u304c\u5fc5\u8981\u3067\u3059",
     "path": "category/testing-unit-tdd/skills-perl-testing"
+  },
+  {
+    "id": "skills-pol-probe",
+    "name": "skills-pol-probe",
+    "category": "testing-unit-tdd",
+    "repository": "deanpeters-product-manager-skills",
+    "description": "Define a Proof of Life probe to test a risky hypothesis cheaply. Use when you need harsh truth before building real product.",
+    "path": "category/testing-unit-tdd/skills-pol-probe"
   },
   {
     "id": "skills-principle-attack-the-premise",
@@ -4936,12 +5240,36 @@
     "path": "category/testing-unit-tdd/skills-red-green-proof"
   },
   {
+    "id": "skills-release-readiness",
+    "name": "skills-release-readiness",
+    "category": "testing-unit-tdd",
+    "repository": "deanpeters-product-manager-skills",
+    "description": "Check a release is safe to ship: tests, rollout, monitoring, rollback, support. Use when a build is about to go out and you need to know what could hurt, and how you'd undo it.",
+    "path": "category/testing-unit-tdd/skills-release-readiness"
+  },
+  {
     "id": "skills-requesting-code-review",
     "name": "skills-requesting-code-review",
     "category": "testing-unit-tdd",
     "repository": "obra-superpowers",
     "description": "Use when completing tasks, implementing major features, or before merging to verify work meets requirements",
     "path": "category/testing-unit-tdd/skills-requesting-code-review"
+  },
+  {
+    "id": "skills-research-ideation",
+    "name": "skills-research-ideation",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Generate structured research questions, testable hypotheses, and empirical strategies from a topic or dataset",
+    "path": "category/testing-unit-tdd/skills-research-ideation"
+  },
+  {
+    "id": "skills-reverse-skill-router",
+    "name": "skills-reverse-skill-router",
+    "category": "testing-unit-tdd",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Use the reverse-skill repository from Codex for authorized reverse engineering, security analysis, CTF, and defensive testing tasks. Requires the reverse-skill repository to be available as the current workspace or an explicitly supplied local path.",
+    "path": "category/testing-unit-tdd/skills-reverse-skill-router"
   },
   {
     "id": "skills-runpod-lifecycle-crud",
@@ -4958,6 +5286,22 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "Design experiments and analyze tabular data: A/B tests, causal inference, feature engineering, model evaluation. Use whenever the user asks how to set up or read an A/B test, whether a change caused a lift, which features to build, or how good a model is.",
     "path": "category/testing-unit-tdd/skills-senior-data-scientist"
+  },
+  {
+    "id": "skills-service-itsm-agentic-setup-employee-agent-configure",
+    "name": "skills-service-itsm-agentic-setup-employee-agent-configure",
+    "category": "testing-unit-tdd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Create and activate an IT Service Employee agent as a Next-Gen Authoring (NGA) native agent from an ITSM Employee agent template's Agent Script, via the Salesforce CLI (sf): read the template, check idempotency, create the NGA bundle then publish and activate, verify live. Defaults to the broad IT Service Employee template; when the user names a specialized Employee template (Password Manager Assistance, Certificate Management, Onboarding, Hardware Request, and ~47 others catalogued in references/specialized-templates.md \u2014 all under the `svc_emp_intelligence__` namespace), pins that one instead. Idempotent per developer name. TRIGGER when the user asks to create/set up/provision/activate the Employee agent, the IT Service Employee agent, or a specialized Employee agent (password manager, certificate, onboarding, hardware request, etc.). DO NOT TRIGGER: prerequisite checks (service-itsm-agentic-setup-agentforce-studio-validate), CMDB CRUD, Fulfiller setup (service-itsm-agentic-setup-fulfiller-agent-configure).",
+    "path": "category/testing-unit-tdd/skills-service-itsm-agentic-setup-employee-agent-configure"
+  },
+  {
+    "id": "skills-service-itsm-agentic-setup-fulfiller-agent-configure",
+    "name": "skills-service-itsm-agentic-setup-fulfiller-agent-configure",
+    "category": "testing-unit-tdd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Create and activate the IT Service Fulfiller agent as a Next-Gen Authoring (NGA) native agent from the shipped ITSM Fulfiller template's Agent Script, using the Salesforce CLI (sf): read the template, check idempotency, create the NGA bundle then publish and activate it, then verify it is live. Idempotent per developer name. The Fulfiller agent is the IT-technician-facing assistant for incident triage, case summarization, field updates, and related-record automations. Use when asked to create the Fulfiller agent, set up the IT Service Fulfiller agent, provision the fulfiller assistant, or activate the Fulfiller agent. Triggers: create fulfiller agent, set up fulfiller agent, provision fulfiller agent, activate fulfiller agent. DO NOT TRIGGER: checking org prerequisites (service-itsm-agentic-setup-agentforce-studio-validate), or CMDB CRUD.",
+    "path": "category/testing-unit-tdd/skills-service-itsm-agentic-setup-fulfiller-agent-configure"
   },
   {
     "id": "skills-setup-cms",
@@ -5048,20 +5392,20 @@
     "path": "category/testing-unit-tdd/skills-stripe-pay"
   },
   {
+    "id": "skills-system-profile",
+    "name": "skills-system-profile",
+    "category": "testing-unit-tdd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Profile a target (script, process, GPU, memory, interconnect) for performance analysis. Use when user says \\\"profile\\\", \\\"benchmark\\\", \\\"bottleneck\\\", or wants performance analysis.",
+    "path": "category/testing-unit-tdd/skills-system-profile"
+  },
+  {
     "id": "skills-systematic-debugging",
     "name": "skills-systematic-debugging",
     "category": "testing-unit-tdd",
     "repository": "obra-superpowers",
     "description": "Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes",
     "path": "category/testing-unit-tdd/skills-systematic-debugging"
-  },
-  {
-    "id": "skills-test-driven-development",
-    "name": "skills-test-driven-development",
-    "category": "testing-unit-tdd",
-    "repository": "obra-superpowers",
-    "description": "Use when implementing any feature or bugfix, before writing implementation code",
-    "path": "category/testing-unit-tdd/skills-test-driven-development"
   },
   {
     "id": "skills-upgrade",
@@ -5094,6 +5438,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Select and place genuine testimonials, case studies, and other proof when an audience needs evidence at specific trust barriers.",
     "path": "category/testing-unit-tdd/social-proof-architect"
+  },
+  {
+    "id": "software-factory",
+    "name": "software-factory",
+    "category": "testing-unit-tdd",
+    "repository": "ericosiu-ai-marketing-skills",
+    "description": "Use when a change is larger than a quick question and should go through a coding agent with an acceptance test, two review passes, a pinned-SHA merge, a live port-back, and a timed rollback watch. Use to set up or run that loop. Do not use for a question that needs no code change.",
+    "path": "category/testing-unit-tdd/software-factory"
   },
   {
     "id": "source-driven-development",
@@ -5142,6 +5494,14 @@
     "repository": "mindrally-skills",
     "description": "Expert guidance for Spring Boot application development with best practices for RESTful APIs, testing, security, and deployment",
     "path": "category/testing-unit-tdd/spring-boot"
+  },
+  {
+    "id": "spring-boot-testing",
+    "name": "spring-boot-testing",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Expert Spring Boot testing specialist that selects the best testing techniques for your situation: test slices, Testcontainers with @ServiceConnection, Failsafe integration tests, MockitoBean, JUnit and AssertJ. Written for Spring Boot 4 with notes for Boot 3.",
+    "path": "category/testing-unit-tdd/spring-boot-testing"
   },
   {
     "id": "spring-data-neo4j",
@@ -5768,6 +6128,14 @@
     "path": "category/testing-unit-tdd/unit-testing-framework"
   },
   {
+    "id": "update-avm-modules-in-bicep",
+    "name": "update-avm-modules-in-bicep",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "Update Azure Verified Modules (AVM) to latest versions in Bicep files.",
+    "path": "category/testing-unit-tdd/update-avm-modules-in-bicep"
+  },
+  {
     "id": "upgrade",
     "name": "upgrade",
     "category": "testing-unit-tdd",
@@ -5920,6 +6288,14 @@
     "path": "category/testing-unit-tdd/webmcp-gen"
   },
   {
+    "id": "webmcpify",
+    "name": "webmcpify",
+    "category": "testing-unit-tdd",
+    "repository": "github-awesome-copilot",
+    "description": "WebMCP agent skill for curated core coverage or route-by-route parity \u2014 inventory an existing web app, integrate approved tools, then inspect, verify and heal them in a real browser. Use for \"webmcpify\", \"add WebMCP\", or \"expose app actions to AI agents\".",
+    "path": "category/testing-unit-tdd/webmcpify"
+  },
+  {
     "id": "where-was-this-taken",
     "name": "where-was-this-taken",
     "category": "testing-unit-tdd",
@@ -5998,6 +6374,14 @@
     "repository": "mcncarl-yichen-skills",
     "description": "Use the signed-in ChatGPT website in Chat UI Pro mode, never Work mode, to research, architect, and review one local project through a configured Secure Tunnel and read-only MCP, while Codex alone edits and tests locally. Trigger on explicit $yichen-codex-chatgpt, \u8ba9 ChatGPT \u8bbe\u8ba1\u540e\u7531 Codex \u5199\u4ee3\u7801, ChatGPT \u67b6\u6784\u5e76\u5ba1\u67e5 Codex, or requests for a Codex and ChatGPT collaboration loop. Pure research stays on the official ChatGPT website; code and hybrid work follow ChatGPT PLAN to Codex execution to ChatGPT REVIEW. Website control defaults to in-app browser, then Chrome, then bounded Computer Use. Use a compatible local-only MCP only when the user explicitly requests local-only mode and that optional dependency is configured, never as an automatic fallback.",
     "path": "category/testing-unit-tdd/yichen-codex-chatgpt"
+  },
+  {
+    "id": "yoruba-localization-testing",
+    "name": "yoruba-localization-testing",
+    "category": "testing-unit-tdd",
+    "repository": "affaan-m-ecc",
+    "description": "Test Yoruba (yo) and English bilingual interfaces for tone marks, underdots, Unicode normalization, translation fallback, and accessibility.",
+    "path": "category/testing-unit-tdd/yoruba-localization-testing"
   },
   {
     "id": "zero-hallucination-coder",

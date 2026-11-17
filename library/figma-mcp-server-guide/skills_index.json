@@ -220,6 +220,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link generate-project-plan"
   },
   {
+    "id": "skills-figma-3d-transforms",
+    "name": "skills-figma-3d-transforms",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "'Add or edit 3D transforms \u2014 depth, perspective, z-axis rotation, tilt, isometric, and parallax looks that flat 2D rotation cannot express. Use whenever a request reaches into the third dimension \u2014 \"make it 3D\", \"add depth/perspective\", \"tilt/rotate it back\", \"z-plane\", \"isometric\", \"flip it like a card\", \"parallax\", \"vanishing point\", \"receding into the distance\", \"make it pop out\".'",
+    "path": "library/figma-mcp-server-guide/skills/skills-figma-3d-transforms",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figma-3d-transforms",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figma-3d-transforms"
+  },
+  {
     "id": "skills-figma-generate-design",
     "name": "skills-figma-generate-design",
     "repository": "figma-mcp-server-guide",
@@ -238,6 +248,16 @@
     "path": "library/figma-mcp-server-guide/skills/skills-figma-generative-plugins",
     "activation_cmd": "python .agents/library/activate_skill.py activate skills-figma-generative-plugins",
     "link_cmd": "python .agents/library/activate_skill.py link skills-figma-generative-plugins"
+  },
+  {
+    "id": "skills-figma-implement-motion",
+    "name": "skills-figma-implement-motion",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "Translates Figma motion and animations into production-ready application code. Use when implementing animation/motion from a Figma design \u2014 user mentions \"implement this motion\", \"add animation from Figma\", \"animate this component\", provides a Figma URL whose node is animated, or when `get_design_context` returns motion data or instructs you to call `get_motion_context`.",
+    "path": "library/figma-mcp-server-guide/skills/skills-figma-implement-motion",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figma-implement-motion",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figma-implement-motion"
   },
   {
     "id": "skills-figma-shaders",
@@ -290,6 +310,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link skills-figma-use-slides"
   },
   {
+    "id": "skills-figquery-figma-3d-transforms",
+    "name": "skills-figquery-figma-3d-transforms",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "'Add or edit 3D transforms \u2014 depth, perspective, z-axis rotation, tilt, isometric, and parallax looks that flat 2D rotation cannot express. Use whenever a request reaches into the third dimension \u2014 \"make it 3D\", \"add depth/perspective\", \"tilt/rotate it back\", \"z-plane\", \"isometric\", \"flip it like a card\", \"parallax\", \"vanishing point\", \"receding into the distance\", \"make it pop out\".'",
+    "path": "library/figma-mcp-server-guide/skills/skills-figquery-figma-3d-transforms",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figquery-figma-3d-transforms",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figquery-figma-3d-transforms"
+  },
+  {
     "id": "skills-figquery-figma-generate-design",
     "name": "skills-figquery-figma-generate-design",
     "repository": "figma-mcp-server-guide",
@@ -310,6 +340,46 @@
     "link_cmd": "python .agents/library/activate_skill.py link skills-figquery-figma-generate-library"
   },
   {
+    "id": "skills-figquery-figma-generative-plugins",
+    "name": "skills-figquery-figma-generative-plugins",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "\"**MANDATORY prerequisite** \u2014 load this skill before calling `create_generative_plugin` or `update_generative_plugin`. Use when the user asks to create, author, change, fix, or extend a reusable generative Figma plugin.\"",
+    "path": "library/figma-mcp-server-guide/skills/skills-figquery-figma-generative-plugins",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figquery-figma-generative-plugins",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figquery-figma-generative-plugins"
+  },
+  {
+    "id": "skills-figquery-figma-implement-motion",
+    "name": "skills-figquery-figma-implement-motion",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "Translates Figma motion and animations into production-ready application code. Use when implementing animation/motion from a Figma design \u2014 user mentions \"implement this motion\", \"add animation from Figma\", \"animate this component\", provides a Figma URL whose node is animated, or when `get_design_context` returns motion data or instructs you to call `get_motion_context`.",
+    "path": "library/figma-mcp-server-guide/skills/skills-figquery-figma-implement-motion",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figquery-figma-implement-motion",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figquery-figma-implement-motion"
+  },
+  {
+    "id": "skills-figquery-figma-shaders",
+    "name": "skills-figquery-figma-shaders",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "\"**MANDATORY prerequisite** \u2014 load this skill before calling `create_shader` or `update_shader`. Use when the user asks to create, author, change, fix, or iterate on a shader effect, shader fill, custom effect, custom fill, or procedural shader in Figma.\"",
+    "path": "library/figma-mcp-server-guide/skills/skills-figquery-figma-shaders",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figquery-figma-shaders",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figquery-figma-shaders"
+  },
+  {
+    "id": "skills-figquery-figma-spec",
+    "name": "skills-figquery-figma-spec",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "\"This skill is required to create, read, edit, review, or comment on Figma specs. You must read it when working on a PRD, brief, RFC or any kind of document in either a standalone Figma spec or a Figma spec embedded in a Figma Design or Figjam file.\"",
+    "path": "library/figma-mcp-server-guide/skills/skills-figquery-figma-spec",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figquery-figma-spec",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figquery-figma-spec"
+  },
+  {
     "id": "skills-figquery-figma-use",
     "name": "skills-figquery-figma-use",
     "repository": "figma-mcp-server-guide",
@@ -328,6 +398,16 @@
     "path": "library/figma-mcp-server-guide/skills/skills-figquery-figma-use-motion",
     "activation_cmd": "python .agents/library/activate_skill.py activate skills-figquery-figma-use-motion",
     "link_cmd": "python .agents/library/activate_skill.py link skills-figquery-figma-use-motion"
+  },
+  {
+    "id": "skills-figquery-figma-use-slides",
+    "name": "skills-figquery-figma-use-slides",
+    "repository": "figma-mcp-server-guide",
+    "category": "general",
+    "description": "\"This skill helps agents use Figma's use_figma MCP tool in the Slides context. Can be used alongside figma-use which has foundational context for using the use_figma tool.\"",
+    "path": "library/figma-mcp-server-guide/skills/skills-figquery-figma-use-slides",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figquery-figma-use-slides",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figquery-figma-use-slides"
   },
   {
     "id": "video-interaction-mapper",

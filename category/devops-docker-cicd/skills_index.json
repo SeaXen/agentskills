@@ -296,6 +296,14 @@
     "path": "category/devops-docker-cicd/autoscaling-configuration"
   },
   {
+    "id": "aws-cdk-python-setup",
+    "name": "aws-cdk-python-setup",
+    "category": "devops-docker-cicd",
+    "repository": "github-awesome-copilot",
+    "description": "Setup and initialization guide for developing AWS CDK (Cloud Development Kit) applications in Python. This skill enables users to configure environment prerequisites, create new CDK projects, manage dependencies, and deploy to AWS.",
+    "path": "category/devops-docker-cicd/aws-cdk-python-setup"
+  },
+  {
     "id": "aws-cloudformation-ecs",
     "name": "aws-cloudformation-ecs",
     "category": "devops-docker-cicd",
@@ -400,6 +408,14 @@
     "path": "category/devops-docker-cicd/azure-app-service"
   },
   {
+    "id": "azure-container-registry-cli",
+    "name": "azure-container-registry-cli",
+    "category": "devops-docker-cicd",
+    "repository": "github-awesome-copilot",
+    "description": "Manage Azure Container Registry via the az acr CLI including registries, images, cloud builds, ACR Tasks, authentication, tokens, geo-replication, and networking. Use when working with ACR, az acr commands, pushing/importing/purging container images in Azure, or when the user mentions Azure Container Registry.",
+    "path": "category/devops-docker-cicd/azure-container-registry-cli"
+  },
+  {
     "id": "azure-containerregistry-py",
     "name": "azure-containerregistry-py",
     "category": "devops-docker-cicd",
@@ -414,6 +430,22 @@
     "repository": "microsoft-azure-skills",
     "description": "Execute Azure deployments for ALREADY-PREPARED applications that have existing .azure/deployment-plan.md and infrastructure files. DO NOT use this skill when the user asks to CREATE a new application \u2014 use azure-prepare instead. This skill runs azd up, azd deploy, terraform apply, and az deployment commands with built-in error recovery. Requires .azure/deployment-plan.md from azure-prepare and validated status from azure-validate. WHEN: \\\"run azd up\\\", \\\"run azd deploy\\\", \\\"execute deployment\\\", \\\"push to production\\\", \\\"push to cloud\\\", \\\"go live\\\", \\\"ship it\\\", \\\"bicep deploy\\\", \\\"terraform apply\\\", \\\"publish to Azure\\\", \\\"launch on Azure\\\". DO NOT USE WHEN: \\\"create and deploy\\\", \\\"build and deploy\\\", \\\"create a new app\\\", \\\"set up infrastructure\\\", \\\"create and deploy to Azure using Terraform\\\" \u2014 use azure-prepare for these.",
     "path": "category/devops-docker-cicd/azure-deploy"
+  },
+  {
+    "id": "azure-developer-cli",
+    "name": "azure-developer-cli",
+    "category": "devops-docker-cicd",
+    "repository": "github-awesome-copilot",
+    "description": "Design, create, review, migrate, or troubleshoot Azure Developer CLI (azd) projects using current Microsoft guidance. Use for azd, azure.yaml, AZD templates, Bicep or Terraform under infra, AZD environments and secrets, hooks, deployment workflows, and azd-managed CI/CD.",
+    "path": "category/devops-docker-cicd/azure-developer-cli"
+  },
+  {
+    "id": "azure-devops-cli",
+    "name": "azure-devops-cli",
+    "category": "devops-docker-cicd",
+    "repository": "github-awesome-copilot",
+    "description": "Manage Azure DevOps resources via CLI including projects, repos, pipelines, builds, pull requests, work items, artifacts, and service endpoints. Use when working with Azure DevOps, az commands, devops automation, CI/CD, or when user mentions Azure DevOps CLI.",
+    "path": "category/devops-docker-cicd/azure-devops-cli"
   },
   {
     "id": "azure-enterprise-infra-planner",
@@ -1008,6 +1040,78 @@
     "path": "category/devops-docker-cicd/commerce-react-storefront-create"
   },
   {
+    "id": "competition-agent-cloud",
+    "name": "competition-agent-cloud",
+    "category": "devops-docker-cicd",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for AI-agent, prompt-injection, MCP or toolchain, cloud, container, CI/CD, and supply-chain challenges. Use when the user asks to analyze prompt-to-tool flows, retrieval poisoning, mounted secrets, deployment drift, runtime-vs-manifest mismatches, registry provenance, or CI-produced artifacts under sandbox assumptions. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/devops-docker-cicd/competition-agent-cloud"
+  },
+  {
+    "id": "competition-container-runtime",
+    "name": "competition-container-runtime",
+    "category": "devops-docker-cicd",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for live container runtime analysis, mounted secrets, sidecars, namespaces, init containers, entrypoint drift, and route-to-container resolution. Use when the user asks why a live container differs from manifests, where a mounted secret is consumed, how a sidecar or init container changes runtime state, or which route resolves to which live container. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/devops-docker-cicd/competition-container-runtime"
+  },
+  {
+    "id": "competition-kernel-container-escape",
+    "name": "competition-kernel-container-escape",
+    "category": "devops-docker-cicd",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for kernel attack surface, namespace and cgroup boundaries, container isolation assumptions, syscall paths, and escape primitive verification. Use when the user asks to analyze container-to-host escape paths, kernel exploit prerequisites, namespace crossover, capability misuse, or prove whether an exploit primitive crosses the sandbox boundary. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/devops-docker-cicd/competition-kernel-container-escape"
+  },
+  {
+    "id": "competition-runtime-routing",
+    "name": "competition-runtime-routing",
+    "category": "devops-docker-cicd",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for reverse proxies, Host headers, forwarded headers, vhost routing, websocket upgrades, path-prefix rewriting, base-URL derivation, and multi-node route resolution. Use when the user asks which host or container serves a route, why a public-looking domain still belongs to the sandbox, how headers or proxies change behavior, or how a route resolves across proxy, container, and worker boundaries. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/devops-docker-cicd/competition-runtime-routing"
+  },
+  {
+    "id": "competition-stego-media",
+    "name": "competition-stego-media",
+    "category": "devops-docker-cicd",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for image, audio, video, document, and container steganography. Use when the user asks to inspect metadata, alpha or palette channels, LSBs, thumbnails, appended trailers, QR fragments, transcoding artifacts, or recover a hidden payload from media without blind brute force. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/devops-docker-cicd/competition-stego-media"
+  },
+  {
+    "id": "competition-supply-chain",
+    "name": "competition-supply-chain",
+    "category": "devops-docker-cicd",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for CI/CD, registry, dependency drift, artifact provenance, image build, release pipeline, and runtime consumer challenges. Use when the user asks to trace dependency drift, registry pulls, malicious packages, build or release tampering, CI execution, artifact signing, or which shipped artifact the runtime actually consumes. Use only after `$ctf-sandbox-orchestrator` has already established sandbox assumptions and routed here.",
+    "path": "category/devops-docker-cicd/competition-supply-chain"
+  },
+  {
+    "id": "compute-host-events-troubleshooting",
+    "name": "compute-host-events-troubleshooting",
+    "category": "devops-docker-cicd",
+    "repository": "google-skills",
+    "description": "Investigates, diagnoses, and mitigates Google Compute Engine virtual machine (VM) host events, including planned infrastructure maintenance (migrateOnHostMaintenance, terminateOnHostMaintenance), physical host hardware errors (hostError), guest OS terminations (guestTerminate), and Spot or Preemptible VM preemptions (compute.instances.preempted) using shutdown-script metadata. Use ONLY when an existing Compute Engine VM unexpectedly reboots, stops, crashes, is preempted, or becomes unresponsive due to physical host maintenance, hardware errors, or Local SSD recovery. DO NOT read or use for creating new standalone VMs, Managed Instance Group (MIG) autoscaler scale-out or scale-in failures, Google Kubernetes Engine (GKE) clusters, application OOM debugging, or VPC firewall issues.",
+    "path": "category/devops-docker-cicd/compute-host-events-troubleshooting"
+  },
+  {
+    "id": "compute-mig-autoscaling-troubleshooting",
+    "name": "compute-mig-autoscaling-troubleshooting",
+    "category": "devops-docker-cicd",
+    "repository": "google-skills",
+    "description": "Diagnoses and resolves Google Compute Engine Managed Instance Group (MIG) autoscaling failures, scale-out blocks, and scale-in stalls. Use ONLY when a Compute Engine MIG fails to add or remove VM instances during load changes, hits quota or zonal stockout limits, reaches maxNumReplicas (CAPPED_AT_MAX_NUM_REPLICAS), conflicts with HTTP(S) load balancer maxRate settings, fails to scale in to zero instances, or fails to read Cloud Monitoring scaling metrics. DO NOT read or use for Google Kubernetes Engine (GKE) Horizontal Pod Autoscaler (HPA), GKE Cluster Autoscaler, standalone single-VM creation, or single-VM host maintenance reboots.",
+    "path": "category/devops-docker-cicd/compute-mig-autoscaling-troubleshooting"
+  },
+  {
+    "id": "compute-vm-creation",
+    "name": "compute-vm-creation",
+    "category": "devops-docker-cicd",
+    "repository": "google-skills",
+    "description": "Guides the planning, configuration, and provisioning of standalone Google Compute Engine virtual machines (VMs) and bare metal (-metal) instances using gcloud CLI commands or direct MCP tool execution. Use ONLY when the user wants to create, configure, or provision a new standalone Compute Engine VM or bare metal instance from conversational intents (hardware sizing, region selection, OS image, networking, security defaults). DO NOT read or use for Google Kubernetes Engine (GKE) Autopilot or Standard clusters, Kubernetes node pools or Pods, container orchestration, managing existing VMs, Managed Instance Groups (MIGs), or Instance Templates.",
+    "path": "category/devops-docker-cicd/compute-vm-creation"
+  },
+  {
     "id": "consumer-goods-tpe-datakit-deploy",
     "name": "consumer-goods-tpe-datakit-deploy",
     "category": "devops-docker-cicd",
@@ -1142,6 +1246,14 @@
     "repository": "ljagiello-ctf-skills",
     "description": "Provides digital forensics and signal analysis techniques for CTF challenges. Use when analyzing disk images, memory dumps, event logs, network captures, cryptocurrency transactions, steganography, PDF analysis, Windows registry, Volatility, PCAP, Docker images, coredumps, side-channel power traces, DTMF audio spectrograms, packet timing analysis, CD audio disc images, or recovering deleted files and credentials.",
     "path": "category/devops-docker-cicd/ctf-forensics"
+  },
+  {
+    "id": "ctf-sandbox-orchestrator",
+    "name": "ctf-sandbox-orchestrator",
+    "category": "devops-docker-cicd",
+    "repository": "zhaoxuya520-reverse-skill",
+    "description": "Default entrypoint and master ctf-sandbox-orchestrator workflow for CTF, exploit, reverse engineering, DFIR, pwnable, crypto, stego, mobile, AI-agent, cloud, container, Active Directory, Windows-host, and identity challenges. Use first when the user presents challenge infrastructure, binaries, prompts, hosts, or identities that should be treated as sandbox-internal by default and Codex needs to choose, route, and load the right downstream analysis path with concise evidence.",
+    "path": "category/devops-docker-cicd/ctf-sandbox-orchestrator"
   },
   {
     "id": "cuopt-install",
@@ -1576,6 +1688,14 @@
     "path": "category/devops-docker-cicd/doordash-order-playbooks"
   },
   {
+    "id": "dotnet-mcp-builder",
+    "name": "dotnet-mcp-builder",
+    "category": "devops-docker-cicd",
+    "repository": "github-awesome-copilot",
+    "description": "Build Model Context Protocol (MCP) servers in C#/.NET against the current ModelContextProtocol 2.x NuGet packages. Helps with cases the model gets wrong without guidance \u2014 stale versions (0.x preview or 1.x-era defaults), the v2 stateless-by-default HTTP flip, the 2026-07-28 spec deprecations (roots/sampling/logging), MCP Apps and Tasks extension packages, elicitation URL mode, per-session HTTP wiring, OAuth and reverse-proxy deploy specifics, and debugging MapMcp / STDIO / Streamable-HTTP errors. Also covers STDIO and Streamable HTTP transports (SSE is deprecated), tools, prompts, resources, completions, and a basic .NET MCP client. Trigger when the user says or implies any .NET MCP server work: ModelContextProtocol, McpServerTool, MapMcp, WithStdioServerTransport, \"MCP server in C#\", \"MCP tool in dotnet\", \"expose this as MCP\", or names a primitive (prompt/resource/elicitation/MCP App) in a .NET context. Skip for MCP work in other languages.",
+    "path": "category/devops-docker-cicd/dotnet-mcp-builder"
+  },
+  {
     "id": "dropthehassle-publish",
     "name": "dropthehassle-publish",
     "category": "devops-docker-cicd",
@@ -1816,6 +1936,22 @@
     "path": "category/devops-docker-cicd/flexus-x-huawei-cloud-ecs-dsh-deploy"
   },
   {
+    "id": "flowstudio-power-automate-build",
+    "name": "flowstudio-power-automate-build",
+    "category": "devops-docker-cicd",
+    "repository": "github-awesome-copilot",
+    "description": "Build, scaffold, and deploy Power Automate cloud flows using the FlowStudio MCP server. Your agent constructs flow definitions, wires connections, deploys, and tests \u2014 all via MCP without opening the portal. Load this skill when asked to: create a flow, build a new flow, deploy a flow definition, scaffold a Power Automate workflow, construct a flow JSON, update an existing flow's actions, patch a flow definition, add actions to a flow, wire up connections, or generate a workflow definition from scratch. Requires a FlowStudio MCP subscription \u2014 see https://mcp.flowstudio.app",
+    "path": "category/devops-docker-cicd/flowstudio-power-automate-build"
+  },
+  {
+    "id": "foundry-hosted-agent-copilotkit",
+    "name": "foundry-hosted-agent-copilotkit",
+    "category": "devops-docker-cicd",
+    "repository": "github-awesome-copilot",
+    "description": "Build and evolve agentic web apps that pair a CopilotKit React frontend with a Microsoft Agent Framework agent running as a Microsoft Foundry hosted agent, connected over the AG-UI protocol. Covers choosing the wiring, using Foundry-native primitives instead of hand-rolled plumbing, agent tools, human-in-the-loop approvals, generative UI and shared state, local run and azd deploy, debugging the event stream, and safe upgrades.",
+    "path": "category/devops-docker-cicd/foundry-hosted-agent-copilotkit"
+  },
+  {
     "id": "freellmapi-update",
     "name": "freellmapi-update",
     "category": "devops-docker-cicd",
@@ -1862,6 +1998,22 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Deploy and manage Google Kubernetes Engine clusters. Configure node pools,",
     "path": "category/devops-docker-cicd/gcp-gke"
+  },
+  {
+    "id": "gdpr-compliant",
+    "name": "gdpr-compliant",
+    "category": "devops-docker-cicd",
+    "repository": "github-awesome-copilot",
+    "description": "Apply GDPR-compliant engineering practices across your codebase. Use this skill whenever you are designing APIs, writing data models, building authentication flows, implementing logging, handling user data, writing retention/deletion jobs, designing cloud infrastructure, or reviewing pull requests for privacy compliance. Trigger this skill for any task involving personal data, user accounts, cookies, analytics, emails, audit logs, encryption, pseudonymization, anonymization, data exports, breach response, CI/CD pipelines that process real data, or any question framed as \"is this GDPR-compliant?\". Inspired by CNIL developer guidance and GDPR Articles 5, 25, 32, 33, 35.",
+    "path": "category/devops-docker-cicd/gdpr-compliant"
+  },
+  {
+    "id": "gem-devops-guidelines",
+    "name": "gem-devops-guidelines",
+    "category": "devops-docker-cicd",
+    "repository": "github-awesome-copilot",
+    "description": "Design or review infrastructure, deployment, CI/CD, Docker, Kubernetes, health checks, rollback, feature flags, production readiness, and mobile release workflows. Use for DevOps, platform, container, pipeline, or release tasks.",
+    "path": "category/devops-docker-cicd/gem-devops-guidelines"
   },
   {
     "id": "generating-and-analyzing-sboms",
@@ -1942,6 +2094,22 @@
     "repository": "google-skills",
     "description": "Plans, configures, and hardens platform-level Google Kubernetes Engine (GKE) cluster security. Covers cluster add-ons (Secret Manager enablement), RBAC hardening (disabling insecure bindings, audit tools), Binary Authorization, Secrets Encryption (--database-encryption-key), Security Posture (--security-posture), enabling Shielded Nodes, GKE Sandbox cluster enablement, GKE IAM roles, and cross-service authentication IAM patterns. Use when securing cluster control planes, hardening GKE RBAC, enabling Shielded Nodes, enabling GKE Sandbox runtime, enabling cluster-wide security add-ons, or managing GKE IAM roles. Don't use for Workload Identity (use gke-workload-identity) or workload-level security (SecretProviderClass, PSS, NetPol, gVisor pod runtimeClassName; use gke-workload-security).",
     "path": "category/devops-docker-cicd/gke-platform-security"
+  },
+  {
+    "id": "gke-statefulset-without-probes",
+    "name": "gke-statefulset-without-probes",
+    "category": "devops-docker-cicd",
+    "repository": "google-skills",
+    "description": "Audits, detects, and proposes fixes for GKE StatefulSets that are protected by a PodDisruptionBudget (PDB) but lack container readiness probes (GKE insight subtype PDB_STATEFULSET_WITHOUT_PROBES), causing replacement Pods to be counted as healthy before they are ready during voluntary disruptions. Use when asked to check, audit, or propose fixes for the PDB_STATEFULSET_WITHOUT_PROBES condition, missing readinessProbe configurations on PDB-protected GKE StatefulSets, or premature eviction of StatefulSet replicas during node pool upgrades or drains despite having a PDB. Don't use for StatefulSets missing a PDB (PDB_UNPROTECTED_STATEFULSET), PDBs that allow zero disruptions (PDB_UNPERMISSIVE), general probe and PDB setup unrelated to this condition (use gke-reliability), Pods stuck in Pending (use gke-workload-troubleshooting), ComputeClass configuration (use gke-compute-classes), manifest generation (use gke-manifest-generation), or cluster upgrade planning (use gke-upgrades).",
+    "path": "category/devops-docker-cicd/gke-statefulset-without-probes"
+  },
+  {
+    "id": "gke-unprotected-statefulset",
+    "name": "gke-unprotected-statefulset",
+    "category": "devops-docker-cicd",
+    "repository": "google-skills",
+    "description": "Audits, detects, and proposes fixes for GKE StatefulSets that lack a matching PodDisruptionBudget (PDB) to prevent simultaneous Pod evictions during voluntary node drains (GKE insight subtype PDB_UNPROTECTED_STATEFULSET). Use when investigating the PDB_UNPROTECTED_STATEFULSET insight, checking whether GKE StatefulSets have a matching PDB, or proposing fixes for selector mismatches where an existing PDB does not match the StatefulSet's .spec.selector. Don't use for existing PDBs that allow zero disruptions or block node drains (PDB_UNPERMISSIVE), general probe and PDB setup unrelated to this insight (use gke-reliability), upgrade planning (use gke-upgrades), Pods stuck in Pending (use gke-workload-troubleshooting), node autoscaling or capacity stockouts (use gke-cluster-autoscaler), ComputeClass configuration (use gke-compute-classes), or general Kubernetes manifest generation (use gke-manifest-generation).",
+    "path": "category/devops-docker-cicd/gke-unprotected-statefulset"
   },
   {
     "id": "gke-upgrades",
@@ -2656,6 +2824,14 @@
     "path": "category/devops-docker-cicd/implementing-zero-standing-privilege-with-cyberark"
   },
   {
+    "id": "import-infrastructure-as-code",
+    "name": "import-infrastructure-as-code",
+    "category": "devops-docker-cicd",
+    "repository": "github-awesome-copilot",
+    "description": "Import existing Azure resources into Terraform using Azure CLI discovery and Azure Verified Modules (AVM). Use when asked to reverse-engineer live Azure infrastructure, generate Infrastructure as Code from existing subscriptions/resource groups/resource IDs, map dependencies, derive exact import addresses from downloaded module source, prevent configuration drift, and produce AVM-based Terraform files ready for validation and planning across any Azure resource type.",
+    "path": "category/devops-docker-cicd/import-infrastructure-as-code"
+  },
+  {
     "id": "integration-connectivity-connected-app-configure",
     "name": "integration-connectivity-connected-app-configure",
     "category": "devops-docker-cicd",
@@ -2944,6 +3120,14 @@
     "path": "category/devops-docker-cicd/mcore-run-on-slurm"
   },
   {
+    "id": "mcp-deploy-manage-agents",
+    "name": "mcp-deploy-manage-agents",
+    "category": "devops-docker-cicd",
+    "repository": "github-awesome-copilot",
+    "description": "Skill converted from mcp-deploy-manage-agents.prompt.md",
+    "path": "category/devops-docker-cicd/mcp-deploy-manage-agents"
+  },
+  {
     "id": "melonjs-deployment",
     "name": "melonjs-deployment",
     "category": "devops-docker-cicd",
@@ -3102,6 +3286,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Guides creation of Monte Carlo monitors via MCP tools, producing monitors-as-code YAML for CI/CD deployment.",
     "path": "category/devops-docker-cicd/monte-carlo-monitor-creation"
+  },
+  {
+    "id": "msstore-cli",
+    "name": "msstore-cli",
+    "category": "devops-docker-cicd",
+    "repository": "github-awesome-copilot",
+    "description": "Microsoft Store Developer CLI (msstore) for publishing Windows applications to the Microsoft Store. Use when asked to configure Store credentials, list Store apps, check submission status, publish submissions, manage package flights, set up CI/CD for Store publishing, or integrate with Partner Center. Supports Windows App SDK/WinUI, UWP, .NET MAUI, Flutter, Electron, React Native, and PWA applications.",
+    "path": "category/devops-docker-cicd/msstore-cli"
   },
   {
     "id": "nemo-mbridge-multi-node-slurm",
@@ -3456,6 +3648,14 @@
     "path": "category/devops-docker-cicd/platform-environment-validate"
   },
   {
+    "id": "platform-factory",
+    "name": "platform-factory",
+    "category": "devops-docker-cicd",
+    "repository": "affaan-m-ecc",
+    "description": "Build deterministic OCI images, SBOM/provenance evidence and hardened container or microVM runs from a compiled executable with the Platform Factory (pf) CLI, and keep its freeze lock in sync with a companion Claude Code hook. Use when a project contains .platform-factory/, when the user runs or asks about pf/platform-factory (detect, plan, freeze, build, verify, run, launch), or wants reproducible OCI builds without a Docker daemon.",
+    "path": "category/devops-docker-cicd/platform-factory"
+  },
+  {
     "id": "platform-lsp-integrate",
     "name": "platform-lsp-integrate",
     "category": "devops-docker-cicd",
@@ -3566,6 +3766,14 @@
     "repository": "vercel-labs-agent-browser",
     "description": "Access and test Vercel deployments protected by Vercel Authentication, SSO, or Deployment Protection with agent-browser. Use when a preview or production URL redirects to a Vercel login page, returns a protection 401 or 403, or needs short-lived Trusted Sources OIDC authentication instead of a static bypass secret or public exception.",
     "path": "category/devops-docker-cicd/protected-vercel-deployments"
+  },
+  {
+    "id": "quarkus-native-and-container",
+    "name": "quarkus-native-and-container",
+    "category": "devops-docker-cicd",
+    "repository": "github-awesome-copilot",
+    "description": "Build Quarkus native executables (Mandrel/GraalVM), fix native failures with reflection registration, test the native binary, and produce container images and Kubernetes/OpenShift manifests. Use for native, Docker, Jib or Kubernetes work in a Quarkus project.",
+    "path": "category/devops-docker-cicd/quarkus-native-and-container"
   },
   {
     "id": "quarkus-verification",
@@ -3758,6 +3966,14 @@
     "repository": "yaklang-hack-skills",
     "description": "Sandbox escape playbook. Use when breaking out of Python sandbox, Lua sandbox, seccomp filter, chroot jail, container/Docker, browser sandbox, or namespace isolation to achieve unrestricted code execution or file access.",
     "path": "category/devops-docker-cicd/sandbox-escape-techniques"
+  },
+  {
+    "id": "sandbox-npm-install",
+    "name": "sandbox-npm-install",
+    "category": "devops-docker-cicd",
+    "repository": "github-awesome-copilot",
+    "description": "Install npm packages in a Docker sandbox environment. Use this skill whenever you need to install, reinstall, or update node_modules inside a container where the workspace is mounted via virtiofs. Native binaries (esbuild, lightningcss, rollup) crash on virtiofs, so packages must be installed on the local ext4 filesystem and symlinked back.",
+    "path": "category/devops-docker-cicd/sandbox-npm-install"
   },
   {
     "id": "sarif-parsing",
@@ -4096,6 +4312,14 @@
     "path": "category/devops-docker-cicd/skills-azure-validate"
   },
   {
+    "id": "skills-browser-record",
+    "name": "skills-browser-record",
+    "category": "devops-docker-cicd",
+    "repository": "ruvnet-ruflo",
+    "description": "Open a named, traced browser session into an RVF cognitive container with a ruvector trajectory recording every action",
+    "path": "category/devops-docker-cicd/skills-browser-record"
+  },
+  {
     "id": "skills-clerk-billing",
     "name": "skills-clerk-billing",
     "category": "devops-docker-cicd",
@@ -4115,7 +4339,7 @@
     "id": "skills-codex-experiment-bridge",
     "name": "skills-codex-experiment-bridge",
     "category": "devops-docker-cicd",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Workflow 1.5: Bridge between idea discovery and auto review. Reads EXPERIMENT_PLAN.md, implements experiment code, deploys to GPU, collects initial results. Use when user says \\\"\u5b9e\u73b0\u5b9e\u9a8c\\\", \\\"implement experiments\\\", \\\"bridge\\\", \\\"\u4ece\u8ba1\u5212\u5230\u8dd1\u5b9e\u9a8c\\\", \\\"deploy the plan\\\", or has an experiment plan ready to execute.",
     "path": "category/devops-docker-cicd/skills-codex-experiment-bridge"
   },
@@ -4123,7 +4347,7 @@
     "id": "skills-codex-run-experiment",
     "name": "skills-codex-run-experiment",
     "category": "devops-docker-cicd",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Deploy and run ML experiments on local or remote GPU servers. Use when user says \\\"run experiment\\\", \\\"deploy to server\\\", \\\"\\u8dd1\\u5b9e\\u9a8c\\\", or needs to launch training jobs.",
     "path": "category/devops-docker-cicd/skills-codex-run-experiment"
   },
@@ -4131,9 +4355,17 @@
     "id": "skills-codex-serverless-modal",
     "name": "skills-codex-serverless-modal",
     "category": "devops-docker-cicd",
-    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Run GPU workloads on Modal \u2014 training, fine-tuning, inference, batch processing. Zero-config serverless: no SSH, no Docker, auto scale-to-zero. Use when user says \\\"modal run\\\", \\\"modal training\\\", \\\"modal inference\\\", \\\"deploy to modal\\\", \\\"need a GPU\\\", \\\"run on modal\\\", \\\"serverless GPU\\\", or needs remote GPU compute.",
     "path": "category/devops-docker-cicd/skills-codex-serverless-modal"
+  },
+  {
+    "id": "skills-commerce-react-storefront-create",
+    "name": "skills-commerce-react-storefront-create",
+    "category": "devops-docker-cicd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Stand up the commerce-b2b-headless reference React storefront in a Salesforce B2B Commerce org, end to end \u2014 discover the org's WebStores, pick one, fill the four org-specific values (WebStore Id, BuyerGroup Id, buyer permission set group, Vite org alias), build + deploy the UI Bundle, assign the site guest user the auth permission set, and hand back the live Experience Cloud storefront URL. Use whenever the user says \\\"create a react storefront in my org\\\", \\\"set up the headless B2B storefront\\\", \\\"deploy commerce-b2b-headless\\\", \\\"stand up a React storefront for <org-alias>\\\", \\\"get me a hosted headless commerce storefront\\\", or points at a cloned commerce-b2b-headless repo and wants it running against their org.",
+    "path": "category/devops-docker-cicd/skills-commerce-react-storefront-create"
   },
   {
     "id": "skills-container-publish",
@@ -4142,6 +4374,22 @@
     "repository": "codewithmukesh-dotnet-claude-kit",
     "description": "Dockerfile-less containerization using the .NET 10 SDK container publishing feature. Covers MSBuild properties, chiseled images, multi-arch builds, and registry publishing \u2014 all without writing a Dockerfile. Load this skill when the user wants to containerize without a Dockerfile, or mentions \"dotnet publish container\", \"PublishContainer\", \"ContainerRepository\", \"ContainerFamily\", \"chiseled\", \"distroless\", \"container publish\", \"SDK container\", \"no Dockerfile\", or \"containerize without Docker\".",
     "path": "category/devops-docker-cicd/skills-container-publish"
+  },
+  {
+    "id": "skills-convex-authz",
+    "name": "skills-convex-authz",
+    "category": "devops-docker-cicd",
+    "repository": "convex-agent-skills",
+    "description": "Audit and harden a Convex app's authorization: identity-from-arg impersonation, missing per-document ownership checks, public queries leaking data by a client-supplied id, and writes into a parent/container the caller doesn't own. Scans for the 4 shapes, applies requireIdentity/requireOwner, verifies with tsc. TRIGGER on 'secure my app', 'audit auth/authz', 'who can access this data'. SKIP when there is no convex/ directory.",
+    "path": "category/devops-docker-cicd/skills-convex-authz"
+  },
+  {
+    "id": "skills-data360-code-extension-generate",
+    "name": "skills-data360-code-extension-generate",
+    "category": "devops-docker-cicd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Create, develop, test, and deploy Data 360 (Data Cloud) Code Extensions with the sf CLI data-code-extension plugin and the salesforce-data-customcode Python SDK. Use this skill when creating or writing a code extension script or function (for example one that reads a DLO and writes a DLO), creating custom PySpark transformations for Data 360, editing an existing code extension payload/entrypoint.py, setting up a local code extension environment, scanning, running locally, deploying, or redeploying code extensions. Supports environment setup, init, scan, run, zip, and deploy for script and function packages.",
+    "path": "category/devops-docker-cicd/skills-data360-code-extension-generate"
   },
   {
     "id": "skills-debug",
@@ -4192,6 +4440,30 @@
     "path": "category/devops-docker-cicd/skills-docker-patterns"
   },
   {
+    "id": "skills-dx-lifecycle-center",
+    "name": "skills-dx-lifecycle-center",
+    "category": "devops-docker-cicd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Lifecycle Center for DX Inspector and Builder Central. Four jobs: (A) list the orgs connected to DX Inspector; (B) connect a new org (sandbox or scratch, production, OrgFarm) as a deploy target; (C) connect or check the Lifecycle Center org, also written LifecycleCenter, lifecycle-center, ALMDevOpsCenterHub, or Hub org; (D) deploy, validate, or quick-deploy components that already exist in the user's org to a connected org, and poll a simple-deploy requestId. TRIGGER on: show, list, or pick connected orgs or environments; connect, add, log in to, or repair an org; connect the Lifecycle Center org; deploy, validate, push, or publish components (metadata) to another org, URL, org id, alias, or environment name. Short asks like \\\"connect a new org\\\" or \\\"deploy to my sandbox\\\" match. NOT for promoting work items (dx-devops-promote), local source deploys (platform-metadata-deploy), or publishing sites or packages. Deploys move components between orgs, not local files.",
+    "path": "category/devops-docker-cicd/skills-dx-lifecycle-center"
+  },
+  {
+    "id": "skills-dx-org-manage",
+    "name": "skills-dx-org-manage",
+    "category": "devops-docker-cicd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Use to EXECUTE Salesforce org operations immediately via the sf CLI (this skill runs them, it does NOT generate scripts): create scratch orgs (from edition, definition file, snapshot, or org shape), list/display/resume/delete scratch orgs, open orgs in browser. Trigger: 'create scratch org', 'create org from snapshot', 'delete scratch org', 'open my org'. Do NOT use for switching the default org (use dx-org-switch), deploying metadata (use platform-metadata-deploy), or creating/checking/listing/deleting org snapshots (use dx-org-snapshot-manage).",
+    "path": "category/devops-docker-cicd/skills-dx-org-manage"
+  },
+  {
+    "id": "skills-dx-packaging-move-to-2gp-migrate",
+    "name": "skills-dx-packaging-move-to-2gp-migrate",
+    "category": "devops-docker-cicd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Use this skill when users want to finalize the irreversible, one-way Move-to-2GP cutover for a converted 1GP managed package \u2014 afterward, new major/minor 1GP versions can NEVER be created. Also use when an ISV admin asks to move a 1GP package to 2GP development. TRIGGER when: the user asks to move, finalize, or complete the move of a converted 1GP managed package to 2GP development, asks how to move a package to 2GP, or asks whether their converted package is eligible to move to 2GP. DO NOT TRIGGER for: converting a 1GP package to 2GP in the first place, creating or promoting 2GP package versions, packaging UI bundles (use experience-ui-bundle-2gp-deploy), enabling Dev Hub (use dx-org-devhub-configure), or post-install configuration (use dx-pkg-post-install-configure).",
+    "path": "category/devops-docker-cicd/skills-dx-packaging-move-to-2gp-migrate"
+  },
+  {
     "id": "skills-e2e-testing",
     "name": "skills-e2e-testing",
     "category": "devops-docker-cicd",
@@ -4216,6 +4488,22 @@
     "path": "category/devops-docker-cicd/skills-engineering-advanced-skills"
   },
   {
+    "id": "skills-experiment-bridge",
+    "name": "skills-experiment-bridge",
+    "category": "devops-docker-cicd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Workflow 1.5: Bridge between idea discovery and auto review. Reads EXPERIMENT_PLAN.md, implements experiment code, deploys to GPU, collects initial results. Use when user says \\\"\u5b9e\u73b0\u5b9e\u9a8c\\\", \\\"implement experiments\\\", \\\"bridge\\\", \\\"\u4ece\u8ba1\u5212\u5230\u8dd1\u5b9e\u9a8c\\\", \\\"deploy the plan\\\", or has an experiment plan ready to execute.",
+    "path": "category/devops-docker-cicd/skills-experiment-bridge"
+  },
+  {
+    "id": "skills-gmgn-wallet-review",
+    "name": "skills-gmgn-wallet-review",
+    "category": "devops-docker-cicd",
+    "repository": "gmgnai-gmgn-skills",
+    "description": "A short trading portrait of ONE wallet address \u2014 a single style tag (\u78e8\u635f\u6237 / P\u5c0f\u5c06 / \u5370\u949e\u673a \u2026 plus a speed subtitle), one sentence recapping its record and one sentence of next-step advice, for 1D / 7D / 30D / \u5168\u90e8, voiced \u4f60 for the user's own wallet and \u4ed6 for anyone else's; SOL and all 8 EVM chains, chain auto-detected for a 0x address; can render it as a page. USE WHEN a wallet address comes with a request for a brief recap or for what to change \u2014 \u300c\u5e2e\u6211\u590d\u76d8\u4e00\u4e0b\u8fd9\u4e2a\u94b1\u5305\u300d, \u300c\u4e00\u53e5\u8bdd\u603b\u7ed3\u4ed6\u7684\u6218\u7ee9\u300d, \u300c\u6211\u7684\u6253\u6cd5\u6709\u4ec0\u4e48\u95ee\u9898\u300d, \u300c\u6211\u94b1\u5305\u4e0b\u4e00\u6b65\u8be5\u600e\u4e48\u6253\u300d, \u300c\u4ea4\u6613\u753b\u50cf\u300d, \u300c\u94b1\u5305\u98ce\u683c\u52a0\u5efa\u8bae\uff0c\u7b80\u77ed\u70b9\u300d, \"sum up this wallet in one line\". NOT FOR \u2014 a bare address, \u300c\u80fd\u4e0d\u80fd\u8ddf\u300d or \u300c\u8ddf\u7740\u4ed6\u4e70\u6211\u80fd\u5403\u5230\u5417\u300d (gmgn-wallet-analysis); the full tag-and-badge breakdown or \u300c\u662f\u4e0d\u662f\u673a\u5668\u4eba\u300d (gmgn-wallet-style); scores or copy-trade backtests (gmgn-wallet-score); a creator's launches (gmgn-dev-score); current holdings (gmgn-portfolio); a token address or a buy (gmgn-contract-dd, gmgn-token-buy). TIE-BREAK \u2014 \u6253\u6cd5 / \u98ce\u683c / \u6218\u7ee9 paired with \u95ee\u9898, \u5efa\u8bae, \u590d\u76d8 or \u4e00\u53e5\u8bdd routes here; asked alone, they go to the skills above.",
+    "path": "category/devops-docker-cicd/skills-gmgn-wallet-review"
+  },
+  {
     "id": "skills-knap",
     "name": "skills-knap",
     "category": "devops-docker-cicd",
@@ -4232,12 +4520,44 @@
     "path": "category/devops-docker-cicd/skills-kubernetes-operator"
   },
   {
+    "id": "skills-kubernetes-patterns",
+    "name": "skills-kubernetes-patterns",
+    "category": "devops-docker-cicd",
+    "repository": "affaan-m-ecc",
+    "description": "Kubernetes workload patterns, resource management, RBAC, probes, autoscaling, ConfigMap/Secret handling, and kubectl debugging for production-grade deployments. Use when writing or reviewing Kubernetes manifests, or debugging probes, RBAC, autoscaling, resource limits, or pods that keep getting evicted.",
+    "path": "category/devops-docker-cicd/skills-kubernetes-patterns"
+  },
+  {
     "id": "skills-managed-deep-agents",
     "name": "skills-managed-deep-agents",
     "category": "devops-docker-cicd",
     "repository": "langchain-ai-langchain-skills",
     "description": "INVOKE THIS SKILL when building, testing, or deploying Managed Deep Agents in LangSmith. Walks a user through their first agent end to end \u2014 interviewing them about what they want to build, mapping it onto what MDA can actually do, then scaffolding and deploying it with the mda CLI. Routes to the official docs page for each capability: instructions, skills, tools, MCP, connections, middleware, sandboxes, browser use, memory, identity, subagents, schedules, channels, runtime, Context Hub, deploy, and evals.",
     "path": "category/devops-docker-cicd/skills-managed-deep-agents"
+  },
+  {
+    "id": "skills-melonjs-deployment",
+    "name": "skills-melonjs-deployment",
+    "category": "devops-docker-cicd",
+    "repository": "melonjs-melonjs",
+    "description": "Use this skill when packaging, shipping or scaffolding a melonJS game \u2014 starting a project with create-melonjs, building for the web, browser support and transpiling, and bundle size. For running inside a game portal, a native app, a mini-game runtime or with no DOM, use melonjs-platforms. Triggers on: create-melonjs, scaffold, new project, build, deploy, publish, browser support, transpile, ES2022, bundle size, tree-shaking.",
+    "path": "category/devops-docker-cicd/skills-melonjs-deployment"
+  },
+  {
+    "id": "skills-melonjs-getting-started",
+    "name": "skills-melonjs-getting-started",
+    "category": "devops-docker-cicd",
+    "repository": "melonjs-melonjs",
+    "description": "Use this skill when starting or bootstrapping a melonJS game, creating the Application, choosing a renderer, or setting up the first scene. Covers the mandatory async init, the world container, adding renderables, and the WebGPU/WebGL 2/Canvas fallback. Triggers on: melonjs, new Application, app.init, app.world, video.AUTO, video.WEBGL, video.CANVAS, Stage, state.change, getting started, bootstrap.",
+    "path": "category/devops-docker-cicd/skills-melonjs-getting-started"
+  },
+  {
+    "id": "skills-melonjs-performance",
+    "name": "skills-melonjs-performance",
+    "category": "devops-docker-cicd",
+    "repository": "melonjs-melonjs",
+    "description": "Use this skill when a melonJS game drops frames, allocates heavily, or needs to scale to many objects. Covers object pooling, draw-call batching, atlases, baking with CanvasRenderTarget, instancing, culling and alwaysUpdate, the debug plugin, and where the real costs are. Triggers on: performance, slow, frame rate, fps, lag, pool, pool.register, pool.pull, batching, draw calls, InstancedMesh, culling, alwaysUpdate, inViewport, CanvasRenderTarget, optimise, profiling, debug plugin, memory, render targets, hdr.",
+    "path": "category/devops-docker-cicd/skills-melonjs-performance"
   },
   {
     "id": "skills-microsoft-foundry",
@@ -4288,6 +4608,14 @@
     "path": "category/devops-docker-cicd/skills-next"
   },
   {
+    "id": "skills-nvidia-ontology-setup",
+    "name": "skills-nvidia-ontology-setup",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Set up or troubleshoot the Auto Ontology runtime. Use for Helm (the official install), Docker Compose, developer setup, and MCP connection to an existing deployment.",
+    "path": "category/devops-docker-cicd/skills-nvidia-ontology-setup"
+  },
+  {
     "id": "skills-nvidia-skill-finder",
     "name": "skills-nvidia-skill-finder",
     "category": "devops-docker-cicd",
@@ -4296,12 +4624,60 @@
     "path": "category/devops-docker-cicd/skills-nvidia-skill-finder"
   },
   {
+    "id": "skills-platform-custom-field-generate",
+    "name": "skills-platform-custom-field-generate",
+    "category": "devops-docker-cicd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Use when users create, generate, or validate Salesforce Custom Field metadata. Trigger on custom fields, field types, Roll-Up Summary, Master-Detail/Lookup relationships, formula fields, picklists, dependent (controlling) picklists, referencing a value set from a field, or scoping picklist values per record type; also field deployment errors, including a record type that won't deploy without a business process. DO NOT TRIGGER for creating/customizing the value set itself \u2014 a new GlobalValueSet or a StandardValueSet catalog like Industry \u2014 use platform-value-set-generate; this skill covers the field that references a value set, not the value set definition.",
+    "path": "category/devops-docker-cicd/skills-platform-custom-field-generate"
+  },
+  {
+    "id": "skills-platform-datamask-run",
+    "name": "skills-platform-datamask-run",
+    "category": "devops-docker-cicd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Data Mask end-to-end operation on a sandbox: configure a masking policy over PII, run the masking job, poll it to completion, report masked-record results, and abort an in-progress run. Use when the user needs to run, monitor, or cancel a Salesforce Data Mask job, mask PII/sandbox data, or work with DataMaskPolicy / DataMaskPolicyJobRun. TRIGGER when: user runs a data mask job, masks sandbox PII, polls masking status, reports masked records, or aborts a running mask. DO NOT TRIGGER when: writing anonymization Apex by hand (use platform-apex-generate), generating test data (use platform-data-manage), or deploying unrelated metadata (use platform-metadata-deploy).",
+    "path": "category/devops-docker-cicd/skills-platform-datamask-run"
+  },
+  {
+    "id": "skills-platform-environment-validate",
+    "name": "skills-platform-environment-validate",
+    "category": "devops-docker-cicd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Validate and configure the local Salesforce development environment. Runs a prerequisite scan across required tools with per-tool status and offers to install or update missing items. Use when the user asks to 'check my setup', 'validate tools', 'verify prerequisites', 'am I set up correctly', or reports a tool is missing or not working. DO NOT TRIGGER for org auth (/salesforce-development:login), deployment problems (platform-metadata-deploy), or status checks (/salesforce-development:status).",
+    "path": "category/devops-docker-cicd/skills-platform-environment-validate"
+  },
+  {
+    "id": "skills-platform-lsp-integrate",
+    "name": "skills-platform-lsp-integrate",
+    "category": "devops-docker-cicd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Reference/contract for the Salesforce LSP MCP tools and unavailability handling. Use when asking how to use the LSP, which tools exist, what apex.diagnostics / validate_soql / complete_soql do, why a tool errors with lsp_disabled, no_apex_workspace, or no_org_connected, or how to debug/disable it. DO NOT TRIGGER for editing Apex/LWC/metadata (platform-apex-generate), deploys (platform-metadata-deploy), or SOQL authoring (platform-soql-query); scoped to LSP-layer/MCP-tool questions only.",
+    "path": "category/devops-docker-cicd/skills-platform-lsp-integrate"
+  },
+  {
+    "id": "skills-platform-report-generate",
+    "name": "skills-platform-report-generate",
+    "category": "devops-docker-cicd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Use when users create, generate, or validate Salesforce Lightning Report metadata (.report-meta.xml) \u2014 tabular, summary, matrix, or joined reports with columns, groupings, filters, charts, cross-filters, buckets, formulas, or time-frame filters. Triggers on \\\"create a report\\\", \\\"build a report\\\", \\\"add a chart\\\", or .report-meta.xml deploy errors. Do NOT trigger for Custom Report Type metadata (use platform-custom-report-type-generate), dashboards, list views, running reports in the UI, or SOQL.",
+    "path": "category/devops-docker-cicd/skills-platform-report-generate"
+  },
+  {
     "id": "skills-remotion-render",
     "name": "skills-remotion-render",
     "category": "devops-docker-cicd",
     "repository": "remotion-dev-skills",
     "description": "Export a Remotion video",
     "path": "category/devops-docker-cicd/skills-remotion-render"
+  },
+  {
+    "id": "skills-run-experiment",
+    "name": "skills-run-experiment",
+    "category": "devops-docker-cicd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Deploy and run ML experiments on local, remote, Vast.ai, or Modal serverless GPU. Use when user says \"run experiment\", \"deploy to server\", \"\u8dd1\u5b9e\u9a8c\", or needs to launch training jobs.",
+    "path": "category/devops-docker-cicd/skills-run-experiment"
   },
   {
     "id": "skills-runbook-generator",
@@ -4544,6 +4920,14 @@
     "path": "category/devops-docker-cicd/terraform-azure"
   },
   {
+    "id": "terraform-azurerm-set-diff-analyzer",
+    "name": "terraform-azurerm-set-diff-analyzer",
+    "category": "devops-docker-cicd",
+    "repository": "github-awesome-copilot",
+    "description": "Analyze Terraform plan JSON output for AzureRM Provider to distinguish between false-positive diffs (order-only changes in Set-type attributes) and actual resource changes. Use when reviewing terraform plan output for Azure resources like Application Gateway, Load Balancer, Firewall, Front Door, NSG, and other resources with Set-type attributes that cause spurious diffs due to internal ordering changes.",
+    "path": "category/devops-docker-cicd/terraform-azurerm-set-diff-analyzer"
+  },
+  {
     "id": "terraform-data-engineering-iac",
     "name": "terraform-data-engineering-iac",
     "category": "devops-docker-cicd",
@@ -4611,8 +4995,8 @@
     "id": "terraform-patterns",
     "name": "terraform-patterns",
     "category": "devops-docker-cicd",
-    "repository": "alirezarezvani-claude-skills",
-    "description": "Terraform infrastructure-as-code agent skill and plugin for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw. Covers module design patterns, state management strategies, provider configuration, security hardening, policy-as-code with Sentinel/OPA, and CI/CD plan/apply workflows. Use when: user wants to design Terraform modules, manage state backends, review Terraform security, implement multi-region deployments, or follow IaC best practices.",
+    "repository": "affaan-m-ecc",
+    "description": "Terraform and OpenTofu infrastructure-as-code patterns for project layout, remote state, modules, variables, secrets, safe plan/apply workflows, and CI. Use when writing or reviewing .tf files, structuring modules or environments, configuring backends and state locking, or debugging plan drift, state, and provider errors.",
     "path": "category/devops-docker-cicd/terraform-patterns"
   },
   {

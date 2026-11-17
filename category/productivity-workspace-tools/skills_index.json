@@ -216,6 +216,14 @@
     "path": "category/productivity-workspace-tools/catalyst-calendar"
   },
   {
+    "id": "channel-publish",
+    "name": "channel-publish",
+    "category": "productivity-workspace-tools",
+    "repository": "yikart-aitoearn",
+    "description": "Publish content to the user's bound Channel Accounts, schedule or change Publish At, cancel an unfinished Publish Task, or update already published content. Use when the user wants to post, schedule, cancel, or update social content on a connected platform.",
+    "path": "category/productivity-workspace-tools/channel-publish"
+  },
+  {
     "id": "chief-of-staff",
     "name": "chief-of-staff",
     "category": "productivity-workspace-tools",
@@ -238,6 +246,22 @@
     "repository": "anthropics-knowledge-work",
     "description": "Manage the month-end close process with task sequencing, dependencies, and status tracking. Use when planning the close calendar, tracking close progress, identifying blockers, or sequencing close activities by day.",
     "path": "category/productivity-workspace-tools/close-management"
+  },
+  {
+    "id": "cloud-compute-on-demand-reservations",
+    "name": "cloud-compute-on-demand-reservations",
+    "category": "productivity-workspace-tools",
+    "repository": "google-skills",
+    "description": "Inspects, verifies, and manages Google Compute Engine (GCE) On-Demand reservations and analyzes consumed versus available reserved capacity. Use when checking active reservation capacity, determining whether reserved VMs are available or exhausted, verifying reservation targeting (automatic versus specific reservation), or sharing reservations across projects. Don't use for Spot capacity advice (use gcloud compute advice capacity --provisioning-model=SPOT) or future calendar bookings (use compute-future-reservations).",
+    "path": "category/productivity-workspace-tools/cloud-compute-on-demand-reservations"
+  },
+  {
+    "id": "cloud-compute-spot-capacity-advice",
+    "name": "cloud-compute-spot-capacity-advice",
+    "category": "productivity-workspace-tools",
+    "repository": "google-skills",
+    "description": "Evaluates Google Compute Engine (GCE) Spot VM capacity obtainability, placement likelihood, and machine family or regional flexibility. Use when planning batch workloads, finding available Spot CPU or GPU capacity, assessing stockout risks, or optimizing instance distribution across zones. Don't use for TPU availability, on-demand reservation capacity (use compute-on-demand-reservations), or future GPU/TPU calendar bookings (use compute-future-reservations).",
+    "path": "category/productivity-workspace-tools/cloud-compute-spot-capacity-advice"
   },
   {
     "id": "community-building",
@@ -462,6 +486,14 @@
     "repository": "davila7-claude-code-templates",
     "description": "Group food ordering through the DoorDash CLI (dd-cli) from a persistent team roster. One request (\\\"lunch for the team\\\") fans out into a single merged cart with every line attributed to its eater via a person-to-cart-item-id ledger, per-person cost split with fee proration, payer rotation history, and a checkout gate that re-derives allergen conflicts against the roster live. Use when ordering for multiple people \u2014 team lunch, incident-response food, \\\"collect orders from the thread\\\" \u2014 or for /whose-turn payer rotation questions. Handles paste-a-thread intake: paste a Slack/chat thread and it builds the order ledger from it.",
     "path": "category/productivity-workspace-tools/doordash-group-orders"
+  },
+  {
+    "id": "dx-packaging-push-upgrade-configure",
+    "name": "dx-packaging-push-upgrade-configure",
+    "category": "productivity-workspace-tools",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Use this skill to plan, schedule, and monitor Salesforce package push upgrades from a Dev Hub. Finds subscriber orgs via the PackageSubscriber object, resolves and validates the target package version, builds a best-practice batched schedule (pilot sandboxes, then staggered off-peak production batches), generates the per-batch org-ID CSV, and \u2014 only after explicit confirmation \u2014 runs the sf package push-upgrade CLI commands, then monitors PackagePushRequest, PackagePushJob, and PackagePushError. Supports 2GP managed, unlocked, and 1GP-to-2GP push migrations. TRIGGER when the user wants to push a package upgrade to subscribers, find who has a package installed and at what version, batch a rollout by region, or schedule, monitor, or abort a push upgrade. DO NOT TRIGGER for post-install configuration of an installed package (use dx-pkg-post-install-configure), creating or versioning a package, or installing a package into one org.",
+    "path": "category/productivity-workspace-tools/dx-packaging-push-upgrade-configure"
   },
   {
     "id": "ecommerce-social-media-marketing",
@@ -766,6 +798,14 @@
     "repository": "refoundai-lenny-skills",
     "description": "Help users transition from linear funnel thinking to a loop-based growth model that identifies and optimizes the core engines of their business.",
     "path": "category/productivity-workspace-tools/growth-model"
+  },
+  {
+    "id": "gtm-operating-cadence",
+    "name": "gtm-operating-cadence",
+    "category": "productivity-workspace-tools",
+    "repository": "github-awesome-copilot",
+    "description": "Design meeting rhythms, metric reporting, quarterly planning, and decision-making velocity for scaling companies. Use when decisions are slow, planning is broken, the company is growing but alignment is worse, or leadership meetings consume all time without producing decisions.",
+    "path": "category/productivity-workspace-tools/gtm-operating-cadence"
   },
   {
     "id": "gws-calendar",
@@ -1760,6 +1800,14 @@
     "path": "category/productivity-workspace-tools/recipe-topic-timeline"
   },
   {
+    "id": "references-channel-publish",
+    "name": "references-channel-publish",
+    "category": "productivity-workspace-tools",
+    "repository": "yikart-aitoearn",
+    "description": "Publish content to the user's bound Channel Accounts, schedule or change Publish At, cancel an unfinished Publish Task, or update already published content. Use when the user wants to post, schedule, cancel, or update social content on a connected platform.",
+    "path": "category/productivity-workspace-tools/references-channel-publish"
+  },
+  {
     "id": "regression-modeling",
     "name": "regression-modeling",
     "category": "productivity-workspace-tools",
@@ -1912,6 +1960,14 @@
     "path": "category/productivity-workspace-tools/skills-agent-launcher-orchestrator"
   },
   {
+    "id": "skills-agent-orchestration-advisor",
+    "name": "skills-agent-orchestration-advisor",
+    "category": "productivity-workspace-tools",
+    "repository": "deanpeters-product-manager-skills",
+    "description": "Design multi-agent AI workflows with clear boundaries, handoffs, and monitoring. Use when a complex PM task should run as parallel specialized agents instead of one linear process.",
+    "path": "category/productivity-workspace-tools/skills-agent-orchestration-advisor"
+  },
+  {
     "id": "skills-agent-protocol",
     "name": "skills-agent-protocol",
     "category": "productivity-workspace-tools",
@@ -1958,6 +2014,14 @@
     "repository": "anthropics-knowledge-work",
     "description": "Turns a task the owner keeps doing by hand into a named, reusable skill they can trigger by name or put on a schedule. Watches them do it once or listens to them describe it, works out what varies and what stays fixed, writes the skill with approval checkpoints in the right places, registers it with the router, and shares it with the team. This is how a business gets a workflow nobody shipped for them. Use this whenever the owner describes something repetitive they wish were automatic \u2014 including phrasings like \"I do this every week,\" \"can you remember how to do this,\" \"make this a thing I can just ask for,\" \"build me an agent,\" \"automate this for me,\" \"turn this into a workflow,\" or \"I want this to happen every Monday.\" Reach for it when they describe a routine, even without asking for automation.",
     "path": "category/productivity-workspace-tools/skills-build-agent"
+  },
+  {
+    "id": "skills-channel-publish",
+    "name": "skills-channel-publish",
+    "category": "productivity-workspace-tools",
+    "repository": "yikart-aitoearn",
+    "description": "Publish content to the user's bound Channel Accounts, schedule or change Publish At, cancel an unfinished Publish Task, or update already published content. Use when the user wants to post, schedule, cancel, or update social content on a connected platform.",
+    "path": "category/productivity-workspace-tools/skills-channel-publish"
   },
   {
     "id": "skills-chief-of-staff",
@@ -2016,6 +2080,14 @@
     "path": "category/productivity-workspace-tools/skills-dossier"
   },
   {
+    "id": "skills-education-cloud-academic-calendar-generate",
+    "name": "skills-education-cloud-academic-calendar-generate",
+    "category": "productivity-workspace-tools",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Use this skill to set up, create, or generate an academic calendar for Education Cloud orgs. Creates Academic Year, Academic Terms (semester/quarter/trimester), Academic Sessions, registration windows, and add/drop deadlines from natural language or documents. Validates date ranges and handles overlapping sessions, linking terms to the year and sessions to their term. TRIGGER when: user asks to \\\"create an academic calendar\\\", \\\"set up semester dates\\\", \\\"generate the academic year\\\", \\\"add terms and sessions\\\", \\\"configure registration windows\\\", or \\\"add/drop deadlines\\\" \u2014 or uploads a calendar document (PDF, CSV, XLSX) containing term or session dates. DO NOT TRIGGER for querying or updating existing calendar records, scheduling courses, or configuring course offerings.",
+    "path": "category/productivity-workspace-tools/skills-education-cloud-academic-calendar-generate"
+  },
+  {
     "id": "skills-exec-briefing-memo",
     "name": "skills-exec-briefing-memo",
     "category": "productivity-workspace-tools",
@@ -2056,6 +2128,14 @@
     "path": "category/productivity-workspace-tools/skills-founder-coach"
   },
   {
+    "id": "skills-frontend-ui-engineering",
+    "name": "skills-frontend-ui-engineering",
+    "category": "productivity-workspace-tools",
+    "repository": "addyosmani-agent-skills",
+    "description": "Builds production-quality, accessible, responsive user-facing UIs. Use when building or modifying interfaces and pages, creating components, implementing layouts, meeting WCAG accessibility requirements, managing state, or when the output needs to look and feel production-quality rather than AI-generated.",
+    "path": "category/productivity-workspace-tools/skills-frontend-ui-engineering"
+  },
+  {
     "id": "skills-grant-rfp-writer",
     "name": "skills-grant-rfp-writer",
     "category": "productivity-workspace-tools",
@@ -2086,6 +2166,14 @@
     "repository": "larksuite-cli",
     "description": "\u98de\u4e66\u89c6\u9891\u4f1a\u8bae\uff1a\u67e5\u8be2\u4f1a\u8bae\u8bb0\u5f55\u4e0e\u4f1a\u8bae\u4ea7\u7269(\u7eaa\u8981/\u9010\u5b57\u7a3f/\u5999\u8bb0)\u3001\u5999\u8bb0\u641c\u7d22/\u4e0a\u4f20/\u4e0b\u8f7d/\u7f16\u8f91\u3001\u673a\u5668\u4eba\u53c2\u4e0e\u4f1a\u8bae\uff1b\u67e5\u8be2\u8fdb\u884c\u4e2d\u7684\u4f1a\u8bae\u3001\u5b9e\u65f6\u4f1a\u8bae\u5185\u5bb9(\u53d1\u8a00/\u804a\u5929/\u5171\u4eab\u6587\u6863)\u95ee\u7b54(\u4f1a\u4e0a/\u4f1a\u91cc)\u3001\u53d1\u9001\u4f1a\u4e2d\u804a\u5929/\u8868\u60c5\uff1b\u57fa\u4e8e meeting_id\u3001meeting_no\u3001event_id\u3001note_id\u3001minute_token\u3001vc-node-id \u6216\u5999\u8bb0 URL \u67e5\u8be2\u76f8\u5173\u4fe1\u606f\u3002\u9884\u7ea6\u4f1a\u8bae\u3001\u5fd9\u95f2\u548c\u4f1a\u8bae\u5ba4\u7ba1\u7406\u8d70 lark-calendar\u3002",
     "path": "category/productivity-workspace-tools/skills-lark-meeting"
+  },
+  {
+    "id": "skills-lark-okr",
+    "name": "skills-lark-okr",
+    "category": "productivity-workspace-tools",
+    "repository": "larksuite-cli",
+    "description": "\u98de\u4e66 OKR\uff1a\u7ba1\u7406\u76ee\u6807\u4e0e\u5173\u952e\u7ed3\u679c\u3002\u67e5\u770b\u548c\u7f16\u8f91 OKR \u5468\u671f\u3001\u76ee\u6807\u3001\u5173\u952e\u7ed3\u679c\u3001\u5bf9\u9f50\u5173\u7cfb\u3001\u91cf\u5316\u6307\u6807\u548c\u8fdb\u5c55\u8bb0\u5f55\u3002\u5f53\u7528\u6237\u9700\u8981\u67e5\u770b\u6216\u521b\u5efa OKR\u3001\u7ba1\u7406\u76ee\u6807\u548c\u5173\u952e\u7ed3\u679c\u3001\u67e5\u770b\u5bf9\u9f50\u5173\u7cfb\u65f6\u4f7f\u7528\u3002\u4e0d\u8d1f\u8d23\uff1a\u5f85\u529e\u4efb\u52a1\u7ba1\u7406\uff08lark-task\uff09\u3001\u65e5\u7a0b/\u4f1a\u8bae\u5b89\u6392\uff08lark-calendar\uff09\u3001\u7ee9\u6548\u8bc4\u4f30",
+    "path": "category/productivity-workspace-tools/skills-lark-okr"
   },
   {
     "id": "skills-marketing-loops",
@@ -2259,7 +2347,7 @@
     "id": "skills-setup-benny",
     "name": "skills-setup-benny",
     "category": "productivity-workspace-tools",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Configure Benny and prepare its triage and repro automations. Use when installing Benny or changing its Slack, tracker, repository, routing, control, model, or budget settings.",
     "path": "category/productivity-workspace-tools/skills-setup-benny"
   },
@@ -2307,7 +2395,7 @@
     "id": "skills-triage-issue-reports",
     "name": "skills-triage-issue-reports",
     "category": "productivity-workspace-tools",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Triage Slack issue reports with one thread-only verdict, evidence review, cause-aware routing, tracker dedupe, and fail-closed ticket creation. Use only from the configured Benny triage automation.",
     "path": "category/productivity-workspace-tools/skills-triage-issue-reports"
   },

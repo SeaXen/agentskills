@@ -16,6 +16,7 @@ These aren't prompts. They're complete workflows — scripts, scoring algorithms
 | [**Sales Pipeline**](./sales-pipeline/) | Turn anonymous website visitors into qualified pipeline | RB2B Router, Deal Resurrector, Trigger Prospector, ICP Learner |
 | [**Event Research and Follow-up**](./event-research-follow-up/) | Research events, qualify evidence-backed leads and execute only approved follow-up | Roster and Photo Leads, Company Fit, Delivery Ledgers, Reply Outcomes |
 | [**Proactive Helpfulness**](./proactive-helpfulness/) | Prioritize useful lead follow-ups and relationship commitments with verified evidence | Cross-Channel Reconciliation, Introductions, Approval Gates, Deduplicated Funnel |
+| [**Social Post Carousel**](./social-post-carousel/) | Turn post text into consistent, brand-neutral square cards | Paragraph Planning, Fixed Type, Local PNG Renderer |
 | [**Content Ops**](./content-ops/) | Ship content that scores 90+ every time | Expert Panel, Quality Gate, Editorial Brain, Quote Miner |
 | [**Growth Signal Charts**](./growth-signal-charts/) | Turn original content and measured audience signals into cited social charts | Content Spikes, Recent Research, Desk Edition, PNG/PDF Exports |
 | [**Content OS Portable Starter**](./content-os-portable-starter/) | Bootstrap a vendor-neutral, draft-first content control loop | Config Schema, Approval Gates, Connector Matrix, Readback Templates |
@@ -27,6 +28,7 @@ These aren't prompts. They're complete workflows — scripts, scoring algorithms
 | [**Conversion Ops**](./conversion-ops/) | Score any landing page and turn survey data into lead magnets | CRO Audit, Survey-to-Lead-Magnet Engine |
 | [**Podcast Ops**](./podcast-ops/) | One episode → 20+ content pieces across every platform | Podcast-to-Everything Pipeline, Content Calendar |
 | [**Team Ops**](./team-ops/) | Ruthless performance audits and meeting intelligence | Elon Algorithm, Meeting-to-Action Extractor |
+| [**Software Factory**](./software-factory/) | Let coding agents ship fixes through reviewed PRs, capped pinned-SHA merges, dated backups and a 24h rollback watch | Acceptance Tests, Two-Model Review, Daily Merge Cap, Rollback Watcher |
 | [**Reimagine Work**](./reimagine-work/) | A weekly Elon-algorithm pass over an agent fleet plus a shadow owner judge that stops asking the founder things already answered | Shadow Judge, Weekly Loop, Escalation Ladder |
 | [**Sidebar Prioritizer**](./sidebar-prioritizer/) | Reset Codex sidebar priorities and label tasks by work category and inactivity | P0–P4 Priorities, B7 Age Markers, Follow-up Evidence, Verified Labels |
 | [**Sales Playbook**](./sales-playbook/) | Value-based pricing framework that turns $10K deals into $100K deals | Pre-Call Briefing, Tiered Packager, Call Analyzer, Pattern Library |

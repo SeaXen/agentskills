@@ -1,7 +1,7 @@
 # 💰 Financial Modeling, Tax & Accounting
 
 > **Category**: `business-finance-accounting`  
-> **Total Curated Skills**: 288 skills  
+> **Total Curated Skills**: 292 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -60,6 +60,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`contract-document-renewal`](../../library/sickn33-agentic-awesome-skills/skills/contract-document-renewal) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Contract register: counterparty, owner, start and end dates, auto-renewal flag, renewal notice ... |
 | [`conversion-rate-optimization`](../../library/nexscope-ai-ecommerce-skills/skills/conversion-rate-optimization) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Systematic CRO for e-commerce stores. Audit conversion funnels, identify drop-off points, imple... |
 | [`conversion-value-mapper`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/conversion-value-mapper) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "set up conversion values so tROAS optimizes profit not orders", "map... |
+| [`convert-pdf-to-md`](../../library/github-awesome-copilot/skills/convert-pdf-to-md) | ⚪ Reserve | `github-awesome-copilot` | Converts PDF (.pdf) documents into Markdown so their contents can be accurately analyzed, summa... |
+| [`convert-word-to-md`](../../library/github-awesome-copilot/skills/convert-word-to-md) | ⚪ Reserve | `github-awesome-copilot` | Converts Word (.docx) documents into Markdown so their contents can be accurately analyzed, sum... |
 | [`cost-benefit`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/cost-benefit) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Cost-benefit analysis. Produces economic NPV and financial NPV side by side, with BCR, optimism... |
 | [`create-business`](../../library/wondelai-skills/skills/create-business) | ⚪ Reserve | `wondelai-skills` | Guided journey from raw idea to a validated, positioned, priced business with a chosen beachhea... |
 | [`crisis-response-planner`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/crisis-response-planner) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "build our social crisis protocol", "mentions are exploding — what do... |
@@ -120,6 +122,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`government-bond-analysis`](../../library/nomadamas-k-skill/skills/government-bond-analysis) | ⚪ Reserve | `nomadamas-k-skill` | 한국·미국 국채시장을 공식 금리 데이터로 분석하고 커브 변화, 한·미 금리차, 확인된 국채 입찰·통화정책 일정을 같은 형식으로 정리한다. 국고채·미국 국채 금리 비교, 최... |
 | [`grow-business`](../../library/wondelai-skills/skills/grow-business) | ⚪ Reserve | `wondelai-skills` | Guided journey from a business with lucky months to a repeatable growth engine that produces a ... |
 | [`growth-pulse`](../../library/anthropics-knowledge-work/skills/growth-pulse) | ⚪ Reserve | `anthropics-knowledge-work` | Answers one question for an SMB owner — is the growth engine actually working? Pulls sales tren... |
+| [`gtm-product-led-growth`](../../library/github-awesome-copilot/skills/gtm-product-led-growth) | ⚪ Reserve | `github-awesome-copilot` | Build self-serve acquisition and expansion motions. Use when deciding PLG vs sales-led, optimiz... |
 | [`guizang-ppt`](../../library/feimacode-open-design-agent-kit/skills/guizang-ppt) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Write a Brand-to-Revenue Story like a Growth Strategy Lead (Open Design) — use only when explic... |
 | [`hackathon-cash-prize`](../../library/samber-dev-event-organizer-skills/skills/hackathon-cash-prize) | ⚪ Reserve | `samber-dev-event-organizer-skills` | Structure what a hackathon actually awards - cash versus non-cash medium including no monetary ... |
 | [`host-crisis-response-planner`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/host-crisis-response-planner) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "build our social crisis protocol", "mentions are exploding — what do... |
@@ -228,6 +231,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`sales-forecast`](../../library/genspark-ai-genoffice/skills/sales-forecast) | ⚪ Reserve | `genspark-ai-genoffice` | Forecast sales from historical data using trend and seasonality, with confidence bands, scenari... |
 | [`sensenova`](../../library/opensensenova-sensenova-skills/skills/sensenova) | ⚪ Reserve | `opensensenova-sensenova-skills` | A library of modular AI skills for office automation, featuring advanced Excel data cleaning, P... |
 | [`skills-ap-processor`](../../library/anthropics-knowledge-work/skills/skills-ap-processor) | ⚪ Reserve | `anthropics-knowledge-work` | Works the bill pile end to end: reads bills and vendor statements out of the AP inbox or from u... |
+| [`skills-asc-metrics`](../../library/appeeky-aso-skills/skills/skills-asc-metrics) | ⚪ Reserve | `appeeky-aso-skills` | When the user wants to analyze their own app's actual performance data from App Store Connect —... |
 | [`skills-attribution`](../../library/coreyhaines31-marketingskills/skills/skills-attribution) | ⚪ Reserve | `coreyhaines31-marketingskills` | When the user wants to work out which marketing drives revenue, or asks whether a channel is re... |
 | [`skills-business-growth-skills`](../../library/alirezarezvani-claude-skills/skills/skills-business-growth-skills) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when a growth request needs routing between customer-success-manager, sales-engineer, reven... |
 | [`skills-cash-flow-snapshot`](../../library/anthropics-knowledge-work/skills/skills-cash-flow-snapshot) | ⚪ Reserve | `anthropics-knowledge-work` | Reads AR/AP, historical cash timing, and known fixed costs from the ledger (MYOB, NetSuite, Qui... |

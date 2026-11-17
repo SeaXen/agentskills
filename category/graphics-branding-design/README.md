@@ -1,7 +1,7 @@
 # 🎨 Visual Design, Branding & Graphics
 
 > **Category**: `graphics-branding-design`  
-> **Total Curated Skills**: 142 skills  
+> **Total Curated Skills**: 150 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -82,6 +82,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`founder-brand`](../../library/jakeschincariol-founder-skill/skills/founder-brand) | ⚪ Reserve | `jakeschincariol-founder-skill` | Your brand designer. Names the business (with the trademark, domain and handle checks to run be... |
 | [`frame-logo-outro`](../../library/feimacode-open-design-agent-kit/skills/frame-logo-outro) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Logo Outro Frame (Open Design) — use only when explicitly invoked, not for general design reque... |
 | [`frame-macos-notification`](../../library/feimacode-open-design-agent-kit/skills/frame-macos-notification) | ⚪ Reserve | `feimacode-open-design-agent-kit` | macOS Notification Banner (Open Design) — use only when explicitly invoked, not for general des... |
+| [`game-engine`](../../library/github-awesome-copilot/skills/game-engine) | ⚪ Reserve | `github-awesome-copilot` | Expert skill for building web-based game engines and games using HTML5, Canvas, WebGL, and Java... |
 | [`hairline-adopt`](../../library/lucasmarkes-hairline/skills/hairline-adopt) | ⚪ Reserve | `lucasmarkes-hairline` | Use when someone has an SVG (an icon, a logo, an illustration) and wants it as a Hairline figur... |
 | [`image-outpainting`](../../library/gencraft-labs-skills/skills/image-outpainting) | ⚪ Reserve | `gencraft-labs-skills` | Image outpainting on RunComfy via the `runcomfy` CLI — extend a still beyond its original canva... |
 | [`image-processing`](../../library/jezweb-claude-skills/skills/image-processing) | ⚪ Reserve | `jezweb-claude-skills` | Process images for web development — resize, crop, trim whitespace, convert formats (PNG/WebP/J... |
@@ -138,11 +139,18 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-figma-spec`](../../library/figma-mcp-server-guide/skills/skills-figma-spec) | ⚪ Reserve | `figma-mcp-server-guide` | This skill is required to create, read, edit, review, or comment on Figma specs. You must read ... |
 | [`skills-figma-use`](../../library/figma-mcp-server-guide/skills/skills-figma-use) | ⚪ Reserve | `figma-mcp-server-guide` | **MANDATORY prerequisite** — you MUST invoke this skill BEFORE every `use_figma` tool call. NEV... |
 | [`skills-figma-use-slides`](../../library/figma-mcp-server-guide/skills/skills-figma-use-slides) | ⚪ Reserve | `figma-mcp-server-guide` | This skill helps agents use Figma's use_figma MCP tool in the Slides context. Can be used along... |
+| [`skills-figquery-figma-generative-plugins`](../../library/figma-mcp-server-guide/skills/skills-figquery-figma-generative-plugins) | ⚪ Reserve | `figma-mcp-server-guide` | **MANDATORY prerequisite** — load this skill before calling `create_generative_plugin` or `upda... |
+| [`skills-figquery-figma-shaders`](../../library/figma-mcp-server-guide/skills/skills-figquery-figma-shaders) | ⚪ Reserve | `figma-mcp-server-guide` | **MANDATORY prerequisite** — load this skill before calling `create_shader` or `update_shader`.... |
+| [`skills-figquery-figma-spec`](../../library/figma-mcp-server-guide/skills/skills-figquery-figma-spec) | ⚪ Reserve | `figma-mcp-server-guide` | This skill is required to create, read, edit, review, or comment on Figma specs. You must read ... |
 | [`skills-figquery-figma-use`](../../library/figma-mcp-server-guide/skills/skills-figquery-figma-use) | ⚪ Reserve | `figma-mcp-server-guide` | **MANDATORY prerequisite** — you MUST invoke this skill BEFORE every `use_figma` tool call. NEV... |
+| [`skills-figquery-figma-use-slides`](../../library/figma-mcp-server-guide/skills/skills-figquery-figma-use-slides) | ⚪ Reserve | `figma-mcp-server-guide` | This skill helps agents use Figma's use_figma MCP tool in the Slides context. Can be used along... |
 | [`skills-json-canvas`](../../library/kepano-obsidian-skills/skills/skills-json-canvas) | ⚪ Reserve | `kepano-obsidian-skills` | Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use whe... |
 | [`skills-lean-ux-canvas`](../../library/deanpeters-product-manager-skills/skills/skills-lean-ux-canvas) | ⚪ Reserve | `deanpeters-product-manager-skills` | Guide teams through Lean UX Canvas v2. Use when framing a business problem, surfacing assumptio... |
+| [`skills-melonjs`](../../library/melonjs-melonjs/skills/skills-melonjs) | ⚪ Reserve | `melonjs-melonjs` | Use this skill FIRST for any melonJS task; it routes to the right specialised skill and lists t... |
+| [`skills-melonjs-effects-and-shaders`](../../library/melonjs-melonjs/skills/skills-melonjs-effects-and-shaders) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for post-processing effects, custom shaders, blend modes and colour grading in m... |
 | [`skills-om-figma-design-with-ds`](../../library/open-mercato-skills/skills/skills-om-figma-design-with-ds) | ⚪ Reserve | `open-mercato-skills` | Design in a design tool (Figma or similar) on the repository's design system — write a brief fo... |
 | [`skills-open-design-integrations`](../../library/feimacode-open-design-agent-kit/skills/skills-open-design-integrations) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Show which services Open Design can use directly (Canva, Figma, Notion, Google Drive, Slack, so... |
+| [`skills-platform-custom-application-generate`](../../library/forcedotcom-sf-skills/skills/skills-platform-custom-application-generate) | ⚪ Reserve | `forcedotcom-sf-skills` | Use this skill when users need to create or configure tab-based Salesforce Custom Applications ... |
 | [`skills-popup-cro`](../../library/alirezarezvani-claude-skills/skills/skills-popup-cro) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when creating or fixing a popup, modal, exit-intent, slide-in or banner meant to convert. S... |
 | [`skills-rfc`](../../library/feimacode-open-design-agent-kit/skills/skills-rfc) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A request for comments: the problem, goals and non-goals, the proposal with the alternatives co... |
 | [`skills-social-content-engine`](../../library/anthropics-knowledge-work/skills/skills-social-content-engine) | ⚪ Reserve | `anthropics-knowledge-work` | Runs the owner's content operation as a standing thing rather than a one-off: keeps a rolling p... |

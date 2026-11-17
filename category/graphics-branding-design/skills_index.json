@@ -504,6 +504,14 @@
     "path": "category/graphics-branding-design/frame-macos-notification"
   },
   {
+    "id": "game-engine",
+    "name": "game-engine",
+    "category": "graphics-branding-design",
+    "repository": "github-awesome-copilot",
+    "description": "Expert skill for building web-based game engines and games using HTML5, Canvas, WebGL, and JavaScript. Use when asked to create games, build game engines, implement game physics, handle collision detection, set up game loops, manage sprites, add game controls, or work with 2D/3D rendering. Covers techniques for platformers, breakout-style games, maze games, tilemaps, audio, multiplayer via WebRTC, and publishing games.",
+    "path": "category/graphics-branding-design/game-engine"
+  },
+  {
     "id": "hairline-adopt",
     "name": "hairline-adopt",
     "category": "graphics-branding-design",
@@ -952,12 +960,44 @@
     "path": "category/graphics-branding-design/skills-figma-use-slides"
   },
   {
+    "id": "skills-figquery-figma-generative-plugins",
+    "name": "skills-figquery-figma-generative-plugins",
+    "category": "graphics-branding-design",
+    "repository": "figma-mcp-server-guide",
+    "description": "**MANDATORY prerequisite** \u2014 load this skill before calling `create_generative_plugin` or `update_generative_plugin`. Use when the user asks to create, author, change, fix, or extend a reusable generative Figma plugin.",
+    "path": "category/graphics-branding-design/skills-figquery-figma-generative-plugins"
+  },
+  {
+    "id": "skills-figquery-figma-shaders",
+    "name": "skills-figquery-figma-shaders",
+    "category": "graphics-branding-design",
+    "repository": "figma-mcp-server-guide",
+    "description": "**MANDATORY prerequisite** \u2014 load this skill before calling `create_shader` or `update_shader`. Use when the user asks to create, author, change, fix, or iterate on a shader effect, shader fill, custom effect, custom fill, or procedural shader in Figma.",
+    "path": "category/graphics-branding-design/skills-figquery-figma-shaders"
+  },
+  {
+    "id": "skills-figquery-figma-spec",
+    "name": "skills-figquery-figma-spec",
+    "category": "graphics-branding-design",
+    "repository": "figma-mcp-server-guide",
+    "description": "This skill is required to create, read, edit, review, or comment on Figma specs. You must read it when working on a PRD, brief, RFC or any kind of document in either a standalone Figma spec or a Figma spec embedded in a Figma Design or Figjam file.",
+    "path": "category/graphics-branding-design/skills-figquery-figma-spec"
+  },
+  {
     "id": "skills-figquery-figma-use",
     "name": "skills-figquery-figma-use",
     "category": "graphics-branding-design",
     "repository": "figma-mcp-server-guide",
     "description": "**MANDATORY prerequisite** \u2014 you MUST invoke this skill BEFORE every `use_figma` tool call. NEVER call `use_figma` directly without loading this skill first. Skipping it causes common, hard-to-debug failures. Trigger whenever the user wants to perform a write action or a unique read action that requires JavaScript execution in the Figma file context \u2014 e.g. create/edit/delete nodes, set up variables or tokens, build components and variants, modify auto-layout or fills, bind variables to properties, or inspect file structure programmatically.",
     "path": "category/graphics-branding-design/skills-figquery-figma-use"
+  },
+  {
+    "id": "skills-figquery-figma-use-slides",
+    "name": "skills-figquery-figma-use-slides",
+    "category": "graphics-branding-design",
+    "repository": "figma-mcp-server-guide",
+    "description": "This skill helps agents use Figma's use_figma MCP tool in the Slides context. Can be used alongside figma-use which has foundational context for using the use_figma tool.",
+    "path": "category/graphics-branding-design/skills-figquery-figma-use-slides"
   },
   {
     "id": "skills-json-canvas",
@@ -976,6 +1016,22 @@
     "path": "category/graphics-branding-design/skills-lean-ux-canvas"
   },
   {
+    "id": "skills-melonjs",
+    "name": "skills-melonjs",
+    "category": "graphics-branding-design",
+    "repository": "melonjs-melonjs",
+    "description": "Use this skill FIRST for any melonJS task; it routes to the right specialised skill and lists the companion packages. melonJS is an open-source 2D, 2.5D and 3D HTML5 game engine running on WebGPU, WebGL 2 or Canvas. Covers Application setup, the scene graph, renderables, sprites, tilemaps, physics, audio, particles, shaders, and the 3D tier \u2014 perspective cameras, meshes and glTF scenes. Triggers on: melonjs, melonJS, me.game, Application, app.init, app.world, Renderable, Sprite, Stage, state.change, Camera2d, Camera3d, Mesh, tilemap, Tiled, TMX, ParticleEmitter, ShaderEffect, how do I make a game, HTML5 game engine.",
+    "path": "category/graphics-branding-design/skills-melonjs"
+  },
+  {
+    "id": "skills-melonjs-effects-and-shaders",
+    "name": "skills-melonjs-effects-and-shaders",
+    "category": "graphics-branding-design",
+    "repository": "melonjs-melonjs",
+    "description": "Use this skill for post-processing effects, custom shaders, blend modes and colour grading in melonJS. Covers the built-in ShaderEffect presets, addPostEffect on renderables and cameras, writing a custom dual-language GLSL/WGSL effect, the screen_texture builtins, and why effects silently do nothing on the Canvas fallback. Triggers on: Tween, easing, animate an effect, ShaderEffect, addPostEffect, removePostEffect, getPostEffect, postEffectNeedsCapture, VignetteEffect, GlowEffect, BlurEffect, PixelateEffect, ScanlineEffect, OutlineEffect, BloomEffect, ToneMappingEffect, SwayEffect, SquishEffect, hdr, tone mapping, shader, GLSL, WGSL, uniform, setUniform, setTexture, setTime, getShader, prewarm, blendMode, colorMatrix, screen_texture, screen_uv, noise_uv, toFrameTexture, pixelate transition, post effect, filter.",
+    "path": "category/graphics-branding-design/skills-melonjs-effects-and-shaders"
+  },
+  {
     "id": "skills-om-figma-design-with-ds",
     "name": "skills-om-figma-design-with-ds",
     "category": "graphics-branding-design",
@@ -990,6 +1046,14 @@
     "repository": "feimacode-open-design-agent-kit",
     "description": "Show which services Open Design can use directly (Canva, Figma, Notion, Google Drive, Slack, social posting), whether each is connected, and how to set one up \u2014 use whenever the user asks which integrations, connectors or services Open Design can use, what's connected, or how to connect Canva, Figma, Notion, Google Drive, Slack or a social posting service",
     "path": "category/graphics-branding-design/skills-open-design-integrations"
+  },
+  {
+    "id": "skills-platform-custom-application-generate",
+    "name": "skills-platform-custom-application-generate",
+    "category": "graphics-branding-design",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Use this skill when users need to create or configure tab-based Salesforce Custom Applications with navigation, branding, and action overrides. Trigger when users mention custom apps, application metadata, app navigation, or organizing tabs into applications. Use when users want to create app containers for tabs and pages. Do NOT use when the goal is hosting a React UI bundle in the App Launcher \u2014 use experience-ui-bundle-custom-app-generate for that case.",
+    "path": "category/graphics-branding-design/skills-platform-custom-application-generate"
   },
   {
     "id": "skills-popup-cro",
