@@ -1,7 +1,7 @@
 # 💻 Terminal, Shell & System Automation
 
 > **Category**: `terminal-system-tools`  
-> **Total Curated Skills**: 553 skills  
+> **Total Curated Skills**: 567 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -98,6 +98,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`claude-hud-statusline`](../../library/reason-machines-trending-skills/skills/claude-hud-statusline) | ⚪ Reserve | `reason-machines-trending-skills` | A Claude Code plugin that displays a real-time HUD showing context usage, active tools, running... |
 | [`claude-settings-audit`](../../library/getsentry-skills/skills/claude-settings-audit) | ⚪ Reserve | `getsentry-skills` | Analyze a repository to generate recommended Claude Code settings.json permissions. Use when se... |
 | [`claw-code-harness`](../../library/reason-machines-trending-skills/skills/claw-code-harness) | ⚪ Reserve | `reason-machines-trending-skills` | Better Harness Tools for Claude Code — a Python (and in-progress Rust) rewrite of the Claude Co... |
+| [`clerk-migrate`](../../library/clerk-skills/skills/clerk-migrate) | ⚪ Reserve | `clerk-skills` | Migrate users into Clerk from another auth provider, or between Clerk instances, using the `cle... |
 | [`cli-anything-agent-native`](../../library/reason-machines-trending-skills/skills/cli-anything-agent-native) | ⚪ Reserve | `reason-machines-trending-skills` | name: cli-anything-agent-native |
 | [`cli-bridge`](../../library/starchild-ai-agent-official-skills/skills/cli-bridge) | ⚪ Reserve | `starchild-ai-agent-official-skills` | Manage short-code bundles that authorize the local starchild CLI to talk to this agent, includi... |
 | [`cli-creator`](../../library/openai-skills/skills/cli-creator) | ⚪ Reserve | `openai-skills` | Build a composable CLI for Codex from API docs, an OpenAPI spec, existing curl examples, an SDK... |
@@ -112,6 +113,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cloud-google-cloud-global-frontend-configuration`](../../library/google-skills/skills/cloud-google-cloud-global-frontend-configuration) | ⚪ Reserve | `google-skills` | Guides agents through a 6-step discovery process to design and deploy Google Cloud global exter... |
 | [`cloud-google-cloud-scc-query`](../../library/google-skills/skills/cloud-google-cloud-scc-query) | ⚪ Reserve | `google-skills` | Queries and retrieves active security findings, external exposures, toxic combinations, vulnera... |
 | [`cloud-google-cloud-scc-remediation`](../../library/google-skills/skills/cloud-google-cloud-scc-remediation) | ⚪ Reserve | `google-skills` | Remediates Google Cloud Security Command Center findings, including IAM permission fixes, cloud... |
+| [`cloudrobo-huawei-cloud-cloudrobo-data-pipeline`](../../library/huaweicloud-huaweicloud-skills/skills/cloudrobo-huawei-cloud-cloudrobo-data-pipeline) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Guide users to create or revise custom CloudRobo pipelines for sim/teleop VLA model training da... |
 | [`cloudrobo-huawei-cloud-cloudrobo-dataset`](../../library/huaweicloud-huaweicloud-skills/skills/cloudrobo-huawei-cloud-cloudrobo-dataset) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Manage CloudRobo data processing (proc-tasks) and data evaluation (eval-tasks) — query algorith... |
 | [`cloudrobo-huawei-cloud-cloudrobo-r2c`](../../library/huaweicloud-huaweicloud-skills/skills/cloudrobo-huawei-cloud-cloudrobo-r2c) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Run the R2C (Robot-to-Cloud) data-plane client — start the robot-side edge client (Zenoh pub/su... |
 | [`clui-cc-claude-overlay`](../../library/reason-machines-trending-skills/skills/clui-cc-claude-overlay) | ⚪ Reserve | `reason-machines-trending-skills` | Command Line User Interface for Claude Code — a floating macOS desktop overlay with multi-tab s... |
@@ -133,6 +135,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`company-valuation`](../../library/himself65-finance-skills/skills/company-valuation) | ⚪ Reserve | `himself65-finance-skills` | Estimate a public company's intrinsic value with DCF, relative (peer multiple), and sum-of-the-... |
 | [`competition-linux-credential-pivot`](../../library/zhaoxuya520-reverse-skill/skills/competition-linux-credential-pivot) | ⚪ Reserve | `zhaoxuya520-reverse-skill` | Internal downstream skill for ctf-sandbox-orchestrator. CTF-sandbox workflow for Linux credenti... |
 | [`console-cli`](../../library/codewithmukesh-dotnet-claude-kit/skills/console-cli) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Console apps and CLI tools on .NET 10: System.CommandLine 2.x (RootCommand, Option<T>, SetActio... |
+| [`content-ai-automation-workflows`](../../library/101-skills-superpowers/skills/content-ai-automation-workflows) | ⚪ Reserve | `101-skills-superpowers` | Build automated AI workflows combining multiple models and services. Patterns: batch processing... |
 | [`control-cli`](../../library/cursor-plugins/skills/control-cli) | ⚪ Reserve | `cursor-plugins` | Build or adapt a local harness to drive, inspect, and profile an interactive CLI or TUI without... |
 | [`convex-deploy-guard`](../../library/convex-agent-skills/skills/convex-deploy-guard) | ⚪ Reserve | `convex-agent-skills` | Classify + announce the target Convex deployment before any deployment-affecting command; fresh... |
 | [`copyfail-go-lpe`](../../library/reason-machines-trending-skills/skills/copyfail-go-lpe) | ⚪ Reserve | `reason-machines-trending-skills` | Go implementation of CVE-2026-31431 (CopyFail), a Linux local privilege escalation exploit targ... |
@@ -167,6 +170,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`data-google-agents-cli-workflow`](../../library/google-agents-cli/skills/data-google-agents-cli-workflow) | ⚪ Reserve | `google-agents-cli` | This skill should be used when the user wants to "develop an agent", "build an agent using ADK"... |
 | [`database-security`](../../library/sickn33-agentic-awesome-skills/skills/database-security) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Authorized database security assessment across PostgreSQL, MySQL, MSSQL, MongoDB, and Redis: ex... |
 | [`datadog-logs`](../../library/composio-community-awesome-codex-skills/skills/datadog-logs) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Query and filter Datadog logs from the shell using the Composio CLI. Run scoped log searches, p... |
+| [`dbs-computer-use`](../../library/dontbesilent2025-dbskill/skills/dbs-computer-use) | ⚪ Reserve | `dontbesilent2025-dbskill` | 一个入口操控电脑，适用于 macOS、Windows、Linux 和各种 Agent：先判断要不要点界面，再按当前工具清单选路线（Cua Driver 优先，agent-desktop 兜底... |
 | [`dbus`](../../library/martinholovsky-claude-skills-generator/skills/dbus) | ⚪ Reserve | `martinholovsky-claude-skills-generator` | Expert in D-Bus IPC (Inter-Process Communication) on Linux systems. Specializes in secure servi... |
 | [`dcf-model`](../../library/anthropics-financial-services/skills/dcf-model) | ⚪ Reserve | `anthropics-financial-services` | Real DCF (Discounted Cash Flow) model creation for equity valuation. Retrieves financial data f... |
 | [`debian-linux-triage`](../../library/github-awesome-copilot/skills/debian-linux-triage) | ⚪ Reserve | `github-awesome-copilot` | Triage and resolve Debian Linux issues with apt, systemd, and AppArmor-aware guidance. |
@@ -205,6 +209,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`eas-simulator`](../../library/expo-skills/skills/eas-simulator) | ⚪ Reserve | `expo-skills` | Run and control a user's app on a remote iOS/Android simulator hosted on EAS cloud. Read before... |
 | [`ecc-guide`](../../library/affaan-m-ecc/skills/ecc-guide) | ⚪ Reserve | `affaan-m-ecc` | Answer questions about ECC by reading the live repo surface — agents, skills, commands, hooks, ... |
 | [`ecc-recipes`](../../library/affaan-m-ecc/skills/ecc-recipes) | ⚪ Reserve | `affaan-m-ecc` | Map a described workflow to the right ECC command group with run-order and stop condition, or b... |
+| [`egm-lite`](../../library/google-elephant-goldfish-model/skills/egm-lite) | ⚪ Reserve | `google-elephant-goldfish-model` | Executes a lightweight 5-step EGM (Elephant-Goldfish-Model) protocol for small, rapid iteration... |
 | [`endor-setup`](../../library/cline-skills/skills/endor-setup) | ⚪ Reserve | `cline-skills` | Use when user asks to setup endorctl, install endorctl, run endorctl scan, scan for vulnerabili... |
 | [`example-command`](../../library/anthropics-claude-plugins-official/skills/example-command) | ⚪ Reserve | `anthropics-claude-plugins-official` | An example user-invoked skill that demonstrates frontmatter options and the skills/<name>/SKILL... |
 | [`examples-html-ppt-hermes-cyber-terminal`](../../library/feimacode-open-design-agent-kit/skills/examples-html-ppt-hermes-cyber-terminal) | ⚪ Reserve | `feimacode-open-design-agent-kit` | OpenDesign + BYOK: choosing and wiring your own model, hands-on — cost, quality, and the routin... |
@@ -481,6 +486,13 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-command-development`](../../library/anthropics-claude-plugins-official/skills/skills-command-development) | ⚪ Reserve | `anthropics-claude-plugins-official` | This skill should be used when the user asks to "create a slash command", "add a command", "wri... |
 | [`skills-control-cli`](../../library/cursor-plugins/skills/skills-control-cli) | ⚪ Reserve | `cursor-plugins` | Build or adapt a local harness to drive, inspect, and profile an interactive CLI or TUI without... |
 | [`skills-dart-build-cli-app`](../../library/dart-lang-skills/skills/skills-dart-build-cli-app) | ⚪ Reserve | `dart-lang-skills` | Architectural patterns, entrypoint structure, exit codes, stream routing, and subprocess spawni... |
+| [`skills-doca-argp`](../../library/nvidia-skills/skills/skills-doca-argp) | ⚪ Reserve | `nvidia-skills` | Use this skill for hands-on DOCA Arg Parser CLI work on a shipped sample or new DOCA-using app ... |
+| [`skills-doca-bench`](../../library/nvidia-skills/skills/skills-doca-bench) | ⚪ Reserve | `nvidia-skills` | Run `doca_bench` (DOCA 2.7.0 or newer) to measure throughput, bulk latency, precision latency, ... |
+| [`skills-doca-caps`](../../library/nvidia-skills/skills/skills-doca-caps) | ⚪ Reserve | `nvidia-skills` | Use this skill when the user wants to invoke the read-only doca_caps CLI to ask what DOCA sees ... |
+| [`skills-doca-dms`](../../library/nvidia-skills/skills/skills-doca-dms) | ⚪ Reserve | `nvidia-skills` | Operate NVIDIA DOCA Management Service on a BlueField, Arm/x86 host, or Kubernetes pod: from DO... |
+| [`skills-doca-mgmt`](../../library/nvidia-skills/skills/skills-doca-mgmt) | ⚪ Reserve | `nvidia-skills` | Use this skill when the user is doing hands-on DOCA Management programming against BlueField / ... |
+| [`skills-doca-pcc-counters`](../../library/nvidia-skills/skills/skills-doca-pcc-counters) | ⚪ Reserve | `nvidia-skills` | Use this skill when the user is invoking the DOCA PCC Counters tool — the `pcc_counters.sh` bas... |
+| [`skills-doca-pipeline-language-developer-tools`](../../library/nvidia-skills/skills/skills-doca-pipeline-language-developer-tools) | ⚪ Reserve | `nvidia-skills` | Use this skill when the operator is driving the DOCA Pipeline Language (DPL) Developer Tools to... |
 | [`skills-eas-simulator`](../../library/expo-skills/skills/skills-eas-simulator) | ⚪ Reserve | `expo-skills` | Run and control a user's app on a remote iOS/Android simulator with Expo Simulators (also calle... |
 | [`skills-example-command`](../../library/anthropics-claude-plugins-official/skills/skills-example-command) | ⚪ Reserve | `anthropics-claude-plugins-official` | An example user-invoked skill that demonstrates frontmatter options and the skills/<name>/SKILL... |
 | [`skills-gemini-api-cli`](../../library/google-gemini-gemini-skills/skills/skills-gemini-api-cli) | ⚪ Reserve | `google-gemini-gemini-skills` | Call the Gemini API from the shell with gemini-api. Use for media generation (images, TTS, musi... |
@@ -501,6 +513,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-mirrord-up`](../../library/metalbear-co-mirrord/skills/skills-mirrord-up) | ⚪ Reserve | `metalbear-co-mirrord` | Helps users run multiple concurrent mirrord sessions from a single mirrord-up.yaml (compose-sty... |
 | [`skills-month-end-prep`](../../library/anthropics-knowledge-work/skills/skills-month-end-prep) | ⚪ Reserve | `anthropics-knowledge-work` | Reconciles the accounting ledger (MYOB, NetSuite, QuickBooks, Xero, or Zoho Books) against PayP... |
 | [`skills-ms365-tenant-manager`](../../library/alirezarezvani-claude-skills/skills/skills-ms365-tenant-manager) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use for Microsoft 365 tenant administration (Entra ID users, Exchange Online, Teams, licenses, ... |
+| [`skills-msw-packages`](../../library/msw-git-msw-ai-coding-plugins-official/skills/skills-msw-packages) | ⚪ Reserve | `msw-git-msw-ai-coding-plugins-official` | MSWPackages catalog — official 1st-party prebuilt packages for common MSW features. Use this sk... |
 | [`skills-obsidian-cli`](../../library/kepano-obsidian-skills/skills/skills-obsidian-cli) | ⚪ Reserve | `kepano-obsidian-skills` | Interact with Obsidian vaults using the Obsidian CLI to read, create, search, and manage notes,... |
 | [`skills-openrig-user`](../../library/mvschwarz-openrig/skills/skills-openrig-user) | ⚪ Reserve | `mvschwarz-openrig` | Use when a specific `rig` command, subcommand, or flag is already known and you need its exact ... |
 | [`skills-parallel-cli-setup`](../../library/parallel-web-parallel-agent-skills/skills/skills-parallel-cli-setup) | ⚪ Reserve | `parallel-web-parallel-agent-skills` | Set up and maintain the Parallel CLI (install, auth, balance, skills install) |
@@ -557,6 +570,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`verify-agent-action`](../../library/github-awesome-copilot/skills/verify-agent-action) | ⚪ Reserve | `github-awesome-copilot` | Review a proposed AI-agent action or human-approval packet before execution. Use when an agent ... |
 | [`verifying-before-done`](../../library/riekelt-principal-engineer/skills/verifying-before-done) | ⚪ Reserve | `riekelt-principal-engineer` | Use when about to say \"done\", \"fixed\", \"passing\", or \"shipped\", or when reporting the o... |
 | [`video-sdk-linux`](../../library/anthropics-knowledge-work/skills/video-sdk-linux) | ⚪ Reserve | `anthropics-knowledge-work` | Zoom Video SDK for Linux - C++ headless bots, raw audio/video capture/injection, Qt/GTK integra... |
+| [`vss-ask-video`](../../library/nvidia-skills/skills/vss-ask-video) | ⚪ Reserve | `nvidia-skills` | Use this skill when answering a question about previously analyzed or freshly scoped VSS video,... |
 | [`wallet-integration`](../../library/starchild-ai-agent-official-skills/skills/wallet-integration) | ⚪ Reserve | `starchild-ai-agent-official-skills` | How to add wallet connection and authentication to an existing Monad frontend using Para — embe... |
 | [`wecom-cli-enterprise-wechat`](../../library/reason-machines-trending-skills/skills/wecom-cli-enterprise-wechat) | ⚪ Reserve | `reason-machines-trending-skills` | name: wecom-cli-enterprise-wechat |
 | [`who-really-owns-it`](../../library/useosint-skills/skills/who-really-owns-it) | ⚪ Reserve | `useosint-skills` | Research companies, directors, shareholders and ultimate beneficial ownership in official corpo... |

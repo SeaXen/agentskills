@@ -1,7 +1,7 @@
 # 🚀 Productivity, Slack, Notion & Linear
 
 > **Category**: `productivity-workspace-tools`  
-> **Total Curated Skills**: 351 skills  
+> **Total Curated Skills**: 354 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -43,6 +43,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`briefing-note`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/briefing-note) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Structured policy briefing note (1-2 pages). Issue, background, analysis, options, recommendati... |
 | [`build-agent`](../../library/anthropics-knowledge-work/skills/build-agent) | ⚪ Reserve | `anthropics-knowledge-work` | Turns a task the owner keeps doing by hand into a named, reusable skill they can trigger by nam... |
 | [`build-my-engineering-wiki`](../../library/makenotion-notion-cookbook/skills/build-my-engineering-wiki) | ⚪ Reserve | `makenotion-notion-cookbook` | Build a personalized Notion engineering home from technical docs, project context, and chat or ... |
+| [`business-marketing-social-content`](../../library/davila7-claude-code-templates/skills/business-marketing-social-content) | ⚪ Reserve | `davila7-claude-code-templates` | When the user wants help creating, scheduling, or optimizing social media content for LinkedIn,... |
 | [`calendar-automation`](../../library/claude-office-skills-skills/skills/calendar-automation) | ⚪ Reserve | `claude-office-skills-skills` | Google Calendar and Outlook automation - scheduling optimization, meeting workflows, time block... |
 | [`call-prep`](../../library/anthropics-knowledge-work/skills/call-prep) | ⚪ Reserve | `anthropics-knowledge-work` | Pre-call brief for an upcoming meeting - attendees, account history, prior call context from tr... |
 | [`catalyst-calendar`](../../library/anthropics-financial-services/skills/catalyst-calendar) | ⚪ Reserve | `anthropics-financial-services` | Build and maintain a calendar of upcoming catalysts across a coverage universe — earnings dates... |
@@ -319,6 +320,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-sync`](../../library/makenotion-notion-cookbook/skills/skills-sync) | ⚪ Reserve | `makenotion-notion-cookbook` | Build, debug, or review Notion App database syncs with stable keys and resumable pagination. |
 | [`skills-task-management`](../../library/anthropics-knowledge-work/skills/skills-task-management) | ⚪ Reserve | `anthropics-knowledge-work` | Simple task management using a shared TASKS.md file. Reference this when the user asks about th... |
 | [`skills-triage-issue-reports`](../../library/backnotprop-pstack/skills/skills-triage-issue-reports) | ⚪ Reserve | `backnotprop-pstack` | Triage Slack issue reports with one thread-only verdict, evidence review, cause-aware routing, ... |
+| [`skills-wecomcli-calendar`](../../library/wecomteam-wecom-cli/skills/skills-wecomcli-calendar) | ⚪ Reserve | `wecomteam-wecom-cli` | 企业微信日程管理。当用户需要预约日程、预订会议室、查看/更新/取消日程或查忙闲时触发。本技能负责『日程』——即不含在线会议链接的安排（也涵盖纯线下面对面碰头）；若用户要的是『在线会议』（含会... |
+| [`skills-wecomcli-meeting`](../../library/wecomteam-wecom-cli/skills/skills-wecomcli-meeting) | ⚪ Reserve | `wecomteam-wecom-cli` | 企业微信会议管理。本技能负责『在线会议』——即含在线会议链接（含会议号/入会链接、可远程或视频参会）的会议的创建、查询、搜索、获取详情（含会议信息、纪要、待办）、查询会议转写原文（逐字发言记... |
 | [`skills-weekly-prep-brief`](../../library/anthropics-knowledge-work/skills/skills-weekly-prep-brief) | ⚪ Reserve | `anthropics-knowledge-work` | Generate a comprehensive weekly briefing for all external calls in the next 7 days. Triggers on... |
 | [`skills-wiki-narrate`](../../library/ar9av-obsidian-wiki/skills/skills-wiki-narrate) | ⚪ Reserve | `ar9av-obsidian-wiki` | Turn a wiki topic into a cited Markdown briefing, plain-language explanation, or progressive le... |
 | [`skills-workflow`](../../library/makenotion-notion-cookbook/skills/skills-workflow) | ⚪ Reserve | `makenotion-notion-cookbook` | Build or review Notion App workflows for typed triggers, durable replay-safe steps, and idempot... |

@@ -1,7 +1,7 @@
 # 📐 Programming Languages & Type Systems
 
 > **Category**: `programming-languages-core`  
-> **Total Curated Skills**: 463 skills  
+> **Total Curated Skills**: 471 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -24,6 +24,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`address-sanitizer`](../../library/trailofbits-skills/skills/address-sanitizer) | ⚪ Reserve | `trailofbits-skills` | Builds and runs code under AddressSanitizer to catch buffer overflows, use-after-free, and othe... |
 | [`agent-browser-automation`](../../library/reason-machines-trending-skills/skills/agent-browser-automation) | ⚪ Reserve | `reason-machines-trending-skills` | Headless browser automation CLI for AI agents using native Rust binary with Chrome DevTools Pro... |
 | [`aglais-xqvm-quantum-vm`](../../library/reason-machines-trending-skills/skills/aglais-xqvm-quantum-vm) | ⚪ Reserve | `reason-machines-trending-skills` | Expertise in Aglais XQVM, a hardware-agnostic Rust quantum virtual machine for QUBO/Ising binar... |
+| [`ai-research-inference-serving-llama-cpp`](../../library/davila7-claude-code-templates/skills/ai-research-inference-serving-llama-cpp) | ⚪ Reserve | `davila7-claude-code-templates` | Runs LLM inference on CPU, Apple Silicon, and consumer GPUs without NVIDIA hardware. Use for ed... |
 | [`alkahest-developer`](../../library/internet-court-internet-court-skill/skills/alkahest-developer) | ⚪ Reserve | `internet-court-internet-court-skill` | Help developers write code that interacts with Alkahest escrow contracts using the TypeScript, ... |
 | [`analyzing-android-malware-with-apktool`](../../library/mukul975-anthropic-cybersecurity-skills/skills/analyzing-android-malware-with-apktool) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Perform static analysis of Android APK malware using apktool for resource decompilation, jadx f... |
 | [`analyzing-golang-malware-with-ghidra`](../../library/mukul975-anthropic-cybersecurity-skills/skills/analyzing-golang-malware-with-ghidra) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Reverse engineer Go-compiled malware in Ghidra by parsing Go buildinfo |
@@ -46,6 +47,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`aws-cdk-development`](../../library/sickn33-agentic-awesome-skills/skills/aws-cdk-development) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | AWS Cloud Development Kit (CDK) expert for building cloud infrastructure with TypeScript/Python... |
 | [`aws-lambda-java-integration`](../../library/giuseppe-trisciuoglio-developer-kit/skills/aws-lambda-java-integration) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides AWS Lambda integration patterns for Java with cold start optimization. Use when deploy... |
 | [`aws-lambda-typescript-integration`](../../library/giuseppe-trisciuoglio-developer-kit/skills/aws-lambda-typescript-integration) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides AWS Lambda integration patterns for TypeScript with cold start optimization. Use when ... |
+| [`aws-marketplace-agentic-commerce`](../../library/aws-agent-toolkit-for-aws/skills/aws-marketplace-agentic-commerce) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Onboards an x402 seller endpoint to AWS Marketplace Agentic Commerce fiat payments with the Fia... |
 | [`aws-sdk-java-v2-bedrock`](../../library/giuseppe-trisciuoglio-developer-kit/skills/aws-sdk-java-v2-bedrock) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides Amazon Bedrock patterns using AWS SDK for Java 2.x. Invokes foundation models (Claude,... |
 | [`aws-sdk-java-v2-core`](../../library/giuseppe-trisciuoglio-developer-kit/skills/aws-sdk-java-v2-core) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides AWS SDK for Java 2.x client configuration, credential resolution, HTTP client tuning, ... |
 | [`aws-sdk-java-v2-dynamodb`](../../library/giuseppe-trisciuoglio-developer-kit/skills/aws-sdk-java-v2-dynamodb) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides Amazon DynamoDB patterns using AWS SDK for Java 2.x. Use when creating, querying, scan... |
@@ -102,6 +104,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`bevy-ecs`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/bevy-ecs) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Builds and debugs Bevy 0.20 games in Rust: components, Query and Commands systems, schedules, S... |
 | [`bevy-ecs-expert`](../../library/sickn33-agentic-awesome-skills/skills/bevy-ecs-expert) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Master Bevy's Entity Component System (ECS) in Rust, covering Systems, Queries, Resources, and ... |
 | [`bigtable-basics`](../../library/google-skills/skills/bigtable-basics) | ⚪ Reserve | `google-skills` | Assists in provisioning instances/tables, designing performant schemas, and querying data in Bi... |
+| [`blender-texturing`](../../library/el4cteo-blender-skills/skills/blender-texturing) | ⚪ Reserve | `el4cteo-blender-skills` | Texture authoring in Blender 5.3 - smart-material layers (edge wear, cavity grime, dust, rust, ... |
 | [`browser-use-to-stagehand`](../../library/browserbase-skills/skills/browser-use-to-stagehand) | ⚪ Reserve | `browserbase-skills` | Migrate browser-use (Python) browser-automation scripts to Stagehand v3 (TypeScript) on Browser... |
 | [`bug-bounty`](../../library/elementalsouls-claude-bughunter/skills/bug-bounty) | ⚪ Reserve | `elementalsouls-claude-bughunter` | Complete bug bounty workflow — recon (subdomain enumeration, asset discovery, fingerprinting, H... |
 | [`build-audit-logs`](../../library/evloghq-evlog/skills/build-audit-logs) | ⚪ Reserve | `evloghq-evlog` | Build or review audit trails in TypeScript/JavaScript apps using evlog (pipelines, typed action... |
@@ -245,6 +248,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`hyperliquid-grid-trading-bot`](../../library/reason-machines-trending-skills/skills/hyperliquid-grid-trading-bot) | ⚪ Reserve | `reason-machines-trending-skills` | Configure and run an automated grid trading bot on Hyperliquid DEX with TypeScript/Node.js, sup... |
 | [`hyperliquid-trading-bot`](../../library/reason-machines-trending-skills/skills/hyperliquid-trading-bot) | ⚪ Reserve | `reason-machines-trending-skills` | Configurable grid trading bot for Hyperliquid DEX with TypeScript/Node.js primary implementatio... |
 | [`identity-sign-in-with-google-web`](../../library/google-skills/skills/identity-sign-in-with-google-web) | ⚪ Reserve | `google-skills` | Implement, configure, and secure Sign In With Google (SiwG) using Google Identity Services (GIS... |
+| [`inference-optimisation`](../../library/sybil-solutions-inference-optimisation-skill/skills/inference-optimisation) | ⚪ Reserve | `sybil-solutions-inference-optimisation-skill` | Hill-climb the serving speed of a local LLM on any hardware (NVIDIA, AMD, Intel, Apple, unified... |
 | [`inference-serving-llama-cpp`](../../library/davila7-claude-code-templates/skills/inference-serving-llama-cpp) | ⚪ Reserve | `davila7-claude-code-templates` | Runs LLM inference on CPU, Apple Silicon, and consumer GPUs without NVIDIA hardware. Use for ed... |
 | [`java`](../../library/mindrally-skills/skills/java) | ⚪ Reserve | `mindrally-skills` | Expert in Java development with Spring Boot and enterprise patterns |
 | [`java-add-graalvm-native-image-support`](../../library/github-awesome-copilot/skills/java-add-graalvm-native-image-support) | ⚪ Reserve | `github-awesome-copilot` | GraalVM Native Image skill for Spring Boot, Micronaut and plain Java: detects the build tool an... |
@@ -325,6 +329,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`nodejs-keccak256`](../../library/affaan-m-ecc/skills/nodejs-keccak256) | ⚪ Reserve | `affaan-m-ecc` | Prevent Ethereum hashing bugs in JavaScript and TypeScript. Node's sha3-256 is NIST SHA3, not E... |
 | [`nuxtjs-vue-typescript`](../../library/mindrally-skills/skills/nuxtjs-vue-typescript) | ⚪ Reserve | `mindrally-skills` | Best practices for building Nuxt 3 and Vue 3 applications with TypeScript, the Composition API,... |
 | [`nx-monorepo`](../../library/giuseppe-trisciuoglio-developer-kit/skills/nx-monorepo) | ⚪ Reserve | `giuseppe-trisciuoglio-developer-kit` | Provides comprehensive Nx monorepo management guidance for TypeScript/JavaScript projects. Use ... |
+| [`odb-aws`](../../library/aws-agent-toolkit-for-aws/skills/odb-aws) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Oracle Database@AWS (ODB@AWS) toolkit for Exadata Database Service and Autonomous Database runn... |
 | [`offensive-deserialization`](../../library/snailsploit-claude-red/skills/offensive-deserialization) | ⚪ Reserve | `snailsploit-claude-red` | Insecure deserialization exploitation across Java, PHP, .NET, Python, Node.js, and Ruby. Covers... |
 | [`open-agent-sdk-typescript`](../../library/reason-machines-trending-skills/skills/open-agent-sdk-typescript) | ⚪ Reserve | `reason-machines-trending-skills` | name: open-agent-sdk-typescript |
 | [`open-multi-agent-orchestration`](../../library/reason-machines-trending-skills/skills/open-multi-agent-orchestration) | ⚪ Reserve | `reason-machines-trending-skills` | Expertise in using open-multi-agent, a TypeScript framework for building production-grade multi... |
@@ -362,6 +367,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`review-logging-patterns`](../../library/evloghq-evlog/skills/review-logging-patterns) | ⚪ Reserve | `evloghq-evlog` | Review code for logging patterns and suggest evlog adoption. Optionally use the evlog CLI, ship... |
 | [`rhwp-advanced`](../../library/nomadamas-k-skill/skills/rhwp-advanced) | ⚪ Reserve | `nomadamas-k-skill` | Debug HWP layout, dump document IR, compare versions, extract thumbnails, and unlock read-only ... |
 | [`rust`](../../library/martinholovsky-claude-skills-generator/skills/rust) | ⚪ Reserve | `martinholovsky-claude-skills-generator` | Systems programming expertise for Tauri desktop application backend development with memory saf... |
+| [`rust-anything`](../../library/erkamyaman-rust-anything/skills/rust-anything) | ⚪ Reserve | `erkamyaman-rust-anything` | Port TypeScript/JavaScript, Python, C, Go, Ruby or Java to Rust with the rust-anything CLI or M... |
 | [`rust-async-patterns`](../../library/antigravity-awesome-skills/skills/rust-async-patterns) | ⚪ Reserve | `antigravity-awesome-skills` | Master Rust async programming with Tokio, async traits, error handling, and concurrent patterns... |
 | [`rust-best-practices`](../../library/majiayu000-spellbook/skills/rust-best-practices) | ⚪ Reserve | `majiayu000-spellbook` | Use when writing, modifying, or reviewing Rust code. ALWAYS invoke before Rust edits; covers Mi... |
 | [`rust-call-graph`](../../library/actionbook-rust-skills/skills/rust-call-graph) | ⚪ Reserve | `actionbook-rust-skills` | Visualize Rust function call graphs using LSP. Triggers on: /call-graph, call hierarchy, who ca... |
@@ -385,6 +391,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`sankhya-dashboard-html-jsp-custom-best-pratices`](../../library/sickn33-agentic-awesome-skills/skills/sankhya-dashboard-html-jsp-custom-best-pratices) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | This skill should be used when the user asks for patterns, best practices, creation, or fixing ... |
 | [`sap-cloud-integration`](../../library/github-awesome-copilot/skills/sap-cloud-integration) | ⚪ Reserve | `github-awesome-copilot` | SAP Cloud Integration (CPI, part of SAP Integration Suite) runtime-specific guidance for buildi... |
 | [`scala-pro`](../../library/antigravity-awesome-skills/skills/scala-pro) | ⚪ Reserve | `antigravity-awesome-skills` | Master enterprise-grade Scala development with functional |
+| [`sdk-javascript-sdk`](../../library/101-skills-superpowers/skills/sdk-javascript-sdk) | ⚪ Reserve | `101-skills-superpowers` | JavaScript/TypeScript SDK for inference.sh - run AI apps, build agents, integrate with all mode... |
 | [`sdk-package-publishing`](../../library/samber-developer-platform-skills/skills/sdk-package-publishing) | ⚪ Reserve | `samber-developer-platform-skills` | Plans secure SDK and CLI publishing to npm, PyPI, Maven Central (Java, Kotlin, Scala), NuGet (.... |
 | [`selenium-skill`](../../library/sickn33-agentic-awesome-skills/skills/selenium-skill) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Generates production-grade Selenium WebDriver automation scripts and tests in Java, Python, Jav... |
 | [`sentry-android-sdk`](../../library/getsentry-sentry-for-ai/skills/sentry-android-sdk) | ⚪ Reserve | `getsentry-sentry-for-ai` | Full Sentry SDK setup for Android. Use when asked to "add Sentry to Android", "install sentry-a... |
@@ -400,6 +407,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-csharp-expert`](../../library/dotnet-skills/skills/skills-csharp-expert) | ⚪ Reserve | `dotnet-skills` | Route C# and .NET requests to the exact installed specialist or smallest dotnet/skills marketpl... |
 | [`skills-csharp-testing`](../../library/affaan-m-ecc/skills/skills-csharp-testing) | ⚪ Reserve | `affaan-m-ecc` | xUnit、FluentAssertions、モッキング、統合テスト、テスト組織のベストプラクティスを使用したC#と.NETのテストパターン。 |
 | [`skills-database-migrations`](../../library/affaan-m-ecc/skills/skills-database-migrations) | ⚪ Reserve | `affaan-m-ecc` | Buenas prácticas de migración de base de datos para cambios de esquema, migraciones de datos, r... |
+| [`skills-doca-programming-guide`](../../library/nvidia-skills/skills/skills-doca-programming-guide) | ⚪ Reserve | `nvidia-skills` | Use this skill when the user is writing their first DOCA app or asking a library-agnostic progr... |
 | [`skills-error-handling`](../../library/affaan-m-ecc/skills/skills-error-handling) | ⚪ Reserve | `affaan-m-ecc` | TypeScript、Python、Goにわたる堅牢なエラー処理のパターン。型付きエラー、エラー境界、リトライ、サーキットブレーカー、ユーザー向けエラーメッセージをカバーします。 |
 | [`skills-expo-migrate-module`](../../library/expo-skills/skills/skills-expo-migrate-module) | ⚪ Reserve | `expo-skills` | Migrate an existing Apple/Swift Expo native module from the Expo Modules API 1.0 definition DSL... |
 | [`skills-expo-module`](../../library/expo-skills/skills/skills-expo-module) | ⚪ Reserve | `expo-skills` | Guide for creating and writing Expo native modules and views using the Expo Modules API (Swift,... |
@@ -409,7 +417,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-golang-testing`](../../library/affaan-m-ecc/skills/skills-golang-testing) | ⚪ Reserve | `affaan-m-ecc` | Patrones de pruebas Go incluyendo pruebas basadas en tablas, subpruebas, benchmarks, fuzzing y ... |
 | [`skills-java-coding-standards`](../../library/affaan-m-ecc/skills/skills-java-coding-standards) | ⚪ Reserve | `affaan-m-ecc` | Spring Bootサービス向けのJavaコーディング標準：命名、不変性、Optional使用、ストリーム、例外、ジェネリクス、プロジェクトレイアウト。 |
 | [`skills-mcp-server-builder`](../../library/alirezarezvani-claude-skills/skills/skills-mcp-server-builder) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when exposing an API as an MCP server or scaffolding a new MCP server in Python or TypeScri... |
-| [`skills-principle-type-system-discipline`](../../library/cursor-plugins/skills/skills-principle-type-system-discipline) | ⚪ Reserve | `cursor-plugins` | Apply when designing types, reviewing a function signature, or writing code in any statically-t... |
+| [`skills-principle-type-system-discipline`](../../library/backnotprop-pstack/skills/skills-principle-type-system-discipline) | ⚪ Reserve | `backnotprop-pstack` | Apply when designing types, reviewing a function signature, or writing code in any statically-t... |
 | [`skills-python-patterns`](../../library/affaan-m-ecc/skills/skills-python-patterns) | ⚪ Reserve | `affaan-m-ecc` | Patrones idiomáticos de Python, estándares PEP 8, type hints y buenas prácticas para construir ... |
 | [`skills-rust-patterns`](../../library/affaan-m-ecc/skills/skills-rust-patterns) | ⚪ Reserve | `affaan-m-ecc` | Patrones idiomáticos de Rust, ownership, manejo de errores, traits, concurrencia y buenas práct... |
 | [`skills-rust-testing`](../../library/affaan-m-ecc/skills/skills-rust-testing) | ⚪ Reserve | `affaan-m-ecc` | Patrones de pruebas en Rust incluyendo pruebas unitarias, de integración, async, basadas en pro... |

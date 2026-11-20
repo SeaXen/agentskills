@@ -86,8 +86,14 @@ agent-skills/
     3d-sky-background/
     3d-falling-leaves/
     3d-four-seasons/
+    relight-painted-surfaces/
     3d-high-resolution-textures/
     3d-high-poly-models/
+    3d-harbour-water/
+    3d-kasumidera-ultra-realism/
+    3d-survey-scan/
+    3d-construction-sequence/
+    3d-modular-buildings/
     3d-retina-resolution/
   codex/
     audit-verify-explain-grade-5/
@@ -128,6 +134,8 @@ agent-skills/
     README.md
     build-isometric-arpg/
       SKILL.md
+    build-ultra-realistic-game-interiors/
+      SKILL.md
     author-game-levels/
       SKILL.md
     design-action-combat/
@@ -166,6 +174,16 @@ agent-skills/
       SKILL.md
     unsplash-asset-images/
       SKILL.md
+  video-editing/
+    making-of-film/
+      SKILL.md
+      references/
+      scripts/
+      assets/
+    genjutsu-scene/
+      SKILL.md
+      references/
+      scripts/
   ui/
     design-first-ui-prompting/
       SKILL.md
@@ -248,11 +266,11 @@ Conventions:
 
 ## Current library
 
-This snapshot contains **183 skills** across nine categories.
+This snapshot contains **197 skills** across ten categories.
 
 Use `find agent-skills -name SKILL.md | sort` for the source of truth.
 
-### 3D rendering (16)
+### 3D rendering (22)
 
 Atmospheric, detailed 3D scenes in Three.js. See the [3D guide](agent-skills/3d/README.md).
 - `3d-ultra-realistic-water` - open oceans with Gerstner waves, sun glitter, lace foam, a wake and a seamless horizon.
@@ -262,8 +280,14 @@ Atmospheric, detailed 3D scenes in Three.js. See the [3D guide](agent-skills/3d/
 - `3d-sky-background` - procedural or panoramic skies with a coherent horizon and environment light.
 - `3d-falling-leaves` - instanced leaves that tumble and catch the wind.
 - `3d-four-seasons` - coordinated spring, summer, fall and winter materials, foliage, light and particles.
+- [relight-painted-surfaces](agent-skills/3d/relight-painted-surfaces/SKILL.md) - moving studio light on painted metal, skin and cloth using depth, normal and roughness maps.
 - `3d-high-resolution-textures` - sharp PBR materials with the right UVs, filtering and progressive loading.
 - `3d-high-poly-models` - detailed silhouettes with practical levels of detail.
+- [3d-survey-scan](agent-skills/3d/3d-survey-scan/SKILL.md) - Sweep the occupied scene with a cyan pulse that traces its actual mesh edges.
+- [3d-construction-sequence](agent-skills/3d/3d-construction-sequence/SKILL.md) - Assemble a structure from its foundations through its roof with synchronized wires and rigid parts.
+- [3d-modular-buildings](agent-skills/3d/3d-modular-buildings/SKILL.md) - Model structural bays, entrances and rooflines that read from the approach and at eye height.
+- [3d-harbour-water](agent-skills/3d/3d-harbour-water/SKILL.md) - Reflect quay lights on rain-dappled water, float a launch on the swell and leave a wake through turns.
+- [3d-kasumidera-ultra-realism](agent-skills/3d/3d-kasumidera-ultra-realism/SKILL.md) - Build walkable painterly Three.js environments with warm lacquer, modeled joinery, layered clouds and materials reviewed at 200%.
 - `3d-wood-material` - procedural wood with grain, pores, finishes, tool marks and end grain.
 - `3d-cloth-material` - woven cloth with thread structure, sheen, folds, hems and frayed edges.
 - `3d-paper-material` - washi, rag and kraft paper with fibres, deckled edges, translucency and creases.
@@ -306,6 +330,11 @@ Image sourcing, video and likeness skills:
 - `html-explainer-video` - a one-minute explainer video from a script, a voice and HTML scenes.
 - `html-reel` - turn a tweet, video or landing page into a 9:16 reel with every cut on a word.
 - `url-to-motion-design` - turn a launch film or post at a URL into Fil HTML motion scenes.
+
+### Video editing (2)
+
+- `genjutsu-scene` - a scene of yourself inside a game, three.js or Blender world, in its costume and light, saying your line with your own face and voice: your HeyGen Avatar 6 twin drives Genjutsu motion transfer, Sync Lipsync 3 on your voice, a 4K60 insert, blind judges.
+- `making-of-film` - a 4–5 minute "how I made X" YouTube film from a finished project: script in your voice, the project's own look and captures, every cut on a word, a digital twin at key places, 4K60, blind judges.
 
 ### UI (3)
 
@@ -351,12 +380,12 @@ Combat animation and combat skills that read and look like Diablo IV, measured a
 - `lightning-energy-skill-vfx` - a skill's effects as one language in Three.js: lightning that reaches out as a stepped leader, flares, holds and fades, one discharge at a time, with forks of forks and hair-fine branchlets; a storm-cloud orb with plasma-globe arcs that churns in place and carries its own torn black shadow; ground strikes that crawl along the stone's cracks; refraction-only air fronts, sparks, fractured debris and ink-negative impact frames, with a reusable module, a five-beat demo on a scanned CC0 floor and a blind-judged scorecard.
 - `water-crystal-skill-vfx` - a water and crystal skill's effects as one language in Three.js: clear water that bends and mirrors instead of glowing teal; a sphere-traced water orb whose drop modes, capillary rings and drifting warp deform it in place, with a crisp inverted horizon and a silver rim; beaded streams wound up out of tide pools, a lash that whips into a torn, lopsided splash crown, and analytic ripple rings and rain; quartz traced against its own planes (total internal reflection, a clamped dispersion fringe, fracture discs, a white-hot root glow and a climbing resonance band) that grows out of the water and shatters into splinters resting on the rock with real contact; flat mirror pools with a moon-glitter column on a tidal rock flat laid out from target images, with a reusable module, a five-beat demo on a scanned CC0 floor and a target-image scorecard.
 
-### Game development (21)
+### Game development (22)
 
 Playable Three.js and browser-game workflows. See the [game-development guide](agent-skills/game-development/README.md) for the skill-selection table and system boundaries.
 
 Foundation and world:
-- `build-isometric-arpg`, `author-game-levels`, `build-game-map-editor`, `build-game-camera-controls`, `build-mobile-threejs-games`
+- [`build-ultra-realistic-game-interiors`](agent-skills/game-development/build-ultra-realistic-game-interiors/SKILL.md), `build-isometric-arpg`, `author-game-levels`, `build-game-map-editor`, `build-game-camera-controls`, `build-mobile-threejs-games`
 
 Combat, enemies, and encounters:
 - `design-action-combat`, `build-threejs-enemy-systems`, `build-game-monster-system`, `tune-enemy-ai`, `design-game-encounters`
@@ -369,7 +398,15 @@ Assets, performance, QA, and release:
 
 Demo: [`game-dev-character-model`](agent-skills/game-development/game-dev-character-model/demo/index.html) - a concept image, the A-pose before/after and the four check views of an original heroine.
 
-### Web design (92)
+### Web design (97)
+
+Folvra studio techniques
+
+- [Neoclassical Ledger UI](agent-skills/web-design/neoclassical-ledger-ui/SKILL.md)
+- [Dither and ASCII Ink Hover](agent-skills/web-design/dither-ascii-ink-hover/SKILL.md)
+- [Generate a Ledger Logo Register](agent-skills/web-design/generate-ledger-logo-register/SKILL.md)
+- [Painted Product Showcase](agent-skills/web-design/painted-product-showcase/SKILL.md)
+- [Scroll-Scrubbed Object Handoff](agent-skills/web-design/scroll-scrubbed-object-handoff/SKILL.md)
 
 Conversion and implementation:
 - `build-awwwards-quality-sites`, `landing-page`, `pricing-page`, `tailwindcss`, `animation-systems`, `webgl-landing-steering`

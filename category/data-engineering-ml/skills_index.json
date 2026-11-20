@@ -1232,6 +1232,14 @@
     "path": "category/data-engineering-ml/analytics-data-analysis"
   },
   {
+    "id": "analytics-skills-managing-amazon-kinesis-data-streams",
+    "name": "analytics-skills-managing-amazon-kinesis-data-streams",
+    "category": "data-engineering-ml",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Operates data delivery and queues in Amazon Kinesis Data Streams (KDS). Covers delivering a stream to Iceberg tables on S3 Tables or to S3 buckets, and queue-based consumption: receive, acknowledge, visibility timeout, and migrating KCL, GetRecords, or Lambda consumers. Applies when records can be processed independently, without shard ordering: to consume a stream without managing shards, leases, or checkpoints, run more consumers than shards, or stop one bad record blocking a shard, whether or not they mention Kinesis queues.",
+    "path": "category/data-engineering-ml/analytics-skills-managing-amazon-kinesis-data-streams"
+  },
+  {
     "id": "analyze-results",
     "name": "analyze-results",
     "category": "data-engineering-ml",
@@ -3374,6 +3382,14 @@
     "repository": "membranedev-application-skills",
     "description": "Cardinal integration. Manage Organizations, Pipelines, Users, Goals, Filters. Use when the user wants to interact with Cardinal data.",
     "path": "category/data-engineering-ml/cardinal"
+  },
+  {
+    "id": "career-resume-quantifier",
+    "name": "career-resume-quantifier",
+    "category": "data-engineering-ml",
+    "repository": "davila7-claude-code-templates",
+    "description": "Find opportunities to add metrics and estimate numbers when exact data is unavailable. Use when the user wants to quantify achievements, add numbers, percentages, or impact metrics to a resume.",
+    "path": "category/data-engineering-ml/career-resume-quantifier"
   },
   {
     "id": "cargo-analytics",
@@ -12656,6 +12672,30 @@
     "path": "category/data-engineering-ml/krayin"
   },
   {
+    "id": "kumo-model-explanations",
+    "name": "kumo-model-explanations",
+    "category": "data-engineering-ml",
+    "repository": "nvidia-skills",
+    "description": "Inspect and interpret gradient attribution (including requests called radiant attribution), column analysis and sampled explanation subgraphs from a Kumo model trained in a Python notebook. Locate the correct run's explanation artifacts, explain feature scores and cohorts, and identify missing or unsupported explanations without automatically retraining.",
+    "path": "category/data-engineering-ml/kumo-model-explanations"
+  },
+  {
+    "id": "kumo-training-diagnostics",
+    "name": "kumo-training-diagnostics",
+    "category": "data-engineering-ml",
+    "repository": "nvidia-skills",
+    "description": "Evaluate an existing Kumo training run in a Python notebook using aggregate metrics, trial results, learning curves, refit evidence, and training progress. Use for model-quality questions or training diagnostics; inspect existing results without automatically tuning, rerunning, or deploying a model.",
+    "path": "category/data-engineering-ml/kumo-training-diagnostics"
+  },
+  {
+    "id": "kumoai-reference",
+    "name": "kumoai-reference",
+    "category": "data-engineering-ml",
+    "repository": "nvidia-skills",
+    "description": "Reference for translating a validated ML request into KumoAI graph configuration, PQL (predictive query language), and Kumo Predict SDK code. Normally loaded by the kumo-data-science skill after its intake checks pass, rather than invoked directly. Triggers: kumo graph, PQL, predictive query, kumo.Table, kumo.Graph, kumo.Trainer, kumo sdk.",
+    "path": "category/data-engineering-ml/kumoai-reference"
+  },
+  {
     "id": "kustomer",
     "name": "kustomer",
     "category": "data-engineering-ml",
@@ -16046,6 +16086,14 @@
     "repository": "membranedev-application-skills",
     "description": "Ontraport integration. Manage Persons, Organizations, Deals, Projects, Activities, Notes and more. Use when the user wants to interact with Ontraport data.",
     "path": "category/data-engineering-ml/ontraport"
+  },
+  {
+    "id": "open-artifact",
+    "name": "open-artifact",
+    "category": "data-engineering-ml",
+    "repository": "jimliu-baoyu-design",
+    "description": "Make a new artifact of one Open Artifact type (design, slides, whiteboard, sheets, data, docs, design-system, \u2026) with the Artifact tool. The person types `/open-artifact <type> <what to make>`.",
+    "path": "category/data-engineering-ml/open-artifact"
   },
   {
     "id": "open-exchange-rates",
@@ -20736,14 +20784,6 @@
     "path": "category/data-engineering-ml/shopify"
   },
   {
-    "id": "shopify-custom-data",
-    "name": "shopify-custom-data",
-    "category": "data-engineering-ml",
-    "repository": "starchild-ai-agent-official-skills",
-    "description": "<!-- AUTO-GENERATED \u2014 do not edit directly.",
-    "path": "category/data-engineering-ml/shopify-custom-data"
-  },
-  {
     "id": "shopline",
     "name": "shopline",
     "category": "data-engineering-ml",
@@ -21198,6 +21238,30 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "Use before analysis or model training on any dataset, or when asked to profile data or hunt missing values and outliers. Profiles it with data_profiler.py, missing_value_analyzer.py and outlier_detector.py and writes a remediation plan.",
     "path": "category/data-engineering-ml/skills-data-quality-auditor"
+  },
+  {
+    "id": "skills-doca-dpdk-bridge",
+    "name": "skills-doca-dpdk-bridge",
+    "category": "data-engineering-ml",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user has an existing DPDK application and is adding DOCA capabilities in-place \u2014 most commonly DOCA Flow hardware steering \u2014 without rewriting the data-plane in DOCA-native form: binding a DPDK port id to a `doca_dev` (`doca_dpdk_port_probe` / `doca_dpdk_port_as_dev`), converting `rte_mbuf` \u2194 `doca_buf`, querying `doca_dpdk_cap_is_rep_port_supported`, or debugging `DOCA_ERROR_*` from a bridge call. Trigger even without \"DOCA DPDK Bridge\": \"how do I add DOCA Flow to my DPDK app\", \"make a DPDK port visible to DOCA\", \"the bridge loads but every operation returns errors\", \"pkg-config --exists doca-dpdk-bridge fails\", or \"DOCA_ERROR_NOT_FOUND on port registration\". Route elsewhere for fresh DOCA-native packet I/O (doca-eth), flow-rule programming (doca-flow), DOCA or DPDK install (doca-setup), or RDMA data movement (doca-rdma).",
+    "path": "category/data-engineering-ml/skills-doca-dpdk-bridge"
+  },
+  {
+    "id": "skills-doca-eth",
+    "name": "skills-doca-eth",
+    "category": "data-engineering-ml",
+    "repository": "nvidia-skills",
+    "description": "Use this skill for hands-on DOCA Ethernet packet-queue work on a BlueField DPU or ConnectX NIC \u2014 bringing up a `doca_eth_rxq` or `doca_eth_txq` on a port / representor / SF, picking among the four `enum doca_eth_rxq_type` values (`_REGULAR` / `_CYCLIC` / `_MANAGED_MEMPOOL` / `_SHARED_MEMPOOL`), sizing burst or scatter-gather length against the `_cap_*` queries, submitting `doca_eth_txq_task_send` / `_lso_send` (carrying packet `doca_buf`s \u2014 no `doca_eth_frame` struct exists), or debugging DOCA_ERROR_* from an Ethernet call. `doca_eth_rxq` and `doca_eth_txq` are two Core contexts; one `doca_ctx_start()` does not cover both. Trigger on implicit phrasings: \"my RX queue is up but no packets arrive\", \"send-task returns AGAIN at line rate\", \"which queue type for fixed-MTU ingress\", \"device open fails without sudo\", or \"is L3 checksum offload available here\". Refuse and route elsewhere for installing DOCA, flow-rule / steering programming, host\u2194DPU control messaging, or RDMA data movement.",
+    "path": "category/data-engineering-ml/skills-doca-eth"
+  },
+  {
+    "id": "skills-doca-ngauge",
+    "name": "skills-doca-ngauge",
+    "category": "data-engineering-ml",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the operator is driving the DOCA ngauge tool to analyze, visualize, and debug network performance on a single node by probing NIC hardware counters and storing collected data in HDF5 format. Trigger even when the user does not say \"DOCA ngauge\" \u2014 implicit phrasings include \"probe NIC hardware counters\", \"collect HDF5 performance data\", \"plot ngauge output\", \"sample counters on BlueField/ConnectX\", \"measure network performance on a single node\", \"debug network performance with hardware counters\", \"run ngauge YAML config\", \"parse ngauge HDF5 output\". Refuse and route elsewhere: DOCA install/bring-up to doca-setup, version questions to doca-version, hardware/firmware state changes to doca-hardware-safety, raw packet I/O to doca-eth, and host-DPU messaging to doca-comch.",
+    "path": "category/data-engineering-ml/skills-doca-ngauge"
   },
   {
     "id": "skills-experiment-readout",
@@ -24112,6 +24176,14 @@
     "path": "category/data-engineering-ml/tripetto"
   },
   {
+    "id": "troubleshoot-spark-job",
+    "name": "troubleshoot-spark-job",
+    "category": "data-engineering-ml",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Diagnoses and fixes failed or slow Apache Spark workloads on AWS Glue, EMR on EC2, EMR Serverless, and EMR on EKS with the analyze_spark_workload MCP tool, which provides deeper analysis than the AWS job run APIs alone. Analyzes job failures, performance issues, and error stack traces, and generates code fix recommendations as a follow-up only when the diagnosis identifies a code-level fix. Applies to requests such as: spark job failed, glue job error, emr job failing, emr on eks job failed, spark out of memory, spark job slow, debug spark, spark exception, analyze spark failure, spark job stuck, spark job troubleshoot. Not intended for upgrading Spark versions, creating new Spark jobs, or general cluster management.",
+    "path": "category/data-engineering-ml/troubleshoot-spark-job"
+  },
+  {
     "id": "trueconf",
     "name": "trueconf",
     "category": "data-engineering-ml",
@@ -25358,6 +25430,14 @@
     "repository": "membranedev-application-skills",
     "description": "Weavr.io integration. Manage data, records, and automate workflows. Use when the user wants to interact with Weavr.io data.",
     "path": "category/data-engineering-ml/weavr"
+  },
+  {
+    "id": "web-development-blockrun",
+    "name": "web-development-blockrun",
+    "category": "data-engineering-ml",
+    "repository": "davila7-claude-code-templates",
+    "description": "Use when user needs capabilities Claude lacks (image generation, real-time X/Twitter data) or explicitly requests external models (\"blockrun\", \"use grok\", \"use gpt\", \"dall-e\", \"deepseek\")",
+    "path": "category/data-engineering-ml/web-development-blockrun"
   },
   {
     "id": "web3forms-contact-forms-for-static-websites",

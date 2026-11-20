@@ -1,7 +1,7 @@
 # 🔬 Scientific, Bio-Informatics & Astrophysics
 
 > **Category**: `scientific-bio-data`  
-> **Total Curated Skills**: 152 skills  
+> **Total Curated Skills**: 157 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -125,6 +125,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`scientific-critical-thinking`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/scientific-critical-thinking) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Evaluate research rigor. Assess methodology, experimental design, statistical validity, biases,... |
 | [`scientific-db-uspto-database`](../../library/affaan-m-ecc/skills/scientific-db-uspto-database) | ⚪ Reserve | `affaan-m-ecc` | USPTO patent and trademark data workflow for official record lookup, PatentSearch queries, TSDR... |
 | [`scientific-illustration-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/scientific-illustration-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Create graphical abstracts, schematic diagrams, and scientific illustrations |
+| [`scientific-modal`](../../library/davila7-claude-code-templates/skills/scientific-modal) | ⚪ Reserve | `davila7-claude-code-templates` | Run Python code in the cloud with serverless containers, GPUs, and autoscaling. Use when deploy... |
 | [`scientific-pkg-gget`](../../library/affaan-m-ecc/skills/scientific-pkg-gget) | ⚪ Reserve | `affaan-m-ecc` | gget CLI and Python workflow for quick genomic database queries, sequence lookup, BLAST-style s... |
 | [`scientific-problem-selection`](../../library/anthropics-knowledge-work/skills/scientific-problem-selection) | ⚪ Reserve | `anthropics-knowledge-work` | This skill should be used when scientists need help with research problem selection, project id... |
 | [`scientific-scanpy`](../../library/davila7-claude-code-templates/skills/scientific-scanpy) | ⚪ Reserve | `davila7-claude-code-templates` | Single-cell RNA-seq analysis. Load .h5ad/10X data, QC, normalization, PCA/UMAP/t-SNE, Leiden cl... |
@@ -143,15 +144,19 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-co-marketing`](../../library/coreyhaines31-marketingskills/skills/skills-co-marketing) | ⚪ Reserve | `coreyhaines31-marketingskills` | When the user wants co-marketing partners or joint campaigns, or asks whether a partner fits, a... |
 | [`skills-create-2d-physics`](../../library/unity-technologies-skills/skills/skills-create-2d-physics) | ⚪ Reserve | `unity-technologies-skills` | Creates and fixes Unity 2D physics in both systems, 2D Physics Core and the legacy Rigidbody 2D... |
 | [`skills-create-formal-verification-skill`](../../library/cursor-plugins/skills/skills-create-formal-verification-skill) | ⚪ Reserve | `cursor-plugins` | Generate a project-local skill that formally verifies the code where a bug costs the most and t... |
+| [`skills-fix-3d-physics-collisions`](../../library/unity-technologies-skills/skills/skills-fix-3d-physics-collisions) | ⚪ Reserve | `unity-technologies-skills` | Diagnoses and fixes 3D PhysX collision, trigger, and raycast problems. Use when asked to fix On... |
+| [`skills-hf-mem`](../../library/huggingface-skills/skills/skills-hf-mem) | ⚪ Reserve | `huggingface-skills` | Estimate the GPU memory needed to run a Hugging Face model (weights, KV cache and inference ove... |
 | [`skills-lifecycle-play-advisor`](../../library/deanpeters-product-manager-skills/skills/skills-lifecycle-play-advisor) | ⚪ Reserve | `deanpeters-product-manager-skills` | Diagnose where a product sits in its lifecycle and which play fits — extend, replace, or retire... |
 | [`skills-marketing-ops`](../../library/alirezarezvani-claude-skills/skills/skills-marketing-ops) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when a marketing request spans several skills (a campaign across content, SEO, CRO and chan... |
 | [`skills-marketing-skills`](../../library/alirezarezvani-claude-skills/skills/skills-marketing-skills) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when looking for which of the 44 marketing skills fits a task. Lists them by pod and routes... |
 | [`skills-mdr-745-specialist`](../../library/alirezarezvani-claude-skills/skills/skills-mdr-745-specialist) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use for EU MDR 2017/745 work: device classification under Annex VIII, technical file gaps (Anne... |
 | [`skills-melonjs-physics`](../../library/melonjs-melonjs/skills/skills-melonjs-physics) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for collision, physics bodies, movement, and spatial queries in melonJS: the bui... |
+| [`skills-msw-defaultplayer`](../../library/msw-git-msw-ai-coding-plugins-official/skills/skills-msw-defaultplayer) | ⚪ Reserve | `msw-git-msw-ai-coding-plugins-official` | MSW DefaultPlayer (character) management. Use the msw-general ModelBuilder to inspect/patch Def... |
 | [`skills-nature-figure`](../../library/yuan1z0825-nature-skills/skills/skills-nature-figure) | ⚪ Reserve | `yuan1z0825-nature-skills` | Create, revise, audit, and export manuscript scientific figures in Python or R. Use for 论文配图、科研... |
 | [`skills-nature-reviewer`](../../library/yuan1z0825-nature-skills/skills/skills-nature-reviewer) | ⚪ Reserve | `yuan1z0825-nature-skills` | Provide evidence-grounded mock peer review of scientific manuscripts or excerpts, covering sign... |
 | [`skills-nature-writing`](../../library/yuan1z0825-nature-skills/skills/skills-nature-writing) | ⚪ Reserve | `yuan1z0825-nature-skills` | Draft or restructure scientific manuscript arguments, sections, and initial-submission material... |
 | [`skills-nextflow-development`](../../library/anthropics-knowledge-work/skills/skills-nextflow-development) | ⚪ Reserve | `anthropics-knowledge-work` | Run nf-core bioinformatics pipelines (rnaseq, sarek, atacseq) on sequencing data. Use when anal... |
+| [`skills-ovnewton-usage`](../../library/nvidia-skills/skills/skills-ovnewton-usage) | ⚪ Reserve | `nvidia-skills` | Connect the Newton physics engine to an Omniverse simulation or ovstage with ovnewton. Use when... |
 | [`skills-physics-3d-collision`](../../library/unity-technologies-skills/skills/skills-physics-3d-collision) | ⚪ Reserve | `unity-technologies-skills` | Diagnoses 3D PhysX collision and trigger problems. Use when OnCollisionEnter or OnTriggerEnter ... |
 | [`skills-retention-diagnostic-advisor`](../../library/deanpeters-product-manager-skills/skills/skills-retention-diagnostic-advisor) | ⚪ Reserve | `deanpeters-product-manager-skills` | Find why customers leave or go quiet, then pick the fix that fits. Use when churn or renewal nu... |
 | [`skills-runpod-discovery`](../../library/runpod-runpod-plugins-official/skills/skills-runpod-discovery) | ⚪ Reserve | `runpod-runpod-plugins-official` | Answer what is available, what fits and the price against Runpod''s catalogs: GPU and CPU |

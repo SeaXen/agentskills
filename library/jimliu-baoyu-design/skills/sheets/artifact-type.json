@@ -1,0 +1,23 @@
+{
+  "slug": "sheets",
+  "name": "Sheets",
+  "title": "Sheets (shared spreadsheet)",
+  "description": "A shared spreadsheet with a full formula engine: several sheets of cells, formulas that work themselves out again as cells change, number formats, fonts, fills, borders, merged cells, tables with filters, dropdowns, checkboxes, conditional formats, frozen and grouped rows and columns, and charts drawn from cells. People edit it together with live cursors, comments, version history and cell history, import CSV, export Excel and CSV, and send requests to the agent, which reads and writes the same workbook.",
+  "summary": "A shared spreadsheet: cells, formulas, formats, tables and charts.",
+  "artifactTitle": "Untitled sheet",
+  "category": "Data",
+  "version": "0.1.0",
+  "skill": "SKILL.md",
+  "intents": ["spreadsheet", "sheet", "sheets", "workbook", "tracker", "budget", "table", "financial model"],
+  "when": "The person wants a spreadsheet they can edit: a workbook of cells and formulas, a tracker, a budget, a list of records, a schedule or a financial model that they and the agent both fill in.",
+  "detect": ["sheet/sheet.json"],
+  "titleFrom": "sheet/sheet.json#/title",
+  "entry": {
+    "start": { "command": "node", "args": ["scripts/cli.mjs", "serve", "--type", "sheets"] },
+    "open": true,
+    "share": true,
+    "actions": true
+  },
+  "engines": { "openArtifact": ">=1" },
+  "openArtifact": { "style": "sheet", "store": "workbook", "comments": true, "exports": ["xlsx", "csv"] }
+}

@@ -1,7 +1,7 @@
 # 🚀 DevOps, Containers & Deployment
 
 > **Category**: `devops-docker-cicd`  
-> **Total Curated Skills**: 648 skills  
+> **Total Curated Skills**: 661 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -89,6 +89,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`bionemo-kermt-monitor`](../../library/nvidia-skills/skills/bionemo-kermt-monitor) | ⚪ Reserve | `nvidia-skills` | Check progress for a detached KERMT run (pretrain, finetune, or any kermt_run_detached invocati... |
 | [`bionemo-kermt-setup`](../../library/nvidia-skills/skills/bionemo-kermt-setup) | ⚪ Reserve | `nvidia-skills` | Bootstrap the KERMT agent environment — verify host docker + nvidia-container-toolkit, build th... |
 | [`bitbucket-workflow`](../../library/mindrally-skills/skills/bitbucket-workflow) | ⚪ Reserve | `mindrally-skills` | Bitbucket best practices for pull requests, Pipelines CI/CD, Jira integration, and Atlassian ec... |
+| [`blender-pipeline-automation`](../../library/el4cteo-blender-skills/skills/blender-pipeline-automation) | ⚪ Reserve | `el4cteo-blender-skills` | Automate Blender 5.3 at scale - headless CLI flags, batch convert/inventory/run-any-skill-scrip... |
 | [`blue-green-deploy`](../../library/sickn33-agentic-awesome-skills/skills/blue-green-deploy) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Configure zero-downtime deployment strategies including blue-green, canary, |
 | [`browser-qa`](../../library/affaan-m-ecc/skills/browser-qa) | ⚪ Reserve | `affaan-m-ecc` | Run automated post-deploy UI verification with a browser automation MCP (claude-in-chrome, Play... |
 | [`browser-record`](../../library/ruvnet-ruflo/skills/browser-record) | ⚪ Reserve | `ruvnet-ruflo` | Open a named, traced browser session into an RVF cognitive container with a ruvector trajectory... |
@@ -229,6 +230,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`docker_hub-automation`](../../library/composio-community-awesome-codex-skills/skills/docker_hub-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Docker Hub tasks via Rube MCP (Composio): repositories, images, tags, and container re... |
 | [`docsgpt-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/docsgpt-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Deploy DocsGPT for private document analysis and research knowledge bases |
 | [`domain`](../../library/davila7-claude-code-templates/skills/domain) | ⚪ Reserve | `davila7-claude-code-templates` | Add, view, or remove domains for Railway services. Use when user wants to add a domain, generat... |
+| [`doordash-doordash-order-playbooks`](../../library/davila7-claude-code-templates/skills/doordash-doordash-order-playbooks) | ⚪ Reserve | `davila7-claude-code-templates` | Named, context-bound saved DoorDash orders ("post-gym", "late-night deploy") recalled through t... |
 | [`doordash-order-playbooks`](../../library/davila7-claude-code-templates/skills/doordash-order-playbooks) | ⚪ Reserve | `davila7-claude-code-templates` | Named, context-bound saved DoorDash orders ("post-gym", "late-night deploy") recalled through t... |
 | [`dotnet-mcp-builder`](../../library/github-awesome-copilot/skills/dotnet-mcp-builder) | ⚪ Reserve | `github-awesome-copilot` | Build Model Context Protocol (MCP) servers in C#/.NET against the current ModelContextProtocol ... |
 | [`dropthehassle-publish`](../../library/sickn33-agentic-awesome-skills/skills/dropthehassle-publish) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Publish a finished static site to a free HTTPS link with DropTheHassle: build it if needed, dep... |
@@ -287,6 +289,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`gke-workload-security`](../../library/google-skills/skills/gke-workload-security) | ⚪ Reserve | `google-skills` | Audits, configures, and hardens workload-level security controls for Google Kubernetes Engine (... |
 | [`gke-workload-troubleshooting`](../../library/google-skills/skills/gke-workload-troubleshooting) | ⚪ Reserve | `google-skills` | Diagnoses GKE workload failures (CrashLoopBackOff, OOMKilled, ImagePullBackOff, Pending, etc.) ... |
 | [`gmgn-wallet-review`](../../library/gmgnai-gmgn-skills/skills/gmgn-wallet-review) | ⚪ Reserve | `gmgnai-gmgn-skills` | A short trading portrait of ONE wallet address — a single style tag (磨损户 / P小将 / 印钞机 … plus a s... |
+| [`google-cicd-deploy`](../../library/google-skills/skills/google-cicd-deploy) | ⚪ Reserve | `google-skills` | Use this skill when requested to deploy an application to Google Cloud (GCS, Cloud Run, GKE) or... |
 | [`google-cloud-slo-alert-configuration`](../../library/google-skills/skills/google-cloud-slo-alert-configuration) | ⚪ Reserve | `google-skills` | Configures Cloud Monitoring PromQL-based Service Level Objective (SLO) alerting policies on Goo... |
 | [`google-cloud-storage-fuse`](../../library/google-skills/skills/google-cloud-storage-fuse) | ⚪ Reserve | `google-skills` | Mounts Cloud Storage buckets on Google Cloud as a POSIX file system with Cloud Storage FUSE (gc... |
 | [`google-cloud-waf-operational-excellence`](../../library/google-skills/skills/google-cloud-waf-operational-excellence) | ⚪ Reserve | `google-skills` | Generates operational guidance for CI/CD deployment pipelines, observability, monitoring, loggi... |
@@ -465,6 +468,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`performing-kubernetes-cis-benchmark-with-kube-bench`](../../library/mukul975-anthropic-cybersecurity-skills/skills/performing-kubernetes-cis-benchmark-with-kube-bench) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Turns kube-bench output into a finished CIS Kubernetes Benchmark audit: interpreting PASS/FAIL/... |
 | [`performing-network-traffic-analysis-with-zeek`](../../library/mukul975-anthropic-cybersecurity-skills/skills/performing-network-traffic-analysis-with-zeek) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Deploy Zeek (formerly Bro) as a passive network security monitor to generate structured logs of... |
 | [`performing-phishing-simulation-with-gophish`](../../library/mukul975-anthropic-cybersecurity-skills/skills/performing-phishing-simulation-with-gophish) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Deploy and run authorized phishing awareness campaigns with GoPhish, covering admin panel setup... |
+| [`photo-ai-product-photography`](../../library/101-skills-superpowers/skills/photo-ai-product-photography) | ⚪ Reserve | `101-skills-superpowers` | Generate professional AI product photography and commercial images. Models: FLUX, Nano Banana 2... |
 | [`pixijs-accessibility`](../../library/pixijs-pixijs-skills/skills/pixijs-accessibility) | ⚪ Reserve | `pixijs-pixijs-skills` | Use this skill when adding screen reader and keyboard navigation to PixiJS v8 apps. Covers Acce... |
 | [`pixijs-core-concepts`](../../library/pixijs-pixijs-skills/skills/pixijs-core-concepts) | ⚪ Reserve | `pixijs-pixijs-skills` | Use this skill when understanding how PixiJS v8 renders frames: the systems-and-pipes renderer,... |
 | [`pixijs-custom-rendering`](../../library/pixijs-pixijs-skills/skills/pixijs-custom-rendering) | ⚪ Reserve | `pixijs-pixijs-skills` | Use this skill when writing custom shaders, uniforms, filters, batchers, or low-level draw code... |
@@ -524,6 +528,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`scenario-blender-previs-storyboard`](../../library/scenario-labs-skills/skills/scenario-blender-previs-storyboard) | ⚪ Reserve | `scenario-labs-skills` | Use when turning a script or story into previs, layout, storyboards or an animatic in Blender: ... |
 | [`scenario-unity-shaders`](../../library/scenario-labs-skills/skills/scenario-unity-shaders) | ⚪ Reserve | `scenario-labs-skills` | Use when a Unity 6.3 URP task involves shaders: hand-written HLSL, Shader Graph water, toon, di... |
 | [`scenario-unreal-performance`](../../library/scenario-labs-skills/skills/scenario-unreal-performance) | ⚪ Reserve | `scenario-labs-skills` | Use when an Unreal Engine 5.8 project misses its frame rate or stutters: "optimize to 60 fps", ... |
+| [`sdk-building-apps`](../../library/101-skills-superpowers/skills/sdk-building-apps) | ⚪ Reserve | `101-skills-superpowers` | Build and deploy applications on inference.sh. Use when getting started, understanding the plat... |
 | [`searxng`](../../library/seaxen-skills-backup/skills/searxng) | ⚪ Reserve | `seaxen-skills-backup` | Deploy, configure, and optimize a self-hosted SearXNG instance for use with Hermes Agent and Om... |
 | [`searxng-update`](../../library/seaxen-skills-backup/skills/searxng-update) | ⚪ Reserve | `seaxen-skills-backup` | Update self-hosted SearXNG Docker with backup/recreate. |
 | [`secrets-management`](../../library/aj-geddes-useful-ai-prompts/skills/secrets-management) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Implement secrets management with HashiCorp Vault, AWS Secrets Manager, or Kubernetes Secrets f... |
@@ -559,6 +564,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-azure-resource-lookup`](../../library/microsoft-azure-skills/skills/skills-azure-resource-lookup) | ⚪ Reserve | `microsoft-azure-skills` | List, find, and show Azure resources across subscriptions or resource groups. Handles prompts l... |
 | [`skills-azure-validate`](../../library/microsoft-azure-skills/skills/skills-azure-validate) | ⚪ Reserve | `microsoft-azure-skills` | Pre-deployment validation for Azure readiness. Run deep checks on configuration, infrastructure... |
 | [`skills-browser-record`](../../library/ruvnet-ruflo/skills/skills-browser-record) | ⚪ Reserve | `ruvnet-ruflo` | Open a named, traced browser session into an RVF cognitive container with a ruvector trajectory... |
+| [`skills-chat`](../../library/vercel-labs-json-render/skills/skills-chat) | ⚪ Reserve | `vercel-labs-json-render` | Chat SDK renderer for json-render that turns JSON specs into native chat cards (Block Kit on Sl... |
+| [`skills-ci-cd-and-automation`](../../library/addyosmani-agent-skills/skills/skills-ci-cd-and-automation) | ⚪ Reserve | `addyosmani-agent-skills` | Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines... |
 | [`skills-clerk-billing`](../../library/clerk-skills/skills/skills-clerk-billing) | ⚪ Reserve | `clerk-skills` | Clerk Billing for subscription management - render Clerk's PricingTable |
 | [`skills-codegen`](../../library/vercel-labs-json-render/skills/skills-codegen) | ⚪ Reserve | `vercel-labs-json-render` | Code generation utilities for json-render. Use when generating code from UI specs, building cus... |
 | [`skills-codex-experiment-bridge`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/skills-codex-experiment-bridge) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Workflow 1.5: Bridge between idea discovery and auto review. Reads EXPERIMENT_PLAN.md, implemen... |
@@ -571,6 +578,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-debug`](../../library/anthropics-knowledge-work/skills/skills-debug) | ⚪ Reserve | `anthropics-knowledge-work` | Structured debugging session — reproduce, isolate, diagnose, and fix. Trigger with an error mes... |
 | [`skills-deploy-checklist`](../../library/anthropics-knowledge-work/skills/skills-deploy-checklist) | ⚪ Reserve | `anthropics-knowledge-work` | Pre-deployment verification checklist. Use when about to ship a release, deploying a change wit... |
 | [`skills-deployment-patterns`](../../library/affaan-m-ecc/skills/skills-deployment-patterns) | ⚪ Reserve | `affaan-m-ecc` | Flujos de trabajo de despliegue, patrones de pipeline CI/CD, contenedorización Docker, health c... |
+| [`skills-doca-argus`](../../library/nvidia-skills/skills/skills-doca-argus) | ⚪ Reserve | `nvidia-skills` | Use this skill when the user is deploying or operating the DOCA Argus Service — the packaged Bl... |
+| [`skills-doca-bare-metal-deployment`](../../library/nvidia-skills/skills/skills-doca-bare-metal-deployment) | ⚪ Reserve | `nvidia-skills` | Running a DOCA-linked binary directly on the hardware, with no container or kubelet: on host x8... |
+| [`skills-doca-bf3-deployment`](../../library/nvidia-skills/skills/skills-doca-bf3-deployment) | ⚪ Reserve | `nvidia-skills` | Use this skill for BlueField-3 (BF3) day-1 platform bring-up via the classic RShim/BFB path: pu... |
+| [`skills-doca-debug`](../../library/nvidia-skills/skills/skills-doca-debug) | ⚪ Reserve | `nvidia-skills` | Use this skill when the user is debugging any DOCA symptom — a build that won't compile, a link... |
+| [`skills-doca-firefly`](../../library/nvidia-skills/skills/skills-doca-firefly) | ⚪ Reserve | `nvidia-skills` | Use this skill when the user is operating the DOCA Firefly Service container on BlueField — pic... |
 | [`skills-docker`](../../library/codewithmukesh-dotnet-claude-kit/skills/skills-docker) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Docker containerization for .NET 10 applications. Covers multi-stage builds, .NET container ima... |
 | [`skills-docker-development`](../../library/alirezarezvani-claude-skills/skills/skills-docker-development) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use for any Dockerfile or docker-compose file to write, optimize or review, before editing it. ... |
 | [`skills-docker-patterns`](../../library/affaan-m-ecc/skills/skills-docker-patterns) | ⚪ Reserve | `affaan-m-ecc` | Patrones de Docker y Docker Compose para desarrollo local, seguridad de contenedores, networkin... |
@@ -585,6 +597,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-knap`](../../library/kepano-obsidian-skills/skills/skills-knap) | ⚪ Reserve | `kepano-obsidian-skills` | Render Markdown from templates and structured data using Knap CLI. Use when the user asks to ap... |
 | [`skills-kubernetes-operator`](../../library/alirezarezvani-claude-skills/skills/skills-kubernetes-operator) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when building a Kubernetes operator or CRD (controller-runtime, kubebuilder, operator-sdk, ... |
 | [`skills-kubernetes-patterns`](../../library/affaan-m-ecc/skills/skills-kubernetes-patterns) | ⚪ Reserve | `affaan-m-ecc` | Kubernetes workload patterns, resource management, RBAC, probes, autoscaling, ConfigMap/Secret ... |
+| [`skills-legacy-sentry-setup-ai-monitoring`](../../library/getsentry-sentry-for-ai/skills/skills-legacy-sentry-setup-ai-monitoring) | ⚪ Reserve | `getsentry-sentry-for-ai` | Setup Sentry AI Agent Monitoring in any project. Use when asked to monitor LLM calls, track AI ... |
 | [`skills-managed-deep-agents`](../../library/langchain-ai-langchain-skills/skills/skills-managed-deep-agents) | ⚪ Reserve | `langchain-ai-langchain-skills` | INVOKE THIS SKILL when building, testing, or deploying Managed Deep Agents in LangSmith. Walks ... |
 | [`skills-melonjs-deployment`](../../library/melonjs-melonjs/skills/skills-melonjs-deployment) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when packaging, shipping or scaffolding a melonJS game — starting a project with... |
 | [`skills-melonjs-getting-started`](../../library/melonjs-melonjs/skills/skills-melonjs-getting-started) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when starting or bootstrapping a melonJS game, creating the Application, choosin... |

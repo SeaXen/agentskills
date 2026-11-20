@@ -1,0 +1,23 @@
+{
+  "slug": "whiteboard",
+  "name": "Whiteboard",
+  "title": "Whiteboard (shared board)",
+  "description": "A shared, infinite whiteboard kept as small JSON documents: sticky notes, shapes, sections, text, arrows, hand-drawn ink, images, tables, stickers, timers, link cards and live web embeds. People and the agent draw on it together, with comments, live cursors and requests to the agent.",
+  "summary": "A shared whiteboard for brainstorms, diagrams, retros and planning.",
+  "artifactTitle": "Untitled board",
+  "category": "Collaboration",
+  "version": "0.1.0",
+  "skill": "SKILL.md",
+  "intents": ["whiteboard", "brainstorm", "diagram", "sticky notes", "retro", "flowchart", "mind map"],
+  "when": "The person wants a whiteboard: a brainstorm with sticky notes, a flowchart or architecture diagram, a retro or planning board, a mind map, voting with stickers, or any freeform shared canvas they and the agent can both draw on.",
+  "detect": ["db/board/meta.json"],
+  "titleFrom": "db/board/meta.json#/title",
+  "entry": {
+    "start": { "command": "node", "args": ["scripts/cli.mjs", "serve", "--type", "whiteboard"] },
+    "open": true,
+    "share": true,
+    "actions": true
+  },
+  "engines": { "openArtifact": ">=1" },
+  "openArtifact": { "style": "db", "store": "db", "comments": true, "exports": ["png"] }
+}

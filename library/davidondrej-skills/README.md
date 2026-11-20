@@ -52,12 +52,12 @@ AGENTS.md                  David's global agent instructions
 - [`fable-safe-prompt`](skills/fable-safe-prompt/) — Make minimal prompt edits to reduce false-positive refusals from Fable.
 - [`file-tree`](skills/file-tree/) — Manually-invoked skill that prints a nice file tree of the current topic in a code block.
 - [`fireflies-transcript`](skills/fireflies-transcript/) — Fetch raw Fireflies.ai meeting transcripts.
-- [`gemini-review`](skills/gemini-review/) — Launch an independent Gemini 4 Carbon code review through Cursor at High reasoning and return it verbatim.
+- [`gemini-review`](skills/gemini-review/) — Launch an independent Gemini 4 Neon code review through Cursor at Extra High reasoning and return it verbatim.
 - [`git-worktree`](skills/git-worktree/) — Use Git worktrees to isolate parallel coding tasks.
 - [`github-outside-sandbox`](skills/github-outside-sandbox/) — Run Git and GitHub CLI commands on the host when sandboxing blocks Keychain auth, network access, or .git writes.
 - [`global-agent-guardrails`](skills/global-agent-guardrails/) — Configure the shared guard against catastrophic shell commands in local AI agents.
 - [`goal-loop`](skills/goal-loop/) — Draft /goal prompts and explain persistent agent loops.
-- [`gpt-review`](skills/gpt-review/) — Launch an independent GPT-6-Astra code review and return it verbatim.
+- [`gpt-review`](skills/gpt-review/) — Launch an independent GPT-6.2-Astra code review and return it verbatim.
 - [`handoff`](skills/handoff/) — Capture session context for a fresh agent.
 - [`herdr`](skills/herdr/) — Operate and coordinate AI agents in Herdr workspaces in Ghostty.
 - [`image-prompt`](skills/image-prompt/) — Write four distinct prompts for AI image models.

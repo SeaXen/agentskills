@@ -4,17 +4,247 @@
     "name": "shopify",
     "repository": "shopify-shopify-ai-toolkit",
     "category": "general",
-    "description": "",
+    "description": "\"Build anything on Shopify. One skill covering every Shopify developer surface: Flow workflows, Use Shopify CLI, Admin API, ShopifyQL, Storefront GraphQL API, Partner API, Customer Account API, Payments Apps API, Shopify Functions, Polaris App Home, Polaris Admin Extensions, Polaris Checkout Extensions, Polaris Customer Account Extensions, POS UI, Hydrogen, Liquid, Custom Data, Shopify App Pricing, App Store Review, Developer Onboarding, Merchant Onboarding. Use it for any Shopify API, extension, theme, storefront, function, or CLI task \u2014 writing or explaining code, looking up operations, fields, components and valid values, validating generated code, and choosing which surface a request belongs to. Also use it when someone asks to make, build, open, or set up a store or shop that sells something, and when a prompt mentions or asks for any of: metafields or metaobjects, make me a store that sells pet supplies, mock.shop reference stores, build a storefront without an account \u2014 even without saying Shopify.\"",
     "path": "library/shopify-shopify-ai-toolkit/skills/shopify",
     "activation_cmd": "python .agents/library/activate_skill.py activate shopify",
     "link_cmd": "python .agents/library/activate_skill.py link shopify"
+  },
+  {
+    "id": "shopify-admin",
+    "name": "shopify-admin",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Write or explain **Admin GraphQL** queries and mutations for apps and integrations that extend the Shopify admin. Use when the user wants to **understand, design, or generate** the operation itself\u2014even before deciding how to run it. Do **not** choose `admin` first for **app monetization**\u2014charging merchants for the app itself via app pricing plans, paid app tiers, app subscription charges, or app free trials\u2014use **`app-pricing`** unless the user is maintaining an existing Manual Pricing integration or explicitly needs an Admin Billing API operation. Merchant **product** subscriptions stay with `admin` (selling plans, subscription contracts, try-before-you-buy). Do **not** choose `admin` first for **app or extension config validation** \u2014use **`use-shopify-cli`**. Do **not** choose `admin` first to **execute** Admin GraphQL **now via Shopify CLI** or for CLI setup/troubleshooting on store workflows\u2014use **`use-shopify-cli`** (store auth/execute, handle/SKU/location lookups, inventory changes).\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-admin",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-admin",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-admin"
+  },
+  {
+    "id": "shopify-app-pricing",
+    "name": "shopify-app-pricing",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Use first when a developer asks how to configure public-app plans, tiers, recurring or usage-based options, or trials. Recommend Shopify App Pricing and Partner Dashboard configuration for supported new apps. Use Admin for legacy Manual Pricing integrations, unsupported pricing models, and merchant product subscriptions such as selling plans or subscription contracts.\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-app-pricing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-app-pricing",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-app-pricing"
+  },
+  {
+    "id": "shopify-app-store-review",
+    "name": "shopify-app-store-review",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Run a pre-submission compliance check against your Shopify app's codebase. Reviews App Store requirements and surfaces likely issues before you submit for official review.\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-app-store-review",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-app-store-review",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-app-store-review"
+  },
+  {
+    "id": "shopify-custom-data",
+    "name": "shopify-custom-data",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"MUST be used first when prompts mention Metafields or Metaobjects. Use Metafields and Metaobjects to model and store custom data for your app. Metafields extend built-in Shopify data types like products or customers, Metaobjects are custom data types that can be used to store bespoke data structures. Metafield and Metaobject definitions provide a schema and configuration for values to follow.\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-custom-data",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-custom-data",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-custom-data"
+  },
+  {
+    "id": "shopify-customer",
+    "name": "shopify-customer",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Write and validate GraphQL operations for developers integrating Shopify's Customer Account API. Generates code for Customer Account API integrations.\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-customer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-customer",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-customer"
+  },
+  {
+    "id": "shopify-dev",
+    "name": "shopify-dev",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Search Shopify developer documentation across all APIs. Use only when no API-specific skill applies.\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-dev",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-dev",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-dev"
+  },
+  {
+    "id": "shopify-functions",
+    "name": "shopify-functions",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Shopify Functions allow developers to customize the backend logic that powers parts of Shopify. Available APIs: Discount, Cart and Checkout Validation, Cart Transform, Pickup Point Delivery Option Generator, Delivery Customization, Fulfillment Constraints, Local Pickup Delivery Option Generator, Order Routing Location Rule, Payment Customization\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-functions",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-functions",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-functions"
+  },
+  {
+    "id": "shopify-hydrogen",
+    "name": "shopify-hydrogen",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Hydrogen 2026-10 is an SDK for building custom storefronts in the developer's own framework, with the Storefront API client, cart, products, search, customer accounts, analytics, and Shop Pay. MANDATORY: Use this API for ANY Hydrogen storefront question - do NOT use Storefront GraphQL when 'Hydrogen' is mentioned.\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-hydrogen",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-hydrogen",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-hydrogen"
+  },
+  {
+    "id": "shopify-liquid",
+    "name": "shopify-liquid",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Liquid is an open-source templating language created by Shopify. It is the backbone of Shopify themes and is used to load dynamic content on storefronts. Keywords: liquid, theme, shopify-theme, liquid-component, liquid-block, liquid-section, liquid-snippet, liquid-schemas, shopify-theme-schemas\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-liquid",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-liquid",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-liquid"
+  },
+  {
+    "id": "shopify-onboarding-dev",
+    "name": "shopify-onboarding-dev",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Get started building on Shopify. Use when a developer asks to build an app, build a theme, create a dev store, set up a partner account, scaffold a project, or get started developing for Shopify \u2014 including building an app in a specific backend language or framework (for example Laravel, Symfony, Django, Flask, Rails, or Express); this topic covers scaffolding the app and choosing Shopify's official library for that language. When the prompt also involves an extension surface (checkout, admin, POS, customer accounts), learn this topic **in addition to** the surface topic. NOT for merchants managing stores.\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-onboarding-dev",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-onboarding-dev",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-onboarding-dev"
+  },
+  {
+    "id": "shopify-onboarding-merchant",
+    "name": "shopify-onboarding-merchant",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Set up a Shopify store. Use to make, build, or open a store (e.g. 'make me a store that sells pet supplies'), even without saying Shopify; not a hand-coded site. Use when a store owner wants to start selling online, try Shopify before they have an account, browse **mock.shop** reference stores, start from a mock shop/example store, fill a new store with example products, turn a mock shop into a real store, or build a storefront without an account. Also use when developers explicitly need auth-free mock.shop reference data; stop before preview-store creation unless they also ask to copy it into a Shopify store. Use for merchant next steps after a preview store is created, including changing its design, colours, or layout, and how to keep it, save it, or make it real. Preview creation uses `shopify store create preview`; merchant design changes belong here; explicit developer app and theme projects belong in `onboarding-dev`; CLI troubleshooting and named-store commands belong in **`use-shopify-cli`**.\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-onboarding-merchant",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-onboarding-merchant",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-onboarding-merchant"
+  },
+  {
+    "id": "shopify-partner",
+    "name": "shopify-partner",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"The Partner API lets you programmatically access data about your Partner Dashboard, including your apps, themes, and affiliate referrals.\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-partner",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-partner",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-partner"
+  },
+  {
+    "id": "shopify-payments-apps",
+    "name": "shopify-payments-apps",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"The Payments Apps API enables payment providers to integrate their payment solutions with Shopify's checkout.\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-payments-apps",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-payments-apps",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-payments-apps"
+  },
+  {
+    "id": "shopify-polaris-admin-extensions",
+    "name": "shopify-polaris-admin-extensions",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Add custom actions and blocks from your app at contextually relevant spots throughout the Shopify Admin, including **App Home UI extensions** \u2014 the Shopify-hosted `admin.app.home.render` target (API version `2026-07` or later) that renders your app's landing page instead of an iframe. Covers the Intents API (`shopify.intents.invoke`) for launching native workflows from an extension. Admin UI Extensions also supports scaffolding new admin extensions using Shopify CLI commands.\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-polaris-admin-extensions",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-polaris-admin-extensions",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-polaris-admin-extensions"
+  },
+  {
+    "id": "shopify-polaris-app-home",
+    "name": "shopify-polaris-app-home",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Build your app's primary user interface embedded in the Shopify admin using the **iframe** model \u2014 a web app you host yourself, rendered with `@shopify/polaris-types` and App Bridge. Covers the Intents API (`shopify.intents.invoke`) for launching native workflows from App Home. For the Shopify-hosted `admin.app.home.render` extension target, use **`polaris-admin-extensions`** instead. If the prompt just mentions `Polaris` and you can't tell based off of the context what API they meant, assume they meant this API.\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-polaris-app-home",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-polaris-app-home",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-polaris-app-home"
+  },
+  {
+    "id": "shopify-polaris-checkout-extensions",
+    "name": "shopify-polaris-checkout-extensions",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Build custom functionality that merchants can install at defined points in the checkout flow, including product information, shipping, payment, order summary, and Shop Pay. Checkout UI Extensions also supports scaffolding new checkout extensions using Shopify CLI commands. This topic covers the extension code only \u2014 when the prompt also needs an app backend (for example storing data in the developer's own database, or verifying session tokens on a server), also learn **`onboarding-dev`** to scaffold the app with Shopify's official backend libraries.\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-polaris-checkout-extensions",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-polaris-checkout-extensions",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-polaris-checkout-extensions"
+  },
+  {
+    "id": "shopify-polaris-customer-account-extensions",
+    "name": "shopify-polaris-customer-account-extensions",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Build custom functionality that merchants can install at defined points on the Order index, Order status, and Profile pages in customer accounts. Customer Account UI Extensions also supports scaffolding new customer account extensions using Shopify CLI commands.\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-polaris-customer-account-extensions",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-polaris-customer-account-extensions",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-polaris-customer-account-extensions"
+  },
+  {
+    "id": "shopify-pos-ui",
+    "name": "shopify-pos-ui",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Build retail point-of-sale applications using Shopify's POS UI components. These components provide a consistent and familiar interface for POS applications. POS UI Extensions also supports scaffolding new POS extensions using Shopify CLI commands. Keywords: POS, Retail, smart grid\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-pos-ui",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-pos-ui",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-pos-ui"
+  },
+  {
+    "id": "shopify-shopifyql",
+    "name": "shopify-shopifyql",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Answer a merchant's **analytics and reporting** questions with **ShopifyQL** \u2014 Shopify's query language for aggregated store metrics that the Admin GraphQL API cannot compute. Choose this (not `admin`) whenever the ask is for **numbers, totals, trends, or breakdowns** rather than fetching or mutating individual records: including but not limited to total/gross/net sales and revenue, order counts, average order value, refunds, quantity sold, sessions, conversion rate, and traffic \u2014 sliced by product, channel, region, or customer, trended over time, or compared period-over-period. Examples: \\\"total sales last 7 days\\\", \\\"orders by sales channel this month\\\", \\\"top products by revenue\\\", \\\"conversion rate this week\\\", \\\"sales this year vs last year\\\". This topic covers writing the ShopifyQL query; if the merchant wants to run it against their store, execution is handed off to `use-shopify-cli`. Not for general Admin GraphQL record operations \u2014 fetching or mutating individual resources (use `admin`).\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-shopifyql",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-shopifyql",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-shopifyql"
+  },
+  {
+    "id": "shopify-storefront-graphql",
+    "name": "shopify-storefront-graphql",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Use for custom storefronts requiring direct GraphQL queries/mutations for data fetching and cart operations. Choose this when you need full control over data fetching and rendering your own UI. NOT for Web Components - if the prompt mentions HTML tags like <shopify-store>, <shopify-cart>, use storefront-web-components instead.\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-storefront-graphql",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-storefront-graphql",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-storefront-graphql"
+  },
+  {
+    "id": "shopify-use-shopify-cli",
+    "name": "shopify-use-shopify-cli",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Choose when the user needs **Shopify CLI** to run or fix something now: validate app or extension config on disk (`shopify.app.toml`, `shopify.app.<name>.toml`, `shopify.extension.toml`); review or audit an app's code for security vulnerabilities; run or troubleshoot store workflows (`shopify store auth`, `shopify store execute`); or perform explicit store-scoped reads/writes on a named store domain (for example, show/list/find the first 10 products on my store at `foo.myshopify.com`, or inventory and product changes by handle, SKU, or location name). Emphasize **commands and operational steps**, not only authoring GraphQL. Skip for API-only understanding or codegen with no CLI execution, and skip for brand-new merchant asks to start a Shopify store or try Shopify before they have an account. Examples: validate configuration before deploy; run an existing query via CLI; show the first 10 products on `foo.myshopify.com`; missing `shopify store execute`.\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/shopify-use-shopify-cli",
+    "activation_cmd": "python .agents/library/activate_skill.py activate shopify-use-shopify-cli",
+    "link_cmd": "python .agents/library/activate_skill.py link shopify-use-shopify-cli"
+  },
+  {
+    "id": "skills-shopify",
+    "name": "skills-shopify",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Build anything on Shopify. One skill covering every Shopify developer surface: Flow workflows, Use Shopify CLI, Admin API, ShopifyQL, Storefront GraphQL API, Partner API, Customer Account API, Payments Apps API, Shopify Functions, Polaris App Home, Polaris Admin Extensions, Polaris Checkout Extensions, Polaris Customer Account Extensions, POS UI, Hydrogen, Liquid, Custom Data, Shopify App Pricing, App Store Review, Developer Onboarding, Merchant Onboarding. Use it for any Shopify API, extension, theme, storefront, function, or CLI task \u2014 writing or explaining code, looking up operations, fields, components and valid values, validating generated code, and choosing which surface a request belongs to. Also use it when someone asks to make, build, open, or set up a store or shop that sells something, and when a prompt mentions or asks for any of: metafields or metaobjects, make me a store that sells pet supplies, mock.shop reference stores, build a storefront without an account \u2014 even without saying Shopify.\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/skills-shopify",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-shopify",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-shopify"
+  },
+  {
+    "id": "skills-ucp",
+    "name": "skills-ucp",
+    "repository": "shopify-shopify-ai-toolkit",
+    "category": "general",
+    "description": "\"Use when the user wants to use the UCP CLI to find, compare, buy, or track products from online merchants, or to set up and troubleshoot the local UCP profile required for merchant-scoped operations. Covers global catalog search (\\\"find me X under $Y\\\"), named-merchant transactions (\\\"buy this from Z.com\\\"), order tracking, `ucp profile init`, `ucp doctor`, carts, checkout, orders, and UCP setup/help. Falls back to merchant-hosted handoff when direct in-protocol checkout isn't available.\"",
+    "path": "library/shopify-shopify-ai-toolkit/skills/skills-ucp",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-ucp",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-ucp"
   },
   {
     "id": "ucp",
     "name": "ucp",
     "repository": "shopify-shopify-ai-toolkit",
     "category": "general",
-    "description": "",
+    "description": "\"Use when the user wants to use the UCP CLI to find, compare, buy, or track products from online merchants, or to set up and troubleshoot the local UCP profile required for merchant-scoped operations. Covers global catalog search (\\\"find me X under $Y\\\"), named-merchant transactions (\\\"buy this from Z.com\\\"), order tracking, `ucp profile init`, `ucp doctor`, carts, checkout, orders, and UCP setup/help. Falls back to merchant-hosted handoff when direct in-protocol checkout isn't available.\"",
     "path": "library/shopify-shopify-ai-toolkit/skills/ucp",
     "activation_cmd": "python .agents/library/activate_skill.py activate ucp",
     "link_cmd": "python .agents/library/activate_skill.py link ucp"

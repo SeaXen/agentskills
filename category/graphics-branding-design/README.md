@@ -1,7 +1,7 @@
 # 🎨 Visual Design, Branding & Graphics
 
 > **Category**: `graphics-branding-design`  
-> **Total Curated Skills**: 150 skills  
+> **Total Curated Skills**: 156 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -35,6 +35,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`branding-favicon`](../../library/kostja94-marketing-skills/skills/branding-favicon) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to implement, optimize, or audit favicon and app icons. Also use when the u... |
 | [`browser-fingerprint-audit`](../../library/liarjsdev-liarjs-skills/skills/browser-fingerprint-audit) | ⚪ Reserve | `liarjsdev-liarjs-skills` | Audit a browser fingerprint for internal contradictions with the liarjs CLI - canvas, WebGL, We... |
 | [`build-design`](../../library/jakubkrehel-skills/skills/build-design) | ⚪ Reserve | `jakubkrehel-skills` | Builds UI from a Figma file or a design image so it matches the design, using the project's exi... |
+| [`business-marketing-popup-cro`](../../library/davila7-claude-code-templates/skills/business-marketing-popup-cro) | ⚪ Reserve | `davila7-claude-code-templates` | When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for c... |
 | [`business-model`](../../library/phuryn-pm-skills/skills/business-model) | ⚪ Reserve | `phuryn-pm-skills` | Generate a Business Model Canvas with all 9 building blocks. Use when creating a business model... |
 | [`canva`](../../library/membranedev-application-skills/skills/canva) | ⚪ Reserve | `membranedev-application-skills` | Canva integration. Manage data, records, and automate workflows. Use when the user wants to int... |
 | [`canva-automation`](../../library/antigravity-awesome-skills/skills/canva-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate Canva tasks via Rube MCP (Composio): designs, exports, folders, brand templates, autof... |
@@ -50,6 +51,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`cv-generator`](../../library/sickn33-agentic-awesome-skills/skills/cv-generator) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Generate professional, ATS-optimized CVs for FlowCV, Canva, Google Docs, or Word. Handles multi... |
 | [`deck-open-slide-canvas`](../../library/feimacode-open-design-agent-kit/skills/deck-open-slide-canvas) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Open-Slide 1920 Canvas Deck (Open Design) — use only when explicitly invoked, not for general d... |
 | [`design-critique`](../../library/anthropics-knowledge-work/skills/design-critique) | ⚪ Reserve | `anthropics-knowledge-work` | Get structured design feedback on usability, hierarchy, and consistency. Trigger with "review t... |
+| [`design-logo-design-guide`](../../library/101-skills-superpowers/skills/design-logo-design-guide) | ⚪ Reserve | `101-skills-superpowers` | Logo design principles and AI image generation best practices for creating logos. Covers logo t... |
+| [`design-og-image-design`](../../library/101-skills-superpowers/skills/design-og-image-design) | ⚪ Reserve | `101-skills-superpowers` | Open Graph and social sharing image design with platform specs, text placement, and branding. C... |
 | [`discover-brand`](../../library/anthropics-knowledge-work/skills/discover-brand) | ⚪ Reserve | `anthropics-knowledge-work` | This skill orchestrates autonomous discovery of brand materials across enterprise platforms (No... |
 | [`display-ads`](../../library/kostja94-marketing-skills/skills/display-ads) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to run display, banner, or ad network campaigns. Also use when the user men... |
 | [`distribution-channels`](../../library/kostja94-marketing-skills/skills/distribution-channels) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to plan product distribution via marketplaces, app stores, or third-party p... |
@@ -83,6 +86,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`frame-logo-outro`](../../library/feimacode-open-design-agent-kit/skills/frame-logo-outro) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Logo Outro Frame (Open Design) — use only when explicitly invoked, not for general design reque... |
 | [`frame-macos-notification`](../../library/feimacode-open-design-agent-kit/skills/frame-macos-notification) | ⚪ Reserve | `feimacode-open-design-agent-kit` | macOS Notification Banner (Open Design) — use only when explicitly invoked, not for general des... |
 | [`game-engine`](../../library/github-awesome-copilot/skills/game-engine) | ⚪ Reserve | `github-awesome-copilot` | Expert skill for building web-based game engines and games using HTML5, Canvas, WebGL, and Java... |
+| [`generate-ledger-logo-register`](../../library/mengto-skills/skills/generate-ledger-logo-register) | ⚪ Reserve | `mengto-skills` | Generate a family of original fictional wordmarks on a Seedream contact sheet, extract transpar... |
 | [`hairline-adopt`](../../library/lucasmarkes-hairline/skills/hairline-adopt) | ⚪ Reserve | `lucasmarkes-hairline` | Use when someone has an SVG (an icon, a logo, an illustration) and wants it as a Hairline figur... |
 | [`image-outpainting`](../../library/gencraft-labs-skills/skills/image-outpainting) | ⚪ Reserve | `gencraft-labs-skills` | Image outpainting on RunComfy via the `runcomfy` CLI — extend a still beyond its original canva... |
 | [`image-processing`](../../library/jezweb-claude-skills/skills/image-processing) | ⚪ Reserve | `jezweb-claude-skills` | Process images for web development — resize, crop, trim whitespace, convert formats (PNG/WebP/J... |
@@ -130,6 +134,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`service-concierge-portal-generate`](../../library/forcedotcom-sf-skills/skills/service-concierge-portal-generate) | ⚪ Reserve | `forcedotcom-sf-skills` | Deploys an Agentforce Concierge portal on an LWR Experience Cloud site: provisions the site, co... |
 | [`shop-pack`](../../library/feimacode-open-design-agent-kit/skills/shop-pack) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Everything a small online shop needs from one product list and the seller's own photos: square ... |
 | [`skills-ad-manager`](../../library/anthropics-knowledge-work/skills/skills-ad-manager) | ⚪ Reserve | `anthropics-knowledge-work` | The ads consultant that becomes an ads agent. Reads paid-ad performance natively through the Ti... |
+| [`skills-build-design`](../../library/jakubkrehel-skills/skills/skills-build-design) | ⚪ Reserve | `jakubkrehel-skills` | Builds UI from a Figma file or a design image so it matches the design, using the project's exi... |
 | [`skills-canva-creator`](../../library/anthropics-knowledge-work/skills/skills-canva-creator) | ⚪ Reserve | `anthropics-knowledge-work` | Takes an approved content brief and executes a campaign end-to-end: builds the posting calendar... |
 | [`skills-design-critique`](../../library/anthropics-knowledge-work/skills/skills-design-critique) | ⚪ Reserve | `anthropics-knowledge-work` | Get structured design feedback on usability, hierarchy, and consistency. Trigger with "review t... |
 | [`skills-design-system`](../../library/affaan-m-ecc/skills/skills-design-system) | ⚪ Reserve | `affaan-m-ecc` | アクセシビリティ、レスポンシブネス、テーマ設定、コンポーネント群、トークンを備えた本番環境対応デザインシステムの構築。Figma、Storybook、コンポーネントライブラリ統合。 |
@@ -155,6 +160,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-rfc`](../../library/feimacode-open-design-agent-kit/skills/skills-rfc) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A request for comments: the problem, goals and non-goals, the proposal with the alternatives co... |
 | [`skills-social-content-engine`](../../library/anthropics-knowledge-work/skills/skills-social-content-engine) | ⚪ Reserve | `anthropics-knowledge-work` | Runs the owner's content operation as a standing thing rather than a one-off: keeps a rolling p... |
 | [`skills-ui-ugui`](../../library/unity-technologies-skills/skills/skills-ui-ugui) | ⚪ Reserve | `unity-technologies-skills` | Understands, edits, and generates Unity uGUI Canvas hierarchies, RectTransforms, Layout Groups,... |
+| [`social-ai-social-media-content`](../../library/101-skills-superpowers/skills/social-ai-social-media-content) | ⚪ Reserve | `101-skills-superpowers` | Create AI-powered social media content for TikTok, Instagram, YouTube, Twitter/X. Generate: ima... |
 | [`social-content-engine`](../../library/anthropics-knowledge-work/skills/social-content-engine) | ⚪ Reserve | `anthropics-knowledge-work` | Runs the owner's content operation as a standing thing rather than a one-off: keeps a rolling p... |
 | [`social-listening-facebook-page-profile-posts`](../../library/browser-act-skills/skills/social-listening-facebook-page-profile-posts) | ⚪ Reserve | `browser-act-skills` | Scrapes posts from any public Facebook Page or personal Profile timeline, returning structured ... |
 | [`social-youtube-thumbnail`](../../library/feimacode-open-design-agent-kit/skills/social-youtube-thumbnail) | ⚪ Reserve | `feimacode-open-design-agent-kit` | YouTube Thumbnail (Open Design) — use only when explicitly invoked, not for general design requ... |

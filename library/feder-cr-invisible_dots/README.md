@@ -11,6 +11,11 @@
 
 Open-source, self-hosted alternative to OpenAI Dots, Grok Bot. Built to be undetectable by anti-bot systems.
 
+<p align="center">
+<a href="https://decodo.com/deals/residential-offer?utm_medium=affiliate&utm_source=Federico+Elia&promoter_id=15854270&fpr=7859773"><img alt="Decodo residential proxies, free trial (sponsored)" src="https://raw.githubusercontent.com/oss-invisible/dots/main/docs/images/decodo-residential-proxies-trial.png" width="560"></a><br>
+<sub>Sponsored</sub>
+</p>
+
 ## Quickstart
 
 You need Node 24+, Go 1.25+, Git and hardware virtualization (x86-64), plus an OpenRouter key.

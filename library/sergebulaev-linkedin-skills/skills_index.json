@@ -3,10 +3,140 @@
     "id": "linkedin",
     "name": "linkedin",
     "repository": "sergebulaev-linkedin-skills",
-    "category": "general",
-    "description": "",
+    "category": "algorithms-logic",
+    "description": "Tools for LinkedIn content planning, viral hook extraction, AI-tell removal, and algorithm auditing.",
     "path": "library/sergebulaev-linkedin-skills/skills/linkedin",
     "activation_cmd": "python .agents/library/activate_skill.py activate linkedin",
     "link_cmd": "python .agents/library/activate_skill.py link linkedin"
+  },
+  {
+    "id": "linkedin-comment-drafter",
+    "name": "linkedin-comment-drafter",
+    "repository": "sergebulaev-linkedin-skills",
+    "category": "general",
+    "description": "\"Draft a LinkedIn comment on someone else's post from its URL, or reshare (repost) it to your feed with optional commentary. Use when the user pastes a post URL and asks to comment, engage, be first commenter, or repost with their thoughts. Produces 1-3 variants in the user's voice, picks a reaction, and publishes via Publora on approval. Not for replying to existing comments (use linkedin-reply-handler).\"",
+    "path": "library/sergebulaev-linkedin-skills/skills/linkedin-comment-drafter",
+    "activation_cmd": "python .agents/library/activate_skill.py activate linkedin-comment-drafter",
+    "link_cmd": "python .agents/library/activate_skill.py link linkedin-comment-drafter"
+  },
+  {
+    "id": "linkedin-content-planner",
+    "name": "linkedin-content-planner",
+    "repository": "sergebulaev-linkedin-skills",
+    "category": "general",
+    "description": "\"Generate a 7-day LinkedIn content plan from a theme, audience, and pillars. Produces per-day post pillar, format, hook type, CTA, posting time, daily comment targets, and a weekly inbound-readiness check. Use when the user wants to plan a week or month of content, not draft a single post (use linkedin-post-writer).\"",
+    "path": "library/sergebulaev-linkedin-skills/skills/linkedin-content-planner",
+    "activation_cmd": "python .agents/library/activate_skill.py activate linkedin-content-planner",
+    "link_cmd": "python .agents/library/activate_skill.py link linkedin-content-planner"
+  },
+  {
+    "id": "linkedin-employee-advocacy",
+    "name": "linkedin-employee-advocacy",
+    "repository": "sergebulaev-linkedin-skills",
+    "category": "general",
+    "description": "\"Stand up and run a LinkedIn employee advocacy program for a marketing or sales team. Covers 14-day launch playbook, brand-guideline governance, per-post time budget, cadence benchmarks, and team ROI (reach, engagement, pipeline). Triggers on \\\"employee advocacy\\\", \\\"get the team posting\\\", \\\"scale LinkedIn across team\\\", \\\"advocacy ROI\\\". Not for planning one person's own calendar (use linkedin-content-planner).\"",
+    "path": "library/sergebulaev-linkedin-skills/skills/linkedin-employee-advocacy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate linkedin-employee-advocacy",
+    "link_cmd": "python .agents/library/activate_skill.py link linkedin-employee-advocacy"
+  },
+  {
+    "id": "linkedin-engager-analytics",
+    "name": "linkedin-engager-analytics",
+    "repository": "sergebulaev-linkedin-skills",
+    "category": "general",
+    "description": "\"Pull the people who liked or commented on any LinkedIn post and segment them by ICP fit (peer / aspirational / prospect / other). Produces an engager roster, tier breakdown, and outbound action lists (follow back, comment-drop, DM-able with one-line openers). Powered by Apify, no LinkedIn login. Triggers on \\\"who liked my post\\\", \\\"who engaged\\\", \\\"engagers report\\\", \\\"audience analytics\\\". Not for tracking author replies to your comments (use linkedin-thread-monitor).\"",
+    "path": "library/sergebulaev-linkedin-skills/skills/linkedin-engager-analytics",
+    "activation_cmd": "python .agents/library/activate_skill.py activate linkedin-engager-analytics",
+    "link_cmd": "python .agents/library/activate_skill.py link linkedin-engager-analytics"
+  },
+  {
+    "id": "linkedin-hook-extractor",
+    "name": "linkedin-hook-extractor",
+    "repository": "sergebulaev-linkedin-skills",
+    "category": "general",
+    "description": "\"Reverse-engineer the hook formula from a viral LinkedIn post URL. Returns which of the 20 canonical 2026 formulas it uses (anaphora, R.I.P., year-pivot, time-anchor, curiosity-gap, contrarian, comment-gate, emotional cold-open, named-gratitude, and 11 more), why it worked, and a blank template. Use to learn from a competitor's post, not to write your own (use linkedin-post-writer).\"",
+    "path": "library/sergebulaev-linkedin-skills/skills/linkedin-hook-extractor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate linkedin-hook-extractor",
+    "link_cmd": "python .agents/library/activate_skill.py link linkedin-hook-extractor"
+  },
+  {
+    "id": "linkedin-humanizer",
+    "name": "linkedin-humanizer",
+    "repository": "sergebulaev-linkedin-skills",
+    "category": "general",
+    "description": "\"Remove AI tells from LinkedIn posts/comments: 2026 vocabulary density, reveal bridges, staccato fragments, stacked triads, performed sincerity. Tiered rewriter plus `--mode audit` LinkedIn post auditor and `--mode profile` voice builder. Not for drafting from scratch (use linkedin-post-writer) or beating AI detectors. Keywords: humanize, de-AI, post audit, post auditor, audit before posting.\"",
+    "path": "library/sergebulaev-linkedin-skills/skills/linkedin-humanizer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate linkedin-humanizer",
+    "link_cmd": "python .agents/library/activate_skill.py link linkedin-humanizer"
+  },
+  {
+    "id": "linkedin-interviewer",
+    "name": "linkedin-interviewer",
+    "repository": "sergebulaev-linkedin-skills",
+    "category": "general",
+    "description": "\"Interview the user for the raw material their posts are made of. Builds a lasting Story Bank of roles, numbers, turning points, scars and positions, or runs a focused interview that turns one topic into a post spine. Use when a draft has nothing concrete to draw on, or the user says interview me. Not for learning how they write (use linkedin-humanizer --mode profile).\"",
+    "path": "library/sergebulaev-linkedin-skills/skills/linkedin-interviewer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate linkedin-interviewer",
+    "link_cmd": "python .agents/library/activate_skill.py link linkedin-interviewer"
+  },
+  {
+    "id": "linkedin-post-writer",
+    "name": "linkedin-post-writer",
+    "repository": "sergebulaev-linkedin-skills",
+    "category": "general",
+    "description": "\"Draft a new LinkedIn post from scratch using one of 20 2026 hook formulas (anaphora, R.I.P., time-anchor, curiosity-gap, contrarian, controlled A/B, false-binary, and more) plus a founders-edition angle library, picked by engagement goal (comments, reposts, likes, saves). Runs the humanizer pass and schedules via Publora on approval. Use to write a post, find a hook or proven format, or get founder-specific angles. Not for reviewing existing drafts (use linkedin-humanizer --mode audit).\"",
+    "path": "library/sergebulaev-linkedin-skills/skills/linkedin-post-writer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate linkedin-post-writer",
+    "link_cmd": "python .agents/library/activate_skill.py link linkedin-post-writer"
+  },
+  {
+    "id": "linkedin-profile-optimizer",
+    "name": "linkedin-profile-optimizer",
+    "repository": "sergebulaev-linkedin-skills",
+    "category": "general",
+    "description": "\"Audit and rewrite a LinkedIn profile end-to-end for 2026: headline, About 7-step, Featured, banner, photo, Experience metrics, Skills, custom URL, recommendations. Triggers on \\\"review my profile\\\", \\\"rewrite my headline\\\", \\\"fix my About\\\", \\\"optimize banner\\\", \\\"profile audit\\\", \\\"LinkedIn bio\\\". Converts resume-style profiles to ones that convert 3-5x better. Not for writing feed content (use linkedin-post-writer).\"",
+    "path": "library/sergebulaev-linkedin-skills/skills/linkedin-profile-optimizer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate linkedin-profile-optimizer",
+    "link_cmd": "python .agents/library/activate_skill.py link linkedin-profile-optimizer"
+  },
+  {
+    "id": "linkedin-reply-handler",
+    "name": "linkedin-reply-handler",
+    "repository": "sergebulaev-linkedin-skills",
+    "category": "general",
+    "description": "\"Draft a reply to one LinkedIn comment from its URL, or sweep a whole thread from just the post URL and draft a reply to every comment worth answering, in one batch. Use for replying to a comment, following an author reply, or clearing all comments on a post. Resolves the correct parentComment (LinkedIn flattens threads to 2 levels), filters low-value comments before a sweep, and posts via Publora on approval. Not for top-level comments (use linkedin-comment-drafter).\"",
+    "path": "library/sergebulaev-linkedin-skills/skills/linkedin-reply-handler",
+    "activation_cmd": "python .agents/library/activate_skill.py activate linkedin-reply-handler",
+    "link_cmd": "python .agents/library/activate_skill.py link linkedin-reply-handler"
+  },
+  {
+    "id": "linkedin-repurposer",
+    "name": "linkedin-repurposer",
+    "repository": "sergebulaev-linkedin-skills",
+    "category": "general",
+    "description": "\"Repurpose existing content into a native LinkedIn post. Take a tweet, thread, YouTube video, blog, or newsletter and rebuild it for LinkedIn: re-hook before the fold, expand to the 900 to 1300 char sweet spot, add whitespace and a CTA, move links to the first comment, run the humanizer, publish via Publora on approval. Not for writing from scratch (use linkedin-post-writer), not for auditing a draft (use linkedin-humanizer --mode audit).\"",
+    "path": "library/sergebulaev-linkedin-skills/skills/linkedin-repurposer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate linkedin-repurposer",
+    "link_cmd": "python .agents/library/activate_skill.py link linkedin-repurposer"
+  },
+  {
+    "id": "linkedin-thread-monitor",
+    "name": "linkedin-thread-monitor",
+    "repository": "sergebulaev-linkedin-skills",
+    "category": "general",
+    "description": "\"Track which of your LinkedIn comments earned author replies. Flags the 6-24h warm-reply window where thread momentum peaks, classifies threads as hot/warm/cool/dormant, and routes warm ones to linkedin-reply-handler for follow-up drafts. Powered by Apify, no LinkedIn login. Triggers on \\\"what threads need follow-up\\\", \\\"author replied\\\", \\\"monitor my comments\\\". Not for analyzing likers on a post (use linkedin-engager-analytics).\"",
+    "path": "library/sergebulaev-linkedin-skills/skills/linkedin-thread-monitor",
+    "activation_cmd": "python .agents/library/activate_skill.py activate linkedin-thread-monitor",
+    "link_cmd": "python .agents/library/activate_skill.py link linkedin-thread-monitor"
+  },
+  {
+    "id": "sergebulaev-linkedin-skills",
+    "name": "sergebulaev-linkedin-skills",
+    "repository": "sergebulaev-linkedin-skills",
+    "category": "general",
+    "description": "\"Plan, draft, audit, and publish LinkedIn posts and comments. Use when the user wants to write a viral LinkedIn post, draft a comment or reply on any LinkedIn post URL, audit a draft against 2026 algorithm heuristics, remove AI tells, extract hook formulas from viral posts, or plan a week of content. Powered by the Publora API for publishing. User provides post/comment URLs, skill drafts content, user approves, then publishes.\"",
+    "path": "library/sergebulaev-linkedin-skills/skills/sergebulaev-linkedin-skills",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sergebulaev-linkedin-skills",
+    "link_cmd": "python .agents/library/activate_skill.py link sergebulaev-linkedin-skills"
   }
 ]

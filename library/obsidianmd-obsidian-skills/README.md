@@ -4,6 +4,12 @@ These skills follow the [Agent Skills specification](https://agentskills.io/spec
 
 ## Installation
 
+Obsidian is an official plugin for:
+
+- [ChatGPT and Codex](https://chatgpt.com/plugins/plugins_6aee4fde227881919d61b034b1c31096)
+- [Cursor](https://cursor.com/marketplace/obsidian)
+- [Grok Bot](https://x.ai/bot/plugin/88871845)
+
 ### Claude Code marketplace
 
 From terminal:
@@ -24,15 +30,13 @@ To get new skills later, run `claude plugin update obsidian@obsidian-skills`.
 
 ### Codex marketplace
 
+To install from this repo instead of the [ChatGPT plugin directory](https://chatgpt.com/plugins/plugins_6aee4fde227881919d61b034b1c31096):
+
 ```sh
 codex plugin marketplace add obsidianmd/obsidian-skills
 ```
 
 Then install Obsidian from the plugin directory in Codex or the ChatGPT desktop app.
-
-### Cursor
-
-Install Obsidian from the [Cursor Marketplace](https://cursor.com/marketplace).
 
 ### npx skills
 

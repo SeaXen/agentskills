@@ -1,0 +1,23 @@
+{
+  "slug": "docs",
+  "name": "Docs",
+  "title": "Docs (living documents)",
+  "description": "Living documents kept as a folder: doc/doc.json names the doc and its tabs, and each tab's text is blocks and characters with ids (headings, lists and checklists, tables, code, quotes, pictures, dates, @-mentions and dropdowns). Edited in a local page where people type, comment, react and decide on the agent's suggested edits, with tabs and subtabs, find and replace, version history, imports from Markdown, Word and PDF, and exports to Markdown, Word, PDF and HTML.",
+  "summary": "A living doc: tabs of rich text people and the agent write, comment on and suggest edits to together.",
+  "artifactTitle": "Untitled doc",
+  "category": "Documents",
+  "version": "0.1.0",
+  "skill": "SKILL.md",
+  "intents": ["document", "doc", "report", "proposal", "memo", "notes"],
+  "when": "The person wants a document to keep, share, comment on or revise together: a report, plan, proposal, brief, memo, spec, handbook, guide, meeting notes or other writing, as a living doc with tabs; or wants to change a folder that holds doc/doc.json; or to import a Markdown, Word or PDF file as one.",
+  "detect": ["doc/doc.json"],
+  "titleFrom": "doc/doc.json#/name",
+  "entry": {
+    "start": { "command": "node", "args": ["scripts/cli.mjs", "serve", "--type", "docs"] },
+    "open": true,
+    "share": true,
+    "actions": true
+  },
+  "engines": { "openArtifact": ">=1" },
+  "openArtifact": { "style": "doc", "store": "doc", "comments": true, "exports": ["md", "docx", "pdf", "html"] }
+}

@@ -540,6 +540,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link skills-arena"
   },
   {
+    "id": "skills-automate-me",
+    "name": "skills-automate-me",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Use for \\\"automate me\\\", \\\"create/update/refresh my -mode skill\\\", \\\"turn/capture my preferences or working style into a skill\\\", or wanting agents to follow how the user works. Drafts or revises a personal -mode skill via create-skill + unslop, optionally pulling fresh evidence from recent transcripts.\"",
+    "path": "library/backnotprop-pstack/skills/skills-automate-me",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-automate-me",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-automate-me"
+  },
+  {
+    "id": "skills-benchmark-checklist",
+    "name": "skills-benchmark-checklist",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Vet a perf measurement (limiter, tuning, limits, errors, repeatability, relevance, and whether the work happened) before you report or act on it. Use when you run a benchmark or report a speedup or regression you measured.\"",
+    "path": "library/backnotprop-pstack/skills/skills-benchmark-checklist",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-benchmark-checklist",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-benchmark-checklist"
+  },
+  {
     "id": "skills-blast-radius",
     "name": "skills-blast-radius",
     "repository": "backnotprop-pstack",
@@ -548,6 +568,16 @@
     "path": "library/backnotprop-pstack/skills/skills-blast-radius",
     "activation_cmd": "python .agents/library/activate_skill.py activate skills-blast-radius",
     "link_cmd": "python .agents/library/activate_skill.py link skills-blast-radius"
+  },
+  {
+    "id": "skills-figure-it-out",
+    "name": "skills-figure-it-out",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Design an auditable playbook when no narrower one fits: a large migration, an ambitious multi-part change, or work a human reviews after stepping away. Scales rigor to the task, runs a hypothesis loop, and logs decisions. Use for /figure-it-out or 'figure it out'.\"",
+    "path": "library/backnotprop-pstack/skills/skills-figure-it-out",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-figure-it-out",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-figure-it-out"
   },
   {
     "id": "skills-how",
@@ -588,6 +618,146 @@
     "path": "library/backnotprop-pstack/skills/skills-poteto-mode",
     "activation_cmd": "python .agents/library/activate_skill.py activate skills-poteto-mode",
     "link_cmd": "python .agents/library/activate_skill.py link skills-poteto-mode"
+  },
+  {
+    "id": "skills-principle-attack-the-premise",
+    "name": "skills-principle-attack-the-premise",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Apply when two or more fixes that share one premise have failed the same gate. Write the premise down and test it directly before you write another fix that assumes it.\"",
+    "path": "library/backnotprop-pstack/skills/skills-principle-attack-the-premise",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-principle-attack-the-premise",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-principle-attack-the-premise"
+  },
+  {
+    "id": "skills-principle-boundary-discipline",
+    "name": "skills-principle-boundary-discipline",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Apply when wiring validation, error handling, or framework adapters. Concentrate guards at system boundaries (CLI, config, network, external APIs); trust internal types and keep business logic in pure functions.\"",
+    "path": "library/backnotprop-pstack/skills/skills-principle-boundary-discipline",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-principle-boundary-discipline",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-principle-boundary-discipline"
+  },
+  {
+    "id": "skills-principle-build-the-lever",
+    "name": "skills-principle-build-the-lever",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Apply to any non-trivial work, not just bulk work: edits, migrations, analyses, checks. Build the tool that does it or proves it (codemod, script, generator, or a skill your subagents follow) instead of working by hand. The tool is the artifact a reviewer can rerun.\"",
+    "path": "library/backnotprop-pstack/skills/skills-principle-build-the-lever",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-principle-build-the-lever",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-principle-build-the-lever"
+  },
+  {
+    "id": "skills-principle-explain-the-number",
+    "name": "skills-principle-explain-the-number",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Apply before you measure, and before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result. Find what limits it, and rule out that it measured something other than the work you think.\"",
+    "path": "library/backnotprop-pstack/skills/skills-principle-explain-the-number",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-principle-explain-the-number",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-principle-explain-the-number"
+  },
+  {
+    "id": "skills-principle-fix-root-causes",
+    "name": "skills-principle-fix-root-causes",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Apply when debugging. Trace each symptom back to the first place the system went wrong and fix it there. A guard is a fix only when the state it handles is legitimate.\"",
+    "path": "library/backnotprop-pstack/skills/skills-principle-fix-root-causes",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-principle-fix-root-causes",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-principle-fix-root-causes"
+  },
+  {
+    "id": "skills-principle-foundational-thinking",
+    "name": "skills-principle-foundational-thinking",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-feature work, asking what concurrent actors share. Get the data structures right so downstream code becomes obvious.\"",
+    "path": "library/backnotprop-pstack/skills/skills-principle-foundational-thinking",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-principle-foundational-thinking",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-principle-foundational-thinking"
+  },
+  {
+    "id": "skills-principle-make-operations-idempotent",
+    "name": "skills-principle-make-operations-idempotent",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Apply when designing commands, lifecycle steps, or processing loops that run amid crashes, restarts, and retries. Converge to the same end state regardless of partial prior runs.\"",
+    "path": "library/backnotprop-pstack/skills/skills-principle-make-operations-idempotent",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-principle-make-operations-idempotent",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-principle-make-operations-idempotent"
+  },
+  {
+    "id": "skills-principle-minimize-reader-load",
+    "name": "skills-principle-minimize-reader-load",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Apply when reviewing or shaping code that's hard to trace. Count layers between question and answer, and hidden state in the reader's head; collapse one-caller wrappers and shrink mutable scope.\"",
+    "path": "library/backnotprop-pstack/skills/skills-principle-minimize-reader-load",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-principle-minimize-reader-load",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-principle-minimize-reader-load"
+  },
+  {
+    "id": "skills-principle-model-the-domain",
+    "name": "skills-principle-model-the-domain",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Apply when writing stateful logic, or when code branches a lot or repeats a shape assumption across files.\"",
+    "path": "library/backnotprop-pstack/skills/skills-principle-model-the-domain",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-principle-model-the-domain",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-principle-model-the-domain"
+  },
+  {
+    "id": "skills-principle-prove-it-works",
+    "name": "skills-principle-prove-it-works",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Apply after completing a task, before declaring done. Verify against the real artifact (run the feature, read the actual value, inspect the diff), not a proxy, self-report, or 'it compiles.'\"",
+    "path": "library/backnotprop-pstack/skills/skills-principle-prove-it-works",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-principle-prove-it-works",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-principle-prove-it-works"
+  },
+  {
+    "id": "skills-principle-separate-before-serializing-shared-state",
+    "name": "skills-principle-separate-before-serializing-shared-state",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Apply when concurrent actors might write to the same file, branch, key, or state object. Eliminate the sharing first; serialize structurally only when one shared writer is a real invariant.\"",
+    "path": "library/backnotprop-pstack/skills/skills-principle-separate-before-serializing-shared-state",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-principle-separate-before-serializing-shared-state",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-principle-separate-before-serializing-shared-state"
+  },
+  {
+    "id": "skills-principle-sequence-verifiable-units",
+    "name": "skills-principle-sequence-verifiable-units",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Apply to multi-step work (sweeps, migrations, runs of similar edits) and to how you stack commits and PRs. Break work into small units that each end in a verifiable state, check each before the next, and order delivery so the sequence proves itself to a reviewer.\"",
+    "path": "library/backnotprop-pstack/skills/skills-principle-sequence-verifiable-units",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-principle-sequence-verifiable-units",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-principle-sequence-verifiable-units"
+  },
+  {
+    "id": "skills-principle-test-behavior-not-implementation",
+    "name": "skills-principle-test-behavior-not-implementation",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Apply when you write, change, or keep a test. Assert what the code's users can observe, so that the test fails when that behavior breaks and keeps passing when only the internals change.\"",
+    "path": "library/backnotprop-pstack/skills/skills-principle-test-behavior-not-implementation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-principle-test-behavior-not-implementation",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-principle-test-behavior-not-implementation"
+  },
+  {
+    "id": "skills-principle-type-system-discipline",
+    "name": "skills-principle-type-system-discipline",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Apply when designing types, reviewing a function signature, or writing code in any statically-typed language. Make illegal states unrepresentable, brand semantic primitives, parse external data at boundaries, exhaust variants, derive from authoritative schemas.\"",
+    "path": "library/backnotprop-pstack/skills/skills-principle-type-system-discipline",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-principle-type-system-discipline",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-principle-type-system-discipline"
   },
   {
     "id": "skills-recall",
@@ -650,6 +820,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link skills-sharpen"
   },
   {
+    "id": "skills-show-me-your-work",
+    "name": "skills-show-me-your-work",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Keep a reviewable decision trail for long-running or unattended work: a TSV log with one row per decision (what, why, evidence, result). Local by default; commit it when a reviewer needs the trail to trust the result. Use for /show-me-your-work, autonomous or multi-phase runs, or work a human reviews after stepping away.\"",
+    "path": "library/backnotprop-pstack/skills/skills-show-me-your-work",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-show-me-your-work",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-show-me-your-work"
+  },
+  {
     "id": "skills-swarm",
     "name": "skills-swarm",
     "repository": "backnotprop-pstack",
@@ -670,6 +850,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link skills-teach"
   },
   {
+    "id": "skills-technical-writing",
+    "name": "skills-technical-writing",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "\"Layered technical-writing standard: Di\u00e1taxis structure, Google developer style sentences, STE instruction rules, Global English syntax. Use for /technical-writing or when writing or reviewing docs, RFCs, readmes, PR descriptions, or commit messages.\"",
+    "path": "library/backnotprop-pstack/skills/skills-technical-writing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-technical-writing",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-technical-writing"
+  },
+  {
     "id": "skills-triage-issue-reports",
     "name": "skills-triage-issue-reports",
     "repository": "backnotprop-pstack",
@@ -678,6 +868,16 @@
     "path": "library/backnotprop-pstack/skills/skills-triage-issue-reports",
     "activation_cmd": "python .agents/library/activate_skill.py activate skills-triage-issue-reports",
     "link_cmd": "python .agents/library/activate_skill.py link skills-triage-issue-reports"
+  },
+  {
+    "id": "skills-unslop",
+    "name": "skills-unslop",
+    "repository": "backnotprop-pstack",
+    "category": "general",
+    "description": "Cut AI tells from any writing.",
+    "path": "library/backnotprop-pstack/skills/skills-unslop",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-unslop",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-unslop"
   },
   {
     "id": "skills-why",

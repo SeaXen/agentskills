@@ -1,7 +1,7 @@
 # 📚 Academic Writing, Research & Literature
 
 > **Category**: `academic-writing-publishing`  
-> **Total Curated Skills**: 308 skills  
+> **Total Curated Skills**: 309 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -216,6 +216,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`quiz-maker`](../../library/genspark-ai-genoffice/skills/quiz-maker) | ⚪ Reserve | `genspark-ai-genoffice` | Write a complete test paper by knowledge point and difficulty with an answer key and explanatio... |
 | [`readability`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/readability) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Correct grammar errors, typos, and improve academic readability in LaTeX, Markdown, or plain-te... |
 | [`rebuttal-guidance`](../../library/hkustdial-supervisor-skills/skills/rebuttal-guidance) | ⚪ Reserve | `hkustdial-supervisor-skills` | Provides actionable peer-review rebuttal guidance (not full rebuttal prose) using conditional p... |
+| [`relight-painted-surfaces`](../../library/mengto-skills/skills/relight-painted-surfaces) | ⚪ Reserve | `mengto-skills` | Add pointer-driven lighting to a 2D painting, sprite, or holographic card using separate depth,... |
 | [`replicate-paper`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/replicate-paper) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Run a full 6-phase autonomous replication of a biomedical/epidemiology paper against UK Biobank... |
 | [`research-lit`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/research-lit) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Search and analyze research papers, find related work, summarize key ideas. Use when user says ... |
 | [`research-paper-kb`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/research-paper-kb) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Build a persistent cross-session knowledge base from academic papers |

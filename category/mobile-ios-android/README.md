@@ -1,7 +1,7 @@
 # 📱 Mobile Development (iOS, Android, React Native)
 
 > **Category**: `mobile-ios-android`  
-> **Total Curated Skills**: 327 skills  
+> **Total Curated Skills**: 332 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -68,6 +68,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`aws-sdk-swift-usage`](../../library/aws-agent-toolkit-for-aws/skills/aws-sdk-swift-usage) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | AWS SDK for Swift development patterns. Use when writing Swift code that uses AWS services via ... |
 | [`azure-monitor-opentelemetry-exporter-py`](../../library/antigravity-awesome-skills/skills/azure-monitor-opentelemetry-exporter-py) | ⚪ Reserve | `antigravity-awesome-skills` | Azure Monitor OpenTelemetry Exporter for Python. Use for low-level OpenTelemetry export to Appl... |
 | [`background-processing`](../../library/dpearson2699-swift-ios-skills/skills/background-processing) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Schedule and execute background work on iOS using BGTaskScheduler. Use when registering BGAppRe... |
+| [`blender-game-optimization`](../../library/el4cteo-blender-skills/skills/blender-game-optimization) | ⚪ Reserve | `el4cteo-blender-skills` | Optimize Blender assets for real-time engines - triangle/material/texture/bone budgets per plat... |
 | [`browserenginekit`](../../library/dpearson2699-swift-ios-skills/skills/browserenginekit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Build alternative browser engines using BrowserEngineKit. Use when developing a non-WebKit brow... |
 | [`build-game-audio-feedback`](../../library/mengto-skills/skills/build-game-audio-feedback) | ⚪ Reserve | `mengto-skills` | Design or implement responsive audio feedback for a Three.js or web game. Use for action sounds... |
 | [`build-game-changelog`](../../library/mengto-skills/skills/build-game-changelog) | ⚪ Reserve | `mengto-skills` | Design, implement, backfill, audit, and release in-game changelogs with contiguous versioning, ... |
@@ -97,11 +98,15 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`core-nfc`](../../library/dpearson2699-swift-ios-skills/skills/core-nfc) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Read and write NFC tags using CoreNFC. Use when scanning NDEF tags, reading ISO7816/ISO15693/Fe... |
 | [`coreml`](../../library/dpearson2699-swift-ios-skills/skills/coreml) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Integrate Core ML models in iOS apps for on-device machine learning inference. Covers model loa... |
 | [`create-spring-boot-kotlin-project`](../../library/github-awesome-copilot/skills/create-spring-boot-kotlin-project) | ⚪ Reserve | `github-awesome-copilot` | Create Spring Boot Kotlin Project Skeleton |
+| [`creative-design-game-development`](../../library/davila7-claude-code-templates/skills/creative-design-game-development) | ⚪ Reserve | `davila7-claude-code-templates` | Use when building, fixing or tuning any video game. Invoke it before writing or changing game c... |
 | [`dark-social-attributor`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/dark-social-attributor) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "figure out where our direct traffic really comes from", "measure dar... |
 | [`dart-setup-ffi-assets`](../../library/dart-lang-skills/skills/dart-setup-ffi-assets) | ⚪ Reserve | `dart-lang-skills` | Guides agents in compiling and packaging C/C++ source code into dynamic or static libraries (Co... |
 | [`dart-use-ffigen`](../../library/dart-lang-skills/skills/dart-use-ffigen) | ⚪ Reserve | `dart-lang-skills` | Guide agents to use `package:ffigen` to automatically generate FFI bindings instead of writing ... |
 | [`debugging-instruments`](../../library/dpearson2699-swift-ios-skills/skills/debugging-instruments) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Debug iOS apps and profile performance using LLDB, the interactive Memory Graph Debugger, and I... |
+| [`design-app-store-screenshots`](../../library/101-skills-superpowers/skills/design-app-store-screenshots) | ⚪ Reserve | `101-skills-superpowers` | App Store and Google Play screenshot creation with exact platform specs. Covers iOS/Android dim... |
+| [`design-email-design`](../../library/101-skills-superpowers/skills/design-email-design) | ⚪ Reserve | `101-skills-superpowers` | Email marketing design with layout patterns, subject line formulas, and deliverability rules. C... |
 | [`design-everyday-things`](../../library/wondelai-skills/skills/design-everyday-things) | ⚪ Reserve | `wondelai-skills` | Apply foundational design principles: affordances, signifiers, constraints, feedback, and conce... |
+| [`design-youtube-thumbnail-design`](../../library/101-skills-superpowers/skills/design-youtube-thumbnail-design) | ⚪ Reserve | `101-skills-superpowers` | YouTube thumbnail design with specific dimensions, contrast rules, and mobile preview optimizat... |
 | [`detecting-mobile-malware-behavior`](../../library/mukul975-anthropic-cybersecurity-skills/skills/detecting-mobile-malware-behavior) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Detects and analyzes malicious behavior in mobile applications through |
 | [`developer-device-platform-basics`](../../library/google-skills/skills/developer-device-platform-basics) | ⚪ Reserve | `google-skills` | Provides guidance and instructions on managing remote devices on Developer Device Platform (DDP... |
 | [`developing-genkit-dart`](../../library/google-skills/skills/developing-genkit-dart) | ⚪ Reserve | `google-skills` | Generates code and provides documentation for the Genkit Dart SDK. Use when the user asks to bu... |

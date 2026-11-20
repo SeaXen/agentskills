@@ -1600,6 +1600,14 @@
     "path": "category/code-quality-refactoring/ai"
   },
   {
+    "id": "ai-3d-generation",
+    "name": "ai-3d-generation",
+    "category": "code-quality-refactoring",
+    "repository": "101-skills-superpowers",
+    "description": "Generate 3D models, rig characters and create PBR materials via inference.sh CLI. Models: Tripo 3.1, Meshy 7.1, Hunyuan 3D 3.1, Rodin Gen-2.5, HunyuanImage-to-3D 2, Rodin 3D Generator. Rigging: Tripo Auto Rig, Hunyuan 3D Auto Rigging, TokenRig. Materials: PATINA text-to-material, image-to-material, extract-material. Capabilities: text-to-3D, image-to-3D, multiview-to-3D, PBR textures up to 8K, quad and low-poly topology, part segmentation, auto rigging, preset animations, seamless tiling PBR maps. Use for: game assets, 3D printing, AR/VR models, product visualization, character rigging, texture libraries. Triggers: 3d model, text to 3d, image to 3d, 3d generation, 3d asset, glb, fbx, obj, stl, usdz, mesh generation, tripo, meshy, hunyuan 3d, rodin, hyper3d, auto rig, rigging, skinning, mixamo, pbr material, pbr texture, seamless texture, tileable texture, normal map, roughness map, patina",
+    "path": "category/code-quality-refactoring/ai-3d-generation"
+  },
+  {
     "id": "ai-agent-deep-dive",
     "name": "ai-agent-deep-dive",
     "category": "code-quality-refactoring",
@@ -1798,6 +1806,22 @@
     "repository": "github-awesome-copilot",
     "description": "Make any repo AI-ready \u2014 analyzes your codebase and generates AGENTS.md, copilot-instructions.md, CI workflows, issue templates, and more. Mines your PR review patterns and creates files customized to your stack. USE THIS SKILL when the user asks to \"make this repo ai-ready\", \"set up AI config\", or \"prepare this repo for AI contributions\".",
     "path": "category/code-quality-refactoring/ai-ready"
+  },
+  {
+    "id": "ai-research-gemini",
+    "name": "ai-research-gemini",
+    "category": "code-quality-refactoring",
+    "repository": "davila7-claude-code-templates",
+    "description": "Use when the user asks to run Gemini CLI for code review, plan review, or big context (>200k) processing. Ideal for comprehensive analysis requiring large context windows. Uses Gemini 3 Pro by default for state-of-the-art reasoning and coding.",
+    "path": "category/code-quality-refactoring/ai-research-gemini"
+  },
+  {
+    "id": "ai-research-infrastructure-lambda-labs",
+    "name": "ai-research-infrastructure-lambda-labs",
+    "category": "code-quality-refactoring",
+    "repository": "davila7-claude-code-templates",
+    "description": "Reserved and on-demand GPU cloud instances for ML training and inference. Use when you need dedicated GPU instances with simple SSH access, persistent filesystems, or high-performance multi-node clusters for large-scale training.",
+    "path": "category/code-quality-refactoring/ai-research-infrastructure-lambda-labs"
   },
   {
     "id": "ai-slides",
@@ -4784,12 +4808,52 @@
     "path": "category/code-quality-refactoring/blast-radius"
   },
   {
+    "id": "blender-asset-qa",
+    "name": "blender-asset-qa",
+    "category": "code-quality-refactoring",
+    "repository": "el4cteo-blender-skills",
+    "description": "Mandatory review gate for any mesh or asset created or edited in Blender. Detects z-fighting, floating/detached parts, inverted or inconsistent normals, non-manifold/open geometry, degenerate faces, duplicate verts, n-gons, unapplied scale, UV problems, bad skin weights, material/texture errors, and renders multi-angle review sheets. Use before calling any modeling, export or delivery task done.",
+    "path": "category/code-quality-refactoring/blender-asset-qa"
+  },
+  {
+    "id": "blender-character-rigging",
+    "name": "blender-character-rigging",
+    "category": "code-quality-refactoring",
+    "repository": "el4cteo-blender-skills",
+    "description": "Character rigging in Blender 5.3 - Rigify metarig fit/generate, bone naming/roll/collections, DEF/MCH/control layers, IK/FK, robust skinning (heat + proxy fallback), weight-painting rules, correctives, engine game skeletons (Unity, Unreal, Roblox R15), rig validation and deformation stress tests. Use for armature, skinning or weights tasks.",
+    "path": "category/code-quality-refactoring/blender-character-rigging"
+  },
+  {
     "id": "blender-editable-3d",
     "name": "blender-editable-3d",
     "category": "code-quality-refactoring",
     "repository": "majiayu000-spellbook",
     "description": "\u6839\u636e\u53c2\u8003\u56fe\u3001\u5e26\u5c3a\u5bf8\u7684\u8bbe\u8ba1\u56fe\u6216\u6587\u5b57\u6982\u5ff5\uff0c\u5728 Blender \u4e2d\u5236\u4f5c\u7531\u72ec\u7acb\u547d\u540d\u96f6\u4ef6\u7ec4\u6210\u7684\u53ef\u7f16\u8f91 3D \u6a21\u578b\uff0c\u518d\u6309\u7528\u6237\u8981\u6c42\u4fee\u6539\u5c3a\u5bf8\u3001\u90e8\u4ef6\u548c\u914d\u8272\uff0c\u4ea4\u4ed8 .blend\u3001GLB \u548c\u591a\u89d2\u5ea6\u6e32\u67d3\u3002\u7528\u4e8e\u56fe\u7eb8\u8f6c\u4e09\u7ef4\u3001\u4ea7\u54c1\u6982\u5ff5\u5efa\u6a21\u548c\u98ce\u683c\u5316\u786c\u8868\u9762\u9053\u5177\uff0c\u4ee5\u53ca\u201c\u505a\u4e00\u4e2a\u540c\u6837\u7684\u6848\u4f8b\uff0c\u6362\u6210\u5766\u514b\u6216\u5176\u4ed6\u7269\u4f53\u201d\u7b49\u8bf7\u6c42\uff1b\u4e0d\u7528\u4e8e\u4eba\u7269\u89d2\u8272\u3001\u5934\u53d1\u6216\u8138\u90e8\u5efa\u6a21\uff0c\u8fd9\u4e9b\u8bf7\u6c42\u4f7f\u7528 blender-reference-to-3d\u3002\u4ee5\u53ef\u7ee7\u7eed\u4fee\u6539\u7684\u51e0\u4f55\u5de5\u7a0b\u4e3a\u6838\u5fc3\uff1b\u4e0d\u9ed8\u8ba4\u5236\u4f5c\u62c6\u89e3\u52a8\u753b\u3001\u5f55\u5c4f\u3001\u7ed1\u5b9a\u6216\u5236\u9020\u6a21\u578b\u3002",
     "path": "category/code-quality-refactoring/blender-editable-3d"
+  },
+  {
+    "id": "blender-export-pipelines",
+    "name": "blender-export-pipelines",
+    "category": "code-quality-refactoring",
+    "repository": "el4cteo-blender-skills",
+    "description": "Export from Blender 5.3 with verified presets - Roblox (FBX/glTF, cages, R15, SurfaceAppearance), Unity (FBX, Humanoid), Unreal (FBX skeletal, Nanite, UCX), Godot/web (GLB, meshopt/Draco, WebP), USD. Scale/axes, smoothing, tangents, leaf bones, clips, batch export, post-export verification. Use whenever an asset leaves Blender.",
+    "path": "category/code-quality-refactoring/blender-export-pipelines"
+  },
+  {
+    "id": "blender-facial-shapekeys",
+    "name": "blender-facial-shapekeys",
+    "category": "code-quality-refactoring",
+    "repository": "el4cteo-blender-skills",
+    "description": "Facial rigs and shape keys in Blender 5.3 - ARKit 52 blendshapes, visemes for lip-sync, sculpting expressions, splitting symmetric shapes into Left/Right, mirroring, corrective and combination shapes, drivers and control rigs, bone+blendshape hybrids, export to engines (Unity, Unreal, Roblox dynamic heads, VRM/web). Use for faces, expressions, lip-sync, or any shape-key work.",
+    "path": "category/code-quality-refactoring/blender-facial-shapekeys"
+  },
+  {
+    "id": "blender-lighting-lookdev",
+    "name": "blender-lighting-lookdev",
+    "category": "code-quality-refactoring",
+    "repository": "el4cteo-blender-skills",
+    "description": "Lighting, cameras and look-dev in Blender 5.3 - studio 3-point and product lighting, HDRI environments, sun/sky exteriors, interiors, light linking, physically based light units, camera focal lengths/composition/DOF, cyclorama backdrops, looping turntables for asset presentation. Use when presenting assets, setting up scenes for rendering, or judging materials under consistent light.",
+    "path": "category/code-quality-refactoring/blender-lighting-lookdev"
   },
   {
     "id": "blender-modeler",
@@ -4806,6 +4870,30 @@
     "repository": "majiayu000-spellbook",
     "description": "\u6839\u636e\u4eba\u7269\u53c2\u8003\u56fe\u5728 Blender \u5236\u4f5c\u3001\u4fee\u6574\u548c\u914d\u8272\u53ef\u7f16\u8f91\u89d2\u8272\uff0c\u5c24\u5176\u9002\u7528\u4e8e\u4e8c\u6b21\u5143\u5934\u90e8\u4e0e\u5934\u53d1\u3001\u9759\u6001\u591a\u89d2\u5ea6\u5c55\u793a\u3002\u8986\u76d6\u8f93\u5165\u62c6\u89e3\u3001\u8f6e\u5ed3\u4e0e\u4e94\u5b98\u6807\u6ce8\u3001\u4e5d\u89c6\u56fe\u53c2\u8003\u3001\u6a21\u677f\u9009\u578b\u3001\u51e0\u4f55\u5b9e\u73b0\u3001\u6750\u8d28\u914d\u8272\u3001\u89c6\u89c9\u68c0\u67e5\u548c\u5de5\u7a0b\u4ea4\u4ed8\uff1b\u5f53\u7528\u6237\u8981\u6c42\u56fe\u8f6c\u4e09\u7ef4\u5934\u50cf\u3001\u6309\u53c2\u8003\u5efa\u6a21\u3001\u4fee\u590d\u76f8\u4f3c\u5ea6\u3001\u5b8c\u5584\u914d\u8272\u6216\u8fd0\u884c\u5b8c\u6574\u4eba\u7269\u5236\u4f5c\u6d41\u7a0b\u65f6\u4f7f\u7528\u3002\u4ec5\u5206\u6790\u3001\u5199\u6d41\u7a0b\u6216\u5c01\u88c5\u6280\u80fd\u65f6\u4e0d\u4fee\u6539\u6a21\u578b\u3002",
     "path": "category/code-quality-refactoring/blender-reference-to-3d"
+  },
+  {
+    "id": "blender-scene-setup",
+    "name": "blender-scene-setup",
+    "category": "code-quality-refactoring",
+    "repository": "el4cteo-blender-skills",
+    "description": "Set up and audit Blender scenes the way studios do - units and real-world scale, collection layout, naming conventions (SM_/SK_/T_/M_), origins, linking vs appending, library overrides, asset libraries and catalogs, collection exporters, orphan/path cleanup. Use when starting a project, organizing a .blend, or before handoff/export.",
+    "path": "category/code-quality-refactoring/blender-scene-setup"
+  },
+  {
+    "id": "blender-stylized-npr",
+    "name": "blender-stylized-npr",
+    "category": "code-quality-refactoring",
+    "repository": "el4cteo-blender-skills",
+    "description": "Stylized / NPR looks in Blender 5.3 - toon and cel shading (bands, shadow tint, rim, hard specular), anime faces with custom normals, inverted-hull outlines with smoothed outline normals for game engines, Line Art and Freestyle lines, Grease Pencil drawing, unlit export. Use for anime, cartoon, comic, cel-shaded or outlined styles.",
+    "path": "category/code-quality-refactoring/blender-stylized-npr"
+  },
+  {
+    "id": "blender-workflow-recipes",
+    "name": "blender-workflow-recipes",
+    "category": "code-quality-refactoring",
+    "repository": "el4cteo-blender-skills",
+    "description": "End-to-end Blender 5.3 playbooks chaining the blender-* skills with QA gates - game props (mid-poly, high-to-low), game characters (sculpt/AI mesh to rigged, animated export), Roblox props/accessories/avatars, AI or downloaded asset cleanup, procedural environments, web/AR assets, product turntables, mood/weather shots (night, rain, snow, fog). Use for complete multi-stage asset requests.",
+    "path": "category/code-quality-refactoring/blender-workflow-recipes"
   },
   {
     "id": "block-storage",
@@ -5736,6 +5824,38 @@
     "path": "category/code-quality-refactoring/business-design"
   },
   {
+    "id": "business-marketing-ai-directory-submitter",
+    "name": "business-marketing-ai-directory-submitter",
+    "category": "code-quality-refactoring",
+    "repository": "davila7-claude-code-templates",
+    "description": "Lists an AI product on free AI directories, launch sites and MCP or agent directories, one at a time, from FalcoScan's checked list of free directories, and keeps a record of each submission. Use when the user wants to list, launch or promote an AI tool, SaaS, MCP server or agent on directories, or asks where to submit their product.",
+    "path": "category/code-quality-refactoring/business-marketing-ai-directory-submitter"
+  },
+  {
+    "id": "business-marketing-marketing-psychology",
+    "name": "business-marketing-marketing-psychology",
+    "category": "code-quality-refactoring",
+    "repository": "davila7-claude-code-templates",
+    "description": "When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' or 'consumer behavior.' This skill provides 70+ mental models organized for marketing application.",
+    "path": "category/code-quality-refactoring/business-marketing-marketing-psychology"
+  },
+  {
+    "id": "business-marketing-paid-ads",
+    "name": "business-marketing-paid-ads",
+    "category": "code-quality-refactoring",
+    "repository": "davila7-claude-code-templates",
+    "description": "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ad copy,' 'ad creative,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' or 'audience targeting.' This skill covers campaign strategy, ad creation, audience targeting, and optimization.",
+    "path": "category/code-quality-refactoring/business-marketing-paid-ads"
+  },
+  {
+    "id": "business-marketing-referral-program",
+    "name": "business-marketing-referral-program",
+    "category": "code-quality-refactoring",
+    "repository": "davila7-claude-code-templates",
+    "description": "When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy. Also use when the user mentions 'referral,' 'affiliate,' 'ambassador,' 'word of mouth,' 'viral loop,' 'refer a friend,' or 'partner program.' This skill covers program design, incentive structure, and growth optimization.",
+    "path": "category/code-quality-refactoring/business-marketing-referral-program"
+  },
+  {
     "id": "business-name-fit",
     "name": "business-name-fit",
     "category": "code-quality-refactoring",
@@ -6062,6 +6182,30 @@
     "repository": "davila7-claude-code-templates",
     "description": "Translate skills from one industry to another and identify transferable skills for career pivots. Use when the user mentions changing careers, switching industries, career pivot, transferable skills, or moving from one field to another.",
     "path": "category/code-quality-refactoring/career-changer-translator"
+  },
+  {
+    "id": "career-portfolio-case-study-writer",
+    "name": "career-portfolio-case-study-writer",
+    "category": "code-quality-refactoring",
+    "repository": "davila7-claude-code-templates",
+    "description": "Transform resume bullets into detailed portfolio case studies with context, action, and outcome. Use when the user mentions portfolio, case study, project write-up, or expanding a resume bullet into a longer narrative.",
+    "path": "category/code-quality-refactoring/career-portfolio-case-study-writer"
+  },
+  {
+    "id": "career-resume-ats-optimizer",
+    "name": "career-resume-ats-optimizer",
+    "category": "code-quality-refactoring",
+    "repository": "davila7-claude-code-templates",
+    "description": "Optimize resumes for Applicant Tracking Systems, check ATS compatibility, and analyze keyword match. Use when the user mentions ATS, applicant tracking, keyword optimization, parsing, or getting past resume screening software.",
+    "path": "category/code-quality-refactoring/career-resume-ats-optimizer"
+  },
+  {
+    "id": "career-resume-bullet-writer",
+    "name": "career-resume-bullet-writer",
+    "category": "code-quality-refactoring",
+    "repository": "davila7-claude-code-templates",
+    "description": "Transform weak resume bullets into achievement-focused statements with metrics and impact. Use when the user wants to rewrite bullets, strengthen accomplishments, or add action verbs and impact to their resume.",
+    "path": "category/code-quality-refactoring/career-resume-bullet-writer"
   },
   {
     "id": "careful",
@@ -7304,6 +7448,14 @@
     "path": "category/code-quality-refactoring/cloud-cloud-monitoring-promql-query"
   },
   {
+    "id": "cloud-cloud-operator-setup",
+    "name": "cloud-cloud-operator-setup",
+    "category": "code-quality-refactoring",
+    "repository": "google-skills",
+    "description": "Sets up the user's personal operator agent in a Google Cloud organization via the `ask_cloud_operator` MCP tool (the autocloud server, or any server that offers it): finds the project's organization, checks or creates the agent, saves the project and organization, and offers to share the user's existing Google Cloud operating context with the operator agent's memory. Use when the user runs this skill, asks to set up the operator or create their operator agent, or chooses setup when the cloud-operator skill asks. Don't use for ordinary GCP requests or installing gcloud.",
+    "path": "category/code-quality-refactoring/cloud-cloud-operator-setup"
+  },
+  {
     "id": "cloud-gcloud",
     "name": "cloud-gcloud",
     "category": "code-quality-refactoring",
@@ -8318,6 +8470,22 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Create and compile beautiful Beamer presentations following the Rhetoric of Decks philosophy. Use when making slides, creating decks, or compiling .tex presentation files.",
     "path": "category/code-quality-refactoring/compiledeck"
+  },
+  {
+    "id": "compileiq-debug",
+    "name": "compileiq-debug",
+    "category": "code-quality-refactoring",
+    "repository": "nvidia-skills",
+    "description": "Use when something is wrong: Search() hangs, all evaluations return INVALID_SCORE, scores aren't improving, every config returns the same number, ptxas errors fill the log, CV% is too high, or a winning ACF candidate needs NCU profiling to explain. Symptom-indexed table on top. Triggers on \"compileiq hang\", \"socket timeout\", \"INVALID_SCORE\", \"not converging\", \"every score is the same\", \"TypeError fromhex\", \"ncu profile\", \"register spill\", \"ptxas error\", \"not in expected format\", \"high cv\".",
+    "path": "category/code-quality-refactoring/compileiq-debug"
+  },
+  {
+    "id": "compileiq-run-search",
+    "name": "compileiq-run-search",
+    "category": "code-quality-refactoring",
+    "repository": "nvidia-skills",
+    "description": "Use when composing the Search(...) call and calling .start(). Covers the four worker classes (MultiProcessWorker / IsoMultiProcessWorker / RayWorker / AsyncWorker) and when to pick each, SearchConfiguration sizing rules, dump_results checkpointing, tracker_config choice (Disabled / Loguru / MLflow), num_workers/task_timeout semantics, and GPU clock locking for stable measurements. Triggers on \"Search()\", \"tuner.start()\", \"pool_size\", \"num_workers\", \"task_timeout\", \"IsoMultiProcessWorker\", \"RayWorker\", \"dump_results\", \"MLflow\", \"GPU clocks\".",
+    "path": "category/code-quality-refactoring/compileiq-run-search"
   },
   {
     "id": "compose-performance-skills",
@@ -14600,6 +14768,14 @@
     "path": "category/code-quality-refactoring/exploit-dev"
   },
   {
+    "id": "exploit-dev-offensive-crash-analysis",
+    "name": "exploit-dev-offensive-crash-analysis",
+    "category": "code-quality-refactoring",
+    "repository": "snailsploit-claude-red",
+    "description": "Week 4 exploit development curriculum. Crash triage and analysis methodology: WinDbg/GDB analysis, ASAN/MSAN output interpretation, exploitability assessment, register/stack trace reading, root cause identification. Use when analyzing crash dumps, assessing exploitability, or understanding fuzzer-generated crashes.",
+    "path": "category/code-quality-refactoring/exploit-dev-offensive-crash-analysis"
+  },
+  {
     "id": "exploiting-active-directory-certificate-services-esc1",
     "name": "exploiting-active-directory-certificate-services-esc1",
     "category": "code-quality-refactoring",
@@ -16080,6 +16256,14 @@
     "path": "category/code-quality-refactoring/fuzzing"
   },
   {
+    "id": "fuzzing-offensive-bug-identification",
+    "name": "fuzzing-offensive-bug-identification",
+    "category": "code-quality-refactoring",
+    "repository": "snailsploit-claude-red",
+    "description": "Systematic bug identification methodology: source code review patterns, black-box testing strategies, taint analysis, dangerous function hunting, data flow tracing, and automated scanning setup. Use for code audits, bug bounty triage, or building vulnerability identification pipelines.",
+    "path": "category/code-quality-refactoring/fuzzing-offensive-bug-identification"
+  },
+  {
     "id": "fx-carry-trade",
     "name": "fx-carry-trade",
     "category": "code-quality-refactoring",
@@ -16254,14 +16438,6 @@
     "repository": "nomadamas-k-skill",
     "description": "GeekNews public RSS/Atom feed\ub85c \uae31\ub274\uc2a4 \uac8c\uc2dc\ubb3c\uc744 \uc870\ud68c, \uac80\uc0c9, \uc0c1\uc138 \ud655\uc778\ud558\ub294 \uc77d\uae30 \uc804\uc6a9 \uc2a4\ud0ac.",
     "path": "category/code-quality-refactoring/geeknews-search"
-  },
-  {
-    "id": "gemini",
-    "name": "gemini",
-    "category": "code-quality-refactoring",
-    "repository": "davila7-claude-code-templates",
-    "description": "Use when the user asks to run Gemini CLI for code review, plan review, or big context (>200k) processing. Ideal for comprehensive analysis requiring large context windows. Uses Gemini 3 Pro by default for state-of-the-art reasoning and coding.",
-    "path": "category/code-quality-refactoring/gemini"
   },
   {
     "id": "gemini-review",
@@ -16734,6 +16910,14 @@
     "repository": "google-skills",
     "description": "Provides GKE golden path configuration defaults, production readiness checklists, and cluster default patterns. Use when designing GKE clusters, verifying GKE production readiness, or checking configurations against GKE defaults. Don't use for setting up workload autoscaling specifically (use gke-workload-scaling instead).",
     "path": "category/code-quality-refactoring/gke-golden-path"
+  },
+  {
+    "id": "gke-kueue-troubleshooting",
+    "name": "gke-kueue-troubleshooting",
+    "category": "code-quality-refactoring",
+    "repository": "google-skills",
+    "description": "Diagnose a GKE batch or AI workload (Job, JobSet, LeaderWorkerSet, RayJob, Kubeflow training jobs, or plain Pods) that is pending, suspended, stuck, evicted or misconfigured when Kueue manages it - from a live GKE cluster, a support bundle or exported controller/audit logs. Load it as soon as the investigation shows a Kueue footprint, even if the user never said \"Kueue\" - anything under kueue.x-k8s.io (labels, Pod scheduling gates, Workload/LocalQueue/ClusterQueue objects and their conditions), kueue-controller-manager events or logs, or a Job with spec.suspend=true together with a Workload object in its namespace. Scripts compact cluster state and logs into verifiable facts and validate the report, while the agent classifies the cause as Kueue configuration, Kueue defect, or outside Kueue. Don't use for workloads with no Kueue footprint (use gke-node-notready, gke-workload-scaling-troubleshooting, gke-ai-troubleshooting-tpu-reservation-stockout, or gke-ai-troubleshooting-jobset-interruption).",
+    "path": "category/code-quality-refactoring/gke-kueue-troubleshooting"
   },
   {
     "id": "gke-node-notready",
@@ -19248,6 +19432,14 @@
     "path": "category/code-quality-refactoring/image-alt-tag-generator"
   },
   {
+    "id": "image-background-removal",
+    "name": "image-background-removal",
+    "category": "code-quality-refactoring",
+    "repository": "101-skills-superpowers",
+    "description": "Remove backgrounds from images with BiRefNet via inference.sh CLI. Model: BiRefNet (high accuracy background removal). Use for: product photos, portraits, e-commerce, transparent PNGs, photo editing. Triggers: remove background, background removal, remove bg, transparent background, cut out image, background remover, rembg, product photo editing, cutout, transparent png, bg removal, photo cutout",
+    "path": "category/code-quality-refactoring/image-background-removal"
+  },
+  {
     "id": "image-creation",
     "name": "image-creation",
     "category": "code-quality-refactoring",
@@ -19272,6 +19464,14 @@
     "path": "category/code-quality-refactoring/image-generation"
   },
   {
+    "id": "image-image-upscaling",
+    "name": "image-image-upscaling",
+    "category": "code-quality-refactoring",
+    "repository": "101-skills-superpowers",
+    "description": "Upscale and enhance images with Real-ESRGAN, Thera, Topaz, FLUX Upscaler via inference.sh CLI. Models: Real-ESRGAN, Thera (any size), FLUX Dev Upscaler, Topaz Image Upscaler. Use for: enhance low-res images, upscale AI art, restore old photos, increase resolution. Triggers: upscale image, image upscaler, enhance image, increase resolution, real esrgan, ai upscale, super resolution, image enhancement, upscaling, enlarge image, higher resolution, 4k upscale, hd upscale",
+    "path": "category/code-quality-refactoring/image-image-upscaling"
+  },
+  {
     "id": "image-optimization",
     "name": "image-optimization",
     "category": "code-quality-refactoring",
@@ -19280,12 +19480,36 @@
     "path": "category/code-quality-refactoring/image-optimization"
   },
   {
+    "id": "image-p-image",
+    "name": "image-p-image",
+    "category": "code-quality-refactoring",
+    "repository": "101-skills-superpowers",
+    "description": "Generate images with Pruna P-Image models via inference.sh CLI. Models: P-Image, P-Image-LoRA, P-Image-Edit, P-Image-Edit-LoRA. Capabilities: text-to-image, image editing, LoRA styles, multi-image compositing, fast inference. Pruna optimizes models for speed without quality loss. Triggers: pruna, p-image, pruna image, fast image generation, optimized flux, pruna ai, p image, fast ai image, economic image generation, cheap image generation",
+    "path": "category/code-quality-refactoring/image-p-image"
+  },
+  {
     "id": "image-poster",
     "name": "image-poster",
     "category": "code-quality-refactoring",
     "repository": "feimacode-open-design-agent-kit",
     "description": "Single-image generation skill for posters, key art, and editorial illustrations. Defaults to gpt-image-2 but is provider-agnostic \u2014 the same workflow drives Flux, Imagen, or Midjourney via the active upstream tooling. Output is one or more PNG/JPEG files saved to the project folder.",
     "path": "category/code-quality-refactoring/image-poster"
+  },
+  {
+    "id": "image-qwen-image-2",
+    "name": "image-qwen-image-2",
+    "category": "code-quality-refactoring",
+    "repository": "101-skills-superpowers",
+    "description": "Generate and edit images with Alibaba Qwen-Image-2.0 models via inference.sh CLI. Models: Qwen-Image-2.0 (fast), Qwen-Image-2.0-Pro (professional text rendering). Capabilities: text-to-image, multi-image editing, complex text rendering. Triggers: qwen image, qwen-image, alibaba image, dashscope image, qwen image 2, qwen image pro",
+    "path": "category/code-quality-refactoring/image-qwen-image-2"
+  },
+  {
+    "id": "image-qwen-image-2-pro",
+    "name": "image-qwen-image-2-pro",
+    "category": "code-quality-refactoring",
+    "repository": "101-skills-superpowers",
+    "description": "Generate images with Alibaba Qwen-Image-2.0-Pro via inference.sh CLI. Professional text rendering, fine-grained realism, enhanced semantic adherence. Ideal for posters, banners, and text-heavy designs. Triggers: qwen image pro, qwen-image-pro, qwen 2 pro, alibaba image pro, dashscope pro, professional text rendering",
+    "path": "category/code-quality-refactoring/image-qwen-image-2-pro"
   },
   {
     "id": "image-studio",
@@ -19934,6 +20158,22 @@
     "repository": "aj-geddes-useful-ai-prompts",
     "description": "Set up comprehensive infrastructure monitoring with Prometheus, Grafana, and alerting systems for metrics, health checks, and performance tracking.",
     "path": "category/code-quality-refactoring/infrastructure-monitoring"
+  },
+  {
+    "id": "infrastructure-offensive-edr-evasion",
+    "name": "infrastructure-offensive-edr-evasion",
+    "category": "code-quality-refactoring",
+    "repository": "snailsploit-claude-red",
+    "description": "EDR evasion offensive checklist: hook unhooking (user/kernel), direct syscalls, PPID spoofing, process injection variants, AMSI bypass, ETW patching, memory encryption, and behavior-based evasion. Use when planning EDR bypass during red team engagements or researching AV/EDR evasion techniques.",
+    "path": "category/code-quality-refactoring/infrastructure-offensive-edr-evasion"
+  },
+  {
+    "id": "infrastructure-offensive-windows-mitigations",
+    "name": "infrastructure-offensive-windows-mitigations",
+    "category": "code-quality-refactoring",
+    "repository": "snailsploit-claude-red",
+    "description": "Deep-dive on Windows exploit mitigations: ASLR, DEP/NX, CFG, CET/Shadow Stack, SEHOP, Heap Guard, ACG, Arbitrary Code Guard. Covers both the protection mechanism and known bypass techniques. Use when researching Windows exploit mitigations, planning bypass strategies, or understanding protection depth.",
+    "path": "category/code-quality-refactoring/infrastructure-offensive-windows-mitigations"
   },
   {
     "id": "infrastructure-skypilot",
@@ -21272,6 +21512,22 @@
     "path": "category/code-quality-refactoring/kuaidi100"
   },
   {
+    "id": "kumo-graph-visualization",
+    "name": "kumo-graph-visualization",
+    "category": "code-quality-refactoring",
+    "repository": "nvidia-skills",
+    "description": "Provide graph visuals in Kumo notebooks and SDK scripts, display or export relationships on request, and inspect Markdown schemas during model iteration.",
+    "path": "category/code-quality-refactoring/kumo-graph-visualization"
+  },
+  {
+    "id": "kumo-model-persistence",
+    "name": "kumo-model-persistence",
+    "category": "code-quality-refactoring",
+    "repository": "nvidia-skills",
+    "description": "Publish and reload Kumo models through the Snowflake registry, reconstruct compatible scoring inputs, and retain or retrieve run diagnostics and output files through a Snowflake stage. Use for saved-model scoring and artifact retention without retraining by default.",
+    "path": "category/code-quality-refactoring/kumo-model-persistence"
+  },
+  {
     "id": "kwcode-local-coding-agent",
     "name": "kwcode-local-coding-agent",
     "category": "code-quality-refactoring",
@@ -21638,6 +21894,14 @@
     "repository": "composio-community-awesome-codex-skills",
     "description": "Automate LaunchDarkly tasks via Rube MCP (Composio): feature flags, environments, segments, and rollout management. Always search tools first for current schemas.",
     "path": "category/code-quality-refactoring/launch_darkly-automation"
+  },
+  {
+    "id": "launchdarkly-approval-requests",
+    "name": "launchdarkly-approval-requests",
+    "category": "code-quality-refactoring",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Request, follow up on, and apply LaunchDarkly approval requests for flag, segment, and AgentControl Config changes. Use when a change needs approval, when the user asks whether a request was approved or declined, which requests are waiting on them, or to apply an approved request. The agent never approves or declines a request.",
+    "path": "category/code-quality-refactoring/launchdarkly-approval-requests"
   },
   {
     "id": "launchdarkly-flag-cleanup",
@@ -22096,12 +22360,28 @@
     "path": "category/code-quality-refactoring/linkedin-content"
   },
   {
+    "id": "linkedin-content-planner",
+    "name": "linkedin-content-planner",
+    "category": "code-quality-refactoring",
+    "repository": "sergebulaev-linkedin-skills",
+    "description": "Generate a 7-day LinkedIn content plan from a theme, audience, and pillars. Produces per-day post pillar, format, hook type, CTA, posting time, daily comment targets, and a weekly inbound-readiness check. Use when the user wants to plan a week or month of content, not draft a single post (use linkedin-post-writer).",
+    "path": "category/code-quality-refactoring/linkedin-content-planner"
+  },
+  {
     "id": "linkedin-ghostwriting",
     "name": "linkedin-ghostwriting",
     "category": "code-quality-refactoring",
     "repository": "samber-cc-skills",
     "description": "B2B LinkedIn ghostwriting \u2014 hooks, post structures, and copywriting frameworks for conversion-focused posts. Use when the user wants to write LinkedIn content, create ghostwritten posts, ghostwrite for a founder or executive, or develop a B2B social strategy. Apply when the user shares a story, result, or insight and wants it turned into a post. Do NOT use for newsletter or Substack issues \u2014 use samber/cc-skills@substack-ghostwriting instead.",
     "path": "category/code-quality-refactoring/linkedin-ghostwriting"
+  },
+  {
+    "id": "linkedin-hook-extractor",
+    "name": "linkedin-hook-extractor",
+    "category": "code-quality-refactoring",
+    "repository": "sergebulaev-linkedin-skills",
+    "description": "Reverse-engineer the hook formula from a viral LinkedIn post URL. Returns which of the 20 canonical 2026 formulas it uses (anaphora, R.I.P., year-pivot, time-anchor, curiosity-gap, contrarian, comment-gate, emotional cold-open, named-gratitude, and 11 more), why it worked, and a blank template. Use to learn from a competitor's post, not to write your own (use linkedin-post-writer).",
+    "path": "category/code-quality-refactoring/linkedin-hook-extractor"
   },
   {
     "id": "linkedin-post-formatter",
@@ -22115,9 +22395,17 @@
     "id": "linkedin-post-writer",
     "name": "linkedin-post-writer",
     "category": "code-quality-refactoring",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Draft LinkedIn posts from 16 illustrative hook formulas mapped to engagement goals (comments, reposts, likes, saves), with optional formatting conventions and an AI-tell scrub pass before publishing.",
+    "repository": "sergebulaev-linkedin-skills",
+    "description": "Draft a new LinkedIn post from scratch using one of 20 2026 hook formulas (anaphora, R.I.P., time-anchor, curiosity-gap, contrarian, controlled A/B, false-binary, and more) plus a founders-edition angle library, picked by engagement goal (comments, reposts, likes, saves). Runs the humanizer pass and schedules via Publora on approval. Use to write a post, find a hook or proven format, or get founder-specific angles. Not for reviewing existing drafts (use linkedin-humanizer --mode audit).",
     "path": "category/code-quality-refactoring/linkedin-post-writer"
+  },
+  {
+    "id": "linkedin-reply-handler",
+    "name": "linkedin-reply-handler",
+    "category": "code-quality-refactoring",
+    "repository": "sergebulaev-linkedin-skills",
+    "description": "Draft a reply to one LinkedIn comment from its URL, or sweep a whole thread from just the post URL and draft a reply to every comment worth answering, in one batch. Use for replying to a comment, following an author reply, or clearing all comments on a post. Resolves the correct parentComment (LinkedIn flattens threads to 2 levels), filters low-value comments before a sweep, and posts via Publora on approval. Not for top-level comments (use linkedin-comment-drafter).",
+    "path": "category/code-quality-refactoring/linkedin-reply-handler"
   },
   {
     "id": "linkedin-strategy",
@@ -27216,6 +27504,14 @@
     "path": "category/code-quality-refactoring/ninox-automation"
   },
   {
+    "id": "nis2-readiness",
+    "name": "nis2-readiness",
+    "category": "code-quality-refactoring",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when a cyberattack, ransomware or outage hits a hospital, utility, transport, digital-infrastructure or other EU company and it must report under NIS2 (Directive 2022/2555) or the German NIS2UmsuCG/BSIG - 24h early warning, 72h notification, one-month final report. Also for whether a company is an essential or important entity, BSI registration, management-board liability and training (Article 20), an Article 21 gap analysis, or one incident that also triggers DORA, CRA or GDPR reports. Four deterministic scripts with cited articles.",
+    "path": "category/code-quality-refactoring/nis2-readiness"
+  },
+  {
     "id": "nla-create",
     "name": "nla-create",
     "category": "code-quality-refactoring",
@@ -31176,6 +31472,14 @@
     "path": "category/code-quality-refactoring/presentation-deck"
   },
   {
+    "id": "preserved_skill",
+    "name": "preserved_skill",
+    "category": "code-quality-refactoring",
+    "repository": "datamodel-code-generator-datamodel-code-generator",
+    "description": "",
+    "path": "category/code-quality-refactoring/preserved_skill"
+  },
+  {
     "id": "press-release-writer",
     "name": "press-release-writer",
     "category": "code-quality-refactoring",
@@ -31480,6 +31784,22 @@
     "path": "category/code-quality-refactoring/product-photo-studio"
   },
   {
+    "id": "product-product-changelog",
+    "name": "product-product-changelog",
+    "category": "code-quality-refactoring",
+    "repository": "101-skills-superpowers",
+    "description": "Product changelog and release notes that users actually read. Covers categorization, user-facing language, visuals, and distribution. Use for: release notes, changelogs, product updates, feature announcements, versioning. Triggers: changelog, release notes, product update, version notes, what's new, feature announcement, product changelog, update log, release announcement, version release, product release, ship notes",
+    "path": "category/code-quality-refactoring/product-product-changelog"
+  },
+  {
+    "id": "product-product-hunt-launch",
+    "name": "product-product-hunt-launch",
+    "category": "code-quality-refactoring",
+    "repository": "101-skills-superpowers",
+    "description": "Product Hunt launch optimization with specific specs, timing, and gallery strategy. Covers taglines, gallery images, maker comments, and launch day tactics. Use for: product launches, startup launches, side project launches, Product Hunt optimization. Triggers: product hunt, ph launch, product hunt launch, launch strategy, product launch, startup launch, product hunt tips, product hunt gallery, ph optimization, launch day, product hunt maker",
+    "path": "category/code-quality-refactoring/product-product-hunt-launch"
+  },
+  {
     "id": "product-reviews",
     "name": "product-reviews",
     "category": "code-quality-refactoring",
@@ -31550,6 +31870,14 @@
     "repository": "mattpocock-skills",
     "description": "",
     "path": "category/code-quality-refactoring/productivity"
+  },
+  {
+    "id": "productivity-skill-judge",
+    "name": "productivity-skill-judge",
+    "category": "code-quality-refactoring",
+    "repository": "davila7-claude-code-templates",
+    "description": "Evaluate Agent Skill design quality against official specifications and best practices. Use when reviewing, auditing, or improving SKILL.md files and skill packages. Provides multi-dimensional scoring and actionable improvement suggestions.",
+    "path": "category/code-quality-refactoring/productivity-skill-judge"
   },
   {
     "id": "productivity-swedish-mentor",
@@ -32454,6 +32782,14 @@
     "repository": "github-awesome-copilot",
     "description": "Intelligent README.md generation prompt that analyzes project documentation structure and creates comprehensive repository documentation. Scans .github/copilot directory files and copilot-instructions.md to extract project information, technology stack, architecture, development workflow, coding standards, and testing approaches while generating well-structured markdown documentation with proper formatting, cross-references, and developer-focused content.",
     "path": "category/code-quality-refactoring/readme-blueprint-generator"
+  },
+  {
+    "id": "readme-polish",
+    "name": "readme-polish",
+    "category": "code-quality-refactoring",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when an existing README must be upgraded, audited, or made scannable: polish/\u7f8e\u5316/\u5347\u7ea7/\u4f18\u5316/\u6253\u78e8 README, add badges, mermaid, callouts, or collapsible sections, compare against top repos in the same ecosystem, or fix a plain/ugly first screen. Calibrates to the repo's own category, rewrites the hero and information hierarchy, and enforces a deterministic lint gate. Not for brand-new READMEs from scratch or hero-image design.",
+    "path": "category/code-quality-refactoring/readme-polish"
   },
   {
     "id": "realistic-style",
@@ -34856,6 +35192,14 @@
     "path": "category/code-quality-refactoring/science-communication"
   },
   {
+    "id": "scientific-research-grants",
+    "name": "scientific-research-grants",
+    "category": "code-quality-refactoring",
+    "repository": "davila7-claude-code-templates",
+    "description": "Write competitive research proposals for NSF, NIH, DOE, and DARPA. Agency-specific formatting, review criteria, budget preparation, broader impacts, significance statements, innovation narratives, and compliance with submission requirements.",
+    "path": "category/code-quality-refactoring/scientific-research-grants"
+  },
+  {
     "id": "scientify-idea-generation",
     "name": "scientify-idea-generation",
     "category": "code-quality-refactoring",
@@ -35816,6 +36160,22 @@
     "path": "category/code-quality-refactoring/serply-automation"
   },
   {
+    "id": "serverless-skills-aws-lambda-managed-instances",
+    "name": "serverless-skills-aws-lambda-managed-instances",
+    "category": "code-quality-refactoring",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Evaluates, configures, and migrates workloads to AWS Lambda Managed Instances (LMI). Runs Lambda Event Functions on EC2 instances in the user's account while AWS manages provisioning, patching, and scaling. Triggers when queries mention Lambda Managed Instances, LMI, capacity providers, multi-concurrent execution environments, EC2-backed Lambda, persistent Lambda instances, PerExecutionEnvironmentMaxConcurrency, CapacityProviderConfig, cold start elimination via dedicated instances, SOCI (Seekable OCI) image lazy loading, GPU functions (AcceleratorConfig, vLLM/SGLang), migrating Lambda Event Functions to managed instances, or LMI cost comparison with Savings Plans or Reserved Instances. Also covers long-running and asynchronous workloads, the 90-minute (5400s) timeout for asynchronous and event-source-mapping (SQS, Kinesis, DynamoDB Streams / ESM) invocations and the 30-minute (1800s) synchronous limit, including how to raise the function timeout up to 90 minutes / 5400s.",
+    "path": "category/code-quality-refactoring/serverless-skills-aws-lambda-managed-instances"
+  },
+  {
+    "id": "serverless-skills-debugging-lambda-timeouts",
+    "name": "serverless-skills-debugging-lambda-timeouts",
+    "category": "code-quality-refactoring",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Debugs AWS Lambda function timeout failures by systematically analyzing function configuration, CloudWatch logs and metrics, VPC/networking, cold starts, memory constraints, and downstream dependencies to identify root causes with actionable fixes. Use when a Lambda function is timing out or approaching its timeout limit.",
+    "path": "category/code-quality-refactoring/serverless-skills-debugging-lambda-timeouts"
+  },
+  {
     "id": "service-itsm-agentic-setup-incident-management",
     "name": "service-itsm-agentic-setup-incident-management",
     "category": "code-quality-refactoring",
@@ -36064,6 +36424,14 @@
     "path": "category/code-quality-refactoring/sharpen"
   },
   {
+    "id": "sheets",
+    "name": "sheets",
+    "category": "code-quality-refactoring",
+    "repository": "jimliu-baoyu-design",
+    "description": "Make, read and change a Sheet: a shared spreadsheet (cells, formulas, several sheets, formats, tables, dropdowns, conditional formats and charts) that people fill in by hand in its page and that you read and fill in too, through this type's read and update calls. Use when someone asks for a spreadsheet, a workbook, a tracker, a budget, a list of records or a financial model they can edit, or when they send a request from a Sheet's page. Not for a CSV or .xlsx file you are asked to produce, a dashboard page, a document or a slide deck.",
+    "path": "category/code-quality-refactoring/sheets"
+  },
+  {
     "id": "shichizip-macos-archiver",
     "name": "shichizip-macos-archiver",
     "category": "code-quality-refactoring",
@@ -36128,14 +36496,6 @@
     "path": "category/code-quality-refactoring/shipvela-publish"
   },
   {
-    "id": "shopify-admin",
-    "name": "shopify-admin",
-    "category": "code-quality-refactoring",
-    "repository": "starchild-ai-agent-official-skills",
-    "description": "<!-- AUTO-GENERATED \u2014 do not edit directly.",
-    "path": "category/code-quality-refactoring/shopify-admin"
-  },
-  {
     "id": "shopify-app-recommendations",
     "name": "shopify-app-recommendations",
     "category": "code-quality-refactoring",
@@ -36150,14 +36510,6 @@
     "repository": "nexscope-ai-ecommerce-skills",
     "description": "Cart abandonment recovery \u2014 email sequences, SMS, retargeting, exit intent, checkout friction audit",
     "path": "category/code-quality-refactoring/shopify-cart-abandonment"
-  },
-  {
-    "id": "shopify-dev",
-    "name": "shopify-dev",
-    "category": "code-quality-refactoring",
-    "repository": "starchild-ai-agent-official-skills",
-    "description": "<!-- AUTO-GENERATED \u2014 do not edit directly.",
-    "path": "category/code-quality-refactoring/shopify-dev"
   },
   {
     "id": "shopify-email-flows",
@@ -36176,28 +36528,12 @@
     "path": "category/code-quality-refactoring/shopify-facebook-instagram-shop"
   },
   {
-    "id": "shopify-functions",
-    "name": "shopify-functions",
-    "category": "code-quality-refactoring",
-    "repository": "starchild-ai-agent-official-skills",
-    "description": "<!-- AUTO-GENERATED \u2014 do not edit directly.",
-    "path": "category/code-quality-refactoring/shopify-functions"
-  },
-  {
     "id": "shopify-google-channel",
     "name": "shopify-google-channel",
     "category": "code-quality-refactoring",
     "repository": "nexscope-ai-ecommerce-skills",
     "description": "Google integration \u2014 Shopping feed, Performance Max, free listings, Merchant Center optimization",
     "path": "category/code-quality-refactoring/shopify-google-channel"
-  },
-  {
-    "id": "shopify-hydrogen",
-    "name": "shopify-hydrogen",
-    "category": "code-quality-refactoring",
-    "repository": "starchild-ai-agent-official-skills",
-    "description": "<!-- AUTO-GENERATED \u2014 do not edit directly.",
-    "path": "category/code-quality-refactoring/shopify-hydrogen"
   },
   {
     "id": "shopify-inventory-management",
@@ -36214,46 +36550,6 @@
     "repository": "nexscope-ai-ecommerce-skills",
     "description": "name: \"Shopify Page Speed\"",
     "path": "category/code-quality-refactoring/shopify-page-speed"
-  },
-  {
-    "id": "shopify-partner",
-    "name": "shopify-partner",
-    "category": "code-quality-refactoring",
-    "repository": "starchild-ai-agent-official-skills",
-    "description": "<!-- AUTO-GENERATED \u2014 do not edit directly.",
-    "path": "category/code-quality-refactoring/shopify-partner"
-  },
-  {
-    "id": "shopify-payments-apps",
-    "name": "shopify-payments-apps",
-    "category": "code-quality-refactoring",
-    "repository": "starchild-ai-agent-official-skills",
-    "description": "<!-- AUTO-GENERATED \u2014 do not edit directly.",
-    "path": "category/code-quality-refactoring/shopify-payments-apps"
-  },
-  {
-    "id": "shopify-polaris-admin-extensions",
-    "name": "shopify-polaris-admin-extensions",
-    "category": "code-quality-refactoring",
-    "repository": "starchild-ai-agent-official-skills",
-    "description": "<!-- AUTO-GENERATED \u2014 do not edit directly.",
-    "path": "category/code-quality-refactoring/shopify-polaris-admin-extensions"
-  },
-  {
-    "id": "shopify-polaris-app-home",
-    "name": "shopify-polaris-app-home",
-    "category": "code-quality-refactoring",
-    "repository": "starchild-ai-agent-official-skills",
-    "description": "<!-- AUTO-GENERATED \u2014 do not edit directly.",
-    "path": "category/code-quality-refactoring/shopify-polaris-app-home"
-  },
-  {
-    "id": "shopify-polaris-checkout-extensions",
-    "name": "shopify-polaris-checkout-extensions",
-    "category": "code-quality-refactoring",
-    "repository": "starchild-ai-agent-official-skills",
-    "description": "<!-- AUTO-GENERATED \u2014 do not edit directly.",
-    "path": "category/code-quality-refactoring/shopify-polaris-checkout-extensions"
   },
   {
     "id": "shopify-speed-optimization",
@@ -37043,7 +37339,7 @@
     "id": "skills-automate-me",
     "name": "skills-automate-me",
     "category": "code-quality-refactoring",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Use for \\\"automate me\\\", \\\"create/update/refresh my -mode skill\\\", \\\"turn/capture my preferences or working style into a skill\\\", or wanting agents to follow how the user works. Drafts or revises a personal -mode skill via create-skill + unslop, optionally pulling fresh evidence from recent transcripts.",
     "path": "category/code-quality-refactoring/skills-automate-me"
   },
@@ -37102,6 +37398,14 @@
     "repository": "microsoft-azure-skills",
     "description": "Assess and improve the reliability posture of PaaS Applications (Azure Functions and Azure App Service). Scans deployed resources for zone redundancy, ZRS storage, health probes, and multi-region failover. Presents a feature-pivoted checklist, then drives staged remediation (CLI or IaC patches) end-to-end with user confirmation. WHEN: \\\"assess reliability\\\", \\\"check reliability\\\", \\\"zone redundant\\\", \\\"multi-region failover\\\", \\\"high availability\\\", \\\"disaster recovery\\\", \\\"single points of failure\\\", \\\"reliability posture\\\", \\\"resiliency\\\".",
     "path": "category/code-quality-refactoring/skills-azure-reliability"
+  },
+  {
+    "id": "skills-better-colors",
+    "name": "skills-better-colors",
+    "category": "code-quality-refactoring",
+    "repository": "jakubkrehel-skills",
+    "description": "Builds and checks color systems by generating palettes, naming semantic tokens, converting between formats and measuring contrast.",
+    "path": "category/code-quality-refactoring/skills-better-colors"
   },
   {
     "id": "skills-better-layout",
@@ -37880,6 +38184,14 @@
     "path": "category/code-quality-refactoring/skills-convention-learner"
   },
   {
+    "id": "skills-convex-env",
+    "name": "skills-convex-env",
+    "category": "code-quality-refactoring",
+    "repository": "convex-agent-skills",
+    "description": "Set and wire Convex deployment env vars / secrets for the app.",
+    "path": "category/code-quality-refactoring/skills-convex-env"
+  },
+  {
     "id": "skills-coo-advisor",
     "name": "skills-coo-advisor",
     "category": "code-quality-refactoring",
@@ -38192,6 +38504,94 @@
     "path": "category/code-quality-refactoring/skills-do"
   },
   {
+    "id": "skills-doca-common",
+    "name": "skills-doca-common",
+    "category": "code-quality-refactoring",
+    "repository": "nvidia-skills",
+    "description": "Use this skill whenever the user is doing hands-on DOCA programming on a BlueField DPU or ConnectX NIC and needs the foundation primitives every per-library context rests on \u2014 walking the doca_ctx lifecycle, discovering doca_dev / doca_devinfo and gating on doca_*_cap_* before trusting a feature, wiring doca_mmap / doca_buf_inventory / doca_buf for zero-copy I/O across libraries, driving doca_pe for completions, or DOCA Log's two-tier (--sdk-log-level vs app-side) model. Trigger even when the user does not say \"DOCA Common\" \u2014 typical implicit phrasings include \"my tasks submit but nothing completes\", \"DOCA_ERROR_BAD_STATE from doca_ctx_start\", \"--sdk-log-level does nothing for my DOCA_LOG_DBG lines\", \"share a buf between doca_dma and doca_rdma\", or \"crashes far from the offending line\". Refuse and route elsewhere for per-library questions in isolation (load doca-flow / doca-rdma / doca-eth alongside), installing DOCA (doca-setup), or doc lookup (doca-public-knowledge-map).",
+    "path": "category/code-quality-refactoring/skills-doca-common"
+  },
+  {
+    "id": "skills-doca-compress",
+    "name": "skills-doca-compress",
+    "category": "code-quality-refactoring",
+    "repository": "nvidia-skills",
+    "description": "Hardware compression offload with DOCA Compress on a BlueField DPU, ConnectX NIC, or host: DEFLATE compress and decompress, plus LZ4 decompress (stream and block; LZ4 encode is NOT supported), instead of CPU zlib / zstd. Trigger on \"offload this gzip\", \"decompress incoming network data on the NIC\", \"compress task returns INVALID_VALUE on alloc_init\", \"submitted a task but no completion arrives\", or \"decompress LZ4 on the BlueField\", even without naming DOCA Compress. Covers enabling compress-deflate, decompress-deflate, decompress-lz4-stream and decompress-lz4-block tasks on a doca_compress context, sizing source / destination doca_buf against the per-task cap query, mmap permissions, offload vs CPU decisions, a round-trip smoke, and DOCA_ERROR_* from Compress calls. Refuse and route elsewhere for zstd / Snappy / brotli, LZ4 encode (a CPU LZ4 library), pure mmap-to-mmap copies (doca-dma), or DOCA Core lifecycle internals.",
+    "path": "category/code-quality-refactoring/skills-doca-compress"
+  },
+  {
+    "id": "skills-doca-container-deployment",
+    "name": "skills-doca-container-deployment",
+    "category": "code-quality-refactoring",
+    "repository": "nvidia-skills",
+    "description": "Running an in-bundle DOCA service as a container on a BlueField (Argus, DMS, Firefly, or UROM service): kubelet standalone watching a static-pod manifests directory, YAML pod-spec drop, kubelet status / ENTRYPOINT logs / per-service liveness. Trigger on \"how do I run my built service on the BlueField?\", \"where do I drop the pod-spec YAML?\", \"pod stuck in Pending / ImagePullBackOff / CrashLoopBackOff\", \"container Running but service isn't ready\", \"pod restart-loops after edit\", or \"DMS and Firefly together\", even without naming container deployment. A DOCA-linked binary launched directly on the host or Arm belongs to doca-bare-metal-deployment. Covers smoke-before-bulk and the layered error taxonomy (pod-spec, scheduling, image pull, runtime, mount, network, version, host). Refuse and route elsewhere for per-service config schemas, DOCA install, library-API questions, external NVIDIA services (BlueMan, HBN, SNAP, Virtio-net), or full Kubernetes-cluster ops.",
+    "path": "category/code-quality-refactoring/skills-doca-container-deployment"
+  },
+  {
+    "id": "skills-doca-dma",
+    "name": "skills-doca-dma",
+    "category": "code-quality-refactoring",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user is doing hands-on DOCA DMA programming \u2014 bringing up a doca_dma context, configuring the single doca_dma_task_memcpy task type, sizing buffers via the doca_dma_cap_task_memcpy_* queries, setting LOCAL_READ_ONLY / LOCAL_READ_WRITE permissions on source / destination doca_mmap regions (plus doca_mmap_export_* for cross-peer copies), driving the progress engine, or debugging DOCA_ERROR_* returns. Trigger even when the user does not explicitly mention \"DOCA DMA\" or \"doca_mmap\" \u2014 typical implicit phrasings include \"memcpy host buffer to BlueField without using the CPU\", \"offload a bulk copy to the DPU\", \"copy returns NOT_PERMITTED on first submit\", \"buffer too big for one DMA task\", \"task submitted but no completion\", or \"scatter-gather copy between two memory regions\". Refuse and route elsewhere for cross-network copies (DOCA RDMA), producer/consumer messaging (DOCA Comch), DOCA Core / progress-engine internals, or DOCA install \u2014 those belong to other skills.",
+    "path": "category/code-quality-refactoring/skills-doca-dma"
+  },
+  {
+    "id": "skills-doca-erasure-coding",
+    "name": "skills-doca-erasure-coding",
+    "category": "code-quality-refactoring",
+    "repository": "nvidia-skills",
+    "description": "Hardware-offloaded erasure coding with DOCA Erasure Coding (Reed-Solomon, doca_ec) on a BlueField DPU, ConnectX NIC, or host: generating parity for data blocks, rebuilding lost blocks from the survivors, and refreshing parity after a change. Trigger on \"one data block changed, how do I refresh parity without re-encoding\", \"a disk failed and 2 parity blocks are gone, can I rebuild\", \"RAID-6 resilience across 12 disks\", \"my doca_ec_task_create returns NOT_PERMITTED\", or \"is this N+K layout still recoverable\", even without naming DOCA Erasure Coding. Covers bringing up a doca_ec context, the create / recover / update tasks, matrix type / N / K / block size, doca_ec_cap_* queries before sizing, doca_mmap src/dst permissions, and DOCA_ERROR_* from doca_ec_task_*. Refuse and route elsewhere for non-Reed-Solomon codes (fountain / LDPC / raptor), pure-replication designs, network FEC, or other DOCA accelerator libraries (SHA / Compress / AES-GCM / DMA).",
+    "path": "category/code-quality-refactoring/skills-doca-erasure-coding"
+  },
+  {
+    "id": "skills-doca-rdma",
+    "name": "skills-doca-rdma",
+    "category": "code-quality-refactoring",
+    "repository": "nvidia-skills",
+    "description": "RDMA data movement on NVIDIA BlueField/ConnectX NICs (RoCE/InfiniBand) with DOCA RDMA, instead of hand-written libibverbs/rdma_cm. Use when the user moves data between processes or hosts over the NIC, or hits \"one-sided read returns permission denied\", \"completions never arrive after submit\", \"connection callback never fires\", atomic compare-and-swap over RoCE, or DOCA_ERROR_FULL on the send queue under burst, even without naming DOCA RDMA. Covers bringing up an RDMA context on a doca_dev, connection methods (RDMA CM, bridge/OOB, or gRPC exchange of doca_rdma_export()), the eleven task types (Send/Receive/Send-Imm, Read/Write/Write-Imm, Atomic CmpSwap/FetchAdd, Get/Set/Add Remote Sync Event), matching mmap + RDMA permissions, queue and connection sizing, doca_rdma_cap_* queries, and DOCA_ERROR_* from RDMA calls. Raw QP/verbs control belongs to doca-verbs. Refuse and route elsewhere for general RDMA / ibverbs theory (queue pairs, MRs, RoCE vs IB), installing DOCA itself, or non-RDMA DOCA libraries.",
+    "path": "category/code-quality-refactoring/skills-doca-rdma"
+  },
+  {
+    "id": "skills-doca-rmax",
+    "name": "skills-doca-rmax",
+    "category": "code-quality-refactoring",
+    "repository": "nvidia-skills",
+    "description": "DOCA Rivermax (doca_rmax) receive streams for timing-precise media over IP (SMPTE ST 2110 video / audio, market data, scientific feeds) on a target BlueField DPU (DOCA Rivermax apps run only there), once the Rivermax libraries and license are installed; getting them is doca-setup / doca-public-knowledge-map territory. Trigger on \"ST 2110 receive isn't getting frames\", \"sub-microsecond jitter on my media receiver\", \"NOT_SUPPORTED from doca_rmax_init\", \"no recv events after stream start\", or \"license check failing on a media receiver\", even without naming Rivermax. Covers doca_rmax_in_stream sessions, the SDK + license precondition check, doca_rmax_get_*_supported capability queries, pairing with doca-eth queues and doca-flow steering, and DOCA_ERROR_* from Rivermax calls. Refuse and route elsewhere for programming the underlying queue (doca-eth), steering rules (doca-flow), PTP / clock sync (doca-firefly), or best-effort packet I/O.",
+    "path": "category/code-quality-refactoring/skills-doca-rmax"
+  },
+  {
+    "id": "skills-doca-telemetry",
+    "name": "skills-doca-telemetry",
+    "category": "code-quality-refactoring",
+    "repository": "nvidia-skills",
+    "description": "Use this skill to read DOCA hardware-counter events from a `doca_dev` through the per-domain Telemetry reader libraries: `doca_telemetry_pcc`, `_dpa`, `_diag`, `_adp_retx`, `_phy`, and `_pci`. It covers capability checks, context creation, startup, and per-domain reads or samples. Trigger for implicit requests such as \"read PCC counters from my BlueField app\", \"sample DPA counter exports\", or \"expose PHY, PCI, or DIAG counters from this doca_dev\". This is the counter-reader surface, not a NetFlow, IPFIX, or local-socket collector. Route publishing and export to `doca-telemetry-exporter`; route the deployed DOCA Telemetry Service to `doca-dts`, and collectors and plain stdout logging elsewhere.",
+    "path": "category/code-quality-refactoring/skills-doca-telemetry"
+  },
+  {
+    "id": "skills-doca-telemetry-utils",
+    "name": "skills-doca-telemetry-utils",
+    "category": "code-quality-refactoring",
+    "repository": "nvidia-skills",
+    "description": "doca_telemetry_utils command line on a host with DOCA: discover the diagnostic-counter schema, translate counter names to binary Data IDs and back, and check per-device counter support before committing a DOCA Telemetry exporter config. Use this skill when telemetry counters vanish between the exporter and the collector: \"my exporter ships but the collector sees nothing\", \"this metric silently drops downstream\", \"which counters does this BlueField expose\", \"translate this 0x... back to a counter name\", \"what do node / pcie_index / depth mean here\", or \"is this counter supported on this device\", even without naming the tool. Route exporter or collector code to doca-telemetry-exporter / doca-telemetry, DTS deployment to doca-dts, and DOCA install or repair to doca-setup.",
+    "path": "category/code-quality-refactoring/skills-doca-telemetry-utils"
+  },
+  {
+    "id": "skills-doca-urom",
+    "name": "skills-doca-urom",
+    "category": "code-quality-refactoring",
+    "repository": "nvidia-skills",
+    "description": "Host-side DOCA UROM library (doca_urom_*): offload an HPC / UCX / MPI application's remote memory operations (puts, gets, atomics, collectives) from the host CPU onto a BlueField DPU. Trigger on \"MPI all-reduce burning host CPU\", \"push UCX traffic onto the BlueField\", \"first doca_urom call returns NOT_PERMITTED\", or \"host library and DPU service look out of sync\", even without naming DOCA UROM. An offload needs both halves: this host library and the UROM Service on the DPU (doca-urom-svc), which owns deploying that container. Covers creating UROM Service contexts (doca_urom_service_*) and Worker contexts (doca_urom_worker_*) that run plugins on the DPU, discovering plugins via doca_urom_service_get_plugins_list, progressing completions, and DOCA_ERROR_* from doca_urom_* calls. Route elsewhere for UROM Service deployment on the DPU side, MPI / UCX collective algorithm design, and RDMA / RoCE / IB substrate bring-up.",
+    "path": "category/code-quality-refactoring/skills-doca-urom"
+  },
+  {
+    "id": "skills-doca-verbs",
+    "name": "skills-doca-verbs",
+    "category": "code-quality-refactoring",
+    "repository": "nvidia-skills",
+    "description": "Raw verbs inside DOCA Core (doca-verbs): direct control of QP, CQ, PD, SRQ and address-handle objects through doca_verbs_context and doca_verbs_qp_create / doca_verbs_qp_modify / doca_verbs_cq_create, porting libibverbs code into DOCA Core, or a QP attribute, opcode or WR flag the doca-rdma task API does not expose. Trigger on \"raw QP attribute the task API does not expose\", \"porting libibverbs code\", \"IO_FAILED on WR submit\", \"QP state transition rejected\", or \"attach a congestion-control group\", even without naming doca-verbs. Refuse and route elsewhere for ordinary doca-rdma / doca-eth / doca-rmax workloads, DOCA install, Core internals, and general libibverbs theory.",
+    "path": "category/code-quality-refactoring/skills-doca-verbs"
+  },
+  {
     "id": "skills-docx",
     "name": "skills-docx",
     "category": "code-quality-refactoring",
@@ -38392,6 +38792,14 @@
     "path": "category/code-quality-refactoring/skills-expansion-whitespace"
   },
   {
+    "id": "skills-extension-stripe",
+    "name": "skills-extension-stripe",
+    "category": "code-quality-refactoring",
+    "repository": "caffeinelabs-skills",
+    "description": "Payment support based on Stripe, supporting credit cards and debit cards. Checkout and session status use HTTP outcalls. For inbound Stripe webhooks (POST to the canister), also load extension-http-endpoints.",
+    "path": "category/code-quality-refactoring/skills-extension-stripe"
+  },
+  {
     "id": "skills-fable-review",
     "name": "skills-fable-review",
     "category": "code-quality-refactoring",
@@ -38534,6 +38942,14 @@
     "repository": "google-skills",
     "description": "Provides safety-critical validation, guardrails, and data reduction for gcloud CLI operations across Google Cloud Platform (GCP) services and infrastructure. Use when planning, generating, constructing, proposing, describing, or executing any gcloud CLI commands - including when answering questions about gcloud syntax, or formatting flags. Don't use when writing Google Cloud client library code or raw REST/gRPC API requests.",
     "path": "category/code-quality-refactoring/skills-gcloud"
+  },
+  {
+    "id": "skills-gemini-review",
+    "name": "skills-gemini-review",
+    "category": "code-quality-refactoring",
+    "repository": "davidondrej-skills",
+    "description": "Launch an independent Gemini 4 Neon code review through Cursor at Extra High reasoning and return it verbatim. Use for /gemini-review, or when the user or another agent asks for a Gemini review.",
+    "path": "category/code-quality-refactoring/skills-gemini-review"
   },
   {
     "id": "skills-gmgn-contract-dd",
@@ -39168,6 +39584,14 @@
     "path": "category/code-quality-refactoring/skills-monitor-experiment"
   },
   {
+    "id": "skills-msw-general",
+    "name": "skills-msw-general",
+    "category": "code-quality-refactoring",
+    "repository": "msw-git-msw-ai-coding-plugins-official",
+    "description": "Foundation skill for MSW (MapleStory Worlds). Read this FIRST before anything else in MSW.",
+    "path": "category/code-quality-refactoring/skills-msw-general"
+  },
+  {
     "id": "skills-muse-review",
     "name": "skills-muse-review",
     "category": "code-quality-refactoring",
@@ -39286,6 +39710,14 @@
     "repository": "nvidia-skills",
     "description": "Model and publish semantic definitions in Auto Ontology. Use for terms, relationships, measures, imports, and governed results\u2014not deployment or querying.",
     "path": "category/code-quality-refactoring/skills-nvidia-ontology-management"
+  },
+  {
+    "id": "skills-nx-generate",
+    "name": "skills-nx-generate",
+    "category": "code-quality-refactoring",
+    "repository": "nrwl-nx-ai-agents-config",
+    "description": "Generate code using nx generators. INVOKE IMMEDIATELY when user mentions scaffolding, setup, structure, creating apps/libs, or setting up project structure. Trigger words - scaffold, setup, create a new app, create a new lib, project structure, generate, add a new project. ALWAYS use this BEFORE calling nx_docs or exploring - this skill handles discovery internally.",
+    "path": "category/code-quality-refactoring/skills-nx-generate"
   },
   {
     "id": "skills-observability-designer",
@@ -39827,7 +40259,7 @@
     "id": "skills-principle-fix-root-causes",
     "name": "skills-principle-fix-root-causes",
     "category": "code-quality-refactoring",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Apply when debugging. Trace each symptom back to the first place the system went wrong and fix it there. A guard is a fix only when the state it handles is legitimate.",
     "path": "category/code-quality-refactoring/skills-principle-fix-root-causes"
   },
@@ -39851,7 +40283,7 @@
     "id": "skills-principle-make-operations-idempotent",
     "name": "skills-principle-make-operations-idempotent",
     "category": "code-quality-refactoring",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Apply when designing commands, lifecycle steps, or processing loops that run amid crashes, restarts, and retries. Converge to the same end state regardless of partial prior runs.",
     "path": "category/code-quality-refactoring/skills-principle-make-operations-idempotent"
   },
@@ -39867,7 +40299,7 @@
     "id": "skills-principle-sequence-verifiable-units",
     "name": "skills-principle-sequence-verifiable-units",
     "category": "code-quality-refactoring",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Apply to multi-step work (sweeps, migrations, runs of similar edits) and to how you stack commits and PRs. Break work into small units that each end in a verifiable state, check each before the next, and order delivery so the sequence proves itself to a reviewer.",
     "path": "category/code-quality-refactoring/skills-principle-sequence-verifiable-units"
   },
@@ -40592,6 +41024,14 @@
     "path": "category/code-quality-refactoring/skills-standup"
   },
   {
+    "id": "skills-start-building-for-startups",
+    "name": "skills-start-building-for-startups",
+    "category": "code-quality-refactoring",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Interactive discovery + implementation workflow that gathers requirements through picker-based questions (intent, scope, constraints, preferences), scans the codebase for what it can already infer, then writes an AWS architectural scaffold and implementation directly into the project. Use when the user wants to build a new app, scaffold a project, or expand/refactor an existing one on AWS \u2014 anything that calls for a structured discovery flow followed by code changes, not a one-off lookup. Do not use for: factual lookups about AWS Activate / programs / credits, requests for a single copy-paste prompt, non-AWS architectural work, architecture advice/recommendations without code changes (see architect-for-startups), a new idea centered on an AI agent \u2014 runtime selection, agentic architecture, or an agent POC (see agent-advisor), or migrating an existing GCP/Azure/Heroku workload or an LLM SDK rewrite (see gcp-to-aws / azure-to-aws / heroku-to-aws / llm-to-bedrock).",
+    "path": "category/code-quality-refactoring/skills-start-building-for-startups"
+  },
+  {
     "id": "skills-status",
     "name": "skills-status",
     "category": "code-quality-refactoring",
@@ -40891,7 +41331,7 @@
     "id": "skills-unslop",
     "name": "skills-unslop",
     "category": "code-quality-refactoring",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Cut AI tells from any writing.",
     "path": "category/code-quality-refactoring/skills-unslop"
   },
@@ -40910,6 +41350,14 @@
     "repository": "deanpeters-product-manager-skills",
     "description": "Run a user story mapping workshop with adaptive questions and a structured map output. Use when you need backbone activities, tasks, and release slices for a workflow.",
     "path": "category/code-quality-refactoring/skills-user-story-mapping-workshop"
+  },
+  {
+    "id": "skills-using-agent-skills",
+    "name": "skills-using-agent-skills",
+    "category": "code-quality-refactoring",
+    "repository": "addyosmani-agent-skills",
+    "description": "Discovers and invokes agent skills. Use when starting a session, or when you need to decide which skill or workflow applies to the piece of work at hand. This is the meta-skill that governs how all other skills are discovered and invoked.",
+    "path": "category/code-quality-refactoring/skills-using-agent-skills"
   },
   {
     "id": "skills-ux-copy",
@@ -41312,6 +41760,14 @@
     "path": "category/code-quality-refactoring/social-evidence-research"
   },
   {
+    "id": "social-linkedin-content",
+    "name": "social-linkedin-content",
+    "category": "code-quality-refactoring",
+    "repository": "101-skills-superpowers",
+    "description": "LinkedIn post writing with hook formulas, formatting rules, and engagement patterns. Covers post types, algorithm signals, character limits, and content pillars. Use for: LinkedIn posts, professional content, thought leadership, B2B content, personal branding. Triggers: linkedin post, linkedin content, linkedin writing, linkedin strategy, linkedin engagement, linkedin algorithm, linkedin hook, linkedin formatting, thought leadership, professional content, b2b content, linkedin growth",
+    "path": "category/code-quality-refactoring/social-linkedin-content"
+  },
+  {
     "id": "social-listening-brief",
     "name": "social-listening-brief",
     "category": "code-quality-refactoring",
@@ -41432,12 +41888,28 @@
     "path": "category/code-quality-refactoring/social-science"
   },
   {
+    "id": "social-social-media-carousel",
+    "name": "social-social-media-carousel",
+    "category": "code-quality-refactoring",
+    "repository": "101-skills-superpowers",
+    "description": "Multi-slide carousel design for Instagram, LinkedIn, and Twitter/X with layout rules and hooks. Covers slide structure, text hierarchy, swipe psychology, and platform-specific specs. Use for: carousel posts, Instagram carousels, LinkedIn carousels, slide posts, educational content. Triggers: carousel, instagram carousel, linkedin carousel, slide post, carousel design, swipe post, multi-image post, carousel template, educational carousel, carousel content, instagram slides, linkedin slides",
+    "path": "category/code-quality-refactoring/social-social-media-carousel"
+  },
+  {
     "id": "social-spotify-card",
     "name": "social-spotify-card",
     "category": "code-quality-refactoring",
     "repository": "feimacode-open-design-agent-kit",
     "description": "Spotify Now-Playing Card (Open Design) \u2014 use only when explicitly invoked, not for general design requests",
     "path": "category/code-quality-refactoring/social-spotify-card"
+  },
+  {
+    "id": "social-twitter-thread-creation",
+    "name": "social-twitter-thread-creation",
+    "category": "code-quality-refactoring",
+    "repository": "101-skills-superpowers",
+    "description": "Twitter/X thread writing with hook tweets, thread structure, and engagement optimization. Covers tweet formatting, character limits, media attachments, and posting strategies. Use for: Twitter threads, X posts, tweet storms, Twitter content, social media writing. Triggers: twitter thread, tweet thread, x thread, twitter post, tweet writing, thread creation, tweet storm, twitter content, x post, twitter writing, twitter hook, tweet formatting, thread structure",
+    "path": "category/code-quality-refactoring/social-twitter-thread-creation"
   },
   {
     "id": "social-x-post-card",
@@ -45088,6 +45560,14 @@
     "path": "category/code-quality-refactoring/using-lwc"
   },
   {
+    "id": "utilities-domain-name-brainstormer",
+    "name": "utilities-domain-name-brainstormer",
+    "category": "code-quality-refactoring",
+    "repository": "davila7-claude-code-templates",
+    "description": "Generates creative domain name ideas for your project and checks availability across multiple TLDs (.com, .io, .dev, .ai, etc.). Saves hours of brainstorming and manual checking.",
+    "path": "category/code-quality-refactoring/utilities-domain-name-brainstormer"
+  },
+  {
     "id": "utility",
     "name": "utility",
     "category": "code-quality-refactoring",
@@ -45838,6 +46318,14 @@
     "repository": "davila7-claude-code-templates",
     "description": "Web browser game development principles. Framework selection, WebGPU, optimization, PWA.",
     "path": "category/code-quality-refactoring/web-games"
+  },
+  {
+    "id": "web-offensive-rce",
+    "name": "web-offensive-rce",
+    "category": "code-quality-refactoring",
+    "repository": "snailsploit-claude-red",
+    "description": "",
+    "path": "category/code-quality-refactoring/web-offensive-rce"
   },
   {
     "id": "web-performance-audit",
@@ -46768,6 +47256,30 @@
     "path": "category/code-quality-refactoring/writing-lean-proofs"
   },
   {
+    "id": "writing-newsletter-curation",
+    "name": "writing-newsletter-curation",
+    "category": "code-quality-refactoring",
+    "repository": "101-skills-superpowers",
+    "description": "Newsletter curation with content sourcing, editorial structure, and subscriber growth strategies. Covers issue formatting, link roundups, commentary style, and sending cadence. Use for: email newsletters, link roundups, weekly digests, curated content, creator newsletters. Triggers: newsletter, email newsletter, newsletter curation, weekly digest, link roundup, curated newsletter, newsletter writing, newsletter format, subscriber growth, newsletter strategy, content curation, newsletter template",
+    "path": "category/code-quality-refactoring/writing-newsletter-curation"
+  },
+  {
+    "id": "writing-press-release-writing",
+    "name": "writing-press-release-writing",
+    "category": "code-quality-refactoring",
+    "repository": "101-skills-superpowers",
+    "description": "Press release writing in AP style with inverted pyramid structure. Covers formatting, datelines, quotes, boilerplates, and fact-checking. Use for: product launches, funding announcements, partnerships, company news, events. Triggers: press release, pr writing, media release, news release, announcement, product launch announcement, funding announcement, company news, media advisory, ap style, press statement, news wire",
+    "path": "category/code-quality-refactoring/writing-press-release-writing"
+  },
+  {
+    "id": "writing-seo-content-brief",
+    "name": "writing-seo-content-brief",
+    "category": "code-quality-refactoring",
+    "repository": "101-skills-superpowers",
+    "description": "SEO content brief creation with keyword research, search intent analysis, and content structure. Covers SERP analysis, heading hierarchy, word count targets, and internal linking strategy. Use for: content briefs, SEO writing, blog strategy, content planning, keyword targeting. Triggers: seo content brief, content brief, seo brief, keyword research, search intent, content strategy, blog brief, seo writing, content planning, keyword targeting, serp analysis, content outline, seo article, blog seo",
+    "path": "category/code-quality-refactoring/writing-seo-content-brief"
+  },
+  {
     "id": "writing-shape",
     "name": "writing-shape",
     "category": "code-quality-refactoring",
@@ -46782,6 +47294,14 @@
     "repository": "active",
     "description": "Use when creating, updating, or improving agent skills.",
     "path": "category/code-quality-refactoring/writing-skills"
+  },
+  {
+    "id": "writing-technical-blog-writing",
+    "name": "writing-technical-blog-writing",
+    "category": "code-quality-refactoring",
+    "repository": "101-skills-superpowers",
+    "description": "Technical blog post writing with structure, code examples, and developer audience conventions. Covers post types, code formatting, explanation depth, and developer-specific engagement patterns. Use for: engineering blogs, dev tutorials, technical writing, developer content, documentation posts. Triggers: technical blog, dev blog, engineering blog, technical writing, developer tutorial, tech post, code tutorial, programming blog, developer content, technical article, engineering post, coding tutorial, technical content",
+    "path": "category/code-quality-refactoring/writing-technical-blog-writing"
   },
   {
     "id": "writing-workflow-skills",

@@ -320,6 +320,76 @@
     "link_cmd": "python .agents/library/activate_skill.py link ai-release-hunter"
   },
   {
+    "id": "ai-research-data-processing-nemo-curator",
+    "name": "ai-research-data-processing-nemo-curator",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "GPU-accelerated data curation for LLM training. Supports text/image/video/audio. Features fuzzy deduplication (16\u00d7 faster), quality filtering (30+ heuristics), semantic deduplication, PII redaction, NSFW detection. Scales across GPUs with RAPIDS. Use for preparing high-quality training datasets, cleaning web data, or deduplicating large corpora.",
+    "path": "library/davila7-claude-code-templates/skills/ai-research-data-processing-nemo-curator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ai-research-data-processing-nemo-curator",
+    "link_cmd": "python .agents/library/activate_skill.py link ai-research-data-processing-nemo-curator"
+  },
+  {
+    "id": "ai-research-gemini",
+    "name": "ai-research-gemini",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Use when the user asks to run Gemini CLI for code review, plan review, or big context (>200k) processing. Ideal for comprehensive analysis requiring large context windows. Uses Gemini 3 Pro by default for state-of-the-art reasoning and coding.",
+    "path": "library/davila7-claude-code-templates/skills/ai-research-gemini",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ai-research-gemini",
+    "link_cmd": "python .agents/library/activate_skill.py link ai-research-gemini"
+  },
+  {
+    "id": "ai-research-inference-serving-llama-cpp",
+    "name": "ai-research-inference-serving-llama-cpp",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Runs LLM inference on CPU, Apple Silicon, and consumer GPUs without NVIDIA hardware. Use for edge deployment, M1/M2/M3 Macs, AMD/Intel GPUs, or when CUDA is unavailable. Supports GGUF quantization (1.5-8 bit) for reduced memory and 4-10\u00d7 speedup vs PyTorch on CPU.",
+    "path": "library/davila7-claude-code-templates/skills/ai-research-inference-serving-llama-cpp",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ai-research-inference-serving-llama-cpp",
+    "link_cmd": "python .agents/library/activate_skill.py link ai-research-inference-serving-llama-cpp"
+  },
+  {
+    "id": "ai-research-infrastructure-lambda-labs",
+    "name": "ai-research-infrastructure-lambda-labs",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Reserved and on-demand GPU cloud instances for ML training and inference. Use when you need dedicated GPU instances with simple SSH access, persistent filesystems, or high-performance multi-node clusters for large-scale training.",
+    "path": "library/davila7-claude-code-templates/skills/ai-research-infrastructure-lambda-labs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ai-research-infrastructure-lambda-labs",
+    "link_cmd": "python .agents/library/activate_skill.py link ai-research-infrastructure-lambda-labs"
+  },
+  {
+    "id": "ai-research-llm-app-patterns",
+    "name": "ai-research-llm-app-patterns",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"Production-ready patterns for building LLM applications. Covers RAG pipelines, agent architectures, prompt IDEs, and LLMOps monitoring. Use when designing AI applications, implementing RAG, building agents, or setting up LLM observability.\"",
+    "path": "library/davila7-claude-code-templates/skills/ai-research-llm-app-patterns",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ai-research-llm-app-patterns",
+    "link_cmd": "python .agents/library/activate_skill.py link ai-research-llm-app-patterns"
+  },
+  {
+    "id": "ai-research-prompt-engineering-outlines",
+    "name": "ai-research-prompt-engineering-outlines",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Guarantee valid JSON/XML/code structure during generation, use Pydantic models for type-safe outputs, support local models (Transformers, vLLM), and maximize inference speed with Outlines - dottxt.ai's structured generation library",
+    "path": "library/davila7-claude-code-templates/skills/ai-research-prompt-engineering-outlines",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ai-research-prompt-engineering-outlines",
+    "link_cmd": "python .agents/library/activate_skill.py link ai-research-prompt-engineering-outlines"
+  },
+  {
+    "id": "ai-research-rag-pinecone",
+    "name": "ai-research-rag-pinecone",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Managed vector database for production AI applications. Fully managed, auto-scaling, with hybrid search (dense + sparse), metadata filtering, and namespaces. Low latency (<100ms p95). Use for production RAG, recommendation systems, or semantic search at scale. Best for serverless, managed infrastructure.",
+    "path": "library/davila7-claude-code-templates/skills/ai-research-rag-pinecone",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ai-research-rag-pinecone",
+    "link_cmd": "python .agents/library/activate_skill.py link ai-research-rag-pinecone"
+  },
+  {
     "id": "ai-wrapper-product",
     "name": "ai-wrapper-product",
     "repository": "davila7-claude-code-templates",
@@ -970,6 +1040,136 @@
     "link_cmd": "python .agents/library/activate_skill.py link burp-suite-testing"
   },
   {
+    "id": "business-marketing-ai-directory-submitter",
+    "name": "business-marketing-ai-directory-submitter",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Lists an AI product on free AI directories, launch sites and MCP or agent directories, one at a time, from FalcoScan's checked list of free directories, and keeps a record of each submission. Use when the user wants to list, launch or promote an AI tool, SaaS, MCP server or agent on directories, or asks where to submit their product.",
+    "path": "library/davila7-claude-code-templates/skills/business-marketing-ai-directory-submitter",
+    "activation_cmd": "python .agents/library/activate_skill.py activate business-marketing-ai-directory-submitter",
+    "link_cmd": "python .agents/library/activate_skill.py link business-marketing-ai-directory-submitter"
+  },
+  {
+    "id": "business-marketing-marketing-demand-acquisition",
+    "name": "business-marketing-marketing-demand-acquisition",
+    "repository": "davila7-claude-code-templates",
+    "category": "marketing",
+    "description": "Multi-channel demand generation, paid media optimization, SEO strategy, and partnership programs for Series A+ startups. Includes CAC calculator, channel playbooks, HubSpot integration, and international expansion tactics. Use when planning demand generation campaigns, optimizing paid media, building SEO strategies, establishing partnerships, or when user mentions demand gen, paid ads, LinkedIn ads, Google ads, CAC, acquisition, lead generation, or pipeline generation.",
+    "path": "library/davila7-claude-code-templates/skills/business-marketing-marketing-demand-acquisition",
+    "activation_cmd": "python .agents/library/activate_skill.py activate business-marketing-marketing-demand-acquisition",
+    "link_cmd": "python .agents/library/activate_skill.py link business-marketing-marketing-demand-acquisition"
+  },
+  {
+    "id": "business-marketing-marketing-psychology",
+    "name": "business-marketing-marketing-psychology",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"When the user wants to apply psychological principles, mental models, or behavioral science to marketing. Also use when the user mentions 'psychology,' 'mental models,' 'cognitive bias,' 'persuasion,' 'behavioral science,' 'why people buy,' 'decision-making,' or 'consumer behavior.' This skill provides 70+ mental models organized for marketing application.\"",
+    "path": "library/davila7-claude-code-templates/skills/business-marketing-marketing-psychology",
+    "activation_cmd": "python .agents/library/activate_skill.py activate business-marketing-marketing-psychology",
+    "link_cmd": "python .agents/library/activate_skill.py link business-marketing-marketing-psychology"
+  },
+  {
+    "id": "business-marketing-marketing-strategy-pmm",
+    "name": "business-marketing-marketing-strategy-pmm",
+    "repository": "davila7-claude-code-templates",
+    "category": "marketing",
+    "description": "Product marketing, positioning, GTM strategy, and competitive intelligence. Includes ICP definition, April Dunford positioning methodology, launch playbooks, competitive battlecards, and international market entry guides. Use when developing positioning, planning product launches, creating messaging, analyzing competitors, entering new markets, enabling sales, or when user mentions product marketing, positioning, GTM, go-to-market, competitive analysis, market entry, or sales enablement.",
+    "path": "library/davila7-claude-code-templates/skills/business-marketing-marketing-strategy-pmm",
+    "activation_cmd": "python .agents/library/activate_skill.py activate business-marketing-marketing-strategy-pmm",
+    "link_cmd": "python .agents/library/activate_skill.py link business-marketing-marketing-strategy-pmm"
+  },
+  {
+    "id": "business-marketing-micro-saas-launcher",
+    "name": "business-marketing-micro-saas-launcher",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"Expert in launching small, focused SaaS products fast - the indie hacker approach to building profitable software. Covers idea validation, MVP development, pricing, launch strategies, and growing to sustainable revenue. Ship in weeks, not months. Use when: micro saas, indie hacker, small saas, side project, saas mvp.\"",
+    "path": "library/davila7-claude-code-templates/skills/business-marketing-micro-saas-launcher",
+    "activation_cmd": "python .agents/library/activate_skill.py activate business-marketing-micro-saas-launcher",
+    "link_cmd": "python .agents/library/activate_skill.py link business-marketing-micro-saas-launcher"
+  },
+  {
+    "id": "business-marketing-page-cro",
+    "name": "business-marketing-page-cro",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "When the user wants to optimize, improve, or increase conversions on any marketing page \u2014 including homepage, landing pages, pricing pages, feature pages, or blog posts. Also use when the user says \"CRO,\" \"conversion rate optimization,\" \"this page isn't converting,\" \"improve conversions,\" or \"why isn't this page working.\" For signup/registration flows, see signup-flow-cro. For post-signup activation, see onboarding-cro. For forms outside of signup, see form-cro. For popups/modals, see popup-cro.",
+    "path": "library/davila7-claude-code-templates/skills/business-marketing-page-cro",
+    "activation_cmd": "python .agents/library/activate_skill.py activate business-marketing-page-cro",
+    "link_cmd": "python .agents/library/activate_skill.py link business-marketing-page-cro"
+  },
+  {
+    "id": "business-marketing-paid-ads",
+    "name": "business-marketing-paid-ads",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ad copy,' 'ad creative,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' or 'audience targeting.' This skill covers campaign strategy, ad creation, audience targeting, and optimization.\"",
+    "path": "library/davila7-claude-code-templates/skills/business-marketing-paid-ads",
+    "activation_cmd": "python .agents/library/activate_skill.py activate business-marketing-paid-ads",
+    "link_cmd": "python .agents/library/activate_skill.py link business-marketing-paid-ads"
+  },
+  {
+    "id": "business-marketing-popup-cro",
+    "name": "business-marketing-popup-cro",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for conversion purposes. Also use when the user mentions \"exit intent,\" \"popup conversions,\" \"modal optimization,\" \"lead capture popup,\" \"email popup,\" \"announcement banner,\" or \"overlay.\" For forms outside of popups, see form-cro. For general page conversion optimization, see page-cro.",
+    "path": "library/davila7-claude-code-templates/skills/business-marketing-popup-cro",
+    "activation_cmd": "python .agents/library/activate_skill.py activate business-marketing-popup-cro",
+    "link_cmd": "python .agents/library/activate_skill.py link business-marketing-popup-cro"
+  },
+  {
+    "id": "business-marketing-pricing-strategy",
+    "name": "business-marketing-pricing-strategy",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"When the user wants help with pricing decisions, packaging, or monetization strategy. Also use when the user mentions 'pricing,' 'pricing tiers,' 'freemium,' 'free trial,' 'packaging,' 'price increase,' 'value metric,' 'Van Westendorp,' 'willingness to pay,' or 'monetization.' This skill covers pricing research, tier structure, and packaging strategy.\"",
+    "path": "library/davila7-claude-code-templates/skills/business-marketing-pricing-strategy",
+    "activation_cmd": "python .agents/library/activate_skill.py activate business-marketing-pricing-strategy",
+    "link_cmd": "python .agents/library/activate_skill.py link business-marketing-pricing-strategy"
+  },
+  {
+    "id": "business-marketing-programmatic-seo",
+    "name": "business-marketing-programmatic-seo",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "When the user wants to create SEO-driven pages at scale using templates and data. Also use when the user mentions \"programmatic SEO,\" \"template pages,\" \"pages at scale,\" \"directory pages,\" \"location pages,\" \"[keyword] + [city] pages,\" \"comparison pages,\" \"integration pages,\" or \"building many pages for SEO.\" For auditing existing SEO issues, see seo-audit.",
+    "path": "library/davila7-claude-code-templates/skills/business-marketing-programmatic-seo",
+    "activation_cmd": "python .agents/library/activate_skill.py activate business-marketing-programmatic-seo",
+    "link_cmd": "python .agents/library/activate_skill.py link business-marketing-programmatic-seo"
+  },
+  {
+    "id": "business-marketing-referral-program",
+    "name": "business-marketing-referral-program",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy. Also use when the user mentions 'referral,' 'affiliate,' 'ambassador,' 'word of mouth,' 'viral loop,' 'refer a friend,' or 'partner program.' This skill covers program design, incentive structure, and growth optimization.\"",
+    "path": "library/davila7-claude-code-templates/skills/business-marketing-referral-program",
+    "activation_cmd": "python .agents/library/activate_skill.py activate business-marketing-referral-program",
+    "link_cmd": "python .agents/library/activate_skill.py link business-marketing-referral-program"
+  },
+  {
+    "id": "business-marketing-social-content",
+    "name": "business-marketing-social-content",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,' 'social media,' 'content calendar,' 'social scheduling,' 'engagement,' or 'viral content.' This skill covers content creation, repurposing, and platform-specific strategies.\"",
+    "path": "library/davila7-claude-code-templates/skills/business-marketing-social-content",
+    "activation_cmd": "python .agents/library/activate_skill.py activate business-marketing-social-content",
+    "link_cmd": "python .agents/library/activate_skill.py link business-marketing-social-content"
+  },
+  {
+    "id": "business-marketing-x-twitter-scraper",
+    "name": "business-marketing-x-twitter-scraper",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"Use when the user wants to integrate with the X (Twitter) API via Xquik to search tweets, look up user profiles, extract followers, run giveaway draws, monitor accounts, or access trending topics. Also use when the user mentions 'Xquik,' 'Twitter API,' 'X API,' 'tweet scraper,' 'follower extraction,' or 'Twitter monitoring.' Covers REST API, webhooks, and MCP server setup.\"",
+    "path": "library/davila7-claude-code-templates/skills/business-marketing-x-twitter-scraper",
+    "activation_cmd": "python .agents/library/activate_skill.py activate business-marketing-x-twitter-scraper",
+    "link_cmd": "python .agents/library/activate_skill.py link business-marketing-x-twitter-scraper"
+  },
+  {
     "id": "busybox-on-windows",
     "name": "busybox-on-windows",
     "repository": "davila7-claude-code-templates",
@@ -1020,6 +1220,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link capa-officer"
   },
   {
+    "id": "career-academic-cv-builder",
+    "name": "career-academic-cv-builder",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Format CVs for academic positions, including publications, grants, teaching, and research experience. Use when the user mentions academic CV, faculty job, tenure-track, postdoc, PhD, research position, or needs to list publications, grants, conferences, or teaching.",
+    "path": "library/davila7-claude-code-templates/skills/career-academic-cv-builder",
+    "activation_cmd": "python .agents/library/activate_skill.py activate career-academic-cv-builder",
+    "link_cmd": "python .agents/library/activate_skill.py link career-academic-cv-builder"
+  },
+  {
     "id": "career-changer-translator",
     "name": "career-changer-translator",
     "repository": "davila7-claude-code-templates",
@@ -1028,6 +1238,66 @@
     "path": "library/davila7-claude-code-templates/skills/career-changer-translator",
     "activation_cmd": "python .agents/library/activate_skill.py activate career-changer-translator",
     "link_cmd": "python .agents/library/activate_skill.py link career-changer-translator"
+  },
+  {
+    "id": "career-offer-comparison-analyzer",
+    "name": "career-offer-comparison-analyzer",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Compare multiple job offers side-by-side with total compensation analysis. Use when the user has multiple offers and wants to compare salary, equity, benefits, or total comp.",
+    "path": "library/davila7-claude-code-templates/skills/career-offer-comparison-analyzer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate career-offer-comparison-analyzer",
+    "link_cmd": "python .agents/library/activate_skill.py link career-offer-comparison-analyzer"
+  },
+  {
+    "id": "career-portfolio-case-study-writer",
+    "name": "career-portfolio-case-study-writer",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Transform resume bullets into detailed portfolio case studies with context, action, and outcome. Use when the user mentions portfolio, case study, project write-up, or expanding a resume bullet into a longer narrative.",
+    "path": "library/davila7-claude-code-templates/skills/career-portfolio-case-study-writer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate career-portfolio-case-study-writer",
+    "link_cmd": "python .agents/library/activate_skill.py link career-portfolio-case-study-writer"
+  },
+  {
+    "id": "career-resume-ats-optimizer",
+    "name": "career-resume-ats-optimizer",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Optimize resumes for Applicant Tracking Systems, check ATS compatibility, and analyze keyword match. Use when the user mentions ATS, applicant tracking, keyword optimization, parsing, or getting past resume screening software.",
+    "path": "library/davila7-claude-code-templates/skills/career-resume-ats-optimizer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate career-resume-ats-optimizer",
+    "link_cmd": "python .agents/library/activate_skill.py link career-resume-ats-optimizer"
+  },
+  {
+    "id": "career-resume-bullet-writer",
+    "name": "career-resume-bullet-writer",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Transform weak resume bullets into achievement-focused statements with metrics and impact. Use when the user wants to rewrite bullets, strengthen accomplishments, or add action verbs and impact to their resume.",
+    "path": "library/davila7-claude-code-templates/skills/career-resume-bullet-writer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate career-resume-bullet-writer",
+    "link_cmd": "python .agents/library/activate_skill.py link career-resume-bullet-writer"
+  },
+  {
+    "id": "career-resume-quantifier",
+    "name": "career-resume-quantifier",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Find opportunities to add metrics and estimate numbers when exact data is unavailable. Use when the user wants to quantify achievements, add numbers, percentages, or impact metrics to a resume.",
+    "path": "library/davila7-claude-code-templates/skills/career-resume-quantifier",
+    "activation_cmd": "python .agents/library/activate_skill.py activate career-resume-quantifier",
+    "link_cmd": "python .agents/library/activate_skill.py link career-resume-quantifier"
+  },
+  {
+    "id": "career-salary-negotiation-prep",
+    "name": "career-salary-negotiation-prep",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Research market rates, build negotiation strategy, and create counter-offer scripts. Use when the user mentions salary negotiation, counter offer, compensation discussion, or pay raise conversation.",
+    "path": "library/davila7-claude-code-templates/skills/career-salary-negotiation-prep",
+    "activation_cmd": "python .agents/library/activate_skill.py activate career-salary-negotiation-prep",
+    "link_cmd": "python .agents/library/activate_skill.py link career-salary-negotiation-prep"
   },
   {
     "id": "cc-skill-backend-patterns",
@@ -1740,6 +2010,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link create-pr"
   },
   {
+    "id": "creative-design-game-development",
+    "name": "creative-design-game-development",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Use when building, fixing or tuning any video game. Invoke it before writing or changing game code (game loop, movement, physics, input, enemies, levels), in any engine (Godot, Unity, Unreal, Phaser, PixiJS, Three.js, Babylon.js, raw Canvas/WebGL) or platform (web, mobile, PC/console, VR/AR). Covers the game loop, fixed timestep, input mapping, frame budgets, AI, collision and game feel, and points to reference guides for 2D, 3D, game design, multiplayer, art and audio.",
+    "path": "library/davila7-claude-code-templates/skills/creative-design-game-development",
+    "activation_cmd": "python .agents/library/activate_skill.py activate creative-design-game-development",
+    "link_cmd": "python .agents/library/activate_skill.py link creative-design-game-development"
+  },
+  {
+    "id": "creative-design-premium-web-design",
+    "name": "creative-design-premium-web-design",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": ">",
+    "path": "library/davila7-claude-code-templates/skills/creative-design-premium-web-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate creative-design-premium-web-design",
+    "link_cmd": "python .agents/library/activate_skill.py link creative-design-premium-web-design"
+  },
+  {
     "id": "creative-portfolio-resume",
     "name": "creative-portfolio-resume",
     "repository": "davila7-claude-code-templates",
@@ -2230,6 +2520,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link developer-growth-analysis"
   },
   {
+    "id": "development-agirails-agent-payments",
+    "name": "development-agirails-agent-payments",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"AI agent payment infrastructure \u2014 ACTP escrow, x402 instant payments, USDC settlement on Base L2. Interactive onboarding: asks your preferences, generates customized agent code, and verifies setup. Covers provider/requester patterns, adapter routing, 8-state machine, pricing, disputes, and identity.\"",
+    "path": "library/davila7-claude-code-templates/skills/development-agirails-agent-payments",
+    "activation_cmd": "python .agents/library/activate_skill.py activate development-agirails-agent-payments",
+    "link_cmd": "python .agents/library/activate_skill.py link development-agirails-agent-payments"
+  },
+  {
     "id": "development-brainstorming",
     "name": "development-brainstorming",
     "repository": "davila7-claude-code-templates",
@@ -2240,6 +2540,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link development-brainstorming"
   },
   {
+    "id": "development-claude-api",
+    "name": "development-claude-api",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"Build, debug, and optimize Claude API / Anthropic SDK apps. Apps built with this skill should include prompt caching. Also handles migrating existing Claude API code between Claude model versions (4.5 \u2192 4.6, 4.6 \u2192 4.7, retired-model replacements). TRIGGER when: code imports `anthropic`/`@anthropic-ai/sdk`; user asks for the Claude API, Anthropic SDK, or Managed Agents; user adds/modifies/tunes a Claude feature (caching, thinking, compaction, tool use, batch, files, citations, memory) or model (Opus/Sonnet/Haiku) in a file; questions about prompt caching / cache hit rate in an Anthropic SDK project. SKIP: file imports `openai`/other-provider SDK, filename like `*-openai.py`/`*-generic.py`, provider-neutral code, general programming/ML.\"",
+    "path": "library/davila7-claude-code-templates/skills/development-claude-api",
+    "activation_cmd": "python .agents/library/activate_skill.py activate development-claude-api",
+    "link_cmd": "python .agents/library/activate_skill.py link development-claude-api"
+  },
+  {
     "id": "development-code-reviewer",
     "name": "development-code-reviewer",
     "repository": "davila7-claude-code-templates",
@@ -2248,6 +2558,46 @@
     "path": "library/davila7-claude-code-templates/skills/development-code-reviewer",
     "activation_cmd": "python .agents/library/activate_skill.py activate development-code-reviewer",
     "link_cmd": "python .agents/library/activate_skill.py link development-code-reviewer"
+  },
+  {
+    "id": "development-codex",
+    "name": "development-codex",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Use when the user asks to run Codex CLI (codex exec, codex resume) or references OpenAI Codex for code analysis, refactoring, or automated editing. Uses GPT-5.2 by default for state-of-the-art software engineering.",
+    "path": "library/davila7-claude-code-templates/skills/development-codex",
+    "activation_cmd": "python .agents/library/activate_skill.py activate development-codex",
+    "link_cmd": "python .agents/library/activate_skill.py link development-codex"
+  },
+  {
+    "id": "development-database-schema-designer",
+    "name": "development-database-schema-designer",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Design robust, scalable database schemas for SQL and NoSQL databases. Provides normalization guidelines, indexing strategies, migration patterns, constraint design, and performance optimization. Ensures data integrity, query performance, and maintainable data models.",
+    "path": "library/davila7-claude-code-templates/skills/development-database-schema-designer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate development-database-schema-designer",
+    "link_cmd": "python .agents/library/activate_skill.py link development-database-schema-designer"
+  },
+  {
+    "id": "development-google-cloud-onboarding",
+    "name": "development-google-cloud-onboarding",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Guides developers through their first steps on Google Cloud, covering account creation, billing setup, project management, CLI installation, and deploying a first resource.",
+    "path": "library/davila7-claude-code-templates/skills/development-google-cloud-onboarding",
+    "activation_cmd": "python .agents/library/activate_skill.py activate development-google-cloud-onboarding",
+    "link_cmd": "python .agents/library/activate_skill.py link development-google-cloud-onboarding"
+  },
+  {
+    "id": "development-security-compliance",
+    "name": "development-security-compliance",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Guides security professionals in implementing defense-in-depth security architectures, achieving compliance with industry frameworks (SOC2, ISO27001, GDPR, HIPAA), conducting threat modeling and risk assessments, managing security operations and incident response, and embedding security throughout the SDLC.",
+    "path": "library/davila7-claude-code-templates/skills/development-security-compliance",
+    "activation_cmd": "python .agents/library/activate_skill.py activate development-security-compliance",
+    "link_cmd": "python .agents/library/activate_skill.py link development-security-compliance"
   },
   {
     "id": "development-senior-frontend",
@@ -2600,6 +2950,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link doordash-allergy-shield"
   },
   {
+    "id": "doordash-doordash-order-playbooks",
+    "name": "doordash-doordash-order-playbooks",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Named, context-bound saved DoorDash orders (\"post-gym\", \"late-night deploy\") recalled through the DoorDash CLI (dd-cli) with a mandatory cart-diff before any checkout link is handed over. Use when the user names a saved order (\"order my post-gym bowl\", \"the usual\", \"my Friday ramen\"), wants to save the order they just placed as a playbook, or asks to list/remove saved orders. Persists name\u2192order-uuid playbooks across sessions, catches silent menu/price drift on every recall, and self-heals stale playbooks when a restaurant's menu changes. Requires dd-cli (macOS Apple Silicon, waitlist-gated).",
+    "path": "library/davila7-claude-code-templates/skills/doordash-doordash-order-playbooks",
+    "activation_cmd": "python .agents/library/activate_skill.py activate doordash-doordash-order-playbooks",
+    "link_cmd": "python .agents/library/activate_skill.py link doordash-doordash-order-playbooks"
+  },
+  {
     "id": "doordash-group-orders",
     "name": "doordash-group-orders",
     "repository": "davila7-claude-code-templates",
@@ -2818,6 +3178,16 @@
     "path": "library/davila7-claude-code-templates/skills/ensembl-database",
     "activation_cmd": "python .agents/library/activate_skill.py activate ensembl-database",
     "link_cmd": "python .agents/library/activate_skill.py link ensembl-database"
+  },
+  {
+    "id": "enterprise-communication-data-privacy-compliance",
+    "name": "enterprise-communication-data-privacy-compliance",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Data privacy and regulatory compliance specialist for GDPR, CCPA, HIPAA, and international data protection laws. Use when implementing privacy controls, conducting data protection impact assessments, ensuring regulatory compliance, or managing data subject rights. Expert in consent management, data minimization, and privacy-by-design principles.",
+    "path": "library/davila7-claude-code-templates/skills/enterprise-communication-data-privacy-compliance",
+    "activation_cmd": "python .agents/library/activate_skill.py activate enterprise-communication-data-privacy-compliance",
+    "link_cmd": "python .agents/library/activate_skill.py link enterprise-communication-data-privacy-compliance"
   },
   {
     "id": "enterprise-communication-telegram-bot-builder",
@@ -6350,6 +6720,36 @@
     "link_cmd": "python .agents/library/activate_skill.py link production-code-audit"
   },
   {
+    "id": "productivity-invoice-organizer",
+    "name": "productivity-invoice-organizer",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Automatically organizes invoices and receipts for tax preparation by reading messy files, extracting key information, renaming them consistently, and sorting them into logical folders. Turns hours of manual bookkeeping into minutes of automated organization.",
+    "path": "library/davila7-claude-code-templates/skills/productivity-invoice-organizer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate productivity-invoice-organizer",
+    "link_cmd": "python .agents/library/activate_skill.py link productivity-invoice-organizer"
+  },
+  {
+    "id": "productivity-notion-template-business",
+    "name": "productivity-notion-template-business",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"Expert in building and selling Notion templates as a business - not just making templates, but building a sustainable digital product business. Covers template design, pricing, marketplaces, marketing, and scaling to real revenue. Use when: notion template, sell templates, digital product, notion business, gumroad.\"",
+    "path": "library/davila7-claude-code-templates/skills/productivity-notion-template-business",
+    "activation_cmd": "python .agents/library/activate_skill.py activate productivity-notion-template-business",
+    "link_cmd": "python .agents/library/activate_skill.py link productivity-notion-template-business"
+  },
+  {
+    "id": "productivity-skill-judge",
+    "name": "productivity-skill-judge",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Evaluate Agent Skill design quality against official specifications and best practices. Use when reviewing, auditing, or improving SKILL.md files and skill packages. Provides multi-dimensional scoring and actionable improvement suggestions.",
+    "path": "library/davila7-claude-code-templates/skills/productivity-skill-judge",
+    "activation_cmd": "python .agents/library/activate_skill.py activate productivity-skill-judge",
+    "link_cmd": "python .agents/library/activate_skill.py link productivity-skill-judge"
+  },
+  {
     "id": "productivity-writing-skills",
     "name": "productivity-writing-skills",
     "repository": "davila7-claude-code-templates",
@@ -7508,6 +7908,46 @@
     "path": "library/davila7-claude-code-templates/skills/scientific-literature-review",
     "activation_cmd": "python .agents/library/activate_skill.py activate scientific-literature-review",
     "link_cmd": "python .agents/library/activate_skill.py link scientific-literature-review"
+  },
+  {
+    "id": "scientific-modal",
+    "name": "scientific-modal",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Run Python code in the cloud with serverless containers, GPUs, and autoscaling. Use when deploying ML models, running batch processing jobs, scheduling compute-intensive tasks, or serving APIs that require GPU acceleration or dynamic scaling.",
+    "path": "library/davila7-claude-code-templates/skills/scientific-modal",
+    "activation_cmd": "python .agents/library/activate_skill.py activate scientific-modal",
+    "link_cmd": "python .agents/library/activate_skill.py link scientific-modal"
+  },
+  {
+    "id": "scientific-paper-2-web",
+    "name": "scientific-paper-2-web",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "This skill should be used when converting academic papers into promotional and presentation formats including interactive websites (Paper2Web), presentation videos (Paper2Video), and conference posters (Paper2Poster). Use this skill for tasks involving paper dissemination, conference preparation, creating explorable academic homepages, generating video abstracts, or producing print-ready posters from LaTeX or PDF sources.",
+    "path": "library/davila7-claude-code-templates/skills/scientific-paper-2-web",
+    "activation_cmd": "python .agents/library/activate_skill.py activate scientific-paper-2-web",
+    "link_cmd": "python .agents/library/activate_skill.py link scientific-paper-2-web"
+  },
+  {
+    "id": "scientific-perplexity-search",
+    "name": "scientific-perplexity-search",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Perform AI-powered web searches with real-time information using Perplexity models via LiteLLM and OpenRouter. This skill should be used when conducting web searches for current information, finding recent scientific literature, getting grounded answers with source citations, or accessing information beyond the model's knowledge cutoff. Provides access to multiple Perplexity models including Sonar Pro, Sonar Pro Search (advanced agentic search), and Sonar Reasoning Pro through a single OpenRouter API key.",
+    "path": "library/davila7-claude-code-templates/skills/scientific-perplexity-search",
+    "activation_cmd": "python .agents/library/activate_skill.py activate scientific-perplexity-search",
+    "link_cmd": "python .agents/library/activate_skill.py link scientific-perplexity-search"
+  },
+  {
+    "id": "scientific-research-grants",
+    "name": "scientific-research-grants",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"Write competitive research proposals for NSF, NIH, DOE, and DARPA. Agency-specific formatting, review criteria, budget preparation, broader impacts, significance statements, innovation narratives, and compliance with submission requirements.\"",
+    "path": "library/davila7-claude-code-templates/skills/scientific-research-grants",
+    "activation_cmd": "python .agents/library/activate_skill.py activate scientific-research-grants",
+    "link_cmd": "python .agents/library/activate_skill.py link scientific-research-grants"
   },
   {
     "id": "scientific-scanpy",
@@ -8810,6 +9250,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link uspto-database"
   },
   {
+    "id": "utilities-domain-name-brainstormer",
+    "name": "utilities-domain-name-brainstormer",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Generates creative domain name ideas for your project and checks availability across multiple TLDs (.com, .io, .dev, .ai, etc.). Saves hours of brainstorming and manual checking.",
+    "path": "library/davila7-claude-code-templates/skills/utilities-domain-name-brainstormer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate utilities-domain-name-brainstormer",
+    "link_cmd": "python .agents/library/activate_skill.py link utilities-domain-name-brainstormer"
+  },
+  {
     "id": "utilities-using-superpowers",
     "name": "utilities-using-superpowers",
     "repository": "davila7-claude-code-templates",
@@ -8970,6 +9420,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link web-design-guidelines"
   },
   {
+    "id": "web-development-blockrun",
+    "name": "web-development-blockrun",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Use when user needs capabilities Claude lacks (image generation, real-time X/Twitter data) or explicitly requests external models (\"blockrun\", \"use grok\", \"use gpt\", \"dall-e\", \"deepseek\")",
+    "path": "library/davila7-claude-code-templates/skills/web-development-blockrun",
+    "activation_cmd": "python .agents/library/activate_skill.py activate web-development-blockrun",
+    "link_cmd": "python .agents/library/activate_skill.py link web-development-blockrun"
+  },
+  {
+    "id": "web-development-electron-development",
+    "name": "web-development-electron-development",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "\"Master Electron desktop app development with secure IPC, contextIsolation, preload scripts, multi-process architecture, electron-builder packaging, code signing, and auto-update.\"",
+    "path": "library/davila7-claude-code-templates/skills/web-development-electron-development",
+    "activation_cmd": "python .agents/library/activate_skill.py activate web-development-electron-development",
+    "link_cmd": "python .agents/library/activate_skill.py link web-development-electron-development"
+  },
+  {
     "id": "web-development-react-best-practices",
     "name": "web-development-react-best-practices",
     "repository": "davila7-claude-code-templates",
@@ -9068,6 +9538,16 @@
     "path": "library/davila7-claude-code-templates/skills/wireshark-analysis",
     "activation_cmd": "python .agents/library/activate_skill.py activate wireshark-analysis",
     "link_cmd": "python .agents/library/activate_skill.py link wireshark-analysis"
+  },
+  {
+    "id": "witness",
+    "name": "witness",
+    "repository": "davila7-claude-code-templates",
+    "category": "general",
+    "description": "Proves that a coding task is actually complete instead of only claimed. Use at the start of a coding task to fix acceptance criteria with a human and capture a baseline, and before claiming the task is done to run deterministic checks. Also use when the user asks to verify an agent's work.",
+    "path": "library/davila7-claude-code-templates/skills/witness",
+    "activation_cmd": "python .agents/library/activate_skill.py activate witness",
+    "link_cmd": "python .agents/library/activate_skill.py link witness"
   },
   {
     "id": "wordpress-penetration-testing",

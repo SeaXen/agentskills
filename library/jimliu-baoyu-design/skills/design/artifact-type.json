@@ -1,0 +1,23 @@
+{
+  "slug": "design",
+  "name": "Design",
+  "title": "Design (canvas)",
+  "description": "Designs as local files: a canvas of live HTML artboards (screens, components, prototypes) with notes and pages, arranged, edited in place and tweaked in a local page. Can install a design system and use its tokens and components.",
+  "summary": "A canvas of live HTML artboards: screens, pages, components and prototypes.",
+  "artifactTitle": "Untitled design",
+  "category": "Design",
+  "version": "0.1.0",
+  "skill": "SKILL.md",
+  "intents": ["design", "mockup", "prototype", "ui"],
+  "when": "The person wants UI screens, a web or landing page design, app mockups, component explorations, diagrams, print pieces or a clickable prototype as an editable canvas they can view, rearrange and tweak.",
+  "detect": ["project/canvas.json"],
+  "titleFrom": "project/canvas.json#/title",
+  "entry": {
+    "start": { "command": "node", "args": ["scripts/cli.mjs", "serve", "--type", "design"] },
+    "open": true,
+    "share": true,
+    "actions": true
+  },
+  "engines": { "openArtifact": ">=1" },
+  "openArtifact": { "style": "project", "projectDir": "project", "store": null, "comments": true, "exports": ["png", "jpeg", "pdf", "html"], "uses": ["design-system"] }
+}

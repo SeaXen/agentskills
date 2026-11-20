@@ -640,6 +640,14 @@
     "path": "category/testing-unit-tdd/backtest-expert"
   },
   {
+    "id": "baoyu-podcast-summary",
+    "name": "baoyu-podcast-summary",
+    "category": "testing-unit-tdd",
+    "repository": "jimliu-baoyu-skills",
+    "description": "Summarizes podcasts, interviews, panels, and other conversation transcripts into an objective, reader-first summary written in the user's preferred language. Leads with the few takeaways worth keeping, retells them faithfully with clear speaker attribution, and adds no opinions of its own. Accepts a pasted transcript, a transcript file, or a YouTube URL (transcript fetched through baoyu-youtube-transcript), infers unnamed speakers from context, and uses web search to verify names and supply background. Use when the user provides a transcript or a podcast/interview link and asks to \"summarize this podcast\", \"podcast summary\", \"interview summary\", \"key takeaways\", \"\u603b\u7ed3\u64ad\u5ba2\", \"\u64ad\u5ba2\u603b\u7ed3\", \"\u8bbf\u8c08\u603b\u7ed3\", \"\u603b\u7ed3\u4e00\u4e0b\u8fd9\u671f\u64ad\u5ba2\", \"\u603b\u7ed3\u8fd9\u4e2a\u8bbf\u8c08\", or shares a YouTube interview and wants a written summary rather than the raw transcript.",
+    "path": "category/testing-unit-tdd/baoyu-podcast-summary"
+  },
+  {
     "id": "behavioural-analytics",
     "name": "behavioural-analytics",
     "category": "testing-unit-tdd",
@@ -702,6 +710,14 @@
     "repository": "affaan-m-ecc",
     "description": "Convert 'make it faster' requests into a bounded measured optimization loop \u2014 baseline first, generate one-hypothesis variants, benchmark each against a correctness gate, and promote the fastest safe variant with reproducible commands. Use when asked to speed something up, try many variants, run recursive optimization, benchmark latency/throughput/cost, or pick the best implementation by repeated measured tests.",
     "path": "category/testing-unit-tdd/benchmark-optimization-loop"
+  },
+  {
+    "id": "bioir-bench-perf-oss",
+    "name": "bioir-bench-perf-oss",
+    "category": "testing-unit-tdd",
+    "repository": "nvidia-skills",
+    "description": "Compare BioIR vs OSS folding performance: model.forward() latency, GPU use, lDDT and DockQ with matched inputs. Use for benchmark setup, execution or audits; excludes affinity heads and Ray throughput.",
+    "path": "category/testing-unit-tdd/bioir-bench-perf-oss"
   },
   {
     "id": "bmad-build-auto",
@@ -1120,6 +1136,14 @@
     "path": "category/testing-unit-tdd/competitor-tracker"
   },
   {
+    "id": "compileiq-validate-result",
+    "name": "compileiq-validate-result",
+    "category": "testing-unit-tdd",
+    "repository": "nvidia-skills",
+    "description": "Use AFTER a Search has completed and BEFORE claiming any speedup or shipping an ACF. Loads the dump_results CSV, extracts top-K candidates (single-objective) or the Pareto front (multi-objective), re-measures each against the no-ACF baseline with 100+ trials on fresh caches, runs Welch's t-test plus Cohen's d, rejects three classic false-positive patterns (lucky-min / higher-variance / multiple-comparisons-of-N), and saves the validated winner as best.acf. Triggers on \"validate result\", \"extract best config\", \"Welch's t-test\", \"is my speedup real\", \"save best ACF\", \"pareto front\", \"claim speedup\", \"ship config\".",
+    "path": "category/testing-unit-tdd/compileiq-validate-result"
+  },
+  {
     "id": "concept-selection",
     "name": "concept-selection",
     "category": "testing-unit-tdd",
@@ -1230,6 +1254,14 @@
     "repository": "mvschwarz-openrig",
     "description": "Use when an agent is preparing or performing an OpenRig CLI/daemon upgrade and must preserve live seats, verify each mutation, or reconcile managed plugin and skill files without overwriting local work.",
     "path": "category/testing-unit-tdd/core-openrig-upgrade"
+  },
+  {
+    "id": "core-skills-aws-emulator",
+    "name": "core-skills-aws-emulator",
+    "category": "testing-unit-tdd",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Installs, starts and troubleshoots AWS Emulator, the local emulator of AWS service APIs, and checks whether a project or a single operation works on the installed build. Use when the user wants to install or start the emulator, point the AWS CLI or an AWS SDK at it, fix a connection, TLS, certificate or request-signing error against it, run it in containers, CI or an agent sandbox, or asks whether AWS Emulator supports, works with, or is faithful enough for their app, repo, tests or a specific AWS operation (any language, SDK, CLI or IaC). Covers AWS Emulator only. Does not apply when the user asks about LocalStack, moto or any other local emulator or mock, including what it supports or whether an app works on it, and not for deploying to real AWS or production use.",
+    "path": "category/testing-unit-tdd/core-skills-aws-emulator"
   },
   {
     "id": "core-tools-bmad-forge-idea",
@@ -4648,6 +4680,14 @@
     "path": "category/testing-unit-tdd/skills-asc-workflow"
   },
   {
+    "id": "skills-aws-emulator",
+    "name": "skills-aws-emulator",
+    "category": "testing-unit-tdd",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Installs, starts and troubleshoots AWS Emulator, the local emulator of AWS service APIs, and checks whether a project or a single operation works on the installed build. Use when the user wants to install or start the emulator, point the AWS CLI or an AWS SDK at it, fix a connection, TLS, certificate or request-signing error against it, run it in containers, CI or an agent sandbox, or asks whether AWS Emulator supports, works with, or is faithful enough for their app, repo, tests or a specific AWS operation (any language, SDK, CLI or IaC). Covers AWS Emulator only. Does not apply when the user asks about LocalStack, moto or any other local emulator or mock, including what it supports or whether an app works on it, and not for deploying to real AWS or production use.",
+    "path": "category/testing-unit-tdd/skills-aws-emulator"
+  },
+  {
     "id": "skills-benchmark",
     "name": "skills-benchmark",
     "category": "testing-unit-tdd",
@@ -4659,7 +4699,7 @@
     "id": "skills-benchmark-checklist",
     "name": "skills-benchmark-checklist",
     "category": "testing-unit-tdd",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Vet a perf measurement (limiter, tuning, limits, errors, repeatability, relevance, and whether the work happened) before you report or act on it. Use when you run a benchmark or report a speedup or regression you measured.",
     "path": "category/testing-unit-tdd/skills-benchmark-checklist"
   },
@@ -4888,6 +4928,14 @@
     "path": "category/testing-unit-tdd/skills-django-verification"
   },
   {
+    "id": "skills-doca-bf4-deployment",
+    "name": "skills-doca-bf4-deployment",
+    "category": "testing-unit-tdd",
+    "repository": "nvidia-skills",
+    "description": "WARNING: guides IRREVERSIBLE BlueField-4 hardware operations (PLDM firmware burns, ISO reflashes, power cycles, BMC factory resets); every mutating step is governed by doca-hardware-safety (window, rollback). BlueField-4 only: BlueField-3 bring-up is doca-bf3-deployment. Use this skill for BlueField-4 (BF4) day-1 platform bring-up from the BMC: installing the BlueField/DOCA bundle ISO onto the DPU (Grace, the Arm complex) over UEFI HTTP Boot, PXE, or Redfish Virtual Media; the PLDM platform-firmware update via the Redfish UpdateService and pldmtool; and a Grace Ubuntu image with optional cloud-init. Trigger on BlueField-4/BF4 bring-up phrasings even without \"BF4\": {bring up my new BlueField-4}, {the BlueField ISO will not boot over HTTP from the BMC}, {attach BF4 virtual media via Redfish}, {BF4 firmware Task stuck at Running}, or preparing a BlueField-4 host (platform support, version alignment, safest first smoke test). Route application launch and library APIs to other skills.",
+    "path": "category/testing-unit-tdd/skills-doca-bf4-deployment"
+  },
+  {
     "id": "skills-egm-resolve",
     "name": "skills-egm-resolve",
     "category": "testing-unit-tdd",
@@ -4974,6 +5022,14 @@
     "repository": "affaan-m-ecc",
     "description": "Patrones de pruebas Kotlin con Kotest, MockK, pruebas de coroutines, pruebas basadas en propiedades y cobertura con Kover. Sigue la metodolog\u00eda TDD con pr\u00e1cticas idiom\u00e1ticas de Kotlin.",
     "path": "category/testing-unit-tdd/skills-kotlin-testing"
+  },
+  {
+    "id": "skills-langchain-eval-engineering",
+    "name": "skills-langchain-eval-engineering",
+    "category": "testing-unit-tdd",
+    "repository": "langchain-ai-langchain-skills",
+    "description": "Inspect an agent repository and optional traces, interview the user, write reviewed Task Specs, build and audit Harbor tasks, and bootstrap reusable project World Knowledge Skills. Use for agent evals, benchmark design, Task generation, controlled Environments, synthetic data, Verifiers, Harbor runs, calibration, or continuous benchmark maintenance.",
+    "path": "category/testing-unit-tdd/skills-langchain-eval-engineering"
   },
   {
     "id": "skills-laravel-tdd",
@@ -5179,7 +5235,7 @@
     "id": "skills-principle-attack-the-premise",
     "name": "skills-principle-attack-the-premise",
     "category": "testing-unit-tdd",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Apply when two or more fixes that share one premise have failed the same gate. Write the premise down and test it directly before you write another fix that assumes it.",
     "path": "category/testing-unit-tdd/skills-principle-attack-the-premise"
   },
@@ -5187,7 +5243,7 @@
     "id": "skills-principle-prove-it-works",
     "name": "skills-principle-prove-it-works",
     "category": "testing-unit-tdd",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Apply after completing a task, before declaring done. Verify against the real artifact (run the feature, read the actual value, inspect the diff), not a proxy, self-report, or 'it compiles.",
     "path": "category/testing-unit-tdd/skills-principle-prove-it-works"
   },
@@ -5195,7 +5251,7 @@
     "id": "skills-principle-test-behavior-not-implementation",
     "name": "skills-principle-test-behavior-not-implementation",
     "category": "testing-unit-tdd",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Apply when you write, change, or keep a test. Assert what the code's users can observe, so that the test fails when that behavior breaks and keeps passing when only the internals change.",
     "path": "category/testing-unit-tdd/skills-principle-test-behavior-not-implementation"
   },
@@ -5222,6 +5278,14 @@
     "repository": "coreyhaines31-marketingskills",
     "description": "When the user wants to find and qualify prospects for outbound, or asks who to target first, which signal to prioritize, or where to spot buyers with the problem: buying signals, enrichment, verification, account research. Verify emails before a sequence, never scrape LinkedIn: define audiences in Sales Navigator and pull contacts from licensed data. For outreach, see cold-email. For competitor research, see competitor-profiling.",
     "path": "category/testing-unit-tdd/skills-prospecting"
+  },
+  {
+    "id": "skills-prune-tests",
+    "name": "skills-prune-tests",
+    "category": "testing-unit-tdd",
+    "repository": "caldoai-skills",
+    "description": "Prune tests that guard no behavior.",
+    "path": "category/testing-unit-tdd/skills-prune-tests"
   },
   {
     "id": "skills-python-testing",
@@ -6280,6 +6344,14 @@
     "path": "category/testing-unit-tdd/weather-data-reproducibility"
   },
   {
+    "id": "web-offensive-race-condition",
+    "name": "web-offensive-race-condition",
+    "category": "testing-unit-tdd",
+    "repository": "snailsploit-claude-red",
+    "description": "Race condition (TOCTOU) testing checklist: identifying timing windows, Burp Suite Turbo Intruder, Last-Byte sync technique, rate limit bypass, double-spend attacks, and concurrent request exploitation. Use for web app race condition testing or bug bounty time-of-check-to-time-of-use bugs.",
+    "path": "category/testing-unit-tdd/web-offensive-race-condition"
+  },
+  {
     "id": "webmcp-gen",
     "name": "webmcp-gen",
     "category": "testing-unit-tdd",
@@ -6315,8 +6387,8 @@
     "id": "witness",
     "name": "witness",
     "category": "testing-unit-tdd",
-    "repository": "ruvnet-ruflo",
-    "description": "Sign, verify and track fix-marker regressions over time with an Ed25519 witness manifest. Use when registering fixes or checking a release for regressed fixes. The default seed proves integrity only; set RUFLO_WITNESS_SEED/RUFLO_WITNESS_PUBLIC_KEY for authorship.",
+    "repository": "davila7-claude-code-templates",
+    "description": "Proves that a coding task is actually complete instead of only claimed. Use at the start of a coding task to fix acceptance criteria with a human and capture a baseline, and before claiming the task is done to run deterministic checks. Also use when the user asks to verify an agent's work.",
     "path": "category/testing-unit-tdd/witness"
   },
   {

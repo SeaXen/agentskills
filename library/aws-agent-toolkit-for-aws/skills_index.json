@@ -240,6 +240,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link analytics-skills-developing-applications-on-managed-service-for-apache-flink"
   },
   {
+    "id": "analytics-skills-managing-amazon-kinesis-data-streams",
+    "name": "analytics-skills-managing-amazon-kinesis-data-streams",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">",
+    "path": "library/aws-agent-toolkit-for-aws/skills/analytics-skills-managing-amazon-kinesis-data-streams",
+    "activation_cmd": "python .agents/library/activate_skill.py activate analytics-skills-managing-amazon-kinesis-data-streams",
+    "link_cmd": "python .agents/library/activate_skill.py link analytics-skills-managing-amazon-kinesis-data-streams"
+  },
+  {
     "id": "analytics-skills-managing-amazon-msk",
     "name": "analytics-skills-managing-amazon-msk",
     "repository": "aws-agent-toolkit-for-aws",
@@ -498,6 +508,16 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/aws-lambda-web-functions",
     "activation_cmd": "python .agents/library/activate_skill.py activate aws-lambda-web-functions",
     "link_cmd": "python .agents/library/activate_skill.py link aws-lambda-web-functions"
+  },
+  {
+    "id": "aws-marketplace-agentic-commerce",
+    "name": "aws-marketplace-agentic-commerce",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "Onboards an x402 seller endpoint to AWS Marketplace Agentic Commerce fiat payments with the Fiat Extension for x402 SDKs - Python `fiat-extension-for-x402` (FastAPI, Flask) and TypeScript `@aws/fiat-extension-for-x402` (Express, any framework via @x402/core). Adds the `exact` scheme on network `aws:base` next to a seller's existing x402 networks (for example USDC on Base), with an AWS KMS or bring-your-own quote-signing key, the Marketplace product ID as payTo, and an in-process facilitator. Use when a seller wants an HTTP API to accept fiat or AWS Marketplace payments from AI agents over x402, add aws:base to existing x402 routes, configure KmsQuoteSigner or LocalQuoteSigner, reject replayed payments, or debug invalid_quote, invalid_payment, dpop_invalid or a 402 without aws:base. Seller side only; not for buyer clients that pay x402 APIs, or for creating the listing.",
+    "path": "library/aws-agent-toolkit-for-aws/skills/aws-marketplace-agentic-commerce",
+    "activation_cmd": "python .agents/library/activate_skill.py activate aws-marketplace-agentic-commerce",
+    "link_cmd": "python .agents/library/activate_skill.py link aws-marketplace-agentic-commerce"
   },
   {
     "id": "aws-marketplace-metering",
@@ -810,6 +830,36 @@
     "link_cmd": "python .agents/library/activate_skill.py link core-skills"
   },
   {
+    "id": "core-skills-amazon-bedrock",
+    "name": "core-skills-amazon-bedrock",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "Builds generative AI applications on Amazon Bedrock. Covers model invocation (Converse API, InvokeModel), RAG with Knowledge Bases, Bedrock Agents, Guardrails, and AgentCore (including the Harness managed agent loop). Applies when invoking models, setting up or migrating Knowledge Bases to Managed, deploying to AgentCore, migrating/porting/converting a Bedrock Agent (including inline agents) to an AgentCore Harness, troubleshooting Bedrock errors (ThrottlingException, AccessDeniedException), or choosing Bedrock models (Claude, Llama, Nova, Titan). Also for prompt caching, quota and throttling diagnosis, cost tracking, migrating between Claude model generations, chunking strategies, and Bedrock model selection. Covers AgentCore Payments (x402, microtransactions, Payment Manager, Connector, Instrument, Coinbase CDP, Stripe Privy, paid endpoints, agent payments). NOT for custom model training, Rekognition, or Comprehend. For SageMaker model discovery, customization, or endpoints, use aws-ai-ml.",
+    "path": "library/aws-agent-toolkit-for-aws/skills/core-skills-amazon-bedrock",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-skills-amazon-bedrock",
+    "link_cmd": "python .agents/library/activate_skill.py link core-skills-amazon-bedrock"
+  },
+  {
+    "id": "core-skills-aws-ai-ml",
+    "name": "core-skills-aws-ai-ml",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">",
+    "path": "library/aws-agent-toolkit-for-aws/skills/core-skills-aws-ai-ml",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-skills-aws-ai-ml",
+    "link_cmd": "python .agents/library/activate_skill.py link core-skills-aws-ai-ml"
+  },
+  {
+    "id": "core-skills-aws-emulator",
+    "name": "core-skills-aws-emulator",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">-",
+    "path": "library/aws-agent-toolkit-for-aws/skills/core-skills-aws-emulator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-skills-aws-emulator",
+    "link_cmd": "python .agents/library/activate_skill.py link core-skills-aws-emulator"
+  },
+  {
     "id": "core-skills-aws-observability",
     "name": "core-skills-aws-observability",
     "repository": "aws-agent-toolkit-for-aws",
@@ -838,6 +888,16 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/core-skills-aws-storage",
     "activation_cmd": "python .agents/library/activate_skill.py activate core-skills-aws-storage",
     "link_cmd": "python .agents/library/activate_skill.py link core-skills-aws-storage"
+  },
+  {
+    "id": "core-skills-signing-in-to-aws",
+    "name": "core-skills-signing-in-to-aws",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "|",
+    "path": "library/aws-agent-toolkit-for-aws/skills/core-skills-signing-in-to-aws",
+    "activation_cmd": "python .agents/library/activate_skill.py activate core-skills-signing-in-to-aws",
+    "link_cmd": "python .agents/library/activate_skill.py link core-skills-signing-in-to-aws"
   },
   {
     "id": "cost-regression-check",
@@ -900,6 +960,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link creating-secrets-using-best-practices"
   },
   {
+    "id": "customer-communications-skills-amazon-ses",
+    "name": "customer-communications-skills-amazon-ses",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Guides domain-based email sending setup with Amazon SES, including the recommended default setup, identity and DNS authentication, a test send, production access, and troubleshooting. Use when a customer asks to set up email sending, SES, or AWS email; resume incomplete onboarding; or leave the sandbox. Does not cover inbound email or Mail Manager, SMS/voice, WhatsApp, SNS, Pinpoint, or WorkMail.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/customer-communications-skills-amazon-ses",
+    "activation_cmd": "python .agents/library/activate_skill.py activate customer-communications-skills-amazon-ses",
+    "link_cmd": "python .agents/library/activate_skill.py link customer-communications-skills-amazon-ses"
+  },
+  {
     "id": "database-skills-amazon-dynamodb",
     "name": "database-skills-amazon-dynamodb",
     "repository": "aws-agent-toolkit-for-aws",
@@ -908,6 +978,16 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/database-skills-amazon-dynamodb",
     "activation_cmd": "python .agents/library/activate_skill.py activate database-skills-amazon-dynamodb",
     "link_cmd": "python .agents/library/activate_skill.py link database-skills-amazon-dynamodb"
+  },
+  {
+    "id": "database-skills-amazon-elasticache",
+    "name": "database-skills-amazon-elasticache",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Activate when developers have latent caching needs: slow API responses, database read bottlenecks, DynamoDB throttling or cost, read/write-through caching, RDS/Aurora scaling pressure, Bedrock latency or cost, or adding a cache; activate when working with Redis, Valkey, Memcached, cache-aside patterns, session stores, rate limiting, leaderboards, counters, streams, queues, pub/sub, distributed locks, feature flags, shopping carts. Activate for GenAI and ML retrieval: vector similarity search, semantic caching, RAG, LLM response caching, KV caching, embedding stores, AI agent memory, recommendation. Activate for ElastiCache lifecycle: provisioning (serverless or node-based), engine selection, CloudFormation/CDK/Terraform IaC, VPC connectivity, TLS, RBAC, IAM auth, Global Datastore, public endpoints, durability, monitoring, troubleshooting, migration from self-managed Redis, and online migration to Serverless. Do not trigger for browser caches, CDN/CloudFront, HTTP Cache-Control, CPU caches.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/database-skills-amazon-elasticache",
+    "activation_cmd": "python .agents/library/activate_skill.py activate database-skills-amazon-elasticache",
+    "link_cmd": "python .agents/library/activate_skill.py link database-skills-amazon-elasticache"
   },
   {
     "id": "database-skills-timestream-influxdb",
@@ -1048,6 +1128,16 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/finding-data-lake-assets",
     "activation_cmd": "python .agents/library/activate_skill.py activate finding-data-lake-assets",
     "link_cmd": "python .agents/library/activate_skill.py link finding-data-lake-assets"
+  },
+  {
+    "id": "fixing-continuum-issues",
+    "name": "fixing-continuum-issues",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "Group Continuum issues by root cause, discuss fix tradeoffs before editing, implement one tested pull request per group, test the combined train, suggest merge order, and record shadow merge predictions.",
+    "path": "library/aws-agent-toolkit-for-aws/skills/fixing-continuum-issues",
+    "activation_cmd": "python .agents/library/activate_skill.py activate fixing-continuum-issues",
+    "link_cmd": "python .agents/library/activate_skill.py link fixing-continuum-issues"
   },
   {
     "id": "gcp-to-aws",
@@ -1238,6 +1328,16 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/networking-and-content-delivery-skills-route53",
     "activation_cmd": "python .agents/library/activate_skill.py activate networking-and-content-delivery-skills-route53",
     "link_cmd": "python .agents/library/activate_skill.py link networking-and-content-delivery-skills-route53"
+  },
+  {
+    "id": "odb-aws",
+    "name": "odb-aws",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Oracle Database@AWS (ODB@AWS) toolkit for Exadata Database Service and Autonomous Database running on OCI-managed Exadata inside AWS. Covers ODB@AWS connectivity scenarios including cannot connect to Exadata on AWS, ORA-12170 timeout, ORA-12154 could not resolve connect identifier, ORA-29024 certificate validation with SSM tunnel, ORA-28759, ODB peering, Route 53 Resolver DNS forwarding for oraclevcn.com, SCAN hostname, connecting Lambda with python-oracledb, multiple VPCs to the same Exadata via Transit Gateway and RAM, wallet from Secrets Manager, TCPS, and OCI IAM. Includes network topology, app code for Python/Java/Node.js/SQLcl/SQL Developer/DBeaver, and TNS/DNS/wallet diagnostics.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/odb-aws",
+    "activation_cmd": "python .agents/library/activate_skill.py activate odb-aws",
+    "link_cmd": "python .agents/library/activate_skill.py link odb-aws"
   },
   {
     "id": "operate-on-aws",
@@ -1440,6 +1540,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link render-to-aws"
   },
   {
+    "id": "reporting-continuum-security",
+    "name": "reporting-continuum-security",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "Write a shareable Continuum security report from public AWS CLI evidence as self-contained GitHub-flavoured Markdown.",
+    "path": "library/aws-agent-toolkit-for-aws/skills/reporting-continuum-security",
+    "activation_cmd": "python .agents/library/activate_skill.py activate reporting-continuum-security",
+    "link_cmd": "python .agents/library/activate_skill.py link reporting-continuum-security"
+  },
+  {
     "id": "resilience-hub-failure-mode-assessment",
     "name": "resilience-hub-failure-mode-assessment",
     "repository": "aws-agent-toolkit-for-aws",
@@ -1540,6 +1650,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link self-hosted-llm-batch-inference"
   },
   {
+    "id": "serverless-skills-aws-lambda-durable-functions",
+    "name": "serverless-skills-aws-lambda-durable-functions",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "Builds resilient, long-running, multi-step applications with AWS Lambda durable functions with automatic state persistence, retry logic, and orchestration for long-running executions. Covers the critical replay model, step operations, wait/callback patterns, error handling with saga pattern, testing with LocalDurableTestRunner. Triggers on phrases like lambda durable functions, durable execution, workflow orchestration, state machines, retry/checkpoint patterns, long-running stateful Lambda functions, saga pattern, human-in-the-loop callbacks, reliable serverless applications, context.step, context.wait, context.invoke, context.runInChildContext, withDurableExecution, DurableContext, durable-execution-sdk, qualified ARN invocation, and durable handler replay.",
+    "path": "library/aws-agent-toolkit-for-aws/skills/serverless-skills-aws-lambda-durable-functions",
+    "activation_cmd": "python .agents/library/activate_skill.py activate serverless-skills-aws-lambda-durable-functions",
+    "link_cmd": "python .agents/library/activate_skill.py link serverless-skills-aws-lambda-durable-functions"
+  },
+  {
+    "id": "serverless-skills-aws-lambda-managed-instances",
+    "name": "serverless-skills-aws-lambda-managed-instances",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Evaluates, configures, and migrates workloads to AWS Lambda Managed Instances (LMI). Runs Lambda Event Functions on EC2 instances in the user's account while AWS manages provisioning, patching, and scaling. Triggers when queries mention Lambda Managed Instances, LMI, capacity providers, multi-concurrent execution environments, EC2-backed Lambda, persistent Lambda instances, PerExecutionEnvironmentMaxConcurrency, CapacityProviderConfig, cold start elimination via dedicated instances, SOCI (Seekable OCI) image lazy loading, GPU functions (AcceleratorConfig, vLLM/SGLang), migrating Lambda Event Functions to managed instances, or LMI cost comparison with Savings Plans or Reserved Instances. Also covers long-running and asynchronous workloads, the 90-minute (5400s) timeout for asynchronous and event-source-mapping (SQS, Kinesis, DynamoDB Streams / ESM) invocations and the 30-minute (1800s) synchronous limit, including how to raise the function timeout up to 90 minutes / 5400s.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/serverless-skills-aws-lambda-managed-instances",
+    "activation_cmd": "python .agents/library/activate_skill.py activate serverless-skills-aws-lambda-managed-instances",
+    "link_cmd": "python .agents/library/activate_skill.py link serverless-skills-aws-lambda-managed-instances"
+  },
+  {
     "id": "serverless-skills-aws-lambda-microvms",
     "name": "serverless-skills-aws-lambda-microvms",
     "repository": "aws-agent-toolkit-for-aws",
@@ -1548,6 +1678,26 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/serverless-skills-aws-lambda-microvms",
     "activation_cmd": "python .agents/library/activate_skill.py activate serverless-skills-aws-lambda-microvms",
     "link_cmd": "python .agents/library/activate_skill.py link serverless-skills-aws-lambda-microvms"
+  },
+  {
+    "id": "serverless-skills-aws-lambda-web-functions",
+    "name": "serverless-skills-aws-lambda-web-functions",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">",
+    "path": "library/aws-agent-toolkit-for-aws/skills/serverless-skills-aws-lambda-web-functions",
+    "activation_cmd": "python .agents/library/activate_skill.py activate serverless-skills-aws-lambda-web-functions",
+    "link_cmd": "python .agents/library/activate_skill.py link serverless-skills-aws-lambda-web-functions"
+  },
+  {
+    "id": "serverless-skills-debugging-lambda-timeouts",
+    "name": "serverless-skills-debugging-lambda-timeouts",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "Debugs AWS Lambda function timeout failures by systematically analyzing function configuration, CloudWatch logs and metrics, VPC/networking, cold starts, memory constraints, and downstream dependencies to identify root causes with actionable fixes. Use when a Lambda function is timing out or approaching its timeout limit.",
+    "path": "library/aws-agent-toolkit-for-aws/skills/serverless-skills-debugging-lambda-timeouts",
+    "activation_cmd": "python .agents/library/activate_skill.py activate serverless-skills-debugging-lambda-timeouts",
+    "link_cmd": "python .agents/library/activate_skill.py link serverless-skills-debugging-lambda-timeouts"
   },
   {
     "id": "setting-up-cloudtrail-multi-region",
@@ -1578,6 +1728,16 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/setting-up-cloudwatch-observability",
     "activation_cmd": "python .agents/library/activate_skill.py activate setting-up-cloudwatch-observability",
     "link_cmd": "python .agents/library/activate_skill.py link setting-up-cloudwatch-observability"
+  },
+  {
+    "id": "setting-up-continuum",
+    "name": "setting-up-continuum",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "Guide a developer through connecting a repository to AWS Continuum, granting least-privilege access, creating an environment, learning the real deployment, and observing its automatic first scan.",
+    "path": "library/aws-agent-toolkit-for-aws/skills/setting-up-continuum",
+    "activation_cmd": "python .agents/library/activate_skill.py activate setting-up-continuum",
+    "link_cmd": "python .agents/library/activate_skill.py link setting-up-continuum"
   },
   {
     "id": "setting-up-ec2-instance-profiles",
@@ -1670,6 +1830,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link skills-agent-advisor"
   },
   {
+    "id": "skills-amazon-bedrock",
+    "name": "skills-amazon-bedrock",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "Builds generative AI applications on Amazon Bedrock. Covers model invocation (Converse API, InvokeModel), RAG with Knowledge Bases, Bedrock Agents, Guardrails, and AgentCore (including the Harness managed agent loop). Applies when invoking models, setting up or migrating Knowledge Bases to Managed, deploying to AgentCore, migrating/porting/converting a Bedrock Agent (including inline agents) to an AgentCore Harness, troubleshooting Bedrock errors (ThrottlingException, AccessDeniedException), or choosing Bedrock models (Claude, Llama, Nova, Titan). Also for prompt caching, quota and throttling diagnosis, cost tracking, migrating between Claude model generations, chunking strategies, and Bedrock model selection. Covers AgentCore Payments (x402, microtransactions, Payment Manager, Connector, Instrument, Coinbase CDP, Stripe Privy, paid endpoints, agent payments). NOT for custom model training, Rekognition, or Comprehend. For SageMaker model discovery, customization, or endpoints, use aws-ai-ml.",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-amazon-bedrock",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-amazon-bedrock",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-amazon-bedrock"
+  },
+  {
     "id": "skills-analyzing-release-readiness",
     "name": "skills-analyzing-release-readiness",
     "repository": "aws-agent-toolkit-for-aws",
@@ -1688,6 +1858,26 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/skills-architect-for-startups",
     "activation_cmd": "python .agents/library/activate_skill.py activate skills-architect-for-startups",
     "link_cmd": "python .agents/library/activate_skill.py link skills-architect-for-startups"
+  },
+  {
+    "id": "skills-aws-ai-ml",
+    "name": "skills-aws-ai-ml",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-aws-ai-ml",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-aws-ai-ml",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-aws-ai-ml"
+  },
+  {
+    "id": "skills-aws-emulator",
+    "name": "skills-aws-emulator",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">-",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-aws-emulator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-aws-emulator",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-aws-emulator"
   },
   {
     "id": "skills-aws-observability",
@@ -1750,6 +1940,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link skills-bedrock-migration-assessment"
   },
   {
+    "id": "skills-cost-regression-check",
+    "name": "skills-cost-regression-check",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"This skill should be used when a company that pays its AWS bill from a fixed monthly ceiling, often funded by credits, asks what a pull request or other infrastructure-as-code change (Terraform, AWS CDK, or AWS CloudFormation) will add to that bill before apply, or wants that cost on every pull request, including through Infracost or another estimator in CI. It reports two numbers at list price before credits: the fixed monthly floor added at zero traffic, and the change in cost per unit of the team's own usage, against absolute thresholds derived from the ceiling and kept in the repository. It sets up a CI job and a repository-owned script so the author and the bill owner decide on each pull request. Not for spend that already happened (aws-core:aws-billing-and-cost-management), price lookups with no change under review, advice on infrastructure code as it stands, general release risk, or choosing services that avoid a floor.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-cost-regression-check",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-cost-regression-check",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-cost-regression-check"
+  },
+  {
     "id": "skills-developing-applications-on-managed-service-for-apache-flink",
     "name": "skills-developing-applications-on-managed-service-for-apache-flink",
     "repository": "aws-agent-toolkit-for-aws",
@@ -1810,6 +2010,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link skills-managing-amazon-msk"
   },
   {
+    "id": "skills-prompt-library-for-startups",
+    "name": "skills-prompt-library-for-startups",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"AWS-curated copy-paste prompts for AI coding agents (MVP scaffolding, RAG chatbot with Claude on Bedrock, security baseline evaluation, read-only cost audit, GPU quota requests, EKS on Spot, OWASP ZAP scan, etc.) plus downloadable installable agents (Multi-Account Transition Advisor, Bill Shock Preventer, Service Quota Agent, Bedrock Model Availability Agent, Kiro Strands AgentCore Agent). Use when the user asks for a prompt to do X on AWS, wants an installable agent for multi-account / cost monitoring / quota management / Bedrock model availability / a Strands agent on AgentCore, or asks how to use AWS prompts. Bundles an approved subset; for any other prompt or agent, point to startups.aws.com/prompt-library. For migration intent (GCP to AWS, Azure to AWS, OpenAI/Gemini to Bedrock), route to the migration skills in this plugin (`gcp-to-aws`, `azure-to-aws`, `heroku-to-aws`, `llm-to-bedrock`). Do not use for: factual AWS Activate / programs / credits questions, learn articles, or sample architectures.\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-prompt-library-for-startups",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-prompt-library-for-startups",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-prompt-library-for-startups"
+  },
+  {
     "id": "skills-setup-devops-agent",
     "name": "skills-setup-devops-agent",
     "repository": "aws-agent-toolkit-for-aws",
@@ -1818,6 +2028,26 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/skills-setup-devops-agent",
     "activation_cmd": "python .agents/library/activate_skill.py activate skills-setup-devops-agent",
     "link_cmd": "python .agents/library/activate_skill.py link skills-setup-devops-agent"
+  },
+  {
+    "id": "skills-signing-in-to-aws",
+    "name": "skills-signing-in-to-aws",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "|",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-signing-in-to-aws",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-signing-in-to-aws",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-signing-in-to-aws"
+  },
+  {
+    "id": "skills-start-building-for-startups",
+    "name": "skills-start-building-for-startups",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": "\"Interactive discovery + implementation workflow that gathers requirements through picker-based questions (intent, scope, constraints, preferences), scans the codebase for what it can already infer, then writes an AWS architectural scaffold and implementation directly into the project. Use when the user wants to build a new app, scaffold a project, or expand/refactor an existing one on AWS \u2014 anything that calls for a structured discovery flow followed by code changes, not a one-off lookup. Do not use for: factual lookups about AWS Activate / programs / credits, requests for a single copy-paste prompt, non-AWS architectural work, architecture advice/recommendations without code changes (see architect-for-startups), a new idea centered on an AI agent \u2014 runtime selection, agentic architecture, or an agent POC (see agent-advisor), or migrating an existing GCP/Azure/Heroku workload or an LLM SDK rewrite (see gcp-to-aws / azure-to-aws / heroku-to-aws / llm-to-bedrock).\"",
+    "path": "library/aws-agent-toolkit-for-aws/skills/skills-start-building-for-startups",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-start-building-for-startups",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-start-building-for-startups"
   },
   {
     "id": "skills-tf-best-practices",
@@ -1908,6 +2138,16 @@
     "path": "library/aws-agent-toolkit-for-aws/skills/transitgateway",
     "activation_cmd": "python .agents/library/activate_skill.py activate transitgateway",
     "link_cmd": "python .agents/library/activate_skill.py link transitgateway"
+  },
+  {
+    "id": "troubleshoot-spark-job",
+    "name": "troubleshoot-spark-job",
+    "repository": "aws-agent-toolkit-for-aws",
+    "category": "general",
+    "description": ">-",
+    "path": "library/aws-agent-toolkit-for-aws/skills/troubleshoot-spark-job",
+    "activation_cmd": "python .agents/library/activate_skill.py activate troubleshoot-spark-job",
+    "link_cmd": "python .agents/library/activate_skill.py link troubleshoot-spark-job"
   },
   {
     "id": "troubleshooting-application-failures",

@@ -1,0 +1,23 @@
+{
+  "slug": "slides",
+  "name": "Slides",
+  "title": "Slides (presentation deck)",
+  "description": "Presentation decks as local files: project/deck.json holds the title, slide order, outline and typefaces, and each slide is an HTML file on a 16:9 or 4:3 canvas. Slides can share a deck stylesheet or use inline styles. Edited in a local page with a slide rail, an overview of every slide by section, speaker notes, builds, transitions and a full-screen presenter. Can install a design system and use its colors, type and fonts.",
+  "summary": "A presentation deck: 16:9 or 4:3 slides with speaker notes, builds and a presenter.",
+  "artifactTitle": "Untitled deck",
+  "category": "Presentations",
+  "version": "0.1.0",
+  "skill": "SKILL.md",
+  "intents": ["slides", "deck", "presentation", "pitch deck", "talk"],
+  "when": "The person wants a slide deck: a presentation, pitch deck, report or review deck, lecture or training slides, or a talk with speaker notes, as an editable deck they can view, rearrange, retype and present, or wants to change a folder that holds project/deck.json.",
+  "detect": ["project/deck.json"],
+  "titleFrom": "project/deck.json#/title",
+  "entry": {
+    "start": { "command": "node", "args": ["scripts/cli.mjs", "serve", "--type", "slides"] },
+    "open": true,
+    "share": true,
+    "actions": true
+  },
+  "engines": { "openArtifact": ">=1" },
+  "openArtifact": { "style": "project", "projectDir": "project", "store": null, "comments": true, "exports": ["pdf", "pptx", "html", "png"], "uses": ["design-system"] }
+}

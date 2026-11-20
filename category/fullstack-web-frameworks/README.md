@@ -1,7 +1,7 @@
 # 🌐 Fullstack Web Frameworks & Apps
 
 > **Category**: `fullstack-web-frameworks`  
-> **Total Curated Skills**: 62 skills  
+> **Total Curated Skills**: 64 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -31,6 +31,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`higgsfield-generate`](../../library/higgsfield-ai-skills/skills/higgsfield-generate) | ⚪ Reserve | `higgsfield-ai-skills` | Generate images/videos/3D assets/audio via Higgsfield AI. Defaults: GPT Image 2.5 for image/des... |
 | [`higgsfield-websites`](../../library/higgsfield-ai-skills/skills/higgsfield-websites) | ⚪ Reserve | `higgsfield-ai-skills` | Build, edit, and deploy full-stack websites, apps and games via the Higgsfield CLI (`higgsfield... |
 | [`hunt-nextjs`](../../library/elementalsouls-claude-bughunter/skills/hunt-nextjs) | ⚪ Reserve | `elementalsouls-claude-bughunter` | Hunt Next.js specific vulnerabilities — Server Actions arbitrary function execution, Middleware... |
+| [`image-editing`](../../library/101-skills-superpowers/skills/image-editing) | ⚪ Reserve | `101-skills-superpowers` | Edit existing images with Bria, Reve and Phota via inference.sh CLI. Apps: Bria Eraser, Bria Ge... |
 | [`ink-app-builder`](../../library/android-skills/skills/ink-app-builder) | ⚪ Reserve | `android-skills` | Adds inking and freehand drawing capabilities to an Android app using |
 | [`ink-ink-app-builder`](../../library/android-skills/skills/ink-ink-app-builder) | ⚪ Reserve | `android-skills` | Adds inking and freehand drawing capabilities to an Android app using |
 | [`material-ui-nextjs`](../../library/mui-material-ui/skills/material-ui-nextjs) | ⚪ Reserve | `mui-material-ui` | Integrates Material UI with Next.js App and Pages routers using @mui/material-nextjs, Emotion c... |
@@ -70,6 +71,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-neon-realtime`](../../library/neondatabase-agent-skills/skills/skills-neon-realtime) | ⚪ Reserve | `neondatabase-agent-skills` | Neon Realtime makes any SQL query live. Build realtime, reactive apps and agents on Lakebase Po... |
 | [`skills-nextjs-turbopack`](../../library/affaan-m-ecc/skills/skills-nextjs-turbopack) | ⚪ Reserve | `affaan-m-ecc` | Next.js 16+ y Turbopack — bundling incremental, caché en sistema de archivos, velocidad de desa... |
 | [`skills-pixelfx`](../../library/patch-gg-pixelfx/skills/skills-pixelfx) | ⚪ Reserve | `patch-gg-pixelfx` | Make pixel art effects and sprite animations in code with the pixelfx library, which has 244 re... |
+| [`skills-remix`](../../library/builderio-skills/skills/skills-remix) | ⚪ Reserve | `builderio-skills` | Rebuild website effects in your repo or Design with exact behavior and original code. Use when ... |
 | [`sora`](../../library/davila7-claude-code-templates/skills/sora) | ⚪ Reserve | `davila7-claude-code-templates` | Use when the user asks to generate, remix, poll, list, download, or delete Sora videos via Open... |
 | [`tanstack-query`](../../library/mindrally-skills/skills/tanstack-query) | ⚪ Reserve | `mindrally-skills` | Best practices for TanStack Query v5 (React Query) server state management, including query key... |
 | [`tanstack-query-expert`](../../library/davila7-claude-code-templates/skills/tanstack-query-expert) | ⚪ Reserve | `davila7-claude-code-templates` | Expert in TanStack Query (React Query) — asynchronous state management. Covers data fetching, s... |

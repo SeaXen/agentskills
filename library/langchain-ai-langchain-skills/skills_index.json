@@ -70,6 +70,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link eval-engineering"
   },
   {
+    "id": "langchain-agent-experiments",
+    "name": "langchain-agent-experiments",
+    "repository": "langchain-ai-langchain-skills",
+    "category": "general",
+    "description": "Use when testing an agent or LLM application offline in LangSmith before it ships, including building and maintaining evaluation datasets, writing the target function and evaluators, aligning LLM judges with human labels, running and comparing experiments, and diagnosing why an experiment scored badly.",
+    "path": "library/langchain-ai-langchain-skills/skills/langchain-agent-experiments",
+    "activation_cmd": "python .agents/library/activate_skill.py activate langchain-agent-experiments",
+    "link_cmd": "python .agents/library/activate_skill.py link langchain-agent-experiments"
+  },
+  {
     "id": "langchain-agent-monitoring",
     "name": "langchain-agent-monitoring",
     "repository": "langchain-ai-langchain-skills",
@@ -248,6 +258,36 @@
     "path": "library/langchain-ai-langchain-skills/skills/managed-deep-agents",
     "activation_cmd": "python .agents/library/activate_skill.py activate managed-deep-agents",
     "link_cmd": "python .agents/library/activate_skill.py link managed-deep-agents"
+  },
+  {
+    "id": "skills-langchain-agent-monitoring",
+    "name": "skills-langchain-agent-monitoring",
+    "repository": "langchain-ai-langchain-skills",
+    "category": "general",
+    "description": "Use when monitoring an agent or LLM application in production, including choosing quality signals, scoring live runs or threads with online evaluators in LangSmith, and turning the resulting feedback into alerts, review queues, or failure analysis. Covers LLM judges, code evaluators, decision models, and targeted judge chains.",
+    "path": "library/langchain-ai-langchain-skills/skills/skills-langchain-agent-monitoring",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-langchain-agent-monitoring",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-langchain-agent-monitoring"
+  },
+  {
+    "id": "skills-langchain-agent-tracing",
+    "name": "skills-langchain-agent-tracing",
+    "repository": "langchain-ai-langchain-skills",
+    "category": "general",
+    "description": "Use when adding, fixing, or reviewing LangSmith tracing for an agent or LLM application, including choosing instrumentation for LangChain, LangGraph, Deep Agents, other agent frameworks, or OpenTelemetry; sending traces to the right agent environment or project; grouping turns into threads; metadata; sampling and conditional tracing; redacting sensitive data; distributed tracing across services; and finding traces after they land.",
+    "path": "library/langchain-ai-langchain-skills/skills/skills-langchain-agent-tracing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-langchain-agent-tracing",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-langchain-agent-tracing"
+  },
+  {
+    "id": "skills-langchain-eval-engineering",
+    "name": "skills-langchain-eval-engineering",
+    "repository": "langchain-ai-langchain-skills",
+    "category": "general",
+    "description": "Inspect an agent repository and optional traces, interview the user, write reviewed Task Specs, build and audit Harbor tasks, and bootstrap reusable project World Knowledge Skills. Use for agent evals, benchmark design, Task generation, controlled Environments, synthetic data, Verifiers, Harbor runs, calibration, or continuous benchmark maintenance.",
+    "path": "library/langchain-ai-langchain-skills/skills/skills-langchain-eval-engineering",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-langchain-eval-engineering",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-langchain-eval-engineering"
   },
   {
     "id": "skills-managed-deep-agents",

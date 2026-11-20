@@ -824,6 +824,22 @@
     "path": "category/git-version-control/competition-template-render-path"
   },
   {
+    "id": "compileiq-author-objective",
+    "name": "compileiq-author-objective",
+    "category": "git-version-control",
+    "repository": "nvidia-skills",
+    "description": "Use when writing the objective_function= passed to Search(). Covers the two legal signatures (compiler-only str vs mixed list), the baseline-knockout branch, per-eval cache busting, framework-specific --apply-controls injection (raw PTXAS, NVCC, Triton, Helion, cuTeDSL/FA4, FlashInfer), correctness-before-timing, INVALID_SCORE handling, and the Debug-pack O0/O3 ACF-injection canary that must pass before launching a search. Triggers on \"objective function\", \"apply-controls\", \"INVALID_SCORE\", \"save_compiler_config\", \"baseline knockout\", \"BASELINE_CONFIG\", \"every config returns the same score\", \"TypeError fromhex\".",
+    "path": "category/git-version-control/compileiq-author-objective"
+  },
+  {
+    "id": "compileiq-booster-pack",
+    "name": "compileiq-booster-pack",
+    "category": "git-version-control",
+    "repository": "nvidia-skills",
+    "description": "Use BEFORE running a full CompileIQ search. Walks through downloading a Booster Pack from NVIDIA/CompileIQ GitHub Releases, applying ACF candidates one at a time to the user's compiler (raw PTXAS, NVCC, Triton, Helion, FlashInfer), and keeping only candidates that compile, pass correctness, and beat the no-ACF baseline. Includes the mandatory Debug-pack O0/O3 ACF-injection canary that proves the ACF is reaching PTXAS. Triggers on \"booster pack\", \"ACF\", \"apply-controls\", \"speed up without searching\", \"helion fp8\", \"flashinfer batch decode\", \"debug pack\".",
+    "path": "category/git-version-control/compileiq-booster-pack"
+  },
+  {
     "id": "composio",
     "name": "composio",
     "category": "git-version-control",
@@ -1528,6 +1544,14 @@
     "path": "category/git-version-control/firebase-app-hosting-basics"
   },
   {
+    "id": "fixing-continuum-issues",
+    "name": "fixing-continuum-issues",
+    "category": "git-version-control",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Group Continuum issues by root cause, discuss fix tradeoffs before editing, implement one tested pull request per group, test the combined train, suggest merge order, and record shadow merge predictions.",
+    "path": "category/git-version-control/fixing-continuum-issues"
+  },
+  {
     "id": "flag-and-release-change",
     "name": "flag-and-release-change",
     "category": "git-version-control",
@@ -1598,6 +1622,14 @@
     "repository": "kostja94-marketing-skills",
     "description": "When the user wants to optimize for AI search visibility (ChatGPT, Claude, Perplexity, AI Overviews). Also use when the user mentions \"GEO,\" \"AEO,\" \"generative engine optimization,\" \"AI search visibility,\" \"LLM optimization,\" \"GitHub GEO,\" \"Grokipedia,\" \"optimize for ChatGPT,\" \"AI Overviews,\" \"Bing Copilot,\" \"Yandex AI,\" \"Perplexity optimization,\" \"GEO strategy,\" or \"AI search optimization.\" For third-party publishing strategy (which platforms to use), use parasite-seo. For GitHub repos, README, and Awesome lists, use github. For Medium.com only, use medium-posts. For Grokipedia edits, use grokipedia-recommendations. For traditional Google SERP strategy, use seo-strategy.",
     "path": "category/git-version-control/geo"
+  },
+  {
+    "id": "gerrit-code-review",
+    "name": "gerrit-code-review",
+    "category": "git-version-control",
+    "repository": "google-skills",
+    "description": "Reads and manages Gerrit code reviews over the HTTPS REST API: change metadata and diffs, inline comments and drafts, reviewers and CCs, labels and votes, checks, topics, hashtags, commit messages, cherry-picks, abandon, and submit. Use when working with Android (AOSP), Chromium, Fuchsia, or self-hosted Gerrit, when given a Gerrit change URL (https://*-review.googlesource.com/*, https://r.android.com/*, https://crrev.com/c/*, https://fxrev.dev/*, or https://*/c/*/+/*), or when git commands target a Gerrit host (refs/for/ pushes or branch cherry-picks). Don't use for local-only git operations or GitHub and GitLab pull requests.",
+    "path": "category/git-version-control/gerrit-code-review"
   },
   {
     "id": "get-pr-comments",
@@ -3832,6 +3864,14 @@
     "path": "category/git-version-control/repo-story-time"
   },
   {
+    "id": "reporting-continuum-security",
+    "name": "reporting-continuum-security",
+    "category": "git-version-control",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Write a shareable Continuum security report from public AWS CLI evidence as self-contained GitHub-flavoured Markdown.",
+    "path": "category/git-version-control/reporting-continuum-security"
+  },
+  {
     "id": "reproduce-and-fix-issues",
     "name": "reproduce-and-fix-issues",
     "category": "git-version-control",
@@ -4136,6 +4176,14 @@
     "path": "category/git-version-control/shipping-a-pr"
   },
   {
+    "id": "should-auto-approve",
+    "name": "should-auto-approve",
+    "category": "git-version-control",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Rates a committed code change's review risk as low, medium or high by a fixed decision graph (low can be approved without a human; medium and high need one), from checked answers to narrow questions about the change. Use only when your instructions or the user name should-auto-approve. Advisory and read-only: it never approves, comments on, or changes a pull request.",
+    "path": "category/git-version-control/should-auto-approve"
+  },
+  {
     "id": "should-flag-change",
     "name": "should-flag-change",
     "category": "git-version-control",
@@ -4368,6 +4416,14 @@
     "path": "category/git-version-control/skills-copilot-history-ingest"
   },
   {
+    "id": "skills-cost-regression-check",
+    "name": "skills-cost-regression-check",
+    "category": "git-version-control",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "This skill should be used when a company that pays its AWS bill from a fixed monthly ceiling, often funded by credits, asks what a pull request or other infrastructure-as-code change (Terraform, AWS CDK, or AWS CloudFormation) will add to that bill before apply, or wants that cost on every pull request, including through Infracost or another estimator in CI. It reports two numbers at list price before credits: the fixed monthly floor added at zero traffic, and the change in cost per unit of the team's own usage, against absolute thresholds derived from the ceiling and kept in the repository. It sets up a CI job and a repository-owned script so the author and the bill owner decide on each pull request. Not for spend that already happened (aws-core:aws-billing-and-cost-management), price lookups with no change under review, advice on infrastructure code as it stands, general release risk, or choosing services that avoid a floor.",
+    "path": "category/git-version-control/skills-cost-regression-check"
+  },
+  {
     "id": "skills-cpp-coding-standards",
     "name": "skills-cpp-coding-standards",
     "category": "git-version-control",
@@ -4414,6 +4470,22 @@
     "repository": "claude-vibe-skills",
     "description": "Development discipline: commit approval, versioned builds, security scanning, cost control, and a strict gate workflow that never advances silently. Trigger on: \"dev mode\", \"dev skills\", \"start coding\", \"build\", \"ship it\", \"push\", \"release\", \"commit\", \"done\", \"just push it\", \"skip the version\", \"audit\", \"security review\", \"scan this\", \"check my code\", \"create a workflow\", \"set up CI\", \"add GitHub Actions\", \"add CI/CD\", \"audit my workflows\", \"review my CI\", \"design audit\", \"audit the design\", \"review the mockups\", \"UI redesign\", \"dev branch\", \"dev build\", \"auto mode\", \"semi-autonomous mode\", \"manual mode\", \"take it from here\", \"Gitea\", \"Forgejo\", \"GitLab\", \"self-hosted repo\", \"monorepo\", \"I only own this folder\", or any attempt to bypass a gate.",
     "path": "category/git-version-control/skills-dev-skills"
+  },
+  {
+    "id": "skills-doca-public-knowledge-map",
+    "name": "skills-doca-public-knowledge-map",
+    "category": "git-version-control",
+    "repository": "nvidia-skills",
+    "description": "Use this skill to locate authoritative NVIDIA DOCA information without the source tree: the docs.nvidia.com page for a library/service/tool, which DOCA libraries are installed and at what version, a sample on disk or GitHub, a path under /opt/mellanox/doca, or a 404'd/renamed doc URL. Activate on implicit phrasing only when the conversation already names DOCA, BlueField, ConnectX, or /opt/mellanox. Do not activate for generic 'which version is installed' or 'where is the sample' questions with none of that context. Refuse and route elsewhere for hands-on programming, env prep, API tutorials, or hardware/firmware mutation \u2014 those belong to doca-programming-guide, doca-setup, the per-library skills, and doca-hardware-safety.",
+    "path": "category/git-version-control/skills-doca-public-knowledge-map"
+  },
+  {
+    "id": "skills-doca-structured-tools-contract",
+    "name": "skills-doca-structured-tools-contract",
+    "category": "git-version-control",
+    "repository": "nvidia-skills",
+    "description": "Not for writing library code (name that library skill). Use this skill whenever another DOCA skill says \"prefer the structured tool per doca-structured-tools-contract\", or when the user wants a one-shot answer consolidating what multiple manual commands would produce \u2014 DOCA env / version / devices / capabilities / validate / host vs DPU state. Trigger even without the phrases \"structured tool\" or \"env report as JSON\" \u2014 typical phrasings include \"is there one command that tells me everything about my DOCA install\", \"what version is X capability available since\", \"every PF/VF/SF visible on this BlueField with PCIe address\", or \"will this pipe pass validate before commit\". Refuse and route elsewhere for general DOCA orientation, library API how-to, or install-from-scratch guidance \u2014 those belong to the per-library skill, doca-public-knowledge-map, or doca-setup.",
+    "path": "category/git-version-control/skills-doca-structured-tools-contract"
   },
   {
     "id": "skills-finishing-a-development-branch",
@@ -4486,6 +4558,14 @@
     "repository": "elementalsouls-claude-bughunter",
     "description": "Hunting skill for auth bypass vulnerabilities. Built from 12 public bug bounty reports across SAML XSW / parser-differential (GitHub Enterprise CVE-2025-25291/25292), SAML signature stripping (Uber, Rocket.Chat, samlify CVE-2025-47949), SAML domain enforcement bypass via control characters (HackerOne 2024), partner-portal cross-IdP assertion reuse (Slack), WordPress XMLRPC bypassing SSO (Uber), JWT alg-confusion HS256/RS256 (Jitsi), JWT signature-validation skip (Linktree, Newspack), and token-audience confusion (Argo CD CVE-2023-22482). For standalone JWT signature/crypto forging (alg:none, key confusion, kid/jku) see hunt-jwt-crypto; this skill covers JWT only inside SSO/SAML/token-trust bypass chains. SAML assertion-layer attacks (XSW, comment injection, signature stripping, XXE-in-assertion) are owned by hunt-saml; this skill owns the broader cross-protocol auth-bypass taxonomy. Use when hunting auth bypass \u2014 see the Legacy-Protocol Matrix for branded-UI vs legacy-endpoint patterns.",
     "path": "category/git-version-control/skills-hunt-auth-bypass"
+  },
+  {
+    "id": "skills-interface-review",
+    "name": "skills-interface-review",
+    "category": "git-version-control",
+    "repository": "jakubkrehel-skills",
+    "description": "Reviews a branch, pull request or uncommitted change for the interface problems it introduced or regressed, across accessibility, layout, writing, typography, color, UI and motion.",
+    "path": "category/git-version-control/skills-interface-review"
   },
   {
     "id": "skills-karpathy-coder",
@@ -4566,6 +4646,14 @@
     "repository": "metalbear-co-mirrord",
     "description": "Help users create and manage mirrord preview environments \u2014 running a modified service as an isolated pod in a shared Kubernetes cluster, scoped by an environment key and HTTP/queue traffic filtering, so teams can validate and review changes against real traffic without affecting live services. Use when a developer wants to run \"mirrord preview\" ad hoc, share a preview via a link (mirrord-share-ingress), or wire preview environments into CI with the metalbear-co/mirrord-preview GitHub Action (e.g. per-PR previews, least-privilege cluster access).",
     "path": "category/git-version-control/skills-mirrord-prev-env"
+  },
+  {
+    "id": "skills-monitor-ci",
+    "name": "skills-monitor-ci",
+    "category": "git-version-control",
+    "repository": "nrwl-nx-ai-agents-config",
+    "description": "Monitor Nx Cloud CI pipeline and handle self-healing fixes. USE WHEN user says \"monitor ci\", \"watch ci\", \"ci monitor\", \"watch ci for this branch\", \"track ci\", \"check ci status\", wants to track CI status, or needs help with self-healing CI fixes. Prefer this skill over native CI provider tools (gh, glab, etc.) for CI monitoring \u2014 it integrates with Nx Cloud self-healing which those tools cannot access.",
+    "path": "category/git-version-control/skills-monitor-ci"
   },
   {
     "id": "skills-nagent",
@@ -4883,7 +4971,7 @@
     "id": "skills-principle-separate-before-serializing-shared-state",
     "name": "skills-principle-separate-before-serializing-shared-state",
     "category": "git-version-control",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Apply when concurrent actors might write to the same file, branch, key, or state object. Eliminate the sharing first; serialize structurally only when one shared writer is a real invariant.",
     "path": "category/git-version-control/skills-principle-separate-before-serializing-shared-state"
   },
@@ -4947,7 +5035,7 @@
     "id": "skills-show-me-your-work",
     "name": "skills-show-me-your-work",
     "category": "git-version-control",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Keep a reviewable decision trail for long-running or unattended work: a TSV log with one row per decision (what, why, evidence, result). Local by default; commit it when a reviewer needs the trail to trust the result. Use for /show-me-your-work, autonomous or multi-phase runs, or work a human reviews after stepping away.",
     "path": "category/git-version-control/skills-show-me-your-work"
   },
@@ -4963,7 +5051,7 @@
     "id": "skills-technical-writing",
     "name": "skills-technical-writing",
     "category": "git-version-control",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Layered technical-writing standard: Di\u00e1taxis structure, Google developer style sentences, STE instruction rules, Global English syntax. Use for /technical-writing or when writing or reviewing docs, RFCs, readmes, PR descriptions, or commit messages.",
     "path": "category/git-version-control/skills-technical-writing"
   },

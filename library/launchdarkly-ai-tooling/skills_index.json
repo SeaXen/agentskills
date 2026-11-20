@@ -580,6 +580,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link investigate"
   },
   {
+    "id": "launchdarkly-approval-requests",
+    "name": "launchdarkly-approval-requests",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Request, follow up on, and apply LaunchDarkly approval requests for flag, segment, and AgentControl Config changes. Use when a change needs approval, when the user asks whether a request was approved or declined, which requests are waiting on them, or to apply an approved request. The agent never approves or declines a request.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/launchdarkly-approval-requests",
+    "activation_cmd": "python .agents/library/activate_skill.py activate launchdarkly-approval-requests",
+    "link_cmd": "python .agents/library/activate_skill.py link launchdarkly-approval-requests"
+  },
+  {
     "id": "launchdarkly-automations-archival-settings",
     "name": "launchdarkly-automations-archival-settings",
     "repository": "launchdarkly-ai-tooling",
@@ -998,6 +1008,16 @@
     "path": "library/launchdarkly-ai-tooling/skills/sdk-install-apply",
     "activation_cmd": "python .agents/library/activate_skill.py activate sdk-install-apply",
     "link_cmd": "python .agents/library/activate_skill.py link sdk-install-apply"
+  },
+  {
+    "id": "should-auto-approve",
+    "name": "should-auto-approve",
+    "repository": "launchdarkly-ai-tooling",
+    "category": "general",
+    "description": "\"Rates a committed code change's review risk as low, medium or high by a fixed decision graph (low can be approved without a human; medium and high need one), from checked answers to narrow questions about the change. Use only when your instructions or the user name should-auto-approve. Advisory and read-only: it never approves, comments on, or changes a pull request.\"",
+    "path": "library/launchdarkly-ai-tooling/skills/should-auto-approve",
+    "activation_cmd": "python .agents/library/activate_skill.py activate should-auto-approve",
+    "link_cmd": "python .agents/library/activate_skill.py link should-auto-approve"
   },
   {
     "id": "should-flag-change",

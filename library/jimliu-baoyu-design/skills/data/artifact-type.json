@@ -1,0 +1,23 @@
+{
+  "slug": "data",
+  "name": "Data",
+  "title": "Data (dashboards and reports)",
+  "description": "Dashboards, reports and interactive data pages kept as small JSON documents: datasets say where each number comes from (a live query on an MCP connector, an uploaded CSV, TSV, JSON or text file, or a calculation), and the page is plain HTML, CSS and scripts with d3 that draw them. Every reader's page works the numbers out again when it opens, Sources shows where each one came from, and people can filter, edit the words by hand, remix it into a story or a short visual, comment and send requests to the agent.",
+  "summary": "A live dashboard or report: charts, numbers and tables worked out from queries, files and calculations.",
+  "artifactTitle": "Untitled dashboard",
+  "category": "Data",
+  "version": "0.1.0",
+  "skill": "SKILL.md",
+  "intents": ["dashboard", "data", "report", "metrics", "kpi", "scorecard", "chart", "data visualization"],
+  "when": "The person wants a dashboard, metrics page, KPI tracker, scorecard, data visualization or recurring report: a page or scroll story of charts, numbers and tables of data, whatever the data and wherever it comes from.",
+  "detect": ["db/dash/meta.json"],
+  "titleFrom": "db/dash/meta.json#/title",
+  "entry": {
+    "start": { "command": "node", "args": ["scripts/cli.mjs", "serve", "--type", "data"] },
+    "open": true,
+    "share": true,
+    "actions": true
+  },
+  "engines": { "openArtifact": ">=1" },
+  "openArtifact": { "style": "db", "store": "db", "comments": true, "exports": ["pdf", "html", "json"], "uses": ["design-system"] }
+}

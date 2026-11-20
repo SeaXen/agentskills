@@ -1,7 +1,7 @@
 # 🎭 Playwright & Browser Automation
 
 > **Category**: `testing-playwright-e2e`  
-> **Total Curated Skills**: 194 skills  
+> **Total Curated Skills**: 199 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -32,6 +32,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`apify-youtube-transcript-scraper`](../../library/sickn33-agentic-awesome-skills/skills/apify-youtube-transcript-scraper) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Get YouTube captions, timestamped quotations, SRT/VTT and translated transcripts for videos, ch... |
 | [`azure-resource-manager-playwright-dotnet`](../../library/antigravity-awesome-skills/skills/azure-resource-manager-playwright-dotnet) | ⚪ Reserve | `antigravity-awesome-skills` | Azure Resource Manager SDK for Microsoft Playwright Testing in .NET. Use for MANAGEMENT PLANE o... |
 | [`baguette-ios-simulator`](../../library/reason-machines-trending-skills/skills/baguette-ios-simulator) | ⚪ Reserve | `reason-machines-trending-skills` | Headless iOS Simulator manager with host-side HID input injection, 60fps streaming, and device ... |
+| [`blender-addon-development`](../../library/el4cteo-blender-skills/skills/blender-addon-development) | ⚪ Reserve | `el4cteo-blender-skills` | Write Blender 5.3 add-ons as extensions - blender_manifest.toml, operators/panels/menus/propert... |
+| [`blender-sculpting`](../../library/el4cteo-blender-skills/skills/blender-sculpting) | ⚪ Reserve | `el4cteo-blender-skills` | Sculpting in Blender 5.3 - base-to-detail workflow, voxel remesh, dyntopo, multires, 5.x brush ... |
 | [`bmad-retrospective`](../../library/bmad-code-org-bmad-method/skills/bmad-retrospective) | ⚪ Reserve | `bmad-code-org-bmad-method` | Review a finished epic folder in the ticket tree against the evidence it left behind — the epic... |
 | [`browser-automation`](../../library/alirezarezvani-claude-skills/skills/browser-automation) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when the user asks to automate browser tasks, scrape websites, fill forms, capture screensh... |
 | [`browser-use`](../../library/browser-use-skills/skills/browser-use) | ⚪ Reserve | `browser-use-skills` | Direct browser control via CDP for web interaction: automation, scraping, testing, screenshots,... |
@@ -153,6 +155,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-browser-use`](../../library/browser-use-skills/skills/skills-browser-use) | ⚪ Reserve | `browser-use-skills` | Direct browser control via CDP for web interaction: automation, scraping, testing, screenshots,... |
 | [`skills-browserstack`](../../library/alirezarezvani-claude-skills/skills/skills-browserstack) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when running Playwright tests on BrowserStack or across a browser matrix ('browserstack', '... |
 | [`skills-clerk-testing`](../../library/clerk-skills/skills/skills-clerk-testing) | ⚪ Reserve | `clerk-skills` | E2E testing for Clerk apps. Use with Playwright or Cypress for auth flow |
+| [`skills-cloud`](../../library/browser-use-skills/skills/skills-cloud) | ⚪ Reserve | `browser-use-skills` | Documentation reference for using Browser Use Cloud — the hosted API and SDK for browser automa... |
 | [`skills-fix`](../../library/alirezarezvani-claude-skills/skills/skills-fix) | ⚪ Reserve | `alirezarezvani-claude-skills` | Diagnose and fix a failing or flaky Playwright test. Use whenever a test fails, passes only som... |
 | [`skills-migrate`](../../library/alirezarezvani-claude-skills/skills/skills-migrate) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when moving tests from Cypress or Selenium to Playwright ('migrate tests', 'convert tests',... |
 | [`skills-momentic-mobile-test`](../../library/momentic-ai-skills/skills/skills-momentic-mobile-test) | ⚪ Reserve | `momentic-ai-skills` | Create, run, and maintain Momentic mobile E2E tests and modules for Android and iOS. |
@@ -160,10 +163,12 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-om-integration-tests`](../../library/open-mercato-skills/skills/skills-om-integration-tests) | ⚪ Reserve | `open-mercato-skills` | Run and create integration/E2E tests by exploring the live app with the configured browser prov... |
 | [`skills-open-source`](../../library/browser-use-skills/skills/skills-open-source) | ⚪ Reserve | `browser-use-skills` | Reference for writing Python code against the browser-use 1.0 open-source library (Agent, Brows... |
 | [`skills-playwright-cli`](../../library/microsoft-playwright-cli/skills/skills-playwright-cli) | ⚪ Reserve | `microsoft-playwright-cli` | Automate browser interactions, test web pages and work with Playwright tests. |
+| [`skills-print3d`](../../library/earthtojake-text-to-cad/skills/skills-print3d) | ⚪ Reserve | `earthtojake-text-to-cad` | Prints a part - slices an `.stl`, `.3mf` or `.obj` into printer-ready G-code with OrcaSlicer, h... |
 | [`skills-pw`](../../library/alirezarezvani-claude-skills/skills/skills-pw) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use for any Playwright or end-to-end browser testing work: writing tests, fixing flaky ones, mi... |
 | [`skills-pw-init`](../../library/alirezarezvani-claude-skills/skills/skills-pw-init) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when setting up Playwright in a project ('set up playwright', 'add e2e tests', 'configure p... |
 | [`skills-pw-review`](../../library/alirezarezvani-claude-skills/skills/skills-pw-review) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when reviewing Playwright tests for quality ('review tests', 'audit tests', 'playwright bes... |
 | [`skills-qa`](../../library/browser-use-skills/skills/skills-qa) | ⚪ Reserve | `browser-use-skills` | QA-test a website or web app and return a 1-5 quality score (5 = flawless, 1 = broken) with evi... |
+| [`skills-remote-browser`](../../library/browser-use-skills/skills/skills-remote-browser) | ⚪ Reserve | `browser-use-skills` | Controls an isolated Browser Use Cloud browser from a sandboxed machine with the current Browse... |
 | [`skills-report`](../../library/alirezarezvani-claude-skills/skills/skills-report) | ⚪ Reserve | `alirezarezvani-claude-skills` | Summarize Playwright results. Use whenever the user asks how tests went, for a test report or s... |
 | [`skills-run-smoke-tests`](../../library/cursor-plugins/skills/skills-run-smoke-tests) | ⚪ Reserve | `cursor-plugins` | Run Playwright smoke tests, debug failures, and verify fixes |
 | [`skills-seo-geo`](../../library/agricidaniel-claude-seo/skills/skills-seo-geo) | ⚪ Reserve | `agricidaniel-claude-seo` | Audit and improve content for AI Overviews and answer engines, including citability, entity cla... |

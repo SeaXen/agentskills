@@ -1,7 +1,7 @@
 # 🪙 Web3, Solidity & DeFi Architecture
 
 > **Category**: `web3-smart-contracts`  
-> **Total Curated Skills**: 116 skills  
+> **Total Curated Skills**: 117 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -50,6 +50,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`defillama`](../../library/starchild-ai-agent-official-skills/skills/defillama) | ⚪ Reserve | `starchild-ai-agent-official-skills` | DeFi analytics: protocol TVL, stablecoin yields, fees, DEX volume, bridges, treasuries. |
 | [`define-goal`](../../library/openai-skills/skills/define-goal) | ⚪ Reserve | `openai-skills` | Help the user define a concrete, measurable goal before starting work, especially when they ask... |
 | [`discord-reader`](../../library/himself65-finance-skills/skills/discord-reader) | ⚪ Reserve | `himself65-finance-skills` | Read Discord for financial research through opencli connected to the Discord desktop app: serve... |
+| [`dora-readiness`](../../library/alirezarezvani-claude-skills/skills/dora-readiness) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when a bank, payment or e-money institution, investment firm, insurer, crypto-asset service... |
 | [`elfa`](../../library/starchild-ai-agent-official-skills/skills/elfa) | ⚪ Reserve | `starchild-ai-agent-official-skills` | ELFA AI — real-time crypto social intelligence and automated condition-engine skills for AI age... |
 | [`etf-premium`](../../library/himself65-finance-skills/skills/etf-premium) | ⚪ Reserve | `himself65-finance-skills` | Calculate an ETF's premium or discount to NAV from Yahoo Finance data (yfinance), compare or sc... |
 | [`ethereum`](../../library/mindrally-skills/skills/ethereum) | ⚪ Reserve | `mindrally-skills` | Expert guidelines for Ethereum smart contract development with Solidity, OpenZeppelin, and Hard... |

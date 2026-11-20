@@ -1,7 +1,7 @@
 # 📊 Data Pipelines, BigQuery & Machine Learning
 
 > **Category**: `data-engineering-ml`  
-> **Total Curated Skills**: 3332 skills  
+> **Total Curated Skills**: 3342 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -173,6 +173,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`amplitude`](../../library/membranedev-application-skills/skills/amplitude) | ⚪ Reserve | `membranedev-application-skills` | Amplitude integration. Manage Users, Events. Use when the user wants to interact with Amplitude... |
 | [`amply`](../../library/membranedev-application-skills/skills/amply) | ⚪ Reserve | `membranedev-application-skills` | Amply integration. Manage data, records, and automate workflows. Use when the user wants to int... |
 | [`analytics-data-analysis`](../../library/mindrally-skills/skills/analytics-data-analysis) | ⚪ Reserve | `mindrally-skills` | Best practices for analytics, data analysis, and visualization using Python, pandas, matplotlib... |
+| [`analytics-skills-managing-amazon-kinesis-data-streams`](../../library/aws-agent-toolkit-for-aws/skills/analytics-skills-managing-amazon-kinesis-data-streams) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Operates data delivery and queues in Amazon Kinesis Data Streams (KDS). Covers delivering a str... |
 | [`analyze-results`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/analyze-results) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Analyze ML experiment results, compute statistics, generate comparison tables and insights. Use... |
 | [`analyzer`](../../library/cline-skills/skills/analyzer) | ⚪ Reserve | `cline-skills` | Analyze queried data for trends, week-over-week comparisons, distributions, funnels, cohorts, t... |
 | [`analyzing-dns-logs-for-exfiltration`](../../library/mukul975-anthropic-cybersecurity-skills/skills/analyzing-dns-logs-for-exfiltration) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Analyzes DNS query logs to detect data exfiltration via DNS tunneling, |
@@ -441,6 +442,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`carbon-ads`](../../library/membranedev-application-skills/skills/carbon-ads) | ⚪ Reserve | `membranedev-application-skills` | Carbon Ads integration. Manage data, records, and automate workflows. Use when the user wants t... |
 | [`carbone`](../../library/membranedev-application-skills/skills/carbone) | ⚪ Reserve | `membranedev-application-skills` | Carbone integration. Manage data, records, and automate workflows. Use when the user wants to i... |
 | [`cardinal`](../../library/membranedev-application-skills/skills/cardinal) | ⚪ Reserve | `membranedev-application-skills` | Cardinal integration. Manage Organizations, Pipelines, Users, Goals, Filters. Use when the user... |
+| [`career-resume-quantifier`](../../library/davila7-claude-code-templates/skills/career-resume-quantifier) | ⚪ Reserve | `davila7-claude-code-templates` | Find opportunities to add metrics and estimate numbers when exact data is unavailable. Use when... |
 | [`cargo-analytics`](../../library/getcargohq-cargo-skills/skills/cargo-analytics) | ⚪ Reserve | `getcargohq-cargo-skills` | Get data out of Cargo and measure what ran — download a run output, export a segment or model t... |
 | [`cargo-diagnostics`](../../library/getcargohq-cargo-skills/skills/cargo-diagnostics) | ⚪ Reserve | `getcargohq-cargo-skills` | Explain what a Cargo run or batch actually did, after the fact — trace one run node by node, dr... |
 | [`carto`](../../library/membranedev-application-skills/skills/carto) | ⚪ Reserve | `membranedev-application-skills` | Carto integration. Manage data, records, and automate workflows. Use when the user wants to int... |
@@ -1601,6 +1603,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`kosli`](../../library/membranedev-application-skills/skills/kosli) | ⚪ Reserve | `membranedev-application-skills` | Kosli integration. Manage data, records, and automate workflows. Use when the user wants to int... |
 | [`kotive`](../../library/membranedev-application-skills/skills/kotive) | ⚪ Reserve | `membranedev-application-skills` | Kotive integration. Manage data, records, and automate workflows. Use when the user wants to in... |
 | [`krayin`](../../library/membranedev-application-skills/skills/krayin) | ⚪ Reserve | `membranedev-application-skills` | Krayin integration. Manage data, records, and automate workflows. Use when the user wants to in... |
+| [`kumo-model-explanations`](../../library/nvidia-skills/skills/kumo-model-explanations) | ⚪ Reserve | `nvidia-skills` | Inspect and interpret gradient attribution (including requests called radiant attribution), col... |
+| [`kumo-training-diagnostics`](../../library/nvidia-skills/skills/kumo-training-diagnostics) | ⚪ Reserve | `nvidia-skills` | Evaluate an existing Kumo training run in a Python notebook using aggregate metrics, trial resu... |
+| [`kumoai-reference`](../../library/nvidia-skills/skills/kumoai-reference) | ⚪ Reserve | `nvidia-skills` | Reference for translating a validated ML request into KumoAI graph configuration, PQL (predicti... |
 | [`kustomer`](../../library/membranedev-application-skills/skills/kustomer) | ⚪ Reserve | `membranedev-application-skills` | Kustomer integration. Manage Organizations, Users, Goals, Filters. Use when the user wants to i... |
 | [`kvdb`](../../library/membranedev-application-skills/skills/kvdb) | ⚪ Reserve | `membranedev-application-skills` | KVdb integration. Manage data, records, and automate workflows. Use when the user wants to inte... |
 | [`kvk`](../../library/membranedev-application-skills/skills/kvk) | ⚪ Reserve | `membranedev-application-skills` | KVK integration. Manage data, records, and automate workflows. Use when the user wants to inter... |
@@ -2025,6 +2030,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`onna`](../../library/membranedev-application-skills/skills/onna) | ⚪ Reserve | `membranedev-application-skills` | Onna integration. Manage data, records, and automate workflows. Use when the user wants to inte... |
 | [`ontask`](../../library/membranedev-application-skills/skills/ontask) | ⚪ Reserve | `membranedev-application-skills` | OnTask integration. Manage data, records, and automate workflows. Use when the user wants to in... |
 | [`ontraport`](../../library/membranedev-application-skills/skills/ontraport) | ⚪ Reserve | `membranedev-application-skills` | Ontraport integration. Manage Persons, Organizations, Deals, Projects, Activities, Notes and mo... |
+| [`open-artifact`](../../library/jimliu-baoyu-design/skills/open-artifact) | ⚪ Reserve | `jimliu-baoyu-design` | Make a new artifact of one Open Artifact type (design, slides, whiteboard, sheets, data, docs, ... |
 | [`open-exchange-rates`](../../library/membranedev-application-skills/skills/open-exchange-rates) | ⚪ Reserve | `membranedev-application-skills` | Open Exchange Rates integration. Manage data, records, and automate workflows. Use when the use... |
 | [`open-graph`](../../library/kostja94-marketing-skills/skills/open-graph) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to add, audit, implement, or optimize Open Graph metadata for social sharin... |
 | [`open-policy-agent`](../../library/membranedev-application-skills/skills/open-policy-agent) | ⚪ Reserve | `membranedev-application-skills` | Open Policy Agent integration. Manage data, records, and automate workflows. Use when the user ... |
@@ -2611,7 +2617,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`shipworks`](../../library/membranedev-application-skills/skills/shipworks) | ⚪ Reserve | `membranedev-application-skills` | ShipWorks integration. Manage data, records, and automate workflows. Use when the user wants to... |
 | [`shopee`](../../library/membranedev-application-skills/skills/shopee) | ⚪ Reserve | `membranedev-application-skills` | Shopee integration. Manage Recordses. Use when the user wants to interact with Shopee data. |
 | [`shopify`](../../library/membranedev-application-skills/skills/shopify) | ⚪ Reserve | `membranedev-application-skills` | Shopify integration. Manage e-commerce data, records, and workflows. Use when the user wants to... |
-| [`shopify-custom-data`](../../library/starchild-ai-agent-official-skills/skills/shopify-custom-data) | ⚪ Reserve | `starchild-ai-agent-official-skills` | <!-- AUTO-GENERATED — do not edit directly. |
 | [`shopline`](../../library/membranedev-application-skills/skills/shopline) | ⚪ Reserve | `membranedev-application-skills` | Shopline integration. Manage Persons, Organizations, Deals, Leads, Activities, Notes and more. ... |
 | [`shoprocket`](../../library/membranedev-application-skills/skills/shoprocket) | ⚪ Reserve | `membranedev-application-skills` | Shoprocket integration. Manage Organizations. Use when the user wants to interact with Shoprock... |
 | [`shoprocket-co`](../../library/membranedev-application-skills/skills/shoprocket-co) | ⚪ Reserve | `membranedev-application-skills` | Shoprocket integration. Manage data, records, and automate workflows. Use when the user wants t... |
@@ -2669,6 +2674,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-data-analysis`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/skills-data-analysis) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | End-to-end R data analysis workflow from exploration through regression to publication-ready ta... |
 | [`skills-data-context-extractor`](../../library/anthropics-knowledge-work/skills/skills-data-context-extractor) | ⚪ Reserve | `anthropics-knowledge-work` | Generate or improve a company-specific data analysis skill by extracting tribal knowledge from ... |
 | [`skills-data-quality-auditor`](../../library/alirezarezvani-claude-skills/skills/skills-data-quality-auditor) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use before analysis or model training on any dataset, or when asked to profile data or hunt mis... |
+| [`skills-doca-dpdk-bridge`](../../library/nvidia-skills/skills/skills-doca-dpdk-bridge) | ⚪ Reserve | `nvidia-skills` | Use this skill when the user has an existing DPDK application and is adding DOCA capabilities i... |
+| [`skills-doca-eth`](../../library/nvidia-skills/skills/skills-doca-eth) | ⚪ Reserve | `nvidia-skills` | Use this skill for hands-on DOCA Ethernet packet-queue work on a BlueField DPU or ConnectX NIC ... |
+| [`skills-doca-ngauge`](../../library/nvidia-skills/skills/skills-doca-ngauge) | ⚪ Reserve | `nvidia-skills` | Use this skill when the operator is driving the DOCA ngauge tool to analyze, visualize, and deb... |
 | [`skills-experiment-readout`](../../library/feimacode-open-design-agent-kit/skills/skills-experiment-readout) | ⚪ Reserve | `feimacode-open-design-agent-kit` | 假设 + 指标 + 结果 + 解释 + 决策, 把 A/B 或产品实验转成行动建议 |
 | [`skills-explore-data`](../../library/anthropics-knowledge-work/skills/skills-explore-data) | ⚪ Reserve | `anthropics-knowledge-work` | Profile and explore a dataset to understand its shape, quality, and patterns. Use when encounte... |
 | [`skills-firecrawl-scrape`](../../library/firecrawl-cli/skills/skills-firecrawl-scrape) | ⚪ Reserve | `firecrawl-cli` | Read a known webpage or execute a discovered workflow or data-provider capability. Use for page... |
@@ -3033,6 +3041,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`trint`](../../library/membranedev-application-skills/skills/trint) | ⚪ Reserve | `membranedev-application-skills` | Trint integration. Manage data, records, and automate workflows. Use when the user wants to int... |
 | [`trio`](../../library/membranedev-application-skills/skills/trio) | ⚪ Reserve | `membranedev-application-skills` | Trio integration. Manage data, records, and automate workflows. Use when the user wants to inte... |
 | [`tripetto`](../../library/membranedev-application-skills/skills/tripetto) | ⚪ Reserve | `membranedev-application-skills` | Tripetto integration. Manage data, records, and automate workflows. Use when the user wants to ... |
+| [`troubleshoot-spark-job`](../../library/aws-agent-toolkit-for-aws/skills/troubleshoot-spark-job) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Diagnoses and fixes failed or slow Apache Spark workloads on AWS Glue, EMR on EC2, EMR Serverle... |
 | [`trueconf`](../../library/membranedev-application-skills/skills/trueconf) | ⚪ Reserve | `membranedev-application-skills` | TrueConf integration. Manage data, records, and automate workflows. Use when the user wants to ... |
 | [`truelayer`](../../library/membranedev-application-skills/skills/truelayer) | ⚪ Reserve | `membranedev-application-skills` | TrueLayer integration. Manage data, records, and automate workflows. Use when the user wants to... |
 | [`truework`](../../library/membranedev-application-skills/skills/truework) | ⚪ Reserve | `membranedev-application-skills` | Truework integration. Manage data, records, and automate workflows. Use when the user wants to ... |
@@ -3189,6 +3198,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`weather-model-data-fetching`](../../library/sickn33-agentic-awesome-skills/skills/weather-model-data-fetching) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Retrieve numerical weather prediction data from public AWS S3 and HTTP archives using GRIB2 inv... |
 | [`weather-model-run-discovery`](../../library/sickn33-agentic-awesome-skills/skills/weather-model-run-discovery) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Resolve the newest complete numerical weather prediction cycle and forecast objects across prov... |
 | [`weavr`](../../library/membranedev-application-skills/skills/weavr) | ⚪ Reserve | `membranedev-application-skills` | Weavr.io integration. Manage data, records, and automate workflows. Use when the user wants to ... |
+| [`web-development-blockrun`](../../library/davila7-claude-code-templates/skills/web-development-blockrun) | ⚪ Reserve | `davila7-claude-code-templates` | Use when user needs capabilities Claude lacks (image generation, real-time X/Twitter data) or e... |
 | [`web3forms-contact-forms-for-static-websites`](../../library/membranedev-application-skills/skills/web3forms-contact-forms-for-static-websites) | ⚪ Reserve | `membranedev-application-skills` | Web3Forms — Contact Forms for Static Websites integration. Manage data, records, and automate w... |
 | [`webcrm`](../../library/membranedev-application-skills/skills/webcrm) | ⚪ Reserve | `membranedev-application-skills` | WebCRM integration. Manage data, records, and automate workflows. Use when the user wants to in... |
 | [`webexpenses`](../../library/membranedev-application-skills/skills/webexpenses) | ⚪ Reserve | `membranedev-application-skills` | Webexpenses integration. Manage data, records, and automate workflows. Use when the user wants ... |

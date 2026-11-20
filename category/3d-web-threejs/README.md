@@ -1,7 +1,7 @@
 # 🧊 3D Web Experiences & Three.js
 
 > **Category**: `3d-web-threejs`  
-> **Total Curated Skills**: 54 skills  
+> **Total Curated Skills**: 57 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -19,6 +19,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 
 | Skill Name | Status | Origin Repository | Description |
 | :--- | :---: | :--- | :--- |
+| [`3d-harbour-water`](../../library/mengto-skills/skills/3d-harbour-water) | ⚪ Reserve | `mengto-skills` | Build sheltered waterfronts in Three.js with depth-aware reflections of docks and signs, rain r... |
 | [`3d-metal-material`](../../library/mengto-skills/skills/3d-metal-material) | ⚪ Reserve | `mengto-skills` | Build hyperrealistic PBR metal in Three.js: steel, brass, gold, copper and iron as true conduct... |
 | [`3d-orbit-inspect-demo`](../../library/mengto-skills/skills/3d-orbit-inspect-demo) | ⚪ Reserve | `mengto-skills` | Make a 3D object lean around on hover and open a full inspect view on click. Hover is a damped,... |
 | [`3d-sky-rays`](../../library/mengto-skills/skills/3d-sky-rays) | ⚪ Reserve | `mengto-skills` | Add sun shafts and crepuscular rays to a Three.js or equivalent 3D scene, using scene occlusion... |
@@ -29,10 +30,12 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`3d-wood-material`](../../library/mengto-skills/skills/3d-wood-material) | ⚪ Reserve | `mengto-skills` | Build convincing timber for Three.js as one procedural MeshPhysicalMaterial with growth rings, ... |
 | [`add-mouse-driven-orbit`](../../library/mengto-skills/skills/add-mouse-driven-orbit) | ⚪ Reserve | `mengto-skills` | Add restrained mouse-driven orbit and parallax depth to a Three.js hero by damping one pointer ... |
 | [`background-grid-webgl`](../../library/mengto-skills/skills/background-grid-webgl) | ⚪ Reserve | `mengto-skills` | Create a perspective WebGL background grid with fading lines, subtle particle haze, slow forwar... |
+| [`blender-weather-fx`](../../library/el4cteo-blender-skills/skills/blender-weather-fx) | ⚪ Reserve | `el4cteo-blender-skills` | Weather effects in Blender 5.3 - looping Geometry Nodes rain, snow, dust, ash and embers with g... |
 | [`bright-green-tech-system-webgl`](../../library/mengto-skills/skills/bright-green-tech-system-webgl) | ⚪ Reserve | `mengto-skills` | Create a bright-green technical design system with structured split layouts, hard-framed dark s... |
 | [`build-game-camera-controls`](../../library/mengto-skills/skills/build-game-camera-controls) | ⚪ Reserve | `mengto-skills` | Implement or tune Three.js game cameras. Use for isometric framing, follow behavior, orbit/zoom... |
 | [`build-game-map-editor`](../../library/mengto-skills/skills/build-game-map-editor) | ⚪ Reserve | `mengto-skills` | Build, extend, or audit production-linked browser map editors for Three.js and isometric games.... |
 | [`build-hybrid-game-assets`](../../library/mengto-skills/skills/build-hybrid-game-assets) | ⚪ Reserve | `mengto-skills` | Plan, create, integrate, or audit a hybrid asset pipeline for a Three.js or web game. Use when ... |
+| [`build-ultra-realistic-game-interiors`](../../library/mengto-skills/skills/build-ultra-realistic-game-interiors) | ⚪ Reserve | `mengto-skills` | Build or refine photoreal, walkable first-person interiors in Three.js. Use for the worn cyberp... |
 | [`build-vesperfall-review-assets`](../../library/mengto-skills/skills/build-vesperfall-review-assets) | ⚪ Reserve | `mengto-skills` | Build truthful Vesperfall asset-library review pairs from transparent PNG references and live T... |
 | [`build-wireframe-scan-reveal`](../../library/mengto-skills/skills/build-wireframe-scan-reveal) | ⚪ Reserve | `mengto-skills` | Reveal Three.js geometry with an expanding world-space scan whose wire cage leads the solid sur... |
 | [`code-built-3d`](../../library/majiayu000-spellbook/skills/code-built-3d) | ⚪ Reserve | `majiayu000-spellbook` | 用代码从零件搭 3D 场景并能反过来拆开：每个物件是一个往 Assembly 里加零件的函数（盒子、圆柱、球、线），渲染成技术插画（白灰三档面、细黑描边、白雾），正交等距相机在镜头之间连续运... |

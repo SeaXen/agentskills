@@ -10,6 +10,16 @@
     "link_cmd": "python .agents/library/activate_skill.py link mirrord"
   },
   {
+    "id": "mirrord-beyond",
+    "name": "mirrord-beyond",
+    "repository": "metalbear-co-mirrord",
+    "category": "general",
+    "description": "Help users set up and use mirrord Beyond, which runs a local process against workloads outside Kubernetes (docs section \"Beyond Kubernetes\"; the CLI, dashboard and config call them serverless workloads and `serverless/` targets). Two tracks. ECS setup, for platform teams - wire an existing Amazon ECS service (Fargate or EC2) to the MetalBear Cloud sessions-manager - store the serverless agent API key in AWS Secrets Manager, merge the mirrord remote bootstrap into the task definition, deploy and verify. Developer session - sign in with `mirrord login`, write a `mirrord-up.yaml` with a `serverless/` target, and run `mirrord up` (or the IDE) against the ECS service. Use when users mention mirrord Beyond, Beyond Kubernetes, ECS or Fargate with mirrord, serverless targets, sessions-manager, MetalBear Cloud, the serverless agent API key, MIRRORD_REMOTE_SERVICE, or errors from either side. Also covers the Operator-hosted mode briefly.",
+    "path": "library/metalbear-co-mirrord/skills/mirrord-beyond",
+    "activation_cmd": "python .agents/library/activate_skill.py activate mirrord-beyond",
+    "link_cmd": "python .agents/library/activate_skill.py link mirrord-beyond"
+  },
+  {
     "id": "mirrord-chaos",
     "name": "mirrord-chaos",
     "repository": "metalbear-co-mirrord",

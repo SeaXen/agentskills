@@ -1,7 +1,7 @@
 # 🎙️ Audio, Voice Cloning & Sound Design
 
 > **Category**: `audio-voice-sound`  
-> **Total Curated Skills**: 238 skills  
+> **Total Curated Skills**: 248 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -41,6 +41,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`arcmira-find-quotes`](../../library/sickn33-agentic-awesome-skills/skills/arcmira-find-quotes) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Search indexed YouTube and podcast transcripts for quotes, speakers and clip boundaries with ti... |
 | [`article-writing`](../../library/affaan-m-ecc/skills/article-writing) | ⚪ Reserve | `affaan-m-ecc` | Write articles, guides, blog posts, tutorials, newsletter issues, and other long-form content i... |
 | [`audience-mapper`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/audience-mapper) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "analyze my target audience", "build an audience profile for influenc... |
+| [`audio-ai-music-generation`](../../library/101-skills-superpowers/skills/audio-ai-music-generation) | ⚪ Reserve | `101-skills-superpowers` | Generate AI music and songs with MiniMax Music, ElevenLabs, Diffrythm, Tencent Song Generation ... |
+| [`audio-dialogue-audio`](../../library/101-skills-superpowers/skills/audio-dialogue-audio) | ⚪ Reserve | `101-skills-superpowers` | Multi-speaker dialogue audio creation with ElevenLabs and Dia TTS. Covers speaker tags, emotion... |
+| [`audio-elevenlabs-stt`](../../library/101-skills-superpowers/skills/audio-elevenlabs-stt) | ⚪ Reserve | `101-skills-superpowers` | ElevenLabs speech-to-text with Scribe models and forced alignment via inference.sh CLI. Models:... |
+| [`audio-elevenlabs-voice-isolator`](../../library/101-skills-superpowers/skills/audio-elevenlabs-voice-isolator) | ⚪ Reserve | `101-skills-superpowers` | ElevenLabs voice isolator - remove background noise and isolate vocals from audio via inference... |
 | [`audio-jingle`](../../library/feimacode-open-design-agent-kit/skills/audio-jingle) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Audio generation skill — jingles, beds, voiceover, and sound effects. Routes music requests to ... |
 | [`audio-setup-mixers`](../../library/unity-technologies-skills/skills/audio-setup-mixers) | ⚪ Reserve | `unity-technologies-skills` | Routes Audio Sources into existing Audio Mixer Groups, classifying each source by what it plays... |
 | [`audioaccessorykit`](../../library/dpearson2699-swift-ios-skills/skills/audioaccessorykit) | ⚪ Reserve | `dpearson2699-swift-ios-skills` | Support automatic audio switching for paired third-party Bluetooth headphones or earbuds with A... |
@@ -72,6 +76,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`conducting-social-engineering-pretext-call`](../../library/mukul975-anthropic-cybersecurity-skills/skills/conducting-social-engineering-pretext-call) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Plan and execute authorized vishing (voice phishing) pretext calls to |
 | [`connections-optimizer`](../../library/affaan-m-ecc/skills/connections-optimizer) | ⚪ Reserve | `affaan-m-ecc` | Reorganize the user's X and LinkedIn network with review-first pruning, add/follow recommendati... |
 | [`conorbronsdon-avoid-ai-writing`](../../library/conorbronsdon-avoid-ai-writing/skills/conorbronsdon-avoid-ai-writing) | ⚪ Reserve | `conorbronsdon-avoid-ai-writing` | Audit and rewrite content to remove AI writing patterns ("AI-isms"). Use this skill when asked ... |
+| [`content-ai-podcast-creation`](../../library/101-skills-superpowers/skills/content-ai-podcast-creation) | ⚪ Reserve | `101-skills-superpowers` | Create AI-powered podcasts with text-to-speech, music, and audio editing. Tools: Kokoro TTS, DI... |
 | [`content-creator`](../../library/alirezarezvani-claude-skills/skills/content-creator) | ⚪ Reserve | `alirezarezvani-claude-skills` | Deprecated redirect skill that routes legacy 'content creator' requests to the correct speciali... |
 | [`content-humanizer`](../../library/alirezarezvani-claude-skills/skills/content-humanizer) | ⚪ Reserve | `alirezarezvani-claude-skills` | Makes AI-generated content sound genuinely human — not just cleaned up, but alive. Use when con... |
 | [`content-matrix`](../../library/charlie947-social-media-skills/skills/content-matrix) | ⚪ Reserve | `charlie947-social-media-skills` | Generate 24 to 40 LinkedIn post ideas in a single table by pairing the user's content pillars w... |
@@ -80,6 +85,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`copywriting-tone-of-voice-creator`](../../library/samber-cc-skills/skills/copywriting-tone-of-voice-creator) | ⚪ Reserve | `samber-cc-skills` | Builds a brand tone of voice guide (TONE.md) — voice attributes with do's/don'ts, NN/g position... |
 | [`council`](../../library/affaan-m-ecc/skills/council) | ⚪ Reserve | `affaan-m-ecc` | Convene a four-voice council for ambiguous decisions, tradeoffs, and go/no-go calls. Use when m... |
 | [`craft-game-floors`](../../library/unity-technologies-skills/skills/craft-game-floors) | ⚪ Reserve | `unity-technologies-skills` | Makes a Unity game look and feel finished: art style, lighting, juice, sound, menus, saves and ... |
+| [`customer-communications-skills-amazon-ses`](../../library/aws-agent-toolkit-for-aws/skills/customer-communications-skills-amazon-ses) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Guides domain-based email sending setup with Amazon SES, including the recommended default setu... |
 | [`customer-voice`](../../library/anthropics-knowledge-work/skills/customer-voice) | ⚪ Reserve | `anthropics-knowledge-work` | Surface what customers are actually saying - direct attributed quotes on a topic across call tr... |
 | [`daily-paper-generator`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/daily-paper-generator) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Use when the user asks to "generate daily paper", "search arXiv for EEG papers", "find EEG deco... |
 | [`debug-voice`](../../library/cursor-plugins/skills/debug-voice) | ⚪ Reserve | `cursor-plugins` | Use when the user runs /debug-voice, says voice mode has flaws, asks to see or capture what hap... |
@@ -123,6 +129,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`interview-mapper`](../../library/alirezarezvani-claude-skills/skills/interview-mapper) | ⚪ Reserve | `alirezarezvani-claude-skills` | Maps a single interview transcript into a verbatim-grounded, lens-coded structure and checks wh... |
 | [`land-narrative-enablement-kit`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/land-narrative-enablement-kit) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "make everyone tell the same story", "write our elevator pitch ladder... |
 | [`lead-intelligence`](../../library/affaan-m-ecc/skills/lead-intelligence) | ⚪ Reserve | `affaan-m-ecc` | AI-native lead intelligence and outreach pipeline. Replaces Apollo, Clay, and ZoomInfo with age... |
+| [`linkedin-comment-drafter`](../../library/sergebulaev-linkedin-skills/skills/linkedin-comment-drafter) | ⚪ Reserve | `sergebulaev-linkedin-skills` | Draft a LinkedIn comment on someone else's post from its URL, or reshare (repost) it to your fe... |
+| [`linkedin-humanizer`](../../library/sergebulaev-linkedin-skills/skills/linkedin-humanizer) | ⚪ Reserve | `sergebulaev-linkedin-skills` | Remove AI tells from LinkedIn posts/comments: 2026 vocabulary density, reveal bridges, staccato... |
 | [`linkfox-junglescout-keyword-share-of-voice`](../../library/linkfox-ai-linkfox-skills/skills/linkfox-junglescout-keyword-share-of-voice) | ⚪ Reserve | `linkfox-ai-linkfox-skills` | 分析亚马逊关键词搜索结果中的品牌声量占比（Share of Voice / SOV），提供自然、广告和综合份额、基础与加权份额、30 天精确搜索量、PPC 竞价中位数及 TOP3 ASIN ... |
 | [`make-blog-post`](../../library/github-awesome-copilot/skills/make-blog-post) | ⚪ Reserve | `github-awesome-copilot` | Turn code from the current session into a blog post written in the voice of its author. Covers ... |
 | [`marketing-context`](../../library/alirezarezvani-claude-skills/skills/marketing-context) | ⚪ Reserve | `alirezarezvani-claude-skills` | Create and maintain the marketing context document that all marketing skills read before starti... |
@@ -168,6 +176,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`references-byted-mediakit-audiogen`](../../library/yikart-aitoearn/skills/references-byted-mediakit-audiogen) | ⚪ Reserve | `yikart-aitoearn` | Generate audio with Seed Audio through MediaKit MCP. Use for speech, narration, character dialo... |
 | [`renhua`](../../library/sickn33-agentic-awesome-skills/skills/renhua) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Write Chinese social posts and product copy in a real person's voice, removing AI tells. Use fo... |
 | [`review-reputation`](../../library/anthropics-knowledge-work/skills/review-reputation) | ⚪ Reserve | `anthropics-knowledge-work` | Watches what customers are saying in public and in private, then does something about it. Aggre... |
+| [`route-audio-to-mixer-groups`](../../library/unity-technologies-skills/skills/route-audio-to-mixer-groups) | ⚪ Reserve | `unity-technologies-skills` | Routes Audio Sources into existing Audio Mixer Groups, classifying each source by what it plays... |
 | [`runapi-cli`](../../library/sickn33-agentic-awesome-skills/skills/runapi-cli) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Generate AI images, videos, and music/audio from agents using the RunAPI CLI. |
 | [`sag`](../../library/openclaw-openclaw/skills/sag) | ⚪ Reserve | `openclaw-openclaw` | ElevenLabs text-to-speech with mac-style say UX. |
 | [`save-to-spotify`](../../library/cline-skills/skills/save-to-spotify) | ⚪ Reserve | `cline-skills` | Create polished audio content and save to Spotify. Produces episodes with TTS narration, a rich... |
@@ -193,6 +202,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-audio-setup-mixers`](../../library/unity-technologies-skills/skills/skills-audio-setup-mixers) | ⚪ Reserve | `unity-technologies-skills` | Routes Audio Sources into existing Audio Mixer Groups, classifying each source by what it plays... |
 | [`skills-avoid-ai-writing`](../../library/conorbronsdon-avoid-ai-writing/skills/skills-avoid-ai-writing) | ⚪ Reserve | `conorbronsdon-avoid-ai-writing` | Audit and rewrite content to remove AI writing patterns ("AI-isms"). Use this skill when asked ... |
 | [`skills-behuman`](../../library/alirezarezvani-claude-skills/skills/skills-behuman) | ⚪ Reserve | `alirezarezvani-claude-skills` | Reply like a real person, direct and warm, without lists or hedging. Use whenever the user says... |
+| [`skills-better-writing`](../../library/jakubkrehel-skills/skills/skills-better-writing) | ⚪ Reserve | `jakubkrehel-skills` | Writes and reviews interface copy, from labels and errors to empty states and confirmations, so... |
 | [`skills-brand-review`](../../library/anthropics-knowledge-work/skills/skills-brand-review) | ⚪ Reserve | `anthropics-knowledge-work` | Review content against your brand voice, style guide, and messaging pillars, flagging deviation... |
 | [`skills-brand-voice`](../../library/affaan-m-ecc/skills/skills-brand-voice) | ⚪ Reserve | `affaan-m-ecc` | 実際のポスト、エッセイ、ローンチノート、ドキュメント、またはサイトコピーからソース派生の執筆スタイルプロファイルを構築し、コンテンツ、アウトリーチ、ソーシャルワークフロー全体でそのプロファイ... |
 | [`skills-brand-voice-enforcement`](../../library/anthropics-knowledge-work/skills/skills-brand-voice-enforcement) | ⚪ Reserve | `anthropics-knowledge-work` | This skill applies brand guidelines to content creation. It should be used when the user asks t... |

@@ -216,6 +216,14 @@
     "path": "category/backend-api-design/agent-operated-software"
   },
   {
+    "id": "agent-platform-agent-registry",
+    "name": "agent-platform-agent-registry",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Manages Google Cloud Agent Registry (agentregistry.googleapis.com) resources using gcloud CLI and Kubernetes manifests, including agents, MCP servers, endpoints, services, bindings, AI applications, skills and skill revisions, resource-level IAM policies, Cloud Run and GKE automatic workload registration, Cloud Resource Manager management boundaries, 5-endpoint Quick Add for Agent Gateway, and Python ADK integration. Use when registering, discovering, searching, filtering, or governing agents, MCP servers, endpoints, skills, AI applications, or management boundaries in Google Cloud Agent Registry. Don't use for the preview AI Platform Skill Registry Python scripts (use agent-platform-skill-registry), deploying raw Vertex AI Agent Engine code (use agent-platform-deploy), or runtime trace debugging (use agent-platform-troubleshooting).",
+    "path": "category/backend-api-design/agent-platform-agent-registry"
+  },
+  {
     "id": "agent-platform-deploy",
     "name": "agent-platform-deploy",
     "category": "backend-api-design",
@@ -2144,6 +2152,22 @@
     "path": "category/backend-api-design/birdeye"
   },
   {
+    "id": "blender-clothing",
+    "name": "blender-clothing",
+    "category": "backend-api-design",
+    "repository": "el4cteo-blender-skills",
+    "description": "Game clothing in Blender 5.3 - garments from body regions (ease offset, thickness), skin-weight transfer, hiding covered body faces, cloth-sim draping for folds, body-morph shape keys on garments, layered clothing, pose-aware poke-through checks, sim-to-game-mesh cleanup. Use for shirts, pants, armor, outfits, layered or swappable clothing.",
+    "path": "category/backend-api-design/blender-clothing"
+  },
+  {
+    "id": "blender-core",
+    "name": "blender-core",
+    "category": "backend-api-design",
+    "repository": "el4cteo-blender-skills",
+    "description": "Foundation for any Blender 5.2+ task an agent drives - running bpy via MCP (live) or headless CLI, context overrides, locale-safe node lookup, enum discovery, 5.x API changes, verification. Use first for any Blender, bpy, .blend or 3D-asset request; routes to the specialized blender-* skills.",
+    "path": "category/backend-api-design/blender-core"
+  },
+  {
     "id": "blender-python-addon",
     "name": "blender-python-addon",
     "category": "backend-api-design",
@@ -2334,6 +2358,14 @@
     "repository": "deanpeters-product-manager-skills",
     "description": "Diagnose SaaS business health across growth, retention, efficiency, and capital. Use when preparing a business review or prioritizing urgent fixes.",
     "path": "category/backend-api-design/business-health-diagnostic"
+  },
+  {
+    "id": "business-marketing-x-twitter-scraper",
+    "name": "business-marketing-x-twitter-scraper",
+    "category": "backend-api-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Use when the user wants to integrate with the X (Twitter) API via Xquik to search tweets, look up user profiles, extract followers, run giveaway draws, monitor accounts, or access trending topics. Also use when the user mentions 'Xquik,' 'Twitter API,' 'X API,' 'tweet scraper,' 'follower extraction,' or 'Twitter monitoring.' Covers REST API, webhooks, and MCP server setup.",
+    "path": "category/backend-api-design/business-marketing-x-twitter-scraper"
   },
   {
     "id": "buywhere-product-catalog",
@@ -2574,6 +2606,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Score any MCP server, API, or CLI for agent-readiness using Clarvia AEO (Agent Experience Optimization). Use current provider evidence as advisory input when evaluating a tool.",
     "path": "category/backend-api-design/clarvia-aeo-check"
+  },
+  {
+    "id": "claude",
+    "name": "claude",
+    "category": "backend-api-design",
+    "repository": "101-skills-superpowers",
+    "description": "Anthropic Claude models via inference.sh CLI. Models: Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, plus Claude Code variants that run on your own Claude Pro/Max plan. 1M context, 128k output, thinking with effort, vision, tool use, structured output. Use for: coding, agents, reasoning, long documents, summarization, image understanding, chat. Triggers: claude, anthropic, claude api, claude fable, claude opus, claude sonnet, claude haiku, opus 5.5, sonnet 5.5, haiku 5.5, fable 5.1, claude code, claude pro, claude max, setup-token, anthropic api, claude subscription",
+    "path": "category/backend-api-design/claude"
   },
   {
     "id": "claude-api",
@@ -3032,6 +3072,14 @@
     "path": "category/backend-api-design/commercevault-edd-ecommerce-orchestrator"
   },
   {
+    "id": "common-huawei-cloud-skill-creator",
+    "name": "common-huawei-cloud-skill-creator",
+    "category": "backend-api-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "1. Six-phase pipeline for creating Huawei Cloud skills \u2014 Socratic requirements gathering, CLI\u2192SDK\u2192API research, MD generation, test preparation, detailed testing, and final cleanup & compliance check 2. Phase-chained dependency: each phase builds on the previous phase's output, no phase may be skipped 3. Supports CLI, SDK, and REST API execution modes with automatic fallback detection 4. Generates complete skill directory structure with SKILL.md, references/, scripts/, templates/ 5. Validates against the Huawei Cloud Skill Specification (\u534e\u4e3a\u4e91Skill\u68c0\u67e5\u89c4\u8303) Triggers include: \"\u521b\u5efa\u534e\u4e3a\u4e91Skill\",\"\u65b0\u5efa\u534e\u4e3a\u4e91Skill\",\"\u534e\u4e3a\u4e91skill\u521b\u5efa\u5668\",\"\u521b\u5efa Skill\",\"\u65b0\u5efa Skill\",\"skill \u521b\u5efa\u5668\",\"create skill\",\"build skill\",\"new skill\",\"skill creator\",\"scaffold a Huawei Cloud skill\",\"wrap CLI or OpenAPI into a skill\",\"package cloud operations into a skill\",\"\u5e2e\u6211\u521b\u5efa\u534e\u4e3a\u4e91Skill\",\"\u5e2e\u6211\u65b0\u5efa\u4e00\u4e2aSkill\",\"\u5c01\u88c5\u534e\u4e3a\u4e91CLI\u4e3aSkill\",\"\u534e\u4e3a\u4e91Skill\u811a\u624b\u67b6\",\"\u5e2e\u6211\u521b\u5efa\u4e00\u4e2askill\",\"\u6211\u9700\u8981\u4e00\u4e2askill\",\"\u5efa\u4e00\u4e2askill\",\"\u751f\u6210skill\",\"\u5e2e\u6211\u5efa\u4e00\u4e2a\u534e\u4e3a\u4e91skill\".",
+    "path": "category/backend-api-design/common-huawei-cloud-skill-creator"
+  },
+  {
     "id": "common-huawei-cloud-skill-tester",
     "name": "common-huawei-cloud-skill-tester",
     "category": "backend-api-design",
@@ -3302,6 +3350,22 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Search and retrieve open access research papers via CORE aggregator",
     "path": "category/backend-api-design/core-api-guide"
+  },
+  {
+    "id": "core-skills-amazon-bedrock",
+    "name": "core-skills-amazon-bedrock",
+    "category": "backend-api-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Builds generative AI applications on Amazon Bedrock. Covers model invocation (Converse API, InvokeModel), RAG with Knowledge Bases, Bedrock Agents, Guardrails, and AgentCore (including the Harness managed agent loop). Applies when invoking models, setting up or migrating Knowledge Bases to Managed, deploying to AgentCore, migrating/porting/converting a Bedrock Agent (including inline agents) to an AgentCore Harness, troubleshooting Bedrock errors (ThrottlingException, AccessDeniedException), or choosing Bedrock models (Claude, Llama, Nova, Titan). Also for prompt caching, quota and throttling diagnosis, cost tracking, migrating between Claude model generations, chunking strategies, and Bedrock model selection. Covers AgentCore Payments (x402, microtransactions, Payment Manager, Connector, Instrument, Coinbase CDP, Stripe Privy, paid endpoints, agent payments). NOT for custom model training, Rekognition, or Comprehend. For SageMaker model discovery, customization, or endpoints, use aws-ai-ml.",
+    "path": "category/backend-api-design/core-skills-amazon-bedrock"
+  },
+  {
+    "id": "core-skills-aws-ai-ml",
+    "name": "core-skills-aws-ai-ml",
+    "category": "backend-api-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Selects, deploys, and customizes AI models on Amazon SageMaker. Training or Processing jobs, fine-tuning (SFT/DPO/RLVR/RLAIF), model selection, evaluation, SageMaker or Bedrock deployment, inference optimization and endpoint diagnostics. Use when fine-tuning models on SageMaker, choosing a base model to customize or deploy from SageMaker JumpStart or Hub, SageMakerPublicHub, or the model catalog, checking data quality (duplicates, languages, PII), transforming or validating data (reformat, clean, filter, dedupe, split, merge, redact), generating synthetic data, labeling data with a model, human review or annotation and applying its corrections, evaluating model quality, deploying or optimizing endpoints, configuring IAM/S3, or managing SageMaker Managed MLflow. Use for endpoint health, latency, logs, metrics, errors. Covers Serverless Model Customization, Nova and OSS deployment paths, and PySDK v3. NOT for SageMaker Ground Truth labeling jobs, Feature Store, or general AWS infrastructure.",
+    "path": "category/backend-api-design/core-skills-aws-ai-ml"
   },
   {
     "id": "core-skills-aws-observability",
@@ -3608,6 +3672,14 @@
     "path": "category/backend-api-design/data-manager-api-event-ingestion"
   },
   {
+    "id": "data-manager-api-troubleshooting",
+    "name": "data-manager-api-troubleshooting",
+    "category": "backend-api-design",
+    "repository": "google-skills",
+    "description": "Diagnoses and fixes errors, warnings, and missing data for Data Manager API event and audience ingestion requests. Use when an IngestEvents, IngestAudienceMembers, RemoveAudienceMembers, RemoveAllAudienceMembers, or RetrieveRequestStatus call fails (INVALID_ARGUMENT, REQUIRED_FIELD_MISSING, INVALID_HEX_ENCODING, PERMISSION_DENIED, UNAUTHENTICATED, RESOURCE_EXHAUSTED, INVALID_REQUEST_ID), when a response has fieldWarnings, when checking request status or diagnostics, when request status shows FAILED or PARTIAL_SUCCESS or processing errors, when finding which records failed, or when a request returned 200 but conversions or audience members are missing. Don't use for writing new ingestion code (use the data-manager-api-event-ingestion or data-manager-api-audience-ingestion skills) or first-time credential setup (use the data-manager-api-setup skill).",
+    "path": "category/backend-api-design/data-manager-api-troubleshooting"
+  },
+  {
     "id": "data-structure-protocol",
     "name": "data-structure-protocol",
     "category": "backend-api-design",
@@ -3622,6 +3694,14 @@
     "repository": "forcedotcom-sf-skills",
     "description": "Retrieve Data Lake Object (DLO) and Data Model Object (DMO) schema information from Salesforce Data Cloud using REST APIs. Use this skill when you need to inspect DLO or DMO field definitions, data types, or metadata. Takes org alias and optional DLO/DMO name as parameters.",
     "path": "category/backend-api-design/data360-schema-get"
+  },
+  {
+    "id": "database-skills-amazon-elasticache",
+    "name": "database-skills-amazon-elasticache",
+    "category": "backend-api-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Activate when developers have latent caching needs: slow API responses, database read bottlenecks, DynamoDB throttling or cost, read/write-through caching, RDS/Aurora scaling pressure, Bedrock latency or cost, or adding a cache; activate when working with Redis, Valkey, Memcached, cache-aside patterns, session stores, rate limiting, leaderboards, counters, streams, queues, pub/sub, distributed locks, feature flags, shopping carts. Activate for GenAI and ML retrieval: vector similarity search, semantic caching, RAG, LLM response caching, KV caching, embedding stores, AI agent memory, recommendation. Activate for ElastiCache lifecycle: provisioning (serverless or node-based), engine selection, CloudFormation/CDK/Terraform IaC, VPC connectivity, TLS, RBAC, IAM auth, Global Datastore, public endpoints, durability, monitoring, troubleshooting, migration from self-managed Redis, and online migration to Serverless. Do not trigger for browser caches, CDN/CloudFront, HTTP Cache-Control, CPU caches.",
+    "path": "category/backend-api-design/database-skills-amazon-elasticache"
   },
   {
     "id": "database-skills-timestream-influxdb",
@@ -3894,6 +3974,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Comprehensive web, mobile, and backend development workflow bundling frontend, backend, full-stack, and mobile development skills for end-to-end application delivery.",
     "path": "category/backend-api-design/development"
+  },
+  {
+    "id": "development-claude-api",
+    "name": "development-claude-api",
+    "category": "backend-api-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Build, debug, and optimize Claude API / Anthropic SDK apps. Apps built with this skill should include prompt caching. Also handles migrating existing Claude API code between Claude model versions (4.5 \u2192 4.6, 4.6 \u2192 4.7, retired-model replacements). TRIGGER when: code imports `anthropic`/`@anthropic-ai/sdk`; user asks for the Claude API, Anthropic SDK, or Managed Agents; user adds/modifies/tunes a Claude feature (caching, thinking, compaction, tool use, batch, files, citations, memory) or model (Opus/Sonnet/Haiku) in a file; questions about prompt caching / cache hit rate in an Anthropic SDK project. SKIP: file imports `openai`/other-provider SDK, filename like `*-openai.py`/`*-generic.py`, provider-neutral code, general programming/ML.",
+    "path": "category/backend-api-design/development-claude-api"
   },
   {
     "id": "device-ai-ml-kit-genai-prompt-api",
@@ -5232,6 +5320,14 @@
     "path": "category/backend-api-design/gbrain-shared-operations"
   },
   {
+    "id": "gemini",
+    "name": "gemini",
+    "category": "backend-api-design",
+    "repository": "101-skills-superpowers",
+    "description": "Google Gemini chat models via inference.sh CLI. Models: Gemini 4 Argon (flagship), Gemini 3.8 Flash (most capable Flash), Gemini 3.5 Flash-Lite (fastest, lowest cost). 1M token context, thinking levels, vision, file input, tool use, structured output. Runs on Vertex AI. Use for: coding, autonomous agents, long documents, finance, law, science, high-throughput pipelines, image understanding, chat. Triggers: gemini, google gemini, gemini api, gemini 4, gemini 4 argon, argon, gemini flash, gemini 3.8 flash, gemini flash lite, gemini 3.5 flash-lite, vertex ai, google llm, google ai model, gemini chat",
+    "path": "category/backend-api-design/gemini"
+  },
+  {
     "id": "gemini-agents-api",
     "name": "gemini-agents-api",
     "category": "backend-api-design",
@@ -5622,6 +5718,14 @@
     "repository": "samber-developer-platform-skills",
     "description": "Gets a SaaS vendor's Google Workspace integration through Google OAuth app verification and onto the Google Workspace Marketplace - Gmail, Drive and Chat scope choice, the CASA security assessment, listing review, admin domain-wide install, changes after listing. Use whenever a vendor mentions publishing a Workspace add-on, Gmail or Drive integration, or Chat app, the \"Google hasn't verified this app\" screen, the 100-user cap, CASA, restricted scopes, or a rejected Marketplace review. Do NOT use for listing copy (use samber/developer-platform-skills@integration-listing-optimization), for your own API's OAuth (use samber/developer-platform-skills@oauth2-provider-design), or for internal-only apps.",
     "path": "category/backend-api-design/google-workspace-marketplace-playbook"
+  },
+  {
+    "id": "gpt",
+    "name": "gpt",
+    "category": "backend-api-design",
+    "repository": "101-skills-superpowers",
+    "description": "OpenAI GPT models via inference.sh CLI. Models: GPT-6 Astra (frontier), GPT-6.1 Sol (near-Astra at lower cost), GPT-6 Luna (efficient, high-volume). 1M context, 128k output, reasoning effort, vision, file input, tool use, structured output. Daybreak variants for vetted cybersecurity work on your own OpenAI key. Use for: coding, agents, reasoning, document analysis, extraction, chat, high-volume classification. Triggers: gpt, openai, gpt-6, gpt 6, gpt-6 astra, gpt-6.1 sol, gpt-6 luna, openai api, chatgpt api, gpt api, openai model, daybreak, openai daybreak, gpt reasoning",
+    "path": "category/backend-api-design/gpt"
   },
   {
     "id": "gpt-image-2-api-prompts",
@@ -7008,6 +7112,14 @@
     "path": "category/backend-api-design/ipums-microdata-api"
   },
   {
+    "id": "ising-calibration-setup",
+    "name": "ising-calibration-setup",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "Use when connecting to the NVIDIA Ising Calibration model via the hosted API or a self-hosted NIM. Covers auth, keys and connectivity checks only.",
+    "path": "category/backend-api-design/ising-calibration-setup"
+  },
+  {
     "id": "ito-inference",
     "name": "ito-inference",
     "category": "backend-api-design",
@@ -7232,6 +7344,14 @@
     "path": "category/backend-api-design/kubernetes-pentesting"
   },
   {
+    "id": "kumo-custom-populations",
+    "name": "kumo-custom-populations",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "Train with caller-supplied labels, weights and splits or score exact entity/anchor rows through Snowflake source tables using the local Kumo API. Use when generated populations do not represent the requested rows.",
+    "path": "category/backend-api-design/kumo-custom-populations"
+  },
+  {
     "id": "labarchive-integration",
     "name": "labarchive-integration",
     "category": "backend-api-design",
@@ -7384,6 +7504,14 @@
     "path": "category/backend-api-design/linkdigest-social-link-reader"
   },
   {
+    "id": "linkedin-thread-monitor",
+    "name": "linkedin-thread-monitor",
+    "category": "backend-api-design",
+    "repository": "sergebulaev-linkedin-skills",
+    "description": "Track which of your LinkedIn comments earned author replies. Flags the 6-24h warm-reply window where thread momentum peaks, classifies threads as hot/warm/cool/dormant, and routes warm ones to linkedin-reply-handler for follow-up drafts. Powered by Apify, no LinkedIn login. Triggers on \\\"what threads need follow-up\\\", \\\"author replied\\\", \\\"monitor my comments\\\". Not for analyzing likers on a post (use linkedin-engager-analytics).",
+    "path": "category/backend-api-design/linkedin-thread-monitor"
+  },
+  {
     "id": "linkfox-wb-amazon-sp-api",
     "name": "linkfox-wb-amazon-sp-api",
     "category": "backend-api-design",
@@ -7440,12 +7568,28 @@
     "path": "category/backend-api-design/llm-gateway"
   },
   {
+    "id": "llm-llm-models",
+    "name": "llm-llm-models",
+    "category": "backend-api-design",
+    "repository": "101-skills-superpowers",
+    "description": "Access Claude, Gemini, Kimi and GLM via inference.sh CLI. Models: Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, Gemini 4 Argon, Kimi K3, GLM-5.3. One CLI and one input format for every model. Use for: AI assistants, code generation, reasoning, agents, chat, content generation. Triggers: claude api, llm api, claude sonnet, claude opus, gemini api, kimi, glm, language model, gpt alternative, anthropic api, ai model api, llm access, chat api, claude alternative, openai alternative",
+    "path": "category/backend-api-design/llm-llm-models"
+  },
+  {
     "id": "llm-models",
     "name": "llm-models",
     "category": "backend-api-design",
     "repository": "101-skills-superpowers",
     "description": "Access Claude, Gemini, Kimi, GLM and 100+ LLMs via inference.sh CLI using OpenRouter. Models: Claude Opus 4.5, Claude Sonnet 4.5, Claude Haiku 4.5, Gemini 3 Pro, Kimi K2, GLM-4.6, Intellect 3. One API for all models with automatic fallback and cost optimization. Use for: AI assistants, code generation, reasoning, agents, chat, content generation. Triggers: claude api, openrouter, llm api, claude sonnet, claude opus, gemini api, kimi, language model, gpt alternative, anthropic api, ai model api, llm access, chat api, claude alternative, openai alternative",
     "path": "category/backend-api-design/llm-models"
+  },
+  {
+    "id": "llm-web-search",
+    "name": "llm-web-search",
+    "category": "backend-api-design",
+    "repository": "101-skills-superpowers",
+    "description": "Web search and content extraction with Tavily and Exa via inference.sh CLI. Apps: Tavily Search, Tavily Extract, Exa Search, Exa Answer, Exa Extract. Capabilities: AI-powered search, content extraction, direct answers, research. Use for: research, RAG pipelines, fact-checking, content aggregation, agents. Triggers: web search, tavily, exa, search api, content extraction, research, internet search, ai search, search assistant, web scraping, rag, perplexity alternative",
+    "path": "category/backend-api-design/llm-web-search"
   },
   {
     "id": "looot",
@@ -7776,6 +7920,14 @@
     "path": "category/backend-api-design/mintlify"
   },
   {
+    "id": "mirrord-beyond",
+    "name": "mirrord-beyond",
+    "category": "backend-api-design",
+    "repository": "metalbear-co-mirrord",
+    "description": "Help users set up and use mirrord Beyond, which runs a local process against workloads outside Kubernetes (docs section \"Beyond Kubernetes\"; the CLI, dashboard and config call them serverless workloads and `serverless/` targets). Two tracks. ECS setup, for platform teams - wire an existing Amazon ECS service (Fargate or EC2) to the MetalBear Cloud sessions-manager - store the serverless agent API key in AWS Secrets Manager, merge the mirrord remote bootstrap into the task definition, deploy and verify. Developer session - sign in with `mirrord login`, write a `mirrord-up.yaml` with a `serverless/` target, and run `mirrord up` (or the IDE) against the ECS service. Use when users mention mirrord Beyond, Beyond Kubernetes, ECS or Fargate with mirrord, serverless targets, sessions-manager, MetalBear Cloud, the serverless agent API key, MIRRORD_REMOTE_SERVICE, or errors from either side. Also covers the Operator-hosted mode briefly.",
+    "path": "category/backend-api-design/mirrord-beyond"
+  },
+  {
     "id": "mirrord-operator",
     "name": "mirrord-operator",
     "category": "backend-api-design",
@@ -7798,6 +7950,14 @@
     "repository": "android-skills",
     "description": "Builds autonomous on-device agentic workflows in Android apps using the",
     "path": "category/backend-api-design/mlkit-agent-api"
+  },
+  {
+    "id": "mobile-release",
+    "name": "mobile-release",
+    "category": "backend-api-design",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when shipping an iOS or Android app update to the App Store or Google Play - Apple or Google rejected or warned about a build (ITMS-91053 privacy manifest, required reason API, missing usage description, target API level, 16 KB page size, exported activity, SMS or call log permission, Data safety), a readiness check before submitting an iOS, Android, Flutter or React Native release, or whether to pause, halt or widen a phased or staged rollout from crash rate, ANR rate or Play's bad behavior thresholds. Checks the project with stdlib scripts.",
+    "path": "category/backend-api-design/mobile-release"
   },
   {
     "id": "mocean-api",
@@ -9904,6 +10064,14 @@
     "path": "category/backend-api-design/running-release-tests"
   },
   {
+    "id": "runpod-cloud-migrate",
+    "name": "runpod-cloud-migrate",
+    "category": "backend-api-design",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Move a workload from another cloud or GPU platform to Runpod: Vast.ai, Lambda, CoreWeave, Paperspace, Modal, Replicate, Baseten, Together AI, Fireworks AI, fal, Hugging Face Inference Endpoints, AWS, Google Cloud or Azure. Inventories what the project uses, maps it to Runpod, plans, then migrates one workload at a time with verification. To move Runpod code between Runpod API versions, use runpod-migrate instead.",
+    "path": "category/backend-api-design/runpod-cloud-migrate"
+  },
+  {
     "id": "runpod-endpoint-ops",
     "name": "runpod-endpoint-ops",
     "category": "backend-api-design",
@@ -10064,6 +10232,14 @@
     "path": "category/backend-api-design/scientific-db-pubmed-database"
   },
   {
+    "id": "scientific-perplexity-search",
+    "name": "scientific-perplexity-search",
+    "category": "backend-api-design",
+    "repository": "davila7-claude-code-templates",
+    "description": "Perform AI-powered web searches with real-time information using Perplexity models via LiteLLM and OpenRouter. This skill should be used when conducting web searches for current information, finding recent scientific literature, getting grounded answers with source citations, or accessing information beyond the model's knowledge cutoff. Provides access to multiple Perplexity models including Sonar Pro, Sonar Pro Search (advanced agentic search), and Sonar Reasoning Pro through a single OpenRouter API key.",
+    "path": "category/backend-api-design/scientific-perplexity-search"
+  },
+  {
     "id": "scrape",
     "name": "scrape",
     "category": "backend-api-design",
@@ -10158,6 +10334,14 @@
     "repository": "samber-developer-platform-skills",
     "description": "Decide a public API's language-SDK portfolio - which languages get official SDKs and in what order, generated vs handwritten build model, official and community support tiers with a promotion gate, SDK deprecation and end-of-life, and decoupling SDK SemVer from API versioning and release cadence. Use whenever the user mentions client libraries, SDKs, which languages to support first, an SDK generator (Stainless, Fern, OpenAPI Generator), community SDKs, or sunsetting an SDK - even if they never say \"SDK portfolio\". Portfolio strategy only, not single-SDK ergonomics or registry publishing. Do NOT use for whether to offer SDKs as a surface at all - use samber/developer-platform-skills@api-integration-surface-strategy instead.",
     "path": "category/backend-api-design/sdk-portfolio-strategy"
+  },
+  {
+    "id": "sdk-python-sdk",
+    "name": "sdk-python-sdk",
+    "category": "backend-api-design",
+    "repository": "101-skills-superpowers",
+    "description": "Python SDK for inference.sh - run AI apps, build agents, and integrate with all models. Package: inferencesh (pip install inferencesh). Supports sync/async, streaming, file uploads. Build agents with template or ad-hoc patterns, tool builder API, skills, and human approval. Use for: Python integration, AI apps, agent development, RAG pipelines, automation. Triggers: python sdk, inferencesh, pip install, python api, python client, async inference, python agent, tool builder python, programmatic ai, python integration, sdk python",
+    "path": "category/backend-api-design/sdk-python-sdk"
   },
   {
     "id": "search-api",
@@ -10440,6 +10624,14 @@
     "path": "category/backend-api-design/server-side-conversion-tracking"
   },
   {
+    "id": "serverless-skills-aws-lambda-web-functions",
+    "name": "serverless-skills-aws-lambda-web-functions",
+    "category": "backend-api-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Creates and deploys Node.js HTTP web applications on AWS Lambda Web Functions. Guides users through building web apps and APIs with Express, Fastify, or Hono, packaging, deploying via the aws lambda-web CLI, and iterating. Triggers when user wants to deploy a website or web app to AWS as serverless, deploy a Node.js HTTP server to AWS, build a serverless website or API with Node.js, deploy Express/Hono/Fastify apps, set up multi-region HTTP endpoints, connect a Node.js web app to private VPC resources, or explicitly mentions Lambda Web Functions. Does NOT trigger for non-Node.js runtimes or frameworks such as Flask or Django, event-driven patterns (SQS, Kinesis, S3 events), or container deployments.",
+    "path": "category/backend-api-design/serverless-skills-aws-lambda-web-functions"
+  },
+  {
     "id": "service-de-waba-integrate",
     "name": "service-de-waba-integrate",
     "category": "backend-api-design",
@@ -10608,6 +10800,14 @@
     "path": "category/backend-api-design/sharp-edges"
   },
   {
+    "id": "shopify-admin",
+    "name": "shopify-admin",
+    "category": "backend-api-design",
+    "repository": "shopify-shopify-ai-toolkit",
+    "description": "Write or explain **Admin GraphQL** queries and mutations for apps and integrations that extend the Shopify admin. Use when the user wants to **understand, design, or generate** the operation itself\u2014even before deciding how to run it. Do **not** choose `admin` first for **app monetization**\u2014charging merchants for the app itself via app pricing plans, paid app tiers, app subscription charges, or app free trials\u2014use **`app-pricing`** unless the user is maintaining an existing Manual Pricing integration or explicitly needs an Admin Billing API operation. Merchant **product** subscriptions stay with `admin` (selling plans, subscription contracts, try-before-you-buy). Do **not** choose `admin` first for **app or extension config validation** \u2014use **`use-shopify-cli`**. Do **not** choose `admin` first to **execute** Admin GraphQL **now via Shopify CLI** or for CLI setup/troubleshooting on store workflows\u2014use **`use-shopify-cli`** (store auth/execute, handle/SKU/location lookups, inventory changes).",
+    "path": "category/backend-api-design/shopify-admin"
+  },
+  {
     "id": "shopify-app-store-playbook",
     "name": "shopify-app-store-playbook",
     "category": "backend-api-design",
@@ -10632,6 +10832,22 @@
     "path": "category/backend-api-design/shopify-content"
   },
   {
+    "id": "shopify-customer",
+    "name": "shopify-customer",
+    "category": "backend-api-design",
+    "repository": "shopify-shopify-ai-toolkit",
+    "description": "Write and validate GraphQL operations for developers integrating Shopify's Customer Account API. Generates code for Customer Account API integrations.",
+    "path": "category/backend-api-design/shopify-customer"
+  },
+  {
+    "id": "shopify-dev",
+    "name": "shopify-dev",
+    "category": "backend-api-design",
+    "repository": "shopify-shopify-ai-toolkit",
+    "description": "Search Shopify developer documentation across all APIs. Use only when no API-specific skill applies.",
+    "path": "category/backend-api-design/shopify-dev"
+  },
+  {
     "id": "shopify-development",
     "name": "shopify-development",
     "category": "backend-api-design",
@@ -10648,6 +10864,62 @@
     "path": "category/backend-api-design/shopify-expert"
   },
   {
+    "id": "shopify-hydrogen",
+    "name": "shopify-hydrogen",
+    "category": "backend-api-design",
+    "repository": "shopify-shopify-ai-toolkit",
+    "description": "Hydrogen 2026-10 is an SDK for building custom storefronts in the developer's own framework, with the Storefront API client, cart, products, search, customer accounts, analytics, and Shop Pay. MANDATORY: Use this API for ANY Hydrogen storefront question - do NOT use Storefront GraphQL when 'Hydrogen' is mentioned.",
+    "path": "category/backend-api-design/shopify-hydrogen"
+  },
+  {
+    "id": "shopify-onboarding-dev",
+    "name": "shopify-onboarding-dev",
+    "category": "backend-api-design",
+    "repository": "shopify-shopify-ai-toolkit",
+    "description": "Get started building on Shopify. Use when a developer asks to build an app, build a theme, create a dev store, set up a partner account, scaffold a project, or get started developing for Shopify \u2014 including building an app in a specific backend language or framework (for example Laravel, Symfony, Django, Flask, Rails, or Express); this topic covers scaffolding the app and choosing Shopify's official library for that language. When the prompt also involves an extension surface (checkout, admin, POS, customer accounts), learn this topic **in addition to** the surface topic. NOT for merchants managing stores.",
+    "path": "category/backend-api-design/shopify-onboarding-dev"
+  },
+  {
+    "id": "shopify-partner",
+    "name": "shopify-partner",
+    "category": "backend-api-design",
+    "repository": "shopify-shopify-ai-toolkit",
+    "description": "The Partner API lets you programmatically access data about your Partner Dashboard, including your apps, themes, and affiliate referrals.",
+    "path": "category/backend-api-design/shopify-partner"
+  },
+  {
+    "id": "shopify-payments-apps",
+    "name": "shopify-payments-apps",
+    "category": "backend-api-design",
+    "repository": "shopify-shopify-ai-toolkit",
+    "description": "The Payments Apps API enables payment providers to integrate their payment solutions with Shopify's checkout.",
+    "path": "category/backend-api-design/shopify-payments-apps"
+  },
+  {
+    "id": "shopify-polaris-admin-extensions",
+    "name": "shopify-polaris-admin-extensions",
+    "category": "backend-api-design",
+    "repository": "shopify-shopify-ai-toolkit",
+    "description": "Add custom actions and blocks from your app at contextually relevant spots throughout the Shopify Admin, including **App Home UI extensions** \u2014 the Shopify-hosted `admin.app.home.render` target (API version `2026-07` or later) that renders your app's landing page instead of an iframe. Covers the Intents API (`shopify.intents.invoke`) for launching native workflows from an extension. Admin UI Extensions also supports scaffolding new admin extensions using Shopify CLI commands.",
+    "path": "category/backend-api-design/shopify-polaris-admin-extensions"
+  },
+  {
+    "id": "shopify-polaris-app-home",
+    "name": "shopify-polaris-app-home",
+    "category": "backend-api-design",
+    "repository": "shopify-shopify-ai-toolkit",
+    "description": "Build your app's primary user interface embedded in the Shopify admin using the **iframe** model \u2014 a web app you host yourself, rendered with `@shopify/polaris-types` and App Bridge. Covers the Intents API (`shopify.intents.invoke`) for launching native workflows from App Home. For the Shopify-hosted `admin.app.home.render` extension target, use **`polaris-admin-extensions`** instead. If the prompt just mentions `Polaris` and you can't tell based off of the context what API they meant, assume they meant this API.",
+    "path": "category/backend-api-design/shopify-polaris-app-home"
+  },
+  {
+    "id": "shopify-polaris-checkout-extensions",
+    "name": "shopify-polaris-checkout-extensions",
+    "category": "backend-api-design",
+    "repository": "shopify-shopify-ai-toolkit",
+    "description": "Build custom functionality that merchants can install at defined points in the checkout flow, including product information, shipping, payment, order summary, and Shop Pay. Checkout UI Extensions also supports scaffolding new checkout extensions using Shopify CLI commands. This topic covers the extension code only \u2014 when the prompt also needs an app backend (for example storing data in the developer's own database, or verifying session tokens on a server), also learn **`onboarding-dev`** to scaffold the app with Shopify's official backend libraries.",
+    "path": "category/backend-api-design/shopify-polaris-checkout-extensions"
+  },
+  {
     "id": "shopify-products",
     "name": "shopify-products",
     "category": "backend-api-design",
@@ -10662,6 +10934,22 @@
     "repository": "jezweb-claude-skills",
     "description": "Set up Shopify CLI auth and Admin API access for a store. Install CLI, authenticate, create custom app, store access token, verify. Use whenever the user wants to connect to a Shopify store, set up Shopify API access, install Shopify CLI, or troubleshoot Shopify auth / Admin API token issues.",
     "path": "category/backend-api-design/shopify-setup"
+  },
+  {
+    "id": "shopify-shopifyql",
+    "name": "shopify-shopifyql",
+    "category": "backend-api-design",
+    "repository": "shopify-shopify-ai-toolkit",
+    "description": "Answer a merchant's **analytics and reporting** questions with **ShopifyQL** \u2014 Shopify's query language for aggregated store metrics that the Admin GraphQL API cannot compute. Choose this (not `admin`) whenever the ask is for **numbers, totals, trends, or breakdowns** rather than fetching or mutating individual records: including but not limited to total/gross/net sales and revenue, order counts, average order value, refunds, quantity sold, sessions, conversion rate, and traffic \u2014 sliced by product, channel, region, or customer, trended over time, or compared period-over-period. Examples: \\\"total sales last 7 days\\\", \\\"orders by sales channel this month\\\", \\\"top products by revenue\\\", \\\"conversion rate this week\\\", \\\"sales this year vs last year\\\". This topic covers writing the ShopifyQL query; if the merchant wants to run it against their store, execution is handed off to `use-shopify-cli`. Not for general Admin GraphQL record operations \u2014 fetching or mutating individual resources (use `admin`).",
+    "path": "category/backend-api-design/shopify-shopifyql"
+  },
+  {
+    "id": "shopify-use-shopify-cli",
+    "name": "shopify-use-shopify-cli",
+    "category": "backend-api-design",
+    "repository": "shopify-shopify-ai-toolkit",
+    "description": "Choose when the user needs **Shopify CLI** to run or fix something now: validate app or extension config on disk (`shopify.app.toml`, `shopify.app.<name>.toml`, `shopify.extension.toml`); review or audit an app's code for security vulnerabilities; run or troubleshoot store workflows (`shopify store auth`, `shopify store execute`); or perform explicit store-scoped reads/writes on a named store domain (for example, show/list/find the first 10 products on my store at `foo.myshopify.com`, or inventory and product changes by handle, SKU, or location name). Emphasize **commands and operational steps**, not only authoring GraphQL. Skip for API-only understanding or codegen with no CLI execution, and skip for brand-new merchant asks to start a Shopify store or try Shopify before they have an account. Examples: validate configuration before deploy; run an existing query via CLI; show the first 10 products on `foo.myshopify.com`; missing `shopify store execute`.",
+    "path": "category/backend-api-design/shopify-use-shopify-cli"
   },
   {
     "id": "shorten-rest-automation",
@@ -10760,6 +11048,14 @@
     "path": "category/backend-api-design/skills-ai-regression-testing"
   },
   {
+    "id": "skills-amazon-bedrock",
+    "name": "skills-amazon-bedrock",
+    "category": "backend-api-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Builds generative AI applications on Amazon Bedrock. Covers model invocation (Converse API, InvokeModel), RAG with Knowledge Bases, Bedrock Agents, Guardrails, and AgentCore (including the Harness managed agent loop). Applies when invoking models, setting up or migrating Knowledge Bases to Managed, deploying to AgentCore, migrating/porting/converting a Bedrock Agent (including inline agents) to an AgentCore Harness, troubleshooting Bedrock errors (ThrottlingException, AccessDeniedException), or choosing Bedrock models (Claude, Llama, Nova, Titan). Also for prompt caching, quota and throttling diagnosis, cost tracking, migrating between Claude model generations, chunking strategies, and Bedrock model selection. Covers AgentCore Payments (x402, microtransactions, Payment Manager, Connector, Instrument, Coinbase CDP, Stripe Privy, paid endpoints, agent payments). NOT for custom model training, Rekognition, or Comprehend. For SageMaker model discovery, customization, or endpoints, use aws-ai-ml.",
+    "path": "category/backend-api-design/skills-amazon-bedrock"
+  },
+  {
     "id": "skills-api-connector-builder",
     "name": "skills-api-connector-builder",
     "category": "backend-api-design",
@@ -10846,6 +11142,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Autonomous multi-round research review loop using MiniMax API. Use when you want to use MiniMax instead of Codex MCP for external review. Trigger with \"auto review loop minimax\" or \"minimax review\".",
     "path": "category/backend-api-design/skills-auto-review-loop-minimax"
+  },
+  {
+    "id": "skills-aws-ai-ml",
+    "name": "skills-aws-ai-ml",
+    "category": "backend-api-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Selects, deploys, and customizes AI models on Amazon SageMaker. Training or Processing jobs, fine-tuning (SFT/DPO/RLVR/RLAIF), model selection, evaluation, SageMaker or Bedrock deployment, inference optimization and endpoint diagnostics. Use when fine-tuning models on SageMaker, choosing a base model to customize or deploy from SageMaker JumpStart or Hub, SageMakerPublicHub, or the model catalog, checking data quality (duplicates, languages, PII), transforming or validating data (reformat, clean, filter, dedupe, split, merge, redact), generating synthetic data, labeling data with a model, human review or annotation and applying its corrections, evaluating model quality, deploying or optimizing endpoints, configuring IAM/S3, or managing SageMaker Managed MLflow. Use for endpoint health, latency, logs, metrics, errors. Covers Serverless Model Customization, Nova and OSS deployment paths, and PySDK v3. NOT for SageMaker Ground Truth labeling jobs, Feature Store, or general AWS infrastructure.",
+    "path": "category/backend-api-design/skills-aws-ai-ml"
   },
   {
     "id": "skills-aws-observability",
@@ -11104,6 +11408,94 @@
     "path": "category/backend-api-design/skills-django-tdd"
   },
   {
+    "id": "skills-doca-comch",
+    "name": "skills-doca-comch",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user is doing hands-on DOCA Comch work on a host + BlueField pair \u2014 bringing up host \u2194 DPU PCIe control-plane messaging, picking server (DPU) vs client (host) roles, choosing slow-path send-task / recv-callback vs fast-path producer / consumer, querying max-msg-size or max-clients capabilities, registering connection callbacks, or debugging DOCA_ERROR_* returns from the Comch API. Trigger even when the user does not explicitly mention \"DOCA Comch\" or \"Comm Channel\" (renamed in DOCA 2.5) \u2014 typical implicit phrasings include \"send a control message from host to BlueField over PCIe\", \"DPU can't see the host representor\", \"DOCA_ERROR_NOT_PERMITTED on server_create\", \"DOCA_ERROR_AGAIN on task_send submit\", \"connect callback never fires\", or \"stream bulk data from a host driver to a DPU agent\". Refuse and route elsewhere for installing DOCA itself, BFB / firmware bring-up, non-Comch DOCA libraries, or deploying Comch apps at scale \u2014 those belong to other skills.",
+    "path": "category/backend-api-design/skills-doca-comch"
+  },
+  {
+    "id": "skills-doca-comm-channel-admin",
+    "name": "skills-doca-comm-channel-admin",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "Use this skill to enumerate host\u2194DPU DOCA comch (formerly Comm Channel) servers and connections via the shipped doca_comm_channel_admin binary \u2014 listing comch-capable devices and decoding the per-device server / connection table (server name, PID, in-use / max, PCIe address). The shipped binary is a SINGLE-SHOT SCAN-AND-PRINT tool with no registered arguments \u2014 NO list / inspect / drain / restart subcommands; one inventory pass over every comch-capable doca_dev on this side. Channel reset / drain / restart go to doca-comch (program side), doca-setup / doca-hardware-safety (driver reload), or BFB / RShim \u2014 NOT to this binary. Trigger on phrasings like \"list comch servers\", \"which channels are active on this BlueField\", or \"verify admin tool sees same channel as program.\" Refuse and route elsewhere for the comch programming API, library install, protocol design, channel reset, or general orientation.",
+    "path": "category/backend-api-design/skills-doca-comm-channel-admin"
+  },
+  {
+    "id": "skills-doca-devemu",
+    "name": "skills-doca-devemu",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user is doing hands-on DOCA Device Emulation on a BlueField DPU \u2014 exposing a custom emulated PCIe device the host sees as a real peripheral while DPU-side code runs the backend, picking the sub-library (PCI Generic, virtio-net, virtio-fs, virtio-blk, NVMe), wiring the per-sub-library Core context plus doorbell / DMA primitives, querying `doca_devemu_*_cap_*`, or debugging DOCA_ERROR_* from a `doca_devemu_*` call. Trigger even when the user does not say \"devemu\" \u2014 typical implicit phrasings include \"expose a custom PCIe device from BlueField to the host\", \"host should see a virtio NIC backed by my DPU code\", \"lspci does not show my emulated device\", \"device enumerated but no driver binds\", \"DPU sees nothing when host kicks the queue\", or \"virtio feature negotiation failed at bind\". Refuse and route elsewhere for the packaged DOCA SNAP / Virtio-net Services, host-side virtio kernel drivers, backend body design, or standard BlueField NIC behavior \u2014 those belong to other skills.",
+    "path": "category/backend-api-design/skills-doca-devemu"
+  },
+  {
+    "id": "skills-doca-dts",
+    "name": "skills-doca-dts",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "Deploy and configure the NVIDIA DOCA Telemetry Service (DTS) as it is actually run: (A) BlueField (built-in static pod), (B) Host (docker) on x86_64 / aarch64, or (C) DPF (DPUService / helm chart) \u2014 plus the shared configuration layer (`dts_config.ini`, providers, exporters, level labels) that all three share. The user's DEPLOYMENT TYPE decides everything; pick it first. Trigger even without \"DTS\" for \"prometheus on the DPU shows nothing on 9100\", \"telemetry container exits right after start\", \"add ethtool counters to the telemetry DPUService\", \"how do I upgrade the built-in telemetry on BlueField\", or \"level labels per rack/pod\". Refuse and route elsewhere for installing DOCA itself, the `doca_telemetry` / `doca_telemetry_exporter` library API, installing the DPF cluster, Grafana / Prometheus server setup or dashboard / PromQL authoring, and BFB / BSP imaging \u2014 those belong to other skills or to external products.",
+    "path": "category/backend-api-design/skills-doca-dts"
+  },
+  {
+    "id": "skills-doca-flow",
+    "name": "skills-doca-flow",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "DOCA Flow packet steering on NVIDIA NICs/DPUs, linked into a C application: match/action pipes, ports, representors, forwarding, hairpin, counters. Trigger on packet steering, classifier, rule-matching, representor, hairpin or 5-tuple-to-queue questions even when \"DOCA Flow\" is not named. Also covers pipe validation before hardware programming, Flow/DOCA version match, and Flow API errors. First app: follow the local bundle (doca-setup, doca-programming-guide, doca-flow, doca-public-knowledge-map). Stage 1 pull nvcr.io/nvidia/doca/doca (NGC catalog tag, never invent); Stage 2 needs a real NIC. Then ls samples inside the container; never emit main.c, a Dockerfile, or hand-typed -l flags. Route software-only host pipelines, plain DPDK `rte_flow`, kernel TC, OVS, BFB bring-up, and DPU OS installation elsewhere. DPU OS installation is destructive and always requires explicit confirmation.",
+    "path": "category/backend-api-design/skills-doca-flow"
+  },
+  {
+    "id": "skills-doca-gpunetio",
+    "name": "skills-doca-gpunetio",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user is doing hands-on DOCA GPUNetIO programming \u2014 wiring a CUDA kernel on an NVIDIA GPU to a doca-eth queue via doca_gpu_eth_rxq / doca_gpu_eth_txq, standing up the per-CUDA-device doca_gpu context, designing the persistent CUDA kernel that drains the GPU-visible queue, running the dual capability check (DOCA cap-query plus cudaGetDeviceProperties), registering cudaMalloc pools via doca_buf_arr_create, or debugging DOCA_ERROR_* returns from the GPUNetIO API. Trigger even when the user does not explicitly mention \"DOCA GPUNetIO\" or \"persistent kernel\" \u2014 typical implicit phrasings include \"CUDA kernel reading packets directly from the NIC\", \"GPU-initiated networking on BlueField\", \"DOCA_ERROR_DRIVER on doca_gpu_create\", \"nvidia_peermem not loaded\", \"kernel-per-packet is too slow\", or \"which GPU supports GPU-side packet I/O\". Refuse and route elsewhere for general CUDA programming, DOCA Ethernet queue bring-up, DOCA DPA, or DOCA install \u2014 those belong to other skills.",
+    "path": "category/backend-api-design/skills-doca-gpunetio"
+  },
+  {
+    "id": "skills-doca-perftest",
+    "name": "skills-doca-perftest",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user is running DOCA Perftest (doca_perftest), the RDMA benchmark that measures bandwidth, message rate and latency for RDMA verbs, point-to-point or across a cluster, with an optional DOCA Verbs backend (-r dv) or GPUNetIO engine (--engine gpunetio). Trigger even when the user does not say \"DOCA Perftest\" \u2014 implicit phrasings include \"how do I benchmark RDMA write bandwidth with DOCA\", \"run ib_write_bw but across 8 nodes\", \"perftest says the device is busy\", \"my latency numbers differ between client and server\", \"launch the server over SSH\", or \"run an all-to-all RDMA test from a JSON scenario\". Refuse and route elsewhere for DOCA install (doca-setup), DOCA Bench (doca-bench), and application-level throughput.",
+    "path": "category/backend-api-design/skills-doca-perftest"
+  },
+  {
+    "id": "skills-doca-setup",
+    "name": "skills-doca-setup",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user is dealing with the DOCA environment around their workload \u2014 verifying an install is healthy, preparing the build env (pkg-config, headers, LD_LIBRARY_PATH, hugepages, devlink, representors), debugging env-class failures, deciding container-vs-bare-metal deployment shape, or reaching a DOCA install from a host that doesn't have one yet via the NGC DOCA container Stage-1 fallback. Trigger even when the user does not explicitly mention \"DOCA setup\" \u2014 typical implicit phrasings include \"just got a BlueField, what now\", \"code is built, how to run it\", \"pkg-config can't find doca-flow\", \"no free 2048 kB hugepages\", \"representor X not found\", \"on a Mac and want to learn DOCA\". Refuse and route elsewhere for library API specifics (Flow pipes, RDMA queues), the modify-a-sample first-app workflow or DOCA_ERROR_* program-side debugging, and \"where is X documented\" knowledge-map questions \u2014 those belong to other skills.",
+    "path": "category/backend-api-design/skills-doca-setup"
+  },
+  {
+    "id": "skills-doca-socket-relay",
+    "name": "skills-doca-socket-relay",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the operator is driving the DOCA Socket Relay to bridge a socket-oriented host application onto a BlueField DPU peer without rewriting it \u2014 picking the deployment shape (in-process, sidecar, or BlueField service container), configuring the host-side socket and the DPU-side forwarding endpoint, walking the bind \u2192 connect \u2192 round-trip \u2192 admit-fleet smoke, or diagnosing a stuck/silent relay. Trigger even when the user does not explicitly mention \"DOCA Socket Relay\" \u2014 typical implicit phrasings include \"move my socket app onto the BlueField without rewriting it\", \"host app gets ECONNREFUSED on the relay\", \"relay accepts the connection but bytes never arrive on the DPU side\", \"first round-trip works, the rest hang\", \"bridge an AF_UNIX (UDS) socket to a DPU peer over Comch\", or \"I want a sidecar that forwards my socket to the BlueField\". Refuse and route elsewhere for the comch programming API, line-rate raw packet I/O via doca-eth, and DOCA install/bring-up \u2014 those belong to other skills.",
+    "path": "category/backend-api-design/skills-doca-socket-relay"
+  },
+  {
+    "id": "skills-doca-telemetry-exporter",
+    "name": "skills-doca-telemetry-exporter",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user is doing hands-on DOCA Telemetry Exporter programming on a host where DOCA is installed \u2014 defining a doca_telemetry_exporter_schema and event types, creating sources, picking a publish surface (typed events / opaque events / the metrics counter-gauge-histogram API / OTLP logs / NetFlow), walking the schema-then-source lifecycle, or debugging DOCA_ERROR_* failures from the exporter API. Trigger even when the user does not explicitly mention \"DOCA Telemetry Exporter\" or \"doca_telemetry_exporter_*\" \u2014 typical implicit phrasings include \"publishing counters from my DOCA app\", \"BAD_STATE when I report an event\", \"consumer/DTS sees nothing but my report succeeded\", \"how do I export NetFlow/IPFIX records\", or \"should I link the exporter or the telemetry service\". Refuse and route elsewhere for the receiving DOCA Telemetry Service (DTS), plain stdout logging via doca_log, or real-time event subscription back into the app via doca-comch \u2014 those belong to other skills.",
+    "path": "category/backend-api-design/skills-doca-telemetry-exporter"
+  },
+  {
+    "id": "skills-doca-telemetry-traceback-application",
+    "name": "skills-doca-telemetry-traceback-application",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the operator is driving the DOCA Telemetry Traceback application to monitor telemetry data locally on a BlueField DPU or ConnectX NIC, detect long-term trends and threshold breaches with user-defined rules, and capture pre-event history plus active-event data to a log file. Trigger even when the user does not explicitly mention \"DOCA Telemetry Traceback\" \u2014 typical implicit phrasings include \"monitor telemetry trends on the DPU without streaming all raw data\", \"log the samples before and after a threshold breach\", \"set up a rule that triggers when rx bytes/s exceeds 1M\", \"differential greater than rule on a data ID\", \"circular buffer of telemetry samples\", or \"traceback event log\". Refuse and route elsewhere: the DOCA Telemetry Diag programming API and raw counter reads to doca-telemetry, DOCA install/bring-up to doca-setup, and version questions to doca-version.",
+    "path": "category/backend-api-design/skills-doca-telemetry-traceback-application"
+  },
+  {
     "id": "skills-dotnet-init",
     "name": "skills-dotnet-init",
     "category": "backend-api-design",
@@ -11150,6 +11542,22 @@
     "repository": "expo-skills",
     "description": "Use when implementing or debugging ANY network request, API call, or data fetching. Covers fetch API, React Query, SWR, error handling, caching, offline support, loading/empty/error screen states, and Expo Router data loaders (`useLoaderData`).",
     "path": "category/backend-api-design/skills-expo-data-fetching"
+  },
+  {
+    "id": "skills-extension-oql",
+    "name": "skills-extension-oql",
+    "category": "backend-api-design",
+    "repository": "caffeinelabs-skills",
+    "description": "Make a canister's data queryable by the Caffeine Data Intelligence agent and by the user's own AI assistant (Claude or ChatGPT through the ICP MCP connector, which reads app data only through OQL). Use whenever an app stores structured data (Maps/Lists/arrays of records) that should be answerable in natural language \u2014 \"top customers\", \"revenue by region\", \"active projects\". Adds a discoverable `schema()` and a JSON `execute()` query endpoint via the `caffeineai-oql` mops package's `Expose` mixin.",
+    "path": "category/backend-api-design/skills-extension-oql"
+  },
+  {
+    "id": "skills-extension-querying-oql",
+    "name": "skills-extension-querying-oql",
+    "category": "backend-api-design",
+    "repository": "caffeinelabs-skills",
+    "description": "Quick reference for the Caffeine Data Intelligence agent to query an OQL-exposing canister (schema() + execute()) through the `icp` CLI against the project's `backend` canister: read the schema, form JSON queries (filter / order / paginate / aggregate / dotted-path edges), and parse the Candid result rows.",
+    "path": "category/backend-api-design/skills-extension-querying-oql"
   },
   {
     "id": "skills-fastapi-patterns",
@@ -11342,6 +11750,14 @@
     "repository": "affaan-m-ecc",
     "description": "Patrones de arquitectura Laravel, routing/controladores, Eloquent ORM, capas de servicio, colas, eventos, cach\u00e9 y API resources para aplicaciones en producci\u00f3n.",
     "path": "category/backend-api-design/skills-laravel-patterns"
+  },
+  {
+    "id": "skills-managed-pentesting-with-strix",
+    "name": "skills-managed-pentesting-with-strix",
+    "category": "backend-api-design",
+    "repository": "usestrix-strix",
+    "description": "Run a managed pentest of a web app, API, repository, or local workspace on the app.strix.ai platform with the `strix cloud` CLI or REST API \u2014 no local Docker or LLM key needed. Safely review and upload local source, register assets, launch and poll scans, triage vulnerabilities, export SARIF, download compliance reports, start PR reviews, buy credits, and set up schedules or webhooks. Use for managed, continuous, scheduled, team-tracked, or sandboxed-agent security testing.",
+    "path": "category/backend-api-design/skills-managed-pentesting-with-strix"
   },
   {
     "id": "skills-managing-amazon-msk",
@@ -11547,7 +11963,7 @@
     "id": "skills-principle-minimize-reader-load",
     "name": "skills-principle-minimize-reader-load",
     "category": "backend-api-design",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Apply when reviewing or shaping code that's hard to trace. Count layers between question and answer, and hidden state in the reader's head; collapse one-caller wrappers and shrink mutable scope.",
     "path": "category/backend-api-design/skills-principle-minimize-reader-load"
   },
@@ -11614,6 +12030,14 @@
     "repository": "runpod-runpod-plugins-official",
     "description": "Migrate a codebase from the Runpod GraphQL API or REST v1 to REST v2 \u2014 inventory which parts use which API version, rewrite the call sites, flag breaking changes, and verify. Use when someone asks to move to v2, asks what v2 would change, or asks which Runpod API their code is on. For managing infrastructure rather than migrating code, use runpod-mcp or runpodctl.",
     "path": "category/backend-api-design/skills-runpod-migrate"
+  },
+  {
+    "id": "skills-runpod-vllm",
+    "name": "skills-runpod-vllm",
+    "category": "backend-api-design",
+    "repository": "runpod-runpod-plugins-official",
+    "description": "Serve a Hugging Face model with vLLM on Runpod (Hub worker-vllm queue endpoint, load-balancing",
+    "path": "category/backend-api-design/skills-runpod-vllm"
   },
   {
     "id": "skills-scalar",
@@ -11766,6 +12190,14 @@
     "repository": "unity-technologies-skills",
     "description": "Guides real-time online multiplayer with Unity Multiplayer Services. Use when the user asks about network topology, hosting, matchmaking, or session-based play such as rooms, parties, and lobbies, not backend features.",
     "path": "category/backend-api-design/skills-setup-multiplayer-services"
+  },
+  {
+    "id": "skills-shopify",
+    "name": "skills-shopify",
+    "category": "backend-api-design",
+    "repository": "shopify-shopify-ai-toolkit",
+    "description": "Build anything on Shopify. One skill covering every Shopify developer surface: Flow workflows, Use Shopify CLI, Admin API, ShopifyQL, Storefront GraphQL API, Partner API, Customer Account API, Payments Apps API, Shopify Functions, Polaris App Home, Polaris Admin Extensions, Polaris Checkout Extensions, Polaris Customer Account Extensions, POS UI, Hydrogen, Liquid, Custom Data, Shopify App Pricing, App Store Review, Developer Onboarding, Merchant Onboarding. Use it for any Shopify API, extension, theme, storefront, function, or CLI task \u2014 writing or explaining code, looking up operations, fields, components and valid values, validating generated code, and choosing which surface a request belongs to. Also use it when someone asks to make, build, open, or set up a store or shop that sells something, and when a prompt mentions or asks for any of: metafields or metaobjects, make me a store that sells pet supplies, mock.shop reference stores, build a storefront without an account \u2014 even without saying Shopify.",
+    "path": "category/backend-api-design/skills-shopify"
   },
   {
     "id": "skills-stage-launch",
@@ -11990,6 +12422,14 @@
     "repository": "wshobson-agents",
     "description": "Schedule and publish social media posts across 13 platforms (X, LinkedIn, Instagram, Facebook Pages, TikTok, Discord, Telegram, YouTube, Reddit, WordPress, Pinterest) via the SocialClaw API. Use when the user wants to publish, schedule, or manage social media content programmatically. Requires SOCIALCLAW_API_KEY.",
     "path": "category/backend-api-design/social-publishing"
+  },
+  {
+    "id": "social-twitter-automation",
+    "name": "social-twitter-automation",
+    "category": "backend-api-design",
+    "repository": "101-skills-superpowers",
+    "description": "Automate Twitter/X with posting, engagement, and user management via inference.sh CLI. Apps: x/post-create (text and media), x/post-like, x/post-retweet, x/dm-send, x/user-follow. Capabilities: post tweets, schedule content, like posts, retweet, send DMs, follow users, get profiles. Use for: social media automation, content scheduling, engagement bots, audience growth, X API. Triggers: twitter api, x api, tweet automation, post to twitter, twitter bot, social media automation, x automation, tweet scheduler, twitter integration, post tweet, twitter post, x post, send tweet",
+    "path": "category/backend-api-design/social-twitter-automation"
   },
   {
     "id": "socialclaw",
@@ -12536,6 +12976,22 @@
     "path": "category/backend-api-design/token-scorer"
   },
   {
+    "id": "tools-agent-tools",
+    "name": "tools-agent-tools",
+    "category": "backend-api-design",
+    "repository": "101-skills-superpowers",
+    "description": "Run AI apps via inference.sh CLI - image generation, video creation, LLMs, search, 3D, Twitter automation. Models: FLUX, Veo, Gemini, Grok, Claude, Seedance, OmniHuman, Tavily, Exa, and many more. Use when running AI apps, generating images/videos, calling LLMs, web search, or automating Twitter. Triggers: inference.sh, infsh, ai model, run ai, serverless ai, ai api, flux, veo, claude api, image generation, video generation, tavily, exa search, twitter api, grok",
+    "path": "category/backend-api-design/tools-agent-tools"
+  },
+  {
+    "id": "tools-infsh-cli",
+    "name": "tools-infsh-cli",
+    "category": "backend-api-design",
+    "repository": "101-skills-superpowers",
+    "description": "Run AI apps via inference.sh CLI - image generation, video creation, LLMs, search, 3D, Twitter automation. Models: FLUX, Veo, Gemini, Grok, Claude, Seedance, OmniHuman, Tavily, Exa, and many more. Use when running AI apps, generating images/videos, calling LLMs, web search, or automating Twitter. Triggers: inference.sh, infsh, ai model, run ai, serverless ai, ai api, flux, veo, claude api, image generation, video generation, tavily, exa search, twitter api, grok",
+    "path": "category/backend-api-design/tools-infsh-cli"
+  },
+  {
     "id": "toss-investment",
     "name": "toss-investment",
     "category": "backend-api-design",
@@ -12590,6 +13046,22 @@
     "repository": "composio-community-awesome-codex-skills",
     "description": "Automate TripAdvisor tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/backend-api-design/tripadvisor-content-api-automation"
+  },
+  {
+    "id": "triton-onnx-model-repository",
+    "name": "triton-onnx-model-repository",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "Deploy a user's ONNX file as a working Triton Inference Server endpoint, end to end. Use when the user has a .onnx file and wants it served, wants a config.pbtxt generated from the ONNX graph, or wants to debug a Triton load or inference failure on an ONNX model. Use triton-pytorch-model-repository for .pt files and triton-tensorrt-model-repository for .plan engines.",
+    "path": "category/backend-api-design/triton-onnx-model-repository"
+  },
+  {
+    "id": "triton-pytorch-model-repository",
+    "name": "triton-pytorch-model-repository",
+    "category": "backend-api-design",
+    "repository": "nvidia-skills",
+    "description": "Deploy a user's PyTorch model as a working Triton Inference Server endpoint, end to end. Use when the user has a TorchScript .pt file or a PT2 archive (.pt2 from torch.export + AOT Inductor) and wants it served, wants a config.pbtxt written from scratch, or wants to debug a Triton load or inference failure on a PyTorch model. Use triton-onnx-model-repository for .onnx files and triton-tensorrt-model-repository for .plan engines.",
+    "path": "category/backend-api-design/triton-pytorch-model-repository"
   },
   {
     "id": "trl-training",
@@ -13110,6 +13582,22 @@
     "repository": "seaxen-skills-backup",
     "description": "Extract a hidden web API and run a safe rate-limited sweep.",
     "path": "category/backend-api-design/web-endpoint-reverse-sweep"
+  },
+  {
+    "id": "web-offensive-idor",
+    "name": "web-offensive-idor",
+    "category": "backend-api-design",
+    "repository": "snailsploit-claude-red",
+    "description": "IDOR (Insecure Direct Object Reference) testing checklist: object ID enumeration, horizontal/vertical privilege escalation, GUID predictability, indirect references via hashes, chained IDOR, and API endpoint IDOR. Use for web app pentests and bug bounty IDOR discovery.",
+    "path": "category/backend-api-design/web-offensive-idor"
+  },
+  {
+    "id": "web-offensive-parameter-pollution",
+    "name": "web-offensive-parameter-pollution",
+    "category": "backend-api-design",
+    "repository": "snailsploit-claude-red",
+    "description": "HTTP parameter pollution (HPP) checklist: duplicate parameter injection, backend vs frontend parsing differences, WAF bypass via HPP, server-side vs client-side HPP, and practical exploitation patterns. Use when testing web applications for parameter handling flaws.",
+    "path": "category/backend-api-design/web-offensive-parameter-pollution"
   },
   {
     "id": "web-research-assistant",

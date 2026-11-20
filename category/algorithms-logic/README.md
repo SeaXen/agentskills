@@ -1,7 +1,7 @@
 # 🧮 Algorithms, Logic & Math
 
 > **Category**: `algorithms-logic`  
-> **Total Curated Skills**: 269 skills  
+> **Total Curated Skills**: 277 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -193,6 +193,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`principle-foundational-thinking`](../../library/backnotprop-pstack/skills/principle-foundational-thinking) | ⚪ Reserve | `backnotprop-pstack` | Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-fea... |
 | [`principle-model-the-domain`](../../library/backnotprop-pstack/skills/principle-model-the-domain) | ⚪ Reserve | `backnotprop-pstack` | Apply when writing stateful logic, or when code branches a lot or repeats a shape assumption ac... |
 | [`principle-the-algorithm`](../../library/cursor-plugins/skills/principle-the-algorithm) | ⚪ Reserve | `cursor-plugins` | Apply to any non-trivial change before designing it. Make the requirement less dumb, delete, op... |
+| [`productivity-invoice-organizer`](../../library/davila7-claude-code-templates/skills/productivity-invoice-organizer) | ⚪ Reserve | `davila7-claude-code-templates` | Automatically organizes invoices and receipts for tax preparation by reading messy files, extra... |
 | [`programmatic-seo-builder`](../../library/irinabuht12-oss-marketing-skills/skills/programmatic-seo-builder) | ⚪ Reserve | `irinabuht12-oss-marketing-skills` | Create scalable programmatic SEO page templates with title patterns, internal linking logic, sc... |
 | [`prove-launch-retro-analyzer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/prove-launch-retro-analyzer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "run a launch retro / post-mortem", "compare launch results vs target... |
 | [`puzzle`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/puzzle) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Designs grid and logic puzzle games in any engine: match-3 cascades, Sokoban pushing, unique-so... |
@@ -221,10 +222,15 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`scenario-roblox-luau`](../../library/scenario-labs-skills/skills/scenario-roblox-luau) | ⚪ Reserve | `scenario-labs-skills` | Use when writing, reviewing or debugging Luau in a Roblox experience: task.spawn vs task.defer ... |
 | [`secops-detection-engineering`](../../library/google-skills/skills/secops-detection-engineering) | ⚪ Reserve | `google-skills` | Author, validate, test, and deploy YARA-L 2.0 detection rules and evaluate end-to-end detection... |
 | [`senior-ml-engineer`](../../library/alirezarezvani-claude-skills/skills/senior-ml-engineer) | ⚪ Reserve | `alirezarezvani-claude-skills` | ML engineering skill for productionizing models, building MLOps pipelines, and integrating LLMs... |
+| [`sergebulaev-linkedin-skills`](../../library/sergebulaev-linkedin-skills/skills/sergebulaev-linkedin-skills) | ⚪ Reserve | `sergebulaev-linkedin-skills` | Plan, draft, audit, and publish LinkedIn posts and comments. Use when the user wants to write a... |
 | [`shader-programming`](../../library/gamedev-skills-awesome-gamedev-agent-skills/skills/shader-programming) | ⚪ Reserve | `gamedev-skills-awesome-gamedev-agent-skills` | Engine-neutral shader technique in GLSL with HLSL equivalents: how dissolve, outline, fresnel r... |
+| [`shopify-functions`](../../library/shopify-shopify-ai-toolkit/skills/shopify-functions) | ⚪ Reserve | `shopify-shopify-ai-toolkit` | Shopify Functions allow developers to customize the backend logic that powers parts of Shopify.... |
 | [`siege`](../../library/anthropics-claude-plugins-official/skills/siege) | ⚪ Reserve | `anthropics-claude-plugins-official` | Work on one hard mathematics problem in rounds: each round a judge writes a few self-contained ... |
 | [`skills-build-live-game`](../../library/unity-technologies-skills/skills/skills-build-live-game) | ⚪ Reserve | `unity-technologies-skills` | Builds and operates a live game's backend with Unity Gaming Services. Make sure to use this ski... |
 | [`skills-dart-add-unit-test`](../../library/dart-lang-skills/skills/skills-dart-add-unit-test) | ⚪ Reserve | `dart-lang-skills` | Write and organize unit tests for functions, methods, and classes using `package:test`. Use whe... |
+| [`skills-doca-pcc`](../../library/nvidia-skills/skills/skills-doca-pcc) | ⚪ Reserve | `nvidia-skills` | Use this skill when the user is doing hands-on host-side DOCA PCC work to load a CUSTOM Program... |
+| [`skills-doca-sha`](../../library/nvidia-skills/skills/skills-doca-sha) | ⚪ Reserve | `nvidia-skills` | Use this skill when the user needs SHA-1, SHA-256, or SHA-512 digest acceleration on BlueField-... |
+| [`skills-doca-spcx-cc`](../../library/nvidia-skills/skills/skills-doca-spcx-cc) | ⚪ Reserve | `nvidia-skills` | Use this skill when the user is invoking `doca_spcx_cc` (the host-side CLI under /opt/mellanox/... |
 | [`skills-dyl-mode`](../../library/cursor-plugins/skills/skills-dyl-mode) | ⚪ Reserve | `cursor-plugins` | Dylan's agent style on top of pstack: concise verified delivery, root causes over symptom patch... |
 | [`skills-firebase-ai-logic-basics`](../../library/firebase-agent-skills/skills/skills-firebase-ai-logic-basics) | ⚪ Reserve | `firebase-agent-skills` | Integrates Firebase AI Logic (formerly Vertex AI for Firebase) into mobile and web apps (Androi... |
 | [`skills-firecrawl-research-index`](../../library/firecrawl-cli/skills/skills-firecrawl-research-index) | ⚪ Reserve | `firecrawl-cli` | Find the papers that answer a research query in Firecrawl's research paper index — a corpus of ... |
@@ -234,11 +240,13 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-melonjs-3d`](../../library/melonjs-melonjs/skills/skills-melonjs-3d) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for anything 3D or 2.5D in melonJS — Camera3d, Mesh, InstancedMesh, Sprite3d bil... |
 | [`skills-melonjs-math`](../../library/melonjs-melonjs/skills/skills-melonjs-math) | ⚪ Reserve | `melonjs-melonjs` | Use this skill for vector and matrix maths in melonJS — Vector2d, Vector3d, their observable va... |
 | [`skills-melonjs-renderables`](../../library/melonjs-melonjs/skills/skills-melonjs-renderables) | ⚪ Reserve | `melonjs-melonjs` | Use this skill when subclassing Renderable, writing a custom draw() method, handling pointer or... |
+| [`skills-msw-scripting`](../../library/msw-git-msw-ai-coding-plugins-official/skills/skills-msw-scripting) | ⚪ Reserve | `msw-git-msw-ai-coding-plugins-official` | Authoring MSW scripts (.mlua) plus integrated playtest and debugging. Covers mlua syntax, annot... |
 | [`skills-platform-metadata-grounding-get`](../../library/forcedotcom-sf-skills/skills/skills-platform-metadata-grounding-get) | ⚪ Reserve | `forcedotcom-sf-skills` | Find metadata that already exists in a Salesforce org by meaning, when you do not know its exac... |
-| [`skills-principle-boundary-discipline`](../../library/cursor-plugins/skills/skills-principle-boundary-discipline) | ⚪ Reserve | `cursor-plugins` | Apply when wiring validation, error handling, or framework adapters. Concentrate guards at syst... |
-| [`skills-principle-foundational-thinking`](../../library/cursor-plugins/skills/skills-principle-foundational-thinking) | ⚪ Reserve | `cursor-plugins` | Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-fea... |
-| [`skills-principle-model-the-domain`](../../library/cursor-plugins/skills/skills-principle-model-the-domain) | ⚪ Reserve | `cursor-plugins` | Apply when writing stateful logic, or when code branches a lot or repeats a shape assumption ac... |
+| [`skills-principle-boundary-discipline`](../../library/backnotprop-pstack/skills/skills-principle-boundary-discipline) | ⚪ Reserve | `backnotprop-pstack` | Apply when wiring validation, error handling, or framework adapters. Concentrate guards at syst... |
+| [`skills-principle-foundational-thinking`](../../library/backnotprop-pstack/skills/skills-principle-foundational-thinking) | ⚪ Reserve | `backnotprop-pstack` | Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-fea... |
+| [`skills-principle-model-the-domain`](../../library/backnotprop-pstack/skills/skills-principle-model-the-domain) | ⚪ Reserve | `backnotprop-pstack` | Apply when writing stateful logic, or when code branches a lot or repeats a shape assumption ac... |
 | [`skills-principle-the-algorithm`](../../library/cursor-plugins/skills/skills-principle-the-algorithm) | ⚪ Reserve | `cursor-plugins` | Apply to any non-trivial change before designing it. Make the requirement less dumb, delete, op... |
+| [`skills-reimagine-work`](../../library/ericosiu-ai-marketing-skills/skills/skills-reimagine-work) | ⚪ Reserve | `ericosiu-ai-marketing-skills` | Weekly Elon-algorithm pass over an agent fleet plus a shadow owner judge that stops asking the ... |
 | [`skills-resilience`](../../library/codewithmukesh-dotnet-claude-kit/skills/skills-resilience) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Resilience patterns for .NET 10 applications using Polly v8. Covers retry, circuit breaker, tim... |
 | [`skills-siege`](../../library/anthropics-claude-plugins-official/skills/skills-siege) | ⚪ Reserve | `anthropics-claude-plugins-official` | Work on one hard mathematics problem in rounds: each round a judge writes a few self-contained ... |
 | [`skills-solo`](../../library/anthropics-claude-plugins-official/skills/skills-solo) | ⚪ Reserve | `anthropics-claude-plugins-official` | Work on one hard mathematics problem in this session yourself, with no sub-agents: reason in st... |

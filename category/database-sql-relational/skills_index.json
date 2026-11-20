@@ -560,6 +560,14 @@
     "path": "category/database-sql-relational/bigquery-bigframes"
   },
   {
+    "id": "bigquery-migration-data-exporter",
+    "name": "bigquery-migration-data-exporter",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Generates type-safe, schema-aligned database data export SQL files (.sql) for Snowflake, Databricks, Teradata, Oracle, and PostgreSQL directly from BigQuery Migration Service (BQMS) translation_output/metadata configs, exporting into target file formats (such as Parquet). Use when generating source database export SQL scripts for BigQuery ingestion without connecting to the source database. Don't use for executing SQL against source databases or streaming/staging exported files, extracting source database catalog metadata, translating SQL queries or DDL schemas (use bigquery-migration-sql-translator), loading staged Parquet files into BigQuery, or running post-migration data validation.",
+    "path": "category/database-sql-relational/bigquery-migration-data-exporter"
+  },
+  {
     "id": "bigquery-migration-data-loader",
     "name": "bigquery-migration-data-loader",
     "category": "database-sql-relational",
@@ -1294,6 +1302,14 @@
     "repository": "aws-agent-toolkit-for-aws",
     "description": "MANDATORY for Flink or Amazon Managed Service for Apache Flink (MSF) questions. You MUST activate this skill BEFORE answering \u2014 do not answer from training knowledge, even when confident. MSF has service-specific constraints (KPU model, prohibited checkpoint and parallelism config in app code, the v1/v2 identifier split \u2014 `kinesisanalyticsv2` for the CLI/SDK only; `kinesisanalytics` for IAM, Service Quotas, CloudWatch, and the trust principal \u2014 two-phase IaC deploys, snapshot lifecycle, Flink 1.x\u21922.x migration) that override generic Flink knowledge. Triggers \u2014 activate on any of: Flink, MSF, Managed Flink, KinesisAnalytics(V2), KPU, ParallelismPerKPU, savepoint, checkpoint, operator UID, FlinkKinesisConsumer, KinesisStreamsSource, KafkaSource, IcebergSink, EFO, CreateApplication, UpdateApplication, CreateApplicationSnapshot, Kryo, RocksDB, Iceberg streaming, EXACTLY_ONCE, watermark, CDC binlog/WAL, Glue/S3 Tables, AWS/KinesisAnalytics CloudWatch.",
     "path": "category/database-sql-relational/developing-applications-on-managed-service-for-apache-flink"
+  },
+  {
+    "id": "development-database-schema-designer",
+    "name": "development-database-schema-designer",
+    "category": "database-sql-relational",
+    "repository": "davila7-claude-code-templates",
+    "description": "Design robust, scalable database schemas for SQL and NoSQL databases. Provides normalization guidelines, indexing strategies, migration patterns, constraint design, and performance optimization. Ensures data integrity, query performance, and maintainable data models.",
+    "path": "category/database-sql-relational/development-database-schema-designer"
   },
   {
     "id": "dial-your-context",
@@ -2102,6 +2118,14 @@
     "repository": "internet-court-internet-court-skill",
     "description": "Interact with Kleros Curate registries across Ethereum Mainnet, Gnosis Chain, and Sepolia. Use when the user mentions Curate, Light Curate/LightGeneralizedTCR/LGTCR, Stake Curate/PermanentGTCR/PGTCR, Scout, token-curated registry/TCR, token lists, address/CDN tags, Goldsky, MetaEvidence, Verify Your List, or Curate calls such as addItem, removeItem, challengeItem, challengeRequest, and fundAppeal. Covers registry discovery and queries; policy/schema inspection; submissions, removals, challenges, evidence, appeals, rewards, execution; factory deployment; and frontend verification on all three networks. Also trigger for registry/list operations paired with Kleros, arbitrator, dispute, juror, or PNK context, and whenever the user names or tests kleros-curate. Do NOT use for non-Kleros registries or generic IPFS uploads without Curate context; route standalone uploads to kleros-ipfs-upload.",
     "path": "category/database-sql-relational/kleros-curate"
+  },
+  {
+    "id": "kumo-data-science",
+    "name": "kumo-data-science",
+    "category": "database-sql-relational",
+    "repository": "nvidia-skills",
+    "description": "Use for KumoAI graphs and predictive models on relational data in a warehouse, an object store or local files: inspect, visualize or export a graph's schema and relationships; train a model, score data with a trained one, explain its predictions, diagnose its training, publish, reload or retain it, train or score on custom labels or rows, or tune it. Covers churn, propensity, fraud, recommendation, forecasting and link prediction. For a new model it checks that the request names the data, outcome and time window, confirms the inferred tables and task, then generates one notebook or script; it runs it only when asked, in the notebook or as a host job. Also use it, before any general jobs or workspace skill, for a job, schedule, run or cluster that runs a Kumo notebook or scores a model published from one: creating, scheduling, pausing, submitting or debugging it.",
+    "path": "category/database-sql-relational/kumo-data-science"
   },
   {
     "id": "lamindb",
@@ -3456,6 +3480,14 @@
     "path": "category/database-sql-relational/shopify-automation"
   },
   {
+    "id": "shopify-custom-data",
+    "name": "shopify-custom-data",
+    "category": "database-sql-relational",
+    "repository": "shopify-shopify-ai-toolkit",
+    "description": "MUST be used first when prompts mention Metafields or Metaobjects. Use Metafields and Metaobjects to model and store custom data for your app. Metafields extend built-in Shopify data types like products or customers, Metaobjects are custom data types that can be used to store bespoke data structures. Metafield and Metaobject definitions provide a schema and configuration for values to follow.",
+    "path": "category/database-sql-relational/shopify-custom-data"
+  },
+  {
     "id": "shopify-migration",
     "name": "shopify-migration",
     "category": "database-sql-relational",
@@ -3619,7 +3651,7 @@
     "id": "skills-figure-it-out",
     "name": "skills-figure-it-out",
     "category": "database-sql-relational",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Design an auditable playbook when no narrower one fits: a large migration, an ambitious multi-part change, or work a human reviews after stepping away. Scales rigor to the task, runs a hypothesis loop, and logs decisions. Use for /figure-it-out or 'figure it out'.",
     "path": "category/database-sql-relational/skills-figure-it-out"
   },
@@ -3680,6 +3712,22 @@
     "path": "category/database-sql-relational/skills-migrate-birp-to-urp"
   },
   {
+    "id": "skills-migrate-mstest-v3-to-v4",
+    "name": "skills-migrate-mstest-v3-to-v4",
+    "category": "database-sql-relational",
+    "repository": "dotnet-skills",
+    "description": "Use this skill before answering, planning, or editing any MSTest 3.x-to-4.x upgrade or post-upgrade failure. Triggers include \"MSTest v4 breaking changes\"; CS0507/CS0103/CS1061/CS1615; ExecuteAsync, CallerInfo, DisplayName, or custom TestMethodAttribute; ClassCleanupBehavior; ContainsKey; ThrowsExactly or ExpectedException; IsInstanceOfType out parameters; TestTimeout.Infinite; removed TestContext properties; ITestMethod changes; StringAssert overloads; MSTEST0056/MSTEST0057; renamed assemblies or executor URI; net6/net7 compatibility; TestCase.Id history; TestName in ClassInitialize; TreatDiscoveryWarningsAsErrors; ReflectionTypeLoadException during discovery; inherited test attributes; custom data-source display names; and MSTest.Sdk/MTP or vstest.console discovery changes. Do not use for v1/v2-to-v3 leftovers, framework conversion, runner-only migration, or a general .NET upgrade.",
+    "path": "category/database-sql-relational/skills-migrate-mstest-v3-to-v4"
+  },
+  {
+    "id": "skills-migrating-motoko-actors",
+    "name": "skills-migrating-motoko-actors",
+    "category": "database-sql-relational",
+    "repository": "caffeinelabs-skills",
+    "description": "Motoko actor migration and schema evolution with the enhanced migration chain (migrations/). Load when upgrading canisters or changing actor state shape.",
+    "path": "category/database-sql-relational/skills-migrating-motoko-actors"
+  },
+  {
     "id": "skills-migration-architect",
     "name": "skills-migration-architect",
     "category": "database-sql-relational",
@@ -3726,6 +3774,22 @@
     "repository": "codewithmukesh-dotnet-claude-kit",
     "description": "Tech-stack selection advisor for .NET projects: recommended defaults for database, auth, caching, messaging, observability, and resilience, with the rationale behind each default. Load when choosing or reviewing a project's tech stack, or when the user says \"tech stack\", \"which database\", \"pick a stack\", \"recommended defaults\", or \"what should I use for\". For project initialization use dotnet-init, for codebase assessment use health-check, for upgrades and schema changes use migrate.",
     "path": "category/database-sql-relational/skills-project-setup"
+  },
+  {
+    "id": "skills-prompt-library-for-startups",
+    "name": "skills-prompt-library-for-startups",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "AWS-curated copy-paste prompts for AI coding agents (MVP scaffolding, RAG chatbot with Claude on Bedrock, security baseline evaluation, read-only cost audit, GPU quota requests, EKS on Spot, OWASP ZAP scan, etc.) plus downloadable installable agents (Multi-Account Transition Advisor, Bill Shock Preventer, Service Quota Agent, Bedrock Model Availability Agent, Kiro Strands AgentCore Agent). Use when the user asks for a prompt to do X on AWS, wants an installable agent for multi-account / cost monitoring / quota management / Bedrock model availability / a Strands agent on AgentCore, or asks how to use AWS prompts. Bundles an approved subset; for any other prompt or agent, point to startups.aws.com/prompt-library. For migration intent (GCP to AWS, Azure to AWS, OpenAI/Gemini to Bedrock), route to the migration skills in this plugin (`gcp-to-aws`, `azure-to-aws`, `heroku-to-aws`, `llm-to-bedrock`). Do not use for: factual AWS Activate / programs / credits questions, learn articles, or sample architectures.",
+    "path": "category/database-sql-relational/skills-prompt-library-for-startups"
+  },
+  {
+    "id": "skills-reviewing-motoko",
+    "name": "skills-reviewing-motoko",
+    "category": "database-sql-relational",
+    "repository": "caffeinelabs-skills",
+    "description": "Design review for Motoko backends \u2014 invariants encoded in types, enhanced migration state discipline, and multi-file structure. Load when reviewing, auditing, or refactoring existing .mo files rather than writing new ones.",
+    "path": "category/database-sql-relational/skills-reviewing-motoko"
   },
   {
     "id": "skills-revops",
@@ -3880,6 +3944,14 @@
     "path": "category/database-sql-relational/skills-tf-best-practices"
   },
   {
+    "id": "skills-troubleshooting-motoko-migrations",
+    "name": "skills-troubleshooting-motoko-migrations",
+    "category": "database-sql-relational",
+    "repository": "caffeinelabs-skills",
+    "description": "Deep reference for when the migration chain misbehaves \u2014 upgrade compatibility errors you cannot explain, migration files you cannot write, a project converted from legacy persistence, or a request to remove the chain. Load only when the rules in migrating-motoko-actors do not explain what you are seeing.",
+    "path": "category/database-sql-relational/skills-troubleshooting-motoko-migrations"
+  },
+  {
     "id": "skills-write-query",
     "name": "skills-write-query",
     "category": "database-sql-relational",
@@ -3950,6 +4022,30 @@
     "repository": "cline-skills",
     "description": "Use these skills when you need to explore the database structure, discover schema objects like tables and graphs, and execute custom SQL queries to interact with your data.",
     "path": "category/database-sql-relational/spanner-data"
+  },
+  {
+    "id": "spanner-graph-query-tuning",
+    "name": "spanner-graph-query-tuning",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Tunes and troubleshoots Spanner Graph on Google Cloud ISO GQL queries and execution plans. Use when optimizing slow Spanner Graph GQL queries, diagnosing distributed cross apply versus hash join execution operators and index seek prefixes, eliminating multi-arm star query Cartesian products with chained query aggregation, bounding super-node fan-out, decorrelating slow subqueries or optional matches, optimizing deep quantified variable-length paths, or applying join method, index, and path factorization query hints. Don't use for relational-to-property-graph schema mapping over existing relational tables (use spanner-relational-to-graph) or physical schema, table, and interleaving design (use spanner-graph-schema-best-practices).",
+    "path": "category/database-sql-relational/spanner-graph-query-tuning"
+  },
+  {
+    "id": "spanner-graph-schema-best-practices",
+    "name": "spanner-graph-schema-best-practices",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Designs, reviews, and optimizes physical table schemas, indexes, and graph topologies for Spanner Graph on Google Cloud. Use when creating a new Spanner Graph schema, selecting node and edge primary key types, optimizing forward, reverse, or per-node Top-K edge traversals, designing interleaved node or edge tables and covering indexes, configuring cascading deletes and row deletion policies (TTL), evaluating schematized versus schemaless dynamic label graphs, or folding 1:1 and N:1 edges into node tables. Don't use for tuning GQL query syntax or execution plans without schema changes (use spanner-graph-query-tuning), or when creating a zero-change graph overlay on existing relational tables (use spanner-relational-to-graph).",
+    "path": "category/database-sql-relational/spanner-graph-schema-best-practices"
+  },
+  {
+    "id": "spanner-relational-to-graph",
+    "name": "spanner-relational-to-graph",
+    "category": "database-sql-relational",
+    "repository": "google-skills",
+    "description": "Analyzes existing Spanner relational schemas on Google Cloud (DDL, foreign keys, interleaved tables, and junction tables) and generates `CREATE PROPERTY GRAPH` DDL statements (`NODE TABLES`, `EDGE TABLES`) without modifying underlying relational tables. Use when mapping existing Spanner tables to a Spanner Graph, identifying node and edge candidates from relational tables, creating SQL bridge views for implicit `ARRAY`/`JSON` or type-mismatched relationships, mapping polymorphic or self-referential tables, or troubleshooting `CREATE PROPERTY GRAPH` DDL compiler errors. Don't use for greenfield physical table design (use spanner-graph-schema-best-practices) or tuning slow ISO GQL queries (use spanner-graph-query-tuning).",
+    "path": "category/database-sql-relational/spanner-relational-to-graph"
   },
   {
     "id": "spark-data-engineering-pipeline",

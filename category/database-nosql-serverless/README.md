@@ -1,7 +1,7 @@
 # ⚡ NoSQL, Serverless & Vector DBs
 
 > **Category**: `database-nosql-serverless`  
-> **Total Curated Skills**: 140 skills  
+> **Total Curated Skills**: 144 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -20,6 +20,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | Skill Name | Status | Origin Repository | Description |
 | :--- | :---: | :--- | :--- |
 | [`agents-langchain`](../../library/davila7-claude-code-templates/skills/agents-langchain) | ⚪ Reserve | `davila7-claude-code-templates` | Framework for building LLM-powered applications with agents, chains, and RAG. Supports multiple... |
+| [`ai-research-rag-pinecone`](../../library/davila7-claude-code-templates/skills/ai-research-rag-pinecone) | ⚪ Reserve | `davila7-claude-code-templates` | Managed vector database for production AI applications. Fully managed, auto-scaling, with hybri... |
 | [`alloydb-basics`](../../library/davila7-claude-code-templates/skills/alloydb-basics) | ⚪ Reserve | `davila7-claude-code-templates` | Manages clusters, instances, and backups for AlloyDB for PostgreSQL, and integrates with AlloyD... |
 | [`amazon-dynamodb`](../../library/aws-agent-toolkit-for-aws/skills/amazon-dynamodb) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Designs, reviews, and debugs DynamoDB data layers from design axioms — enumerates access patter... |
 | [`arrowspace`](../../library/sickn33-agentic-awesome-skills/skills/arrowspace) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Spectral vector search using graph Laplacian eigenstructure. Use when cosine/L2 similarity miss... |
@@ -35,6 +36,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`azure-resource-manager-redis-dotnet`](../../library/antigravity-awesome-skills/skills/azure-resource-manager-redis-dotnet) | ⚪ Reserve | `antigravity-awesome-skills` | Azure Resource Manager SDK for Redis in .NET. Use for MANAGEMENT PLANE operations: creating/man... |
 | [`azure-search-documents-dotnet`](../../library/antigravity-awesome-skills/skills/azure-search-documents-dotnet) | ⚪ Reserve | `antigravity-awesome-skills` | Azure AI Search SDK for .NET (Azure.Search.Documents). Use for building search applications wit... |
 | [`azure-search-documents-ts`](../../library/antigravity-awesome-skills/skills/azure-search-documents-ts) | ⚪ Reserve | `antigravity-awesome-skills` | Build search applications using Azure AI Search SDK for JavaScript (@azure/search-documents). U... |
+| [`blender-time-of-day`](../../library/el4cteo-blender-skills/skills/blender-time-of-day) | ⚪ Reserve | `el4cteo-blender-skills` | Time of day and atmosphere in Blender 5.3 - measured sky + sun for dawn, morning, noon, golden ... |
 | [`blockchain`](../../library/mindrally-skills/skills/blockchain) | ⚪ Reserve | `mindrally-skills` | Expert guidelines for blockchain development including CosmWasm, Cosmos, and cross-chain patter... |
 | [`caching`](../../library/codewithmukesh-dotnet-claude-kit/skills/caching) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Caching strategies for .NET 10 applications. Covers HybridCache (the default), output caching, ... |
 | [`caching-strategy`](../../library/aj-geddes-useful-ai-prompts/skills/caching-strategy) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Implement efficient caching strategies using Redis, Memcached, CDN, and cache invalidation patt... |
@@ -78,6 +80,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`i3`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/i3) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | RAG Builder with Parallel Document Processing Vector database construction with local embedding... |
 | [`illustration-flat`](../../library/mengto-skills/skills/illustration-flat) | ⚪ Reserve | `mengto-skills` | Draws flat vector illustrations as SVG cards (480x360): slim, long-limbed people acting out one... |
 | [`illustration-flat-with-black`](../../library/mengto-skills/skills/illustration-flat-with-black) | ⚪ Reserve | `mengto-skills` | Draws flat vector spot illustrations of tall, long-legged people doing design and coding things... |
+| [`instrument-game-telemetry`](../../library/unity-technologies-skills/skills/instrument-game-telemetry) | ⚪ Reserve | `unity-technologies-skills` | Adds telemetry events to a Unity game with the Insights Events package, covering retention, lev... |
 | [`investigating-ransomware-attack-artifacts`](../../library/mukul975-anthropic-cybersecurity-skills/skills/investigating-ransomware-attack-artifacts) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Forensically preserve memory and disk, collect ransom notes and encrypted file samples, and ide... |
 | [`knowledge-ops`](../../library/affaan-m-ecc/skills/knowledge-ops) | ⚪ Reserve | `affaan-m-ecc` | Knowledge base management, ingestion, sync, and retrieval across multiple storage layers (local... |
 | [`langchain-rag`](../../library/langchain-ai-langchain-skills/skills/langchain-rag) | ⚪ Reserve | `langchain-ai-langchain-skills` | INVOKE THIS SKILL when building ANY retrieval-augmented generation (RAG) system. Covers documen... |
@@ -116,6 +119,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-azure-ai`](../../library/microsoft-azure-skills/skills/skills-azure-ai) | ⚪ Reserve | `microsoft-azure-skills` | Use for Azure AI: Search, Speech, OpenAI, Document Intelligence. Helps with search, vector/hybr... |
 | [`skills-caching`](../../library/codewithmukesh-dotnet-claude-kit/skills/skills-caching) | ⚪ Reserve | `codewithmukesh-dotnet-claude-kit` | Caching strategies for .NET 10 applications. Covers HybridCache (the default), output caching, ... |
 | [`skills-django-celery`](../../library/affaan-m-ecc/skills/skills-django-celery) | ⚪ Reserve | `affaan-m-ecc` | DjangoおよびCeleryを使用した非同期タスク処理。タスクキューイング、ワーカー管理、エラー処理、スケジューリング。Redis/RabbitMQ ブローカー統合。 |
+| [`skills-doca-aes-gcm`](../../library/nvidia-skills/skills/skills-doca-aes-gcm) | ⚪ Reserve | `nvidia-skills` | Use this skill when the user is doing hands-on DOCA AES-GCM work on a BlueField DPU or ConnectX... |
 | [`skills-extension-to-functions-codebase`](../../library/firebase-agent-skills/skills/skills-extension-to-functions-codebase) | ⚪ Reserve | `firebase-agent-skills` | Skill for converting an installed Firebase Extension (or extension source) into a standalone Cl... |
 | [`skills-firebase-analytics`](../../library/firebase-agent-skills/skills/skills-firebase-analytics) | ⚪ Reserve | `firebase-agent-skills` | Comprehensive guide for Google Analytics for Firebase (GA4F), including base setup, SDK initial... |
 | [`skills-firebase-auth-basics`](../../library/firebase-agent-skills/skills/skills-firebase-auth-basics) | ⚪ Reserve | `firebase-agent-skills` | Guide for setting up and using Firebase Authentication. Use this skill when the user's app requ... |

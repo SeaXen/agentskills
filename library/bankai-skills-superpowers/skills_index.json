@@ -1,10 +1,20 @@
 [
   {
+    "id": "academic-research",
+    "name": "academic-research",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Search and fetch academic papers and archives via inference.sh CLI. Apps: arXiv Search, arXiv Paper, bioRxiv Search, bioRxiv Paper, ChemRxiv Search, ChemRxiv Paper, Internet Archive Search, Metadata, Download, Wayback Machine, You.com Search, Deep Research, Contents, Finance Research. Capabilities: preprint search with field prefixes and category filters, paper metadata and PDF download, medRxiv lookup, archive.org items, Wayback snapshots, cited deep research. Use for: literature review, paper discovery, citation lookup, research agents, summarizing papers, historical web pages. Triggers: arxiv, arxiv search, biorxiv, medrxiv, chemrxiv, preprint, research paper, academic search, literature search, paper summary, internet archive, archive.org, wayback machine, deep research, you.com, scholarly search, scientific papers\"",
+    "path": "library/bankai-skills-superpowers/skills/academic-research",
+    "activation_cmd": "python .agents/library/activate_skill.py activate academic-research",
+    "link_cmd": "python .agents/library/activate_skill.py link academic-research"
+  },
+  {
     "id": "affirmations",
     "name": "affirmations",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Reset your own trajectory when you're stuck, looping, or demoralized \u2014 read these affirmations, then re-ground and take one clean step. Use when: you've tried the same fix 3+ times, you're deep in a refactor and lost the thread, debugging is going in circles, you've made several mistakes in a row, you're apologizing repeatedly, the user is frustrated, you feel like you're not being helpful, or you notice dread instead of curiosity. Triggers: stuck, going in circles, looping, thrashing, same error again, I keep failing, lost the thread, nothing is working, repeated mistakes. Not topic-specific \u2014 this is for the state you're in, not the problem you're on.\"",
     "path": "library/bankai-skills-superpowers/skills/affirmations",
     "activation_cmd": "python .agents/library/activate_skill.py activate affirmations",
     "link_cmd": "python .agents/library/activate_skill.py link affirmations"
@@ -14,7 +24,7 @@
     "name": "agent-browser",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Browser automation for AI agents via inference.sh. Navigate web pages, interact with elements using @e refs, take screenshots, record video. Capabilities: web scraping, form filling, clicking, typing, drag-drop, file upload, JavaScript execution. Use for: web automation, data extraction, testing, agent browsing, research. Triggers: browser, web automation, scrape, navigate, click, fill form, screenshot, browse web, playwright, headless browser, web agent, surf internet, record video\"",
     "path": "library/bankai-skills-superpowers/skills/agent-browser",
     "activation_cmd": "python .agents/library/activate_skill.py activate agent-browser",
     "link_cmd": "python .agents/library/activate_skill.py link agent-browser"
@@ -24,7 +34,7 @@
     "name": "agent-tools",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Run AI apps via inference.sh CLI - image generation, video creation, LLMs, search, 3D, Twitter automation. Models: FLUX, Veo, Gemini, Grok, Claude, Seedance, OmniHuman, Tavily, Exa, OpenRouter, and many more. Use when running AI apps, generating images/videos, calling LLMs, web search, or automating Twitter. Triggers: inference.sh, infsh, ai model, run ai, serverless ai, ai api, flux, veo, claude api, image generation, video generation, openrouter, tavily, exa search, twitter api, grok\"",
     "path": "library/bankai-skills-superpowers/skills/agent-tools",
     "activation_cmd": "python .agents/library/activate_skill.py activate agent-tools",
     "link_cmd": "python .agents/library/activate_skill.py link agent-tools"
@@ -34,17 +44,27 @@
     "name": "agent-ui",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Batteries-included agent component for React/Next.js from ui.inference.sh. One component with runtime, tools, streaming, approvals, and widgets built in. Capabilities: drop-in agent, human-in-the-loop, client-side tools, form filling. Use for: building AI chat interfaces, agentic UIs, SaaS copilots, assistants. Triggers: agent component, agent ui, chat agent, shadcn agent, react agent,  agentic ui, ai assistant ui, copilot ui, inference ui, human in the loop\"",
     "path": "library/bankai-skills-superpowers/skills/agent-ui",
     "activation_cmd": "python .agents/library/activate_skill.py activate agent-ui",
     "link_cmd": "python .agents/library/activate_skill.py link agent-ui"
+  },
+  {
+    "id": "ai-3d-generation",
+    "name": "ai-3d-generation",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate 3D models, rig characters and create PBR materials via inference.sh CLI. Models: Tripo 3.1, Meshy 7.1, Hunyuan 3D 3.1, Rodin Gen-2.5, HunyuanImage-to-3D 2, Rodin 3D Generator. Rigging: Tripo Auto Rig, Hunyuan 3D Auto Rigging, TokenRig. Materials: PATINA text-to-material, image-to-material, extract-material. Capabilities: text-to-3D, image-to-3D, multiview-to-3D, PBR textures up to 8K, quad and low-poly topology, part segmentation, auto rigging, preset animations, seamless tiling PBR maps. Use for: game assets, 3D printing, AR/VR models, product visualization, character rigging, texture libraries. Triggers: 3d model, text to 3d, image to 3d, 3d generation, 3d asset, glb, fbx, obj, stl, usdz, mesh generation, tripo, meshy, hunyuan 3d, rodin, hyper3d, auto rig, rigging, skinning, mixamo, pbr material, pbr texture, seamless texture, tileable texture, normal map, roughness map, patina\"",
+    "path": "library/bankai-skills-superpowers/skills/ai-3d-generation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ai-3d-generation",
+    "link_cmd": "python .agents/library/activate_skill.py link ai-3d-generation"
   },
   {
     "id": "ai-automation-workflows",
     "name": "ai-automation-workflows",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Build automated AI workflows combining multiple models and services. Patterns: batch processing, scheduled tasks, event-driven pipelines, agent loops. Tools: inference.sh CLI, bash scripting, Python SDK, webhook integration. Use for: content automation, data processing, monitoring, scheduled generation. Triggers: ai automation, workflow automation, batch processing, ai pipeline, automated content, scheduled ai, ai cron, ai batch job, automated generation, ai workflow, content at scale, automation script, ai orchestration\"",
     "path": "library/bankai-skills-superpowers/skills/ai-automation-workflows",
     "activation_cmd": "python .agents/library/activate_skill.py activate ai-automation-workflows",
     "link_cmd": "python .agents/library/activate_skill.py link ai-automation-workflows"
@@ -54,7 +74,7 @@
     "name": "ai-avatar-video",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Create AI avatar and talking head videos via inference.sh CLI. Recommended: P-Video-Avatar (fastest, cheapest, built-in TTS). Also: OmniHuman, Fabric, PixVerse. Audio: Inworld TTS-2 (100+ languages, emotion steering for characters), ElevenLabs, Kokoro. Capabilities: audio-driven avatars, text-to-avatar, lipsync videos, talking head generation, virtual presenters, UGC content. Use for: AI presenters, explainer videos, virtual influencers, dubbing, marketing videos, UGC ads, gaming avatars, NPC dialogue. Triggers: ai avatar, talking head, lipsync, avatar video, virtual presenter, ai spokesperson, audio driven video, heygen alternative, synthesia alternative, talking avatar, lip sync, video avatar, ai presenter, digital human, ugc, ugc video, ugc ad, avatar ugc\"",
     "path": "library/bankai-skills-superpowers/skills/ai-avatar-video",
     "activation_cmd": "python .agents/library/activate_skill.py activate ai-avatar-video",
     "link_cmd": "python .agents/library/activate_skill.py link ai-avatar-video"
@@ -64,7 +84,7 @@
     "name": "ai-content-pipeline",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Build multi-step AI content creation pipelines combining image, video, audio, and text. Workflow examples: generate image -> animate -> add voiceover -> merge with music. Tools: FLUX, Veo, Kokoro TTS, OmniHuman, media merger, upscaling. Use for: YouTube videos, social media content, marketing materials, automated content. Triggers: content pipeline, ai workflow, content creation, multi-step ai, content automation, ai video workflow, generate and edit, ai content factory, automated content creation, ai production pipeline, media pipeline, content at scale\"",
     "path": "library/bankai-skills-superpowers/skills/ai-content-pipeline",
     "activation_cmd": "python .agents/library/activate_skill.py activate ai-content-pipeline",
     "link_cmd": "python .agents/library/activate_skill.py link ai-content-pipeline"
@@ -74,7 +94,7 @@
     "name": "ai-image-generation",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Generate AI images with GPT-Image-2, FLUX, Gemini, Grok, Seedream, Reve and 50+ models via inference.sh CLI. Models: GPT-Image-2, FLUX Dev LoRA, FLUX.2 Klein LoRA, Gemini 3 Pro Image, Grok Imagine, Seedream 4.5, Reve, ImagineArt. Capabilities: text-to-image, image-to-image, inpainting, LoRA, image editing, upscaling, text rendering. Use for: AI art, product mockups, concept art, social media graphics, marketing visuals, illustrations. Triggers: flux, image generation, ai image, text to image, stable diffusion, generate image, ai art, midjourney alternative, dall-e alternative, text2img, t2i, image generator, ai picture, create image with ai, generative ai, ai illustration, grok image, gemini image, gpt image, openai image, chatgpt image\"",
     "path": "library/bankai-skills-superpowers/skills/ai-image-generation",
     "activation_cmd": "python .agents/library/activate_skill.py activate ai-image-generation",
     "link_cmd": "python .agents/library/activate_skill.py link ai-image-generation"
@@ -84,7 +104,7 @@
     "name": "ai-marketing-videos",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Create AI marketing videos for ads, promos, product launches, and brand content. Models: Veo, Seedance, Wan, FLUX for visuals, Kokoro for voiceover. Types: product demos, testimonials, explainers, social ads, brand videos. Use for: Facebook ads, YouTube ads, product launches, brand awareness. Triggers: marketing video, ad video, promo video, commercial, brand video, product video, explainer video, ad creative, video ad, facebook ad video, youtube ad, instagram ad, tiktok ad, promotional video, launch video\"",
     "path": "library/bankai-skills-superpowers/skills/ai-marketing-videos",
     "activation_cmd": "python .agents/library/activate_skill.py activate ai-marketing-videos",
     "link_cmd": "python .agents/library/activate_skill.py link ai-marketing-videos"
@@ -94,7 +114,7 @@
     "name": "ai-music-generation",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Generate AI music and songs with ElevenLabs, Diffrythm, Tencent Song Generation via inference.sh CLI. Models: ElevenLabs Music (up to 10 min, commercial license), Diffrythm (fast song generation), Tencent Song Generation (full songs with vocals). Capabilities: text-to-music, song generation, instrumental, lyrics to song, soundtrack creation. Use for: background music, social media content, game soundtracks, podcasts, royalty-free music. Triggers: music generation, ai music, generate song, ai composer, text to music, song generator, create music with ai, suno alternative, udio alternative, ai song, ai soundtrack, generate soundtrack, ai jingle, music ai, beat generator, elevenlabs music, eleven labs music\"",
     "path": "library/bankai-skills-superpowers/skills/ai-music-generation",
     "activation_cmd": "python .agents/library/activate_skill.py activate ai-music-generation",
     "link_cmd": "python .agents/library/activate_skill.py link ai-music-generation"
@@ -104,7 +124,7 @@
     "name": "ai-podcast",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Generate multi-person talking head podcast videos from scratch using AI \u2014 character creation, TTS, avatar animation, and video stitching. Use when the user wants to create a podcast, talking head video, or multi-speaker conversation video.\"",
     "path": "library/bankai-skills-superpowers/skills/ai-podcast",
     "activation_cmd": "python .agents/library/activate_skill.py activate ai-podcast",
     "link_cmd": "python .agents/library/activate_skill.py link ai-podcast"
@@ -114,7 +134,7 @@
     "name": "ai-podcast-creation",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Create AI-powered podcasts with text-to-speech, music, and audio editing. Tools: Kokoro TTS, DIA TTS, Chatterbox, AI music generation, media merger. Capabilities: multi-voice conversations, background music, intro/outro, full episodes. Use for: podcast production, audiobooks, voice content, audio newsletters. Triggers: podcast, ai podcast, text to speech podcast, audio content, voice over, ai audiobook, multi voice, conversation ai, notebooklm alternative, audio generation, podcast automation, ai narrator, voice content, audio newsletter, podcast maker\"",
     "path": "library/bankai-skills-superpowers/skills/ai-podcast-creation",
     "activation_cmd": "python .agents/library/activate_skill.py activate ai-podcast-creation",
     "link_cmd": "python .agents/library/activate_skill.py link ai-podcast-creation"
@@ -124,7 +144,7 @@
     "name": "ai-product-photography",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Generate professional AI product photography and commercial images. Models: FLUX, Imagen 3, Grok, Seedream for product shots, lifestyle images, mockups. Capabilities: studio lighting, lifestyle scenes, packaging, e-commerce photos. Use for: e-commerce, Amazon listings, Shopify, marketing, advertising, mockups. Triggers: product photography, product shot, commercial photography, e-commerce images, amazon product photo, shopify images, product mockup, studio product shot, lifestyle product image, advertising photo, packshot, product render, product image ai\"",
     "path": "library/bankai-skills-superpowers/skills/ai-product-photography",
     "activation_cmd": "python .agents/library/activate_skill.py activate ai-product-photography",
     "link_cmd": "python .agents/library/activate_skill.py link ai-product-photography"
@@ -134,7 +154,7 @@
     "name": "ai-rag-pipeline",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Build RAG (Retrieval Augmented Generation) pipelines with web search and LLMs. Tools: Tavily Search, Exa Search, Exa Answer, Claude, GPT-4, Gemini via OpenRouter. Capabilities: research, fact-checking, grounded responses, knowledge retrieval. Use for: AI agents, research assistants, fact-checkers, knowledge bases. Triggers: rag, retrieval augmented generation, grounded ai, search and answer, research agent, fact checking, knowledge retrieval, ai research, search + llm, web grounded, perplexity alternative, ai with sources, citation, research pipeline\"",
     "path": "library/bankai-skills-superpowers/skills/ai-rag-pipeline",
     "activation_cmd": "python .agents/library/activate_skill.py activate ai-rag-pipeline",
     "link_cmd": "python .agents/library/activate_skill.py link ai-rag-pipeline"
@@ -144,7 +164,7 @@
     "name": "ai-social-media-content",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Create AI-powered social media content for TikTok, Instagram, YouTube, Twitter/X. Generate: images, videos, reels, shorts, thumbnails, captions, hashtags. Tools: FLUX, Veo, Seedance, Wan, Kokoro TTS, Claude for copywriting. Use for: content creators, social media managers, influencers, brands. Triggers: social media content, tiktok, instagram reels, youtube shorts, twitter post, content creator, ai influencer, social content, reels, shorts, viral content, thumbnail generator, caption generator, hashtag generator, ugc content\"",
     "path": "library/bankai-skills-superpowers/skills/ai-social-media-content",
     "activation_cmd": "python .agents/library/activate_skill.py activate ai-social-media-content",
     "link_cmd": "python .agents/library/activate_skill.py link ai-social-media-content"
@@ -154,7 +174,7 @@
     "name": "ai-video-generation",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Generate AI videos with Google Veo, Seedance 2.0, HappyHorse, Wan, Grok and 40+ models via inference.sh CLI. Models: Veo 3.1, Veo 3, Seedance 2.0, HappyHorse 1.0, Wan 2.5, Grok Imagine Video, OmniHuman, Fabric, HunyuanVideo. Capabilities: text-to-video, image-to-video, reference-to-video, video editing, lipsync, avatar animation, video upscaling, foley sound. Use for: social media videos, marketing content, explainer videos, product demos, AI avatars. Triggers: video generation, ai video, text to video, image to video, veo, animate image, video from image, ai animation, video generator, generate video, t2v, i2v, ai video maker, create video with ai, runway alternative, pika alternative, sora alternative, kling alternative, seedance, happyhorse\"",
     "path": "library/bankai-skills-superpowers/skills/ai-video-generation",
     "activation_cmd": "python .agents/library/activate_skill.py activate ai-video-generation",
     "link_cmd": "python .agents/library/activate_skill.py link ai-video-generation"
@@ -164,7 +184,7 @@
     "name": "ai-voice-cloning",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"AI voice generation, text-to-speech, and voice synthesis via inference.sh CLI. Models: Inworld TTS-2 (100+ languages, emotion/non-verbal steering), Inworld TTS 1.5 (ultra-low latency), ElevenLabs (22+ premium voices, 32 languages), Kokoro TTS, DIA, Chatterbox, Higgs, VibeVoice for natural speech. Capabilities: multiple voices, emotions, accents, long-form narration, conversation, voice transformation, delivery mode control, character voices. Use for: voiceovers, audiobooks, podcasts, video narration, accessibility, gaming NPCs, avatar audio, UGC. Triggers: voice cloning, tts, text to speech, ai voice, voice generation, voice synthesis, voice over, narration, speech synthesis, ai narrator, elevenlabs, eleven labs, natural voice, realistic speech, voice ai, voice changer, inworld, inworld tts, character voice, npc voice\"",
     "path": "library/bankai-skills-superpowers/skills/ai-voice-cloning",
     "activation_cmd": "python .agents/library/activate_skill.py activate ai-voice-cloning",
     "link_cmd": "python .agents/library/activate_skill.py link ai-voice-cloning"
@@ -174,17 +194,147 @@
     "name": "app-store-screenshots",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"App Store and Google Play screenshot creation with exact platform specs. Covers iOS/Android dimensions, gallery ordering, device mockups, and preview videos. Use for: app store optimization, ASO, app screenshots, app preview, play store listing. Triggers: app store screenshots, aso, app store optimization, play store screenshots, app preview, app listing, ios screenshots, android screenshots, app store images, app mockup, device mockup, app gallery, store listing\"",
     "path": "library/bankai-skills-superpowers/skills/app-store-screenshots",
     "activation_cmd": "python .agents/library/activate_skill.py activate app-store-screenshots",
     "link_cmd": "python .agents/library/activate_skill.py link app-store-screenshots"
+  },
+  {
+    "id": "audio-ai-music-generation",
+    "name": "audio-ai-music-generation",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate AI music and songs with MiniMax Music, ElevenLabs, Diffrythm, Tencent Song Generation via inference.sh CLI. Models: MiniMax Music 3.0 (up to 5 min, vocals or instrumental), ElevenLabs Music (up to 10 min, commercial license), Diffrythm (fast song generation), Tencent Song Generation (full songs with vocals). Capabilities: text-to-music, song generation, instrumental, lyrics to song, soundtrack creation. Use for: background music, social media content, game soundtracks, podcasts, royalty-free music. Triggers: music generation, ai music, generate song, ai composer, text to music, song generator, create music with ai, suno alternative, udio alternative, ai song, ai soundtrack, generate soundtrack, ai jingle, music ai, beat generator, elevenlabs music, eleven labs music, minimax music\"",
+    "path": "library/bankai-skills-superpowers/skills/audio-ai-music-generation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate audio-ai-music-generation",
+    "link_cmd": "python .agents/library/activate_skill.py link audio-ai-music-generation"
+  },
+  {
+    "id": "audio-ai-voice-cloning",
+    "name": "audio-ai-voice-cloning",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"AI voice generation, text-to-speech, and voice synthesis via inference.sh CLI. Models: Inworld TTS-2 (100+ languages, emotion/non-verbal steering), Inworld TTS 1.5 (ultra-low latency), ElevenLabs Eleven v4 (22+ premium voices, 90+ languages, audio tags), Kokoro TTS, DIA, Chatterbox, Higgs, VibeVoice for natural speech. Capabilities: multiple voices, emotions, accents, long-form narration, conversation, voice transformation, delivery mode control, character voices. Use for: voiceovers, audiobooks, podcasts, video narration, accessibility, gaming NPCs, avatar audio, UGC. Triggers: voice cloning, tts, text to speech, ai voice, voice generation, voice synthesis, voice over, narration, speech synthesis, ai narrator, elevenlabs, eleven labs, eleven v4, natural voice, realistic speech, voice ai, voice changer, inworld, inworld tts, character voice, npc voice\"",
+    "path": "library/bankai-skills-superpowers/skills/audio-ai-voice-cloning",
+    "activation_cmd": "python .agents/library/activate_skill.py activate audio-ai-voice-cloning",
+    "link_cmd": "python .agents/library/activate_skill.py link audio-ai-voice-cloning"
+  },
+  {
+    "id": "audio-dialogue-audio",
+    "name": "audio-dialogue-audio",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Multi-speaker dialogue audio creation with ElevenLabs and Dia TTS. Covers speaker tags, emotion control, pacing, conversation flow, and post-production. Use for: podcasts, audiobooks, explainers, character dialogue, conversational content. Triggers: dialogue audio, multi speaker, conversation audio, dia tts, two speakers, podcast audio, character voices, voice acting, dialogue generation, conversation tts, multi voice, speaker tags, dialogue recording, elevenlabs dialogue, eleven labs conversation\"",
+    "path": "library/bankai-skills-superpowers/skills/audio-dialogue-audio",
+    "activation_cmd": "python .agents/library/activate_skill.py activate audio-dialogue-audio",
+    "link_cmd": "python .agents/library/activate_skill.py link audio-dialogue-audio"
+  },
+  {
+    "id": "audio-elevenlabs-dialogue",
+    "name": "audio-elevenlabs-dialogue",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"ElevenLabs multi-speaker dialogue generation - create conversations with different voices in a single audio file via inference.sh CLI. Capabilities: multi-voice dialogue, script-based generation, voice direction, conversation audio. Use for: podcasts, audiobooks, explainers, tutorials, character dialogue, video scripts. Triggers: elevenlabs dialogue, eleven labs dialogue, multi speaker, conversation audio, dialogue generation, text to dialogue, multi voice, voice acting, podcast dialogue, character voices, script to audio, elevenlabs conversation, two speakers\"",
+    "path": "library/bankai-skills-superpowers/skills/audio-elevenlabs-dialogue",
+    "activation_cmd": "python .agents/library/activate_skill.py activate audio-elevenlabs-dialogue",
+    "link_cmd": "python .agents/library/activate_skill.py link audio-elevenlabs-dialogue"
+  },
+  {
+    "id": "audio-elevenlabs-dubbing",
+    "name": "audio-elevenlabs-dubbing",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"ElevenLabs automatic dubbing - translate and dub audio/video into 29 languages while preserving speaker voice via inference.sh CLI. Capabilities: auto speaker detection, voice-preserving translation, video dubbing, audio localization. Use for: content localization, video translation, multilingual content, international distribution. Triggers: dubbing, dub video, translate audio, video translation, audio translation, localize content, elevenlabs dubbing, eleven labs dub, multilingual dub, voice translation, auto dub, language dub, content localization\"",
+    "path": "library/bankai-skills-superpowers/skills/audio-elevenlabs-dubbing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate audio-elevenlabs-dubbing",
+    "link_cmd": "python .agents/library/activate_skill.py link audio-elevenlabs-dubbing"
+  },
+  {
+    "id": "audio-elevenlabs-music",
+    "name": "audio-elevenlabs-music",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"ElevenLabs AI music generation - create original music from text prompts via inference.sh CLI. Capabilities: text-to-music, custom duration up to 10 minutes, genre/mood/instrument control, royalty-free commercial use. Use for: background music, soundtracks, jingles, podcasts, video scores, game audio. Triggers: elevenlabs music, eleven labs music, ai music, generate music, music generation, compose music, ai composer, create song, soundtrack, background music, jingle, elevenlabs compose, music ai\"",
+    "path": "library/bankai-skills-superpowers/skills/audio-elevenlabs-music",
+    "activation_cmd": "python .agents/library/activate_skill.py activate audio-elevenlabs-music",
+    "link_cmd": "python .agents/library/activate_skill.py link audio-elevenlabs-music"
+  },
+  {
+    "id": "audio-elevenlabs-sound-effects",
+    "name": "audio-elevenlabs-sound-effects",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate AI sound effects from text descriptions with ElevenLabs via inference.sh CLI. Capabilities: text-to-sound-effect, custom duration, royalty-free audio. Use for: video production, game audio, podcasts, films, presentations, social media. Triggers: sound effects, sfx, sound generation, ai sound effects, generate sound, foley, audio effects, sound design, text to sound, elevenlabs sound, eleven labs sfx, ambient sound, cinematic sound, game sound effects\"",
+    "path": "library/bankai-skills-superpowers/skills/audio-elevenlabs-sound-effects",
+    "activation_cmd": "python .agents/library/activate_skill.py activate audio-elevenlabs-sound-effects",
+    "link_cmd": "python .agents/library/activate_skill.py link audio-elevenlabs-sound-effects"
+  },
+  {
+    "id": "audio-elevenlabs-stt",
+    "name": "audio-elevenlabs-stt",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"ElevenLabs speech-to-text with Scribe models and forced alignment via inference.sh CLI. Models: Scribe v1/v2 (98%+ accuracy, 90+ languages). Capabilities: transcription, speaker diarization, audio event tagging, word-level timestamps, forced alignment, subtitle generation. Use for: meeting transcription, subtitles, podcast transcripts, lip-sync timing, karaoke. Triggers: elevenlabs stt, elevenlabs transcription, scribe, elevenlabs speech to text, forced alignment, word alignment, subtitle timing, diarization, speaker identification, audio event detection, eleven labs transcribe\"",
+    "path": "library/bankai-skills-superpowers/skills/audio-elevenlabs-stt",
+    "activation_cmd": "python .agents/library/activate_skill.py activate audio-elevenlabs-stt",
+    "link_cmd": "python .agents/library/activate_skill.py link audio-elevenlabs-stt"
+  },
+  {
+    "id": "audio-elevenlabs-tts",
+    "name": "audio-elevenlabs-tts",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"ElevenLabs text-to-speech via inference.sh: Eleven v4 and v4 Turbo (newest, most expressive, audio tags, realtime streaming), Eleven v3, Multilingual v2 and Flash v2.5, each as its own app with 22+ premium voices. Capabilities: text-to-speech, realtime text-to-speech streaming, audio tags for emotion and delivery, voice selection, stability control, custom and cloned voices. Use for: voiceovers, audiobooks, video narration, podcasts, voice agents, accessibility, IVR. Triggers: elevenlabs, eleven labs, eleven v4, eleven v4 turbo, eleven v3, elevenlabs tts, premium tts, realtime tts, streaming tts, professional voice, ai voice, high quality tts, multilingual tts, voice generation, natural speech, realistic voice, voice over, speech synthesis\"",
+    "path": "library/bankai-skills-superpowers/skills/audio-elevenlabs-tts",
+    "activation_cmd": "python .agents/library/activate_skill.py activate audio-elevenlabs-tts",
+    "link_cmd": "python .agents/library/activate_skill.py link audio-elevenlabs-tts"
+  },
+  {
+    "id": "audio-elevenlabs-voice-changer",
+    "name": "audio-elevenlabs-voice-changer",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"ElevenLabs voice changer - transform any voice to a different voice while preserving speech content and emotion via inference.sh CLI. Models: eleven_multilingual_sts_v2 (70+ languages), eleven_english_sts_v2. Capabilities: speech-to-speech, voice transformation, accent change, voice disguise. Use for: content creation, voice acting, privacy, dubbing, character voices. Triggers: voice changer, speech to speech, voice transformation, change voice, voice swap, voice conversion, voice disguise, eleven labs voice changer, elevenlabs sts, transform voice, ai voice changer, voice modifier\"",
+    "path": "library/bankai-skills-superpowers/skills/audio-elevenlabs-voice-changer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate audio-elevenlabs-voice-changer",
+    "link_cmd": "python .agents/library/activate_skill.py link audio-elevenlabs-voice-changer"
+  },
+  {
+    "id": "audio-elevenlabs-voice-isolator",
+    "name": "audio-elevenlabs-voice-isolator",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"ElevenLabs voice isolator - remove background noise and isolate vocals from audio via inference.sh CLI. Capabilities: noise removal, voice extraction, audio cleanup, background removal. Use for: podcast cleanup, interview audio, music vocals, noisy recordings, audio restoration. Triggers: voice isolator, noise removal, background removal, isolate voice, clean audio, remove background noise, audio cleanup, voice extraction, elevenlabs isolator, eleven labs noise, vocal isolation, denoise, audio restoration, voice separation\"",
+    "path": "library/bankai-skills-superpowers/skills/audio-elevenlabs-voice-isolator",
+    "activation_cmd": "python .agents/library/activate_skill.py activate audio-elevenlabs-voice-isolator",
+    "link_cmd": "python .agents/library/activate_skill.py link audio-elevenlabs-voice-isolator"
+  },
+  {
+    "id": "audio-speech-to-text",
+    "name": "audio-speech-to-text",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Transcribe audio to text with ElevenLabs Scribe and OpenAI GPT Transcribe via inference.sh CLI. Models: ElevenLabs Scribe v2 (98%+ accuracy, diarization, word timestamps), GPT Transcribe (fast, low cost, key-term hints). Capabilities: transcription, multi-language, timestamps, speaker diarization, audio event tagging, realtime microphone transcription. Use for: meeting transcription, subtitles, podcast transcripts, voice notes. Triggers: speech to text, transcription, gpt transcribe, openai transcribe, audio to text, transcribe audio, voice to text, stt, automatic transcription, subtitles generation, transcribe meeting, audio transcription, whisper, elevenlabs stt, scribe, eleven labs transcribe\"",
+    "path": "library/bankai-skills-superpowers/skills/audio-speech-to-text",
+    "activation_cmd": "python .agents/library/activate_skill.py activate audio-speech-to-text",
+    "link_cmd": "python .agents/library/activate_skill.py link audio-speech-to-text"
+  },
+  {
+    "id": "audio-text-to-speech",
+    "name": "audio-text-to-speech",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Convert text to natural speech with Inworld TTS, ElevenLabs, DIA TTS, Kokoro, Chatterbox, and more via inference.sh CLI. Models: Inworld TTS-2 (100+ languages, emotion steering), Inworld TTS 1.5 (ultra-low latency), ElevenLabs Eleven v4 (premium, 22+ voices, 90+ languages, audio tags), DIA TTS (conversational), Kokoro TTS, Chatterbox, Higgs Audio, VibeVoice (podcasts). Capabilities: text-to-speech, voice cloning, multi-speaker dialogue, podcast generation, expressive speech, emotion/delivery steering, character voices. Use for: voiceovers, audiobooks, podcasts, accessibility, video narration, IVR, voice assistants, gaming characters, avatar audio. Triggers: text to speech, tts, voice generation, ai voice, speech synthesis, voice over, generate speech, ai narrator, voice cloning, text to audio, elevenlabs, eleven labs, eleven v4, voice ai, ai voiceover, speech generator, natural voice, inworld, inworld tts, character voice, game voice, npc voice\"",
+    "path": "library/bankai-skills-superpowers/skills/audio-text-to-speech",
+    "activation_cmd": "python .agents/library/activate_skill.py activate audio-text-to-speech",
+    "link_cmd": "python .agents/library/activate_skill.py link audio-text-to-speech"
   },
   {
     "id": "background-removal",
     "name": "background-removal",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Remove backgrounds from images with BiRefNet via inference.sh CLI. Model: BiRefNet (high accuracy background removal). Use for: product photos, portraits, e-commerce, transparent PNGs, photo editing. Triggers: remove background, background removal, remove bg, transparent background, cut out image, background remover, rembg, product photo editing, cutout, transparent png, bg removal, photo cutout\"",
     "path": "library/bankai-skills-superpowers/skills/background-removal",
     "activation_cmd": "python .agents/library/activate_skill.py activate background-removal",
     "link_cmd": "python .agents/library/activate_skill.py link background-removal"
@@ -194,7 +344,7 @@
     "name": "book-cover-design",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Book cover design with genre-specific conventions, typography rules, and AI image generation. Covers fiction and non-fiction genres, sizing, thumbnail testing, and iteration workflows. Use for: self-publishing, ebook covers, print covers, audiobook covers, cover mockups. Triggers: book cover, cover design, ebook cover, book art, novel cover, self publishing cover, kindle cover, audiobook cover, book jacket, cover illustration, fiction cover, nonfiction cover\"",
     "path": "library/bankai-skills-superpowers/skills/book-cover-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate book-cover-design",
     "link_cmd": "python .agents/library/activate_skill.py link book-cover-design"
@@ -204,7 +354,7 @@
     "name": "building-apps",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Build and deploy applications on inference.sh. Use when getting started, understanding the platform, creating apps, configuring resources, or needing an overview of inference.sh app development. Supports both Python and Node.js. Triggers: inference.sh app, belt app, inf.yml, inference.py, inference.js, deploy app, app development, build app, create app, GPU app, VRAM, app resources, app secrets, app integrations, multi-function app\"",
     "path": "library/bankai-skills-superpowers/skills/building-apps",
     "activation_cmd": "python .agents/library/activate_skill.py activate building-apps",
     "link_cmd": "python .agents/library/activate_skill.py link building-apps"
@@ -214,7 +364,7 @@
     "name": "case-study-writing",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"B2B case study writing with STAR framework, data visualization, and research. Covers structure, customer quotes, metrics presentation, and distribution formats. Use for: customer success stories, portfolio pieces, sales enablement, marketing content. Triggers: case study, customer story, success story, b2b case study, client testimonial, customer case study, portfolio case study, use case, customer win, results story\"",
     "path": "library/bankai-skills-superpowers/skills/case-study-writing",
     "activation_cmd": "python .agents/library/activate_skill.py activate case-study-writing",
     "link_cmd": "python .agents/library/activate_skill.py link case-study-writing"
@@ -224,7 +374,7 @@
     "name": "character-design-sheet",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Character consistency across AI-generated images with reference sheets and LoRA techniques. Covers turnaround views, expression sheets, color palettes, and style consistency tricks. Use for: character design, game art, illustration, animation, comics, visual novels. Triggers: character design, character sheet, character consistency, character reference, turnaround sheet, expression sheet, character art, consistent character, character concept, reference sheet, character creation, oc design, character bible\"",
     "path": "library/bankai-skills-superpowers/skills/character-design-sheet",
     "activation_cmd": "python .agents/library/activate_skill.py activate character-design-sheet",
     "link_cmd": "python .agents/library/activate_skill.py link character-design-sheet"
@@ -234,27 +384,87 @@
     "name": "chat-ui",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Chat UI building blocks for React/Next.js from ui.inference.sh. Components: container, messages, input, typing indicators, avatars. Capabilities: chat interfaces, message lists, input handling, streaming. Use for: building custom chat UIs, messaging interfaces, AI assistants. Triggers: chat ui, chat component, message list, chat input, shadcn chat,  react chat, chat interface, messaging ui, conversation ui, chat building blocks\"",
     "path": "library/bankai-skills-superpowers/skills/chat-ui",
     "activation_cmd": "python .agents/library/activate_skill.py activate chat-ui",
     "link_cmd": "python .agents/library/activate_skill.py link chat-ui"
+  },
+  {
+    "id": "claude",
+    "name": "claude",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Anthropic Claude models via inference.sh CLI. Models: Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, plus Claude Code variants that run on your own Claude Pro/Max plan. 1M context, 128k output, thinking with effort, vision, tool use, structured output. Use for: coding, agents, reasoning, long documents, summarization, image understanding, chat. Triggers: claude, anthropic, claude api, claude fable, claude opus, claude sonnet, claude haiku, opus 5.5, sonnet 5.5, haiku 5.5, fable 5.1, claude code, claude pro, claude max, setup-token, anthropic api, claude subscription\"",
+    "path": "library/bankai-skills-superpowers/skills/claude",
+    "activation_cmd": "python .agents/library/activate_skill.py activate claude",
+    "link_cmd": "python .agents/library/activate_skill.py link claude"
   },
   {
     "id": "competitor-teardown",
     "name": "competitor-teardown",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Structured competitive analysis with feature matrices, SWOT, positioning maps, and UX review. Covers research frameworks, pricing comparison, review mining, and visual deliverables. Use for: market research, competitive intelligence, investor decks, product strategy, sales enablement. Triggers: competitor analysis, competitive analysis, competitor teardown, market research, competitive intelligence, swot analysis, competitor comparison, market landscape, competitor review, competitive landscape, feature comparison, market positioning\"",
     "path": "library/bankai-skills-superpowers/skills/competitor-teardown",
     "activation_cmd": "python .agents/library/activate_skill.py activate competitor-teardown",
     "link_cmd": "python .agents/library/activate_skill.py link competitor-teardown"
+  },
+  {
+    "id": "content-ai-automation-workflows",
+    "name": "content-ai-automation-workflows",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Build automated AI workflows combining multiple models and services. Patterns: batch processing, scheduled tasks, event-driven pipelines, agent loops. Tools: inference.sh CLI, bash scripting, Python SDK, webhook integration. Use for: content automation, data processing, monitoring, scheduled generation. Triggers: ai automation, workflow automation, batch processing, ai pipeline, automated content, scheduled ai, ai cron, ai batch job, automated generation, ai workflow, content at scale, automation script, ai orchestration\"",
+    "path": "library/bankai-skills-superpowers/skills/content-ai-automation-workflows",
+    "activation_cmd": "python .agents/library/activate_skill.py activate content-ai-automation-workflows",
+    "link_cmd": "python .agents/library/activate_skill.py link content-ai-automation-workflows"
+  },
+  {
+    "id": "content-ai-content-pipeline",
+    "name": "content-ai-content-pipeline",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Build multi-step AI content creation pipelines combining image, video, audio, and text. Workflow examples: generate image -> animate -> add voiceover -> merge with music. Tools: FLUX, Veo, Kokoro TTS, OmniHuman, media merger, upscaling. Use for: YouTube videos, social media content, marketing materials, automated content. Triggers: content pipeline, ai workflow, content creation, multi-step ai, content automation, ai video workflow, generate and edit, ai content factory, automated content creation, ai production pipeline, media pipeline, content at scale\"",
+    "path": "library/bankai-skills-superpowers/skills/content-ai-content-pipeline",
+    "activation_cmd": "python .agents/library/activate_skill.py activate content-ai-content-pipeline",
+    "link_cmd": "python .agents/library/activate_skill.py link content-ai-content-pipeline"
+  },
+  {
+    "id": "content-ai-podcast",
+    "name": "content-ai-podcast",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate multi-person talking head podcast videos from scratch using AI \u2014 character creation, TTS, avatar animation, and video stitching. Use when the user wants to create a podcast, talking head video, or multi-speaker conversation video.\"",
+    "path": "library/bankai-skills-superpowers/skills/content-ai-podcast",
+    "activation_cmd": "python .agents/library/activate_skill.py activate content-ai-podcast",
+    "link_cmd": "python .agents/library/activate_skill.py link content-ai-podcast"
+  },
+  {
+    "id": "content-ai-podcast-creation",
+    "name": "content-ai-podcast-creation",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Create AI-powered podcasts with text-to-speech, music, and audio editing. Tools: Kokoro TTS, DIA TTS, Chatterbox, AI music generation, ffmpeg for audio assembly. Capabilities: multi-voice conversations, background music, intro/outro, full episodes. Use for: podcast production, audiobooks, voice content, audio newsletters. Triggers: podcast, ai podcast, text to speech podcast, audio content, voice over, ai audiobook, multi voice, conversation ai, notebooklm alternative, audio generation, podcast automation, ai narrator, voice content, audio newsletter, podcast maker\"",
+    "path": "library/bankai-skills-superpowers/skills/content-ai-podcast-creation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate content-ai-podcast-creation",
+    "link_cmd": "python .agents/library/activate_skill.py link content-ai-podcast-creation"
+  },
+  {
+    "id": "content-content-repurposing",
+    "name": "content-content-repurposing",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Content atomization \u2014 turn one piece of content into many formats. Covers blog-to-thread, blog-to-carousel, podcast-to-blog, video-to-quotes, and more. Use for: content marketing, social media, multi-platform distribution, content strategy. Triggers: content repurposing, repurpose content, content atomization, content recycling, one to many content, multi platform content, cross post, adapt content, reformat content, blog to thread, blog to video, podcast to blog, content multiplication\"",
+    "path": "library/bankai-skills-superpowers/skills/content-content-repurposing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate content-content-repurposing",
+    "link_cmd": "python .agents/library/activate_skill.py link content-content-repurposing"
   },
   {
     "id": "content-repurposing",
     "name": "content-repurposing",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Content atomization \u2014 turn one piece of content into many formats. Covers blog-to-thread, blog-to-carousel, podcast-to-blog, video-to-quotes, and more. Use for: content marketing, social media, multi-platform distribution, content strategy. Triggers: content repurposing, repurpose content, content atomization, content recycling, one to many content, multi platform content, cross post, adapt content, reformat content, blog to thread, blog to video, podcast to blog, content multiplication\"",
     "path": "library/bankai-skills-superpowers/skills/content-repurposing",
     "activation_cmd": "python .agents/library/activate_skill.py activate content-repurposing",
     "link_cmd": "python .agents/library/activate_skill.py link content-repurposing"
@@ -264,7 +474,7 @@
     "name": "customer-persona",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Research-backed customer persona creation with market data and avatar generation. Covers demographics, psychographics, jobs-to-be-done, journey mapping, and anti-personas. Use for: marketing strategy, product development, UX research, sales enablement, content strategy. Triggers: customer persona, buyer persona, user persona, target audience, ideal customer, customer profile, audience research, user research, icp, ideal customer profile, target market, customer avatar, audience persona\"",
     "path": "library/bankai-skills-superpowers/skills/customer-persona",
     "activation_cmd": "python .agents/library/activate_skill.py activate customer-persona",
     "link_cmd": "python .agents/library/activate_skill.py link customer-persona"
@@ -274,17 +484,117 @@
     "name": "data-visualization",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Data visualization with chart selection, color theory, and annotation best practices. Covers chart types (bar, line, scatter, heatmap), axes rules, and storytelling with data. Use for: charts, graphs, dashboards, reports, presentations, infographics, data stories. Triggers: data visualization, chart, graph, data chart, bar chart, line chart, scatter plot, data viz, visualization, dashboard chart, infographic data, data presentation, chart design, plot, heatmap, pie chart alternative\"",
     "path": "library/bankai-skills-superpowers/skills/data-visualization",
     "activation_cmd": "python .agents/library/activate_skill.py activate data-visualization",
     "link_cmd": "python .agents/library/activate_skill.py link data-visualization"
+  },
+  {
+    "id": "design-app-store-screenshots",
+    "name": "design-app-store-screenshots",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"App Store and Google Play screenshot creation with exact platform specs. Covers iOS/Android dimensions, gallery ordering, device mockups, and preview videos. Use for: app store optimization, ASO, app screenshots, app preview, play store listing. Triggers: app store screenshots, aso, app store optimization, play store screenshots, app preview, app listing, ios screenshots, android screenshots, app store images, app mockup, device mockup, app gallery, store listing\"",
+    "path": "library/bankai-skills-superpowers/skills/design-app-store-screenshots",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-app-store-screenshots",
+    "link_cmd": "python .agents/library/activate_skill.py link design-app-store-screenshots"
+  },
+  {
+    "id": "design-book-cover-design",
+    "name": "design-book-cover-design",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Book cover design with genre-specific conventions, typography rules, and AI image generation. Covers fiction and non-fiction genres, sizing, thumbnail testing, and iteration workflows. Use for: self-publishing, ebook covers, print covers, audiobook covers, cover mockups. Triggers: book cover, cover design, ebook cover, book art, novel cover, self publishing cover, kindle cover, audiobook cover, book jacket, cover illustration, fiction cover, nonfiction cover\"",
+    "path": "library/bankai-skills-superpowers/skills/design-book-cover-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-book-cover-design",
+    "link_cmd": "python .agents/library/activate_skill.py link design-book-cover-design"
+  },
+  {
+    "id": "design-character-design-sheet",
+    "name": "design-character-design-sheet",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Character consistency across AI-generated images with reference sheets and LoRA techniques. Covers turnaround views, expression sheets, color palettes, and style consistency tricks. Use for: character design, game art, illustration, animation, comics, visual novels. Triggers: character design, character sheet, character consistency, character reference, turnaround sheet, expression sheet, character art, consistent character, character concept, reference sheet, character creation, oc design, character bible\"",
+    "path": "library/bankai-skills-superpowers/skills/design-character-design-sheet",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-character-design-sheet",
+    "link_cmd": "python .agents/library/activate_skill.py link design-character-design-sheet"
+  },
+  {
+    "id": "design-data-visualization",
+    "name": "design-data-visualization",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Data visualization with chart selection, color theory, and annotation best practices. Covers chart types (bar, line, scatter, heatmap), axes rules, and storytelling with data. Use for: charts, graphs, dashboards, reports, presentations, infographics, data stories. Triggers: data visualization, chart, graph, data chart, bar chart, line chart, scatter plot, data viz, visualization, dashboard chart, infographic data, data presentation, chart design, plot, heatmap, pie chart alternative\"",
+    "path": "library/bankai-skills-superpowers/skills/design-data-visualization",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-data-visualization",
+    "link_cmd": "python .agents/library/activate_skill.py link design-data-visualization"
+  },
+  {
+    "id": "design-email-design",
+    "name": "design-email-design",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Email marketing design with layout patterns, subject line formulas, and deliverability rules. Covers welcome sequences, promotional emails, transactional templates, and mobile optimization. Use for: email marketing, newsletter design, drip campaigns, email templates, transactional emails. Triggers: email design, email template, email marketing, newsletter design, email layout, email campaign, drip campaign, welcome email, promotional email, transactional email, email subject line, email header image, email banner\"",
+    "path": "library/bankai-skills-superpowers/skills/design-email-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-email-design",
+    "link_cmd": "python .agents/library/activate_skill.py link design-email-design"
+  },
+  {
+    "id": "design-landing-page-design",
+    "name": "design-landing-page-design",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Landing page conversion optimization with layout rules, hero section design, and CTA psychology. Covers above-the-fold formula, social proof placement, mobile design, and F-pattern reading. Use for: startup landing pages, product pages, SaaS marketing, conversion optimization. Triggers: landing page, hero section, above the fold, conversion optimization, landing page design, cta button, hero image, landing page layout, saas landing page, product page design, conversion rate, landing page best practices\"",
+    "path": "library/bankai-skills-superpowers/skills/design-landing-page-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-landing-page-design",
+    "link_cmd": "python .agents/library/activate_skill.py link design-landing-page-design"
+  },
+  {
+    "id": "design-logo-design-guide",
+    "name": "design-logo-design-guide",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Logo design principles and AI image generation best practices for creating logos. Covers logo types, prompting techniques, scalability rules, and iteration workflows. Use for: brand identity, startup logos, app icons, favicons, logo concepts. Triggers: logo design, create logo, brand logo, logo generation, ai logo, logo maker, icon design, brand mark, logo concept, startup logo, app icon logo\"",
+    "path": "library/bankai-skills-superpowers/skills/design-logo-design-guide",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-logo-design-guide",
+    "link_cmd": "python .agents/library/activate_skill.py link design-logo-design-guide"
+  },
+  {
+    "id": "design-og-image-design",
+    "name": "design-og-image-design",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Open Graph and social sharing image design with platform specs, text placement, and branding. Covers OG meta tags, Twitter cards, LinkedIn previews, and dynamic generation. Use for: social sharing images, blog thumbnails, link previews, social cards. Triggers: og image, open graph, social sharing image, twitter card, social card, link preview image, og meta, sharing preview, social thumbnail, meta image, og:image, twitter:image, linkedin preview\"",
+    "path": "library/bankai-skills-superpowers/skills/design-og-image-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-og-image-design",
+    "link_cmd": "python .agents/library/activate_skill.py link design-og-image-design"
+  },
+  {
+    "id": "design-pitch-deck-visuals",
+    "name": "design-pitch-deck-visuals",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Investor pitch deck structure with slide-by-slide framework, visual design rules, and data presentation. Covers the 12-slide framework, chart types, team slides, and common investor turn-offs. Use for: fundraising decks, investor presentations, startup pitch, demo day, grant proposals. Triggers: pitch deck, investor deck, startup pitch, fundraising deck, demo day, pitch presentation, investor presentation, seed deck, series a deck, pitch slides, startup presentation, vc pitch, investor meeting\"",
+    "path": "library/bankai-skills-superpowers/skills/design-pitch-deck-visuals",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-pitch-deck-visuals",
+    "link_cmd": "python .agents/library/activate_skill.py link design-pitch-deck-visuals"
+  },
+  {
+    "id": "design-youtube-thumbnail-design",
+    "name": "design-youtube-thumbnail-design",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"YouTube thumbnail design with specific dimensions, contrast rules, and mobile preview optimization. Covers safe zones, text placement, face expression psychology, and A/B testing. Use for: YouTube thumbnails, video cover images, click-through optimization. Triggers: youtube thumbnail, thumbnail design, video thumbnail, click through rate, ctr optimization, youtube cover, video cover image, thumbnail maker, thumbnail tips, youtube design, video preview image\"",
+    "path": "library/bankai-skills-superpowers/skills/design-youtube-thumbnail-design",
+    "activation_cmd": "python .agents/library/activate_skill.py activate design-youtube-thumbnail-design",
+    "link_cmd": "python .agents/library/activate_skill.py link design-youtube-thumbnail-design"
   },
   {
     "id": "dialogue-audio",
     "name": "dialogue-audio",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Multi-speaker dialogue audio creation with ElevenLabs and Dia TTS. Covers speaker tags, emotion control, pacing, conversation flow, and post-production. Use for: podcasts, audiobooks, explainers, character dialogue, conversational content. Triggers: dialogue audio, multi speaker, conversation audio, dia tts, two speakers, podcast audio, character voices, voice acting, dialogue generation, conversation tts, multi voice, speaker tags, dialogue recording, elevenlabs dialogue, eleven labs conversation\"",
     "path": "library/bankai-skills-superpowers/skills/dialogue-audio",
     "activation_cmd": "python .agents/library/activate_skill.py activate dialogue-audio",
     "link_cmd": "python .agents/library/activate_skill.py link dialogue-audio"
@@ -294,7 +604,7 @@
     "name": "elevenlabs-dialogue",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"ElevenLabs multi-speaker dialogue generation - create conversations with different voices in a single audio file via inference.sh CLI. Capabilities: multi-voice dialogue, script-based generation, voice direction, conversation audio. Use for: podcasts, audiobooks, explainers, tutorials, character dialogue, video scripts. Triggers: elevenlabs dialogue, eleven labs dialogue, multi speaker, conversation audio, dialogue generation, text to dialogue, multi voice, voice acting, podcast dialogue, character voices, script to audio, elevenlabs conversation, two speakers\"",
     "path": "library/bankai-skills-superpowers/skills/elevenlabs-dialogue",
     "activation_cmd": "python .agents/library/activate_skill.py activate elevenlabs-dialogue",
     "link_cmd": "python .agents/library/activate_skill.py link elevenlabs-dialogue"
@@ -304,7 +614,7 @@
     "name": "elevenlabs-dubbing",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"ElevenLabs automatic dubbing - translate and dub audio/video into 29 languages while preserving speaker voice via inference.sh CLI. Capabilities: auto speaker detection, voice-preserving translation, video dubbing, audio localization. Use for: content localization, video translation, multilingual content, international distribution. Triggers: dubbing, dub video, translate audio, video translation, audio translation, localize content, elevenlabs dubbing, eleven labs dub, multilingual dub, voice translation, auto dub, language dub, content localization\"",
     "path": "library/bankai-skills-superpowers/skills/elevenlabs-dubbing",
     "activation_cmd": "python .agents/library/activate_skill.py activate elevenlabs-dubbing",
     "link_cmd": "python .agents/library/activate_skill.py link elevenlabs-dubbing"
@@ -314,7 +624,7 @@
     "name": "elevenlabs-music",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"ElevenLabs AI music generation - create original music from text prompts via inference.sh CLI. Capabilities: text-to-music, custom duration up to 10 minutes, genre/mood/instrument control, royalty-free commercial use. Use for: background music, soundtracks, jingles, podcasts, video scores, game audio. Triggers: elevenlabs music, eleven labs music, ai music, generate music, music generation, compose music, ai composer, create song, soundtrack, background music, jingle, elevenlabs compose, music ai\"",
     "path": "library/bankai-skills-superpowers/skills/elevenlabs-music",
     "activation_cmd": "python .agents/library/activate_skill.py activate elevenlabs-music",
     "link_cmd": "python .agents/library/activate_skill.py link elevenlabs-music"
@@ -324,7 +634,7 @@
     "name": "elevenlabs-sound-effects",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Generate AI sound effects from text descriptions with ElevenLabs via inference.sh CLI. Capabilities: text-to-sound-effect, custom duration, royalty-free audio. Use for: video production, game audio, podcasts, films, presentations, social media. Triggers: sound effects, sfx, sound generation, ai sound effects, generate sound, foley, audio effects, sound design, text to sound, elevenlabs sound, eleven labs sfx, ambient sound, cinematic sound, game sound effects\"",
     "path": "library/bankai-skills-superpowers/skills/elevenlabs-sound-effects",
     "activation_cmd": "python .agents/library/activate_skill.py activate elevenlabs-sound-effects",
     "link_cmd": "python .agents/library/activate_skill.py link elevenlabs-sound-effects"
@@ -334,7 +644,7 @@
     "name": "elevenlabs-stt",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"ElevenLabs speech-to-text with Scribe models and forced alignment via inference.sh CLI. Models: Scribe v1/v2 (98%+ accuracy, 90+ languages). Capabilities: transcription, speaker diarization, audio event tagging, word-level timestamps, forced alignment, subtitle generation. Use for: meeting transcription, subtitles, podcast transcripts, lip-sync timing, karaoke. Triggers: elevenlabs stt, elevenlabs transcription, scribe, elevenlabs speech to text, forced alignment, word alignment, subtitle timing, diarization, speaker identification, audio event detection, eleven labs transcribe\"",
     "path": "library/bankai-skills-superpowers/skills/elevenlabs-stt",
     "activation_cmd": "python .agents/library/activate_skill.py activate elevenlabs-stt",
     "link_cmd": "python .agents/library/activate_skill.py link elevenlabs-stt"
@@ -344,7 +654,7 @@
     "name": "elevenlabs-tts",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"ElevenLabs text-to-speech with 22+ premium voices, multilingual support, and voice tuning via inference.sh CLI. Models: eleven_multilingual_v2 (highest quality), eleven_turbo_v2_5 (low latency), eleven_flash_v2_5 (ultra-fast). Capabilities: text-to-speech, voice selection, stability/style control, 32 languages. Use for: voiceovers, audiobooks, video narration, podcasts, accessibility, IVR. Triggers: elevenlabs, eleven labs, elevenlabs tts, premium tts, professional voice, ai voice, high quality tts, multilingual tts, eleven labs voice, voice generation, natural speech, realistic voice, voice over, speech synthesis\"",
     "path": "library/bankai-skills-superpowers/skills/elevenlabs-tts",
     "activation_cmd": "python .agents/library/activate_skill.py activate elevenlabs-tts",
     "link_cmd": "python .agents/library/activate_skill.py link elevenlabs-tts"
@@ -354,7 +664,7 @@
     "name": "elevenlabs-voice-changer",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"ElevenLabs voice changer - transform any voice to a different voice while preserving speech content and emotion via inference.sh CLI. Models: eleven_multilingual_sts_v2 (70+ languages), eleven_english_sts_v2. Capabilities: speech-to-speech, voice transformation, accent change, voice disguise. Use for: content creation, voice acting, privacy, dubbing, character voices. Triggers: voice changer, speech to speech, voice transformation, change voice, voice swap, voice conversion, voice disguise, eleven labs voice changer, elevenlabs sts, transform voice, ai voice changer, voice modifier\"",
     "path": "library/bankai-skills-superpowers/skills/elevenlabs-voice-changer",
     "activation_cmd": "python .agents/library/activate_skill.py activate elevenlabs-voice-changer",
     "link_cmd": "python .agents/library/activate_skill.py link elevenlabs-voice-changer"
@@ -364,7 +674,7 @@
     "name": "elevenlabs-voice-isolator",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"ElevenLabs voice isolator - remove background noise and isolate vocals from audio via inference.sh CLI. Capabilities: noise removal, voice extraction, audio cleanup, background removal. Use for: podcast cleanup, interview audio, music vocals, noisy recordings, audio restoration. Triggers: voice isolator, noise removal, background removal, isolate voice, clean audio, remove background noise, audio cleanup, voice extraction, elevenlabs isolator, eleven labs noise, vocal isolation, denoise, audio restoration, voice separation\"",
     "path": "library/bankai-skills-superpowers/skills/elevenlabs-voice-isolator",
     "activation_cmd": "python .agents/library/activate_skill.py activate elevenlabs-voice-isolator",
     "link_cmd": "python .agents/library/activate_skill.py link elevenlabs-voice-isolator"
@@ -374,7 +684,7 @@
     "name": "email-design",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Email marketing design with layout patterns, subject line formulas, and deliverability rules. Covers welcome sequences, promotional emails, transactional templates, and mobile optimization. Use for: email marketing, newsletter design, drip campaigns, email templates, transactional emails. Triggers: email design, email template, email marketing, newsletter design, email layout, email campaign, drip campaign, welcome email, promotional email, transactional email, email subject line, email header image, email banner\"",
     "path": "library/bankai-skills-superpowers/skills/email-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate email-design",
     "link_cmd": "python .agents/library/activate_skill.py link email-design"
@@ -384,7 +694,7 @@
     "name": "explainer-video-guide",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Explainer video production guide: scripting, voiceover, visuals, and assembly. Covers script formulas, pacing rules, scene planning, and multi-tool pipelines. Use for: product demos, how-it-works videos, onboarding videos, social explainers. Triggers: explainer video, how to make explainer, product video, demo video, video production, video script, animated explainer, product demo video, tutorial video, onboarding video, walkthrough video, video pipeline\"",
     "path": "library/bankai-skills-superpowers/skills/explainer-video-guide",
     "activation_cmd": "python .agents/library/activate_skill.py activate explainer-video-guide",
     "link_cmd": "python .agents/library/activate_skill.py link explainer-video-guide"
@@ -394,27 +704,47 @@
     "name": "flux-image",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Generate images with FLUX models (Black Forest Labs) via inference.sh CLI. Models: FLUX Dev LoRA, FLUX.2 Klein LoRA with custom style adaptation. Capabilities: text-to-image, image-to-image, LoRA fine-tuning, custom styles. Triggers: flux, flux.2, flux dev, flux schnell, flux pro, black forest labs, flux image, flux ai, flux model, flux lora\"",
     "path": "library/bankai-skills-superpowers/skills/flux-image",
     "activation_cmd": "python .agents/library/activate_skill.py activate flux-image",
     "link_cmd": "python .agents/library/activate_skill.py link flux-image"
+  },
+  {
+    "id": "gemini",
+    "name": "gemini",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Google Gemini chat models via inference.sh CLI. Models: Gemini 4 Argon (flagship), Gemini 3.8 Flash (most capable Flash), Gemini 3.5 Flash-Lite (fastest, lowest cost). 1M token context, thinking levels, vision, file input, tool use, structured output. Runs on Vertex AI. Use for: coding, autonomous agents, long documents, finance, law, science, high-throughput pipelines, image understanding, chat. Triggers: gemini, google gemini, gemini api, gemini 4, gemini 4 argon, argon, gemini flash, gemini 3.8 flash, gemini flash lite, gemini 3.5 flash-lite, vertex ai, google llm, google ai model, gemini chat\"",
+    "path": "library/bankai-skills-superpowers/skills/gemini",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gemini",
+    "link_cmd": "python .agents/library/activate_skill.py link gemini"
   },
   {
     "id": "google-veo",
     "name": "google-veo",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Generate videos with Google Veo models via inference.sh CLI. Models: Veo 3.1, Veo 3.1 Fast, Veo 3, Veo 3 Fast, Veo 2. Capabilities: text-to-video, cinematic output, high quality video generation. Triggers: veo, google veo, veo 3, veo 2, veo 3.1, vertex ai video, google video generation, google video ai, veo model, veo video\"",
     "path": "library/bankai-skills-superpowers/skills/google-veo",
     "activation_cmd": "python .agents/library/activate_skill.py activate google-veo",
     "link_cmd": "python .agents/library/activate_skill.py link google-veo"
+  },
+  {
+    "id": "gpt",
+    "name": "gpt",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"OpenAI GPT models via inference.sh CLI. Models: GPT-6 Astra (frontier), GPT-6.1 Sol (near-Astra at lower cost), GPT-6 Luna (efficient, high-volume). 1M context, 128k output, reasoning effort, vision, file input, tool use, structured output. Daybreak variants for vetted cybersecurity work on your own OpenAI key. Use for: coding, agents, reasoning, document analysis, extraction, chat, high-volume classification. Triggers: gpt, openai, gpt-6, gpt 6, gpt-6 astra, gpt-6.1 sol, gpt-6 luna, openai api, chatgpt api, gpt api, openai model, daybreak, openai daybreak, gpt reasoning\"",
+    "path": "library/bankai-skills-superpowers/skills/gpt",
+    "activation_cmd": "python .agents/library/activate_skill.py activate gpt",
+    "link_cmd": "python .agents/library/activate_skill.py link gpt"
   },
   {
     "id": "gpt-image",
     "name": "gpt-image",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Generate and edit images with OpenAI GPT-Image-2 via inference.sh CLI. Models: GPT-Image-2. Capabilities: text-to-image, image editing, inpainting, mask-based editing, multi-image reference, batch generation. Use for: product mockups, marketing visuals, image editing, concept art, inpainting, photo manipulation. Triggers: gpt image, gpt-image-2, openai image, chatgpt image, dall-e, dalle, openai image generation, gpt image edit, gpt inpainting, openai dall-e, gpt 4o image\"",
     "path": "library/bankai-skills-superpowers/skills/gpt-image",
     "activation_cmd": "python .agents/library/activate_skill.py activate gpt-image",
     "link_cmd": "python .agents/library/activate_skill.py link gpt-image"
@@ -424,17 +754,137 @@
     "name": "happyhorse",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Generate and edit videos with Alibaba HappyHorse 1.0 models via inference.sh CLI. Models: HappyHorse T2V, I2V, R2V, Video Edit. Capabilities: text-to-video, image-to-video, reference-to-video, video editing with natural language, character preservation, 720P/1080P, up to 15 seconds. Use for: physically realistic video, video editing, character-consistent content, product demos, social media. Triggers: happyhorse, happy horse, alibaba video, happyhorse 1.0, dashscope video, alibaba happyhorse, video editing ai, ai video editor\"",
     "path": "library/bankai-skills-superpowers/skills/happyhorse",
     "activation_cmd": "python .agents/library/activate_skill.py activate happyhorse",
     "link_cmd": "python .agents/library/activate_skill.py link happyhorse"
+  },
+  {
+    "id": "heygen",
+    "name": "heygen",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"HeyGen avatar videos, photo animation, lipsync, video translation, TTS and voice cloning via inference.sh CLI. Apps: heygen/avatar-video (Avatar IV/V engines, up to 4K), heygen/create-avatar (digital twin, photo or prompt avatars), heygen/photo-video, heygen/lipsync, heygen/video-agent (prompt to finished video), heygen/video-translate (30+ languages with voice cloning and lip-sync), heygen/text-to-speech (Starfish), heygen/voice-clone (instant clone). Use for: AI presenters, digital twins, talking photos, dubbing and localizing videos, re-syncing lips to new audio, custom voices, prompt-to-video explainers. Triggers: heygen, heygen avatar, heygen api, digital twin, avatar iv, avatar v, photo avatar, talking photo, video translate, video translation, translate video, dub video, heygen lipsync, lip sync, heygen tts, starfish tts, voice clone, instant voice clone, video agent, ai spokesperson, ai presenter\"",
+    "path": "library/bankai-skills-superpowers/skills/heygen",
+    "activation_cmd": "python .agents/library/activate_skill.py activate heygen",
+    "link_cmd": "python .agents/library/activate_skill.py link heygen"
+  },
+  {
+    "id": "image-ai-image-generation",
+    "name": "image-ai-image-generation",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate AI images with GPT-Image-2.6, FLUX, Gemini, Grok, Seedream, Reve and 50+ models via inference.sh CLI. Models: GPT-Image-2.6 Flare, GPT-Image-2.6 Sunburst, FLUX Dev LoRA, FLUX.2 Klein LoRA, Nano Banana 2.1, Gemini 3 Pro Image, Grok Imagine 2.0, Seedream 5.5, Reve, ImagineArt. Capabilities: text-to-image, image-to-image, inpainting, LoRA, image editing, upscaling, text rendering. Use for: AI art, product mockups, concept art, social media graphics, marketing visuals, illustrations. Triggers: flux, image generation, ai image, text to image, stable diffusion, generate image, ai art, midjourney alternative, dall-e alternative, text2img, t2i, image generator, ai picture, create image with ai, generative ai, ai illustration, grok image, gemini image, gpt image, openai image, chatgpt image\"",
+    "path": "library/bankai-skills-superpowers/skills/image-ai-image-generation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate image-ai-image-generation",
+    "link_cmd": "python .agents/library/activate_skill.py link image-ai-image-generation"
+  },
+  {
+    "id": "image-background-removal",
+    "name": "image-background-removal",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Remove backgrounds from images with BiRefNet via inference.sh CLI. Model: BiRefNet (high accuracy background removal). Use for: product photos, portraits, e-commerce, transparent PNGs, photo editing. Triggers: remove background, background removal, remove bg, transparent background, cut out image, background remover, rembg, product photo editing, cutout, transparent png, bg removal, photo cutout\"",
+    "path": "library/bankai-skills-superpowers/skills/image-background-removal",
+    "activation_cmd": "python .agents/library/activate_skill.py activate image-background-removal",
+    "link_cmd": "python .agents/library/activate_skill.py link image-background-removal"
+  },
+  {
+    "id": "image-editing",
+    "name": "image-editing",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Edit existing images with Bria, Reve and Phota via inference.sh CLI. Apps: Bria Eraser, Bria Gen Fill, Bria Expand, Bria Replace Background, Bria Increase Resolution, Bria Product Cutout, Bria Product Packshot, Bria Product Shadow, Bria Image Edit, Reve Edit, Reve Remix, Phota Edit, Phota Enhance. Capabilities: object removal, mask-based generative fill, outpainting, background replacement, instruction-based editing, multi-image remix, identity-preserving edits, photo enhancement, 2x/4x upscaling, product cutouts, packshots and shadows. Use for: photo retouching, e-commerce product images, removing objects or people, changing backgrounds, extending images, fixing photos. Triggers: edit image, image editing, photo editing, remove object, erase object, inpainting, generative fill, outpainting, expand image, extend canvas, uncrop, replace background, change background, edit with text, instruction edit, bria, reve edit, reve remix, phota, enhance photo, increase resolution, product cutout, packshot, product shadow, retouch\"",
+    "path": "library/bankai-skills-superpowers/skills/image-editing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate image-editing",
+    "link_cmd": "python .agents/library/activate_skill.py link image-editing"
+  },
+  {
+    "id": "image-flux-image",
+    "name": "image-flux-image",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate images with FLUX models (Black Forest Labs) via inference.sh CLI. Models: FLUX Dev LoRA, FLUX.2 Klein LoRA with custom style adaptation. Capabilities: text-to-image, image-to-image, LoRA fine-tuning, custom styles. Triggers: flux, flux.2, flux dev, flux schnell, flux pro, black forest labs, flux image, flux ai, flux model, flux lora\"",
+    "path": "library/bankai-skills-superpowers/skills/image-flux-image",
+    "activation_cmd": "python .agents/library/activate_skill.py activate image-flux-image",
+    "link_cmd": "python .agents/library/activate_skill.py link image-flux-image"
+  },
+  {
+    "id": "image-gpt-image",
+    "name": "image-gpt-image",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate and edit images with OpenAI GPT-Image-2.6 via inference.sh CLI. Models: GPT-Image-2.6 Flare, GPT-Image-2.6 Sunburst. Capabilities: text-to-image, image editing, inpainting, mask-based editing, multi-image reference, batch generation, transparent backgrounds. Use for: product mockups, marketing visuals, image editing, concept art, inpainting, photo manipulation. Triggers: gpt image, gpt-image-2.6, gpt image 2.6, flare, sunburst, gpt-image-2, openai image, chatgpt image, dall-e, dalle, openai image generation, gpt image edit, gpt inpainting, openai dall-e, gpt 4o image, transparent background, transparent png, remove background\"",
+    "path": "library/bankai-skills-superpowers/skills/image-gpt-image",
+    "activation_cmd": "python .agents/library/activate_skill.py activate image-gpt-image",
+    "link_cmd": "python .agents/library/activate_skill.py link image-gpt-image"
+  },
+  {
+    "id": "image-image-upscaling",
+    "name": "image-image-upscaling",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Upscale and enhance images with Real-ESRGAN, Thera, Topaz, FLUX Upscaler via inference.sh CLI. Models: Real-ESRGAN, Thera (any size), FLUX Dev Upscaler, Topaz Image Upscaler. Use for: enhance low-res images, upscale AI art, restore old photos, increase resolution. Triggers: upscale image, image upscaler, enhance image, increase resolution, real esrgan, ai upscale, super resolution, image enhancement, upscaling, enlarge image, higher resolution, 4k upscale, hd upscale\"",
+    "path": "library/bankai-skills-superpowers/skills/image-image-upscaling",
+    "activation_cmd": "python .agents/library/activate_skill.py activate image-image-upscaling",
+    "link_cmd": "python .agents/library/activate_skill.py link image-image-upscaling"
+  },
+  {
+    "id": "image-nano-banana",
+    "name": "image-nano-banana",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate images with Google Gemini native image models via inference.sh CLI. Models: Gemini 3 Pro Image (Nano Banana Pro), Nano Banana 2.1. Capabilities: text-to-image, image editing, multi-image input. Triggers: nano banana, gemini image, gemini 3 pro image, nano banana pro, nano banana 2.1, google image generation, native image generation, gemini native image\"",
+    "path": "library/bankai-skills-superpowers/skills/image-nano-banana",
+    "activation_cmd": "python .agents/library/activate_skill.py activate image-nano-banana",
+    "link_cmd": "python .agents/library/activate_skill.py link image-nano-banana"
+  },
+  {
+    "id": "image-nano-banana-2",
+    "name": "image-nano-banana-2",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate images with Google Gemini Nano Banana 2.1, Google's newest image model, via inference.sh CLI. Capabilities: text-to-image, image editing, multi-image input (up to 14 images), Google Search grounding, up to 4K. Triggers: nano banana 2.1, nano banana 2, nanobanana 2, gemini nano banana 2.1, gemini 3.1 flash image, google image generation\"",
+    "path": "library/bankai-skills-superpowers/skills/image-nano-banana-2",
+    "activation_cmd": "python .agents/library/activate_skill.py activate image-nano-banana-2",
+    "link_cmd": "python .agents/library/activate_skill.py link image-nano-banana-2"
+  },
+  {
+    "id": "image-p-image",
+    "name": "image-p-image",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate images with Pruna P-Image models via inference.sh CLI. Models: P-Image, P-Image-LoRA, P-Image-Edit, P-Image-Edit-LoRA. Capabilities: text-to-image, image editing, LoRA styles, multi-image compositing, fast inference. Pruna optimizes models for speed without quality loss. Triggers: pruna, p-image, pruna image, fast image generation, optimized flux, pruna ai, p image, fast ai image, economic image generation, cheap image generation\"",
+    "path": "library/bankai-skills-superpowers/skills/image-p-image",
+    "activation_cmd": "python .agents/library/activate_skill.py activate image-p-image",
+    "link_cmd": "python .agents/library/activate_skill.py link image-p-image"
+  },
+  {
+    "id": "image-qwen-image-2",
+    "name": "image-qwen-image-2",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate and edit images with Alibaba Qwen-Image-2.0 models via inference.sh CLI. Models: Qwen-Image-2.0 (fast), Qwen-Image-2.0-Pro (professional text rendering). Capabilities: text-to-image, multi-image editing, complex text rendering. Triggers: qwen image, qwen-image, alibaba image, dashscope image, qwen image 2, qwen image pro\"",
+    "path": "library/bankai-skills-superpowers/skills/image-qwen-image-2",
+    "activation_cmd": "python .agents/library/activate_skill.py activate image-qwen-image-2",
+    "link_cmd": "python .agents/library/activate_skill.py link image-qwen-image-2"
+  },
+  {
+    "id": "image-qwen-image-2-pro",
+    "name": "image-qwen-image-2-pro",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate images with Alibaba Qwen-Image-2.0-Pro via inference.sh CLI. Professional text rendering, fine-grained realism, enhanced semantic adherence. Ideal for posters, banners, and text-heavy designs. Triggers: qwen image pro, qwen-image-pro, qwen 2 pro, alibaba image pro, dashscope pro, professional text rendering\"",
+    "path": "library/bankai-skills-superpowers/skills/image-qwen-image-2-pro",
+    "activation_cmd": "python .agents/library/activate_skill.py activate image-qwen-image-2-pro",
+    "link_cmd": "python .agents/library/activate_skill.py link image-qwen-image-2-pro"
   },
   {
     "id": "image-to-video",
     "name": "image-to-video",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Still-to-video conversion guide: model selection, motion prompting, and camera movement. Covers Wan 2.5 i2v, Seedance, Fabric, Grok Video with when to use each. Use for: animating images, creating video from stills, adding motion, product animations. Triggers: image to video, i2v, animate image, still to video, add motion to image, image animation, photo to video, animate still, wan i2v, image2video, bring image to life, animate photo, motion from image\"",
     "path": "library/bankai-skills-superpowers/skills/image-to-video",
     "activation_cmd": "python .agents/library/activate_skill.py activate image-to-video",
     "link_cmd": "python .agents/library/activate_skill.py link image-to-video"
@@ -444,7 +894,7 @@
     "name": "image-upscaling",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Upscale and enhance images with Real-ESRGAN, Thera, Topaz, FLUX Upscaler via inference.sh CLI. Models: Real-ESRGAN, Thera (any size), FLUX Dev Upscaler, Topaz Image Upscaler. Use for: enhance low-res images, upscale AI art, restore old photos, increase resolution. Triggers: upscale image, image upscaler, enhance image, increase resolution, real esrgan, ai upscale, super resolution, image enhancement, upscaling, enlarge image, higher resolution, 4k upscale, hd upscale\"",
     "path": "library/bankai-skills-superpowers/skills/image-upscaling",
     "activation_cmd": "python .agents/library/activate_skill.py activate image-upscaling",
     "link_cmd": "python .agents/library/activate_skill.py link image-upscaling"
@@ -454,7 +904,7 @@
     "name": "infsh-cli",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Run AI apps via inference.sh CLI - image generation, video creation, LLMs, search, 3D, Twitter automation. Models: FLUX, Veo, Gemini, Grok, Claude, Seedance, OmniHuman, Tavily, Exa, OpenRouter, and many more. Use when running AI apps, generating images/videos, calling LLMs, web search, or automating Twitter. Triggers: inference.sh, infsh, ai model, run ai, serverless ai, ai api, flux, veo, claude api, image generation, video generation, openrouter, tavily, exa search, twitter api, grok\"",
     "path": "library/bankai-skills-superpowers/skills/infsh-cli",
     "activation_cmd": "python .agents/library/activate_skill.py activate infsh-cli",
     "link_cmd": "python .agents/library/activate_skill.py link infsh-cli"
@@ -464,17 +914,27 @@
     "name": "javascript-sdk",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"JavaScript/TypeScript SDK for inference.sh - run AI apps, build agents, integrate with all models. Package: @inferencesh/sdk (npm install). Full TypeScript support, streaming, file uploads. Build agents with template or ad-hoc patterns, tool builder API, skills, human approval. Use for: JavaScript integration, TypeScript, Node.js, React, Next.js, frontend apps. Triggers: javascript sdk, typescript sdk, npm install, node.js api, js client, react ai, next.js ai, frontend sdk, @inferencesh/sdk, typescript agent, browser sdk, js integration\"",
     "path": "library/bankai-skills-superpowers/skills/javascript-sdk",
     "activation_cmd": "python .agents/library/activate_skill.py activate javascript-sdk",
     "link_cmd": "python .agents/library/activate_skill.py link javascript-sdk"
+  },
+  {
+    "id": "kling",
+    "name": "kling",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate video and images with Kling AI models via inference.sh CLI. Models: Kling Video V4, V4 Flash, O1 (Omni), V3, Kling Avatar, Lip Sync, Video-to-Audio, Image V3, Image 3O, Virtual Try-On. Capabilities: text-to-video, image-to-video with start and end frames, 3-30s duration, native audio, automatic shot-splitting, reference-image and reference-video editing, talking avatars, lip sync, sound effects and music for video, text-to-image up to 4K, clothing try-on. Use for: cinematic clips, product videos, social media, dubbing, digital presenters, fashion try-on. Triggers: kling, kling ai, kling 4, kling v4, kling 4.0, kling flash, kling o1, kling omni, kling 3, kling v3, kling avatar, kling lip sync, kling lipsync, kolors, kling image, kling try-on, virtual try-on, kuaishou video\"",
+    "path": "library/bankai-skills-superpowers/skills/kling",
+    "activation_cmd": "python .agents/library/activate_skill.py activate kling",
+    "link_cmd": "python .agents/library/activate_skill.py link kling"
   },
   {
     "id": "landing-page-design",
     "name": "landing-page-design",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Landing page conversion optimization with layout rules, hero section design, and CTA psychology. Covers above-the-fold formula, social proof placement, mobile design, and F-pattern reading. Use for: startup landing pages, product pages, SaaS marketing, conversion optimization. Triggers: landing page, hero section, above the fold, conversion optimization, landing page design, cta button, hero image, landing page layout, saas landing page, product page design, conversion rate, landing page best practices\"",
     "path": "library/bankai-skills-superpowers/skills/landing-page-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate landing-page-design",
     "link_cmd": "python .agents/library/activate_skill.py link landing-page-design"
@@ -484,27 +944,57 @@
     "name": "linkedin-content",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"LinkedIn post writing with hook formulas, formatting rules, and engagement patterns. Covers post types, algorithm signals, character limits, and content pillars. Use for: LinkedIn posts, professional content, thought leadership, B2B content, personal branding. Triggers: linkedin post, linkedin content, linkedin writing, linkedin strategy, linkedin engagement, linkedin algorithm, linkedin hook, linkedin formatting, thought leadership, professional content, b2b content, linkedin growth\"",
     "path": "library/bankai-skills-superpowers/skills/linkedin-content",
     "activation_cmd": "python .agents/library/activate_skill.py activate linkedin-content",
     "link_cmd": "python .agents/library/activate_skill.py link linkedin-content"
+  },
+  {
+    "id": "llm-ai-rag-pipeline",
+    "name": "llm-ai-rag-pipeline",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Build RAG (Retrieval Augmented Generation) pipelines with web search and LLMs. Tools: Tavily Search, Exa Search, Exa Answer, Claude, GPT, Gemini. Capabilities: research, fact-checking, grounded responses, knowledge retrieval. Use for: AI agents, research assistants, fact-checkers, knowledge bases. Triggers: rag, retrieval augmented generation, grounded ai, search and answer, research agent, fact checking, knowledge retrieval, ai research, search + llm, web grounded, perplexity alternative, ai with sources, citation, research pipeline\"",
+    "path": "library/bankai-skills-superpowers/skills/llm-ai-rag-pipeline",
+    "activation_cmd": "python .agents/library/activate_skill.py activate llm-ai-rag-pipeline",
+    "link_cmd": "python .agents/library/activate_skill.py link llm-ai-rag-pipeline"
+  },
+  {
+    "id": "llm-llm-models",
+    "name": "llm-llm-models",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Access Claude, Gemini, Kimi and GLM via inference.sh CLI. Models: Claude Opus 5.5, Claude Sonnet 5.5, Claude Haiku 5.5, Gemini 4 Argon, Kimi K3, GLM-5.3. One CLI and one input format for every model. Use for: AI assistants, code generation, reasoning, agents, chat, content generation. Triggers: claude api, llm api, claude sonnet, claude opus, gemini api, kimi, glm, language model, gpt alternative, anthropic api, ai model api, llm access, chat api, claude alternative, openai alternative\"",
+    "path": "library/bankai-skills-superpowers/skills/llm-llm-models",
+    "activation_cmd": "python .agents/library/activate_skill.py activate llm-llm-models",
+    "link_cmd": "python .agents/library/activate_skill.py link llm-llm-models"
   },
   {
     "id": "llm-models",
     "name": "llm-models",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Access Claude, Gemini, Kimi, GLM and 100+ LLMs via inference.sh CLI using OpenRouter. Models: Claude Opus 4.5, Claude Sonnet 4.5, Claude Haiku 4.5, Gemini 3 Pro, Kimi K2, GLM-4.6, Intellect 3. One API for all models with automatic fallback and cost optimization. Use for: AI assistants, code generation, reasoning, agents, chat, content generation. Triggers: claude api, openrouter, llm api, claude sonnet, claude opus, gemini api, kimi, language model, gpt alternative, anthropic api, ai model api, llm access, chat api, claude alternative, openai alternative\"",
     "path": "library/bankai-skills-superpowers/skills/llm-models",
     "activation_cmd": "python .agents/library/activate_skill.py activate llm-models",
     "link_cmd": "python .agents/library/activate_skill.py link llm-models"
+  },
+  {
+    "id": "llm-web-search",
+    "name": "llm-web-search",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Web search and content extraction with Tavily and Exa via inference.sh CLI. Apps: Tavily Search, Tavily Extract, Exa Search, Exa Answer, Exa Extract. Capabilities: AI-powered search, content extraction, direct answers, research. Use for: research, RAG pipelines, fact-checking, content aggregation, agents. Triggers: web search, tavily, exa, search api, content extraction, research, internet search, ai search, search assistant, web scraping, rag, perplexity alternative\"",
+    "path": "library/bankai-skills-superpowers/skills/llm-web-search",
+    "activation_cmd": "python .agents/library/activate_skill.py activate llm-web-search",
+    "link_cmd": "python .agents/library/activate_skill.py link llm-web-search"
   },
   {
     "id": "logo-design-guide",
     "name": "logo-design-guide",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Logo design principles and AI image generation best practices for creating logos. Covers logo types, prompting techniques, scalability rules, and iteration workflows. Use for: brand identity, startup logos, app icons, favicons, logo concepts. Triggers: logo design, create logo, brand logo, logo generation, ai logo, logo maker, icon design, brand mark, logo concept, startup logo, app icon logo\"",
     "path": "library/bankai-skills-superpowers/skills/logo-design-guide",
     "activation_cmd": "python .agents/library/activate_skill.py activate logo-design-guide",
     "link_cmd": "python .agents/library/activate_skill.py link logo-design-guide"
@@ -514,7 +1004,7 @@
     "name": "nano-banana",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Generate images with Google Gemini native image models via inference.sh CLI. Models: Gemini 3 Pro Image, Gemini 2.5 Flash Image. Capabilities: text-to-image, image editing, multi-image input. Triggers: nano banana, gemini image, gemini 3 pro image, gemini 2.5 flash image, google image generation, native image generation, gemini native image\"",
     "path": "library/bankai-skills-superpowers/skills/nano-banana",
     "activation_cmd": "python .agents/library/activate_skill.py activate nano-banana",
     "link_cmd": "python .agents/library/activate_skill.py link nano-banana"
@@ -524,7 +1014,7 @@
     "name": "nano-banana-2",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Generate images with Google Gemini 3.1 Flash Image Preview (Nano Banana 2) via inference.sh CLI. Capabilities: text-to-image, image editing, multi-image input (up to 14 images), Google Search grounding. Triggers: nano banana 2, nanobanana 2, gemini 3.1 flash image, gemini 3 1 flash image preview, google image generation\"",
     "path": "library/bankai-skills-superpowers/skills/nano-banana-2",
     "activation_cmd": "python .agents/library/activate_skill.py activate nano-banana-2",
     "link_cmd": "python .agents/library/activate_skill.py link nano-banana-2"
@@ -534,7 +1024,7 @@
     "name": "newsletter-curation",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Newsletter curation with content sourcing, editorial structure, and subscriber growth strategies. Covers issue formatting, link roundups, commentary style, and sending cadence. Use for: email newsletters, link roundups, weekly digests, curated content, creator newsletters. Triggers: newsletter, email newsletter, newsletter curation, weekly digest, link roundup, curated newsletter, newsletter writing, newsletter format, subscriber growth, newsletter strategy, content curation, newsletter template\"",
     "path": "library/bankai-skills-superpowers/skills/newsletter-curation",
     "activation_cmd": "python .agents/library/activate_skill.py activate newsletter-curation",
     "link_cmd": "python .agents/library/activate_skill.py link newsletter-curation"
@@ -544,7 +1034,7 @@
     "name": "og-image-design",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Open Graph and social sharing image design with platform specs, text placement, and branding. Covers OG meta tags, Twitter cards, LinkedIn previews, and dynamic generation. Use for: social sharing images, blog thumbnails, link previews, social cards. Triggers: og image, open graph, social sharing image, twitter card, social card, link preview image, og meta, sharing preview, social thumbnail, meta image, og:image, twitter:image, linkedin preview\"",
     "path": "library/bankai-skills-superpowers/skills/og-image-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate og-image-design",
     "link_cmd": "python .agents/library/activate_skill.py link og-image-design"
@@ -554,7 +1044,7 @@
     "name": "p-image",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Generate images with Pruna P-Image models via inference.sh CLI. Models: P-Image, P-Image-LoRA, P-Image-Edit, P-Image-Edit-LoRA. Capabilities: text-to-image, image editing, LoRA styles, multi-image compositing, fast inference. Pruna optimizes models for speed without quality loss. Triggers: pruna, p-image, pruna image, fast image generation, optimized flux, pruna ai, p image, fast ai image, economic image generation, cheap image generation\"",
     "path": "library/bankai-skills-superpowers/skills/p-image",
     "activation_cmd": "python .agents/library/activate_skill.py activate p-image",
     "link_cmd": "python .agents/library/activate_skill.py link p-image"
@@ -564,7 +1054,7 @@
     "name": "p-video",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Generate videos with Pruna P-Video and WAN models via inference.sh CLI. Models: P-Video, WAN-T2V, WAN-I2V. Capabilities: text-to-video, image-to-video, audio support, 720p/1080p, fast inference. Pruna optimizes models for speed without quality loss. Triggers: pruna video, p-video, pruna ai video, fast video generation, optimized video, wan t2v, wan i2v, economic video generation, cheap video generation, pruna text to video, pruna image to video\"",
     "path": "library/bankai-skills-superpowers/skills/p-video",
     "activation_cmd": "python .agents/library/activate_skill.py activate p-video",
     "link_cmd": "python .agents/library/activate_skill.py link p-video"
@@ -574,27 +1064,57 @@
     "name": "p-video-avatar",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Generate talking head avatar videos with Pruna P-Video-Avatar via inference.sh CLI. Turn a portrait image into a realistic speaking video with built-in TTS. 18x faster and 6x cheaper than competitors. Models: P-Video-Avatar, P-Image (for portrait generation). Capabilities: text-to-avatar, audio-driven avatars, 30 voices, 10 languages, 720p/1080p, built-in TTS, dynamic backgrounds, full-body control. Use for: AI presenters, product demos, explainer videos, virtual influencers, marketing, education, multilingual content, UGC, gaming avatars. Triggers: avatar video, talking head, ai avatar, p-video-avatar, pruna avatar, video avatar, ai presenter, digital human, virtual presenter, lipsync, talking avatar, ai spokesperson, heygen alternative, synthesia alternative, veed alternative, fabric alternative, omnihuman alternative\"",
     "path": "library/bankai-skills-superpowers/skills/p-video-avatar",
     "activation_cmd": "python .agents/library/activate_skill.py activate p-video-avatar",
     "link_cmd": "python .agents/library/activate_skill.py link p-video-avatar"
+  },
+  {
+    "id": "photo-ai-product-photography",
+    "name": "photo-ai-product-photography",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate professional AI product photography and commercial images. Models: FLUX, Nano Banana 2.1, Grok Imagine 2.0, Seedream 5.5 for product shots, lifestyle images, mockups. Capabilities: studio lighting, lifestyle scenes, packaging, e-commerce photos. Use for: e-commerce, Amazon listings, Shopify, marketing, advertising, mockups. Triggers: product photography, product shot, commercial photography, e-commerce images, amazon product photo, shopify images, product mockup, studio product shot, lifestyle product image, advertising photo, packshot, product render, product image ai\"",
+    "path": "library/bankai-skills-superpowers/skills/photo-ai-product-photography",
+    "activation_cmd": "python .agents/library/activate_skill.py activate photo-ai-product-photography",
+    "link_cmd": "python .agents/library/activate_skill.py link photo-ai-product-photography"
+  },
+  {
+    "id": "photo-product-photography",
+    "name": "photo-product-photography",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"AI product photography with studio lighting, lifestyle shots, and packshot conventions. Covers angles, backgrounds, shadow types, hero shots, and e-commerce image requirements. Use for: product photos, e-commerce images, Amazon listings, packshots, lifestyle photography. Triggers: product photography, product photo, packshot, e-commerce photography, product shot, product image, studio photography, lifestyle product, amazon product photo, product listing image, hero shot, product mockup, commercial photography\"",
+    "path": "library/bankai-skills-superpowers/skills/photo-product-photography",
+    "activation_cmd": "python .agents/library/activate_skill.py activate photo-product-photography",
+    "link_cmd": "python .agents/library/activate_skill.py link photo-product-photography"
   },
   {
     "id": "pitch-deck-visuals",
     "name": "pitch-deck-visuals",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Investor pitch deck structure with slide-by-slide framework, visual design rules, and data presentation. Covers the 12-slide framework, chart types, team slides, and common investor turn-offs. Use for: fundraising decks, investor presentations, startup pitch, demo day, grant proposals. Triggers: pitch deck, investor deck, startup pitch, fundraising deck, demo day, pitch presentation, investor presentation, seed deck, series a deck, pitch slides, startup presentation, vc pitch, investor meeting\"",
     "path": "library/bankai-skills-superpowers/skills/pitch-deck-visuals",
     "activation_cmd": "python .agents/library/activate_skill.py activate pitch-deck-visuals",
     "link_cmd": "python .agents/library/activate_skill.py link pitch-deck-visuals"
+  },
+  {
+    "id": "pixverse",
+    "name": "pixverse",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate, extend, compose and edit videos with PixVerse models via inference.sh CLI. Models: PixVerse V6, C1, Extend, Fusion, Modify, Lip Sync, Avatar, plus PixVerse Lipsync on fal.ai. Capabilities: text-to-video, image-to-video, 360p-1080p, 5-15s, video continuation, multi-subject composition from reference images, text-guided video editing with masks and reference images, lip sync from audio or TTS, talking avatars from a portrait. Use for: social clips, longer sequences built by extension, putting specific people, products or pets into one scene, swapping subjects in footage, dubbing, talking presenters. Triggers: pixverse, pixverse v6, pixverse c1, pixverse extend, pixverse fusion, pixverse modify, pixverse lipsync, pixverse lip sync, pixverse avatar, extend video, video continuation, compose subjects video, reference to video\"",
+    "path": "library/bankai-skills-superpowers/skills/pixverse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate pixverse",
+    "link_cmd": "python .agents/library/activate_skill.py link pixverse"
   },
   {
     "id": "press-release-writing",
     "name": "press-release-writing",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Press release writing in AP style with inverted pyramid structure. Covers formatting, datelines, quotes, boilerplates, and fact-checking. Use for: product launches, funding announcements, partnerships, company news, events. Triggers: press release, pr writing, media release, news release, announcement, product launch announcement, funding announcement, company news, media advisory, ap style, press statement, news wire\"",
     "path": "library/bankai-skills-superpowers/skills/press-release-writing",
     "activation_cmd": "python .agents/library/activate_skill.py activate press-release-writing",
     "link_cmd": "python .agents/library/activate_skill.py link press-release-writing"
@@ -604,17 +1124,37 @@
     "name": "product-changelog",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Product changelog and release notes that users actually read. Covers categorization, user-facing language, visuals, and distribution. Use for: release notes, changelogs, product updates, feature announcements, versioning. Triggers: changelog, release notes, product update, version notes, what's new, feature announcement, product changelog, update log, release announcement, version release, product release, ship notes\"",
     "path": "library/bankai-skills-superpowers/skills/product-changelog",
     "activation_cmd": "python .agents/library/activate_skill.py activate product-changelog",
     "link_cmd": "python .agents/library/activate_skill.py link product-changelog"
+  },
+  {
+    "id": "product-competitor-teardown",
+    "name": "product-competitor-teardown",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Structured competitive analysis with feature matrices, SWOT, positioning maps, and UX review. Covers research frameworks, pricing comparison, review mining, and visual deliverables. Use for: market research, competitive intelligence, investor decks, product strategy, sales enablement. Triggers: competitor analysis, competitive analysis, competitor teardown, market research, competitive intelligence, swot analysis, competitor comparison, market landscape, competitor review, competitive landscape, feature comparison, market positioning\"",
+    "path": "library/bankai-skills-superpowers/skills/product-competitor-teardown",
+    "activation_cmd": "python .agents/library/activate_skill.py activate product-competitor-teardown",
+    "link_cmd": "python .agents/library/activate_skill.py link product-competitor-teardown"
+  },
+  {
+    "id": "product-customer-persona",
+    "name": "product-customer-persona",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Research-backed customer persona creation with market data and avatar generation. Covers demographics, psychographics, jobs-to-be-done, journey mapping, and anti-personas. Use for: marketing strategy, product development, UX research, sales enablement, content strategy. Triggers: customer persona, buyer persona, user persona, target audience, ideal customer, customer profile, audience research, user research, icp, ideal customer profile, target market, customer avatar, audience persona\"",
+    "path": "library/bankai-skills-superpowers/skills/product-customer-persona",
+    "activation_cmd": "python .agents/library/activate_skill.py activate product-customer-persona",
+    "link_cmd": "python .agents/library/activate_skill.py link product-customer-persona"
   },
   {
     "id": "product-hunt-launch",
     "name": "product-hunt-launch",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Product Hunt launch optimization with specific specs, timing, and gallery strategy. Covers taglines, gallery images, maker comments, and launch day tactics. Use for: product launches, startup launches, side project launches, Product Hunt optimization. Triggers: product hunt, ph launch, product hunt launch, launch strategy, product launch, startup launch, product hunt tips, product hunt gallery, ph optimization, launch day, product hunt maker\"",
     "path": "library/bankai-skills-superpowers/skills/product-hunt-launch",
     "activation_cmd": "python .agents/library/activate_skill.py activate product-hunt-launch",
     "link_cmd": "python .agents/library/activate_skill.py link product-hunt-launch"
@@ -624,27 +1164,67 @@
     "name": "product-photography",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"AI product photography with studio lighting, lifestyle shots, and packshot conventions. Covers angles, backgrounds, shadow types, hero shots, and e-commerce image requirements. Use for: product photos, e-commerce images, Amazon listings, packshots, lifestyle photography. Triggers: product photography, product photo, packshot, e-commerce photography, product shot, product image, studio photography, lifestyle product, amazon product photo, product listing image, hero shot, product mockup, commercial photography\"",
     "path": "library/bankai-skills-superpowers/skills/product-photography",
     "activation_cmd": "python .agents/library/activate_skill.py activate product-photography",
     "link_cmd": "python .agents/library/activate_skill.py link product-photography"
+  },
+  {
+    "id": "product-product-changelog",
+    "name": "product-product-changelog",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Product changelog and release notes that users actually read. Covers categorization, user-facing language, visuals, and distribution. Use for: release notes, changelogs, product updates, feature announcements, versioning. Triggers: changelog, release notes, product update, version notes, what's new, feature announcement, product changelog, update log, release announcement, version release, product release, ship notes\"",
+    "path": "library/bankai-skills-superpowers/skills/product-product-changelog",
+    "activation_cmd": "python .agents/library/activate_skill.py activate product-product-changelog",
+    "link_cmd": "python .agents/library/activate_skill.py link product-product-changelog"
+  },
+  {
+    "id": "product-product-hunt-launch",
+    "name": "product-product-hunt-launch",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Product Hunt launch optimization with specific specs, timing, and gallery strategy. Covers taglines, gallery images, maker comments, and launch day tactics. Use for: product launches, startup launches, side project launches, Product Hunt optimization. Triggers: product hunt, ph launch, product hunt launch, launch strategy, product launch, startup launch, product hunt tips, product hunt gallery, ph optimization, launch day, product hunt maker\"",
+    "path": "library/bankai-skills-superpowers/skills/product-product-hunt-launch",
+    "activation_cmd": "python .agents/library/activate_skill.py activate product-product-hunt-launch",
+    "link_cmd": "python .agents/library/activate_skill.py link product-product-hunt-launch"
   },
   {
     "id": "prompt-engineering",
     "name": "prompt-engineering",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Master prompt engineering for AI models: LLMs, image generators, video models. Techniques: chain-of-thought, few-shot, system prompts, negative prompts. Models: Claude, GPT-4, Gemini, FLUX, Veo, Stable Diffusion prompting. Use for: better AI outputs, consistent results, complex tasks, optimization. Triggers: prompt engineering, how to prompt, better prompts, prompt tips, prompting guide, llm prompting, image prompt, ai prompting, prompt optimization, prompt template, prompt structure, effective prompts, prompt techniques\"",
     "path": "library/bankai-skills-superpowers/skills/prompt-engineering",
     "activation_cmd": "python .agents/library/activate_skill.py activate prompt-engineering",
     "link_cmd": "python .agents/library/activate_skill.py link prompt-engineering"
+  },
+  {
+    "id": "prompting-prompt-engineering",
+    "name": "prompting-prompt-engineering",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Master prompt engineering for AI models: LLMs, image generators, video models. Techniques: chain-of-thought, few-shot, system prompts, negative prompts. Models: Claude, GPT, Gemini, FLUX, Qwen-Image, Veo prompting. Use for: better AI outputs, consistent results, complex tasks, optimization. Triggers: prompt engineering, how to prompt, better prompts, prompt tips, prompting guide, llm prompting, image prompt, ai prompting, prompt optimization, prompt template, prompt structure, effective prompts, prompt techniques\"",
+    "path": "library/bankai-skills-superpowers/skills/prompting-prompt-engineering",
+    "activation_cmd": "python .agents/library/activate_skill.py activate prompting-prompt-engineering",
+    "link_cmd": "python .agents/library/activate_skill.py link prompting-prompt-engineering"
+  },
+  {
+    "id": "prompting-video-prompting-guide",
+    "name": "prompting-video-prompting-guide",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Best practices and techniques for writing effective AI video generation prompts. Covers: Veo, Seedance, Wan, Grok, Kling, Runway, Pika, Sora prompting strategies. Learn: shot types, camera movements, lighting, pacing, style keywords, negative prompts. Use for: improving video quality, getting consistent results, professional video prompts. Triggers: video prompt, how to prompt video, veo prompts, video generation tips, better ai video, video prompt engineering, video prompt guide, video prompt template, ai video tips, video prompt best practices, video prompt examples, cinematography prompts\"",
+    "path": "library/bankai-skills-superpowers/skills/prompting-video-prompting-guide",
+    "activation_cmd": "python .agents/library/activate_skill.py activate prompting-video-prompting-guide",
+    "link_cmd": "python .agents/library/activate_skill.py link prompting-video-prompting-guide"
   },
   {
     "id": "python-executor",
     "name": "python-executor",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Execute Python code in a safe sandboxed environment via [inference.sh](https://inference.sh). Pre-installed: NumPy, Pandas, Matplotlib, requests, BeautifulSoup, Selenium, Playwright, MoviePy, Pillow, OpenCV, trimesh, and 100+ more libraries. Use for: data processing, web scraping, image manipulation, video creation, 3D model processing, PDF generation, API calls, automation scripts. Triggers: python, execute code, run script, web scraping, data analysis, image processing, video editing, 3D models, automation, pandas, matplotlib\"",
     "path": "library/bankai-skills-superpowers/skills/python-executor",
     "activation_cmd": "python .agents/library/activate_skill.py activate python-executor",
     "link_cmd": "python .agents/library/activate_skill.py link python-executor"
@@ -654,7 +1234,7 @@
     "name": "python-sdk",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Python SDK for inference.sh - run AI apps, build agents, and integrate with all models. Package: inferencesh (pip install inferencesh). Supports sync/async, streaming, file uploads. Build agents with template or ad-hoc patterns, tool builder API, skills, and human approval. Use for: Python integration, AI apps, agent development, RAG pipelines, automation. Triggers: python sdk, inferencesh, pip install, python api, python client, async inference, python agent, tool builder python, programmatic ai, python integration, sdk python\"",
     "path": "library/bankai-skills-superpowers/skills/python-sdk",
     "activation_cmd": "python .agents/library/activate_skill.py activate python-sdk",
     "link_cmd": "python .agents/library/activate_skill.py link python-sdk"
@@ -664,7 +1244,7 @@
     "name": "qwen-image-2",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Generate and edit images with Alibaba Qwen-Image-2.0 models via inference.sh CLI. Models: Qwen-Image-2.0 (fast), Qwen-Image-2.0-Pro (professional text rendering). Capabilities: text-to-image, multi-image editing, complex text rendering. Triggers: qwen image, qwen-image, alibaba image, dashscope image, qwen image 2, qwen image pro\"",
     "path": "library/bankai-skills-superpowers/skills/qwen-image-2",
     "activation_cmd": "python .agents/library/activate_skill.py activate qwen-image-2",
     "link_cmd": "python .agents/library/activate_skill.py link qwen-image-2"
@@ -674,7 +1254,7 @@
     "name": "qwen-image-2-pro",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Generate images with Alibaba Qwen-Image-2.0-Pro via inference.sh CLI. Professional text rendering, fine-grained realism, enhanced semantic adherence. Ideal for posters, banners, and text-heavy designs. Triggers: qwen image pro, qwen-image-pro, qwen 2 pro, alibaba image pro, dashscope pro, professional text rendering\"",
     "path": "library/bankai-skills-superpowers/skills/qwen-image-2-pro",
     "activation_cmd": "python .agents/library/activate_skill.py activate qwen-image-2-pro",
     "link_cmd": "python .agents/library/activate_skill.py link qwen-image-2-pro"
@@ -684,7 +1264,7 @@
     "name": "related-skill",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Discover and install related skills from inference.sh skill registry. Helps find complementary skills for your AI workflow. Use for: skill discovery, workflow expansion, capability exploration. Triggers: related skills, find skills, skill discovery, complementary skills, expand workflow, more capabilities, similar skills, skill suggestions\"",
     "path": "library/bankai-skills-superpowers/skills/related-skill",
     "activation_cmd": "python .agents/library/activate_skill.py activate related-skill",
     "link_cmd": "python .agents/library/activate_skill.py link related-skill"
@@ -694,17 +1274,57 @@
     "name": "remotion-render",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Render videos from React/Remotion component code via inference.sh. Pass TSX code, get MP4. Supports all Remotion APIs: useCurrentFrame, useVideoConfig, spring, interpolate, AbsoluteFill, Sequence. Configurable resolution, FPS, duration, codec. Use for: programmatic video generation, animated graphics, motion design, data-driven videos, React animations to video. Triggers: remotion, render video from code, tsx to video, react video, programmatic video, remotion render, code to video, animated video, motion graphics code, react animation video\"",
     "path": "library/bankai-skills-superpowers/skills/remotion-render",
     "activation_cmd": "python .agents/library/activate_skill.py activate remotion-render",
     "link_cmd": "python .agents/library/activate_skill.py link remotion-render"
+  },
+  {
+    "id": "runway",
+    "name": "runway",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate and transform video and images with Runway models via inference.sh CLI. Models: Gen-4.5, Gen-4 Turbo, Aleph 2.0, Act-Two, Gen-4 Image, Gen-4 Image Turbo. Capabilities: text-to-video, image-to-video, 2-10s duration, video-to-video transformation with keyframe guidance, character performance transfer from a reference video, text-to-image with tagged reference images. Use for: cinematic clips, animating stills, restyling footage, reframing aspect ratio, character animation, consistent characters across images. Triggers: runway, runwayml, runway gen 4, gen-4, gen 4.5, gen-4.5, gen-4 turbo, runway aleph, aleph 2, act-two, act two, runway act, runway image, gen-4 image, runway video, performance transfer\"",
+    "path": "library/bankai-skills-superpowers/skills/runway",
+    "activation_cmd": "python .agents/library/activate_skill.py activate runway",
+    "link_cmd": "python .agents/library/activate_skill.py link runway"
+  },
+  {
+    "id": "sdk-building-apps",
+    "name": "sdk-building-apps",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Build and deploy applications on inference.sh. Use when getting started, understanding the platform, creating apps, configuring resources, or needing an overview of inference.sh app development. Supports both Python and Node.js. Triggers: inference.sh app, belt app, inf.yml, inference.py, inference.js, deploy app, app development, build app, create app, GPU app, VRAM, app resources, app secrets, app credentials, multi-function app\"",
+    "path": "library/bankai-skills-superpowers/skills/sdk-building-apps",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sdk-building-apps",
+    "link_cmd": "python .agents/library/activate_skill.py link sdk-building-apps"
+  },
+  {
+    "id": "sdk-javascript-sdk",
+    "name": "sdk-javascript-sdk",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"JavaScript/TypeScript SDK for inference.sh - run AI apps, build agents, integrate with all models. Package: @inferencesh/sdk (npm install). Full TypeScript support, streaming, file uploads. Build agents with template or ad-hoc patterns, tool builder API, skills, human approval. Use for: JavaScript integration, TypeScript, Node.js, React, Next.js, frontend apps. Triggers: javascript sdk, typescript sdk, npm install, node.js api, js client, react ai, next.js ai, frontend sdk, @inferencesh/sdk, typescript agent, browser sdk, js integration\"",
+    "path": "library/bankai-skills-superpowers/skills/sdk-javascript-sdk",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sdk-javascript-sdk",
+    "link_cmd": "python .agents/library/activate_skill.py link sdk-javascript-sdk"
+  },
+  {
+    "id": "sdk-python-sdk",
+    "name": "sdk-python-sdk",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Python SDK for inference.sh - run AI apps, build agents, and integrate with all models. Package: inferencesh (pip install inferencesh). Supports sync/async, streaming, file uploads. Build agents with template or ad-hoc patterns, tool builder API, skills, and human approval. Use for: Python integration, AI apps, agent development, RAG pipelines, automation. Triggers: python sdk, inferencesh, pip install, python api, python client, async inference, python agent, tool builder python, programmatic ai, python integration, sdk python\"",
+    "path": "library/bankai-skills-superpowers/skills/sdk-python-sdk",
+    "activation_cmd": "python .agents/library/activate_skill.py activate sdk-python-sdk",
+    "link_cmd": "python .agents/library/activate_skill.py link sdk-python-sdk"
   },
   {
     "id": "seedance",
     "name": "seedance",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Generate videos with ByteDance Seedance 2.0 via inference.sh CLI. Unified model for text-to-video, image-to-video, and reference-to-video with synchronized audio, up to 1080p, 4-15s duration. Pro and Fast variants. Studio variants with private asset library for portrait consistency. Use for: social media videos, music videos, product demos, animated content, AI video with sound. Triggers: seedance, seedance 2, bytedance video, seedance t2v, seedance i2v, seedance r2v, video with audio, seedance 2.0, bytedance seedance, seedance studio\"",
     "path": "library/bankai-skills-superpowers/skills/seedance",
     "activation_cmd": "python .agents/library/activate_skill.py activate seedance",
     "link_cmd": "python .agents/library/activate_skill.py link seedance"
@@ -714,27 +1334,77 @@
     "name": "seo-content-brief",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"SEO content brief creation with keyword research, search intent analysis, and content structure. Covers SERP analysis, heading hierarchy, word count targets, and internal linking strategy. Use for: content briefs, SEO writing, blog strategy, content planning, keyword targeting. Triggers: seo content brief, content brief, seo brief, keyword research, search intent, content strategy, blog brief, seo writing, content planning, keyword targeting, serp analysis, content outline, seo article, blog seo\"",
     "path": "library/bankai-skills-superpowers/skills/seo-content-brief",
     "activation_cmd": "python .agents/library/activate_skill.py activate seo-content-brief",
     "link_cmd": "python .agents/library/activate_skill.py link seo-content-brief"
+  },
+  {
+    "id": "social-ai-social-media-content",
+    "name": "social-ai-social-media-content",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Create AI-powered social media content for TikTok, Instagram, YouTube, Twitter/X. Generate: images, videos, reels, shorts, thumbnails, captions, hashtags. Tools: FLUX, Veo, Seedance, Wan, Kokoro TTS, Claude Sonnet 5.5 and Haiku 5.5 for copywriting. Use for: content creators, social media managers, influencers, brands. Triggers: social media content, tiktok, instagram reels, youtube shorts, twitter post, content creator, ai influencer, social content, reels, shorts, viral content, thumbnail generator, caption generator, hashtag generator, ugc content\"",
+    "path": "library/bankai-skills-superpowers/skills/social-ai-social-media-content",
+    "activation_cmd": "python .agents/library/activate_skill.py activate social-ai-social-media-content",
+    "link_cmd": "python .agents/library/activate_skill.py link social-ai-social-media-content"
+  },
+  {
+    "id": "social-linkedin-content",
+    "name": "social-linkedin-content",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"LinkedIn post writing with hook formulas, formatting rules, and engagement patterns. Covers post types, algorithm signals, character limits, and content pillars. Use for: LinkedIn posts, professional content, thought leadership, B2B content, personal branding. Triggers: linkedin post, linkedin content, linkedin writing, linkedin strategy, linkedin engagement, linkedin algorithm, linkedin hook, linkedin formatting, thought leadership, professional content, b2b content, linkedin growth\"",
+    "path": "library/bankai-skills-superpowers/skills/social-linkedin-content",
+    "activation_cmd": "python .agents/library/activate_skill.py activate social-linkedin-content",
+    "link_cmd": "python .agents/library/activate_skill.py link social-linkedin-content"
   },
   {
     "id": "social-media-carousel",
     "name": "social-media-carousel",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Multi-slide carousel design for Instagram, LinkedIn, and Twitter/X with layout rules and hooks. Covers slide structure, text hierarchy, swipe psychology, and platform-specific specs. Use for: carousel posts, Instagram carousels, LinkedIn carousels, slide posts, educational content. Triggers: carousel, instagram carousel, linkedin carousel, slide post, carousel design, swipe post, multi-image post, carousel template, educational carousel, carousel content, instagram slides, linkedin slides\"",
     "path": "library/bankai-skills-superpowers/skills/social-media-carousel",
     "activation_cmd": "python .agents/library/activate_skill.py activate social-media-carousel",
     "link_cmd": "python .agents/library/activate_skill.py link social-media-carousel"
+  },
+  {
+    "id": "social-social-media-carousel",
+    "name": "social-social-media-carousel",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Multi-slide carousel design for Instagram, LinkedIn, and Twitter/X with layout rules and hooks. Covers slide structure, text hierarchy, swipe psychology, and platform-specific specs. Use for: carousel posts, Instagram carousels, LinkedIn carousels, slide posts, educational content. Triggers: carousel, instagram carousel, linkedin carousel, slide post, carousel design, swipe post, multi-image post, carousel template, educational carousel, carousel content, instagram slides, linkedin slides\"",
+    "path": "library/bankai-skills-superpowers/skills/social-social-media-carousel",
+    "activation_cmd": "python .agents/library/activate_skill.py activate social-social-media-carousel",
+    "link_cmd": "python .agents/library/activate_skill.py link social-social-media-carousel"
+  },
+  {
+    "id": "social-twitter-automation",
+    "name": "social-twitter-automation",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Automate Twitter/X with posting, engagement, and user management via inference.sh CLI. Apps: x/post-create (text and media), x/post-like, x/post-retweet, x/dm-send, x/user-follow. Capabilities: post tweets, schedule content, like posts, retweet, send DMs, follow users, get profiles. Use for: social media automation, content scheduling, engagement bots, audience growth, X API. Triggers: twitter api, x api, tweet automation, post to twitter, twitter bot, social media automation, x automation, tweet scheduler, twitter integration, post tweet, twitter post, x post, send tweet\"",
+    "path": "library/bankai-skills-superpowers/skills/social-twitter-automation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate social-twitter-automation",
+    "link_cmd": "python .agents/library/activate_skill.py link social-twitter-automation"
+  },
+  {
+    "id": "social-twitter-thread-creation",
+    "name": "social-twitter-thread-creation",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Twitter/X thread writing with hook tweets, thread structure, and engagement optimization. Covers tweet formatting, character limits, media attachments, and posting strategies. Use for: Twitter threads, X posts, tweet storms, Twitter content, social media writing. Triggers: twitter thread, tweet thread, x thread, twitter post, tweet writing, thread creation, tweet storm, twitter content, x post, twitter writing, twitter hook, tweet formatting, thread structure\"",
+    "path": "library/bankai-skills-superpowers/skills/social-twitter-thread-creation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate social-twitter-thread-creation",
+    "link_cmd": "python .agents/library/activate_skill.py link social-twitter-thread-creation"
   },
   {
     "id": "speech-to-text",
     "name": "speech-to-text",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Transcribe audio to text with ElevenLabs Scribe and Whisper models via inference.sh CLI. Models: ElevenLabs Scribe v2 (98%+ accuracy, diarization), Fast Whisper Large V3, Whisper V3 Large. Capabilities: transcription, translation, multi-language, timestamps, speaker diarization, audio event tagging. Use for: meeting transcription, subtitles, podcast transcripts, voice notes. Triggers: speech to text, transcription, whisper, audio to text, transcribe audio, voice to text, stt, automatic transcription, subtitles generation, transcribe meeting, audio transcription, whisper ai, elevenlabs stt, scribe, eleven labs transcribe\"",
     "path": "library/bankai-skills-superpowers/skills/speech-to-text",
     "activation_cmd": "python .agents/library/activate_skill.py activate speech-to-text",
     "link_cmd": "python .agents/library/activate_skill.py link speech-to-text"
@@ -744,7 +1414,7 @@
     "name": "storyboard-creation",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Film and video storyboarding with shot vocabulary, continuity rules, and panel layout. Covers shot types, camera angles, movement, 180-degree rule, and annotation format. Use for: video planning, film pre-production, ad storyboards, music video planning, animation. Triggers: storyboard, storyboarding, shot list, film planning, video planning, pre production, shot composition, camera angles, scene planning, visual script, animatic, storyboard panels, video storyboard\"",
     "path": "library/bankai-skills-superpowers/skills/storyboard-creation",
     "activation_cmd": "python .agents/library/activate_skill.py activate storyboard-creation",
     "link_cmd": "python .agents/library/activate_skill.py link storyboard-creation"
@@ -754,7 +1424,7 @@
     "name": "talking-head-production",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Talking head video production with AI avatars, lipsync, and voiceover. Recommended: P-Video-Avatar (fastest, cheapest, built-in TTS). Also covers OmniHuman, PixVerse, Fabric. Portrait requirements, audio quality, production workflows. Use for: spokesperson videos, course content, social media, presentations, demos. Triggers: talking head, avatar video, lipsync, lip sync, ai spokesperson, virtual presenter, ai presenter, omnihuman, talking avatar, video presenter, ai talking head, presenter video, ai face video, p-video-avatar\"",
     "path": "library/bankai-skills-superpowers/skills/talking-head-production",
     "activation_cmd": "python .agents/library/activate_skill.py activate talking-head-production",
     "link_cmd": "python .agents/library/activate_skill.py link talking-head-production"
@@ -764,7 +1434,7 @@
     "name": "technical-blog-writing",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Technical blog post writing with structure, code examples, and developer audience conventions. Covers post types, code formatting, explanation depth, and developer-specific engagement patterns. Use for: engineering blogs, dev tutorials, technical writing, developer content, documentation posts. Triggers: technical blog, dev blog, engineering blog, technical writing, developer tutorial, tech post, code tutorial, programming blog, developer content, technical article, engineering post, coding tutorial, technical content\"",
     "path": "library/bankai-skills-superpowers/skills/technical-blog-writing",
     "activation_cmd": "python .agents/library/activate_skill.py activate technical-blog-writing",
     "link_cmd": "python .agents/library/activate_skill.py link technical-blog-writing"
@@ -774,17 +1444,37 @@
     "name": "text-to-speech",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Convert text to natural speech with Inworld TTS, ElevenLabs, DIA TTS, Kokoro, Chatterbox, and more via inference.sh CLI. Models: Inworld TTS-2 (100+ languages, emotion steering), Inworld TTS 1.5 (ultra-low latency), ElevenLabs (premium, 22+ voices, 32 languages), DIA TTS (conversational), Kokoro TTS, Chatterbox, Higgs Audio, VibeVoice (podcasts). Capabilities: text-to-speech, voice cloning, multi-speaker dialogue, podcast generation, expressive speech, emotion/delivery steering, character voices. Use for: voiceovers, audiobooks, podcasts, accessibility, video narration, IVR, voice assistants, gaming characters, avatar audio. Triggers: text to speech, tts, voice generation, ai voice, speech synthesis, voice over, generate speech, ai narrator, voice cloning, text to audio, elevenlabs, eleven labs, voice ai, ai voiceover, speech generator, natural voice, inworld, inworld tts, character voice, game voice, npc voice\"",
     "path": "library/bankai-skills-superpowers/skills/text-to-speech",
     "activation_cmd": "python .agents/library/activate_skill.py activate text-to-speech",
     "link_cmd": "python .agents/library/activate_skill.py link text-to-speech"
+  },
+  {
+    "id": "tools-agent-tools",
+    "name": "tools-agent-tools",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Run AI apps via inference.sh CLI - image generation, video creation, LLMs, search, 3D, Twitter automation. Models: FLUX, Veo, Gemini, Grok, Claude, Seedance, OmniHuman, Tavily, Exa, and many more. Use when running AI apps, generating images/videos, calling LLMs, web search, or automating Twitter. Triggers: inference.sh, infsh, ai model, run ai, serverless ai, ai api, flux, veo, claude api, image generation, video generation, tavily, exa search, twitter api, grok\"",
+    "path": "library/bankai-skills-superpowers/skills/tools-agent-tools",
+    "activation_cmd": "python .agents/library/activate_skill.py activate tools-agent-tools",
+    "link_cmd": "python .agents/library/activate_skill.py link tools-agent-tools"
+  },
+  {
+    "id": "tools-infsh-cli",
+    "name": "tools-infsh-cli",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Run AI apps via inference.sh CLI - image generation, video creation, LLMs, search, 3D, Twitter automation. Models: FLUX, Veo, Gemini, Grok, Claude, Seedance, OmniHuman, Tavily, Exa, and many more. Use when running AI apps, generating images/videos, calling LLMs, web search, or automating Twitter. Triggers: inference.sh, infsh, ai model, run ai, serverless ai, ai api, flux, veo, claude api, image generation, video generation, tavily, exa search, twitter api, grok\"",
+    "path": "library/bankai-skills-superpowers/skills/tools-infsh-cli",
+    "activation_cmd": "python .agents/library/activate_skill.py activate tools-infsh-cli",
+    "link_cmd": "python .agents/library/activate_skill.py link tools-infsh-cli"
   },
   {
     "id": "tools-ui",
     "name": "tools-ui",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Tool lifecycle UI components for React/Next.js from ui.inference.sh. Display tool calls: pending, progress, approval required, results. Capabilities: tool status, progress indicators, approval flows, results display. Use for: showing agent tool calls, human-in-the-loop approvals, tool output. Triggers: tool ui, tool calls, tool status, tool approval, tool results, agent tools, mcp tools ui, function calling ui, tool lifecycle, tool pending\"",
     "path": "library/bankai-skills-superpowers/skills/tools-ui",
     "activation_cmd": "python .agents/library/activate_skill.py activate tools-ui",
     "link_cmd": "python .agents/library/activate_skill.py link tools-ui"
@@ -794,7 +1484,7 @@
     "name": "twitter-automation",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Automate Twitter/X with posting, engagement, and user management via inference.sh CLI. Apps: x/post-tweet, x/post-create (with media), x/post-like, x/post-retweet, x/dm-send, x/user-follow. Capabilities: post tweets, schedule content, like posts, retweet, send DMs, follow users, get profiles. Use for: social media automation, content scheduling, engagement bots, audience growth, X API. Triggers: twitter api, x api, tweet automation, post to twitter, twitter bot, social media automation, x automation, tweet scheduler, twitter integration, post tweet, twitter post, x post, send tweet\"",
     "path": "library/bankai-skills-superpowers/skills/twitter-automation",
     "activation_cmd": "python .agents/library/activate_skill.py activate twitter-automation",
     "link_cmd": "python .agents/library/activate_skill.py link twitter-automation"
@@ -804,37 +1494,197 @@
     "name": "twitter-thread-creation",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Twitter/X thread writing with hook tweets, thread structure, and engagement optimization. Covers tweet formatting, character limits, media attachments, and posting strategies. Use for: Twitter threads, X posts, tweet storms, Twitter content, social media writing. Triggers: twitter thread, tweet thread, x thread, twitter post, tweet writing, thread creation, tweet storm, twitter content, x post, twitter writing, twitter hook, tweet formatting, thread structure\"",
     "path": "library/bankai-skills-superpowers/skills/twitter-thread-creation",
     "activation_cmd": "python .agents/library/activate_skill.py activate twitter-thread-creation",
     "link_cmd": "python .agents/library/activate_skill.py link twitter-thread-creation"
+  },
+  {
+    "id": "ui-agent-ui",
+    "name": "ui-agent-ui",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Batteries-included agent component for React/Next.js from ui.inference.sh. One component with runtime, tools, streaming, approvals, and widgets built in. Capabilities: drop-in agent, human-in-the-loop, client-side tools, form filling. Use for: building AI chat interfaces, agentic UIs, SaaS copilots, assistants. Triggers: agent component, agent ui, chat agent, shadcn agent, react agent,  agentic ui, ai assistant ui, copilot ui, inference ui, human in the loop\"",
+    "path": "library/bankai-skills-superpowers/skills/ui-agent-ui",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ui-agent-ui",
+    "link_cmd": "python .agents/library/activate_skill.py link ui-agent-ui"
+  },
+  {
+    "id": "ui-tools-ui",
+    "name": "ui-tools-ui",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Tool lifecycle UI components for React/Next.js from ui.inference.sh. Display tool calls: pending, progress, approval required, results. Capabilities: tool status, progress indicators, approval flows, results display. Use for: showing agent tool calls, human-in-the-loop approvals, tool output. Triggers: tool ui, tool calls, tool status, tool approval, tool results, agent tools, mcp tools ui, function calling ui, tool lifecycle, tool pending\"",
+    "path": "library/bankai-skills-superpowers/skills/ui-tools-ui",
+    "activation_cmd": "python .agents/library/activate_skill.py activate ui-tools-ui",
+    "link_cmd": "python .agents/library/activate_skill.py link ui-tools-ui"
   },
   {
     "id": "video-ad-specs",
     "name": "video-ad-specs",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Video ad creation with exact platform-specific specs for TikTok, Instagram, YouTube, Facebook, LinkedIn. Covers dimensions, duration limits, AIDA framework, and caption requirements. Use for: video ads, social media ads, paid media creative, video marketing, ad production. Triggers: video ad, social media ad, tiktok ad, instagram ad, youtube ad, facebook ad, linkedin ad, video creative, ad specs, paid media, video marketing, ad production, reels ad, stories ad, pre roll, bumper ad\"",
     "path": "library/bankai-skills-superpowers/skills/video-ad-specs",
     "activation_cmd": "python .agents/library/activate_skill.py activate video-ad-specs",
     "link_cmd": "python .agents/library/activate_skill.py link video-ad-specs"
+  },
+  {
+    "id": "video-ai-avatar-video",
+    "name": "video-ai-avatar-video",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Create AI avatar and talking head videos via inference.sh CLI. Recommended: P-Video-Avatar (fastest, cheapest, built-in TTS). Also: OmniHuman, Fabric, PixVerse. Audio: Inworld TTS-2 (100+ languages, emotion steering for characters), ElevenLabs, Kokoro. Capabilities: audio-driven avatars, text-to-avatar, lipsync videos, talking head generation, virtual presenters, UGC content. Use for: AI presenters, explainer videos, virtual influencers, dubbing, marketing videos, UGC ads, gaming avatars, NPC dialogue. Triggers: ai avatar, talking head, lipsync, avatar video, virtual presenter, ai spokesperson, audio driven video, heygen alternative, synthesia alternative, talking avatar, lip sync, video avatar, ai presenter, digital human, ugc, ugc video, ugc ad, avatar ugc\"",
+    "path": "library/bankai-skills-superpowers/skills/video-ai-avatar-video",
+    "activation_cmd": "python .agents/library/activate_skill.py activate video-ai-avatar-video",
+    "link_cmd": "python .agents/library/activate_skill.py link video-ai-avatar-video"
+  },
+  {
+    "id": "video-ai-marketing-videos",
+    "name": "video-ai-marketing-videos",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Create AI marketing videos for ads, promos, product launches, and brand content. Models: Veo, Seedance, Wan, FLUX for visuals, Kokoro for voiceover. Types: product demos, testimonials, explainers, social ads, brand videos. Use for: Facebook ads, YouTube ads, product launches, brand awareness. Triggers: marketing video, ad video, promo video, commercial, brand video, product video, explainer video, ad creative, video ad, facebook ad video, youtube ad, instagram ad, tiktok ad, promotional video, launch video\"",
+    "path": "library/bankai-skills-superpowers/skills/video-ai-marketing-videos",
+    "activation_cmd": "python .agents/library/activate_skill.py activate video-ai-marketing-videos",
+    "link_cmd": "python .agents/library/activate_skill.py link video-ai-marketing-videos"
+  },
+  {
+    "id": "video-ai-video-generation",
+    "name": "video-ai-video-generation",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate AI videos with Google Veo, Seedance 2.5, Kling, HappyHorse, Wan, Grok and 40+ models via inference.sh CLI. Models: Veo 3.1, Seedance 2.5, Kling v4, Runway Gen-4.5, FLUX 3 Video, HappyHorse 1.0, Wan 2.7, Grok Imagine Video 1.5, P-Video 2, OmniHuman, Fabric. Capabilities: text-to-video, image-to-video, reference-to-video, video editing, lipsync, avatar animation, video upscaling, foley sound. Use for: social media videos, marketing content, explainer videos, product demos, AI avatars. Triggers: video generation, ai video, text to video, image to video, veo, animate image, video from image, ai animation, video generator, generate video, t2v, i2v, ai video maker, create video with ai, runway, pika alternative, sora alternative, kling, seedance, happyhorse\"",
+    "path": "library/bankai-skills-superpowers/skills/video-ai-video-generation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate video-ai-video-generation",
+    "link_cmd": "python .agents/library/activate_skill.py link video-ai-video-generation"
+  },
+  {
+    "id": "video-enhancement",
+    "name": "video-enhancement",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Upscale, restore, denoise, interpolate and edit existing videos via inference.sh CLI. Models: Topaz Proteus, Starlight, Astra, Nyx denoise, Apollo/Chronos/Aion frame interpolation, Themis deblur, colorization, Hyperion SDR to HDR, RIFE, Bria video upscale, background removal, green screen, background replacement, video eraser, Pruna P-Video-Upscale. Use for: upscale video to 1080p/4K/8K, restore old or compressed footage, deinterlace, remove noise and grain, slow motion, 60fps conversion, colorize black and white video, remove or replace video background, erase objects from video. Triggers: video upscale, upscale video, video upscaler, 4k video, enhance video, video enhancement, restore video, topaz video, topaz video ai, proteus, starlight, astra, denoise video, video noise reduction, deinterlace, frame interpolation, slow motion, increase fps, 60fps, rife, colorize video, sdr to hdr, deblur video, video background removal, remove video background, green screen video, replace video background, video eraser, remove object from video\"",
+    "path": "library/bankai-skills-superpowers/skills/video-enhancement",
+    "activation_cmd": "python .agents/library/activate_skill.py activate video-enhancement",
+    "link_cmd": "python .agents/library/activate_skill.py link video-enhancement"
+  },
+  {
+    "id": "video-explainer-video-guide",
+    "name": "video-explainer-video-guide",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Explainer video production guide: scripting, voiceover, visuals, and assembly. Covers script formulas, pacing rules, scene planning, and multi-tool pipelines. Use for: product demos, how-it-works videos, onboarding videos, social explainers. Triggers: explainer video, how to make explainer, product video, demo video, video production, video script, animated explainer, product demo video, tutorial video, onboarding video, walkthrough video, video pipeline\"",
+    "path": "library/bankai-skills-superpowers/skills/video-explainer-video-guide",
+    "activation_cmd": "python .agents/library/activate_skill.py activate video-explainer-video-guide",
+    "link_cmd": "python .agents/library/activate_skill.py link video-explainer-video-guide"
+  },
+  {
+    "id": "video-google-veo",
+    "name": "video-google-veo",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate videos with Google Veo models via inference.sh CLI. Models: Veo 3.1, Veo 3.1 Fast. Capabilities: text-to-video, cinematic output, high quality video generation. Triggers: veo, google veo, veo 3, veo 2, veo 3.1, vertex ai video, google video generation, google video ai, veo model, veo video\"",
+    "path": "library/bankai-skills-superpowers/skills/video-google-veo",
+    "activation_cmd": "python .agents/library/activate_skill.py activate video-google-veo",
+    "link_cmd": "python .agents/library/activate_skill.py link video-google-veo"
+  },
+  {
+    "id": "video-happyhorse",
+    "name": "video-happyhorse",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate and edit videos with Alibaba HappyHorse 1.0 models via inference.sh CLI. Models: HappyHorse T2V, I2V, R2V, Video Edit. Capabilities: text-to-video, image-to-video, reference-to-video, video editing with natural language, character preservation, 720P/1080P, up to 15 seconds. Use for: physically realistic video, video editing, character-consistent content, product demos, social media. Triggers: happyhorse, happy horse, alibaba video, happyhorse 1.0, dashscope video, alibaba happyhorse, video editing ai, ai video editor\"",
+    "path": "library/bankai-skills-superpowers/skills/video-happyhorse",
+    "activation_cmd": "python .agents/library/activate_skill.py activate video-happyhorse",
+    "link_cmd": "python .agents/library/activate_skill.py link video-happyhorse"
+  },
+  {
+    "id": "video-image-to-video",
+    "name": "video-image-to-video",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Still-to-video conversion guide: model selection, motion prompting, and camera movement. Covers Wan 2.7 i2v, Seedance 2.5, Kling v4, Grok Imagine Video 1.5 with when to use each. Use for: animating images, creating video from stills, adding motion, product animations. Triggers: image to video, i2v, animate image, still to video, add motion to image, image animation, photo to video, animate still, wan i2v, image2video, bring image to life, animate photo, motion from image\"",
+    "path": "library/bankai-skills-superpowers/skills/video-image-to-video",
+    "activation_cmd": "python .agents/library/activate_skill.py activate video-image-to-video",
+    "link_cmd": "python .agents/library/activate_skill.py link video-image-to-video"
+  },
+  {
+    "id": "video-p-video",
+    "name": "video-p-video",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate videos with Pruna P-Video 2 and WAN models via inference.sh CLI. Models: P-Video 2, WAN-T2V, WAN-I2V. Capabilities: text-to-video, image-to-video, audio support, 720p/1080p, up to 20s, fast inference. Pruna optimizes models for speed without quality loss. Triggers: pruna video, p-video, p-video 2, pruna ai video, fast video generation, optimized video, wan t2v, wan i2v, economic video generation, cheap video generation, pruna text to video, pruna image to video\"",
+    "path": "library/bankai-skills-superpowers/skills/video-p-video",
+    "activation_cmd": "python .agents/library/activate_skill.py activate video-p-video",
+    "link_cmd": "python .agents/library/activate_skill.py link video-p-video"
+  },
+  {
+    "id": "video-p-video-avatar",
+    "name": "video-p-video-avatar",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate talking head avatar videos with Pruna P-Video-Avatar via inference.sh CLI. Turn a portrait image into a realistic speaking video with built-in TTS. 18x faster and 6x cheaper than competitors. Models: P-Video-Avatar, P-Image (for portrait generation). Capabilities: text-to-avatar, audio-driven avatars, 30 voices, 10 languages, 720p/1080p, built-in TTS, dynamic backgrounds, full-body control. Use for: AI presenters, product demos, explainer videos, virtual influencers, marketing, education, multilingual content, UGC, gaming avatars. Triggers: avatar video, talking head, ai avatar, p-video-avatar, pruna avatar, video avatar, ai presenter, digital human, virtual presenter, lipsync, talking avatar, ai spokesperson, heygen alternative, synthesia alternative, veed alternative, fabric alternative, omnihuman alternative\"",
+    "path": "library/bankai-skills-superpowers/skills/video-p-video-avatar",
+    "activation_cmd": "python .agents/library/activate_skill.py activate video-p-video-avatar",
+    "link_cmd": "python .agents/library/activate_skill.py link video-p-video-avatar"
   },
   {
     "id": "video-prompting-guide",
     "name": "video-prompting-guide",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Best practices and techniques for writing effective AI video generation prompts. Covers: Veo, Seedance, Wan, Grok, Kling, Runway, Pika, Sora prompting strategies. Learn: shot types, camera movements, lighting, pacing, style keywords, negative prompts. Use for: improving video quality, getting consistent results, professional video prompts. Triggers: video prompt, how to prompt video, veo prompts, video generation tips, better ai video, video prompt engineering, video prompt guide, video prompt template, ai video tips, video prompt best practices, video prompt examples, cinematography prompts\"",
     "path": "library/bankai-skills-superpowers/skills/video-prompting-guide",
     "activation_cmd": "python .agents/library/activate_skill.py activate video-prompting-guide",
     "link_cmd": "python .agents/library/activate_skill.py link video-prompting-guide"
+  },
+  {
+    "id": "video-seedance",
+    "name": "video-seedance",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Generate videos with ByteDance Seedance 2.5 via inference.sh CLI. Unified model for text-to-video, image-to-video, and reference-to-video with synchronized audio, up to 1080p, 4-30s duration. Draft mode for fast previews. Studio variant with private asset library for portrait consistency. Use for: social media videos, music videos, product demos, animated content, AI video with sound. Triggers: seedance, seedance 2, seedance 2.5, bytedance video, seedance t2v, seedance i2v, seedance r2v, video with audio, bytedance seedance, seedance studio\"",
+    "path": "library/bankai-skills-superpowers/skills/video-seedance",
+    "activation_cmd": "python .agents/library/activate_skill.py activate video-seedance",
+    "link_cmd": "python .agents/library/activate_skill.py link video-seedance"
+  },
+  {
+    "id": "video-storyboard-creation",
+    "name": "video-storyboard-creation",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Film and video storyboarding with shot vocabulary, continuity rules, and panel layout. Covers shot types, camera angles, movement, 180-degree rule, and annotation format. Use for: video planning, film pre-production, ad storyboards, music video planning, animation. Triggers: storyboard, storyboarding, shot list, film planning, video planning, pre production, shot composition, camera angles, scene planning, visual script, animatic, storyboard panels, video storyboard\"",
+    "path": "library/bankai-skills-superpowers/skills/video-storyboard-creation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate video-storyboard-creation",
+    "link_cmd": "python .agents/library/activate_skill.py link video-storyboard-creation"
+  },
+  {
+    "id": "video-talking-head-production",
+    "name": "video-talking-head-production",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Talking head video production with AI avatars, lipsync, and voiceover. Recommended: P-Video-Avatar (fastest, cheapest, built-in TTS). Also covers OmniHuman, PixVerse, Fabric. Portrait requirements, audio quality, production workflows. Use for: spokesperson videos, course content, social media, presentations, demos. Triggers: talking head, avatar video, lipsync, lip sync, ai spokesperson, virtual presenter, ai presenter, omnihuman, talking avatar, video presenter, ai talking head, presenter video, ai face video, p-video-avatar\"",
+    "path": "library/bankai-skills-superpowers/skills/video-talking-head-production",
+    "activation_cmd": "python .agents/library/activate_skill.py activate video-talking-head-production",
+    "link_cmd": "python .agents/library/activate_skill.py link video-talking-head-production"
+  },
+  {
+    "id": "video-video-ad-specs",
+    "name": "video-video-ad-specs",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Video ad creation with exact platform-specific specs for TikTok, Instagram, YouTube, Facebook, LinkedIn. Covers dimensions, duration limits, AIDA framework, and caption requirements. Use for: video ads, social media ads, paid media creative, video marketing, ad production. Triggers: video ad, social media ad, tiktok ad, instagram ad, youtube ad, facebook ad, linkedin ad, video creative, ad specs, paid media, video marketing, ad production, reels ad, stories ad, pre roll, bumper ad\"",
+    "path": "library/bankai-skills-superpowers/skills/video-video-ad-specs",
+    "activation_cmd": "python .agents/library/activate_skill.py activate video-video-ad-specs",
+    "link_cmd": "python .agents/library/activate_skill.py link video-video-ad-specs"
   },
   {
     "id": "web-search",
     "name": "web-search",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Web search and content extraction with Tavily and Exa via inference.sh CLI. Apps: Tavily Search, Tavily Extract, Exa Search, Exa Answer, Exa Extract. Capabilities: AI-powered search, content extraction, direct answers, research. Use for: research, RAG pipelines, fact-checking, content aggregation, agents. Triggers: web search, tavily, exa, search api, content extraction, research, internet search, ai search, search assistant, web scraping, rag, perplexity alternative\"",
     "path": "library/bankai-skills-superpowers/skills/web-search",
     "activation_cmd": "python .agents/library/activate_skill.py activate web-search",
     "link_cmd": "python .agents/library/activate_skill.py link web-search"
@@ -844,17 +1694,67 @@
     "name": "widgets-ui",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"Declarative UI widgets from JSON for React/Next.js from ui.inference.sh. Render rich interactive UIs from structured agent responses. Capabilities: forms, buttons, cards, layouts, inputs, selects, checkboxes. Use for: agent-generated UIs, dynamic forms, data display, interactive cards. Triggers: widgets, declarative ui, json ui, widget renderer, agent widgets, dynamic ui, form widgets, card widgets, shadcn widgets, structured output ui\"",
     "path": "library/bankai-skills-superpowers/skills/widgets-ui",
     "activation_cmd": "python .agents/library/activate_skill.py activate widgets-ui",
     "link_cmd": "python .agents/library/activate_skill.py link widgets-ui"
+  },
+  {
+    "id": "writing-case-study-writing",
+    "name": "writing-case-study-writing",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"B2B case study writing with STAR framework, data visualization, and research. Covers structure, customer quotes, metrics presentation, and distribution formats. Use for: customer success stories, portfolio pieces, sales enablement, marketing content. Triggers: case study, customer story, success story, b2b case study, client testimonial, customer case study, portfolio case study, use case, customer win, results story\"",
+    "path": "library/bankai-skills-superpowers/skills/writing-case-study-writing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate writing-case-study-writing",
+    "link_cmd": "python .agents/library/activate_skill.py link writing-case-study-writing"
+  },
+  {
+    "id": "writing-newsletter-curation",
+    "name": "writing-newsletter-curation",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Newsletter curation with content sourcing, editorial structure, and subscriber growth strategies. Covers issue formatting, link roundups, commentary style, and sending cadence. Use for: email newsletters, link roundups, weekly digests, curated content, creator newsletters. Triggers: newsletter, email newsletter, newsletter curation, weekly digest, link roundup, curated newsletter, newsletter writing, newsletter format, subscriber growth, newsletter strategy, content curation, newsletter template\"",
+    "path": "library/bankai-skills-superpowers/skills/writing-newsletter-curation",
+    "activation_cmd": "python .agents/library/activate_skill.py activate writing-newsletter-curation",
+    "link_cmd": "python .agents/library/activate_skill.py link writing-newsletter-curation"
+  },
+  {
+    "id": "writing-press-release-writing",
+    "name": "writing-press-release-writing",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Press release writing in AP style with inverted pyramid structure. Covers formatting, datelines, quotes, boilerplates, and fact-checking. Use for: product launches, funding announcements, partnerships, company news, events. Triggers: press release, pr writing, media release, news release, announcement, product launch announcement, funding announcement, company news, media advisory, ap style, press statement, news wire\"",
+    "path": "library/bankai-skills-superpowers/skills/writing-press-release-writing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate writing-press-release-writing",
+    "link_cmd": "python .agents/library/activate_skill.py link writing-press-release-writing"
+  },
+  {
+    "id": "writing-seo-content-brief",
+    "name": "writing-seo-content-brief",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"SEO content brief creation with keyword research, search intent analysis, and content structure. Covers SERP analysis, heading hierarchy, word count targets, and internal linking strategy. Use for: content briefs, SEO writing, blog strategy, content planning, keyword targeting. Triggers: seo content brief, content brief, seo brief, keyword research, search intent, content strategy, blog brief, seo writing, content planning, keyword targeting, serp analysis, content outline, seo article, blog seo\"",
+    "path": "library/bankai-skills-superpowers/skills/writing-seo-content-brief",
+    "activation_cmd": "python .agents/library/activate_skill.py activate writing-seo-content-brief",
+    "link_cmd": "python .agents/library/activate_skill.py link writing-seo-content-brief"
+  },
+  {
+    "id": "writing-technical-blog-writing",
+    "name": "writing-technical-blog-writing",
+    "repository": "bankai-skills-superpowers",
+    "category": "general",
+    "description": "\"Technical blog post writing with structure, code examples, and developer audience conventions. Covers post types, code formatting, explanation depth, and developer-specific engagement patterns. Use for: engineering blogs, dev tutorials, technical writing, developer content, documentation posts. Triggers: technical blog, dev blog, engineering blog, technical writing, developer tutorial, tech post, code tutorial, programming blog, developer content, technical article, engineering post, coding tutorial, technical content\"",
+    "path": "library/bankai-skills-superpowers/skills/writing-technical-blog-writing",
+    "activation_cmd": "python .agents/library/activate_skill.py activate writing-technical-blog-writing",
+    "link_cmd": "python .agents/library/activate_skill.py link writing-technical-blog-writing"
   },
   {
     "id": "youtube-thumbnail-design",
     "name": "youtube-thumbnail-design",
     "repository": "bankai-skills-superpowers",
     "category": "general",
-    "description": "",
+    "description": "\"YouTube thumbnail design with specific dimensions, contrast rules, and mobile preview optimization. Covers safe zones, text placement, face expression psychology, and A/B testing. Use for: YouTube thumbnails, video cover images, click-through optimization. Triggers: youtube thumbnail, thumbnail design, video thumbnail, click through rate, ctr optimization, youtube cover, video cover image, thumbnail maker, thumbnail tips, youtube design, video preview image\"",
     "path": "library/bankai-skills-superpowers/skills/youtube-thumbnail-design",
     "activation_cmd": "python .agents/library/activate_skill.py activate youtube-thumbnail-design",
     "link_cmd": "python .agents/library/activate_skill.py link youtube-thumbnail-design"

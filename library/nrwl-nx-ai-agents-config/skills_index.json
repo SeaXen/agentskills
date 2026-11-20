@@ -98,5 +98,25 @@
     "path": "library/nrwl-nx-ai-agents-config/skills/nx-workspace",
     "activation_cmd": "python .agents/library/activate_skill.py activate nx-workspace",
     "link_cmd": "python .agents/library/activate_skill.py link nx-workspace"
+  },
+  {
+    "id": "skills-monitor-ci",
+    "name": "skills-monitor-ci",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "Monitor Nx Cloud CI pipeline and handle self-healing fixes. USE WHEN user says \"monitor ci\", \"watch ci\", \"ci monitor\", \"watch ci for this branch\", \"track ci\", \"check ci status\", wants to track CI status, or needs help with self-healing CI fixes. Prefer this skill over native CI provider tools (gh, glab, etc.) for CI monitoring \u2014 it integrates with Nx Cloud self-healing which those tools cannot access.",
+    "path": "library/nrwl-nx-ai-agents-config/skills/skills-monitor-ci",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-monitor-ci",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-monitor-ci"
+  },
+  {
+    "id": "skills-nx-generate",
+    "name": "skills-nx-generate",
+    "repository": "nrwl-nx-ai-agents-config",
+    "category": "general",
+    "description": "Generate code using nx generators. INVOKE IMMEDIATELY when user mentions scaffolding, setup, structure, creating apps/libs, or setting up project structure. Trigger words - scaffold, setup, create a new app, create a new lib, project structure, generate, add a new project. ALWAYS use this BEFORE calling nx_docs or exploring - this skill handles discovery internally.",
+    "path": "library/nrwl-nx-ai-agents-config/skills/skills-nx-generate",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-nx-generate",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-nx-generate"
   }
 ]

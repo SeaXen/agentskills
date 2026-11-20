@@ -1,7 +1,7 @@
 # 💰 Financial Modeling, Tax & Accounting
 
 > **Category**: `business-finance-accounting`  
-> **Total Curated Skills**: 292 skills  
+> **Total Curated Skills**: 295 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -22,6 +22,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`3-statement-model`](../../library/anthropics-financial-services/skills/3-statement-model) | ⚪ Reserve | `anthropics-financial-services` | Complete, populate and fill out 3-statement financial model templates (Income Statement, Balanc... |
 | [`_template`](../../library/claude-office-skills-skills/skills/_template) | ⚪ Reserve | `claude-office-skills-skills` | A clear, concise description of what this skill does (1-2 sentences). Focus on the VALUE it pro... |
 | [`academic-paper-search`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/academic-paper-search) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | This skill should be used when the user asks to "search for academic papers", "find working pap... |
+| [`academic-research`](../../library/101-skills-superpowers/skills/academic-research) | ⚪ Reserve | `101-skills-superpowers` | Search and fetch academic papers and archives via inference.sh CLI. Apps: arXiv Search, arXiv P... |
 | [`accounting-audit-system-builder`](../../library/sickn33-agentic-awesome-skills/skills/accounting-audit-system-builder) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Routes an accounting or audit request to the right module skill, from software selection throug... |
 | [`activate-conversion-value-mapper`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/activate-conversion-value-mapper) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "set up conversion values so tROAS optimizes profit not orders", "map... |
 | [`ad-attribution-gap`](../../library/mbfinotti-advertising-skills/skills/ad-attribution-gap) | ⚪ Reserve | `mbfinotti-advertising-skills` | Quantify and explain the discrepancy between ad platform reporting, an analytics tool, and the ... |
@@ -45,6 +46,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`build-in-public`](../../library/samber-developer-relations-skills/skills/build-in-public) | ⚪ Reserve | `samber-developer-relations-skills` | Designs a sustainable build-in-public practice for an open-source project or developer tool: ho... |
 | [`built-accounting`](../../library/membranedev-application-skills/skills/built-accounting) | ⚪ Reserve | `membranedev-application-skills` | Built Accounting integration. Manage data, records, and automate workflows. Use when the user w... |
 | [`business-growth-skills`](../../library/alirezarezvani-claude-skills/skills/business-growth-skills) | ⚪ Reserve | `alirezarezvani-claude-skills` | Router/index for the 4 business & growth skills bundled in this plugin: customer-success-manage... |
+| [`business-marketing-micro-saas-launcher`](../../library/davila7-claude-code-templates/skills/business-marketing-micro-saas-launcher) | ⚪ Reserve | `davila7-claude-code-templates` | Expert in launching small, focused SaaS products fast - the indie hacker approach to building p... |
 | [`calibrate-first`](../../library/sickn33-agentic-awesome-skills/skills/calibrate-first) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Measure a dataset's detection floor before reading any trading-signal result, pre-register ever... |
 | [`cash-flow-snapshot`](../../library/anthropics-knowledge-work/skills/cash-flow-snapshot) | ⚪ Reserve | `anthropics-knowledge-work` | Reads AR/AP, historical cash timing, and known fixed costs from the ledger (MYOB, NetSuite, Qui... |
 | [`churn-prevention`](../../library/alirezarezvani-claude-skills/skills/churn-prevention) | ⚪ Reserve | `alirezarezvani-claude-skills` | Reduce voluntary and involuntary churn through cancel flow design, save offers, exit surveys, a... |
@@ -198,6 +200,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`pricing-strategy`](../../library/alirezarezvani-claude-skills/skills/pricing-strategy) | ⚪ Reserve | `alirezarezvani-claude-skills` | Design, optimize, and communicate SaaS pricing — tier structure, value metrics, pricing pages, ... |
 | [`problem-statement`](../../library/deanpeters-product-manager-skills/skills/problem-statement) | ⚪ Reserve | `deanpeters-product-manager-skills` | Write a user-centered problem statement with who is blocked, what they are trying to do, why it... |
 | [`product-vision`](../../library/phuryn-pm-skills/skills/product-vision) | ⚪ Reserve | `phuryn-pm-skills` | Brainstorm an inspiring, achievable, and emotional product vision that motivates teams and alig... |
+| [`productivity-notion-template-business`](../../library/davila7-claude-code-templates/skills/productivity-notion-template-business) | ⚪ Reserve | `davila7-claude-code-templates` | Expert in building and selling Notion templates as a business - not just making templates, but ... |
 | [`puffer-plugin`](../../library/okx-plugin-store/skills/puffer-plugin) | ⚪ Reserve | `okx-plugin-store` | Liquid restaking on Puffer Finance (Ethereum). Deposit ETH into PufferVault to mint pufETH (ERC... |
 | [`purchase-accounting`](../../library/sickn33-agentic-awesome-skills/skills/purchase-accounting) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Purchase register: supplier, invoice, gross amount, VAT and TDS, net payable, ledger account an... |
 | [`quantitative-finance-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/quantitative-finance-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Quantitative methods for financial modeling, derivatives pricing, and risk an... |

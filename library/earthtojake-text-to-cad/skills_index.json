@@ -180,6 +180,26 @@
     "link_cmd": "python .agents/library/activate_skill.py link skills-pcb"
   },
   {
+    "id": "skills-print3d",
+    "name": "skills-print3d",
+    "repository": "earthtojake-text-to-cad",
+    "category": "general",
+    "description": "Prints a part - slices an `.stl`, `.3mf` or `.obj` into printer-ready G-code with OrcaSlicer, headless or in the app, with built-in profiles for most FDM printers (Prusa, Bambu Lab, Creality, Voron), and sends it to a Bambu Lab printer through Bambu Connect or Bambu Studio. Use when the person wants a model sliced or printed. Never starts a print; whether a part will print is the cad skill's check.",
+    "path": "library/earthtojake-text-to-cad/skills/skills-print3d",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-print3d",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-print3d"
+  },
+  {
+    "id": "skills-render",
+    "name": "skills-render",
+    "repository": "earthtojake-text-to-cad",
+    "category": "general",
+    "description": "Renders photoreal images and videos of a text-to-cad model, a STEP or an xbf with Blender, for people to look at, such as a hero shot, a README picture, a product post, a turntable or a film of a model's motion or animation. Exports a GLB, loads it with cad.blender, lights and frames it in a bpy script that `cad run` runs, drafts in EEVEE and finishes in Cycles on the GPU, and can save a .blend. Not for checking geometry, which a snapshot does.",
+    "path": "library/earthtojake-text-to-cad/skills/skills-render",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-render",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-render"
+  },
+  {
     "id": "skills-robot-simulation",
     "name": "skills-robot-simulation",
     "repository": "earthtojake-text-to-cad",

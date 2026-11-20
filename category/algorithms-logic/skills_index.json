@@ -1392,6 +1392,14 @@
     "path": "category/algorithms-logic/principle-the-algorithm"
   },
   {
+    "id": "productivity-invoice-organizer",
+    "name": "productivity-invoice-organizer",
+    "category": "algorithms-logic",
+    "repository": "davila7-claude-code-templates",
+    "description": "Automatically organizes invoices and receipts for tax preparation by reading messy files, extracting key information, renaming them consistently, and sorting them into logical folders. Turns hours of manual bookkeeping into minutes of automated organization.",
+    "path": "category/algorithms-logic/productivity-invoice-organizer"
+  },
+  {
     "id": "programmatic-seo-builder",
     "name": "programmatic-seo-builder",
     "category": "algorithms-logic",
@@ -1616,12 +1624,28 @@
     "path": "category/algorithms-logic/senior-ml-engineer"
   },
   {
+    "id": "sergebulaev-linkedin-skills",
+    "name": "sergebulaev-linkedin-skills",
+    "category": "algorithms-logic",
+    "repository": "sergebulaev-linkedin-skills",
+    "description": "Plan, draft, audit, and publish LinkedIn posts and comments. Use when the user wants to write a viral LinkedIn post, draft a comment or reply on any LinkedIn post URL, audit a draft against 2026 algorithm heuristics, remove AI tells, extract hook formulas from viral posts, or plan a week of content. Powered by the Publora API for publishing. User provides post/comment URLs, skill drafts content, user approves, then publishes.",
+    "path": "category/algorithms-logic/sergebulaev-linkedin-skills"
+  },
+  {
     "id": "shader-programming",
     "name": "shader-programming",
     "category": "algorithms-logic",
     "repository": "gamedev-skills-awesome-gamedev-agent-skills",
     "description": "Engine-neutral shader technique in GLSL with HLSL equivalents: how dissolve, outline, fresnel rim and post effects work, and porting GLSL to HLSL. Use when the math of an effect is the question, or for specks or mobile shimmer. To write a shader in one engine, its skill alone is enough (`godot-shaders`, `threejs-materials-lighting`, `pixijs-rendering`). Not for particles (`unreal-niagara`).",
     "path": "category/algorithms-logic/shader-programming"
+  },
+  {
+    "id": "shopify-functions",
+    "name": "shopify-functions",
+    "category": "algorithms-logic",
+    "repository": "shopify-shopify-ai-toolkit",
+    "description": "Shopify Functions allow developers to customize the backend logic that powers parts of Shopify. Available APIs: Discount, Cart and Checkout Validation, Cart Transform, Pickup Point Delivery Option Generator, Delivery Customization, Fulfillment Constraints, Local Pickup Delivery Option Generator, Order Routing Location Rule, Payment Customization",
+    "path": "category/algorithms-logic/shopify-functions"
   },
   {
     "id": "siege",
@@ -1646,6 +1670,30 @@
     "repository": "dart-lang-skills",
     "description": "Write and organize unit tests for functions, methods, and classes using `package:test`. Use when creating new logic or fixing bugs to ensure code remains correct and regression-free.",
     "path": "category/algorithms-logic/skills-dart-add-unit-test"
+  },
+  {
+    "id": "skills-doca-pcc",
+    "name": "skills-doca-pcc",
+    "category": "algorithms-logic",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user is doing hands-on host-side DOCA PCC work to load a CUSTOM Programmable Congestion Control algorithm onto a BlueField DPU \u2014 creating per-port `doca_pcc` contexts, loading a `dpacc`-compiled `doca_pcc_app` onto the `doca_dev` for the RoCE-bearing port, parameterizing it, walking triple-axis capability discovery (DOCA cap-query + DPA-capable BlueField + firmware custom-PCC slot enabled), or debugging `DOCA_ERROR_*` from `doca_pcc_*`. Trigger even without explicit \"DOCA PCC\" phrasing \u2014 implicit forms include \"loading my own congestion control onto a BF port\", \"DOCA_ERROR_NOT_PERMITTED on algorithm load\", \"DOCA_ERROR_DRIVER when I attach my custom algorithm\", \"my custom rate-update isn't affecting RoCE traffic\", or \"load succeeds but no on-wire change\". Refuse and route elsewhere for DPA-side algorithm-body design, the `pcc_counters` CLI, default factory PCC in ConnectX firmware, or setting up the RDMA / RoCE traffic \u2014 those belong to other skills.",
+    "path": "category/algorithms-logic/skills-doca-pcc"
+  },
+  {
+    "id": "skills-doca-sha",
+    "name": "skills-doca-sha",
+    "category": "algorithms-logic",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user needs SHA-1, SHA-256, or SHA-512 digest acceleration on BlueField-2 silicon via doca_sha (absent on BF-3) \u2014 selecting one-shot `doca_sha_task_hash` versus incremental `doca_sha_task_partial_hash` for chunked input, consulting `doca_sha_cap_*` for per-algorithm digest-size limits and input alignment, or decoding DOCA_ERROR_* statuses such as BAD_STATE on a resumed partial hash. Also load it for implied asks like \"accelerate SHA-256 on the NIC\", \"streaming digest over chunks\", \"digest output size mismatch\", or \"is SHA-512 present on this card\". Refuse and route to the proper owner for cryptographic-hash theory (collision resistance, SHA-3 selection), the AES-GCM / Compress / DMA libraries, or SDK install and BFB bring-up.",
+    "path": "category/algorithms-logic/skills-doca-sha"
+  },
+  {
+    "id": "skills-doca-spcx-cc",
+    "name": "skills-doca-spcx-cc",
+    "category": "algorithms-logic",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user is invoking `doca_spcx_cc` (the host-side CLI under /opt/mellanox/doca/tools/) to load, parameterize, start, observe, or stop an SPC-X congestion-control algorithm on a BlueField with a DPA processor against a live RDMA / RoCE fabric, or picking SPCX vs the established `doca-pcc` surface. Trigger even when the user does not say \"DOCA SPCX\" or \"doca_spcx_cc\" \u2014 typical implicit phrasings include \"I want to write a custom RTT-based CC algorithm for my RoCE fabric\", \"my SPCX session loaded but throughput / latency didn't change\", \"doca_pcc status shows Active but factory CC seems to still be in charge\", \"DOCA_PCC_PS_ERROR on start\", \"is the programmable-CC surface available on my install\", or \"DPA-side algorithm image won't load\". Refuse and route elsewhere for DPA-side algorithm authoring detail, factory PCC firmware configuration, read-only PCC counter inspection, raw DPA cycle profiling, RDMA library programming, or general DOCA install \u2014 those belong to other skills.",
+    "path": "category/algorithms-logic/skills-doca-spcx-cc"
   },
   {
     "id": "skills-dyl-mode",
@@ -1720,6 +1768,14 @@
     "path": "category/algorithms-logic/skills-melonjs-renderables"
   },
   {
+    "id": "skills-msw-scripting",
+    "name": "skills-msw-scripting",
+    "category": "algorithms-logic",
+    "repository": "msw-git-msw-ai-coding-plugins-official",
+    "description": "Authoring MSW scripts (.mlua) plus integrated playtest and debugging. Covers mlua syntax, annotations (@Component/@Logic/@ExecSpace/@Sync), lifecycle, exec spaces, property sync, event system, file workflow, build-log inspection, error classification, and the test/debug loop. Keywords: script, mlua, lua, Component, Logic, annotation, ExecSpace, Sync, event, play, test, debug, lifecycle.",
+    "path": "category/algorithms-logic/skills-msw-scripting"
+  },
+  {
     "id": "skills-platform-metadata-grounding-get",
     "name": "skills-platform-metadata-grounding-get",
     "category": "algorithms-logic",
@@ -1731,7 +1787,7 @@
     "id": "skills-principle-boundary-discipline",
     "name": "skills-principle-boundary-discipline",
     "category": "algorithms-logic",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Apply when wiring validation, error handling, or framework adapters. Concentrate guards at system boundaries (CLI, config, network, external APIs); trust internal types and keep business logic in pure functions.",
     "path": "category/algorithms-logic/skills-principle-boundary-discipline"
   },
@@ -1739,7 +1795,7 @@
     "id": "skills-principle-foundational-thinking",
     "name": "skills-principle-foundational-thinking",
     "category": "algorithms-logic",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-feature work, asking what concurrent actors share. Get the data structures right so downstream code becomes obvious.",
     "path": "category/algorithms-logic/skills-principle-foundational-thinking"
   },
@@ -1747,7 +1803,7 @@
     "id": "skills-principle-model-the-domain",
     "name": "skills-principle-model-the-domain",
     "category": "algorithms-logic",
-    "repository": "cursor-plugins",
+    "repository": "backnotprop-pstack",
     "description": "Apply when writing stateful logic, or when code branches a lot or repeats a shape assumption across files.",
     "path": "category/algorithms-logic/skills-principle-model-the-domain"
   },
@@ -1758,6 +1814,14 @@
     "repository": "cursor-plugins",
     "description": "Apply to any non-trivial change before designing it. Make the requirement less dumb, delete, optimize, accelerate, automate, in that order, then run it again on the result. The reply names the requirement you questioned and what you deleted.",
     "path": "category/algorithms-logic/skills-principle-the-algorithm"
+  },
+  {
+    "id": "skills-reimagine-work",
+    "name": "skills-reimagine-work",
+    "category": "algorithms-logic",
+    "repository": "ericosiu-ai-marketing-skills",
+    "description": "Weekly Elon-algorithm pass over an agent fleet plus a shadow owner judge that stops asking the founder things already answered.",
+    "path": "category/algorithms-logic/skills-reimagine-work"
   },
   {
     "id": "skills-resilience",

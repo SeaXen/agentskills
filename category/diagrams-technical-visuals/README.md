@@ -1,7 +1,7 @@
 # 📊 Technical Diagrams & Isometric SVG
 
 > **Category**: `diagrams-technical-visuals`  
-> **Total Curated Skills**: 106 skills  
+> **Total Curated Skills**: 107 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -48,6 +48,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`create-viz`](../../library/anthropics-knowledge-work/skills/create-viz) | ⚪ Reserve | `anthropics-knowledge-work` | Create publication-quality visualizations with Python. Use when turning query results or a Data... |
 | [`d3-visualization`](../../library/feimacode-open-design-agent-kit/skills/d3-visualization) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Teaches the agent to produce D3 charts and interactive data visualizations. A comprehensive D3.... |
 | [`data-clean`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/data-clean) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Produce documented data cleaning scripts that log every transformation with N before/after each... |
+| [`design-pitch-deck-visuals`](../../library/101-skills-superpowers/skills/design-pitch-deck-visuals) | ⚪ Reserve | `101-skills-superpowers` | Investor pitch deck structure with slide-by-slide framework, visual design rules, and data pres... |
 | [`diagram-design`](../../library/diagram-design/skills/diagram-design) | ⚪ Reserve | `diagram-design` | Create branded architecture, architecture delta, IT current-state, flowchart, sequence, state m... |
 | [`diagramming-processes`](../../library/riekelt-technical-writer/skills/diagramming-processes) | ⚪ Reserve | `riekelt-technical-writer` | Use when a business process, workflow, lifecycle, or interaction between systems needs a diagra... |
 | [`draw-io`](../../library/davila7-claude-code-templates/skills/draw-io) | ⚪ Reserve | `davila7-claude-code-templates` | draw.io diagram creation, editing, and review. Use for .drawio XML editing, PNG conversion, lay... |

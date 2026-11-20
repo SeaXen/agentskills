@@ -4,7 +4,7 @@
     "name": "maplestory-skill-maker",
     "repository": "msw-git-msw-ai-coding-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "Create advanced MapleStory Worlds player attack and movement skills and preserve the project's monster combat presentation. Use for direct/projectile attacks, hit/die animation, damage-skin death hold, knockback pulses, monster ATTACK range/timing, custom player animation and cast locks, double jump, teleport/blink, cooldowns, hotkeys, or updates to the player/monster skill pipelines.",
     "path": "library/msw-git-msw-ai-coding-plugins-official/skills/maplestory-skill-maker",
     "activation_cmd": "python .agents/library/activate_skill.py activate maplestory-skill-maker",
     "link_cmd": "python .agents/library/activate_skill.py link maplestory-skill-maker"
@@ -14,7 +14,7 @@
     "name": "msw-avatar",
     "repository": "msw-git-msw-ai-coding-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "\"MSW avatar management \u2014 costume (CostumeManagerComponent, 17 slots) + animation 3-layer pipeline (StateComponent \u2192 AvatarStateAnimationComponent \u2192 AvatarRendererComponent). Four-level distinction: State key (uppercase) / AvatarBodyActionStateName (lowercase) / MapleAvatarBodyActionState enum / sprite action ID (swingO1, shoot1). Two mapping systems via IsLegacy/ActionSheet/StateToAvatarBodyActionSheet. PlayerControllerComponent auto-transition conflicts with ActionStateChangedEvent resolved via RemoveActionSheet/SetActionSheet/BodyActionStateChangeEvent. Applies to any avatar-bearing entity (NPC, monster, etc.), not only DefaultPlayer. Use for costume get/set, 17 equip slots, animation state mapping, action override, weapon-specific attack motion, custom shoot/cast/dance action. Keywords: avatar, costume, animation, state, action, shoot, swing, weapon, equipment, custom action, block auto playback, remap.\"",
     "path": "library/msw-git-msw-ai-coding-plugins-official/skills/msw-avatar",
     "activation_cmd": "python .agents/library/activate_skill.py activate msw-avatar",
     "link_cmd": "python .agents/library/activate_skill.py link msw-avatar"
@@ -24,7 +24,7 @@
     "name": "msw-behaviourtree",
     "repository": "msw-git-msw-ai-coding-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "\"Authors MSW `.behaviourtree` files end-to-end and maintains the project-specific authoring spec (`.behaviourDocs/bt-spec.md`). Scans every `.codeblock` whose paired `.mlua` extends `ActionNode`/`DecoratorNode`/`CompositeNode` to build a compact catalog of custom action/decorator/composite UUIDs, propertyKey names, and version-stamped MODNativeType strings. Then generates the full tree: RootNode \u2192 Nodes graph, Blackboard variables, nodeProperties wiring, and self-validates parent/child consistency. Triggers: 'create behaviourtree', 'new BT', 'add a behaviour tree', 'BT node graph', '\ube44\ud5e4\uc774\ube44\uc5b4 \ud2b8\ub9ac \ub9cc\ub4e4\uc5b4', '.behaviourtree \uc0dd\uc131', 'SequenceNode SelectorNode', 'Blackboard variable', 'definitionId codeblock', 'startNodeId', 'build BT spec', 'refresh bt-spec', 'generate behaviourtree catalog', 'BT \uc2a4\ud399 \uc0dd\uc131', 'bt-spec.md \ub9cc\ub4e4\uc5b4', 'rescan BT nodes'.\"",
     "path": "library/msw-git-msw-ai-coding-plugins-official/skills/msw-behaviourtree",
     "activation_cmd": "python .agents/library/activate_skill.py activate msw-behaviourtree",
     "link_cmd": "python .agents/library/activate_skill.py link msw-behaviourtree"
@@ -34,7 +34,7 @@
     "name": "msw-combat-system",
     "repository": "msw-git-msw-ai-coding-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "\"MSW combat system integration guide. Covers the Attack\u2192Hit pipeline, damage model, i-frame, knockback, Hit Stop, Camera Shake, Sprite Flash, SFX, death/revive, damage skin, hit effect, avatar combat motion, custom events, and AI FSM \u2014 all based on MSW native APIs for 2D multi-genre coverage. Keywords: attack, hit, damage, combat, monster, hit effect, critical, projectile, damage skin, knockback, hit stop, combo, HP bar, collision, contact hit, TriggerComponent.\"",
     "path": "library/msw-git-msw-ai-coding-plugins-official/skills/msw-combat-system",
     "activation_cmd": "python .agents/library/activate_skill.py activate msw-combat-system",
     "link_cmd": "python .agents/library/activate_skill.py link msw-combat-system"
@@ -44,7 +44,7 @@
     "name": "msw-defaultplayer",
     "repository": "msw-git-msw-ai-coding-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "\"MSW DefaultPlayer (character) management. Use the msw-general ModelBuilder to inspect/patch DefaultPlayer.model and Player.model, add/remove components, configure movement speed / jump force / HP / camera, and per-map-mode movement components. Use for DefaultPlayer model, player components, movement speed, jump force, HP, camera, physics. Keywords: player, DefaultPlayer, speed, jump, HP, camera, gravity, revive, respawn, character.\"",
     "path": "library/msw-git-msw-ai-coding-plugins-official/skills/msw-defaultplayer",
     "activation_cmd": "python .agents/library/activate_skill.py activate msw-defaultplayer",
     "link_cmd": "python .agents/library/activate_skill.py link msw-defaultplayer"
@@ -54,7 +54,7 @@
     "name": "msw-general",
     "repository": "msw-git-msw-ai-coding-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "\"Foundation skill for MSW (MapleStory Worlds). Read this FIRST before anything else in MSW.\"",
     "path": "library/msw-git-msw-ai-coding-plugins-official/skills/msw-general",
     "activation_cmd": "python .agents/library/activate_skill.py activate msw-general",
     "link_cmd": "python .agents/library/activate_skill.py link msw-general"
@@ -64,7 +64,7 @@
     "name": "msw-packages",
     "repository": "msw-git-msw-ai-coding-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "\"MSWPackages catalog \u2014 official 1st-party prebuilt packages for common MSW features. Use this skill BEFORE writing a feature from scratch when the user asks for any standard game system (toast/notification, ranking/leaderboard, inventory/equipment, shop/store, world shop, mail, quest/achievement, dialog/NPC conversation, key binding, game event broadcast, player data/save, collection/dex, slash command, scrollview/virtualized list, drop table, global config, GM message, resource/currency, UI components). Always check the catalog first; if a package matches the requested feature, fetch its README and propose integrating instead of building from zero. Keywords: MSWPackages, package, prebuilt, integration.\"",
     "path": "library/msw-git-msw-ai-coding-plugins-official/skills/msw-packages",
     "activation_cmd": "python .agents/library/activate_skill.py activate msw-packages",
     "link_cmd": "python .agents/library/activate_skill.py link msw-packages"
@@ -74,7 +74,7 @@
     "name": "msw-painter",
     "repository": "msw-git-msw-ai-coding-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "\"When msw-search cannot find a suitable sprite RUID, draw a pixel art sprite directly with SVG / HTML5 Canvas / HTML code, render it to PNG, and upload it via the msw-mcp asset upload tool to obtain a sprite RUID (if no upload tool is connected, guide the user to register it through Maker). Two style modes are supported: chunky pixel (retro / icon / tile feel) and maple cartoon (MapleStory-inspired character / NPC feel). Triggers: draw sprite directly, create sprite, image generation, custom graphic, pixel art, cartoon sprite, maple style, chibi character, painter, draw a sprite, make an icon, create NPC image directly, draw a slime, custom sprite.\"",
     "path": "library/msw-git-msw-ai-coding-plugins-official/skills/msw-painter",
     "activation_cmd": "python .agents/library/activate_skill.py activate msw-painter",
     "link_cmd": "python .agents/library/activate_skill.py link msw-painter"
@@ -84,7 +84,7 @@
     "name": "msw-planning",
     "repository": "msw-git-msw-ai-coding-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "\"MSW (MapleStory Worlds) game-planning mode \u2014 for BOTH starting a brand-new game from scratch AND continuing/resuming an in-progress prototype. Narrow the idea with guided questions, ground it in the MSW genre catalog (3 map types, ~180 core mechanic tags, build-effort hints), and produce or advance an implementation-ready GDD / roadmap (markdown). Trigger proactively (even without the word 'planning') whenever the user wants to decide WHAT to build, scope an MVP, or continue/resume a phased build \u2014 INCLUDING when a Docs/*-GDD.md or *-Phase*.md already exists and the user says to continue: do NOT treat that as plain implementation and jump straight into the phase doc; a continue/resume runs through this skill's resume flow first. Match triggers by intent, not exact wording \u2014 variants like 'what now?', 'where were we?', and their equivalents in ANY language fire it too. A comprehensive build request spanning multiple implementation pieces, made while no GDD exists, is ALSO a planning trigger \u2014 not a plain implementation request, with NO 'small/simple game' exception; implementing that without a plan is the exact failure mode this skill prevents. Triggers: 'plan a new game', 'GDD', 'what game should I make', 'scope an MVP', 'planning mode', 'continue my game', 'resume my game', 'what should I work on next', 'next task'. (Plans & manages the game's build across its milestones \u2014 GDD \u00b7 standing milestone roadmap \u00b7 phase plans \u00b7 progress \u00b7 revisions; does NOT write code \u2014 implementation (.mlua/.model etc.) uses msw-general/msw-scripting.)\"",
     "path": "library/msw-git-msw-ai-coding-plugins-official/skills/msw-planning",
     "activation_cmd": "python .agents/library/activate_skill.py activate msw-planning",
     "link_cmd": "python .agents/library/activate_skill.py link msw-planning"
@@ -94,7 +94,7 @@
     "name": "msw-scripting",
     "repository": "msw-git-msw-ai-coding-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "\"Authoring MSW scripts (.mlua) plus integrated playtest and debugging. Covers mlua syntax, annotations (@Component/@Logic/@ExecSpace/@Sync), lifecycle, exec spaces, property sync, event system, file workflow, build-log inspection, error classification, and the test/debug loop. Keywords: script, mlua, lua, Component, Logic, annotation, ExecSpace, Sync, event, play, test, debug, lifecycle.\"",
     "path": "library/msw-git-msw-ai-coding-plugins-official/skills/msw-scripting",
     "activation_cmd": "python .agents/library/activate_skill.py activate msw-scripting",
     "link_cmd": "python .agents/library/activate_skill.py link msw-scripting"
@@ -104,7 +104,7 @@
     "name": "msw-search",
     "repository": "msw-git-msw-ai-coding-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "\"MSW search integration \u2014 (1) vector search for API docs and implementation guides via the msw-mcp MCP server (mlua_api_retriever / mlua_document_retriever), (2) REST API search for resources (sprite / animation / sound / resource pack / avatar). Use for 'find details, examples, or related APIs not in .d.mlua', 'need a SpriteRUID', 'monster sprite', 'background image', 'find a sound', 'avatar item lookup', etc. Keywords: document search, API details, examples, guide, retriever, resource, sprite, animation, sound, RUID, resource pack, avatar.\"",
     "path": "library/msw-git-msw-ai-coding-plugins-official/skills/msw-search",
     "activation_cmd": "python .agents/library/activate_skill.py activate msw-search",
     "link_cmd": "python .agents/library/activate_skill.py link msw-search"
@@ -114,7 +114,7 @@
     "name": "msw-sprite-ruid",
     "repository": "msw-git-msw-ai-coding-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "\"SpriteRendererComponent.SpriteRUID (world) and SpriteGUIRendererComponent.ImageRUID (UI) \u2014 native RUID type support (sprite / animationclip direct playback), thumbnail:// prefix for rendering avataritem / skeleton / animationclip as static thumbnail image, avatar item icon in inventory / shop / UI slot. Use when: assigning any RUID to a sprite renderer component, displaying an avatar item or resource as a thumbnail or icon, using animationclip directly in a renderer, rendering inventory item icons, displaying a thumbnail image in a world entity. Keywords: SpriteRUID, ImageRUID, thumbnail://, animationclip, RUID apply, RUID assign, thumbnail, item icon, sprite RUID, RUID to renderer\"",
     "path": "library/msw-git-msw-ai-coding-plugins-official/skills/msw-sprite-ruid",
     "activation_cmd": "python .agents/library/activate_skill.py activate msw-sprite-ruid",
     "link_cmd": "python .agents/library/activate_skill.py link msw-sprite-ruid"
@@ -124,7 +124,7 @@
     "name": "msw-ui-kit",
     "repository": "msw-git-msw-ai-coding-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "\"Packaged UI asset kit \u2014 polished, visually harmonized MSW UI from official MSWPackages assets. Use when the user wants UI that looks good / polished / pretty / consistent / game-quality, asks for a themed screen or themed part (frame, slot, gauge, arrow, icon), or needs an interaction widget native components lack. (1) 7 theme RUID palettes mined from published-world UI resource packs: parts with RUID, native size, 9-slice type and button states, usable as UIBuilder image_ruid with no install, plus entity-tree digests of 130+ sample and official package screens (inventory, shop, ranking, HUD, dialog). (2) Prebuilt widgets: checkbox, radio button, switch, toggle group, dropdown, pagination, progress bar, scroll picker, time picker, number pad, loading spinner.\"",
     "path": "library/msw-git-msw-ai-coding-plugins-official/skills/msw-ui-kit",
     "activation_cmd": "python .agents/library/activate_skill.py activate msw-ui-kit",
     "link_cmd": "python .agents/library/activate_skill.py link msw-ui-kit"
@@ -134,9 +134,99 @@
     "name": "msw-ui-system",
     "repository": "msw-git-msw-ai-coding-plugins-official",
     "category": "general",
-    "description": "",
+    "description": "\"MSW `.ui` single entry point \u2014 design + component API + builder + runtime. Anchor/pivot/RectTransform, UIGroup/CanvasGroup hierarchy, layout recipes (HUD/popup/toast/menu/inventory/scroll-list/ranking/leaderboard/quest list/friend list/mailbox), full API tables for ButtonComponent/TextGUIRendererComponent/SpriteGUIRendererComponent/ScrollLayoutGroup/GridView/TextInput/Slider/Mask/AvatarGUIRenderer + UI enums (AlignmentType/TextOverflowMode/ImageType/FillAmount), `.mlua` runtime patterns (popup open-close, toast, HP bar, GridView, drag, tab, cooldown, world nametag), UI-client-only caveats (nil on server, no RPC), `.ui`\u2194`.mlua` UUID auto-binding (write+injectBindings), resolution/safe-area/touch. UIBuilder (msw_ui_builder.cjs): all node types (empty/panel/text/sprite/button/slider/scrollLayout/textInput/group/mask/gridView/avatar/skeleton etc.), component add/replace/patch/remove, 13 anchor presets+stretch, auto-inject .mlua UUID bindings after write.\"",
     "path": "library/msw-git-msw-ai-coding-plugins-official/skills/msw-ui-system",
     "activation_cmd": "python .agents/library/activate_skill.py activate msw-ui-system",
     "link_cmd": "python .agents/library/activate_skill.py link msw-ui-system"
+  },
+  {
+    "id": "skills-msw-avatar",
+    "name": "skills-msw-avatar",
+    "repository": "msw-git-msw-ai-coding-plugins-official",
+    "category": "general",
+    "description": "\"MSW avatar management \u2014 costume (CostumeManagerComponent, 17 slots) + animation 3-layer pipeline (StateComponent \u2192 AvatarStateAnimationComponent \u2192 AvatarRendererComponent). Four-level distinction: State key (uppercase) / AvatarBodyActionStateName (lowercase) / MapleAvatarBodyActionState enum / sprite action ID (swingO1, shoot1). Two mapping systems via IsLegacy/ActionSheet/StateToAvatarBodyActionSheet. PlayerControllerComponent auto-transition conflicts with ActionStateChangedEvent resolved via RemoveActionSheet/SetActionSheet/BodyActionStateChangeEvent. Applies to any avatar-bearing entity (NPC, monster, etc.), not only DefaultPlayer. Use for costume get/set, 17 equip slots, animation state mapping, action override, weapon-specific attack motion, custom shoot/cast/dance action. Keywords: avatar, costume, animation, state, action, shoot, swing, weapon, equipment, custom action, block auto playback, remap.\"",
+    "path": "library/msw-git-msw-ai-coding-plugins-official/skills/skills-msw-avatar",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-msw-avatar",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-msw-avatar"
+  },
+  {
+    "id": "skills-msw-behaviourtree",
+    "name": "skills-msw-behaviourtree",
+    "repository": "msw-git-msw-ai-coding-plugins-official",
+    "category": "general",
+    "description": "\"Authors MSW `.behaviourtree` files end-to-end and maintains the project-specific authoring spec (`.behaviourDocs/bt-spec.md`). Scans every `.codeblock` whose paired `.mlua` extends `ActionNode`/`DecoratorNode`/`CompositeNode` to build a compact catalog of custom action/decorator/composite UUIDs, propertyKey names, and version-stamped MODNativeType strings. Then generates the full tree: RootNode \u2192 Nodes graph, Blackboard variables, nodeProperties wiring, and self-validates parent/child consistency. Triggers: 'create behaviourtree', 'new BT', 'add a behaviour tree', 'BT node graph', '\ube44\ud5e4\uc774\ube44\uc5b4 \ud2b8\ub9ac \ub9cc\ub4e4\uc5b4', '.behaviourtree \uc0dd\uc131', 'SequenceNode SelectorNode', 'Blackboard variable', 'definitionId codeblock', 'startNodeId', 'build BT spec', 'refresh bt-spec', 'generate behaviourtree catalog', 'BT \uc2a4\ud399 \uc0dd\uc131', 'bt-spec.md \ub9cc\ub4e4\uc5b4', 'rescan BT nodes'.\"",
+    "path": "library/msw-git-msw-ai-coding-plugins-official/skills/skills-msw-behaviourtree",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-msw-behaviourtree",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-msw-behaviourtree"
+  },
+  {
+    "id": "skills-msw-combat-system",
+    "name": "skills-msw-combat-system",
+    "repository": "msw-git-msw-ai-coding-plugins-official",
+    "category": "general",
+    "description": "\"MSW combat system integration guide. Covers the Attack\u2192Hit pipeline, damage model, i-frame, knockback, Hit Stop, Camera Shake, Sprite Flash, SFX, death/revive, damage skin, hit effect, avatar combat motion, custom events, and AI FSM \u2014 all based on MSW native APIs for 2D multi-genre coverage. Keywords: attack, hit, damage, combat, monster, hit effect, critical, projectile, damage skin, knockback, hit stop, combo, HP bar, collision, contact hit, TriggerComponent.\"",
+    "path": "library/msw-git-msw-ai-coding-plugins-official/skills/skills-msw-combat-system",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-msw-combat-system",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-msw-combat-system"
+  },
+  {
+    "id": "skills-msw-defaultplayer",
+    "name": "skills-msw-defaultplayer",
+    "repository": "msw-git-msw-ai-coding-plugins-official",
+    "category": "general",
+    "description": "\"MSW DefaultPlayer (character) management. Use the msw-general ModelBuilder to inspect/patch DefaultPlayer.model and Player.model, add/remove components, configure movement speed / jump force / HP / camera, and per-map-mode movement components. Use for DefaultPlayer model, player components, movement speed, jump force, HP, camera, physics. Keywords: player, DefaultPlayer, speed, jump, HP, camera, gravity, revive, respawn, character.\"",
+    "path": "library/msw-git-msw-ai-coding-plugins-official/skills/skills-msw-defaultplayer",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-msw-defaultplayer",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-msw-defaultplayer"
+  },
+  {
+    "id": "skills-msw-general",
+    "name": "skills-msw-general",
+    "repository": "msw-git-msw-ai-coding-plugins-official",
+    "category": "general",
+    "description": "\"Foundation skill for MSW (MapleStory Worlds). Read this FIRST before anything else in MSW.\"",
+    "path": "library/msw-git-msw-ai-coding-plugins-official/skills/skills-msw-general",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-msw-general",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-msw-general"
+  },
+  {
+    "id": "skills-msw-packages",
+    "name": "skills-msw-packages",
+    "repository": "msw-git-msw-ai-coding-plugins-official",
+    "category": "general",
+    "description": "\"MSWPackages catalog \u2014 official 1st-party prebuilt packages for common MSW features. Use this skill BEFORE writing a feature from scratch when the user asks for any standard game system (toast/notification, ranking/leaderboard, inventory/equipment, shop/store, world shop, mail, quest/achievement, dialog/NPC conversation, key binding, game event broadcast, player data/save, collection/dex, slash command, scrollview/virtualized list, drop table, global config, GM message, resource/currency, UI components, object pool/entity reuse, custom behaviour tree composite nodes (shuffle/weighted random/switch)). Always check the catalog first; if a package matches the requested feature, fetch its README and propose integrating instead of building from zero. Keywords: MSWPackages, package, prebuilt, integration.\"",
+    "path": "library/msw-git-msw-ai-coding-plugins-official/skills/skills-msw-packages",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-msw-packages",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-msw-packages"
+  },
+  {
+    "id": "skills-msw-planning",
+    "name": "skills-msw-planning",
+    "repository": "msw-git-msw-ai-coding-plugins-official",
+    "category": "general",
+    "description": "\"MSW (MapleStory Worlds) game-planning mode \u2014 for BOTH starting a brand-new game from scratch AND continuing/resuming an in-progress prototype. Narrow the idea with guided questions, ground it in the MSW genre catalog (3 map types, ~180 core mechanic tags, build-effort hints), and produce or advance an implementation-ready GDD / roadmap (markdown). Trigger proactively (even without the word 'planning') whenever the user wants to decide WHAT to build, scope an MVP, or continue/resume a phased build \u2014 INCLUDING when a Docs/*-GDD.md or *-Phase*.md already exists and the user says to continue: do NOT treat that as plain implementation and jump straight into the phase doc; a continue/resume runs through this skill's resume flow first. Match triggers by intent, not exact wording \u2014 variants like 'what now?', 'where were we?', and their equivalents in ANY language fire it too. A comprehensive build request spanning multiple implementation pieces, made while no GDD exists, is ALSO a planning trigger \u2014 not a plain implementation request, with NO 'small/simple game' exception; implementing that without a plan is the exact failure mode this skill prevents. Triggers: 'plan a new game', 'GDD', 'what game should I make', 'scope an MVP', 'planning mode', 'continue my game', 'resume my game', 'what should I work on next', 'next task'. (Plans & manages the game's build across its milestones \u2014 GDD \u00b7 standing milestone roadmap \u00b7 phase plans \u00b7 progress \u00b7 revisions; does NOT write code \u2014 implementation (.mlua/.model etc.) uses msw-general/msw-scripting.)\"",
+    "path": "library/msw-git-msw-ai-coding-plugins-official/skills/skills-msw-planning",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-msw-planning",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-msw-planning"
+  },
+  {
+    "id": "skills-msw-scripting",
+    "name": "skills-msw-scripting",
+    "repository": "msw-git-msw-ai-coding-plugins-official",
+    "category": "general",
+    "description": "\"Authoring MSW scripts (.mlua) plus integrated playtest and debugging. Covers mlua syntax, annotations (@Component/@Logic/@ExecSpace/@Sync), lifecycle, exec spaces, property sync, event system, file workflow, build-log inspection, error classification, and the test/debug loop. Keywords: script, mlua, lua, Component, Logic, annotation, ExecSpace, Sync, event, play, test, debug, lifecycle.\"",
+    "path": "library/msw-git-msw-ai-coding-plugins-official/skills/skills-msw-scripting",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-msw-scripting",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-msw-scripting"
+  },
+  {
+    "id": "skills-msw-ui-system",
+    "name": "skills-msw-ui-system",
+    "repository": "msw-git-msw-ai-coding-plugins-official",
+    "category": "general",
+    "description": "\"MSW `.ui` single entry point \u2014 design + component API + builder + runtime. Anchor/pivot/RectTransform, UIGroup/CanvasGroup hierarchy, layout recipes (HUD/popup/toast/menu/inventory/scroll-list/ranking/leaderboard/quest list/friend list/mailbox), full API tables for ButtonComponent/TextGUIRendererComponent/SpriteGUIRendererComponent/ScrollLayoutGroup/GridView/TextInput/Slider/Mask/AvatarGUIRenderer + UI enums (AlignmentType/TextOverflowMode/ImageType/FillAmount), `.mlua` runtime patterns (popup open-close, toast, HP bar, GridView, drag, tab, cooldown, world nametag), UI tween animation (easing, enter/exit, press feedback, pulse), UI-client-only caveats (nil on server, no RPC), `.ui`\u2194`.mlua` UUID auto-binding (write+injectBindings), resolution/safe-area/touch. UIBuilder (msw_ui_builder.cjs): all node types (empty/panel/text/sprite/button/slider/scrollLayout/textInput/group/mask/gridView/avatar/skeleton etc.), component add/replace/patch/remove, 13 anchor presets+stretch.\"",
+    "path": "library/msw-git-msw-ai-coding-plugins-official/skills/skills-msw-ui-system",
+    "activation_cmd": "python .agents/library/activate_skill.py activate skills-msw-ui-system",
+    "link_cmd": "python .agents/library/activate_skill.py link skills-msw-ui-system"
   }
 ]

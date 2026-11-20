@@ -1,4 +1,5 @@
 <h1 align="center">obsidian-wiki</h1>
+<!-- mcp-name: io.github.Ar9av/obsidian-wiki -->
 
 <p align="center"><b>A unified digital brain you grow with your AI agents.</b></p>
 
@@ -121,6 +122,37 @@ Want to look before you build? [`examples/demo-vault/`](https://github.com/Ar9av
 
 Or export the whole graph to `graph.json`, GraphML (Gephi/yEd), Neo4j Cypher, Postgres SQL, or a self-contained interactive `graph.html`.
 
+## Browse it in your browser
+
+No Obsidian needed. The vault comes with a local web viewer:
+
+```bash
+pip install 'obsidian-wiki[server]'   # Python 3.10+
+obsidian-wiki ui                      # opens http://127.0.0.1:3114/ui
+```
+
+It shows an overview, search, rendered pages with backlinks and properties, the link graph, the activity log, your profile and open threads, the hot cache, and vault health. It listens on loopback only. Use `--vault` to choose a vault and `--port` to change the port.
+
+<p align="center">
+  <img width="900" alt="obsidian-wiki web viewer: overview" src="https://github.com/Ar9av/obsidian-wiki/blob/main/docs/images/ui-overview.png?raw=true" />
+</p>
+
+<p align="center">
+  <img width="900" alt="obsidian-wiki web viewer: a rendered page with backlinks" src="https://github.com/Ar9av/obsidian-wiki/blob/main/docs/images/ui-page.png?raw=true" />
+</p>
+
+**Connect any agent to it.** Open **Connect an agent** in the sidebar:
+
+1. Pick your agent (Claude Code, Codex, Cursor, Claude Desktop, Gemini CLI, VS Code, Windsurf, or any MCP client) and copy the config. Stdio needs no server running. HTTP points at a hosted vault.
+2. Paste the memory instructions into the agent's `AGENTS.md` / `CLAUDE.md` so it actually recalls at session start and saves findings back.
+3. Check it: ask the agent to call `memory_recap`.
+
+<p align="center">
+  <img width="900" alt="obsidian-wiki web viewer: connect an agent" src="https://github.com/Ar9av/obsidian-wiki/blob/main/docs/images/ui-connect.png?raw=true" />
+</p>
+
+More → **[Web viewer](https://github.com/Ar9av/obsidian-wiki/blob/main/docs/deployment.md#web-viewer)**
+
 ## Use it from Python
 
 ```python
@@ -140,10 +172,6 @@ More → **[Python API](https://github.com/Ar9av/obsidian-wiki/blob/main/docs/py
 ## It remembers between sessions
 
 A session starts with the vault's memory already in context — who you are, what threads are open, what changed recently — and ends by capturing anything reusable before the context closes.
-
-<p align="center">
-  <img width="720" alt="session lifecycle: recap injected at start, capture nudged at stop" src="https://github.com/Ar9av/obsidian-wiki/blob/main/docs/images/memory-session-lifecycle.png?raw=true" />
-</p>
 
 `index.md`, `log.md`, `hot.md`, and the owner profile and todo index under `_meta/` all go through one writer that takes a lock and writes atomically, so parallel agents can't drop each other's updates.
 
@@ -243,7 +271,7 @@ Full data, per-run logs and the scaling measurements are in
 | **[Memory Surface](https://github.com/Ar9av/obsidian-wiki/blob/main/docs/memory.md)** | The index, log, hot cache, owner profile, and todo index |
 | **[Session Brain](https://github.com/Ar9av/obsidian-wiki/blob/main/docs/session-brain.md)** | Topic graph over your agent session history |
 | **[Browser Extension](https://github.com/Ar9av/obsidian-wiki/blob/main/docs/browser-extension.md)** | Capture pages into the vault, and fill web forms from it |
-| **[Deployment](https://github.com/Ar9av/obsidian-wiki/blob/main/docs/deployment.md)** | Run a vault as a Dockerized memory service agents reach over HTTP/MCP |
+| **[Deployment](https://github.com/Ar9av/obsidian-wiki/blob/main/docs/deployment.md)** | The local web viewer, connecting agents over MCP, and self-hosting a vault (Docker or `obsidian-wiki serve`) with TLS, a read-only key and git sync |
 | **[Contributing](https://github.com/Ar9av/obsidian-wiki/blob/main/docs/contributing.md)** | Adding skills, keeping the READMEs in sync |
 
 ## Contributing

@@ -1,7 +1,7 @@
 # 👁️ Visual Taste, Critique & Typography
 
 > **Category**: `frontend-visual-taste`  
-> **Total Curated Skills**: 196 skills  
+> **Total Curated Skills**: 201 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -39,6 +39,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`basic`](../../library/bergside-awesome-design-skills/skills/basic) | ⚪ Reserve | `bergside-awesome-design-skills` | Print-inspired visual language for books, magazines, and reports with editorial grids and expre... |
 | [`better-interface`](../../library/jakubkrehel-skills/skills/better-interface) | ⚪ Reserve | `jakubkrehel-skills` | Reviews a screen, flow or whole interface across accessibility, layout, writing, typography, co... |
 | [`better-typography`](../../library/jakubkrehel-skills/skills/better-typography) | ⚪ Reserve | `jakubkrehel-skills` | Sets and reviews how text renders, from the type scale and spacing to font features, wrapping, ... |
+| [`blender-pbr-materials`](../../library/el4cteo-blender-skills/skills/blender-pbr-materials) | ⚪ Reserve | `el4cteo-blender-skills` | Physically based materials in Blender 5.3 - metal/roughness rules, Principled BSDF inputs, colo... |
+| [`blender-texture-baking`](../../library/el4cteo-blender-skills/skills/blender-texture-baking) | ⚪ Reserve | `el4cteo-blender-skills` | Bake texture maps in Blender 5.3 Cycles - high-to-low normal maps with cage/extrusion, AO, curv... |
 | [`blue-cloudy-clean-modern`](../../library/mengto-skills/skills/blue-cloudy-clean-modern) | ⚪ Reserve | `mengto-skills` | Create a clean modern design system with a luminous blue sky atmosphere, soft drifting cloud li... |
 | [`bold`](../../library/bergside-awesome-design-skills/skills/bold) | ⚪ Reserve | `bergside-awesome-design-skills` | Strong visual presence with heavyweight typography, high-contrast colors, and commanding layout... |
 | [`book-cover-design`](../../library/101-skills-superpowers/skills/book-cover-design) | ⚪ Reserve | `101-skills-superpowers` | Book cover design with genre-specific conventions, typography rules, and AI image generation. C... |
@@ -51,7 +53,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`brandkit`](../../library/feimacode-open-design-agent-kit/skills/brandkit) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Premium brand-kit image generation skill for creating high-end brand-guidelines boards, logo sy... |
 | [`cafe`](../../library/bergside-awesome-design-skills/skills/cafe) | ⚪ Reserve | `bergside-awesome-design-skills` | Cozy cafe-inspired interface with warm tones, soft typography, and clean layouts for a relaxed ... |
 | [`chinese-quote-converter`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/chinese-quote-converter) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Convert English straight quotation marks ("...") to Chinese curved quotation marks ("..." U+201... |
-| [`claude`](../../library/bergside-awesome-design-skills/skills/claude) | ⚪ Reserve | `bergside-awesome-design-skills` | A research-journal aesthetic printed on warm stone — authoritative, editorial, almost achromati... |
 | [`clean`](../../library/bergside-awesome-design-skills/skills/clean) | ⚪ Reserve | `bergside-awesome-design-skills` | Simplicity-focused design with ample whitespace, legible typography, and a limited color palett... |
 | [`clean-minimal-beige-light-mode`](../../library/mengto-skills/skills/clean-minimal-beige-light-mode) | ⚪ Reserve | `mengto-skills` | Create a clean minimal beige light-mode design system with warm neutral shells, quiet process g... |
 | [`codex`](../../library/bergside-awesome-design-skills/skills/codex) | ⚪ Reserve | `bergside-awesome-design-skills` | A radically minimal, blank-canvas interface built as a pure edge-to-edge surface, with almost n... |
@@ -67,7 +68,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`dark-mode-design`](../../library/owl-listener-designer-skills/skills/dark-mode-design) | ⚪ Reserve | `owl-listener-designer-skills` | Adapt an existing palette to dark mode — surface elevation, contrast rebalancing, and desaturat... |
 | [`data-visualization`](../../library/101-skills-superpowers/skills/data-visualization) | ⚪ Reserve | `101-skills-superpowers` | Data visualization with chart selection, color theory, and annotation best practices. Covers ch... |
 | [`dating-web`](../../library/feimacode-open-design-agent-kit/skills/dating-web) | ⚪ Reserve | `feimacode-open-design-agent-kit` | A consumer-feeling dating / matchmaking dashboard — left rail navigation, ticker bar of communi... |
+| [`design-book-cover-design`](../../library/101-skills-superpowers/skills/design-book-cover-design) | ⚪ Reserve | `101-skills-superpowers` | Book cover design with genre-specific conventions, typography rules, and AI image generation. C... |
 | [`design-brief`](../../library/feimacode-open-design-agent-kit/skills/design-brief) | ⚪ Reserve | `feimacode-open-design-agent-kit` | Parse a structured design brief written in I-Lang protocol format into a concrete design spec. ... |
+| [`design-data-visualization`](../../library/101-skills-superpowers/skills/design-data-visualization) | ⚪ Reserve | `101-skills-superpowers` | Data visualization with chart selection, color theory, and annotation best practices. Covers ch... |
 | [`design-first-ui-prompting`](../../library/mengto-skills/skills/design-first-ui-prompting) | ⚪ Reserve | `mengto-skills` | Use when you need design-first, spec-driven, skimmable prompts for UI generation. Covers prompt... |
 | [`design-it`](../../library/sickn33-agentic-awesome-skills/skills/design-it) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Routes frontend design tasks to 48 specific UI styles. Triggers for websites, app screens, or U... |
 | [`design-mirror`](../../library/davila7-claude-code-templates/skills/design-mirror) | ⚪ Reserve | `davila7-claude-code-templates` | Replicate the visual style of any website and apply it to your existing codebase. Use this skil... |
@@ -126,6 +129,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`mobile-friendly`](../../library/kostja94-marketing-skills/skills/mobile-friendly) | ⚪ Reserve | `kostja94-marketing-skills` | When the user wants to optimize for mobile-first indexing or fix mobile usability. Also use whe... |
 | [`modern`](../../library/bergside-awesome-design-skills/skills/modern) | ⚪ Reserve | `bergside-awesome-design-skills` | Contemporary editorial style with serif typography, minimal palettes, and clean layouts for pol... |
 | [`mono`](../../library/bergside-awesome-design-skills/skills/mono) | ⚪ Reserve | `bergside-awesome-design-skills` | Monospace-driven, matrix-inspired design with high-contrast elements, compact density, and a ha... |
+| [`neoclassical-ledger-ui`](../../library/mengto-skills/skills/neoclassical-ledger-ui) | ⚪ Reserve | `mengto-skills` | Design parchment editorial interfaces with neoclassical object paintings, ledger typography and... |
 | [`no-ai-design-slop`](../../library/mengto-skills/skills/no-ai-design-slop) | ⚪ Reserve | `mengto-skills` | Prevent and remove generic AI-generated design defaults, incoherent visual choices, and establi... |
 | [`noir-style`](../../library/arjun988-blender-skills/skills/noir-style) | ⚪ Reserve | `arjun988-blender-skills` | Noir art direction for Blender with high-contrast lighting, wet streets, silhouettes, and monoc... |
 | [`noob-mode`](../../library/github-awesome-copilot/skills/noob-mode) | ⚪ Reserve | `github-awesome-copilot` | Plain-English translation layer for non-technical Copilot CLI users. Translates every approval ... |
@@ -174,6 +178,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`skills-accessibility-review`](../../library/anthropics-knowledge-work/skills/skills-accessibility-review) | ⚪ Reserve | `anthropics-knowledge-work` | Run a WCAG 2.1 AA accessibility audit on a design or page. Trigger with "audit accessibility", ... |
 | [`skills-baoyu-cover-image`](../../library/jimliu-baoyu-skills/skills/skills-baoyu-cover-image) | ⚪ Reserve | `jimliu-baoyu-skills` | Generates article cover images with 5 dimensions (type, palette, rendering, text, mood) combini... |
 | [`skills-baoyu-xhs-images`](../../library/jimliu-baoyu-skills/skills/skills-baoyu-xhs-images) | ⚪ Reserve | `jimliu-baoyu-skills` | Generates infographic image card series with 12 visual styles, 8 layouts, and 3 color palettes.... |
+| [`skills-better-typography`](../../library/jakubkrehel-skills/skills/skills-better-typography) | ⚪ Reserve | `jakubkrehel-skills` | Sets and reviews how text renders, from the type scale and spacing to font features, wrapping, ... |
 | [`skills-brand-guidelines`](../../library/alirezarezvani-claude-skills/skills/skills-brand-guidelines) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when writing or enforcing brand guidelines (colors, typography, logo rules, imagery, tone o... |
 | [`skills-brand-style`](../../library/anthropics-knowledge-work/skills/skills-brand-style) | ⚪ Reserve | `anthropics-knowledge-work` | Sets and updates the owner's brand look and output preferences, which every page and document t... |
 | [`skills-data-visualization`](../../library/anthropics-knowledge-work/skills/skills-data-visualization) | ⚪ Reserve | `anthropics-knowledge-work` | Create effective data visualizations with Python (matplotlib, seaborn, plotly). Use when buildi... |

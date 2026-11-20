@@ -1,0 +1,17 @@
+{
+  "name": "design-system",
+  "title": "Design System",
+  "description": "Design systems as local files: tokens, a README brand book, component previews, fonts and asset groups, browsed and edited in a local page. Built from a code repository, a design file, uploaded brand files or from scratch. Design artifacts install them.",
+  "when": "The person wants a brand or design system recorded for other work to use: colors, type, spacing, components and brand files, built from a codebase, a design file or brand assets.",
+  "version": "0.1.0",
+  "intents": ["design-system", "brand", "tokens"],
+  "skill": "SKILL.md",
+  "entry": {
+    "start": { "command": "node", "args": ["scripts/cli.mjs", "serve", "--type", "design-system"] },
+    "open": true,
+    "share": true,
+    "actions": true
+  },
+  "detect": ["project/design-system.json"],
+  "openArtifact": { "style": "project", "projectDir": "project", "store": null, "comments": true }
+}
